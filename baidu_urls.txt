@@ -1,0 +1,3 @@
+https://zhangruochi.com/Understanding-Logistic-Regression/2019/02/24/
+https://zhangruochi.com/INFSCI-2595-Machine-Learning-part-one/2019/02/23/
+https://zhangruochi.com/An-overview-of-gradient-descent-optimization-algorithms/2019/02/23/
