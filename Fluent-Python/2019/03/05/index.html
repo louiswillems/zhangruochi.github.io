@@ -150,7 +150,7 @@
 <meta property="og:image" content="https://zhangruochi.com/Fluent-Python/2019/03/05/F078127CF59F53B4C8F7F39C6BF45A1C.png">
 <meta property="og:image" content="https://zhangruochi.com/Fluent-Python/2019/03/05/8FE3ACE51E02FD7F405BE86E1B8346EE.png">
 <meta property="og:image" content="https://zhangruochi.com/Fluent-Python/2019/03/05/DA4E95C453BEEAF371768C77B884032F.png">
-<meta property="og:updated_time" content="2019-03-05T17:29:02.907Z">
+<meta property="og:updated_time" content="2019-03-05T17:38:44.116Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fluent Python">
 <meta name="twitter:description" content="This is the note of book named Fluent Python">
@@ -465,7 +465,7 @@
 <h3 id="什么是可散列数据">什么是可散列数据？</h3>
 <ul>
 <li>原子不可变数据类型（str，bytes 和 number）</li>
-<li>在生命周期类，散列值不变的类型。需要有__hash__ 和 <strong>qe</strong> 方法</li>
+<li>在生命周期类，散列值不变的类型。需要有_<em>hash_</em> 和 _<em>qe_</em> 方法</li>
 <li><p>元组类型需要元组里每一个值都是可散列类型<br>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = (<span class="string">"a"</span>,<span class="string">"b"</span>,(<span class="string">"c"</span>,<span class="string">"d"</span>))  <span class="comment">#-&gt;hashable</span></span><br><span class="line">a = (<span class="string">"a"</span>,<span class="string">"b"</span>,[<span class="string">"c"</span>,<span class="string">"d"</span>])  <span class="comment">#-&gt; not hashable</span></span><br></pre></td></tr></table></figure></p></li>
 <li><p>用户自定义的对象都是可散列的，因为散列值就是id()函数的值。如果自定义对象实现了__eq__方法，并且这个用到了这个对象的内部状态的话，内部状态必须不可变。</p></li>
@@ -475,26 +475,29 @@
 <h2 id="常用的映射方法">常用的映射方法</h2>
 <ul>
 <li>d.clear()</li>
-<li>d.__contains__(k)</li>
+<li><ol start="4" type="a">
+<li></li>
+</ol></li>
+<li>_<em>contains_</em>(k)</li>
 <li>d.copy() #潜赋值</li>
-<li>d.__delitem__(k)</li>
+<li>d._<em>delitem_</em>(k)</li>
 <li>d.get(k, default)</li>
 <li>d.items()</li>
-<li>d.__iter__()</li>
+<li>d._<em>iter_</em>()</li>
 <li>d.keys()</li>
-<li>d.__len__()</li>
+<li>d._<em>len_</em>()</li>
 <li>d.pop(k)</li>
 <li>d.popitem()</li>
-<li>d.__reversed__() #仅针对 OrdereDidic</li>
+<li>d._<em>reversed_</em>() #仅针对 OrdereDidic</li>
 <li>d.setdefault(k,[default]) #如果存在键k,将对应的值设置为default,然后返回.如果没有，d[k] = default.</li>
-<li>d.__setitem__(k,v)</li>
+<li>d._<em>setitem_</em>(k,v)</li>
 <li>d.values()</li>
 </ul>
 <p>###setdefault 用法 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">my_dict.setdefault(key,[]).append(value)  <span class="comment">#效率更高</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ket <span class="keyword">not</span> <span class="keyword">in</span> my_dict:</span><br><span class="line">    my_dict[key] = []</span><br><span class="line">my_dict[key].append(new_value)</span><br></pre></td></tr></table></figure></p>
 <h2 id="映射的弹性查询">映射的弹性查询</h2>
 <h3 id="defaultdict">defaultdict</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line">a = defaultdict(list)</span><br></pre></td></tr></table></figure>
-<p>list可调用对象存储在default_factory中， 当a[k],k不存在时，a.__getitem__会调用__miss__方法（只会在__getitem__里调用），然后利用default_factory生成返回值。</p>
+<p>list可调用对象存储在default_factory中，当a[k]，k不存在时，a._<em>getitem_</em> 会调用 _<em>miss_</em> 方法（只会在__getitem__里调用），然后利用default_factory生成返回值。</p>
 <h3 id="自己创建继承-dict-类型然后充血__miss__方法">自己创建继承 dict 类型，然后充血__miss__方法 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StrDict</span><span class="params">(dict)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__missing__</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> isinstance(key, str):</span><br><span class="line">            <span class="keyword">return</span> KeyError(key)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self[str(key)]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, key, default=None)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">return</span> self[key]</span><br><span class="line">        <span class="keyword">except</span> keyError:</span><br><span class="line">            <span class="keyword">return</span> default</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__contains__</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> key <span class="keyword">in</span> self.keys() <span class="keyword">or</span> str(key) <span class="keyword">in</span> self.keys()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    a = StrDict(&#123;<span class="string">"1"</span>: <span class="number">2</span>&#125;)</span><br><span class="line">    print(a[<span class="number">1</span>])</span><br></pre></td></tr></table></figure></h3>
 <p>k in my_dict.keys() (.items(), .values())这种操作很快，因为返回的是视图，类似集合。</p>
 <p>##字典的变种 - collections.OrderedDict 添加元素时会保持顺序，popitem默认返回最后一个元素，popitem(last=False)默认返回第一个元素 - collections.ChainMap 容纳多个不同的映射对象，在键查找时，会当做整体查找。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> builtins</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> ChainMap</span><br><span class="line">pylookup = ChainMap(locals(),globals(),vars(builtins))</span><br><span class="line">print(pylookup)</span><br></pre></td></tr></table></figure></p>
@@ -519,13 +522,13 @@
 <p>###集合的比较运算 <img src="799D1125CE215336FD672BD8D6FE818A.png" alt="Screen Shot 2018-09-29 at 14.33.04.png"> <img src="C2D3E9BDE8560C1FAA57CFADA8BEF174.png" alt="Screen Shot 2018-09-29 at 14.31.57.png"></p>
 <p>##dict set list效率比较 <strong>查找元素，dict 和 set 有强大的散列表做支撑，速度非常快</strong></p>
 <p>##散列表原理 my_dict[key], 现根据 hash(key)， 根据最低几位去散列表里查找表元。如为空，返回 error；若有表元，则表元中存在 foundkey:foundvalue. 若 foundkey == key, 返回 foundvalue。若不等，取 hash(key)的高几位再去找。循环。 <img src="D8F57ABE26A5E48D0E4D5D33C5FFB90D.png" alt="Screen Shot 2018-09-29 at 15.02.31.png"></p>
-<p>##dict conclusion - 键必须是可散列的 一个可散列的对象必须满足 - <strong>hash</strong>()方法返回的值不变 - <strong>eq</strong>()可做相等判断 - a == b， 则 hash(a) == hash(b) - 字典内存开销巨大 字典使用散列表，散列表是稀疏的。 - 键查询很快 空间换时间 - 添加新键可能会改变已有的顺序</p>
+<p>##dict conclusion - 键必须是可散列的 一个可散列的对象必须满足 - _<em>hash_</em>()方法返回的值不变 - _<em>eq_</em>()可做相等判断 - a == b， 则 hash(a) == hash(b) - 字典内存开销巨大 字典使用散列表，散列表是稀疏的。 - 键查询很快 空间换时间 - 添加新键可能会改变已有的顺序</p>
 <h2 id="set-conclusion">set conclusion</h2>
 <ul>
 <li>集合元素必须是可散列的 一个可散列的对象必须满足
 <ul>
-<li><strong>hash</strong>()方法返回的值不变</li>
-<li><strong>eq</strong>()可做相等判断</li>
+<li>_<em>hash_</em>()方法返回的值不变</li>
+<li>_<em>eq_</em>()可做相等判断</li>
 <li>a == b， 则 hash(a) == hash(b)</li>
 </ul></li>
 <li>集合内存开销巨大 字典使用散列表，散列表是稀疏的。</li>
@@ -565,9 +568,13 @@
 <h3 id="元组拆包">元组拆包</h3>
 <ul>
 <li>元组拆包可以运用到任何可迭代的对象上，唯一的要求是可迭代对象的元素数量必须与接收这些元素的变量数量一致。</li>
-<li><p>可用*来表示忽略多余的元组 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a,b,*rest = range(<span class="number">5</span>)</span><br></pre></td></tr></table></figure></p></li>
-<li><p>*运算可以把可迭代对象拆开作为函数的参数 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">divmod(<span class="number">20</span>,<span class="number">8</span>) <span class="comment">#-&gt;(2,4)</span></span><br><span class="line">t = (<span class="number">20</span>,<span class="number">8</span>)</span><br><span class="line">divmod(*t) <span class="comment">#-&gt;(2,4)</span></span><br></pre></td></tr></table></figure></p></li>
+<li>可用*来表示忽略多余的元组</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a,b,*rest = range(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>*运算可以把可迭代对象拆开作为函数的参数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">divmod(<span class="number">20</span>,<span class="number">8</span>) <span class="comment">#-&gt;(2,4)</span></span><br><span class="line">t = (<span class="number">20</span>,<span class="number">8</span>)</span><br><span class="line">divmod(*t) <span class="comment">#-&gt;(2,4)</span></span><br></pre></td></tr></table></figure>
 <h3 id="嵌套拆包">嵌套拆包</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">metro_areas = [(<span class="string">'Tokyo'</span>,<span class="string">'JP'</span>,<span class="number">36.933</span>,(<span class="number">35.689</span>,<span class="number">139.691</span>)),(<span class="string">'Beijing'</span>,<span class="string">'CH'</span>,<span class="number">36.933</span>,(<span class="number">35.689</span>,<span class="number">139.691</span>))]</span><br><span class="line"><span class="keyword">for</span> name,cc,pop,(lat,long) <span class="keyword">in</span> metro_areas:</span><br><span class="line">    print(name)</span><br></pre></td></tr></table></figure>
 <h3 id="具名元组">具名元组</h3>
@@ -577,15 +584,16 @@
 <h2 id="切片">切片</h2>
 <p>切片忽略最后一个元素的好处 - 最后一个元素时, 只有通过最后一个元素直接看出切片区间里有几个元素 - 起始和结束元素都可见时， stop - start 快速计算出区间元素的个数 - 通过一个元素直接把列表分成两段a[:x],a[x:]</p>
 <h3 id="对象切片">对象切片</h3>
-<p>seq[start:stop:step] -&gt; seq.__getitem__(slice(start,stop,end)) 因此可以自定义切片对象: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_slice = slice(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">seq = range(<span class="number">10</span>)</span><br><span class="line">sub_seq = seq[my_slice]</span><br></pre></td></tr></table></figure></p>
+<p>seq[start:stop:step] -&gt; seq._<em>getitem_</em>(slice(start,stop,end)) 因此可以自定义切片对象: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_slice = slice(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">seq = range(<span class="number">10</span>)</span><br><span class="line">sub_seq = seq[my_slice]</span><br></pre></td></tr></table></figure></p>
 <h3 id="多维切片">多维切片</h3>
 <p>内置的序列类型只支持一维的索引，外部库 numpy 之类的可以支持二维索引 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a[i,j]</span><br><span class="line">a[:,i:j]</span><br></pre></td></tr></table></figure></p>
 <h3 id="切片赋值">切片赋值</h3>
-<p>把切片放在负值语句的左边，就可以对切片进行操作 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">l = list(range(<span class="number">10</span>)</span><br><span class="line">l[<span class="number">2</span>:<span class="number">5</span>] = [<span class="number">20</span>,<span class="number">30</span>]</span><br><span class="line"><span class="keyword">del</span> l[<span class="number">5</span>:<span class="number">7</span>]</span><br></pre></td></tr></table></figure></p>
+<p>把切片放在负值语句的左边，就可以对切片进行操作 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">l = list(range(<span class="number">10</span>))</span><br><span class="line">l[<span class="number">2</span>:<span class="number">5</span>] = [<span class="number">20</span>,<span class="number">30</span>]</span><br><span class="line"><span class="keyword">del</span> l[<span class="number">5</span>:<span class="number">7</span>]</span><br></pre></td></tr></table></figure></p>
 <h2 id="对序列对象使用和">对序列对象使用+和*</h2>
-<p>**+和*都遵守不修改原对象，而构建新对象的规律** 注意： 用[[]]*3来初始化由列表组成的列表，但是列表里其实包含的是3个对同意对象的引用 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = [[<span class="string">"_"</span>]*<span class="number">3</span>]*<span class="number">3</span></span><br><span class="line">a[<span class="number">1</span>][<span class="number">2</span>] = <span class="string">"x"</span></span><br><span class="line">print(a) <span class="comment">#-&gt; [['_', '_', 'x'], ['_', '_', 'x'], ['_', '_', 'x']]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#正确写法</span></span><br><span class="line">a = [[<span class="string">"_"</span>]*<span class="number">3</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>)]</span><br><span class="line">a[<span class="number">1</span>][<span class="number">2</span>] = <span class="string">"x"</span></span><br><span class="line">print(a) <span class="comment">#-&gt; [['_', '_', '_'], ['_', '_', 'x'], ['_', '_', '_']]</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>+和*都遵守不修改原对象，而构建新对象的规律</strong> 注意：</p>
+<p>用[[]]*3来初始化由列表组成的列表，但是列表里其实包含的是3个对同意对象的引用 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = [[<span class="string">"_"</span>]*<span class="number">3</span>]*<span class="number">3</span></span><br><span class="line">a[<span class="number">1</span>][<span class="number">2</span>] = <span class="string">"x"</span></span><br><span class="line">print(a) <span class="comment">#-&gt; [['_', '_', 'x'], ['_', '_', 'x'], ['_', '_', 'x']]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#正确写法</span></span><br><span class="line">a = [[<span class="string">"_"</span>]*<span class="number">3</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>)]</span><br><span class="line">a[<span class="number">1</span>][<span class="number">2</span>] = <span class="string">"x"</span></span><br><span class="line">print(a) <span class="comment">#-&gt; [['_', '_', '_'], ['_', '_', 'x'], ['_', '_', '_']]</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="序列的增量赋值">序列的增量赋值</h3>
-<p>+= 背后的特殊方法是__iadd__(就地加发)， 但是如果这个类没有实现__iadd__时，Python解释器会退而使用__add__ - 对于可变序列a, a+=b 等同于 a.extend(b) - 对于不可变序列a, a+=b 等同于 a = a+b</p>
+<p>+= 背后的特殊方法是_<em>iadd_</em>(就地加发)， 但是如果这个类没有实现__iadd__时，Python解释器会退而使用_<em>add_</em> - 对于可变序列a, a+=b 等同于 a.extend(b) - 对于不可变序列a, a+=b 等同于 a = a+b</p>
 <p><strong>对不可变对象进行重复拼接操作会导致效率低下，因为每次都有新对象生成，还要复制元素到新对象</strong></p>
 <p>一个 += 的谜题 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t = (&quot;a&quot;,&quot;b&quot;,[&quot;c&quot;])</span><br><span class="line">t[2] += [&quot;d&quot;]</span><br></pre></td></tr></table></figure></p>
 <p>既抛出异常又修改了t <img src="0CA907EFC52DDB8A7774BFD87DF0E77A.png" alt="Screen Shot 2018-09-28 at 14.12.41.png"> <img src="12BFE0DB402CD77D626966735C85ABDB.png" alt="Screen Shot 2018-09-28 at 14.12.47.png"> 教训： - 不要把可变对象放在不可变对象里面 - 增量赋值不是原子操作</p>
@@ -682,8 +690,8 @@
 <p>两个好处 - 类的用户不用再去记标准操作的名称 - 更加方便的利用 python 标准库</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> hypot</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vector</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,x,y)</span>:</span></span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'Vector(&#123;&#125;,&#123;&#125;)'</span>.format(self.x,self.y)    </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__abs__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> hypot(self.x,self.y)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__bool__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> bool(abs(self))</span><br><span class="line">        <span class="comment">#return bool(self.x or self.y)</span></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__add__</span><span class="params">(self,other)</span>:</span></span><br><span class="line">        x = self.x + other.x</span><br><span class="line">        y = self.y + other.y</span><br><span class="line">        <span class="keyword">return</span> Vector(x,y)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__mul__</span><span class="params">(self,scalar)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> Vector(self.x*scalar, self.y*scalar)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    print(Vector(<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line">    print(abs(Vector(<span class="number">3</span>,<span class="number">4</span>)))</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p><strong>reper</strong> 反对对象的字符串表示，__str__只有在调用 str()或者print()时才会调用，__repr__是更好的选择，因为如果一个对象没有__str__函数，python 又需要调用它时，解释器会调用__repr__作为替代.</p></li>
-<li><p>任何对象都可以用于需要布尔值的上下文中，为了判定一个值 x 的真假，Python 会调用bool(x), 其背后是调用 x.__bool__()的结果;如果不存在该方法，那么 bool(x)会尝试调用 x.__len__()。 若返回0，则 bool 会返回 False，否则返回 True。</p></li>
+<li><p>_<em>reper_</em> 反对对象的字符串表示，__str__只有在调用 str()或者print()时才会调用，_<em>repr_</em> 是更好的选择，因为如果一个对象没有__str__函数，python 又需要调用它时，解释器会调用 _<em>repr_</em> 作为替代.</p></li>
+<li><p>任何对象都可以用于需要布尔值的上下文中，为了判定一个值 x 的真假，Python 会调用bool(x), 其背后是调用 x._<em>bool_</em>()的结果;如果不存在该方法，那么 bool(x)会尝试调用 x._<em>len_</em>()。 若返回0，则 bool 会返回 False，否则返回 True。</p></li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>([])   <span class="comment">#False</span></span><br><span class="line"><span class="keyword">if</span>(<span class="number">0</span>)    <span class="comment">#false</span></span><br></pre></td></tr></table></figure>
 <h1 id="文本和字节序列">文本和字节序列</h1>
@@ -724,9 +732,9 @@
 <h2 id="迭代器与可迭代对象之间的关系">迭代器与可迭代对象之间的关系</h2>
 <ul>
 <li>可迭代对象实现__iter__方法，返回一个迭代器实例</li>
-<li>迭代器实现__iter__ 方法，返回自己，为了通过 issubclass(iterator,abc.Iterator) 测试</li>
+<li>迭代器实现_<em>iter_</em> 方法，返回自己，为了通过 issubclass(iterator,abc.Iterator) 测试</li>
 <li>迭代器还要实现__next__方法，每次返回一个元素</li>
-<li>可迭代对象一定不能是自身的迭代器，也就是不能包含__next__ 方法 <img src="8FE3ACE51E02FD7F405BE86E1B8346EE.png" alt="Screen Shot 2018-10-15 at 22.47.57.png"> <img src="DA4E95C453BEEAF371768C77B884032F.png" alt="Screen Shot 2018-10-15 at 22.48.05.png"></li>
+<li>可迭代对象一定不能是自身的迭代器，也就是不能包含_<em>next_</em> 方法 <img src="8FE3ACE51E02FD7F405BE86E1B8346EE.png" alt="Screen Shot 2018-10-15 at 22.47.57.png"> <img src="DA4E95C453BEEAF371768C77B884032F.png" alt="Screen Shot 2018-10-15 at 22.48.05.png"></li>
 </ul>
 <h2 id="生成器函数">生成器函数</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">RE_WORD = re.compile(<span class="string">"\w+"</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sentence</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, text)</span>:</span></span><br><span class="line">        self.text = text</span><br><span class="line">        self.words = RE_WORD.findall(text)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> word <span class="keyword">in</span> self.words:</span><br><span class="line">            <span class="keyword">yield</span> word</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">s = <span class="string">"zhang ruo chi"</span></span><br><span class="line"></span><br><span class="line">sentence = Sentence(s)</span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> sentence:</span><br><span class="line">    print(word)</span><br></pre></td></tr></table></figure>
