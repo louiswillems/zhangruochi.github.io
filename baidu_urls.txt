@@ -1,3 +1,3 @@
-https://zhangruochi.com/Convolutional-Neural-Networks/2019/03/27/
-https://zhangruochi.com/Sequence-Models/2019/03/27/
-https://zhangruochi.com/Machine-Learning-Yarning-part-two/2019/03/20/
+https://zhangruochi.com/Improvise-a-Jazz-Solo-with-an-LSTM-Network/2019/03/28/
+https://zhangruochi.com/Character-level-language-model/2019/03/28/
+https://zhangruochi.com/RNN-Implementation/2019/03/28/
