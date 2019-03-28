@@ -134,11 +134,11 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/RNN-Implementation/2019/03/28/images/RNN.png">
 <meta property="og:image" content="https://zhangruochi.com/RNN-Implementation/2019/03/28/images/rnn_step_forward.png">
-<meta property="og:image" content="https://zhangruochi.com/RNN-Implementation/2019/03/28/images/rnn.png">
+<meta property="og:image" content="https://zhangruochi.com/RNN-Implementation/2019/03/28/images/rnn_1.png">
 <meta property="og:image" content="https://zhangruochi.com/RNN-Implementation/2019/03/28/images/LSTM.png">
 <meta property="og:image" content="https://zhangruochi.com/RNN-Implementation/2019/03/28/images/LSTM_rnn.png">
 <meta property="og:image" content="https://zhangruochi.com/RNN-Implementation/2019/03/28/images/rnn_cell_backprop.png">
-<meta property="og:updated_time" content="2019-03-28T20:09:11.997Z">
+<meta property="og:updated_time" content="2019-03-28T20:28:20.900Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RNN Implementation">
 <meta name="twitter:description" content="These are some implementation of RNN, GRU, LSTM">
@@ -536,7 +536,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </table>
 <h2 id="rnn-forward-pass">1.2 - RNN forward pass</h2>
 <p>You can see an RNN as the repetition of the cell you've just built. If your input sequence of data is carried over 10 time steps, then you will copy the RNN cell 10 times. Each cell takes as input the hidden state from the previous cell (<span class="math inline">\(a^{\langle t-1 \rangle}\)</span>) and the current time-step's input data (<span class="math inline">\(x^{\langle t \rangle}\)</span>). It outputs a hidden state (<span class="math inline">\(a^{\langle t \rangle}\)</span>) and a prediction (<span class="math inline">\(y^{\langle t \rangle}\)</span>) for this time-step.</p>
-<img src="images/rnn.png" style="width:800px;height:300px;">
+<img src="images/rnn_1.png" style="width:800px;height:300px;">
 <caption>
 <center>
 <strong>Figure 3</strong>: Basic RNN. The input sequence <span class="math inline">\(x = (x^{\langle 1 \rangle}, x^{\langle 2 \rangle}, ..., x^{\langle T_x \rangle})\)</span> is carried over <span class="math inline">\(T_x\)</span> time steps. The network outputs <span class="math inline">\(y = (y^{\langle 1 \rangle}, y^{\langle 2 \rangle}, ..., y^{\langle T_x \rangle})\)</span>.
