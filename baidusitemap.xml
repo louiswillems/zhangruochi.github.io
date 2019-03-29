@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhangruochi.com/Neural-Networks-and-Deep-Learning/2019/03/29/</loc>
+    <lastmod>2019-03-29</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Improving-Deep-Neural-Networks/2019/03/29/</loc>
+    <lastmod>2019-03-29</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Structuring-Machine-Learning-Projects/2019/03/29/</loc>
+    <lastmod>2019-03-29</lastmod>
+  </url>  <url>
     <loc>https://zhangruochi.com/What-is-P-Value/2019/02/24/</loc>
     <lastmod>2019-03-29</lastmod>
   </url>  <url>
@@ -16,9 +25,6 @@
     <loc>https://zhangruochi.com/The%20Learning%20Problems/2019/02/14/</loc>
     <lastmod>2019-03-29</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Structuring-Machine-Learning-Projects/2019/03/29/</loc>
-    <lastmod>2019-03-29</lastmod>
-  </url>  <url>
     <loc>https://zhangruochi.com/RNN-Implementation/2019/03/28/</loc>
     <lastmod>2019-03-29</lastmod>
   </url>  <url>
@@ -26,9 +32,6 @@
     <lastmod>2019-03-29</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Operations-on-word-vectors-Debiasing/2019/03/28/</loc>
-    <lastmod>2019-03-29</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Neural-Networks-and-Deep-Learning/2019/03/29/</loc>
     <lastmod>2019-03-29</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Neural-Machine-Translation-with-Attention/2019/03/29/</loc>
@@ -74,9 +77,6 @@
     <lastmod>2019-03-29</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Character-level-language-model/2019/03/28/</loc>
-    <lastmod>2019-03-29</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Improving-Deep-Neural-Networks/2019/03/29/</loc>
     <lastmod>2019-03-29</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Sequence-Models/2019/03/27/</loc>
