@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ML Strategy">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="This is course note of the deep learning specialization at lectured by Andrew Ng.">
+<meta name="keywords" content="ML Strategy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Structuring Machine Learning Projects">
+<meta property="og:url" content="https://zhangruochi.com/Structuring-Machine-Learning-Projects/2019/03/29/index.html">
+<meta property="og:site_name" content="RUOCHI">
+<meta property="og:description" content="This is course note of the deep learning specialization at lectured by Andrew Ng.">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/Structuring-Machine-Learning-Projects/2019/03/29/Images/01-_Why_human-level_performance.png">
+<meta property="og:updated_time" content="2019-03-29T22:09:36.265Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Structuring Machine Learning Projects">
+<meta name="twitter:description" content="This is course note of the deep learning specialization at lectured by Andrew Ng.">
+<meta name="twitter:image" content="https://zhangruochi.com/Structuring-Machine-Learning-Projects/2019/03/29/Images/01-_Why_human-level_performance.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/Structuring-Machine-Learning-Projects/2019/03/29/">
+
+
+
+
+
+  <title>Structuring Machine Learning Projects | RUOCHI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">RUOCHI</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Structuring-Machine-Learning-Projects/2019/03/29/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Structuring Machine Learning Projects</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T18:01:21-04:00">
+                2019-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  This is course note of the deep learning specialization at lectured by Andrew Ng.
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>Reference from lecture slides of Andrew Ng and github repo from <a href="https://github.com/mbadry1/DeepLearning.ai-Summary" target="_blank" rel="noopener">DeepLearning.ai-Summary</a></strong></p>
+<h1 id="structuring-machine-learning-projects">Structuring Machine Learning Projects</h1>
+<p>This is the third course of the deep learning specialization at <a href="https://www.coursera.org/specializations/deep-learning" target="_blank" rel="noopener">Coursera</a> which is moderated by <a href="http://deeplearning.ai/" target="_blank" rel="noopener">DeepLearning.ai</a>. The course is taught by Andrew Ng.</p>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+<li><a href="#structuring-machine-learning-projects">Structuring Machine Learning Projects</a>
+<ul>
+<li><a href="#table-of-contents">Table of contents</a></li>
+<li><a href="#course-summary">Course summary</a></li>
+<li><a href="#ml-strategy-1">ML Strategy 1</a>
+<ul>
+<li><a href="#why-ml-strategy">Why ML Strategy</a></li>
+<li><a href="#orthogonalization">Orthogonalization</a></li>
+<li><a href="#single-number-evaluation-metric">Single number evaluation metric</a></li>
+<li><a href="#satisfying-and-optimizing-metric">Satisfying and Optimizing metric</a></li>
+<li><a href="#traindevtest-distributions">Train/Dev/Test distributions</a></li>
+<li><a href="#size-of-the-dev-and-test-sets">Size of the Dev and Test sets</a></li>
+<li><a href="#when-to-change-devtest-sets-and-metrics">When to change Dev/Test sets and metrics</a></li>
+<li><a href="#why-human-level-performance">Why human-level performance?</a></li>
+<li><a href="#avoidable-bias">Avoidable bias</a></li>
+<li><a href="#understanding-human-level-performance">Understanding human-level performance</a></li>
+<li><a href="#surpassing-human-level-performance">Surpassing human-level performance</a></li>
+<li><a href="#improving-your-model-performance">Improving your model performance</a></li>
+</ul></li>
+<li><a href="#ml-strategy-2">ML Strategy 2</a>
+<ul>
+<li><a href="#carrying-out-error-analysis">Carrying out error analysis</a></li>
+<li><a href="#cleaning-up-incorrectly-labeled-data">Cleaning up incorrectly labeled data</a></li>
+<li><a href="#build-your-first-system-quickly-then-iterate">Build your first system quickly, then iterate</a></li>
+<li><a href="#training-and-testing-on-different-distributions">Training and testing on different distributions</a></li>
+<li><a href="#bias-and-variance-with-mismatched-data-distributions">Bias and Variance with mismatched data distributions</a></li>
+<li><a href="#addressing-data-mismatch">Addressing data mismatch</a></li>
+<li><a href="#transfer-learning">Transfer learning</a></li>
+<li><a href="#multi-task-learning">Multi-task learning</a></li>
+<li><a href="#what-is-end-to-end-deep-learning">What is end-to-end deep learning?</a></li>
+<li><a href="#whether-to-use-end-to-end-deep-learning">Whether to use end-to-end deep learning</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="course-summary">Course summary</h2>
+<p>Here are the course summary as its given on the course <a href="https://www.coursera.org/learn/machine-learning-projects" target="_blank" rel="noopener">link</a>:</p>
+<blockquote>
+<p>You will learn how to build a successful machine learning project. If you aspire to be a technical leader in AI, and know how to set direction for your team's work, this course will show you how.</p>
+<p>Much of this content has never been taught elsewhere, and is drawn from my experience building and shipping many deep learning products. This course also has two "flight simulators" that let you practice decision-making as a machine learning project leader. This provides "industry experience" that you might otherwise get only after years of ML work experience.</p>
+<p>After 2 weeks, you will: - Understand how to diagnose errors in a machine learning system, and - Be able to prioritize the most promising directions for reducing error - Understand complex ML settings, such as mismatched training/test sets, and comparing to and/or surpassing human-level performance - Know how to apply end-to-end learning, transfer learning, and multi-task learning</p>
+<p>I've seen teams waste months or years through not understanding the principles taught in this course. I hope this two week course will save you months of time.</p>
+<p>This is a standalone course, and you can take this so long as you have basic machine learning knowledge. This is the third course in the Deep Learning Specialization.</p>
+</blockquote>
+<h2 id="ml-strategy-1">ML Strategy 1</h2>
+<h3 id="why-ml-strategy">Why ML Strategy</h3>
+<ul>
+<li>You have a lot of ideas to improve the accuracy of your deep learning system:
+<ul>
+<li>Collect more data.</li>
+<li>Collect more diverse training set.</li>
+<li>Train gradient decent longer.</li>
+<li>Try bigger network.</li>
+<li>Try smaller network.</li>
+<li>Try dropout</li>
+<li>Add L2 regularization</li>
+<li>Try different optimization algorithm "ex. Adam"</li>
+<li>Activation functions.</li>
+</ul></li>
+<li>This course will give you some strategies to help you analyze your problem to go in a direction that will get you a better results.</li>
+</ul>
+<h3 id="orthogonalization">Orthogonalization</h3>
+<ul>
+<li>Some deep learning developers knows exactly what hyperparameter to tune to achieve a specific task. This is called Orthogonalization.</li>
+<li>In Orthogonalization you have some controls, but each control does a specific task and doesn't effect other controls.</li>
+<li>Chain of assumptions in machine learning:
+<ol type="1">
+<li>You'll have to fit training set well on cost function. (Near human level performance if possible)
+<ul>
+<li>If its not achieved you could try: bigger network - other optimization algorithm...</li>
+</ul></li>
+<li>Fit Dev set well on cost function.
+<ul>
+<li>If its not achieved you could try: regularization - Bigger training set ...</li>
+</ul></li>
+<li>Fit test set well on cost function.
+<ul>
+<li>If its not achieved you could try: Bigger Dev. set ...</li>
+</ul></li>
+<li>Performs well in real world.
+<ul>
+<li>If its not achieved you could try: change dev. set - change cost function..</li>
+</ul></li>
+</ol></li>
+</ul>
+<h3 id="single-number-evaluation-metric">Single number evaluation metric</h3>
+<ul>
+<li>Its better and faster to set a Single number evaluation metric to your project before you start it.</li>
+<li>Difference between precision and recall (In cat classification example):
+<ul>
+<li><p>Suppose we run the classifier on 10 images which are 5 cats and 5 non-cats. The classifier identifies that there are 4 cats. but he identified 1 wrong cat.</p></li>
+<li><p>Confusion matrix:</p>
+<ul>
+<li><table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Cat</th>
+<th>Non-Cat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Cat</strong></td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td><strong>Non-Cat</strong></td>
+<td>1</td>
+<td>4</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+<li><p><strong>Precision</strong>: percentage of true cats in the recognized result. per = 3/4</p></li>
+<li><p><strong>Recall</strong>: percentage of true recognition in the whole dataset. rec = 3/5</p></li>
+<li><strong>Accuracy</strong>= 3/10</li>
+</ul></li>
+<li><p>Using a precision/recall for evaluation is good in a lot of cases they doesn't tell you which is better. Ex:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Classifier</th>
+<th>Precision</th>
+<th>Recall</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>95%</td>
+<td>90%</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>98%</td>
+<td>85%</td>
+</tr>
+</tbody>
+</table></li>
+<li>A better thing is to merge precision and Recall together. There a something called <code>F1</code> score
+<ul>
+<li>You can think of <code>F1</code> score as average of Precision and Recall <code>F1 = 2/ ((1/Per) + (1/Rec))</code></li>
+</ul></li>
+<li><p>IF you have a lot of value as your metric you should take the average.</p></li>
+</ul>
+<h3 id="satisfying-and-optimizing-metric">Satisfying and Optimizing metric</h3>
+<ul>
+<li><p>Its hard sometimes to get a single number evaluation metric. Ex:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Classifier</th>
+<th>F1</th>
+<th>Running time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>90%</td>
+<td>80 ms</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>92%</td>
+<td>95 ms</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>92%</td>
+<td>1,500 ms</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>In this case we can solve that by Satisfying and Optimizing metric. Ex:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Maximize      F1                          # Optimizing metric</span><br><span class="line">subject to        Running time &lt; 100ms        # Satisficing metric</span><br></pre></td></tr></table></figure></li>
+<li><p>So as a general rule:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Maximize      1                   #Optimizing metric (One optimizing metric)</span><br><span class="line">subject to        N-1                 #Satisficing metric (N-1 Satisficing metric)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="traindevtest-distributions">Train/Dev/Test distributions</h3>
+<ul>
+<li>Dev/Test set has to come from the same distribution.</li>
+<li>Choose Dev/Test sets to reflect data you expect to get in the future and consider important to do well on.</li>
+</ul>
+<h3 id="size-of-the-dev-and-test-sets">Size of the Dev and Test sets</h3>
+<ul>
+<li>Old way of splitting was 70% training, 30% test.</li>
+<li>Old way of splitting was 60% training, 20% Dev, 20% test.</li>
+<li>The old way was valid for ranges 1000 --&gt; 100000</li>
+<li>In the modern deep learning you have if you have a million or more
+<ul>
+<li>98% Training, 1% Dev, 1% Test</li>
+</ul></li>
+</ul>
+<h3 id="when-to-change-devtest-sets-and-metrics">When to change Dev/Test sets and metrics</h3>
+<ul>
+<li><p>Lets take an example. In a cat classification example we have these metric results:</p>
+<table>
+<colgroup>
+<col style="width: 21%">
+<col style="width: 78%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Classification error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Algorithm A</td>
+<td>3% error (But a lot of porn images is treated as cat images here)</td>
+</tr>
+<tr class="even">
+<td>Algorithm B</td>
+<td>5% error</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>In the last example if we choose the best algorithm by metric it would be "A", but if the users decide it will be "B"</p></li>
+<li>Thus here we want to change out metric.</li>
+<li><code>OldMetric = (1/m) * sum(y_pred[i] != y[i] ,m)</code>
+<ul>
+<li>Where m is the number of Dev set items.</li>
+</ul></li>
+<li><code>NewMetric = (1/sum(w[i])) * sum( w[i] * (y_pred[i] != y[i]) ,m)</code>
+<ul>
+<li>where:
+<ul>
+<li><code>w[i] = 1                   if x[i] is not porn</code></li>
+<li><code>w[i] = 10                 if x[i] is porn</code></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Conclusion: If doing well on your metric + Dev/test set doesn't correspond to doing well in your application, change your metric and/or Dev/test set.</p></li>
+</ul>
+<h3 id="why-human-level-performance">Why human-level performance?</h3>
+<ul>
+<li>We compare to human-level performance because a lot of deep learning algorithms in the recent days are a lot better than human level.</li>
+<li>After an algorithm reaches the human level performance it doesn't get better much.
+<ul>
+<li><img src="Images/01-_Why_human-level_performance.png" alt="01- Why human-level performance"></li>
+</ul></li>
+<li>You won't surpass an error that's called "Bayes optimal error"</li>
+<li>There aren't much error range between human-level error and Bayes optimal error.</li>
+<li>Humans are quite good at lot of tasks. So as long as Machine learning is worse than humans, you can:
+<ul>
+<li>Get labeled data from humans.</li>
+<li>Gain insight from manual error analysis. (Why did a person get it right?)</li>
+<li>Better analysis of bias/variance</li>
+</ul></li>
+</ul>
+<h3 id="avoidable-bias">Avoidable bias</h3>
+<ul>
+<li><p>Suppose that the cat classification algorithm gives these percentages:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Humans</th>
+<th>1%</th>
+<th>7.5%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Training error</strong></td>
+<td>8%</td>
+<td>8%</td>
+</tr>
+<tr class="even">
+<td><strong>Dev Error</strong></td>
+<td>10%</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>In the left example, if the human level error is 1% then we have to focus on the <strong>bias</strong>.</li>
+<li>In the right example, if the human level error is 7.5% then we have to focus on the <strong>variance</strong>.</li>
+<li>In the latest examples we have used the human level as a proxy form Bayes optimal error because humans vision is too good.</li>
+</ul></li>
+</ul>
+<h3 id="understanding-human-level-performance">Understanding human-level performance</h3>
+<ul>
+<li>When choosing human-level performance, it has to be choose in the terms of what you want to achieve with the system.</li>
+<li>You might have multiple human-level performance based on the human experience. Then the system you are trying to build will choose from these human levels as set it as proxy for Bayes error.</li>
+<li>Improving deep learning algorithms is harder once you reach a human level performance.</li>
+<li>Summary of bias/variance with human-level performance:
+<ol type="1">
+<li>human level error (Proxy for Bayes error)
+<ul>
+<li>Calculate <code>training error - human level error</code></li>
+<li>If difference is bigger then its <strong>Avoidable bias</strong> then you should use a strategy for <strong>bias</strong>.</li>
+</ul></li>
+<li>Training error
+<ul>
+<li>Calculate <code>dev error - training error</code></li>
+<li>If difference is bigger then its <strong>Variance</strong> then you should use a strategy for <strong>Variance</strong>.</li>
+</ul></li>
+<li>Dev error</li>
+</ol></li>
+<li>In a lot of problems Bayes error isn't zero that's why we need human level performance comparing.</li>
+</ul>
+<h3 id="surpassing-human-level-performance">Surpassing human-level performance</h3>
+<ul>
+<li>In some problems, deep learning has surpassed human level performance. Like:
+<ul>
+<li>Online advertising.</li>
+<li>Product recommendation.</li>
+<li>Loan approval.</li>
+</ul></li>
+<li>The last examples are non natural perception task. Humans are far better in natural perception task like computer vision and speech recognition.</li>
+<li>Its harder for machines to surpass human level in natural perception task.</li>
+</ul>
+<h3 id="improving-your-model-performance">Improving your model performance</h3>
+<ul>
+<li>To improve your deep learning supervised system follow these guideline:
+<ol type="1">
+<li>Look at the difference between human level error and the training error. <strong><em>Avoidable bias</em></strong></li>
+<li>Look at the difference between the training error and the Test/Dev set. <strong><em>Variance</em></strong></li>
+<li>If number 1 difference is large you have these options:
+<ul>
+<li>Train bigger model.</li>
+<li>Train longer/better optimization algorithm (Adam).</li>
+<li>NN architecture/hyperparameters search.</li>
+<li>Bigger training data.</li>
+</ul></li>
+<li>If number 2 difference is large you have these options:
+<ul>
+<li>Get more training data.</li>
+<li>Regularization.</li>
+<li>NN architecture/hyperparameters search.</li>
+</ul></li>
+</ol></li>
+</ul>
+<h2 id="ml-strategy-2">ML Strategy 2</h2>
+<h3 id="carrying-out-error-analysis">Carrying out error analysis</h3>
+<ul>
+<li>Error analysis is to analysis why the accuracy of the system is like that. Example:
+<ul>
+<li>In the cat classification example, if you have 10% error on your Dev set and you want to solve the error.</li>
+<li>If you discovered that some of the mislabeled data are dog pictures that looks like cats, should you try to make your cat classifier do better on dogs? this could take some weeks.</li>
+<li>Error analysis approach (To take a decision):
+<ul>
+<li>Get 100 mislabeled Dev set examples at random.</li>
+<li>Count up how many are dogs.</li>
+<li>if there are 5/100 is dogs then it doesn't count to train your classifier to dogs.</li>
+<li>if there are 50/100 is dogs then you should work in that.</li>
+</ul></li>
+</ul></li>
+<li>Based on the last example, error analysis helps you to analyze the error before taking an action that could take lot of time with no need.</li>
+<li><p>You can evaluate multiple ideas -Error analysis ideas- in parallel and choose the best idea. create an excel shape to do that and decide Ex:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Image</th>
+<th>Dog</th>
+<th>Great Cats</th>
+<th>blurry</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>✓</td>
+<td></td>
+<td>✓</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td></td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>....</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>% totals</strong></td>
+<td><strong>8%</strong></td>
+<td><strong>43%</strong></td>
+<td><strong>61%</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table></li>
+<li><p>In the last example you will decide to work on great cats or blurry images to improve your performance.</p></li>
+</ul>
+<h3 id="cleaning-up-incorrectly-labeled-data">Cleaning up incorrectly labeled data</h3>
+<ul>
+<li>Labeled data is incorrect when y of x is incorrect.</li>
+<li>If the incorrect labeled data is in the training set, Deep learning are quite robust to random error (Not systematic error). But its OK to go and fix these labels if you can.</li>
+<li><p>If you want to check for mislabeled data in Dev/test set, you should also try error analysis with mislabeled column. Ex:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Image</th>
+<th>Dog</th>
+<th>Great Cats</th>
+<th>blurry</th>
+<th>Mislabeled</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>✓</td>
+<td></td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>....</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>% totals</strong></td>
+<td><strong>8%</strong></td>
+<td><strong>43%</strong></td>
+<td><strong>61%</strong></td>
+<td><strong>6%</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Then:
+<ul>
+<li>If Overall Dev set error: 10%
+<ul>
+<li>Then Errors due incorrect data: 0.6%
+<ul>
+<li>Then Errors due other causes:9.4%</li>
+</ul></li>
+</ul></li>
+<li>Then you should focus on the 9.4% error rather than the incorrect data.</li>
+</ul></li>
+</ul></li>
+<li>Consider these while correcting the Dev/test mislabeled:
+<ul>
+<li>Apply same process to your Dev and test sets to make sure they continue to come from the same distribution.</li>
+<li>Consider examining examples your algorithm got right as well as ones it got wrong. (Not always done if you reached a good accuracy)</li>
+<li>Train and (Dev/Test) data may now come from slightly different distributions</li>
+</ul></li>
+</ul>
+<h3 id="build-your-first-system-quickly-then-iterate">Build your first system quickly, then iterate</h3>
+<ul>
+<li>The steps you take to make your deep learning project:
+<ul>
+<li>Setup Dev/test set and metric</li>
+<li>Build initial system quickly
+<ul>
+<li>Using the training data.</li>
+</ul></li>
+<li>Use Bias/Variance analysis &amp; Error analysis to prioritize next steps.</li>
+</ul></li>
+</ul>
+<h3 id="training-and-testing-on-different-distributions">Training and testing on different distributions</h3>
+<ul>
+<li>A lot of teams are working with deep learning applications that has training sets that are different from the Dev/test sets due to the hanger of deep learning to data.</li>
+<li>There are some strategies to follow up when training set distribution differs from Dev/test sets distribution.
+<ul>
+<li>Option one (Not recommended): shuffle all the data together and extract randomly training and Dev/test sets.
+<ul>
+<li>Advantages: All the sets now are from the same distribution.</li>
+<li>Disadvantages: The other distribution that was in the Dev/test sets will occur less in the new Dev/test sets and that might not what you want to achieve.</li>
+</ul></li>
+<li>Option two: Take some of the Dev/test set examples and put them with the training distribution.
+<ul>
+<li>Advantages: The distribution you care about is your target now.</li>
+<li>Disadvantage: the distributions are different. but you will get a better performance over a long time.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="bias-and-variance-with-mismatched-data-distributions">Bias and Variance with mismatched data distributions</h3>
+<ul>
+<li>Bias and Variance analysis changes when training and Dev/test set is from different distribution.</li>
+<li>Example: Assume the cat classification example. Suppose you've worked in the example and reached this
+<ul>
+<li>Human error: 0%</li>
+<li>Training error: 1%</li>
+<li>Dev error: 10%</li>
+</ul></li>
+<li>In the last example you'll think that this is a variance problem, but because the distributions aren't the same you cant judge this.</li>
+<li>Imagine if we created a new set called training-Dev set as a random subset of the training distribution. and we run error analysis and it came as follows:
+<ul>
+<li>Human error: 0%</li>
+<li>Training error: 1%</li>
+<li>TrainingDev error: 8%</li>
+<li>Dev error: 10%</li>
+</ul></li>
+<li>Now you are sure this is a variance error.</li>
+<li>Suppose you have a different situation:
+<ul>
+<li>Human error: 0%</li>
+<li>Training error: 1%</li>
+<li>TrainingDev error: 1.5%</li>
+<li>Dev error: 10%</li>
+</ul></li>
+<li>In this case you have something called <em>Data mismatch</em> problem.</li>
+<li>To conclude, first you'll have a new set called training-Dev set which has the same distribution as training set. Then follow this:
+<ol type="1">
+<li>human level error (Proxy for Bayes error)
+<ul>
+<li>Calculate <code>training error - human level error</code></li>
+<li>If difference is bigger then its <strong>Avoidable bias</strong> then you should use a strategy for <strong>bias</strong>.</li>
+</ul></li>
+<li>Training error
+<ul>
+<li>Calculate <code>Training-Dev error - training error</code></li>
+<li>If difference is bigger then its <strong>Variance</strong> then you should use a strategy for <strong>Variance</strong>.</li>
+</ul></li>
+<li>Training-Dev error
+<ul>
+<li>Calculate <code>dev error - training-dev error</code></li>
+<li>If difference is bigger then its <strong>Data mismatch</strong> then you should use a strategy for <strong>Data mismatch</strong>.</li>
+</ul></li>
+<li>Dev error
+<ul>
+<li>Calculate <code>test error - dev error</code></li>
+<li>Is the degree of overfitting to Dev set</li>
+</ul></li>
+<li>Test error</li>
+</ol></li>
+<li>Unfortunately there aren't much systematic ways to deal with Data mismatch but the next section will try to give us some insights.</li>
+</ul>
+<h3 id="addressing-data-mismatch">Addressing data mismatch</h3>
+<ul>
+<li>Carry out manual error analysis to try to understand difference between training and Dev/test sets.</li>
+<li>Make training data more similar; or collect more data similar to Dev/test sets.
+<ul>
+<li>There are something called <strong>Artificial data synthesis</strong> that can help you Make more training data.
+<ul>
+<li>Combine some of your training data with something that can convert it to the Dev/test set distribution.
+<ul>
+<li>Ex. Generate cars using 3D in a car classification example.</li>
+</ul></li>
+<li>Be careful with "Artificial data synthesis" because your NN might overfit these generated data.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="transfer-learning">Transfer learning</h3>
+<ul>
+<li>Apply the knowledge you took in a task and apply it in another task.</li>
+<li>For example You have trained a cat classifier with a lot of data, you can use all the learning data or part of it to solve x-ray classification problem.</li>
+<li>To do transfer learning, delete the weights of the last layer of the NN and keep all the other weights as a fixed weights. Initialize the new weights and feed the new data to the NN and learn the new weights. Thats if you have a small data set, but if you have enough data you can retrain all the weights again this is called <strong>fine tuning</strong>.</li>
+<li>You can create a several new layers not just one layer to original NN.</li>
+<li>When transfer learning make sense:
+<ul>
+<li>When you have a lot of data for the problem you are transferring from and relatively less data for the problem your transferring to.</li>
+<li>Task A and B has the same input X. (Same type as input ex. image, audio)</li>
+<li>Low level features from A could be helpful for learning B</li>
+</ul></li>
+</ul>
+<h3 id="multi-task-learning">Multi-task learning</h3>
+<ul>
+<li>One NN do some tasks in the same time, and tasks can help each others.</li>
+<li>Example:
+<ul>
+<li>You want to build an object recognition system that detects cars, stop signs, and traffic lights. (Image has a multiple labels.)</li>
+<li>Then Y shape will be <code>(3,m)</code> because we have 3 classification and each one is a binary one.</li>
+<li>Then <code>Loss = (1/m) sum(sum(L(Y_dash[i], Y[i]),3) ,m)</code></li>
+</ul></li>
+<li>In the last example you could have train 3 neural network to get the same results, but if you suspect that the earlier layers has the same features then this will be faster.</li>
+<li><p>This will also work if y isn't complete for some labels. For example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Y = [1    ?   1   ..]</span><br><span class="line">    [0    0   1   ..]</span><br><span class="line">    [?    1   ?   ..]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>And in this case it will do good with the missing data. but the loss function will be different:
+<ul>
+<li><code>Loss = (1/m) sum(sum(L(Y_dash[i], Y[i]),for all i which Y[i] != ?) ,m)</code></li>
+</ul></li>
+</ul></li>
+<li>When Multi-task learning make sense:
+<ul>
+<li>Training on a set of tasks that could benefit from having shared lower-level features.</li>
+<li>Usually amount of data you have for each task is quite similar.</li>
+<li>Can train a big enough network to do well on all the tasks.</li>
+</ul></li>
+<li>If you have a big enough NN, the performance of the Multi-task learning compared to splitting the tasks is better.</li>
+<li><p>Today Transfer learning is used more than Multi-task learning.</p></li>
+</ul>
+<h3 id="what-is-end-to-end-deep-learning">What is end-to-end deep learning?</h3>
+<ul>
+<li>Some systems has multiple stages to implement. An end to end deep learning implements all these stages with a single NN.</li>
+<li>Example:
+<ul>
+<li><p>Suppose you have a speech recognition system:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Audio ---&gt; Features --&gt; Phonemes --&gt; Words --&gt; Transcript           # System</span><br><span class="line">Audio ---------------------------------------&gt; Transcript           # End to end</span><br></pre></td></tr></table></figure></li>
+<li>End to end deep learning gives data more freedom, it might not use phonemes when training!</li>
+</ul></li>
+<li><p>To build and end to end deep learning system that works well, we need a big dataset. If you have a small dataset the ordinary implementation of each stage is just fine.</p></li>
+<li>Another example:
+<ul>
+<li><p>Suppose you want to build a face recognition system:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Image-&gt;Image adjustments-&gt;Face detection-&gt;Face recognition-&gt;Matching    # System.</span><br><span class="line">Image -----------------------------------&gt;Face recognition-&gt;Matching  # End to end</span><br><span class="line">Image-&gt;Image adjustments-&gt;Face detection-------------------&gt;Matching  # Best imp for now</span><br></pre></td></tr></table></figure></li>
+<li>Best in practice now is the third approach.</li>
+<li>In the third implementation its a two steps approach where part is manually implemented and the other is using deep learning.</li>
+<li>Its working well because its harder to get a lot of pictures with people in front of the camera than getting faces of people and compare them.</li>
+<li>In the third implementation the NN takes two faces as an input and outputs if the two faces are the same or not.</li>
+</ul></li>
+<li>Another example:
+<ul>
+<li><p>Suppose you want to build a machine translation system:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">English --&gt; Text analysis --&gt; ......................... --&gt; Fresh       # System.</span><br><span class="line">English --------------------------------------------------&gt; Fresh       # End to end</span><br></pre></td></tr></table></figure></li>
+<li><p>Here end to end deep leaning system works well because we have enough data to build it.</p></li>
+</ul></li>
+</ul>
+<h3 id="whether-to-use-end-to-end-deep-learning">Whether to use end-to-end deep learning</h3>
+<ul>
+<li>Here are some guidelines on Whether to use end-to-end deep learning.</li>
+<li>Pros of end to end deep learning:
+<ul>
+<li>Let the data speak.</li>
+<li>Less hand designing of components needed.</li>
+</ul></li>
+<li>Cons of end to end deep learning:
+<ul>
+<li>May need large amount of data.</li>
+<li>Excludes potentially useful hand design components. (It helps more on small dataset)</li>
+</ul></li>
+<li>Applying end to end deep learning:
+<ul>
+<li>Do you have sufficient data to learn a function of the <strong><em>complexity</em></strong> needed to map x to y?</li>
+</ul></li>
+</ul>
+<p><br><br> <br><br> These Notes were made by <a href="mailto:mma18@fayoum.edu.eg" target="_blank" rel="noopener">Mahmoud Badry</a> <span class="citation" data-cites="2017">@2017</span></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Course-Note/" rel="tag"># Course Note</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Improving-Deep-Neural-Networks/2019/03/29/" rel="next" title="Improving Deep Neural Networks">
+                <i class="fa fa-chevron-left"></i> Improving Deep Neural Networks
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Ruochi Zhang Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!--MOB SHARE BEGIN-->
+<div class="-hoofoo-share-title">Share the post</div>
+<div class="-hoofoo-share-buttons">
+    <div class="-mob-share-weibo -hoofoo-share-weibo -hoofoo-share-ui-button"><i class="fa fa-weibo" aria-hidden="true"></i></div>
+    <div class="-mob-share-weixin -hoofoo-share-weixin -hoofoo-share-ui-button"><i class="fa fa-weixin" aria-hidden="true"></i></div>
+    <div class="-mob-share-twitter -hoofoo-share-twitter -hoofoo-share-ui-button"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+    <div class="-hoofoo-share-more -hoofoo-share-ui-button -mob-share-open"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+</div>
+<div class="-mob-share-ui" style="display: none">
+    <ul class="-mob-share-list">
+        <li class="-mob-share-weibo"><p>新浪微博</p></li>
+        <li class="-mob-share-weixin"><p>微信</p></li>
+        <li class="-mob-share-qzone"><p>QQ空间</p></li>
+        <li class="-mob-share-qq"><p>QQ好友</p></li>
+        <li class="-mob-share-douban"><p>豆瓣</p></li>
+        <li class="-mob-share-facebook"><p>Facebook</p></li>
+        <li class="-mob-share-twitter"><p>Twitter</p></li>
+        <li class="-mob-share-instapaper"><p>Instapaper</p></li>
+        <li class="-mob-share-linkedin"><p>Linkedin</p></li>
+    </ul>
+    <div class="-mob-share-close">Cancel</div>
+</div>
+<div class="-mob-share-ui-bg"></div>
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=2a11bcb245035"></script>
+<!--MOB SHARE END-->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjYwOC8xOTE1NQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external="" nofollow""="">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external="" nofollow""="">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/cecilia-xu/" title="财务部长" target="_blank" rel="external nofollow">财务部长</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#structuring-machine-learning-projects"><span class="nav-text">Structuring Machine Learning Projects</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#table-of-contents"><span class="nav-text">Table of contents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#course-summary"><span class="nav-text">Course summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ml-strategy-1"><span class="nav-text">ML Strategy 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#why-ml-strategy"><span class="nav-text">Why ML Strategy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orthogonalization"><span class="nav-text">Orthogonalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#single-number-evaluation-metric"><span class="nav-text">Single number evaluation metric</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#satisfying-and-optimizing-metric"><span class="nav-text">Satisfying and Optimizing metric</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#traindevtest-distributions"><span class="nav-text">Train/Dev/Test distributions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#size-of-the-dev-and-test-sets"><span class="nav-text">Size of the Dev and Test sets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#when-to-change-devtest-sets-and-metrics"><span class="nav-text">When to change Dev/Test sets and metrics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#why-human-level-performance"><span class="nav-text">Why human-level performance?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#avoidable-bias"><span class="nav-text">Avoidable bias</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#understanding-human-level-performance"><span class="nav-text">Understanding human-level performance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#surpassing-human-level-performance"><span class="nav-text">Surpassing human-level performance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#improving-your-model-performance"><span class="nav-text">Improving your model performance</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ml-strategy-2"><span class="nav-text">ML Strategy 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#carrying-out-error-analysis"><span class="nav-text">Carrying out error analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cleaning-up-incorrectly-labeled-data"><span class="nav-text">Cleaning up incorrectly labeled data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#build-your-first-system-quickly-then-iterate"><span class="nav-text">Build your first system quickly, then iterate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#training-and-testing-on-different-distributions"><span class="nav-text">Training and testing on different distributions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bias-and-variance-with-mismatched-data-distributions"><span class="nav-text">Bias and Variance with mismatched data distributions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#addressing-data-mismatch"><span class="nav-text">Addressing data mismatch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#transfer-learning"><span class="nav-text">Transfer learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-task-learning"><span class="nav-text">Multi-task learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-end-to-end-deep-learning"><span class="nav-text">What is end-to-end deep learning?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#whether-to-use-end-to-end-deep-learning"><span class="nav-text">Whether to use end-to-end deep learning</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>Please activate JavaScript for write a comment in LiveRe</noscript>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>
