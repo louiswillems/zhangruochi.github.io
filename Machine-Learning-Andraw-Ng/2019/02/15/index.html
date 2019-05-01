@@ -485,7 +485,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-15T22:19:59-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-15T22:19:59+08:00">
                 2019-02-15
               </time>
             
@@ -561,9 +561,9 @@
 <img src="certificate.png" alt="certificate"><figcaption>certificate</figcaption>
 </figure>
 <h2 id="what-is-machine-learning">What is Machine Learning?</h2>
-<p>Two definitions of Machine Learning are offered. + Arthur Samuel described it as: &quot;<em>the field of study that gives computers the ability to learn without being explicitly programmed.</em>&quot; This is an older, informal definition.</p>
+<p>Two definitions of Machine Learning are offered. + Arthur Samuel described it as: "<em>the field of study that gives computers the ability to learn without being explicitly programmed.</em>" This is an older, informal definition.</p>
 <ul>
-<li><p>Tom Mitchell provides a more modern definition: &quot;A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.&quot;</p>
+<li><p>Tom Mitchell provides a more modern definition: "A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E."</p>
 <p>Example: playing checkers.</p>
 <ul>
 <li>E = the experience of playing many games of checkers</li>
@@ -577,7 +577,7 @@
 </blockquote>
 <h3 id="supervised-learning">Supervised Learning</h3>
 <p>In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.</p>
-<p>Supervised learning problems are categorized into &quot;<strong>regression</strong>&quot; and &quot;<strong>classification</strong>&quot; problems. In a regression problem, we are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function. In a classification problem, we are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories.</p>
+<p>Supervised learning problems are categorized into "<strong>regression</strong>" and "<strong>classification</strong>" problems. In a regression problem, we are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function. In a classification problem, we are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories.</p>
 <ul>
 <li>Example 1:
 <ul>
@@ -585,7 +585,7 @@
 <li><figure>
 <img src="063C817FFFB3B0B3B413A901EB57B1CD.png" alt="Screen Shot 2018-03-02 at 15.22.36.png"><figcaption>Screen Shot 2018-03-02 at 15.22.36.png</figcaption>
 </figure></li>
-<li><p>We could turn this example into a classification problem by instead making our output about whether the house &quot;sells for more or less than the asking price.&quot; Here we are classifying the houses based on price into two discrete categories.</p></li>
+<li><p>We could turn this example into a classification problem by instead making our output about whether the house "sells for more or less than the asking price." Here we are classifying the houses based on price into two discrete categories.</p></li>
 </ul></li>
 <li>Example 2:
 <ul>
@@ -616,7 +616,7 @@
 <h3 id="cost-function">Cost Function</h3>
 <p>We can measure the accuracy of our hypothesis function by using a cost function. This takes an average difference (actually a fancier version of an average) of all the results of the hypothesis with inputs from x's and the actual output y's. <span class="math display">\[J(θ_0,θ_1)=\frac{1}{2m}\sum_{i=1}^m(\hat{y}_i−y_i)^2=\frac{1}{2m}\sum_{i=1}^m(h_θ(x_i)−y_i)^2\]</span></p>
 <p>To break it apart, it is <span class="math inline">\(\frac{1}{2}\bar{x}\)</span> where <span class="math inline">\(\bar{x}\)</span> is the mean of the squares of <span class="math inline">\(h_θ(x_i)−y_i\)</span> , or the difference between the predicted value and the actual value.</p>
-<p>This function is otherwise called the &quot;Squared error function&quot;, or &quot;Mean squared error&quot;. The mean is halved (<span class="math inline">\(\frac{1}{2}\)</span>) as a convenience for the computation of the gradient descent, as the derivative term of the square function will cancel out the <span class="math inline">\(\frac{1}{2}\)</span> term. The following image summarizes what the cost function does:</p>
+<p>This function is otherwise called the "Squared error function", or "Mean squared error". The mean is halved (<span class="math inline">\(\frac{1}{2}\)</span>) as a convenience for the computation of the gradient descent, as the derivative term of the square function will cancel out the <span class="math inline">\(\frac{1}{2}\)</span> term. The following image summarizes what the cost function does:</p>
 <h4 id="cost-function---intuition-i">Cost Function - Intuition I</h4>
 <p>If we try to think of it in visual terms, our training data set is scattered on the x-y plane. We are trying to make a straight line (defined by <span class="math inline">\(h_θ(x)\)</span>) which passes through these scattered data points.</p>
 <p>Our objective is to get the best possible line. The best possible line will be such so that the average squared vertical distances of the scattered points from the line will be the least. Ideally, the line should pass through all the points of our training data set. In such a case, the value of <span class="math inline">\(J(θ_0,θ_1)\)</span> will be 0. The following example shows the ideal situation where we have a cost function of 0.</p>
@@ -723,7 +723,7 @@ e \\
 <li>A vector with 'n' rows is referred to as an 'n'-dimensional vector.</li>
 <li><span class="math inline">\(v_i\)</span> refers to the element in the ith row of the vector. In general, all our vectors and matrices will be 1-indexed. Note that for some programming languages, the arrays are 0-indexed.</li>
 <li>Matrices are usually denoted by uppercase names while vectors are lowercase.</li>
-<li>&quot;Scalar&quot; means that an object is a single value, not a vector or matrix.</li>
+<li>"Scalar" means that an object is a single value, not a vector or matrix.</li>
 <li>ℝ refers to the set of scalar real numbers.</li>
 <li>ℝ𝕟 refers to the set of n-dimensional vectors of real numbers.</li>
 </ul>
@@ -851,7 +851,7 @@ e &amp; f\\
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Initialize matrix A </span></span><br><span class="line">A = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>;<span class="number">0</span>,<span class="number">5</span>,<span class="number">6</span>;<span class="number">7</span>,<span class="number">0</span>,<span class="number">9</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">% Transpose A </span></span><br><span class="line">A_trans = A' </span><br><span class="line"></span><br><span class="line"><span class="comment">% Take the inverse of A </span></span><br><span class="line">A_inv = inv(A)</span><br><span class="line"></span><br><span class="line"><span class="comment">% What is A^(-1)*A? </span></span><br><span class="line">A_invA = inv(A)*A</span><br></pre></td></tr></table></figure>
 <h3 id="multivariate-linear-analytically">multivariate Linear Analytically</h3>
 <h4 id="multiple-features">Multiple Features</h4>
-<p>Linear regression with multiple variables is also known as &quot;multivariate linear regression&quot;.</p>
+<p>Linear regression with multiple variables is also known as "multivariate linear regression".</p>
 <p>We now introduce notation for equations where we can have any number of input variables.</p>
 <ul>
 <li><span class="math inline">\(x^{(i)}_j\)</span> = value of feature j in the <span class="math inline">\(i^{th}\)</span> training example</li>
@@ -927,7 +927,7 @@ h_θ(x) = \left[ \begin{array}{ccc}
 <p>To make it a square root function, we could do: <span class="math inline">\(h_θ(x)=θ_0+θ_1x_1+θ_2\sqrt{x_1}\)</span> One important thing to keep in mind is, if you choose your features this way then feature scaling becomes very important.</p>
 <p>eg. if <span class="math inline">\(x_1\)</span> has range 1 - 1000 then range of <span class="math inline">\(x^2_1\)</span> becomes 1 - 1000000 and that of <span class="math inline">\(x^3_1\)</span> becomes 1 - 1000000000</p>
 <h3 id="normal-equation">Normal Equation</h3>
-<p>Gradient descent gives one way of minimizing J. Let’s discuss a second way of doing so, this time performing the minimization explicitly and without resorting to an iterative algorithm. In the &quot;Normal Equation&quot; method, we will minimize J by explicitly taking its derivatives with respect to the θj ’s, and setting them to zero. This allows us to find the optimum theta without iteration. The normal equation formula is given below:</p>
+<p>Gradient descent gives one way of minimizing J. Let’s discuss a second way of doing so, this time performing the minimization explicitly and without resorting to an iterative algorithm. In the "Normal Equation" method, we will minimize J by explicitly taking its derivatives with respect to the θj ’s, and setting them to zero. This allows us to find the optimum theta without iteration. The normal equation formula is given below:</p>
 <p><span class="math display">\[θ=(X^TX)^{−1}X^Ty\]</span></p>
 <figure>
 <img src="F151CAAF5D1B34778F47215044582101.png" alt="Screen Shot 2018-03-04 at 18.43.29.png"><figcaption>Screen Shot 2018-03-04 at 18.43.29.png</figcaption>
@@ -937,7 +937,7 @@ h_θ(x) = \left[ \begin{array}{ccc}
 <p>With the normal equation, computing the inversion has complexity <span class="math inline">\(O(n^3)\)</span>. So if we have a very large number of features, the normal equation will be slow. In practice, when n exceeds 10,000 it might be a good time to go from a normal solution to an iterative process.</p>
 <h4 id="normal-equation-noninvertibility">Normal Equation Noninvertibility</h4>
 <p>When implementing the normal equation in octave we want to use the 'pinv' function rather than 'inv.' The 'pinv' function will give you a value of θ even if <span class="math inline">\(X^TX\)</span> is not invertible.</p>
-<p>If <span class="math inline">\(X^TX\)</span> is noninvertible, the common causes might be having : - Redundant features, where two features are very closely related (i.e. they are linearly dependent) - Too many features (e.g. m ≤ n). In this case, delete some features or use &quot;regularization&quot; (to be explained in a later lesson).</p>
+<p>If <span class="math inline">\(X^TX\)</span> is noninvertible, the common causes might be having : - Redundant features, where two features are very closely related (i.e. they are linearly dependent) - Too many features (e.g. m ≤ n). In this case, delete some features or use "regularization" (to be explained in a later lesson).</p>
 <p>Solutions to the above problems include deleting a feature that is linearly dependent with another or deleting one or more features when there are too many features.</p>
 <h2 id="logistic-regression">Logistic Regression</h2>
 <h3 id="classification">Classification</h3>
@@ -945,7 +945,7 @@ h_θ(x) = \left[ \begin{array}{ccc}
 <p>The classification problem is just like the regression problem, except that the values we now want to predict take on only a small number of discrete values. For now, we will focus on the binary classification problem in which y can take on only two values, 0 and 1. (Most of what we say here will also generalize to the multiple-class case.) For instance, if we are trying to build a spam classifier for email, then <span class="math inline">\(x^{(i)}\)</span> may be some features of a piece of email, and y may be 1 if it is a piece of spam mail, and 0 otherwise. Hence, y∈{0,1}. 0 is also called the negative class, and 1 the positive class, and they are sometimes also denoted by the symbols “-” and “+.” Given <span class="math inline">\(x^{(i)}\)</span>, the corresponding <span class="math inline">\(y^{(i)}\)</span> is also called the label for the training example.</p>
 <h3 id="hypothesis-representation">Hypothesis Representation</h3>
 <p>We could approach the classification problem ignoring the fact that y is discrete-valued, and use our old linear regression algorithm to try to predict y given x. However, it is easy to construct examples where this method performs very poorly. Intuitively, it also doesn’t make sense for hθ(x) to take values larger than 1 or smaller than 0 when we know that y ∈ {0, 1}. To fix this, let’s change the form for our hypotheses <span class="math inline">\(h_θ(x)\)</span> to satisfy <span class="math inline">\(0≤h_θ(x)≤1\)</span>. This is accomplished by plugging <span class="math inline">\(θ^Tx\)</span> into the Logistic Function.</p>
-<p>Our new form uses the &quot;Sigmoid Function,&quot; also called the &quot;Logistic Function&quot;: <span class="math display">\[
+<p>Our new form uses the "Sigmoid Function," also called the "Logistic Function": <span class="math display">\[
 \begin{align*}
 &amp; h_θ(x)=g(θ^Tx) \\
 &amp; z=θ^Tx \\
@@ -1104,7 +1104,7 @@ h_θ(x) = \left[ \begin{array}{ccc}
 <h2 id="neural-networks">Neural Networks</h2>
 <h3 id="model-representation-1">Model Representation</h3>
 <h4 id="model-representation-i">Model Representation I</h4>
-<p>Let's examine how we will represent a hypothesis function using neural networks. At a very simple level, neurons are basically computational units that take inputs (<strong>dendrites</strong>) as electrical inputs (called &quot;spikes&quot;) that are channeled to outputs (<strong>axons</strong>). In our model, our dendrites are like the input features <span class="math inline">\(x_1 \dots x_n\)</span>, and the output is the result of our hypothesis function. In this model our <span class="math inline">\(x_0\)</span> input node is sometimes called the &quot;bias unit.&quot; It is always equal to 1. In neural networks, we use the same logistic function as in classification, <span class="math inline">\(\frac{1}{1+e^{−θ^Tx}}\)</span>, yet we sometimes call it a sigmoid (logistic) <strong>activation</strong> function. In this situation, our &quot;theta&quot; parameters are sometimes called &quot;<strong>weights</strong>&quot;.</p>
+<p>Let's examine how we will represent a hypothesis function using neural networks. At a very simple level, neurons are basically computational units that take inputs (<strong>dendrites</strong>) as electrical inputs (called "spikes") that are channeled to outputs (<strong>axons</strong>). In our model, our dendrites are like the input features <span class="math inline">\(x_1 \dots x_n\)</span>, and the output is the result of our hypothesis function. In this model our <span class="math inline">\(x_0\)</span> input node is sometimes called the "bias unit." It is always equal to 1. In neural networks, we use the same logistic function as in classification, <span class="math inline">\(\frac{1}{1+e^{−θ^Tx}}\)</span>, yet we sometimes call it a sigmoid (logistic) <strong>activation</strong> function. In this situation, our "theta" parameters are sometimes called "<strong>weights</strong>".</p>
 <p>Visually, a simplistic representation looks like: <span class="math display">\[
 \begin{equation}
 \begin{bmatrix}
@@ -1119,7 +1119,7 @@ a_3^{(2)}\\
 \end{bmatrix}\rightarrow h_\theta(x)
 \end{equation}
 \]</span></p>
-<p>The values for each of the &quot;activation&quot; nodes is obtained as follows: <span class="math display">\[
+<p>The values for each of the "activation" nodes is obtained as follows: <span class="math display">\[
 \begin{align*}
 &amp; a^{(2)}_1=g(Θ^{(1)}_{10}x_0+Θ^{(1)}_{11}x_1+Θ^{(1)}_{12}x_2+Θ^{(1)}_{13}x_3) \\
 &amp; a^{(2)}_2=g(Θ^{(1)}_{20}x_0+Θ^{(1)}_{21}x_1+Θ^{(1)}_{22}x_2+Θ^{(1)}_{23}x_3) \\
@@ -1131,7 +1131,7 @@ a_3^{(2)}\\
 <p>Each layer gets its own matrix of weights, <span class="math inline">\(Θ^{(j)}\)</span>.</p>
 <p>The dimensions of these matrices of weights is determined as follows:</p>
 <p>If network has <span class="math inline">\(s_j\)</span> units in layer j and <span class="math inline">\(s_{j+1}\)</span> units in layer j+1, then <span class="math inline">\(Θ^{(j)}\)</span> will be of dimension <span class="math inline">\(s_{j+1}×(s_j+1)\)</span>.</p>
-<p>The +1 comes from the addition in <span class="math inline">\(Θ^{(j)}\)</span> of the &quot;bias nodes,&quot; <span class="math inline">\(x_0\)</span> and <span class="math inline">\(Θ^{(j)}_0\)</span>. In other words the output nodes will not include the bias nodes while the inputs will. The following image summarizes our model representation:</p>
+<p>The +1 comes from the addition in <span class="math inline">\(Θ^{(j)}\)</span> of the "bias nodes," <span class="math inline">\(x_0\)</span> and <span class="math inline">\(Θ^{(j)}_0\)</span>. In other words the output nodes will not include the bias nodes while the inputs will. The following image summarizes our model representation:</p>
 <figure>
 <img src="E393ACC2A3014435290235CA61D6B235.png" alt="Screen Shot 2018-03-05 at 23.27.21.png"><figcaption>Screen Shot 2018-03-05 at 23.27.21.png</figcaption>
 </figure>
@@ -1661,7 +1661,7 @@ h_{\theta} = \left\{
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

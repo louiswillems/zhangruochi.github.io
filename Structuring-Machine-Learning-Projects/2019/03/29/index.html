@@ -374,7 +374,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T18:01:21-04:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T18:01:21+08:00">
                 2019-03-29
               </time>
             
@@ -484,7 +484,7 @@
 <p>Here are the course summary as its given on the course <a href="https://www.coursera.org/learn/machine-learning-projects" target="_blank" rel="noopener">link</a>:</p>
 <blockquote>
 <p>You will learn how to build a successful machine learning project. If you aspire to be a technical leader in AI, and know how to set direction for your team's work, this course will show you how.</p>
-<p>Much of this content has never been taught elsewhere, and is drawn from my experience building and shipping many deep learning products. This course also has two &quot;flight simulators&quot; that let you practice decision-making as a machine learning project leader. This provides &quot;industry experience&quot; that you might otherwise get only after years of ML work experience.</p>
+<p>Much of this content has never been taught elsewhere, and is drawn from my experience building and shipping many deep learning products. This course also has two "flight simulators" that let you practice decision-making as a machine learning project leader. This provides "industry experience" that you might otherwise get only after years of ML work experience.</p>
 <p>After 2 weeks, you will: - Understand how to diagnose errors in a machine learning system, and - Be able to prioritize the most promising directions for reducing error - Understand complex ML settings, such as mismatched training/test sets, and comparing to and/or surpassing human-level performance - Know how to apply end-to-end learning, transfer learning, and multi-task learning</p>
 <p>I've seen teams waste months or years through not understanding the principles taught in this course. I hope this two week course will save you months of time.</p>
 <p>This is a standalone course, and you can take this so long as you have basic machine learning knowledge. This is the third course in the Deep Learning Specialization.</p>
@@ -501,7 +501,7 @@
 <li>Try smaller network.</li>
 <li>Try dropout</li>
 <li>Add L2 regularization</li>
-<li>Try different optimization algorithm &quot;ex. Adam&quot;</li>
+<li>Try different optimization algorithm "ex. Adam"</li>
 <li>Activation functions.</li>
 </ul></li>
 <li>This course will give you some strategies to help you analyze your problem to go in a direction that will get you a better results.</li>
@@ -532,8 +532,8 @@
 </ul>
 <h3 id="single-number-evaluation-metric">Single number evaluation metric</h3>
 <ul>
-<li>Its better and faster to set a Single number evaluation metric to your project before you start it.</li>
-<li>Difference between precision and recall (In cat classification example):
+<li><p>Its better and faster to set a Single number evaluation metric to your project before you start it.</p></li>
+<li><p>Difference between precision and recall (In cat classification example):</p>
 <ul>
 <li><p>Suppose we run the classifier on 10 images which are 5 cats and 5 non-cats. The classifier identifies that there are 4 cats. but he identified 1 wrong cat.</p></li>
 <li><p>Confusion matrix:</p>
@@ -562,7 +562,7 @@
 </ul></li>
 <li><p><strong>Precision</strong>: percentage of true cats in the recognized result. per = 3/4</p></li>
 <li><p><strong>Recall</strong>: percentage of true recognition in the whole dataset. rec = 3/5</p></li>
-<li><strong>Accuracy</strong>= 3/10</li>
+<li><p><strong>Accuracy</strong>= 3/10</p></li>
 </ul></li>
 <li><p>Using a precision/recall for evaluation is good in a lot of cases they doesn't tell you which is better. Ex:</p>
 <table>
@@ -586,7 +586,7 @@
 </tr>
 </tbody>
 </table></li>
-<li>A better thing is to merge precision and Recall together. There a something called <code>F1</code> score
+<li><p>A better thing is to merge precision and Recall together. There a something called <code>F1</code> score</p>
 <ul>
 <li>You can think of <code>F1</code> score as average of Precision and Recall <code>F1 = 2/ ((1/Per) + (1/Rec))</code></li>
 </ul></li>
@@ -667,13 +667,13 @@
 </tbody>
 </table>
 <ul>
-<li><p>In the last example if we choose the best algorithm by metric it would be &quot;A&quot;, but if the users decide it will be &quot;B&quot;</p></li>
-<li>Thus here we want to change out metric.</li>
-<li><code>OldMetric = (1/m) * sum(y_pred[i] != y[i] ,m)</code>
+<li><p>In the last example if we choose the best algorithm by metric it would be "A", but if the users decide it will be "B"</p></li>
+<li><p>Thus here we want to change out metric.</p></li>
+<li><p><code>OldMetric = (1/m) * sum(y_pred[i] != y[i] ,m)</code></p>
 <ul>
 <li>Where m is the number of Dev set items.</li>
 </ul></li>
-<li><code>NewMetric = (1/sum(w[i])) * sum( w[i] * (y_pred[i] != y[i]) ,m)</code>
+<li><p><code>NewMetric = (1/sum(w[i])) * sum( w[i] * (y_pred[i] != y[i]) ,m)</code></p>
 <ul>
 <li>where:
 <ul>
@@ -689,9 +689,9 @@
 <li>We compare to human-level performance because a lot of deep learning algorithms in the recent days are a lot better than human level.</li>
 <li>After an algorithm reaches the human level performance it doesn't get better much.
 <ul>
-<li><img src="Images/01-_Why_human-level_performance.png" alt="01- Why human-level performance"></li>
+<li><img src="Images/01-_Why_human-level_performance.png" title="fig:" alt="01- Why human-level performance"></li>
 </ul></li>
-<li>You won't surpass an error that's called &quot;Bayes optimal error&quot;</li>
+<li>You won't surpass an error that's called "Bayes optimal error"</li>
 <li>There aren't much error range between human-level error and Bayes optimal error.</li>
 <li>Humans are quite good at lot of tasks. So as long as Machine learning is worse than humans, you can:
 <ul>
@@ -786,7 +786,7 @@
 <h2 id="ml-strategy-2">ML Strategy 2</h2>
 <h3 id="carrying-out-error-analysis">Carrying out error analysis</h3>
 <ul>
-<li>Error analysis is to analysis why the accuracy of the system is like that. Example:
+<li><p>Error analysis is to analysis why the accuracy of the system is like that. Example:</p>
 <ul>
 <li>In the cat classification example, if you have 10% error on your Dev set and you want to solve the error.</li>
 <li>If you discovered that some of the mislabeled data are dog pictures that looks like cats, should you try to make your cat classifier do better on dogs? this could take some weeks.</li>
@@ -798,7 +798,7 @@
 <li>if there are 50/100 is dogs then you should work in that.</li>
 </ul></li>
 </ul></li>
-<li>Based on the last example, error analysis helps you to analyze the error before taking an action that could take lot of time with no need.</li>
+<li><p>Based on the last example, error analysis helps you to analyze the error before taking an action that could take lot of time with no need.</p></li>
 <li><p>You can evaluate multiple ideas -Error analysis ideas- in parallel and choose the best idea. create an excel shape to do that and decide Ex:</p>
 <table>
 <thead>
@@ -859,8 +859,8 @@
 </ul>
 <h3 id="cleaning-up-incorrectly-labeled-data">Cleaning up incorrectly labeled data</h3>
 <ul>
-<li>Labeled data is incorrect when y of x is incorrect.</li>
-<li>If the incorrect labeled data is in the training set, Deep learning are quite robust to random error (Not systematic error). But its OK to go and fix these labels if you can.</li>
+<li><p>Labeled data is incorrect when y of x is incorrect.</p></li>
+<li><p>If the incorrect labeled data is in the training set, Deep learning are quite robust to random error (Not systematic error). But its OK to go and fix these labels if you can.</p></li>
 <li><p>If you want to check for mislabeled data in Dev/test set, you should also try error analysis with mislabeled column. Ex:</p>
 <table>
 <thead>
@@ -937,7 +937,7 @@
 <li>Then you should focus on the 9.4% error rather than the incorrect data.</li>
 </ul></li>
 </ul></li>
-<li>Consider these while correcting the Dev/test mislabeled:
+<li><p>Consider these while correcting the Dev/test mislabeled:</p>
 <ul>
 <li>Apply same process to your Dev and test sets to make sure they continue to come from the same distribution.</li>
 <li>Consider examining examples your algorithm got right as well as ones it got wrong. (Not always done if you reached a good accuracy)</li>
@@ -1036,7 +1036,7 @@
 <ul>
 <li>Ex. Generate cars using 3D in a car classification example.</li>
 </ul></li>
-<li>Be careful with &quot;Artificial data synthesis&quot; because your NN might overfit these generated data.</li>
+<li>Be careful with "Artificial data synthesis" because your NN might overfit these generated data.</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1055,14 +1055,14 @@
 </ul>
 <h3 id="multi-task-learning">Multi-task learning</h3>
 <ul>
-<li>One NN do some tasks in the same time, and tasks can help each others.</li>
-<li>Example:
+<li><p>One NN do some tasks in the same time, and tasks can help each others.</p></li>
+<li><p>Example:</p>
 <ul>
 <li>You want to build an object recognition system that detects cars, stop signs, and traffic lights. (Image has a multiple labels.)</li>
 <li>Then Y shape will be <code>(3,m)</code> because we have 3 classification and each one is a binary one.</li>
 <li>Then <code>Loss = (1/m) sum(sum(L(Y_dash[i], Y[i]),3) ,m)</code></li>
 </ul></li>
-<li>In the last example you could have train 3 neural network to get the same results, but if you suspect that the earlier layers has the same features then this will be faster.</li>
+<li><p>In the last example you could have train 3 neural network to get the same results, but if you suspect that the earlier layers has the same features then this will be faster.</p></li>
 <li><p>This will also work if y isn't complete for some labels. For example:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Y = [1    ?   1   ..]</span><br><span class="line">    [0    0   1   ..]</span><br><span class="line">    [?    1   ?   ..]</span><br></pre></td></tr></table></figure>
 <ul>
@@ -1071,35 +1071,35 @@
 <li><code>Loss = (1/m) sum(sum(L(Y_dash[i], Y[i]),for all i which Y[i] != ?) ,m)</code></li>
 </ul></li>
 </ul></li>
-<li>When Multi-task learning make sense:
+<li><p>When Multi-task learning make sense:</p>
 <ul>
 <li>Training on a set of tasks that could benefit from having shared lower-level features.</li>
 <li>Usually amount of data you have for each task is quite similar.</li>
 <li>Can train a big enough network to do well on all the tasks.</li>
 </ul></li>
-<li>If you have a big enough NN, the performance of the Multi-task learning compared to splitting the tasks is better.</li>
+<li><p>If you have a big enough NN, the performance of the Multi-task learning compared to splitting the tasks is better.</p></li>
 <li><p>Today Transfer learning is used more than Multi-task learning.</p></li>
 </ul>
 <h3 id="what-is-end-to-end-deep-learning">What is end-to-end deep learning?</h3>
 <ul>
-<li>Some systems has multiple stages to implement. An end to end deep learning implements all these stages with a single NN.</li>
-<li>Example:
+<li><p>Some systems has multiple stages to implement. An end to end deep learning implements all these stages with a single NN.</p></li>
+<li><p>Example:</p>
 <ul>
 <li><p>Suppose you have a speech recognition system:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Audio ---&gt; Features --&gt; Phonemes --&gt; Words --&gt; Transcript           # System</span><br><span class="line">Audio ---------------------------------------&gt; Transcript           # End to end</span><br></pre></td></tr></table></figure></li>
-<li>End to end deep learning gives data more freedom, it might not use phonemes when training!</li>
+<li><p>End to end deep learning gives data more freedom, it might not use phonemes when training!</p></li>
 </ul></li>
 <li><p>To build and end to end deep learning system that works well, we need a big dataset. If you have a small dataset the ordinary implementation of each stage is just fine.</p></li>
-<li>Another example:
+<li><p>Another example:</p>
 <ul>
 <li><p>Suppose you want to build a face recognition system:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Image-&gt;Image adjustments-&gt;Face detection-&gt;Face recognition-&gt;Matching    # System.</span><br><span class="line">Image -----------------------------------&gt;Face recognition-&gt;Matching  # End to end</span><br><span class="line">Image-&gt;Image adjustments-&gt;Face detection-------------------&gt;Matching  # Best imp for now</span><br></pre></td></tr></table></figure></li>
-<li>Best in practice now is the third approach.</li>
-<li>In the third implementation its a two steps approach where part is manually implemented and the other is using deep learning.</li>
-<li>Its working well because its harder to get a lot of pictures with people in front of the camera than getting faces of people and compare them.</li>
-<li>In the third implementation the NN takes two faces as an input and outputs if the two faces are the same or not.</li>
+<li><p>Best in practice now is the third approach.</p></li>
+<li><p>In the third implementation its a two steps approach where part is manually implemented and the other is using deep learning.</p></li>
+<li><p>Its working well because its harder to get a lot of pictures with people in front of the camera than getting faces of people and compare them.</p></li>
+<li><p>In the third implementation the NN takes two faces as an input and outputs if the two faces are the same or not.</p></li>
 </ul></li>
-<li>Another example:
+<li><p>Another example:</p>
 <ul>
 <li><p>Suppose you want to build a machine translation system:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">English --&gt; Text analysis --&gt; ......................... --&gt; Fresh       # System.</span><br><span class="line">English --------------------------------------------------&gt; Fresh       # End to end</span><br></pre></td></tr></table></figure></li>
@@ -1310,7 +1310,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

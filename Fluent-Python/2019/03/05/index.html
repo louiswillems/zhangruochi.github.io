@@ -391,7 +391,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-05T12:22:33-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-05T12:22:33+08:00">
                 2019-03-05
               </time>
             
@@ -464,8 +464,8 @@
 <p>##泛映射类型 Mapping 和 MutableMapping 这两个抽象基类，提供形式化接口 <img src="DBAF8F19D803E115AEC422F6D4E4F04B.png" alt="Screen Shot 2018-09-29 at 10.44.50.png"></p>
 <h3 id="什么是可散列数据">什么是可散列数据？</h3>
 <ul>
-<li>原子不可变数据类型（str，bytes 和 number）</li>
-<li>在生命周期类，散列值不变的类型。需要有_<em>hash_</em> 和 _<em>qe_</em> 方法</li>
+<li><p>原子不可变数据类型（str，bytes 和 number）</p></li>
+<li><p>在生命周期类，散列值不变的类型。需要有_<em>hash_</em> 和 _<em>qe_</em> 方法</p></li>
 <li><p>元组类型需要元组里每一个值都是可散列类型<br>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = (<span class="string">"a"</span>,<span class="string">"b"</span>,(<span class="string">"c"</span>,<span class="string">"d"</span>))  <span class="comment">#-&gt;hashable</span></span><br><span class="line">a = (<span class="string">"a"</span>,<span class="string">"b"</span>,[<span class="string">"c"</span>,<span class="string">"d"</span>])  <span class="comment">#-&gt; not hashable</span></span><br></pre></td></tr></table></figure></p></li>
 <li><p>用户自定义的对象都是可散列的，因为散列值就是id()函数的值。如果自定义对象实现了__eq__方法，并且这个用到了这个对象的内部状态的话，内部状态必须不可变。</p></li>
@@ -620,9 +620,9 @@
 <h3 id="array.array">array.array</h3>
 <p>Python数组跟 C 语言数组一样精简, 如果我们需要一个只包含数字的列表,用 array.array会比list 效率更高，且array支持所有可变序列的操作.</p>
 <ul>
-<li>array.array需要类型码作为参数来表示底层的 C 语言需要存放怎样的数据. 如'b'表示有符号的字符.</li>
+<li><p>array.array需要类型码作为参数来表示底层的 C 语言需要存放怎样的数据. 如'b'表示有符号的字符.</p></li>
 <li><p>数组还提供更多的读取文件和存入文件的方法 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> array <span class="keyword">import</span> array</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> random</span><br><span class="line">floats = array(<span class="string">'d'</span>,(random() <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>**<span class="number">7</span>)))</span><br><span class="line">print(floats[<span class="number">-1</span>])</span><br><span class="line">floats.tofile(<span class="string">"floats.bin"</span>,<span class="string">"wb"</span>)</span><br></pre></td></tr></table></figure></p></li>
-<li>pickle.dump 也可以快速序列化数字类型，速度与 array.tofile()几乎一样快, pickle 还支持其他的数据类型</li>
+<li><p>pickle.dump 也可以快速序列化数字类型，速度与 array.tofile()几乎一样快, pickle 还支持其他的数据类型</p></li>
 <li><p>但是从Python3.4开始, 数组不再支持就地排序, 如果排序需要新建数组 a = array(a.typecode,sorted(array))</p></li>
 </ul>
 <h2 id="内存视图">内存视图</h2>
@@ -667,7 +667,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CallableTest</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,items)</span>:</span></span><br><span class="line">        self.items = list(items)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pick</span><span class="params">(self,n)</span>:</span></span><br><span class="line">        random.shuffle(self.items)</span><br><span class="line">        <span class="keyword">return</span> self.items[<span class="number">0</span>:n]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self,n)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.pick(n)</span><br><span class="line"></span><br><span class="line">test = CallableTest([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">print(test(<span class="number">2</span>))        <span class="comment"># -&gt; [1,3]</span></span><br></pre></td></tr></table></figure>
 <h2 id="函数内省">函数内省</h2>
 <h3 id="函数有而自定义对象没有的属性">函数有而自定义对象没有的属性</h3>
-<p>['__annotations__', '__call__', '__closure__', '__code__', '__defaults__', '__get__', '__globals__', '__kwdefaults__', '__name__', '__qualname__']</p>
+<p>['<strong>annotations</strong>', '<strong>call</strong>', '<strong>closure</strong>', '<strong>code</strong>', '<strong>defaults</strong>', '<strong>get</strong>', '<strong>globals</strong>', '<strong>kwdefaults</strong>', '<strong>name</strong>', '<strong>qualname</strong>']</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">obj = C()    </span><br><span class="line"></span><br><span class="line">print(sorted(set(dir(fact)) - set(dir(obj))))</span><br></pre></td></tr></table></figure>
 <p><img src="0372A461E78029DED0A7D7121A49EAF1.png" alt="Screen Shot 2018-10-12 at 19.54.16.png"> <img src="44DAA05E00DF81F67E96530C9FD4F62D.png" alt="Screen Shot 2018-10-12 at 19.54.25 1.png"></p>
 <h2 id="参数传递">参数传递</h2>
@@ -676,8 +676,8 @@
 <ul>
 <li>operator 模块 和 functools 模块
 <ul>
-<li>reduce</li>
-<li>itemgetter 从序列或者对象中读取元素或者属性</li>
+<li><p>reduce</p></li>
+<li><p>itemgetter 从序列或者对象中读取元素或者属性</p></li>
 <li><p>methodcaller 自行函数，然后再调用对象上使用参数指定的方法(可以冻结参数) <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> methodcaller</span><br><span class="line">split_and_replace = methodcaller(<span class="string">'replace'</span>,<span class="string">' '</span>,<span class="string">'_'</span>)</span><br><span class="line">name = <span class="string">"ZHAN RUO CHI"</span></span><br><span class="line">print(split_and_replace(name))  <span class="comment"># -&gt; ZHAN_RUO_CHI</span></span><br></pre></td></tr></table></figure></p></li>
 <li><p>partial 创建一个新的可调用对象，冻结原有对象的某些参数 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> mul</span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> partial</span><br><span class="line">triple = partial(mul,<span class="number">3</span>)</span><br><span class="line">print(triple(<span class="number">7</span>))  <span class="comment">#-&gt; 21</span></span><br></pre></td></tr></table></figure></p></li>
 </ul></li>
@@ -938,7 +938,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

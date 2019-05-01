@@ -424,7 +424,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-27T12:41:11-04:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-27T12:41:11+08:00">
                 2019-03-27
               </time>
             
@@ -613,10 +613,10 @@
 </ul>
 <h3 id="edge-detection-example">Edge detection example</h3>
 <ul>
-<li>The convolution operation is one of the fundamentals blocks of a CNN. One of the examples about convolution is the image edge detection operation.</li>
-<li>Early layers of CNN might detect edges then the middle layers will detect parts of objects and the later layers will put the these parts together to produce an output.</li>
-<li>In an image we can detect vertical edges, horizontal edges, or full edge detector.</li>
-<li>Vertical edge detection:
+<li><p>The convolution operation is one of the fundamentals blocks of a CNN. One of the examples about convolution is the image edge detection operation.</p></li>
+<li><p>Early layers of CNN might detect edges then the middle layers will detect parts of objects and the later layers will put the these parts together to produce an output.</p></li>
+<li><p>In an image we can detect vertical edges, horizontal edges, or full edge detector.</p></li>
+<li><p>Vertical edge detection:</p>
 <ul>
 <li>An example of convolution operation to detect vertical edges:
 <ul>
@@ -627,7 +627,7 @@
 <li>The vertical edge detection filter will find a <code>3x3</code> place in an image where there are a bright region followed by a dark region.</li>
 <li>If we applied this filter to a white region followed by a dark region, it should find the edges in between the two colors as a positive value. But if we applied the same filter to a dark region followed by a white region it will give us negative values. To solve this we can use the abs function to make it positive.</li>
 </ul></li>
-<li>Horizontal edge detection
+<li><p>Horizontal edge detection</p>
 <ul>
 <li><p>Filter would be like this</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1   1   1</span><br><span class="line">0   0   0</span><br><span class="line">-1  -1  -1</span><br></pre></td></tr></table></figure></li>
@@ -640,20 +640,20 @@
 </ul>
 <h3 id="padding">Padding</h3>
 <ul>
-<li>In order to to use deep neural networks we really need to use <strong>paddings</strong>.</li>
-<li>In the last section we saw that a <code>6x6</code> matrix convolved with <code>3x3</code> filter/kernel gives us a <code>4x4</code> matrix.</li>
-<li>To give it a general rule, if a matrix <code>nxn</code> is convolved with <code>fxf</code> filter/kernel give us <code>n-f+1,n-f+1</code> matrix.</li>
-<li>The convolution operation shrinks the matrix if f&gt;1.</li>
-<li>We want to apply convolution operation multiple times, but if the image shrinks we will lose a lot of data on this process. Also the edges pixels are used less than other pixels in an image.</li>
-<li>So the problems with convolutions are:
+<li><p>In order to to use deep neural networks we really need to use <strong>paddings</strong>.</p></li>
+<li><p>In the last section we saw that a <code>6x6</code> matrix convolved with <code>3x3</code> filter/kernel gives us a <code>4x4</code> matrix.</p></li>
+<li><p>To give it a general rule, if a matrix <code>nxn</code> is convolved with <code>fxf</code> filter/kernel give us <code>n-f+1,n-f+1</code> matrix.</p></li>
+<li><p>The convolution operation shrinks the matrix if f&gt;1.</p></li>
+<li><p>We want to apply convolution operation multiple times, but if the image shrinks we will lose a lot of data on this process. Also the edges pixels are used less than other pixels in an image.</p></li>
+<li><p>So the problems with convolutions are:</p>
 <ul>
 <li>Shrinks output.</li>
 <li>throwing away a lot of information that are in the edges.</li>
 </ul></li>
-<li>To solve these problems we can pad the input image before convolution by adding some rows and columns to it. We will call the padding amount <code>P</code> the number of row/columns that we will insert in top, bottom, left and right of the image.</li>
-<li>In almost all the cases the padding values are zeros.</li>
-<li>The general rule now, if a matrix <code>nxn</code> is convolved with <code>fxf</code> filter/kernel and padding <code>p</code> give us <code>n+2p-f+1,n+2p-f+1</code> matrix.</li>
-<li>If n = 6, f = 3, and p = 1 Then the output image will have <code>n+2p-f+1 = 6+2-3+1 = 6</code>. We maintain the size of the image.</li>
+<li><p>To solve these problems we can pad the input image before convolution by adding some rows and columns to it. We will call the padding amount <code>P</code> the number of row/columns that we will insert in top, bottom, left and right of the image.</p></li>
+<li><p>In almost all the cases the padding values are zeros.</p></li>
+<li><p>The general rule now, if a matrix <code>nxn</code> is convolved with <code>fxf</code> filter/kernel and padding <code>p</code> give us <code>n+2p-f+1,n+2p-f+1</code> matrix.</p></li>
+<li><p>If n = 6, f = 3, and p = 1 Then the output image will have <code>n+2p-f+1 = 6+2-3+1 = 6</code>. We maintain the size of the image.</p></li>
 <li><p>Same convolutions is a convolution with a pad so that output size is the same as the input size. Its given by the equation:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P = (f-1) / 2</span><br></pre></td></tr></table></figure></li>
 <li><p>In computer vision f is usually odd. Some of the reasons is that its have a center value.</p></li>
@@ -663,7 +663,7 @@
 <li><p>Strided convolution is another piece that are used in CNNs.</p></li>
 <li><p>We will call stride <code>S</code>.</p></li>
 <li><p>When we are making the convolution operation we used <code>S</code> to tell us the number of pixels we will jump when we are convolving filter/kernel. The last examples we described S was 1.</p></li>
-<li>Now the general rule are:
+<li><p>Now the general rule are:</p>
 <ul>
 <li>if a matrix <code>nxn</code> is convolved with <code>fxf</code> filter/kernel and padding <code>p</code> and stride <code>s</code> it give us <code>(n+2p-f)/s + 1,(n+2p-f)/s + 1</code> matrix.</li>
 </ul></li>
@@ -695,7 +695,7 @@
 </ul>
 <h3 id="one-layer-of-a-convolutional-network">One Layer of a Convolutional Network</h3>
 <ul>
-<li>First we convolve some filters to a given input and then add a bias to each filter output and then get RELU of the result. Example:
+<li><p>First we convolve some filters to a given input and then add a bias to each filter output and then get RELU of the result. Example:</p>
 <ul>
 <li>Input image: <code>6x6x3</code> <code># a0</code></li>
 <li>10 Filters: <code>3x3x3</code> <code>#W1</code></li>
@@ -705,8 +705,8 @@
 <li>In the last result p=0, s=1</li>
 <li>Hint number of parameters here are: <code>(3x3x3x10) + 10 = 280</code></li>
 </ul></li>
-<li>The last example forms a layer in the CNN.</li>
-<li>Hint: no matter the size of the input, the number of the parameters is same if filter size is same. That makes it less prone to overfitting.</li>
+<li><p>The last example forms a layer in the CNN.</p></li>
+<li><p>Hint: no matter the size of the input, the number of the parameters is same if filter size is same. That makes it less prone to overfitting.</p></li>
 <li><p>Here are some notations we will use. If layer l is a conv layer:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Hyperparameters</span><br><span class="line">f[l] = filter size</span><br><span class="line">p[l] = padding    # Default is zero</span><br><span class="line">s[l] = stride</span><br><span class="line">nc[l] = number of filters</span><br><span class="line"></span><br><span class="line">Input:  n[l-1] x n[l-1] x nc[l-1] Or   nH[l-1] x nW[l-1] x nc[l-1]</span><br><span class="line">Output: n[l] x n[l] x nc[l]   Or   nH[l] x nW[l] x nc[l]</span><br><span class="line">Where n[l] = (n[l-1] + 2p[l] - f[l] / s[l]) + 1</span><br><span class="line"></span><br><span class="line">Each filter is: f[l] x f[l] x nc[l-1]</span><br><span class="line"></span><br><span class="line">Activations: a[l] is nH[l] x nW[l] x nc[l]</span><br><span class="line">           A[l] is m x nH[l] x nW[l] x nc[l]   # In batch or minbatch training</span><br><span class="line">           </span><br><span class="line">Weights: f[l] * f[l] * nc[l-1] * nc[l]</span><br><span class="line">bias:  (1, 1, 1, nc[l])</span><br></pre></td></tr></table></figure></li>
 </ul>
@@ -1065,7 +1065,7 @@
 <li><p>Replace fully connected layers with 1 x 1 convolutions as Yann LeCun believes they are the same.</p>
 <ul>
 <li><blockquote>
-<p>In Convolutional Nets, there is no such thing as &quot;fully-connected layers&quot;. There are only convolution layers with 1x1 convolution kernels and a full connection table. <a href="https://www.facebook.com/yann.lecun/posts/10152820758292143" target="_blank" rel="noopener">Yann LeCun</a></p>
+<p>In Convolutional Nets, there is no such thing as "fully-connected layers". There are only convolution layers with 1x1 convolution kernels and a full connection table. <a href="https://www.facebook.com/yann.lecun/posts/10152820758292143" target="_blank" rel="noopener">Yann LeCun</a></p>
 </blockquote></li>
 </ul></li>
 <li><p><a href="https://arxiv.org/abs/1312.4400" target="_blank" rel="noopener">[Lin et al., 2013. Network in network]</a></p></li>
@@ -1216,7 +1216,7 @@
 <li>Simpler algorithms.</li>
 <li>Less hand engineering.</li>
 </ul></li>
-<li>If you don't have that much data people tend to try more hand engineering for the problem &quot;Hacks&quot;. Like choosing a more complex NN architecture.</li>
+<li>If you don't have that much data people tend to try more hand engineering for the problem "Hacks". Like choosing a more complex NN architecture.</li>
 <li>Because we haven't got that much data in a lot of computer vision problems, it relies a lot on hand engineering.</li>
 <li>We will see in the next chapter that because the object detection has less data, a more complex NN architectures will be presented.</li>
 <li>Tips for doing well on benchmarks/winning competitions:
@@ -1352,7 +1352,7 @@
 <li><img src="21.png"></li>
 </ul></li>
 <li>Simply we have feed the image into the same Conv net we have trained.</li>
-<li>The left cell of the result &quot;The blue one&quot; will represent the the first sliding window of the normal implementation. The other cells will represent the others.</li>
+<li>The left cell of the result "The blue one" will represent the the first sliding window of the normal implementation. The other cells will represent the others.</li>
 <li>Its more efficient because it now shares the computations of the four times needed.</li>
 <li>Another example would be:
 <ul>
@@ -1395,7 +1395,7 @@
 <ul>
 <li><img src="25.png"></li>
 <li>The red is the labeled output and the purple is the predicted output.</li>
-<li>To compute Intersection Over Union we first compute the union area of the two rectangles which is &quot;the first rectangle + second rectangle&quot; Then compute the intersection area between these two rectangles.</li>
+<li>To compute Intersection Over Union we first compute the union area of the two rectangles which is "the first rectangle + second rectangle" Then compute the intersection area between these two rectangles.</li>
 <li>Finally <code>IOU = intersection area / Union area</code></li>
 </ul></li>
 <li>If <code>IOU &gt;=0.5</code> then its good. The best answer will be 1.</li>
@@ -1577,14 +1577,14 @@
 <ul>
 <li>Input: image, name/ID. (1 : 1)</li>
 <li>Output: whether the input image is that of the claimed person.</li>
-<li>&quot;is this the claimed person?&quot;</li>
+<li>"is this the claimed person?"</li>
 </ul></li>
 <li>Recognition:
 <ul>
 <li>Has a database of K persons</li>
 <li>Get an input image</li>
 <li>Output ID if the image is any of the K persons (or not recognized)</li>
-<li>&quot;who is this person?&quot;</li>
+<li>"who is this person?"</li>
 </ul></li>
 </ul></li>
 <li>We can use a face verification system to make a face recognition system. The accuracy of the verification system has to be high (around 99.9% or more) to be use accurately within a recognition system because the recognition system accuracy will be less than the verification system given K persons.</li>
@@ -1896,7 +1896,7 @@
 <li>To train and test a model in Keras there are four steps:
 <ol type="1">
 <li>Create the model.</li>
-<li>Compile the model by calling <code>model.compile(optimizer = &quot;...&quot;, loss = &quot;...&quot;, metrics = [&quot;accuracy&quot;])</code></li>
+<li>Compile the model by calling <code>model.compile(optimizer = "...", loss = "...", metrics = ["accuracy"])</code></li>
 <li>Train the model on train data by calling <code>model.fit(x = ..., y = ..., epochs = ..., batch_size = ...)</code>
 <ul>
 <li>You can add a validation set while training too.</li>
@@ -2095,7 +2095,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

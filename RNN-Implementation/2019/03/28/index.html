@@ -379,7 +379,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-28T16:05:14-04:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-28T16:05:14+08:00">
                 2019-03-28
               </time>
             
@@ -450,7 +450,7 @@
       
         <h1 id="building-your-recurrent-neural-network---step-by-step">Building your Recurrent Neural Network - Step by Step</h1>
 <p>Welcome to Course 5's first assignment! In this assignment, you will implement your first Recurrent Neural Network in numpy.</p>
-<p>Recurrent Neural Networks (RNN) are very effective for Natural Language Processing and other sequence tasks because they have &quot;memory&quot;. They can read inputs <span class="math inline">\(x^{\langle t \rangle}\)</span> (such as words) one at a time, and remember some information/context through the hidden layer activations that get passed from one time-step to the next. This allows a uni-directional RNN to take information from the past to process later inputs. A bidirection RNN can take context from both the past and the future.</p>
+<p>Recurrent Neural Networks (RNN) are very effective for Natural Language Processing and other sequence tasks because they have "memory". They can read inputs <span class="math inline">\(x^{\langle t \rangle}\)</span> (such as words) one at a time, and remember some information/context through the hidden layer activations that get passed from one time-step to the next. This allows a uni-directional RNN to take information from the past to process later inputs. A bidirection RNN can take context from both the past and the future.</p>
 <p><strong>Notation</strong>: - Superscript <span class="math inline">\([l]\)</span> denotes an object associated with the <span class="math inline">\(l^{th}\)</span> layer. - Example: <span class="math inline">\(a^{[4]}\)</span> is the <span class="math inline">\(4^{th}\)</span> layer activation. <span class="math inline">\(W^{[5]}\)</span> and <span class="math inline">\(b^{[5]}\)</span> are the <span class="math inline">\(5^{th}\)</span> layer parameters.</p>
 <ul>
 <li>Superscript <span class="math inline">\((i)\)</span> denotes an object associated with the <span class="math inline">\(i^{th}\)</span> example.
@@ -543,7 +543,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </center>
 </caption>
 <p><strong>Exercise</strong>: Code the forward propagation of the RNN described in Figure (3).</p>
-<p><strong>Instructions</strong>: 1. Create a vector of zeros (<span class="math inline">\(a\)</span>) that will store all the hidden states computed by the RNN. 2. Initialize the &quot;next&quot; hidden state as <span class="math inline">\(a_0\)</span> (initial hidden state). 3. Start looping over each time step, your incremental index is <span class="math inline">\(t\)</span> : - Update the &quot;next&quot; hidden state and the cache by running <code>rnn_cell_forward</code> - Store the &quot;next&quot; hidden state in <span class="math inline">\(a\)</span> (<span class="math inline">\(t^{th}\)</span> position) - Store the prediction in y - Add the cache to the list of caches 4. Return <span class="math inline">\(a\)</span>, <span class="math inline">\(y\)</span> and caches</p>
+<p><strong>Instructions</strong>: 1. Create a vector of zeros (<span class="math inline">\(a\)</span>) that will store all the hidden states computed by the RNN. 2. Initialize the "next" hidden state as <span class="math inline">\(a_0\)</span> (initial hidden state). 3. Start looping over each time step, your incremental index is <span class="math inline">\(t\)</span> : - Update the "next" hidden state and the cache by running <code>rnn_cell_forward</code> - Store the "next" hidden state in <span class="math inline">\(a\)</span> (<span class="math inline">\(t^{th}\)</span> position) - Store the prediction in y - Add the cache to the list of caches 4. Return <span class="math inline">\(a\)</span>, <span class="math inline">\(y\)</span> and caches</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GRADED FUNCTION: rnn_forward</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rnn_forward</span><span class="params">(x, a0, parameters)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Implement the forward propagation of the recurrent neural network described in Figure (3).</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Arguments:</span></span><br><span class="line"><span class="string">    x -- Input data for every time-step, of shape (n_x, m, T_x).</span></span><br><span class="line"><span class="string">    a0 -- Initial hidden state, of shape (n_a, m)</span></span><br><span class="line"><span class="string">    parameters -- python dictionary containing:</span></span><br><span class="line"><span class="string">                        Waa -- Weight matrix multiplying the hidden state, numpy array of shape (n_a, n_a)</span></span><br><span class="line"><span class="string">                        Wax -- Weight matrix multiplying the input, numpy array of shape (n_a, n_x)</span></span><br><span class="line"><span class="string">                        Wya -- Weight matrix relating the hidden-state to the output, numpy array of shape (n_y, n_a)</span></span><br><span class="line"><span class="string">                        ba --  Bias numpy array of shape (n_a, 1)</span></span><br><span class="line"><span class="string">                        by -- Bias relating the hidden-state to the output, numpy array of shape (n_y, 1)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">    a -- Hidden states for every time-step, numpy array of shape (n_a, m, T_x)</span></span><br><span class="line"><span class="string">    y_pred -- Predictions for every time-step, numpy array of shape (n_y, m, T_x)</span></span><br><span class="line"><span class="string">    caches -- tuple of values needed for the backward pass, contains (list of caches, x)</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Initialize "caches" which will contain the list of all caches</span></span><br><span class="line">    caches = []</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Retrieve dimensions from shapes of x and parameters["Wya"]</span></span><br><span class="line">    n_x, m, T_x = x.shape</span><br><span class="line">    n_y, n_a = parameters[<span class="string">"Wya"</span>].shape</span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># initialize "a" and "y" with zeros (≈2 lines)</span></span><br><span class="line">    a = np.zeros((n_a,m,T_x))  <span class="comment"># x -&gt; (n_x, m)   waa -&gt; (n_a,n_x)   a -&gt; (na,m)</span></span><br><span class="line">    y_pred = np.zeros((n_y,m,T_x)) <span class="comment"># hidden layer n_a, output layer n_y    Wya -&gt; (n_y,n_a)   y_pred -&gt; (n_y,m) </span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Initialize a_next (≈1 line)</span></span><br><span class="line">    a_next = a0</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># loop over all time-steps</span></span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(x.shape[<span class="number">2</span>]):</span><br><span class="line">        <span class="comment"># Update next hidden state, compute the prediction, get the cache (≈1 line)</span></span><br><span class="line">        a_next, yt_pred, cache = rnn_cell_forward(x[:,:,t], a_next, parameters)</span><br><span class="line">        <span class="comment"># Save the value of the new "next" hidden state in a (≈1 line)</span></span><br><span class="line">        a[:,:,t] = a_next</span><br><span class="line">        <span class="comment"># Save the value of the prediction in y (≈1 line)</span></span><br><span class="line">        y_pred[:,:,t] = yt_pred</span><br><span class="line">        <span class="comment"># Append "cache" to "caches" (≈1 line)</span></span><br><span class="line">        caches.append(cache)</span><br><span class="line">        </span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># store values needed for backward propagation in cache</span></span><br><span class="line">    caches = (caches, x)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> a, y_pred, caches</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(<span class="number">1</span>)</span><br><span class="line">x = np.random.randn(<span class="number">3</span>,<span class="number">10</span>,<span class="number">4</span>)</span><br><span class="line">a0 = np.random.randn(<span class="number">5</span>,<span class="number">10</span>)</span><br><span class="line">Waa = np.random.randn(<span class="number">5</span>,<span class="number">5</span>)</span><br><span class="line">Wax = np.random.randn(<span class="number">5</span>,<span class="number">3</span>)</span><br><span class="line">Wya = np.random.randn(<span class="number">2</span>,<span class="number">5</span>)</span><br><span class="line">ba = np.random.randn(<span class="number">5</span>,<span class="number">1</span>)</span><br><span class="line">by = np.random.randn(<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">parameters = &#123;<span class="string">"Waa"</span>: Waa, <span class="string">"Wax"</span>: Wax, <span class="string">"Wya"</span>: Wya, <span class="string">"ba"</span>: ba, <span class="string">"by"</span>: by&#125;</span><br><span class="line"></span><br><span class="line">a, y_pred, caches = rnn_forward(x, a0, parameters)</span><br><span class="line">print(<span class="string">"a[4][1] = "</span>, a[<span class="number">4</span>][<span class="number">1</span>])</span><br><span class="line">print(<span class="string">"a.shape = "</span>, a.shape)</span><br><span class="line">print(<span class="string">"y_pred[1][3] ="</span>, y_pred[<span class="number">1</span>][<span class="number">3</span>])</span><br><span class="line">print(<span class="string">"y_pred.shape = "</span>, y_pred.shape)</span><br><span class="line">print(<span class="string">"caches[1][1][3] ="</span>, caches[<span class="number">1</span>][<span class="number">1</span>][<span class="number">3</span>])</span><br><span class="line">print(<span class="string">"len(caches) = "</span>, len(caches))</span><br></pre></td></tr></table></figure>
 <p>a[4][1] = [-0.99999375 0.77911235 -0.99861469 -0.99833267] a.shape = (5, 10, 4) y_pred[1][3] = [ 0.79560373 0.86224861 0.11118257 0.81515947] y_pred.shape = (2, 10, 4) caches[1][1][3] = [-1.1425182 -0.34934272 -0.20889423 0.58662319] len(caches) = 2</p>
@@ -598,14 +598,14 @@ yt_pred.shape =  (2, 10)</code></pre>
 </td>
 </tr>
 </table>
-<p>Congratulations! You've successfully built the forward propagation of a recurrent neural network from scratch. This will work well enough for some applications, but it suffers from vanishing gradient problems. So it works best when each output <span class="math inline">\(y^{\langle t \rangle}\)</span> can be estimated using mainly &quot;local&quot; context (meaning information from inputs <span class="math inline">\(x^{\langle t&#39; \rangle}\)</span> where <span class="math inline">\(t&#39;\)</span> is not too far from <span class="math inline">\(t\)</span>).</p>
+<p>Congratulations! You've successfully built the forward propagation of a recurrent neural network from scratch. This will work well enough for some applications, but it suffers from vanishing gradient problems. So it works best when each output <span class="math inline">\(y^{\langle t \rangle}\)</span> can be estimated using mainly "local" context (meaning information from inputs <span class="math inline">\(x^{\langle t&#39; \rangle}\)</span> where <span class="math inline">\(t&#39;\)</span> is not too far from <span class="math inline">\(t\)</span>).</p>
 <p>In the next part, you will build a more complex LSTM model, which is better at addressing vanishing gradients. The LSTM will be better able to remember a piece of information and keep it saved for many timesteps.</p>
 <h2 id="long-short-term-memory-lstm-network">2 - Long Short-Term Memory (LSTM) network</h2>
 <p>This following figure shows the operations of an LSTM-cell.</p>
 <img src="images/LSTM.png" style="width:500;height:400px;">
 <caption>
 <center>
-<strong>Figure 4</strong>: LSTM-cell. This tracks and updates a &quot;cell state&quot; or memory variable <span class="math inline">\(c^{\langle t \rangle}\)</span> at every time-step, which can be different from <span class="math inline">\(a^{\langle t \rangle}\)</span>.
+<strong>Figure 4</strong>: LSTM-cell. This tracks and updates a "cell state" or memory variable <span class="math inline">\(c^{\langle t \rangle}\)</span> at every time-step, which can be different from <span class="math inline">\(a^{\langle t \rangle}\)</span>.
 </center>
 </caption>
 <p>Similar to the RNN example above, you will start by implementing the LSTM cell for a single time-step. Then you can iteratively call it from inside a for-loop to have it process an input with <span class="math inline">\(T_x\)</span> time-steps.</p>
@@ -797,7 +797,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 <table>
 <tr>
 <td>
-<strong>gradients[&quot;dxt&quot;][1][2]</strong> =
+<strong>gradients["dxt"][1][2]</strong> =
 </td>
 <td>
 -0.460564103059
@@ -805,7 +805,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dxt&quot;].shape</strong> =
+<strong>gradients["dxt"].shape</strong> =
 </td>
 <td>
 (3, 10)
@@ -813,7 +813,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;da_prev&quot;][2][3]</strong> =
+<strong>gradients["da_prev"][2][3]</strong> =
 </td>
 <td>
 0.0842968653807
@@ -821,7 +821,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;da_prev&quot;].shape</strong> =
+<strong>gradients["da_prev"].shape</strong> =
 </td>
 <td>
 (5, 10)
@@ -829,7 +829,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWax&quot;][3][1]</strong> =
+<strong>gradients["dWax"][3][1]</strong> =
 </td>
 <td>
 0.393081873922
@@ -886,7 +886,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 <table>
 <tr>
 <td>
-<strong>gradients[&quot;dx&quot;][1][2]</strong> =
+<strong>gradients["dx"][1][2]</strong> =
 </td>
 <td>
 [-2.07101689 -0.59255627 0.02466855 0.01483317]
@@ -894,7 +894,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dx&quot;].shape</strong> =
+<strong>gradients["dx"].shape</strong> =
 </td>
 <td>
 (3, 10, 4)
@@ -902,7 +902,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;da0&quot;][2][3]</strong> =
+<strong>gradients["da0"][2][3]</strong> =
 </td>
 <td>
 -0.314942375127
@@ -910,7 +910,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;da0&quot;].shape</strong> =
+<strong>gradients["da0"].shape</strong> =
 </td>
 <td>
 (5, 10)
@@ -918,7 +918,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWax&quot;][3][1]</strong> =
+<strong>gradients["dWax"][3][1]</strong> =
 </td>
 <td>
 11.2641044965
@@ -926,7 +926,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWax&quot;].shape</strong> =
+<strong>gradients["dWax"].shape</strong> =
 </td>
 <td>
 (5, 3)
@@ -934,7 +934,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWaa&quot;][1][2]</strong> =
+<strong>gradients["dWaa"][1][2]</strong> =
 </td>
 <td>
 2.30333312658
@@ -942,7 +942,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWaa&quot;].shape</strong> =
+<strong>gradients["dWaa"].shape</strong> =
 </td>
 <td>
 (5, 5)
@@ -950,7 +950,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dba&quot;][4]</strong> =
+<strong>gradients["dba"][4]</strong> =
 </td>
 <td>
 [-0.74747722]
@@ -958,7 +958,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dba&quot;].shape</strong> =
+<strong>gradients["dba"].shape</strong> =
 </td>
 <td>
 (5, 1)
@@ -986,7 +986,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 <table>
 <tr>
 <td>
-<strong>gradients[&quot;dxt&quot;][1][2]</strong> =
+<strong>gradients["dxt"][1][2]</strong> =
 </td>
 <td>
 3.23055911511
@@ -994,7 +994,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dxt&quot;].shape</strong> =
+<strong>gradients["dxt"].shape</strong> =
 </td>
 <td>
 (3, 10)
@@ -1002,7 +1002,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;da_prev&quot;][2][3]</strong> =
+<strong>gradients["da_prev"][2][3]</strong> =
 </td>
 <td>
 -0.0639621419711
@@ -1010,7 +1010,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;da_prev&quot;].shape</strong> =
+<strong>gradients["da_prev"].shape</strong> =
 </td>
 <td>
 (5, 10)
@@ -1018,7 +1018,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dc_prev&quot;][2][3]</strong> =
+<strong>gradients["dc_prev"][2][3]</strong> =
 </td>
 <td>
 0.797522038797
@@ -1026,7 +1026,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dc_prev&quot;].shape</strong> =
+<strong>gradients["dc_prev"].shape</strong> =
 </td>
 <td>
 (5, 10)
@@ -1034,7 +1034,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWf&quot;][3][1]</strong> =
+<strong>gradients["dWf"][3][1]</strong> =
 </td>
 <td>
 -0.147954838164
@@ -1042,7 +1042,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWf&quot;].shape</strong> =
+<strong>gradients["dWf"].shape</strong> =
 </td>
 <td>
 (5, 8)
@@ -1050,7 +1050,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWi&quot;][1][2]</strong> =
+<strong>gradients["dWi"][1][2]</strong> =
 </td>
 <td>
 1.05749805523
@@ -1058,7 +1058,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWi&quot;].shape</strong> =
+<strong>gradients["dWi"].shape</strong> =
 </td>
 <td>
 (5, 8)
@@ -1066,7 +1066,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWc&quot;][3][1]</strong> =
+<strong>gradients["dWc"][3][1]</strong> =
 </td>
 <td>
 2.30456216369
@@ -1074,7 +1074,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWc&quot;].shape</strong> =
+<strong>gradients["dWc"].shape</strong> =
 </td>
 <td>
 (5, 8)
@@ -1082,7 +1082,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWo&quot;][1][2]</strong> =
+<strong>gradients["dWo"][1][2]</strong> =
 </td>
 <td>
 0.331311595289
@@ -1090,7 +1090,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWo&quot;].shape</strong> =
+<strong>gradients["dWo"].shape</strong> =
 </td>
 <td>
 (5, 8)
@@ -1098,7 +1098,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dbf&quot;][4]</strong> =
+<strong>gradients["dbf"][4]</strong> =
 </td>
 <td>
 [ 0.18864637]
@@ -1106,7 +1106,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dbf&quot;].shape</strong> =
+<strong>gradients["dbf"].shape</strong> =
 </td>
 <td>
 (5, 1)
@@ -1114,7 +1114,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dbi&quot;][4]</strong> =
+<strong>gradients["dbi"][4]</strong> =
 </td>
 <td>
 [-0.40142491]
@@ -1122,7 +1122,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dbi&quot;].shape</strong> =
+<strong>gradients["dbi"].shape</strong> =
 </td>
 <td>
 (5, 1)
@@ -1130,7 +1130,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dbc&quot;][4]</strong> =
+<strong>gradients["dbc"][4]</strong> =
 </td>
 <td>
 [ 0.25587763]
@@ -1138,7 +1138,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dbc&quot;].shape</strong> =
+<strong>gradients["dbc"].shape</strong> =
 </td>
 <td>
 (5, 1)
@@ -1146,7 +1146,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dbo&quot;][4]</strong> =
+<strong>gradients["dbo"][4]</strong> =
 </td>
 <td>
 [ 0.13893342]
@@ -1154,7 +1154,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dbo&quot;].shape</strong> =
+<strong>gradients["dbo"].shape</strong> =
 </td>
 <td>
 (5, 1)
@@ -1170,7 +1170,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 <table>
 <tr>
 <td>
-<strong>gradients[&quot;dx&quot;][1][2]</strong> =
+<strong>gradients["dx"][1][2]</strong> =
 </td>
 <td>
 [-0.00173313 0.08287442 -0.30545663 -0.43281115]
@@ -1178,7 +1178,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dx&quot;].shape</strong> =
+<strong>gradients["dx"].shape</strong> =
 </td>
 <td>
 (3, 10, 4)
@@ -1186,7 +1186,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;da0&quot;][2][3]</strong> =
+<strong>gradients["da0"][2][3]</strong> =
 </td>
 <td>
 -0.095911501954
@@ -1194,7 +1194,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;da0&quot;].shape</strong> =
+<strong>gradients["da0"].shape</strong> =
 </td>
 <td>
 (5, 10)
@@ -1202,7 +1202,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWf&quot;][3][1]</strong> =
+<strong>gradients["dWf"][3][1]</strong> =
 </td>
 <td>
 -0.0698198561274
@@ -1210,7 +1210,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWf&quot;].shape</strong> =
+<strong>gradients["dWf"].shape</strong> =
 </td>
 <td>
 (5, 8)
@@ -1218,7 +1218,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWi&quot;][1][2]</strong> =
+<strong>gradients["dWi"][1][2]</strong> =
 </td>
 <td>
 0.102371820249
@@ -1226,7 +1226,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWi&quot;].shape</strong> =
+<strong>gradients["dWi"].shape</strong> =
 </td>
 <td>
 (5, 8)
@@ -1234,7 +1234,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWc&quot;][3][1]</strong> =
+<strong>gradients["dWc"][3][1]</strong> =
 </td>
 <td>
 -0.0624983794927
@@ -1242,7 +1242,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWc&quot;].shape</strong> =
+<strong>gradients["dWc"].shape</strong> =
 </td>
 <td>
 (5, 8)
@@ -1250,7 +1250,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWo&quot;][1][2]</strong> =
+<strong>gradients["dWo"][1][2]</strong> =
 </td>
 <td>
 0.0484389131444
@@ -1258,7 +1258,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dWo&quot;].shape</strong> =
+<strong>gradients["dWo"].shape</strong> =
 </td>
 <td>
 (5, 8)
@@ -1266,7 +1266,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dbf&quot;][4]</strong> =
+<strong>gradients["dbf"][4]</strong> =
 </td>
 <td>
 [-0.0565788]
@@ -1274,7 +1274,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dbf&quot;].shape</strong> =
+<strong>gradients["dbf"].shape</strong> =
 </td>
 <td>
 (5, 1)
@@ -1282,7 +1282,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dbi&quot;][4]</strong> =
+<strong>gradients["dbi"][4]</strong> =
 </td>
 <td>
 [-0.06997391]
@@ -1290,7 +1290,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dbi&quot;].shape</strong> =
+<strong>gradients["dbi"].shape</strong> =
 </td>
 <td>
 (5, 1)
@@ -1298,7 +1298,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dbc&quot;][4]</strong> =
+<strong>gradients["dbc"][4]</strong> =
 </td>
 <td>
 [-0.27441821]
@@ -1306,7 +1306,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dbc&quot;].shape</strong> =
+<strong>gradients["dbc"].shape</strong> =
 </td>
 <td>
 (5, 1)
@@ -1314,7 +1314,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dbo&quot;][4]</strong> =
+<strong>gradients["dbo"][4]</strong> =
 </td>
 <td>
 [ 0.16532821]
@@ -1322,7 +1322,7 @@ yt_pred.shape =  (2, 10)</code></pre>
 </tr>
 <tr>
 <td>
-<strong>gradients[&quot;dbo&quot;].shape</strong> =
+<strong>gradients["dbo"].shape</strong> =
 </td>
 <td>
 (5, 1)
@@ -1519,7 +1519,7 @@ yt_pred.shape =  (2, 10)</code></pre>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

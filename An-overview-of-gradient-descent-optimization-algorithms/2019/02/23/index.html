@@ -374,7 +374,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-23T12:19:14-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-23T12:19:14+08:00">
                 2019-02-23
               </time>
             
@@ -451,7 +451,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(nb_epochs):</span><br><span class="line">  np.random.shuffle(data)</span><br><span class="line">  <span class="keyword">for</span> example <span class="keyword">in</span> data:</span><br><span class="line">    params_grad = evaluate_gradient(loss_function, example, params)</span><br><span class="line">    params = params - learning_rate * params_grad</span><br></pre></td></tr></table></figure>
 <ul>
 <li>SGD performs frequent updates with a high variance that cause the objective function to fluctuate heavily as in Image 1.</li>
-<li><img src="image1.png" alt="image1.png"></li>
+<li><img src="image1.png" title="fig:" alt="image1.png"></li>
 <li>SGD shows the same convergence behaviour as batch gradient descent, almost certainly converging to a local or the global minimum for non-convex and convex optimization respectively.</li>
 </ul>
 <h2 id="mini-batch-gradient-descent">Mini-batch gradient descent</h2>
@@ -707,7 +707,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
