@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangruochi.com/Master-Computer-Science/2019/02/20/</loc>
+    
+    <lastmod>2019-05-02T02:25:28.729Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangruochi.com/Coordinate-descent-for-lasso/2019/05/01/</loc>
     
     <lastmod>2019-05-01T16:35:34.703Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://zhangruochi.com/RNN-MXNET-Implementation/2019/04/12/</loc>
     
     <lastmod>2019-04-13T02:32:00.513Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Master-Computer-Science/2019/02/20/</loc>
-    
-    <lastmod>2019-03-29T23:16:23.000Z</lastmod>
     
   </url>
   
