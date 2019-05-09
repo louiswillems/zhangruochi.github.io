@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangruochi.com/about/index.html</loc>
+    
+    <lastmod>2019-05-09T06:45:09.585Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangruochi.com/Logistic-Regression-and-Maximum-likelihood-estimation/2019/05/03/</loc>
     
     <lastmod>2019-05-03T00:48:23.448Z</lastmod>
@@ -250,13 +257,6 @@
     <loc>https://zhangruochi.com/Sequence-Models/2019/03/27/</loc>
     
     <lastmod>2019-03-29T21:54:37.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/about/index.html</loc>
-    
-    <lastmod>2019-03-29T00:09:11.000Z</lastmod>
     
   </url>
   
