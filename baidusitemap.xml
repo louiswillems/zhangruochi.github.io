@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhangruochi.com/3-sources-of-error/2019/04/20/</loc>
+    <lastmod>2019-05-13</lastmod>
+  </url>  <url>
     <loc>https://zhangruochi.com/TFserving-Introdcution/2019/05/13/</loc>
     <lastmod>2019-05-13</lastmod>
   </url>  <url>
@@ -27,9 +30,6 @@
   </url>  <url>
     <loc>https://zhangruochi.com/The-difference-between-Lasso-and-Ridge-regularization/2019/05/01/</loc>
     <lastmod>2019-05-01</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/3-sources-of-error/2019/04/20/</loc>
-    <lastmod>2019-04-20</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/LSTM-Mxnet-Implementation/2019/04/13/</loc>
     <lastmod>2019-04-13</lastmod>
