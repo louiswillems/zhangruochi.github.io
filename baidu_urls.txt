@@ -1,3 +1,3 @@
+https://zhangruochi.com/KMeans-Improving/2019/05/15/
 https://zhangruochi.com/KNN-with-KDtree/2019/05/14/
 https://zhangruochi.com/AdaBoost-Summary/2019/05/14/
-https://zhangruochi.com/TFserving-Introdcution/2019/05/13/
