@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangruochi.com/Master-Computer-Science/2019/02/20/</loc>
+    
+    <lastmod>2019-05-15T16:08:24.533Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangruochi.com/Gaussian-Mixed-Model-Introduction/2019/05/15/</loc>
     
-    <lastmod>2019-05-15T08:07:32.689Z</lastmod>
+    <lastmod>2019-05-15T08:07:32.000Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>https://zhangruochi.com/KNN-with-KDtree/2019/05/14/</loc>
     
     <lastmod>2019-05-14T14:07:52.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Master-Computer-Science/2019/02/20/</loc>
-    
-    <lastmod>2019-05-14T07:52:39.751Z</lastmod>
     
   </url>
   
