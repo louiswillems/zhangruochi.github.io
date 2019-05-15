@@ -450,46 +450,65 @@
       
 
       
-        <h2 id="What-hypothesis-set-can-we-use"><a href="#What-hypothesis-set-can-we-use" class="headerlink" title="What hypothesis set can we use?"></a>What hypothesis set can we use?</h2><p><img src="question.png" alt="question.png"></p>
-<h2 id="A-Simple-Hypothesis-Set-the-“Perceptron”"><a href="#A-Simple-Hypothesis-Set-the-“Perceptron”" class="headerlink" title="A Simple Hypothesis Set: the “Perceptron”"></a>A Simple Hypothesis Set: the “Perceptron”</h2><ul>
-<li>Perceptron in $\mathbb{R}^2$</li>
-</ul>
-<script type="math/tex; mode=display">h(x) = sign(w_0 + w_1x_1 + w_2x_2)</script><p><img src="perceptron.png" alt="perceptron"></p>
+        <h2 id="what-hypothesis-set-can-we-use">What hypothesis set can we use?</h2>
+<figure>
+<img src="question.png" alt="question.png"><figcaption>question.png</figcaption>
+</figure>
+<h2 id="a-simple-hypothesis-set-the-perceptron">A Simple Hypothesis Set: the "Perceptron"</h2>
 <ul>
-<li>features x: points on the plane (or points in $\mathbb{R}^d$ )</li>
+<li>Perceptron in <span class="math inline">\(\mathbb{R}^2\)</span></li>
+</ul>
+<p><span class="math display">\[h(x) = sign(w_0 + w_1x_1 + w_2x_2)\]</span> <img src="perceptron.png" alt="perceptron"></p>
+<ul>
+<li>features x: points on the plane (or points in <span class="math inline">\(\mathbb{R}^d\)</span> )</li>
 <li>labels y: (+1), × (-1)</li>
-<li>hypothesis h: lines (or hyperplanes in $\mathbb{R}^d$ ),positive on one side of a line, negative on the other side</li>
+<li>hypothesis h: lines (or hyperplanes in <span class="math inline">\(\mathbb{R}^d\)</span> ),positive on one side of a line, negative on the other side</li>
 <li>different line classifies simples differently</li>
 </ul>
-<blockquote class="blockquote-center">perceptrons <=> linear (binary) classifiers</=></blockquote>
-
-
-<h2 id="Select-g-from-mathscr-H"><a href="#Select-g-from-mathscr-H" class="headerlink" title="Select g from $\mathscr{H}$"></a>Select g from $\mathscr{H}$</h2><ul>
-<li>want: $g \approx f$ (hard when f unknown)</li>
-<li>almost necessary: $g \approx f$ on D, ideally $g(x_n) = f(x_n) = y_n$</li>
-<li>difficult: H is of infinite size</li>
-<li>idea: start from some $g_0$, and <font color="red">correct</font> its mistakes on $D$</li>
-</ul>
-<h2 id="Perceptron-Learning-Algorithm"><a href="#Perceptron-Learning-Algorithm" class="headerlink" title="Perceptron Learning Algorithm"></a>Perceptron Learning Algorithm</h2><p><img src="algo.png" alt="Perceptron Learning Algorithm"><br><img src="PLA01.png" alt="PLA01.png"><br><img src="PLA02.png" alt="PLA02.png"></p>
+<blockquote class="blockquote-center">
+perceptrons &lt;=&gt; linear (binary) classifiers
+</blockquote>
+<h2 id="select-g-from-mathscrh">Select g from <span class="math inline">\(\mathscr{H}\)</span></h2>
 <ul>
-<li>if PLA halts (i.e. no more mistakes),<br>(necessary condition) $D$ allows some w to make no mistake</li>
-<li>call such $D$ linear separable<ul>
-<li><img src="seperate.png" alt=""></li>
+<li>want: <span class="math inline">\(g \approx f\)</span> (hard when f unknown)</li>
+<li>almost necessary: <span class="math inline">\(g \approx f\)</span> on D, ideally <span class="math inline">\(g(x_n) = f(x_n) = y_n\)</span></li>
+<li>difficult: H is of infinite size</li>
+<li>idea: start from some <span class="math inline">\(g_0\)</span>, and <font color="red">correct</font> its mistakes on <span class="math inline">\(D\)</span></li>
 </ul>
-</li>
-<li>as long as linear separable and correct by mistake<ul>
-<li>inner product of $w_f$ and $w_t$ grows fast; length of wt grows slowly</li>
-<li>PLA ‘lines’ are more and more aligned with $w_f \rightarrow halts$</li>
+<h2 id="perceptron-learning-algorithm">Perceptron Learning Algorithm</h2>
+<p><img src="algo.png" alt="Perceptron Learning Algorithm"> <img src="PLA01.png" alt="PLA01.png"> <img src="PLA02.png" alt="PLA02.png"></p>
+<ul>
+<li>if PLA halts (i.e. no more mistakes), (necessary condition) <span class="math inline">\(D\)</span> allows some w to make no mistake</li>
+<li>call such <span class="math inline">\(D\)</span> linear separable
+<ul>
+<li><img src="seperate.png"></li>
+</ul></li>
+<li>as long as linear separable and correct by mistake
+<ul>
+<li>inner product of <span class="math inline">\(w_f\)</span> and <span class="math inline">\(w_t\)</span> grows fast; length of wt grows slowly</li>
+<li>PLA ‘lines’ are more and more aligned with <span class="math inline">\(w_f \rightarrow halts\)</span></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Line-with-Noise-Tolerance"><a href="#Line-with-Noise-Tolerance" class="headerlink" title="Line with Noise Tolerance"></a>Line with Noise Tolerance</h2><p>$D$ is not linear separable?</p>
-<p><img src="np.png" alt="not linear separable"></p>
-<h2 id="Pocket-Algorithm"><a href="#Pocket-Algorithm" class="headerlink" title="Pocket Algorithm"></a>Pocket Algorithm</h2><p><strong>Find the best weights in pocket until enough iterations</strong></p>
-<p><img src="pocket.png" alt="pocket algorithm"></p>
-<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><blockquote>
-<p> Since we do not know whether D is linear separable in advance, we may decide to just go with pocket instead of PLA. If D is actually linear separable, what’s the difference between the two?<br>1 pocket on D is slower than PLA<br>2 pocket on D is faster than PLA<br>3 pocket on D returns a better g in approximating f than PLA<br>4 pocket on D returns a worse g in approximating f than PLA</p>
-<p>answer: Because pocket need to check whether $w<em>{t+1}$ is better than $\hat{w}$ in each iteration, it is slower than PLA. On linear separable D, $w</em>{POCKET}$ is the same as $w_{PLA}$, both making no mistakes.</p>
+<h2 id="line-with-noise-tolerance">Line with Noise Tolerance</h2>
+<p><span class="math inline">\(D\)</span> is not linear separable?</p>
+<figure>
+<img src="np.png" alt="not linear separable"><figcaption>not linear separable</figcaption>
+</figure>
+<h2 id="pocket-algorithm">Pocket Algorithm</h2>
+<p><strong>Find the best weights in pocket until enough iterations</strong></p>
+<figure>
+<img src="pocket.png" alt="pocket algorithm"><figcaption>pocket algorithm</figcaption>
+</figure>
+<h3 id="question">Question</h3>
+<blockquote>
+<p>Since we do not know whether D is linear separable in advance, we may decide to just go with pocket instead of PLA. If D is actually linear separable, what’s the difference between the two?<br>
+1 pocket on D is slower than PLA<br>
+2 pocket on D is faster than PLA<br>
+3 pocket on D returns a better g in approximating f than PLA<br>
+4 pocket on D returns a worse g in approximating f than PLA</p>
+</blockquote>
+<blockquote>
+<p>answer: Because pocket need to check whether <span class="math inline">\(w_{t+1}\)</span> is better than <span class="math inline">\(\hat{w}\)</span> in each iteration, it is slower than PLA. On linear separable D, <span class="math inline">\(w_{POCKET}\)</span> is the same as <span class="math inline">\(w_{PLA}\)</span>, both making no mistakes.</p>
 </blockquote>
 
       
@@ -676,7 +695,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -765,7 +784,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-hypothesis-set-can-we-use"><span class="nav-text">What hypothesis set can we use?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Simple-Hypothesis-Set-the-“Perceptron”"><span class="nav-text">A Simple Hypothesis Set: the “Perceptron”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Select-g-from-mathscr-H"><span class="nav-text">Select g from $\mathscr{H}$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Perceptron-Learning-Algorithm"><span class="nav-text">Perceptron Learning Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Line-with-Noise-Tolerance"><span class="nav-text">Line with Noise Tolerance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pocket-Algorithm"><span class="nav-text">Pocket Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Question"><span class="nav-text">Question</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#what-hypothesis-set-can-we-use"><span class="nav-text">What hypothesis set can we use?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#a-simple-hypothesis-set-the-perceptron"><span class="nav-text">A Simple Hypothesis Set: the &quot;Perceptron&quot;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#select-g-from-mathscrh"><span class="nav-text">Select g from \(\mathscr{H}\)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#perceptron-learning-algorithm"><span class="nav-text">Perceptron Learning Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-with-noise-tolerance"><span class="nav-text">Line with Noise Tolerance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pocket-algorithm"><span class="nav-text">Pocket Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#question"><span class="nav-text">Question</span></a></li></ol></li></ol></div>
             
 
           </div>
