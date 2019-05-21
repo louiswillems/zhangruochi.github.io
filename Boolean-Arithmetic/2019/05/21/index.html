@@ -113,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="Boolean Arithmetic">
+  <meta name="keywords" content="Boolean Arithmetic,ALU">
 
 
 
@@ -125,7 +125,7 @@
 
 
 <meta name="description" content="In this chapter I build gate logic designs that represent numbers and perform arithmetic operations on them. My ending point is a fully functional Arithmetic Logical Unit.">
-<meta name="keywords" content="Boolean Arithmetic">
+<meta name="keywords" content="Boolean Arithmetic,ALU">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Boolean Arithmetic">
 <meta property="og:url" content="https://zhangruochi.com/Boolean-Arithmetic/2019/05/21/index.html">
@@ -145,7 +145,7 @@
 <meta property="og:image" content="https://zhangruochi.com/Boolean-Arithmetic/2019/05/21/hackALU.png">
 <meta property="og:image" content="https://zhangruochi.com/Boolean-Arithmetic/2019/05/21/e1.png">
 <meta property="og:image" content="https://zhangruochi.com/Boolean-Arithmetic/2019/05/21/e2.png">
-<meta property="og:updated_time" content="2019-05-21T07:41:04.469Z">
+<meta property="og:updated_time" content="2019-05-21T07:44:14.624Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Boolean Arithmetic">
 <meta name="twitter:description" content="In this chapter I build gate logic designs that represent numbers and perform arithmetic operations on them. My ending point is a fully functional Arithmetic Logical Unit.">
@@ -455,7 +455,27 @@
       
 
       
-        <h1 id="boolean-arithmetic">Boolean Arithmetic</h1>
+        <h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#boolean-arithmetic">Boolean Arithmetic</a>
+<ul>
+<li><a href="#binary-numbers">Binary numbers</a></li>
+<li><a href="#addition">Addition</a></li>
+<li><a href="#building-an-adder">Building an Adder</a>
+<ul>
+<li><a href="#half-adder">Half adder</a></li>
+<li><a href="#full-adder">Full adder</a></li>
+<li><a href="#multi-bit-adder">Multi-bit Adder</a></li>
+</ul></li>
+<li><a href="#negative-numbers">Negative numbers</a></li>
+<li><a href="#arithmetic-logic-unit">Arithmetic Logic Unit</a>
+<ul>
+<li><a href="#von-neumann-architecture">Von Neumann Architecture</a></li>
+<li><a href="#the-hack-alu">The Hack ALU</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<h1 id="boolean-arithmetic">Boolean Arithmetic</h1>
 <h2 id="binary-numbers">Binary numbers</h2>
 <ol type="1">
 <li>Representing numbers</li>
@@ -806,7 +826,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#boolean-arithmetic"><span class="nav-text">Boolean Arithmetic</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#binary-numbers"><span class="nav-text">Binary numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#addition"><span class="nav-text">Addition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#building-an-adder"><span class="nav-text">Building an Adder</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#half-adder"><span class="nav-text">Half adder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#full-adder"><span class="nav-text">Full adder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-bit-adder"><span class="nav-text">Multi-bit Adder</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#negative-numbers"><span class="nav-text">Negative numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#arithmetic-logic-unit"><span class="nav-text">Arithmetic Logic Unit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#von-neumann-architecture"><span class="nav-text">Von Neumann Architecture</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-hack-alu"><span class="nav-text">The Hack ALU</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#table-of-contents"><span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#boolean-arithmetic"><span class="nav-text">Boolean Arithmetic</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#binary-numbers"><span class="nav-text">Binary numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#addition"><span class="nav-text">Addition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#building-an-adder"><span class="nav-text">Building an Adder</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#half-adder"><span class="nav-text">Half adder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#full-adder"><span class="nav-text">Full adder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-bit-adder"><span class="nav-text">Multi-bit Adder</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#negative-numbers"><span class="nav-text">Negative numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#arithmetic-logic-unit"><span class="nav-text">Arithmetic Logic Unit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#von-neumann-architecture"><span class="nav-text">Von Neumann Architecture</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-hack-alu"><span class="nav-text">The Hack ALU</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
