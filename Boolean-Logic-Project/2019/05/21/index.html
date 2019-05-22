@@ -425,7 +425,7 @@
 <p><strong>Tips</strong>: The Nand gate is considered primitive and thus there is no need to build it: Whenever you use Nand in one of your HDL programs, the simulator will auto- matically invoke its built-in tools/builtIn/Nand.hdl implementation. We rec- ommend implementing the other gates in this project in the order in which they appear in the chapter. However, since the builtIn directory features working ver- sions of all the chips described in the book, you can always use these chips without defining them first: The simulator will automatically use their built-in versions.</p>
 <p>For example, consider the skeletal Mux.hdl program supplied in this project. Suppose that for one reason or another you did not complete this program’s im- plementation, but you still want to use Mux gates as internal parts in other chip designs. This is not a problem, thanks to the following convention. If our simula- tor fails to find a Mux.hdl file in the current directory, it automatically invokes a built-in Mux implementation, pre-supplied with the simulator’s software. This built- in implementation—a Java class stored in the builtIn directory—has the same in- terface and functionality as those of the Mux gate described in the book. Thus, if you want the simulator to ignore one or more of your chip implementations, simply move the corresponding .hdl files out of the current directory.</p>
 <p><strong>Steps</strong>: We recommend proceeding in the following order:</p>
-<ol start="0" type="1">
+<ol>
 <li>The hardware simulator needed for this project is available in the tools directory of the book’s software suite.</li>
 <li>Read appendix A, sections A1–A6 only.</li>
 <li>Go through the hardware simulator tutorial, parts I, II, and III only.</li>
@@ -624,7 +624,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -635,7 +635,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

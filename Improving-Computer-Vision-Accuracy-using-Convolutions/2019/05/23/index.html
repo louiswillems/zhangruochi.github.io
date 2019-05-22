@@ -113,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="Computer Vision,Fashion MNIST">
+  <meta name="keywords" content="CNN,Filter">
 
 
 
@@ -124,18 +124,15 @@
 
 
 
-<meta name="description" content="Beyond Hello World, A Computer Vision Example">
-<meta name="keywords" content="Computer Vision,Fashion MNIST">
+<meta name="keywords" content="CNN,Filter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Beyond Hello World, A Computer Vision Example">
-<meta property="og:url" content="https://zhangruochi.com/Beyond-Hello-World-A-Computer-Vision-Example/2019/05/22/index.html">
+<meta property="og:title" content="Improving Computer Vision Accuracy using Convolutions">
+<meta property="og:url" content="https://zhangruochi.com/Improving-Computer-Vision-Accuracy-using-Convolutions/2019/05/23/index.html">
 <meta property="og:site_name" content="RUOCHI">
-<meta property="og:description" content="Beyond Hello World, A Computer Vision Example">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-21T16:22:36.507Z">
+<meta property="og:updated_time" content="2019-05-22T23:31:09.651Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Beyond Hello World, A Computer Vision Example">
-<meta name="twitter:description" content="Beyond Hello World, A Computer Vision Example">
+<meta name="twitter:title" content="Improving Computer Vision Accuracy using Convolutions">
 
 
 
@@ -165,13 +162,13 @@
 
 
 
-  <link rel="canonical" href="https://zhangruochi.com/Beyond-Hello-World-A-Computer-Vision-Example/2019/05/22/">
+  <link rel="canonical" href="https://zhangruochi.com/Improving-Computer-Vision-Accuracy-using-Convolutions/2019/05/23/">
 
 
 
 
 
-  <title>Beyond Hello World, A Computer Vision Example | RUOCHI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Improving Computer Vision Accuracy using Convolutions | RUOCHI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -340,7 +337,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Beyond-Hello-World-A-Computer-Vision-Example/2019/05/22/">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Improving-Computer-Vision-Accuracy-using-Convolutions/2019/05/23/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
@@ -357,7 +354,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Beyond Hello World, A Computer Vision Example</h2>
+          <h2 class="post-title" itemprop="name headline">Improving Computer Vision Accuracy using Convolutions</h2>
         
 
         <div class="post-meta">
@@ -372,8 +369,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-22T00:19:06+08:00">
-                2019-05-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-23T07:27:45+08:00">
+                2019-05-23
               </time>
             
 
@@ -395,8 +392,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Deep-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Deep Learning</span>
+                  <a href="/categories/Deep-Leaning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Leaning</span>
                   </a>
                 </span>
 
@@ -423,10 +420,6 @@
           
 
           
-              <div class="post-description">
-                  Beyond Hello World, A Computer Vision Example
-              </div>
-          
 
         </div>
       </header>
@@ -448,7 +441,7 @@
 <html>
 <head><meta charset='utf-8' />
 
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Course_1_Part_4_Lesson_2_Notebook</title>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Course_1_Part_6_Lesson_2_Notebook</title>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
@@ -13562,16 +13555,8 @@ div#notebook {
 <div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
 </div><div class='inner_cell'>
 <div class='text_cell_render border-box-sizing rendered_html'>
-<h1 id='Beyond-Hello-World,-A-Computer-Vision-Example'>Beyond Hello World, A Computer Vision Example</h1><p>In the previous exercise you saw how to create a neural network that figured out the problem you were trying to solve. This gave an explicit example of learned behavior. Of course, in that instance, it was a bit of overkill because it would have been easier to write the function Y=2x-1 directly, instead of bothering with using Machine Learning to learn the relationship between X and Y for a fixed set of values, and extending that for all values.</p>
-<p>But what about a scenario where writing rules like that is much more difficult -- for example a computer vision problem? Let's take a look at a scenario where we can recognize different items of clothing, trained from a dataset containing 10 different types.</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h2 id='Start-Coding'>Start Coding</h2><p>Let's start with our import of TensorFlow</p>
+<h1 id='Improving-Computer-Vision-Accuracy-using-Convolutions'>Improving Computer Vision Accuracy using Convolutions</h1><p>In the previous lessons you saw how to do fashion recognition using a Deep Neural Network (DNN) containing three layers -- the input layer (in the shape of the data), the output layer (in the shape of the desired output) and a hidden layer. You experimented with the impact of different sized of hidden layer, number of training epochs etc on the final accuracy.</p>
+<p>For convenience, here's the entire code again. Run it and take a note of the test accuracy that is printed out at the end.</p>
 
 </div>
 </div>
@@ -13582,67 +13567,19 @@ div#notebook {
 <div class='inner_cell'>
     <div class='input_area'>
 <div class=' highlight hl-ipython3'><pre><span></span><span class='kn'>import</span> <span class='nn'>tensorflow</span> <span class='k'>as</span> <span class='nn'>tf</span>
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>__version__</span><span class='p'>)</span>
-</pre></div>
+<span class='n'>mnist</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>datasets</span><span class='o'>.</span><span class='n'>fashion_mnist</span>
+<span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>),</span> <span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span> <span class='o'>=</span> <span class='n'>mnist</span><span class='o'>.</span><span class='n'>load_data</span><span class='p'>()</span>
+<span class='n'>training_images</span><span class='o'>=</span><span class='n'>training_images</span> <span class='o'>/</span> <span class='mf'>255.0</span>
+<span class='n'>test_images</span><span class='o'>=</span><span class='n'>test_images</span> <span class='o'>/</span> <span class='mf'>255.0</span>
+<span class='n'>model</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>models</span><span class='o'>.</span><span class='n'>Sequential</span><span class='p'>([</span>
+  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Flatten</span><span class='p'>(),</span>
+  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>128</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>relu</span><span class='p'>),</span>
+  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>softmax</span><span class='p'>)</span>
+<span class='p'>])</span>
+<span class='n'>model</span><span class='o'>.</span><span class='n'>compile</span><span class='p'>(</span><span class='n'>optimizer</span><span class='o'>=</span><span class='s1'>&#39;adam&#39;</span><span class='p'>,</span> <span class='n'>loss</span><span class='o'>=</span><span class='s1'>&#39;sparse_categorical_crossentropy&#39;</span><span class='p'>,</span> <span class='n'>metrics</span><span class='o'>=</span><span class='p'>[</span><span class='s1'>&#39;accuracy&#39;</span><span class='p'>])</span>
+<span class='n'>model</span><span class='o'>.</span><span class='n'>fit</span><span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>,</span> <span class='n'>epochs</span><span class='o'>=</span><span class='mi'>5</span><span class='p'>)</span>
 
-    </div>
-</div>
-</div>
-
-<div class='output_wrapper'>
-<div class='output'>
-
-
-<div class='output_area'>
-
-    <div class='prompt'></div>
-
-
-<div class='output_subarea output_stream output_stdout output_text'>
-<pre>1.13.1
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<p>The Fashion MNIST data is available directly in the tf.keras datasets API. You load it like this:</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[0]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='n'>mnist</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>datasets</span><span class='o'>.</span><span class='n'>fashion_mnist</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<p>Calling load_data on this object will give you two sets of two lists, these will be the training and testing values for the graphics that contain the clothing items and their labels.</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[3]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>),</span> <span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span> <span class='o'>=</span> <span class='n'>mnist</span><span class='o'>.</span><span class='n'>load_data</span><span class='p'>()</span>
+<span class='n'>test_loss</span> <span class='o'>=</span> <span class='n'>model</span><span class='o'>.</span><span class='n'>evaluate</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span>
 </pre></div>
 
     </div>
@@ -13661,15 +13598,26 @@ div#notebook {
 <div class='output_subarea output_stream output_stdout output_text'>
 <pre>Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/train-labels-idx1-ubyte.gz
 32768/29515 [=================================] - 0s 0us/step
-40960/29515 [=========================================] - 0s 0us/step
 Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/train-images-idx3-ubyte.gz
 26427392/26421880 [==============================] - 0s 0us/step
-26435584/26421880 [==============================] - 0s 0us/step
 Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/t10k-labels-idx1-ubyte.gz
-16384/5148 [===============================================================================================] - 0s 0us/step
+8192/5148 [===============================================] - 0s 0us/step
 Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/t10k-images-idx3-ubyte.gz
 4423680/4422102 [==============================] - 0s 0us/step
-4431872/4422102 [==============================] - 0s 0us/step
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/resource_variable_ops.py:435: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+Epoch 1/5
+60000/60000 [==============================] - 8s 131us/sample - loss: 0.5016 - acc: 0.8235
+Epoch 2/5
+60000/60000 [==============================] - 7s 119us/sample - loss: 0.3723 - acc: 0.8658
+Epoch 3/5
+60000/60000 [==============================] - 7s 116us/sample - loss: 0.3366 - acc: 0.8770
+Epoch 4/5
+60000/60000 [==============================] - 7s 115us/sample - loss: 0.3108 - acc: 0.8873
+Epoch 5/5
+60000/60000 [==============================] - 7s 113us/sample - loss: 0.2961 - acc: 0.8911
+10000/10000 [==============================] - 0s 43us/sample - loss: 0.3413 - acc: 0.8808
 </pre>
 </div>
 </div>
@@ -13681,20 +13629,42 @@ Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-dataset
 <div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
 </div><div class='inner_cell'>
 <div class='text_cell_render border-box-sizing rendered_html'>
-<p>What does these values look like? Let's print a training image, and a training label to see...Experiment with different indices in the array. For example, also take a look at index 42...that's a a different boot than the one at index 0</p>
+<p>Your accuracy is probably about 89% on training and 87% on validation...not bad...But how do you make that even better? One way is to use something called Convolutions. I'm not going to details on Convolutions here, but the ultimate concept is that they narrow down the content of the image to focus on specific, distinct, details.</p>
+<p>If you've ever done image processing using a filter (like this: )) then convolutions will look very familiar.</p>
+<p>In short, you take an array (usually 3x3 or 5x5) and pass it over the image. By changing the underlying pixels based on the formula within that matrix, you can do things like edge detection. So, for example, if you look at the above link, you'll see a 3x3 that is defined for edge detection where the middle cell is 8, and all of its neighbors are -1. In this case, for each pixel, you would multiply its value by 8, then subtract the value of each neighbor. Do this for every pixel, and you'll end up with a new image that has the edges enhanced.</p>
+<p>This is perfect for computer vision, because often it's features that can get highlighted like this that distinguish one item for another, and the amount of information needed is then much less...because you'll just train on the highlighted features.</p>
+<p>That's the concept of Convolutional Neural Networks. Add some layers to do convolution before you have the dense layers, and then the information going to the dense layers is more focussed, and possibly more accurate.</p>
+<p>Run the below code -- this is the same neural network as earlier, but this time with Convolutional layers added first. It will take longer, but look at the impact on the accuracy:</p>
 
 </div>
 </div>
 </div>
 <div class='cell border-box-sizing code_cell rendered'>
 <div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[4]:</div>
+<div class='prompt input_prompt'>In&nbsp;[2]:</div>
 <div class='inner_cell'>
     <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='kn'>import</span> <span class='nn'>matplotlib.pyplot</span> <span class='k'>as</span> <span class='nn'>plt</span>
-<span class='n'>plt</span><span class='o'>.</span><span class='n'>imshow</span><span class='p'>(</span><span class='n'>training_images</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>])</span>
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>training_labels</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>])</span>
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>training_images</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>])</span>
+<div class=' highlight hl-ipython3'><pre><span></span><span class='kn'>import</span> <span class='nn'>tensorflow</span> <span class='k'>as</span> <span class='nn'>tf</span>
+<span class='nb'>print</span><span class='p'>(</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>__version__</span><span class='p'>)</span>
+<span class='n'>mnist</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>datasets</span><span class='o'>.</span><span class='n'>fashion_mnist</span>
+<span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>),</span> <span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span> <span class='o'>=</span> <span class='n'>mnist</span><span class='o'>.</span><span class='n'>load_data</span><span class='p'>()</span>
+<span class='n'>training_images</span><span class='o'>=</span><span class='n'>training_images</span><span class='o'>.</span><span class='n'>reshape</span><span class='p'>(</span><span class='mi'>60000</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>1</span><span class='p'>)</span>
+<span class='n'>training_images</span><span class='o'>=</span><span class='n'>training_images</span> <span class='o'>/</span> <span class='mf'>255.0</span>
+<span class='n'>test_images</span> <span class='o'>=</span> <span class='n'>test_images</span><span class='o'>.</span><span class='n'>reshape</span><span class='p'>(</span><span class='mi'>10000</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>1</span><span class='p'>)</span>
+<span class='n'>test_images</span><span class='o'>=</span><span class='n'>test_images</span><span class='o'>/</span><span class='mf'>255.0</span>
+<span class='n'>model</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>models</span><span class='o'>.</span><span class='n'>Sequential</span><span class='p'>([</span>
+  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Conv2D</span><span class='p'>(</span><span class='mi'>64</span><span class='p'>,</span> <span class='p'>(</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>),</span> <span class='n'>activation</span><span class='o'>=</span><span class='s1'>&#39;relu&#39;</span><span class='p'>,</span> <span class='n'>input_shape</span><span class='o'>=</span><span class='p'>(</span><span class='mi'>28</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>1</span><span class='p'>)),</span>
+  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>MaxPooling2D</span><span class='p'>(</span><span class='mi'>2</span><span class='p'>,</span> <span class='mi'>2</span><span class='p'>),</span>
+  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Conv2D</span><span class='p'>(</span><span class='mi'>64</span><span class='p'>,</span> <span class='p'>(</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>),</span> <span class='n'>activation</span><span class='o'>=</span><span class='s1'>&#39;relu&#39;</span><span class='p'>),</span>
+  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>MaxPooling2D</span><span class='p'>(</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>),</span>
+  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Flatten</span><span class='p'>(),</span>
+  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>128</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='s1'>&#39;relu&#39;</span><span class='p'>),</span>
+  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='s1'>&#39;softmax&#39;</span><span class='p'>)</span>
+<span class='p'>])</span>
+<span class='n'>model</span><span class='o'>.</span><span class='n'>compile</span><span class='p'>(</span><span class='n'>optimizer</span><span class='o'>=</span><span class='s1'>&#39;adam&#39;</span><span class='p'>,</span> <span class='n'>loss</span><span class='o'>=</span><span class='s1'>&#39;sparse_categorical_crossentropy&#39;</span><span class='p'>,</span> <span class='n'>metrics</span><span class='o'>=</span><span class='p'>[</span><span class='s1'>&#39;accuracy&#39;</span><span class='p'>])</span>
+<span class='n'>model</span><span class='o'>.</span><span class='n'>summary</span><span class='p'>()</span>
+<span class='n'>model</span><span class='o'>.</span><span class='n'>fit</span><span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>,</span> <span class='n'>epochs</span><span class='o'>=</span><span class='mi'>5</span><span class='p'>)</span>
+<span class='n'>test_loss</span> <span class='o'>=</span> <span class='n'>model</span><span class='o'>.</span><span class='n'>evaluate</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span>
 </pre></div>
 
     </div>
@@ -13711,63 +13681,228 @@ Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-dataset
 
 
 <div class='output_subarea output_stream output_stdout output_text'>
-<pre>9
-[[  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-    0   0   0   0   0   0   0   0   0   0]
- [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-    0   0   0   0   0   0   0   0   0   0]
- [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-    0   0   0   0   0   0   0   0   0   0]
- [  0   0   0   0   0   0   0   0   0   0   0   0   1   0   0  13  73   0
-    0   1   4   0   0   0   0   1   1   0]
- [  0   0   0   0   0   0   0   0   0   0   0   0   3   0  36 136 127  62
-   54   0   0   0   1   3   4   0   0   3]
- [  0   0   0   0   0   0   0   0   0   0   0   0   6   0 102 204 176 134
-  144 123  23   0   0   0   0  12  10   0]
- [  0   0   0   0   0   0   0   0   0   0   0   0   0   0 155 236 207 178
-  107 156 161 109  64  23  77 130  72  15]
- [  0   0   0   0   0   0   0   0   0   0   0   1   0  69 207 223 218 216
-  216 163 127 121 122 146 141  88 172  66]
- [  0   0   0   0   0   0   0   0   0   1   1   1   0 200 232 232 233 229
-  223 223 215 213 164 127 123 196 229   0]
- [  0   0   0   0   0   0   0   0   0   0   0   0   0 183 225 216 223 228
-  235 227 224 222 224 221 223 245 173   0]
- [  0   0   0   0   0   0   0   0   0   0   0   0   0 193 228 218 213 198
-  180 212 210 211 213 223 220 243 202   0]
- [  0   0   0   0   0   0   0   0   0   1   3   0  12 219 220 212 218 192
-  169 227 208 218 224 212 226 197 209  52]
- [  0   0   0   0   0   0   0   0   0   0   6   0  99 244 222 220 218 203
-  198 221 215 213 222 220 245 119 167  56]
- [  0   0   0   0   0   0   0   0   0   4   0   0  55 236 228 230 228 240
-  232 213 218 223 234 217 217 209  92   0]
- [  0   0   1   4   6   7   2   0   0   0   0   0 237 226 217 223 222 219
-  222 221 216 223 229 215 218 255  77   0]
- [  0   3   0   0   0   0   0   0   0  62 145 204 228 207 213 221 218 208
-  211 218 224 223 219 215 224 244 159   0]
- [  0   0   0   0  18  44  82 107 189 228 220 222 217 226 200 205 211 230
-  224 234 176 188 250 248 233 238 215   0]
- [  0  57 187 208 224 221 224 208 204 214 208 209 200 159 245 193 206 223
-  255 255 221 234 221 211 220 232 246   0]
- [  3 202 228 224 221 211 211 214 205 205 205 220 240  80 150 255 229 221
-  188 154 191 210 204 209 222 228 225   0]
- [ 98 233 198 210 222 229 229 234 249 220 194 215 217 241  65  73 106 117
-  168 219 221 215 217 223 223 224 229  29]
- [ 75 204 212 204 193 205 211 225 216 185 197 206 198 213 240 195 227 245
-  239 223 218 212 209 222 220 221 230  67]
- [ 48 203 183 194 213 197 185 190 194 192 202 214 219 221 220 236 225 216
-  199 206 186 181 177 172 181 205 206 115]
- [  0 122 219 193 179 171 183 196 204 210 213 207 211 210 200 196 194 191
-  195 191 198 192 176 156 167 177 210  92]
- [  0   0  74 189 212 191 175 172 175 181 185 188 189 188 193 198 204 209
-  210 210 211 188 188 194 192 216 170   0]
- [  2   0   0   0  66 200 222 237 239 242 246 243 244 221 220 193 191 179
-  182 182 181 176 166 168  99  58   0   0]
- [  0   0   0   0   0   0   0  40  61  44  72  41  35   0   0   0   0   0
-    0   0   0   0   0   0   0   0   0   0]
- [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-    0   0   0   0   0   0   0   0   0   0]
- [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-    0   0   0   0   0   0   0   0   0   0]]
+<pre>1.13.1
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d (Conv2D)              (None, 26, 26, 64)        640       
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 13, 13, 64)        0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 11, 11, 64)        36928     
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 5, 5, 64)          0         
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 1600)              0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 128)               204928    
+_________________________________________________________________
+dense_3 (Dense)              (None, 10)                1290      
+=================================================================
+Total params: 243,786
+Trainable params: 243,786
+Non-trainable params: 0
+_________________________________________________________________
+Epoch 1/5
+60000/60000 [==============================] - 106s 2ms/sample - loss: 0.4447 - acc: 0.8383
+Epoch 2/5
+60000/60000 [==============================] - 104s 2ms/sample - loss: 0.3024 - acc: 0.8891
+Epoch 3/5
+60000/60000 [==============================] - 105s 2ms/sample - loss: 0.2557 - acc: 0.9052
+Epoch 4/5
+60000/60000 [==============================] - 103s 2ms/sample - loss: 0.2237 - acc: 0.9165
+Epoch 5/5
+60000/60000 [==============================] - 103s 2ms/sample - loss: 0.1969 - acc: 0.9260
+10000/10000 [==============================] - 5s 509us/sample - loss: 0.2639 - acc: 0.9047
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
+</div><div class='inner_cell'>
+<div class='text_cell_render border-box-sizing rendered_html'>
+<p>It's likely gone up to about 93% on the training data and 91% on the validation data.</p>
+<p>That's significant, and a step in the right direction!</p>
+<p>Try running it for more epochs -- say about 20, and explore the results! But while the results might seem really good, the validation results may actually go down, due to something called 'overfitting' which will be discussed later.</p>
+<p>(In a nutshell, 'overfitting' occurs when the network learns the data from the training set really well, but it's too specialised to only that data, and as a result is less effective at seeing <em>other</em> data. For example, if all your life you only saw red shoes, then when you see a red shoe you would be very good at identifying it, but blue suade shoes might confuse you...and you know you should never mess with my blue suede shoes.)</p>
+<p>Then, look at the code again, and see, step by step how the Convolutions were built:</p>
+
+</div>
+</div>
+</div>
+<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
+</div><div class='inner_cell'>
+<div class='text_cell_render border-box-sizing rendered_html'>
+<p>Step 1 is to gather the data. You'll notice that there's a bit of a change here in that the training data needed to be reshaped. That's because the first convolution expects a single tensor containing everything, so instead of 60,000 28x28x1 items in a list, we have a single 4D list that is 60,000x28x28x1, and the same for the test images. If you don't do this, you'll get an error when training as the Convolutions do not recognize the shape.</p>
+
+<pre><code>import tensorflow as tf
+mnist = tf.keras.datasets.fashion_mnist
+(training_images, training_labels), (test_images, test_labels) = mnist.load_data()
+training_images=training_images.reshape(60000, 28, 28, 1)
+training_images=training_images / 255.0
+test_images = test_images.reshape(10000, 28, 28, 1)
+test_images=test_images/255.0</code></pre>
+
+</div>
+</div>
+</div>
+<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
+</div><div class='inner_cell'>
+<div class='text_cell_render border-box-sizing rendered_html'>
+<p>Next is to define your model. Now instead of the input layer at the top, you're going to add a Convolution. The parameters are:</p>
+<ol>
+<li>The number of convolutions you want to generate. Purely arbitrary, but good to start with something in the order of 32</li>
+<li>The size of the Convolution, in this case a 3x3 grid</li>
+<li>The activation function to use -- in this case we'll use relu, which you might recall is the equivalent of returning x when x&gt;0, else returning 0</li>
+<li>In the first layer, the shape of the input data.</li>
+</ol>
+<p>You'll follow the Convolution with a MaxPooling layer which is then designed to compress the image, while maintaining the content of the features that were highlighted by the convlution. By specifying (2,2) for the MaxPooling, the effect is to quarter the size of the image. Without going into too much detail here, the idea is that it creates a 2x2 array of pixels, and picks the biggest one, thus turning 4 pixels into 1. It repeats this across the image, and in so doing halves the number of horizontal, and halves the number of vertical pixels, effectively reducing the image by 25%.</p>
+<p>You can call model.summary() to see the size and shape of the network, and you'll notice that after every MaxPooling layer, the image size is reduced in this way.</p>
+
+<pre><code>model = tf.keras.models.Sequential([
+  tf.keras.layers.Conv2D(32, (3,3), activation='relu', input_shape=(28, 28, 1)),
+  tf.keras.layers.MaxPooling2D(2, 2),</code></pre>
+
+</div>
+</div>
+</div>
+<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
+</div><div class='inner_cell'>
+<div class='text_cell_render border-box-sizing rendered_html'>
+<p>Add another convolution</p>
+
+<pre><code>  tf.keras.layers.Conv2D(64, (3,3), activation='relu'),
+  tf.keras.layers.MaxPooling2D(2,2)</code></pre>
+
+</div>
+</div>
+</div>
+<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
+</div><div class='inner_cell'>
+<div class='text_cell_render border-box-sizing rendered_html'>
+<p>Now flatten the output. After this you'll just have the same DNN structure as the non convolutional version</p>
+
+<pre><code>  tf.keras.layers.Flatten(),</code></pre>
+
+</div>
+</div>
+</div>
+<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
+</div><div class='inner_cell'>
+<div class='text_cell_render border-box-sizing rendered_html'>
+<p>The same 128 dense layers, and 10 output layers as in the pre-convolution example:</p>
+
+<pre><code>  tf.keras.layers.Dense(128, activation='relu'),
+  tf.keras.layers.Dense(10, activation='softmax')
+])</code></pre>
+
+</div>
+</div>
+</div>
+<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
+</div><div class='inner_cell'>
+<div class='text_cell_render border-box-sizing rendered_html'>
+<p>Now compile the model, call the fit method to do the training, and evaluate the loss and accuracy from the test set.</p>
+
+<pre><code>model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+model.fit(training_images, training_labels, epochs=5)
+test_loss, test_acc = model.evaluate(test_images, test_labels)
+print(test_acc)</code></pre>
+
+</div>
+</div>
+</div>
+<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
+</div><div class='inner_cell'>
+<div class='text_cell_render border-box-sizing rendered_html'>
+<h1 id='Visualizing-the-Convolutions-and-Pooling'>Visualizing the Convolutions and Pooling</h1><p>This code will show us the convolutions graphically. The print (test_labels[;100]) shows us the first 100 labels in the test set, and you can see that the ones at index 0, index 23 and index 28 are all the same value (9). They're all shoes. Let's take a look at the result of running the convolution on each, and you'll begin to see common features between them emerge. Now, when the DNN is training on that data, it's working with a lot less, and it's perhaps finding a commonality between shoes based on this convolution/pooling combination.</p>
+
+</div>
+</div>
+</div>
+<div class='cell border-box-sizing code_cell rendered'>
+<div class='input'>
+<div class='prompt input_prompt'>In&nbsp;[3]:</div>
+<div class='inner_cell'>
+    <div class='input_area'>
+<div class=' highlight hl-ipython3'><pre><span></span><span class='nb'>print</span><span class='p'>(</span><span class='n'>test_labels</span><span class='p'>[:</span><span class='mi'>100</span><span class='p'>])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class='output_wrapper'>
+<div class='output'>
+
+
+<div class='output_area'>
+
+    <div class='prompt'></div>
+
+
+<div class='output_subarea output_stream output_stdout output_text'>
+<pre>[9 2 1 1 6 1 4 6 5 7 4 5 7 3 4 1 2 4 8 0 2 5 7 9 1 4 6 0 9 3 8 8 3 3 8 0 7
+ 5 7 9 6 1 3 7 6 7 2 1 2 2 4 4 5 8 2 2 8 4 8 0 7 7 8 5 1 1 2 3 9 8 7 0 2 6
+ 2 3 1 2 8 4 1 8 5 9 5 0 3 2 0 6 5 3 6 7 1 8 0 1 4 2]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class='cell border-box-sizing code_cell rendered'>
+<div class='input'>
+<div class='prompt input_prompt'>In&nbsp;[14]:</div>
+<div class='inner_cell'>
+    <div class='input_area'>
+<div class=' highlight hl-ipython3'><pre><span></span><span class='kn'>import</span> <span class='nn'>matplotlib.pyplot</span> <span class='k'>as</span> <span class='nn'>plt</span>
+<span class='n'>f</span><span class='p'>,</span> <span class='n'>axarr</span> <span class='o'>=</span> <span class='n'>plt</span><span class='o'>.</span><span class='n'>subplots</span><span class='p'>(</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>4</span><span class='p'>)</span>
+<span class='n'>FIRST_IMAGE</span><span class='o'>=</span><span class='mi'>0</span>
+<span class='n'>SECOND_IMAGE</span><span class='o'>=</span><span class='mi'>7</span>
+<span class='n'>THIRD_IMAGE</span><span class='o'>=</span><span class='mi'>26</span>
+<span class='n'>CONVOLUTION_NUMBER</span> <span class='o'>=</span> <span class='mi'>1</span> <span class='c1'>## 64个 filter, 查看某一个filter</span>
+<span class='kn'>from</span> <span class='nn'>tensorflow.keras</span> <span class='k'>import</span> <span class='n'>models</span>
+<span class='n'>layer_outputs</span> <span class='o'>=</span> <span class='p'>[</span><span class='n'>layer</span><span class='o'>.</span><span class='n'>output</span> <span class='k'>for</span> <span class='n'>layer</span> <span class='ow'>in</span> <span class='n'>model</span><span class='o'>.</span><span class='n'>layers</span><span class='p'>]</span>
+<span class='nb'>print</span><span class='p'>(</span><span class='nb'>len</span><span class='p'>(</span><span class='n'>layer_outputs</span><span class='p'>))</span>
+<span class='n'>activation_model</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>models</span><span class='o'>.</span><span class='n'>Model</span><span class='p'>(</span><span class='n'>inputs</span> <span class='o'>=</span> <span class='n'>model</span><span class='o'>.</span><span class='n'>input</span><span class='p'>,</span> <span class='n'>outputs</span> <span class='o'>=</span> <span class='n'>layer_outputs</span><span class='p'>)</span>
+<span class='nb'>print</span><span class='p'>(</span><span class='nb'>len</span><span class='p'>(</span><span class='n'>activation_model</span><span class='o'>.</span><span class='n'>predict</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>[</span><span class='n'>FIRST_IMAGE</span><span class='p'>]</span><span class='o'>.</span><span class='n'>reshape</span><span class='p'>(</span><span class='mi'>1</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>1</span><span class='p'>))))</span>
+
+<span class='c1'>## check the x layers&#39; ouyput</span>
+<span class='k'>for</span> <span class='n'>x</span> <span class='ow'>in</span> <span class='nb'>range</span><span class='p'>(</span><span class='mi'>0</span><span class='p'>,</span><span class='mi'>4</span><span class='p'>):</span>
+  <span class='n'>f1</span> <span class='o'>=</span> <span class='n'>activation_model</span><span class='o'>.</span><span class='n'>predict</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>[</span><span class='n'>FIRST_IMAGE</span><span class='p'>]</span><span class='o'>.</span><span class='n'>reshape</span><span class='p'>(</span><span class='mi'>1</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>1</span><span class='p'>))[</span><span class='n'>x</span><span class='p'>]</span>
+  <span class='n'>axarr</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>,</span><span class='n'>x</span><span class='p'>]</span><span class='o'>.</span><span class='n'>imshow</span><span class='p'>(</span><span class='n'>f1</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>,</span> <span class='p'>:</span> <span class='p'>,</span> <span class='p'>:,</span> <span class='n'>CONVOLUTION_NUMBER</span><span class='p'>],</span> <span class='n'>cmap</span><span class='o'>=</span><span class='s1'>&#39;inferno&#39;</span><span class='p'>)</span>
+  <span class='n'>axarr</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>,</span><span class='n'>x</span><span class='p'>]</span><span class='o'>.</span><span class='n'>grid</span><span class='p'>(</span><span class='kc'>False</span><span class='p'>)</span>
+  <span class='n'>f2</span> <span class='o'>=</span> <span class='n'>activation_model</span><span class='o'>.</span><span class='n'>predict</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>[</span><span class='n'>SECOND_IMAGE</span><span class='p'>]</span><span class='o'>.</span><span class='n'>reshape</span><span class='p'>(</span><span class='mi'>1</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>1</span><span class='p'>))[</span><span class='n'>x</span><span class='p'>]</span>
+  <span class='n'>axarr</span><span class='p'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='n'>x</span><span class='p'>]</span><span class='o'>.</span><span class='n'>imshow</span><span class='p'>(</span><span class='n'>f2</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>,</span> <span class='p'>:</span> <span class='p'>,</span> <span class='p'>:,</span> <span class='n'>CONVOLUTION_NUMBER</span><span class='p'>],</span> <span class='n'>cmap</span><span class='o'>=</span><span class='s1'>&#39;inferno&#39;</span><span class='p'>)</span>
+  <span class='n'>axarr</span><span class='p'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='n'>x</span><span class='p'>]</span><span class='o'>.</span><span class='n'>grid</span><span class='p'>(</span><span class='kc'>False</span><span class='p'>)</span>
+  <span class='n'>f3</span> <span class='o'>=</span> <span class='n'>activation_model</span><span class='o'>.</span><span class='n'>predict</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>[</span><span class='n'>THIRD_IMAGE</span><span class='p'>]</span><span class='o'>.</span><span class='n'>reshape</span><span class='p'>(</span><span class='mi'>1</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>1</span><span class='p'>))[</span><span class='n'>x</span><span class='p'>]</span>
+  <span class='n'>axarr</span><span class='p'>[</span><span class='mi'>2</span><span class='p'>,</span><span class='n'>x</span><span class='p'>]</span><span class='o'>.</span><span class='n'>imshow</span><span class='p'>(</span><span class='n'>f3</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>,</span> <span class='p'>:</span> <span class='p'>,</span> <span class='p'>:,</span> <span class='n'>CONVOLUTION_NUMBER</span><span class='p'>],</span> <span class='n'>cmap</span><span class='o'>=</span><span class='s1'>&#39;inferno&#39;</span><span class='p'>)</span>
+  <span class='n'>axarr</span><span class='p'>[</span><span class='mi'>2</span><span class='p'>,</span><span class='n'>x</span><span class='p'>]</span><span class='o'>.</span><span class='n'>grid</span><span class='p'>(</span><span class='kc'>False</span><span class='p'>)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class='output_wrapper'>
+<div class='output'>
+
+
+<div class='output_area'>
+
+    <div class='prompt'></div>
+
+
+<div class='output_subarea output_stream output_stdout output_text'>
+<pre>7
+7
 </pre>
 </div>
 </div>
@@ -13780,101 +13915,550 @@ Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-dataset
 
 
 <div class='output_png output_subarea '>
-<img src='data:image/png;base64,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
-9NKtQ3PMtoM5ewvuHSP2MGRvxh7yiot72KlrxJ7S+9Aue5notkW/NOs//3y8CZ//L1bnHko+mJ1s
-tr1hsr00N2A/Z3d8a72zdkp1l9n2hYHZZv3zkCm/TYlesz430e2s/SD5kdl2DdxDfceCR34iTzH8
-RJ5i+Ik8xfATeYrhJ/IUw0/kKYafyFPlHecXe3nuxf+80Wy+JPmhszao9hTKsHH8sHFby5Qqe5nm
-4bT9MHel7Sm7YU6v2e+sXd+w2Wy7/rHFZv3S1I/N+idX/KdZbxtyb2XdnbF/7pt2XWHWN33WbNYv
-nLvLWTsnuddsG3ZuRTKeMuvWNGsAGMi5f1/fSdnnP5QKj/xEnmL4iTzF8BN5iuEn8hTDT+Qphp/I
-Uww/kafKunR33axmPfXWv3fWW+/8V7P9Mz0XOmvNtfZeoidXHzDr0+P2ds+WZMwe8z0jYY/5vjBw
-kll/7dCZZv07yQ5nLSH29t6XT/rYrN/207vNeqbWXiW6b677+JKpt3/3Gs49aNZ/fNqrZr3a+NkP
-Ze1x/LDHLWwL7jDWGgzJmL0t+kPLrnfW3u54Cr1D+7h0NxG5MfxEnmL4iTzF8BN5iuEn8hTDT+Qp
-hp/IU6Hz+UWkGcDTAJoAKIBWVX1URBoB/AbAXAAdAG5UVXPP5FgamNTpHt98oW+h2ZdT6txrnR9I
-2+vT/+HwOWb9pDp7u2drq+nTjPn0ALA5NdWsv9j9bbN+Yp29fn1neoqzdjBdb7YdNOaVA8CTjzxs
-1h/qtNf9v75xk7N2brU9jn8oZx+btobsd9Cfq3XWUmqv79Abch5A0vh9AIC02tGKG1t8T43Z5xD0
-nTPdWct25r9ERz5H/gyAu1V1AYALAdwpIgsA3AugTVXnA2gLviai40Ro+FV1n6puCi73A9gGYA6A
-5QBWBzdbDeC6ieokEZXeMb3nF5G5AM4DsAFAk6ruC0r7Mfq2gIiOE3mHX0QmA/gdgJ+o6hFvQnV0
-gsC4J2qLyEoRaReR9szwQFGdJaLSySv8IpLAaPB/parPBVd3isjsoD4bwLg7H6pqq6q2qGpLVY39
-4RMRlU9o+EVEADwJYJuqjv3ody2AFcHlFQCeL333iGii5DMucAmAWwFsEZEv14G+D8ADAP5bRG4H
-8CmAG8O+UXwkh+TuYWc9p/ZMxFcPuKe2NtX2m20XJneb9e2D9rDRlqETnbVNVd8y29bF3dt7A8CU
-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
-YII=
+<img src='data:image/png;base64,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
+'
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class='cell border-box-sizing code_cell rendered'>
+<div class='input'>
+<div class='prompt input_prompt'>In&nbsp;[16]:</div>
+<div class='inner_cell'>
+    <div class='input_area'>
+<div class=' highlight hl-ipython3'><pre><span></span><span class='kn'>import</span> <span class='nn'>matplotlib.pyplot</span> <span class='k'>as</span> <span class='nn'>plt</span>
+<span class='n'>f</span><span class='p'>,</span> <span class='n'>axarr</span> <span class='o'>=</span> <span class='n'>plt</span><span class='o'>.</span><span class='n'>subplots</span><span class='p'>(</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>4</span><span class='p'>)</span>
+<span class='n'>FIRST_IMAGE</span><span class='o'>=</span><span class='mi'>0</span>
+<span class='n'>SECOND_IMAGE</span><span class='o'>=</span><span class='mi'>7</span>
+<span class='n'>THIRD_IMAGE</span><span class='o'>=</span><span class='mi'>26</span>
+<span class='n'>CONVOLUTION_NUMBER</span> <span class='o'>=</span> <span class='mi'>2</span>
+<span class='kn'>from</span> <span class='nn'>tensorflow.keras</span> <span class='k'>import</span> <span class='n'>models</span>
+<span class='n'>layer_outputs</span> <span class='o'>=</span> <span class='p'>[</span><span class='n'>layer</span><span class='o'>.</span><span class='n'>output</span> <span class='k'>for</span> <span class='n'>layer</span> <span class='ow'>in</span> <span class='n'>model</span><span class='o'>.</span><span class='n'>layers</span><span class='p'>]</span>
+<span class='nb'>print</span><span class='p'>(</span><span class='nb'>len</span><span class='p'>(</span><span class='n'>layer_outputs</span><span class='p'>))</span>
+<span class='n'>activation_model</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>models</span><span class='o'>.</span><span class='n'>Model</span><span class='p'>(</span><span class='n'>inputs</span> <span class='o'>=</span> <span class='n'>model</span><span class='o'>.</span><span class='n'>input</span><span class='p'>,</span> <span class='n'>outputs</span> <span class='o'>=</span> <span class='n'>layer_outputs</span><span class='p'>)</span>
+<span class='nb'>print</span><span class='p'>(</span><span class='nb'>len</span><span class='p'>(</span><span class='n'>activation_model</span><span class='o'>.</span><span class='n'>predict</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>[</span><span class='n'>FIRST_IMAGE</span><span class='p'>]</span><span class='o'>.</span><span class='n'>reshape</span><span class='p'>(</span><span class='mi'>1</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>1</span><span class='p'>))))</span>
+
+<span class='c1'>## check the x layers&#39; ouyput</span>
+<span class='k'>for</span> <span class='n'>x</span> <span class='ow'>in</span> <span class='nb'>range</span><span class='p'>(</span><span class='mi'>0</span><span class='p'>,</span><span class='mi'>4</span><span class='p'>):</span>
+  <span class='n'>f1</span> <span class='o'>=</span> <span class='n'>activation_model</span><span class='o'>.</span><span class='n'>predict</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>[</span><span class='n'>FIRST_IMAGE</span><span class='p'>]</span><span class='o'>.</span><span class='n'>reshape</span><span class='p'>(</span><span class='mi'>1</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>1</span><span class='p'>))[</span><span class='n'>x</span><span class='p'>]</span>
+  <span class='n'>axarr</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>,</span><span class='n'>x</span><span class='p'>]</span><span class='o'>.</span><span class='n'>imshow</span><span class='p'>(</span><span class='n'>f1</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>,</span> <span class='p'>:</span> <span class='p'>,</span> <span class='p'>:,</span> <span class='n'>CONVOLUTION_NUMBER</span><span class='p'>],</span> <span class='n'>cmap</span><span class='o'>=</span><span class='s1'>&#39;inferno&#39;</span><span class='p'>)</span>
+  <span class='n'>axarr</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>,</span><span class='n'>x</span><span class='p'>]</span><span class='o'>.</span><span class='n'>grid</span><span class='p'>(</span><span class='kc'>False</span><span class='p'>)</span>
+  <span class='n'>f2</span> <span class='o'>=</span> <span class='n'>activation_model</span><span class='o'>.</span><span class='n'>predict</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>[</span><span class='n'>SECOND_IMAGE</span><span class='p'>]</span><span class='o'>.</span><span class='n'>reshape</span><span class='p'>(</span><span class='mi'>1</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>1</span><span class='p'>))[</span><span class='n'>x</span><span class='p'>]</span>
+  <span class='n'>axarr</span><span class='p'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='n'>x</span><span class='p'>]</span><span class='o'>.</span><span class='n'>imshow</span><span class='p'>(</span><span class='n'>f2</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>,</span> <span class='p'>:</span> <span class='p'>,</span> <span class='p'>:,</span> <span class='n'>CONVOLUTION_NUMBER</span><span class='p'>],</span> <span class='n'>cmap</span><span class='o'>=</span><span class='s1'>&#39;inferno&#39;</span><span class='p'>)</span>
+  <span class='n'>axarr</span><span class='p'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='n'>x</span><span class='p'>]</span><span class='o'>.</span><span class='n'>grid</span><span class='p'>(</span><span class='kc'>False</span><span class='p'>)</span>
+  <span class='n'>f3</span> <span class='o'>=</span> <span class='n'>activation_model</span><span class='o'>.</span><span class='n'>predict</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>[</span><span class='n'>THIRD_IMAGE</span><span class='p'>]</span><span class='o'>.</span><span class='n'>reshape</span><span class='p'>(</span><span class='mi'>1</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>1</span><span class='p'>))[</span><span class='n'>x</span><span class='p'>]</span>
+  <span class='n'>axarr</span><span class='p'>[</span><span class='mi'>2</span><span class='p'>,</span><span class='n'>x</span><span class='p'>]</span><span class='o'>.</span><span class='n'>imshow</span><span class='p'>(</span><span class='n'>f3</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>,</span> <span class='p'>:</span> <span class='p'>,</span> <span class='p'>:,</span> <span class='n'>CONVOLUTION_NUMBER</span><span class='p'>],</span> <span class='n'>cmap</span><span class='o'>=</span><span class='s1'>&#39;inferno&#39;</span><span class='p'>)</span>
+  <span class='n'>axarr</span><span class='p'>[</span><span class='mi'>2</span><span class='p'>,</span><span class='n'>x</span><span class='p'>]</span><span class='o'>.</span><span class='n'>grid</span><span class='p'>(</span><span class='kc'>False</span><span class='p'>)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class='output_wrapper'>
+<div class='output'>
+
+
+<div class='output_area'>
+
+    <div class='prompt'></div>
+
+
+<div class='output_subarea output_stream output_stdout output_text'>
+<pre>7
+7
+</pre>
+</div>
+</div>
+
+<div class='output_area'>
+
+    <div class='prompt'></div>
+
+
+
+
+<div class='output_png output_subarea '>
+<img src='data:image/png;base64,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
+RK5CYII=
 '
 >
 </div>
@@ -13888,7 +14472,19 @@ YII=
 <div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
 </div><div class='inner_cell'>
 <div class='text_cell_render border-box-sizing rendered_html'>
-<p>You'll notice that all of the values in the number are between 0 and 255. If we are training a neural network, for various reasons it's easier if we treat all values as between 0 and 1, a process called '<strong>normalizing</strong>'...and fortunately in Python it's easy to normalize a list like this without looping. You do it like this:</p>
+<p>EXERCISES</p>
+<ol>
+<li><p>Try editing the convolutions. Change the 32s to either 16 or 64. What impact will this have on accuracy and/or training time.</p>
+</li>
+<li><p>Remove the final Convolution. What impact will this have on accuracy or training time?</p>
+</li>
+<li><p>How about adding more Convolutions? What impact do you think this will have? Experiment with it.</p>
+</li>
+<li><p>Remove all Convolutions but the first. What impact do you think this will have? Experiment with it.</p>
+</li>
+<li><p>In the previous lesson you implemented a callback to check on the loss function and to cancel training once it hit a certain amount. See if you can implement that here!</p>
+</li>
+</ol>
 
 </div>
 </div>
@@ -13896,950 +14492,27 @@ YII=
 <div class='cell border-box-sizing code_cell rendered'>
 <div class='input'>
 <div class='prompt input_prompt'>In&nbsp;[0]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='n'>training_images</span>  <span class='o'>=</span> <span class='n'>training_images</span> <span class='o'>/</span> <span class='mf'>255.0</span>
-<span class='n'>test_images</span> <span class='o'>=</span> <span class='n'>test_images</span> <span class='o'>/</span> <span class='mf'>255.0</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<p>Now you might be wondering why there are 2 sets...training and testing -- remember we spoke about this in the intro? The idea is to have 1 set of data for training, and then another set of data...that the model hasn't yet seen...to see how good it would be at classifying values. After all, when you're done, you're going to want to try it out with data that it hadn't previously seen!</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<p>Let's now design the model. There's quite a few new concepts here, but don't worry, you'll get the hang of them.</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[0]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='n'>model</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>models</span><span class='o'>.</span><span class='n'>Sequential</span><span class='p'>([</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Flatten</span><span class='p'>(),</span> 
-                                    <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>128</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>relu</span><span class='p'>),</span> 
-                                    <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>softmax</span><span class='p'>)])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<p><strong>Sequential</strong>: That defines a SEQUENCE of layers in the neural network</p>
-<p><strong>Flatten</strong>: Remember earlier where our images were a square, when you printed them out? Flatten just takes that square and turns it into a 1 dimensional set.</p>
-<p><strong>Dense</strong>: Adds a layer of neurons</p>
-<p>Each layer of neurons need an <strong>activation function</strong> to tell them what to do. There's lots of options, but just use these for now.</p>
-<p><strong>Relu</strong> effectively means 'If X&gt;0 return X, else return 0' -- so what it does it it only passes values 0 or greater to the next layer in the network.</p>
-<p><strong>Softmax</strong> takes a set of values, and effectively picks the biggest one, so, for example, if the output of the last layer looks like [0.1, 0.1, 0.05, 0.1, 9.5, 0.1, 0.05, 0.05, 0.05], it saves you from fishing through it looking for the biggest value, and turns it into [0,0,0,0,1,0,0,0,0] -- The goal is to save a lot of coding!</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<p>The next thing to do, now the model is defined, is to actually build it. You do this by compiling it with an optimizer and loss function as before -- and then you train it by calling <strong>model.fit </strong> asking it to fit your training data to your training labels -- i.e. have it figure out the relationship between the training data and its actual labels, so in future if you have data that looks like the training data, then it can make a prediction for what that data would look like.</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[7]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='n'>model</span><span class='o'>.</span><span class='n'>compile</span><span class='p'>(</span><span class='n'>optimizer</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>train</span><span class='o'>.</span><span class='n'>AdamOptimizer</span><span class='p'>(),</span>
-              <span class='n'>loss</span> <span class='o'>=</span> <span class='s1'>&#39;sparse_categorical_crossentropy&#39;</span><span class='p'>,</span>
-              <span class='n'>metrics</span><span class='o'>=</span><span class='p'>[</span><span class='s1'>&#39;accuracy&#39;</span><span class='p'>])</span>
-
-<span class='n'>model</span><span class='o'>.</span><span class='n'>fit</span><span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>,</span> <span class='n'>epochs</span><span class='o'>=</span><span class='mi'>5</span><span class='p'>)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class='output_wrapper'>
-<div class='output'>
-
-
-<div class='output_area'>
-
-    <div class='prompt'></div>
-
-
-<div class='output_subarea output_stream output_stdout output_text'>
-<pre>WARNING:tensorflow:From /usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/resource_variable_ops.py:435: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
-Instructions for updating:
-Colocations handled automatically by placer.
-Epoch 1/5
-60000/60000 [==============================] - 6s 95us/sample - loss: 0.5005 - acc: 0.8231
-Epoch 2/5
-60000/60000 [==============================] - 5s 84us/sample - loss: 0.3743 - acc: 0.8650
-Epoch 3/5
-60000/60000 [==============================] - 5s 83us/sample - loss: 0.3380 - acc: 0.8768
-Epoch 4/5
-60000/60000 [==============================] - 5s 83us/sample - loss: 0.3141 - acc: 0.8854
-Epoch 5/5
-60000/60000 [==============================] - 6s 94us/sample - loss: 0.2957 - acc: 0.8923
-</pre>
-</div>
-</div>
-
-<div class='output_area'>
-
-    <div class='prompt output_prompt'>Out[7]:</div>
-
-
-
-
-<div class='output_text output_subarea output_execute_result'>
-<pre>&lt;tensorflow.python.keras.callbacks.History at 0x7fabe56c5c90&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<p>Once it's done training -- you should see an accuracy value at the end of the final epoch. It might look something like 0.9098. This tells you that your neural network is about 91% accurate in classifying the training data. I.E., it figured out a pattern match between the image and the labels that worked 91% of the time. Not great, but not bad considering it was only trained for 5 epochs and done quite quickly.</p>
-<p>But how would it work with unseen data? That's why we have the test images. We can call model.evaluate, and pass in the two sets, and it will report back the loss for each. Let's give it a try:</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[8]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='n'>model</span><span class='o'>.</span><span class='n'>evaluate</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class='output_wrapper'>
-<div class='output'>
-
-
-<div class='output_area'>
-
-    <div class='prompt'></div>
-
-
-<div class='output_subarea output_stream output_stdout output_text'>
-<pre>10000/10000 [==============================] - 1s 54us/sample - loss: 0.3491 - acc: 0.8730
-</pre>
-</div>
-</div>
-
-<div class='output_area'>
-
-    <div class='prompt output_prompt'>Out[8]:</div>
-
-
-
-
-<div class='output_text output_subarea output_execute_result'>
-<pre>[0.34906602528095243, 0.873]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<p>For me, that returned a accuracy of about .8838, which means it was about 88% accurate. As expected it probably would not do as well with <em>unseen</em> data as it did with data it was trained on!  As you go through this course, you'll look at ways to improve this.</p>
-<p>To explore further, try the below exercises:</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h1 id='Exploration-Exercises'>Exploration Exercises</h1>
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h3 id='Exercise-1:'>Exercise 1:</h3><p>For this first exercise run the below code: It creates a set of classifications for each of the test images, and then prints the first entry in the classifications. The output, after you run it is a list of numbers. Why do you think this is, and what do those numbers represent?</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[9]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='n'>classifications</span> <span class='o'>=</span> <span class='n'>model</span><span class='o'>.</span><span class='n'>predict</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>)</span>
-
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>classifications</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class='output_wrapper'>
-<div class='output'>
-
-
-<div class='output_area'>
-
-    <div class='prompt'></div>
-
-
-<div class='output_subarea output_stream output_stdout output_text'>
-<pre>[2.9386058e-05 2.7936271e-09 5.3627440e-07 5.8023255e-07 6.8692401e-07
- 6.4106613e-02 2.8751344e-06 4.3294847e-02 1.4372403e-04 8.9242077e-01]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<p>Hint: try running print(test_labels[0]) -- and you'll get a 9. Does that help you understand why this list looks the way it does?</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[10]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='nb'>print</span><span class='p'>(</span><span class='n'>test_labels</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class='output_wrapper'>
-<div class='output'>
-
-
-<div class='output_area'>
-
-    <div class='prompt'></div>
-
-
-<div class='output_subarea output_stream output_stdout output_text'>
-<pre>9
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h3 id='What-does-this-list-represent?'>What does this list represent?</h3><ol>
-<li>It's 10 random meaningless values</li>
-<li>It's the first 10 classifications that the computer made</li>
-<li>It's the probability that this item is each of the 10 classes</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h4 id='Answer:'>Answer:</h4><p>The correct answer is (3)</p>
-<p>The output of the model is a list of 10 numbers. These numbers are a probability that the value being classified is the corresponding value, i.e. the first value in the list is the probability that the handwriting is of a '0', the next is a '1' etc. Notice that they are all VERY LOW probabilities.</p>
-<p>For the 7, the probability was .999+, i.e. the neural network is telling us that it's almost certainly a 7.</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h3 id='How-do-you-know-that-this-list-tells-you-that-the-item-is-an-ankle-boot?'>How do you know that this list tells you that the item is an ankle boot?</h3><ol>
-<li>There's not enough information to answer that question</li>
-<li>The 10th element on the list is the biggest, and the ankle boot is labelled 9</li>
-<li>The ankle boot is label 9, and there are 0-&gt;9 elements in the list</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h4 id='Answer'>Answer</h4><p>The correct answer is (2). Both the list and the labels are 0 based, so the ankle boot having label 9 means that it is the 10th of the 10 classes. The list having the 10th element being the highest value means that the Neural Network has predicted that the item it is classifying is most likely an ankle boot</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h2 id='Exercise-2:'>Exercise 2:</h2><p>Let's now look at the layers in your model. Experiment with different values for the dense layer with 512 neurons. What different results do you get for loss, training time etc? Why do you think that's the case?</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[11]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='kn'>import</span> <span class='nn'>tensorflow</span> <span class='k'>as</span> <span class='nn'>tf</span>
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>__version__</span><span class='p'>)</span>
-
-<span class='n'>mnist</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>datasets</span><span class='o'>.</span><span class='n'>mnist</span>
-
-<span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>)</span> <span class='p'>,</span>  <span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span> <span class='o'>=</span> <span class='n'>mnist</span><span class='o'>.</span><span class='n'>load_data</span><span class='p'>()</span>
-
-<span class='n'>training_images</span> <span class='o'>=</span> <span class='n'>training_images</span><span class='o'>/</span><span class='mf'>255.0</span>
-<span class='n'>test_images</span> <span class='o'>=</span> <span class='n'>test_images</span><span class='o'>/</span><span class='mf'>255.0</span>
-
-<span class='n'>model</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>models</span><span class='o'>.</span><span class='n'>Sequential</span><span class='p'>([</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Flatten</span><span class='p'>(),</span>
-                                    <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>1024</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>relu</span><span class='p'>),</span>
-                                    <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>softmax</span><span class='p'>)])</span>
-
-<span class='n'>model</span><span class='o'>.</span><span class='n'>compile</span><span class='p'>(</span><span class='n'>optimizer</span> <span class='o'>=</span> <span class='s1'>&#39;adam&#39;</span><span class='p'>,</span>
-              <span class='n'>loss</span> <span class='o'>=</span> <span class='s1'>&#39;sparse_categorical_crossentropy&#39;</span><span class='p'>)</span>
-
-<span class='n'>model</span><span class='o'>.</span><span class='n'>fit</span><span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>,</span> <span class='n'>epochs</span><span class='o'>=</span><span class='mi'>5</span><span class='p'>)</span>
-
-<span class='n'>model</span><span class='o'>.</span><span class='n'>evaluate</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span>
-
-<span class='n'>classifications</span> <span class='o'>=</span> <span class='n'>model</span><span class='o'>.</span><span class='n'>predict</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>)</span>
-
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>classifications</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>])</span>
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>test_labels</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class='output_wrapper'>
-<div class='output'>
-
-
-<div class='output_area'>
-
-    <div class='prompt'></div>
-
-
-<div class='output_subarea output_stream output_stdout output_text'>
-<pre>1.13.1
-Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
-11493376/11490434 [==============================] - 0s 0us/step
-11501568/11490434 [==============================] - 0s 0us/step
-Epoch 1/5
-60000/60000 [==============================] - 33s 555us/sample - loss: 0.1836
-Epoch 2/5
-60000/60000 [==============================] - 33s 542us/sample - loss: 0.0752
-Epoch 3/5
-60000/60000 [==============================] - 33s 545us/sample - loss: 0.0477
-Epoch 4/5
-60000/60000 [==============================] - 32s 541us/sample - loss: 0.0349
-Epoch 5/5
-60000/60000 [==============================] - 31s 519us/sample - loss: 0.0268
-10000/10000 [==============================] - 1s 103us/sample - loss: 0.0701
-[2.1580526e-08 1.4492238e-08 4.2619092e-07 7.1163056e-05 5.7726481e-16
- 1.0863318e-08 9.1534202e-12 9.9992311e-01 2.1176172e-07 5.0823205e-06]
-7
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h3 id='Question-1.-Increase-to-1024-Neurons----What's-the-impact?'>Question 1. Increase to 1024 Neurons -- What's the impact?</h3><ol>
-<li>Training takes longer, but is more accurate</li>
-<li>Training takes longer, but no impact on accuracy</li>
-<li>Training takes the same time, but is more accurate</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h4 id='Answer'>Answer</h4><p>The correct answer is (1) by adding more Neurons we have to do more calculations, slowing down the process, but in this case they have a good impact -- we do get more accurate. That doesn't mean it's always a case of 'more is better', you can hit the law of diminishing returns very quickly!</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h2 id='Exercise-3:'>Exercise 3:</h2><p>What would happen if you remove the Flatten() layer. Why do you think that's the case?</p>
-<p>You get an error about the shape of the data. It may seem vague right now, but it reinforces the rule of thumb that the first layer in your network should be the same shape as your data. Right now our data is 28x28 images, and 28 layers of 28 neurons would be infeasible, so it makes more sense to 'flatten' that 28,28 into a 784x1. Instead of wriitng all the code to handle that ourselves, we add the Flatten() layer at the begining, and when the arrays are loaded into the model later, they'll automatically be flattened for us.</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[12]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='kn'>import</span> <span class='nn'>tensorflow</span> <span class='k'>as</span> <span class='nn'>tf</span>
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>__version__</span><span class='p'>)</span>
-
-<span class='n'>mnist</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>datasets</span><span class='o'>.</span><span class='n'>mnist</span>
-
-<span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>)</span> <span class='p'>,</span>  <span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span> <span class='o'>=</span> <span class='n'>mnist</span><span class='o'>.</span><span class='n'>load_data</span><span class='p'>()</span>
-
-<span class='n'>training_images</span> <span class='o'>=</span> <span class='n'>training_images</span><span class='o'>/</span><span class='mf'>255.0</span>
-<span class='n'>test_images</span> <span class='o'>=</span> <span class='n'>test_images</span><span class='o'>/</span><span class='mf'>255.0</span>
-
-<span class='n'>model</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>models</span><span class='o'>.</span><span class='n'>Sequential</span><span class='p'>([</span><span class='c1'>#tf.keras.layers.Flatten(),</span>
-                                    <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>64</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>relu</span><span class='p'>),</span>
-                                    <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>softmax</span><span class='p'>)])</span>
-
-<span class='n'>model</span><span class='o'>.</span><span class='n'>compile</span><span class='p'>(</span><span class='n'>optimizer</span> <span class='o'>=</span> <span class='s1'>&#39;adam&#39;</span><span class='p'>,</span>
-              <span class='n'>loss</span> <span class='o'>=</span> <span class='s1'>&#39;sparse_categorical_crossentropy&#39;</span><span class='p'>)</span>
-
-<span class='n'>model</span><span class='o'>.</span><span class='n'>fit</span><span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>,</span> <span class='n'>epochs</span><span class='o'>=</span><span class='mi'>5</span><span class='p'>)</span>
-
-<span class='n'>model</span><span class='o'>.</span><span class='n'>evaluate</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span>
-
-<span class='n'>classifications</span> <span class='o'>=</span> <span class='n'>model</span><span class='o'>.</span><span class='n'>predict</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>)</span>
-
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>classifications</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>])</span>
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>test_labels</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class='output_wrapper'>
-<div class='output'>
-
-
-<div class='output_area'>
-
-    <div class='prompt'></div>
-
-
-<div class='output_subarea output_stream output_stdout output_text'>
-<pre>1.13.1
-Epoch 1/5
-</pre>
-</div>
-</div>
-
-<div class='output_area'>
-
-    <div class='prompt'></div>
-
-
-<div class='output_subarea output_text output_error'>
-<pre>
-
-<span class='ansi-red-fg'>InvalidArgumentError</span>Traceback (most recent call last)
-<span class='ansi-green-fg'>&lt;ipython-input-12-cd0411f1d295&gt;</span> in <span class='ansi-cyan-fg'>&lt;module&gt;</span><span class='ansi-blue-fg'>()</span>
-<span class='ansi-green-intense-fg ansi-bold'>     16</span>               loss = &#39;sparse_categorical_crossentropy&#39;)
-<span class='ansi-green-intense-fg ansi-bold'>     17</span> 
-<span class='ansi-green-fg'>---&gt; 18</span><span class='ansi-red-fg'> </span>model<span class='ansi-blue-fg'>.</span>fit<span class='ansi-blue-fg'>(</span>training_images<span class='ansi-blue-fg'>,</span> training_labels<span class='ansi-blue-fg'>,</span> epochs<span class='ansi-blue-fg'>=</span><span class='ansi-cyan-fg'>5</span><span class='ansi-blue-fg'>)</span>
-<span class='ansi-green-intense-fg ansi-bold'>     19</span> 
-<span class='ansi-green-intense-fg ansi-bold'>     20</span> model<span class='ansi-blue-fg'>.</span>evaluate<span class='ansi-blue-fg'>(</span>test_images<span class='ansi-blue-fg'>,</span> test_labels<span class='ansi-blue-fg'>)</span>
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/engine/training.pyc</span> in <span class='ansi-cyan-fg'>fit</span><span class='ansi-blue-fg'>(self, x, y, batch_size, epochs, verbose, callbacks, validation_split, validation_data, shuffle, class_weight, sample_weight, initial_epoch, steps_per_epoch, validation_steps, max_queue_size, workers, use_multiprocessing, **kwargs)</span>
-<span class='ansi-green-intense-fg ansi-bold'>    878</span>           initial_epoch<span class='ansi-blue-fg'>=</span>initial_epoch<span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-intense-fg ansi-bold'>    879</span>           steps_per_epoch<span class='ansi-blue-fg'>=</span>steps_per_epoch<span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-fg'>--&gt; 880</span><span class='ansi-red-fg'>           validation_steps=validation_steps)
-</span><span class='ansi-green-intense-fg ansi-bold'>    881</span> 
-<span class='ansi-green-intense-fg ansi-bold'>    882</span>   def evaluate(self,
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/engine/training_arrays.pyc</span> in <span class='ansi-cyan-fg'>model_iteration</span><span class='ansi-blue-fg'>(model, inputs, targets, sample_weights, batch_size, epochs, verbose, callbacks, val_inputs, val_targets, val_sample_weights, shuffle, initial_epoch, steps_per_epoch, validation_steps, mode, validation_in_fit, **kwargs)</span>
-<span class='ansi-green-intense-fg ansi-bold'>    327</span> 
-<span class='ansi-green-intense-fg ansi-bold'>    328</span>         <span class='ansi-red-fg'># Get outputs.</span>
-<span class='ansi-green-fg'>--&gt; 329</span><span class='ansi-red-fg'>         </span>batch_outs <span class='ansi-blue-fg'>=</span> f<span class='ansi-blue-fg'>(</span>ins_batch<span class='ansi-blue-fg'>)</span>
-<span class='ansi-green-intense-fg ansi-bold'>    330</span>         <span class='ansi-green-fg'>if</span> <span class='ansi-green-fg'>not</span> isinstance<span class='ansi-blue-fg'>(</span>batch_outs<span class='ansi-blue-fg'>,</span> list<span class='ansi-blue-fg'>)</span><span class='ansi-blue-fg'>:</span>
-<span class='ansi-green-intense-fg ansi-bold'>    331</span>           batch_outs <span class='ansi-blue-fg'>=</span> <span class='ansi-blue-fg'>[</span>batch_outs<span class='ansi-blue-fg'>]</span>
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/backend.pyc</span> in <span class='ansi-cyan-fg'>__call__</span><span class='ansi-blue-fg'>(self, inputs)</span>
-<span class='ansi-green-intense-fg ansi-bold'>   3074</span> 
-<span class='ansi-green-intense-fg ansi-bold'>   3075</span>     fetched = self._callable_fn(*array_vals,
-<span class='ansi-green-fg'>-&gt; 3076</span><span class='ansi-red-fg'>                                 run_metadata=self.run_metadata)
-</span><span class='ansi-green-intense-fg ansi-bold'>   3077</span>     self<span class='ansi-blue-fg'>.</span>_call_fetch_callbacks<span class='ansi-blue-fg'>(</span>fetched<span class='ansi-blue-fg'>[</span><span class='ansi-blue-fg'>-</span>len<span class='ansi-blue-fg'>(</span>self<span class='ansi-blue-fg'>.</span>_fetches<span class='ansi-blue-fg'>)</span><span class='ansi-blue-fg'>:</span><span class='ansi-blue-fg'>]</span><span class='ansi-blue-fg'>)</span>
-<span class='ansi-green-intense-fg ansi-bold'>   3078</span>     return nest.pack_sequence_as(self._outputs_structure,
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.pyc</span> in <span class='ansi-cyan-fg'>__call__</span><span class='ansi-blue-fg'>(self, *args, **kwargs)</span>
-<span class='ansi-green-intense-fg ansi-bold'>   1437</span>           ret = tf_session.TF_SessionRunCallable(
-<span class='ansi-green-intense-fg ansi-bold'>   1438</span>               self<span class='ansi-blue-fg'>.</span>_session<span class='ansi-blue-fg'>.</span>_session<span class='ansi-blue-fg'>,</span> self<span class='ansi-blue-fg'>.</span>_handle<span class='ansi-blue-fg'>,</span> args<span class='ansi-blue-fg'>,</span> status<span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-fg'>-&gt; 1439</span><span class='ansi-red-fg'>               run_metadata_ptr)
-</span><span class='ansi-green-intense-fg ansi-bold'>   1440</span>         <span class='ansi-green-fg'>if</span> run_metadata<span class='ansi-blue-fg'>:</span>
-<span class='ansi-green-intense-fg ansi-bold'>   1441</span>           proto_data <span class='ansi-blue-fg'>=</span> tf_session<span class='ansi-blue-fg'>.</span>TF_GetBuffer<span class='ansi-blue-fg'>(</span>run_metadata_ptr<span class='ansi-blue-fg'>)</span>
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/errors_impl.pyc</span> in <span class='ansi-cyan-fg'>__exit__</span><span class='ansi-blue-fg'>(self, type_arg, value_arg, traceback_arg)</span>
-<span class='ansi-green-intense-fg ansi-bold'>    526</span>             None<span class='ansi-blue-fg'>,</span> None<span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-intense-fg ansi-bold'>    527</span>             compat<span class='ansi-blue-fg'>.</span>as_text<span class='ansi-blue-fg'>(</span>c_api<span class='ansi-blue-fg'>.</span>TF_Message<span class='ansi-blue-fg'>(</span>self<span class='ansi-blue-fg'>.</span>status<span class='ansi-blue-fg'>.</span>status<span class='ansi-blue-fg'>)</span><span class='ansi-blue-fg'>)</span><span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-fg'>--&gt; 528</span><span class='ansi-red-fg'>             c_api.TF_GetCode(self.status.status))
-</span><span class='ansi-green-intense-fg ansi-bold'>    529</span>     <span class='ansi-red-fg'># Delete the underlying status object from memory otherwise it stays alive</span>
-<span class='ansi-green-intense-fg ansi-bold'>    530</span>     <span class='ansi-red-fg'># as there is a reference to status from this from the traceback due to</span>
-
-<span class='ansi-red-fg'>InvalidArgumentError</span>: logits and labels must have the same first dimension, got logits shape [896,10] and labels shape [32]
-	 [[{{node loss_2/output_1_loss/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits}}]]</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h2 id='Exercise-4:'>Exercise 4:</h2><p>Consider the final (output) layers. Why are there 10 of them? What would happen if you had a different amount than 10? For example, try training the network with 5</p>
-<p>You get an error as soon as it finds an unexpected value. Another rule of thumb -- the number of neurons in the last layer should match the number of classes you are classifying for. In this case it's the digits 0-9, so there are 10 of them, hence you should have 10 neurons in your final layer.</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[13]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='kn'>import</span> <span class='nn'>tensorflow</span> <span class='k'>as</span> <span class='nn'>tf</span>
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>__version__</span><span class='p'>)</span>
-
-<span class='n'>mnist</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>datasets</span><span class='o'>.</span><span class='n'>mnist</span>
-
-<span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>)</span> <span class='p'>,</span>  <span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span> <span class='o'>=</span> <span class='n'>mnist</span><span class='o'>.</span><span class='n'>load_data</span><span class='p'>()</span>
-
-<span class='n'>training_images</span> <span class='o'>=</span> <span class='n'>training_images</span><span class='o'>/</span><span class='mf'>255.0</span>
-<span class='n'>test_images</span> <span class='o'>=</span> <span class='n'>test_images</span><span class='o'>/</span><span class='mf'>255.0</span>
-
-<span class='n'>model</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>models</span><span class='o'>.</span><span class='n'>Sequential</span><span class='p'>([</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Flatten</span><span class='p'>(),</span>
-                                    <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>64</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>relu</span><span class='p'>),</span>
-                                    <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>5</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>softmax</span><span class='p'>)])</span>
-
-<span class='n'>model</span><span class='o'>.</span><span class='n'>compile</span><span class='p'>(</span><span class='n'>optimizer</span> <span class='o'>=</span> <span class='s1'>&#39;adam&#39;</span><span class='p'>,</span>
-              <span class='n'>loss</span> <span class='o'>=</span> <span class='s1'>&#39;sparse_categorical_crossentropy&#39;</span><span class='p'>)</span>
-
-<span class='n'>model</span><span class='o'>.</span><span class='n'>fit</span><span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>,</span> <span class='n'>epochs</span><span class='o'>=</span><span class='mi'>5</span><span class='p'>)</span>
-
-<span class='n'>model</span><span class='o'>.</span><span class='n'>evaluate</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span>
-
-<span class='n'>classifications</span> <span class='o'>=</span> <span class='n'>model</span><span class='o'>.</span><span class='n'>predict</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>)</span>
-
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>classifications</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>])</span>
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>test_labels</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class='output_wrapper'>
-<div class='output'>
-
-
-<div class='output_area'>
-
-    <div class='prompt'></div>
-
-
-<div class='output_subarea output_stream output_stdout output_text'>
-<pre>1.13.1
-Epoch 1/5
-</pre>
-</div>
-</div>
-
-<div class='output_area'>
-
-    <div class='prompt'></div>
-
-
-<div class='output_subarea output_text output_error'>
-<pre>
-
-<span class='ansi-red-fg'>InvalidArgumentError</span>Traceback (most recent call last)
-<span class='ansi-green-fg'>&lt;ipython-input-13-04e5ea87fa1d&gt;</span> in <span class='ansi-cyan-fg'>&lt;module&gt;</span><span class='ansi-blue-fg'>()</span>
-<span class='ansi-green-intense-fg ansi-bold'>     16</span>               loss = &#39;sparse_categorical_crossentropy&#39;)
-<span class='ansi-green-intense-fg ansi-bold'>     17</span> 
-<span class='ansi-green-fg'>---&gt; 18</span><span class='ansi-red-fg'> </span>model<span class='ansi-blue-fg'>.</span>fit<span class='ansi-blue-fg'>(</span>training_images<span class='ansi-blue-fg'>,</span> training_labels<span class='ansi-blue-fg'>,</span> epochs<span class='ansi-blue-fg'>=</span><span class='ansi-cyan-fg'>5</span><span class='ansi-blue-fg'>)</span>
-<span class='ansi-green-intense-fg ansi-bold'>     19</span> 
-<span class='ansi-green-intense-fg ansi-bold'>     20</span> model<span class='ansi-blue-fg'>.</span>evaluate<span class='ansi-blue-fg'>(</span>test_images<span class='ansi-blue-fg'>,</span> test_labels<span class='ansi-blue-fg'>)</span>
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/engine/training.pyc</span> in <span class='ansi-cyan-fg'>fit</span><span class='ansi-blue-fg'>(self, x, y, batch_size, epochs, verbose, callbacks, validation_split, validation_data, shuffle, class_weight, sample_weight, initial_epoch, steps_per_epoch, validation_steps, max_queue_size, workers, use_multiprocessing, **kwargs)</span>
-<span class='ansi-green-intense-fg ansi-bold'>    878</span>           initial_epoch<span class='ansi-blue-fg'>=</span>initial_epoch<span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-intense-fg ansi-bold'>    879</span>           steps_per_epoch<span class='ansi-blue-fg'>=</span>steps_per_epoch<span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-fg'>--&gt; 880</span><span class='ansi-red-fg'>           validation_steps=validation_steps)
-</span><span class='ansi-green-intense-fg ansi-bold'>    881</span> 
-<span class='ansi-green-intense-fg ansi-bold'>    882</span>   def evaluate(self,
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/engine/training_arrays.pyc</span> in <span class='ansi-cyan-fg'>model_iteration</span><span class='ansi-blue-fg'>(model, inputs, targets, sample_weights, batch_size, epochs, verbose, callbacks, val_inputs, val_targets, val_sample_weights, shuffle, initial_epoch, steps_per_epoch, validation_steps, mode, validation_in_fit, **kwargs)</span>
-<span class='ansi-green-intense-fg ansi-bold'>    327</span> 
-<span class='ansi-green-intense-fg ansi-bold'>    328</span>         <span class='ansi-red-fg'># Get outputs.</span>
-<span class='ansi-green-fg'>--&gt; 329</span><span class='ansi-red-fg'>         </span>batch_outs <span class='ansi-blue-fg'>=</span> f<span class='ansi-blue-fg'>(</span>ins_batch<span class='ansi-blue-fg'>)</span>
-<span class='ansi-green-intense-fg ansi-bold'>    330</span>         <span class='ansi-green-fg'>if</span> <span class='ansi-green-fg'>not</span> isinstance<span class='ansi-blue-fg'>(</span>batch_outs<span class='ansi-blue-fg'>,</span> list<span class='ansi-blue-fg'>)</span><span class='ansi-blue-fg'>:</span>
-<span class='ansi-green-intense-fg ansi-bold'>    331</span>           batch_outs <span class='ansi-blue-fg'>=</span> <span class='ansi-blue-fg'>[</span>batch_outs<span class='ansi-blue-fg'>]</span>
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/backend.pyc</span> in <span class='ansi-cyan-fg'>__call__</span><span class='ansi-blue-fg'>(self, inputs)</span>
-<span class='ansi-green-intense-fg ansi-bold'>   3074</span> 
-<span class='ansi-green-intense-fg ansi-bold'>   3075</span>     fetched = self._callable_fn(*array_vals,
-<span class='ansi-green-fg'>-&gt; 3076</span><span class='ansi-red-fg'>                                 run_metadata=self.run_metadata)
-</span><span class='ansi-green-intense-fg ansi-bold'>   3077</span>     self<span class='ansi-blue-fg'>.</span>_call_fetch_callbacks<span class='ansi-blue-fg'>(</span>fetched<span class='ansi-blue-fg'>[</span><span class='ansi-blue-fg'>-</span>len<span class='ansi-blue-fg'>(</span>self<span class='ansi-blue-fg'>.</span>_fetches<span class='ansi-blue-fg'>)</span><span class='ansi-blue-fg'>:</span><span class='ansi-blue-fg'>]</span><span class='ansi-blue-fg'>)</span>
-<span class='ansi-green-intense-fg ansi-bold'>   3078</span>     return nest.pack_sequence_as(self._outputs_structure,
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.pyc</span> in <span class='ansi-cyan-fg'>__call__</span><span class='ansi-blue-fg'>(self, *args, **kwargs)</span>
-<span class='ansi-green-intense-fg ansi-bold'>   1437</span>           ret = tf_session.TF_SessionRunCallable(
-<span class='ansi-green-intense-fg ansi-bold'>   1438</span>               self<span class='ansi-blue-fg'>.</span>_session<span class='ansi-blue-fg'>.</span>_session<span class='ansi-blue-fg'>,</span> self<span class='ansi-blue-fg'>.</span>_handle<span class='ansi-blue-fg'>,</span> args<span class='ansi-blue-fg'>,</span> status<span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-fg'>-&gt; 1439</span><span class='ansi-red-fg'>               run_metadata_ptr)
-</span><span class='ansi-green-intense-fg ansi-bold'>   1440</span>         <span class='ansi-green-fg'>if</span> run_metadata<span class='ansi-blue-fg'>:</span>
-<span class='ansi-green-intense-fg ansi-bold'>   1441</span>           proto_data <span class='ansi-blue-fg'>=</span> tf_session<span class='ansi-blue-fg'>.</span>TF_GetBuffer<span class='ansi-blue-fg'>(</span>run_metadata_ptr<span class='ansi-blue-fg'>)</span>
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/errors_impl.pyc</span> in <span class='ansi-cyan-fg'>__exit__</span><span class='ansi-blue-fg'>(self, type_arg, value_arg, traceback_arg)</span>
-<span class='ansi-green-intense-fg ansi-bold'>    526</span>             None<span class='ansi-blue-fg'>,</span> None<span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-intense-fg ansi-bold'>    527</span>             compat<span class='ansi-blue-fg'>.</span>as_text<span class='ansi-blue-fg'>(</span>c_api<span class='ansi-blue-fg'>.</span>TF_Message<span class='ansi-blue-fg'>(</span>self<span class='ansi-blue-fg'>.</span>status<span class='ansi-blue-fg'>.</span>status<span class='ansi-blue-fg'>)</span><span class='ansi-blue-fg'>)</span><span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-fg'>--&gt; 528</span><span class='ansi-red-fg'>             c_api.TF_GetCode(self.status.status))
-</span><span class='ansi-green-intense-fg ansi-bold'>    529</span>     <span class='ansi-red-fg'># Delete the underlying status object from memory otherwise it stays alive</span>
-<span class='ansi-green-intense-fg ansi-bold'>    530</span>     <span class='ansi-red-fg'># as there is a reference to status from this from the traceback due to</span>
-
-<span class='ansi-red-fg'>InvalidArgumentError</span>: Received a label value of 9 which is outside the valid range of [0, 5).  Label values: 9 5 0 9 4 1 3 4 7 7 6 4 2 7 0 0 2 1 6 7 3 1 0 6 0 7 1 0 3 2 1 7
-	 [[{{node loss_3/output_1_loss/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits}}]]</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h2 id='Exercise-5:'>Exercise 5:</h2><p>Consider the effects of additional layers in the network. What will happen if you add another layer between the one with 512 and the final layer with 10.</p>
-<p>Ans: There isn't a significant impact -- because this is relatively simple data. For far more complex data (including color images to be classified as flowers that you'll see in the next lesson), extra layers are often necessary.</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[14]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='kn'>import</span> <span class='nn'>tensorflow</span> <span class='k'>as</span> <span class='nn'>tf</span>
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>__version__</span><span class='p'>)</span>
-
-<span class='n'>mnist</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>datasets</span><span class='o'>.</span><span class='n'>mnist</span>
-
-<span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>)</span> <span class='p'>,</span>  <span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span> <span class='o'>=</span> <span class='n'>mnist</span><span class='o'>.</span><span class='n'>load_data</span><span class='p'>()</span>
-
-<span class='n'>training_images</span> <span class='o'>=</span> <span class='n'>training_images</span><span class='o'>/</span><span class='mf'>255.0</span>
-<span class='n'>test_images</span> <span class='o'>=</span> <span class='n'>test_images</span><span class='o'>/</span><span class='mf'>255.0</span>
-
-<span class='n'>model</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>models</span><span class='o'>.</span><span class='n'>Sequential</span><span class='p'>([</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Flatten</span><span class='p'>(),</span>
-                                    <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>512</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>relu</span><span class='p'>),</span>
-                                    <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>256</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>relu</span><span class='p'>),</span>
-                                    <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>5</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>softmax</span><span class='p'>)])</span>
-
-<span class='n'>model</span><span class='o'>.</span><span class='n'>compile</span><span class='p'>(</span><span class='n'>optimizer</span> <span class='o'>=</span> <span class='s1'>&#39;adam&#39;</span><span class='p'>,</span>
-              <span class='n'>loss</span> <span class='o'>=</span> <span class='s1'>&#39;sparse_categorical_crossentropy&#39;</span><span class='p'>)</span>
-
-<span class='n'>model</span><span class='o'>.</span><span class='n'>fit</span><span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>,</span> <span class='n'>epochs</span><span class='o'>=</span><span class='mi'>5</span><span class='p'>)</span>
-
-<span class='n'>model</span><span class='o'>.</span><span class='n'>evaluate</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span>
-
-<span class='n'>classifications</span> <span class='o'>=</span> <span class='n'>model</span><span class='o'>.</span><span class='n'>predict</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>)</span>
-
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>classifications</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>])</span>
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>test_labels</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class='output_wrapper'>
-<div class='output'>
-
-
-<div class='output_area'>
-
-    <div class='prompt'></div>
-
-
-<div class='output_subarea output_stream output_stdout output_text'>
-<pre>1.13.1
-Epoch 1/5
-</pre>
-</div>
-</div>
-
-<div class='output_area'>
-
-    <div class='prompt'></div>
-
-
-<div class='output_subarea output_text output_error'>
-<pre>
-
-<span class='ansi-red-fg'>InvalidArgumentError</span>Traceback (most recent call last)
-<span class='ansi-green-fg'>&lt;ipython-input-14-827293952972&gt;</span> in <span class='ansi-cyan-fg'>&lt;module&gt;</span><span class='ansi-blue-fg'>()</span>
-<span class='ansi-green-intense-fg ansi-bold'>     17</span>               loss = &#39;sparse_categorical_crossentropy&#39;)
-<span class='ansi-green-intense-fg ansi-bold'>     18</span> 
-<span class='ansi-green-fg'>---&gt; 19</span><span class='ansi-red-fg'> </span>model<span class='ansi-blue-fg'>.</span>fit<span class='ansi-blue-fg'>(</span>training_images<span class='ansi-blue-fg'>,</span> training_labels<span class='ansi-blue-fg'>,</span> epochs<span class='ansi-blue-fg'>=</span><span class='ansi-cyan-fg'>5</span><span class='ansi-blue-fg'>)</span>
-<span class='ansi-green-intense-fg ansi-bold'>     20</span> 
-<span class='ansi-green-intense-fg ansi-bold'>     21</span> model<span class='ansi-blue-fg'>.</span>evaluate<span class='ansi-blue-fg'>(</span>test_images<span class='ansi-blue-fg'>,</span> test_labels<span class='ansi-blue-fg'>)</span>
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/engine/training.pyc</span> in <span class='ansi-cyan-fg'>fit</span><span class='ansi-blue-fg'>(self, x, y, batch_size, epochs, verbose, callbacks, validation_split, validation_data, shuffle, class_weight, sample_weight, initial_epoch, steps_per_epoch, validation_steps, max_queue_size, workers, use_multiprocessing, **kwargs)</span>
-<span class='ansi-green-intense-fg ansi-bold'>    878</span>           initial_epoch<span class='ansi-blue-fg'>=</span>initial_epoch<span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-intense-fg ansi-bold'>    879</span>           steps_per_epoch<span class='ansi-blue-fg'>=</span>steps_per_epoch<span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-fg'>--&gt; 880</span><span class='ansi-red-fg'>           validation_steps=validation_steps)
-</span><span class='ansi-green-intense-fg ansi-bold'>    881</span> 
-<span class='ansi-green-intense-fg ansi-bold'>    882</span>   def evaluate(self,
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/engine/training_arrays.pyc</span> in <span class='ansi-cyan-fg'>model_iteration</span><span class='ansi-blue-fg'>(model, inputs, targets, sample_weights, batch_size, epochs, verbose, callbacks, val_inputs, val_targets, val_sample_weights, shuffle, initial_epoch, steps_per_epoch, validation_steps, mode, validation_in_fit, **kwargs)</span>
-<span class='ansi-green-intense-fg ansi-bold'>    327</span> 
-<span class='ansi-green-intense-fg ansi-bold'>    328</span>         <span class='ansi-red-fg'># Get outputs.</span>
-<span class='ansi-green-fg'>--&gt; 329</span><span class='ansi-red-fg'>         </span>batch_outs <span class='ansi-blue-fg'>=</span> f<span class='ansi-blue-fg'>(</span>ins_batch<span class='ansi-blue-fg'>)</span>
-<span class='ansi-green-intense-fg ansi-bold'>    330</span>         <span class='ansi-green-fg'>if</span> <span class='ansi-green-fg'>not</span> isinstance<span class='ansi-blue-fg'>(</span>batch_outs<span class='ansi-blue-fg'>,</span> list<span class='ansi-blue-fg'>)</span><span class='ansi-blue-fg'>:</span>
-<span class='ansi-green-intense-fg ansi-bold'>    331</span>           batch_outs <span class='ansi-blue-fg'>=</span> <span class='ansi-blue-fg'>[</span>batch_outs<span class='ansi-blue-fg'>]</span>
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/backend.pyc</span> in <span class='ansi-cyan-fg'>__call__</span><span class='ansi-blue-fg'>(self, inputs)</span>
-<span class='ansi-green-intense-fg ansi-bold'>   3074</span> 
-<span class='ansi-green-intense-fg ansi-bold'>   3075</span>     fetched = self._callable_fn(*array_vals,
-<span class='ansi-green-fg'>-&gt; 3076</span><span class='ansi-red-fg'>                                 run_metadata=self.run_metadata)
-</span><span class='ansi-green-intense-fg ansi-bold'>   3077</span>     self<span class='ansi-blue-fg'>.</span>_call_fetch_callbacks<span class='ansi-blue-fg'>(</span>fetched<span class='ansi-blue-fg'>[</span><span class='ansi-blue-fg'>-</span>len<span class='ansi-blue-fg'>(</span>self<span class='ansi-blue-fg'>.</span>_fetches<span class='ansi-blue-fg'>)</span><span class='ansi-blue-fg'>:</span><span class='ansi-blue-fg'>]</span><span class='ansi-blue-fg'>)</span>
-<span class='ansi-green-intense-fg ansi-bold'>   3078</span>     return nest.pack_sequence_as(self._outputs_structure,
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.pyc</span> in <span class='ansi-cyan-fg'>__call__</span><span class='ansi-blue-fg'>(self, *args, **kwargs)</span>
-<span class='ansi-green-intense-fg ansi-bold'>   1437</span>           ret = tf_session.TF_SessionRunCallable(
-<span class='ansi-green-intense-fg ansi-bold'>   1438</span>               self<span class='ansi-blue-fg'>.</span>_session<span class='ansi-blue-fg'>.</span>_session<span class='ansi-blue-fg'>,</span> self<span class='ansi-blue-fg'>.</span>_handle<span class='ansi-blue-fg'>,</span> args<span class='ansi-blue-fg'>,</span> status<span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-fg'>-&gt; 1439</span><span class='ansi-red-fg'>               run_metadata_ptr)
-</span><span class='ansi-green-intense-fg ansi-bold'>   1440</span>         <span class='ansi-green-fg'>if</span> run_metadata<span class='ansi-blue-fg'>:</span>
-<span class='ansi-green-intense-fg ansi-bold'>   1441</span>           proto_data <span class='ansi-blue-fg'>=</span> tf_session<span class='ansi-blue-fg'>.</span>TF_GetBuffer<span class='ansi-blue-fg'>(</span>run_metadata_ptr<span class='ansi-blue-fg'>)</span>
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/framework/errors_impl.pyc</span> in <span class='ansi-cyan-fg'>__exit__</span><span class='ansi-blue-fg'>(self, type_arg, value_arg, traceback_arg)</span>
-<span class='ansi-green-intense-fg ansi-bold'>    526</span>             None<span class='ansi-blue-fg'>,</span> None<span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-intense-fg ansi-bold'>    527</span>             compat<span class='ansi-blue-fg'>.</span>as_text<span class='ansi-blue-fg'>(</span>c_api<span class='ansi-blue-fg'>.</span>TF_Message<span class='ansi-blue-fg'>(</span>self<span class='ansi-blue-fg'>.</span>status<span class='ansi-blue-fg'>.</span>status<span class='ansi-blue-fg'>)</span><span class='ansi-blue-fg'>)</span><span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-fg'>--&gt; 528</span><span class='ansi-red-fg'>             c_api.TF_GetCode(self.status.status))
-</span><span class='ansi-green-intense-fg ansi-bold'>    529</span>     <span class='ansi-red-fg'># Delete the underlying status object from memory otherwise it stays alive</span>
-<span class='ansi-green-intense-fg ansi-bold'>    530</span>     <span class='ansi-red-fg'># as there is a reference to status from this from the traceback due to</span>
-
-<span class='ansi-red-fg'>InvalidArgumentError</span>: Received a label value of 9 which is outside the valid range of [0, 5).  Label values: 7 9 7 2 6 9 2 1 2 8 0 6 4 1 7 7 5 8 6 8 4 0 1 8 5 1 4 6 1 4 4 7
-	 [[{{node loss_4/output_1_loss/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits}}]]</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[0]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h1 id='Exercise-6:'>Exercise 6:</h1><p>Consider the impact of training for more or less epochs. Why do you think that would be the case?</p>
-<p>Try 15 epochs -- you'll probably get a model with a much better loss than the one with 5
-Try 30 epochs -- you might see the loss value stops decreasing, and sometimes increases. This is a side effect of something called 'overfitting' which you can learn about [somewhere] and it's something you need to keep an eye out for when training neural networks. There's no point in wasting your time training if you aren't improving your loss, right! :)</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[16]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='kn'>import</span> <span class='nn'>tensorflow</span> <span class='k'>as</span> <span class='nn'>tf</span>
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>__version__</span><span class='p'>)</span>
-
-<span class='n'>mnist</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>datasets</span><span class='o'>.</span><span class='n'>mnist</span>
-
-<span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>)</span> <span class='p'>,</span>  <span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span> <span class='o'>=</span> <span class='n'>mnist</span><span class='o'>.</span><span class='n'>load_data</span><span class='p'>()</span>
-
-<span class='n'>training_images</span> <span class='o'>=</span> <span class='n'>training_images</span><span class='o'>/</span><span class='mf'>255.0</span>
-<span class='n'>test_images</span> <span class='o'>=</span> <span class='n'>test_images</span><span class='o'>/</span><span class='mf'>255.0</span>
-
-<span class='n'>model</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>models</span><span class='o'>.</span><span class='n'>Sequential</span><span class='p'>([</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Flatten</span><span class='p'>(),</span>
-                                    <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>128</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>relu</span><span class='p'>),</span>
-                                    <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>softmax</span><span class='p'>)])</span>
-
-<span class='n'>model</span><span class='o'>.</span><span class='n'>compile</span><span class='p'>(</span><span class='n'>optimizer</span> <span class='o'>=</span> <span class='s1'>&#39;adam&#39;</span><span class='p'>,</span>
-              <span class='n'>loss</span> <span class='o'>=</span> <span class='s1'>&#39;sparse_categorical_crossentropy&#39;</span><span class='p'>)</span>
-
-<span class='n'>model</span><span class='o'>.</span><span class='n'>fit</span><span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>,</span> <span class='n'>epochs</span><span class='o'>=</span><span class='mi'>30</span><span class='p'>)</span>
-
-<span class='n'>model</span><span class='o'>.</span><span class='n'>evaluate</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span>
-
-<span class='n'>classifications</span> <span class='o'>=</span> <span class='n'>model</span><span class='o'>.</span><span class='n'>predict</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>)</span>
-
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>classifications</span><span class='p'>[</span><span class='mi'>34</span><span class='p'>])</span>
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>test_labels</span><span class='p'>[</span><span class='mi'>34</span><span class='p'>])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class='output_wrapper'>
-<div class='output'>
-
-
-<div class='output_area'>
-
-    <div class='prompt'></div>
-
-
-<div class='output_subarea output_stream output_stdout output_text'>
-<pre>1.13.1
-Epoch 1/30
-60000/60000 [==============================] - 8s 135us/sample - loss: 0.2565
-Epoch 2/30
-60000/60000 [==============================] - 7s 120us/sample - loss: 0.1119
-Epoch 3/30
-60000/60000 [==============================] - 7s 121us/sample - loss: 0.0766
-Epoch 4/30
-60000/60000 [==============================] - 7s 123us/sample - loss: 0.0576
-Epoch 5/30
-39232/60000 [==================&gt;...........] - ETA: 2s - loss: 0.0452</pre>
-</div>
-</div>
-
-<div class='output_area'>
-
-    <div class='prompt'></div>
-
-
-<div class='output_subarea output_text output_error'>
-<pre>
-
-<span class='ansi-red-fg'>KeyboardInterrupt</span>Traceback (most recent call last)
-<span class='ansi-green-fg'>&lt;ipython-input-16-19cec2d3b64a&gt;</span> in <span class='ansi-cyan-fg'>&lt;module&gt;</span><span class='ansi-blue-fg'>()</span>
-<span class='ansi-green-intense-fg ansi-bold'>     16</span>               loss = &#39;sparse_categorical_crossentropy&#39;)
-<span class='ansi-green-intense-fg ansi-bold'>     17</span> 
-<span class='ansi-green-fg'>---&gt; 18</span><span class='ansi-red-fg'> </span>model<span class='ansi-blue-fg'>.</span>fit<span class='ansi-blue-fg'>(</span>training_images<span class='ansi-blue-fg'>,</span> training_labels<span class='ansi-blue-fg'>,</span> epochs<span class='ansi-blue-fg'>=</span><span class='ansi-cyan-fg'>30</span><span class='ansi-blue-fg'>)</span>
-<span class='ansi-green-intense-fg ansi-bold'>     19</span> 
-<span class='ansi-green-intense-fg ansi-bold'>     20</span> model<span class='ansi-blue-fg'>.</span>evaluate<span class='ansi-blue-fg'>(</span>test_images<span class='ansi-blue-fg'>,</span> test_labels<span class='ansi-blue-fg'>)</span>
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/engine/training.pyc</span> in <span class='ansi-cyan-fg'>fit</span><span class='ansi-blue-fg'>(self, x, y, batch_size, epochs, verbose, callbacks, validation_split, validation_data, shuffle, class_weight, sample_weight, initial_epoch, steps_per_epoch, validation_steps, max_queue_size, workers, use_multiprocessing, **kwargs)</span>
-<span class='ansi-green-intense-fg ansi-bold'>    878</span>           initial_epoch<span class='ansi-blue-fg'>=</span>initial_epoch<span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-intense-fg ansi-bold'>    879</span>           steps_per_epoch<span class='ansi-blue-fg'>=</span>steps_per_epoch<span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-fg'>--&gt; 880</span><span class='ansi-red-fg'>           validation_steps=validation_steps)
-</span><span class='ansi-green-intense-fg ansi-bold'>    881</span> 
-<span class='ansi-green-intense-fg ansi-bold'>    882</span>   def evaluate(self,
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/engine/training_arrays.pyc</span> in <span class='ansi-cyan-fg'>model_iteration</span><span class='ansi-blue-fg'>(model, inputs, targets, sample_weights, batch_size, epochs, verbose, callbacks, val_inputs, val_targets, val_sample_weights, shuffle, initial_epoch, steps_per_epoch, validation_steps, mode, validation_in_fit, **kwargs)</span>
-<span class='ansi-green-intense-fg ansi-bold'>    327</span> 
-<span class='ansi-green-intense-fg ansi-bold'>    328</span>         <span class='ansi-red-fg'># Get outputs.</span>
-<span class='ansi-green-fg'>--&gt; 329</span><span class='ansi-red-fg'>         </span>batch_outs <span class='ansi-blue-fg'>=</span> f<span class='ansi-blue-fg'>(</span>ins_batch<span class='ansi-blue-fg'>)</span>
-<span class='ansi-green-intense-fg ansi-bold'>    330</span>         <span class='ansi-green-fg'>if</span> <span class='ansi-green-fg'>not</span> isinstance<span class='ansi-blue-fg'>(</span>batch_outs<span class='ansi-blue-fg'>,</span> list<span class='ansi-blue-fg'>)</span><span class='ansi-blue-fg'>:</span>
-<span class='ansi-green-intense-fg ansi-bold'>    331</span>           batch_outs <span class='ansi-blue-fg'>=</span> <span class='ansi-blue-fg'>[</span>batch_outs<span class='ansi-blue-fg'>]</span>
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/backend.pyc</span> in <span class='ansi-cyan-fg'>__call__</span><span class='ansi-blue-fg'>(self, inputs)</span>
-<span class='ansi-green-intense-fg ansi-bold'>   3074</span> 
-<span class='ansi-green-intense-fg ansi-bold'>   3075</span>     fetched = self._callable_fn(*array_vals,
-<span class='ansi-green-fg'>-&gt; 3076</span><span class='ansi-red-fg'>                                 run_metadata=self.run_metadata)
-</span><span class='ansi-green-intense-fg ansi-bold'>   3077</span>     self<span class='ansi-blue-fg'>.</span>_call_fetch_callbacks<span class='ansi-blue-fg'>(</span>fetched<span class='ansi-blue-fg'>[</span><span class='ansi-blue-fg'>-</span>len<span class='ansi-blue-fg'>(</span>self<span class='ansi-blue-fg'>.</span>_fetches<span class='ansi-blue-fg'>)</span><span class='ansi-blue-fg'>:</span><span class='ansi-blue-fg'>]</span><span class='ansi-blue-fg'>)</span>
-<span class='ansi-green-intense-fg ansi-bold'>   3078</span>     return nest.pack_sequence_as(self._outputs_structure,
-
-<span class='ansi-green-fg'>/usr/local/lib/python2.7/dist-packages/tensorflow/python/client/session.pyc</span> in <span class='ansi-cyan-fg'>__call__</span><span class='ansi-blue-fg'>(self, *args, **kwargs)</span>
-<span class='ansi-green-intense-fg ansi-bold'>   1437</span>           ret = tf_session.TF_SessionRunCallable(
-<span class='ansi-green-intense-fg ansi-bold'>   1438</span>               self<span class='ansi-blue-fg'>.</span>_session<span class='ansi-blue-fg'>.</span>_session<span class='ansi-blue-fg'>,</span> self<span class='ansi-blue-fg'>.</span>_handle<span class='ansi-blue-fg'>,</span> args<span class='ansi-blue-fg'>,</span> status<span class='ansi-blue-fg'>,</span>
-<span class='ansi-green-fg'>-&gt; 1439</span><span class='ansi-red-fg'>               run_metadata_ptr)
-</span><span class='ansi-green-intense-fg ansi-bold'>   1440</span>         <span class='ansi-green-fg'>if</span> run_metadata<span class='ansi-blue-fg'>:</span>
-<span class='ansi-green-intense-fg ansi-bold'>   1441</span>           proto_data <span class='ansi-blue-fg'>=</span> tf_session<span class='ansi-blue-fg'>.</span>TF_GetBuffer<span class='ansi-blue-fg'>(</span>run_metadata_ptr<span class='ansi-blue-fg'>)</span>
-
-<span class='ansi-red-fg'>KeyboardInterrupt</span>: </pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h1 id='Exercise-7:'>Exercise 7:</h1><p>Before you trained, you normalized the data, going from values that were 0-255 to values that were 0-1. What would be the impact of removing that? Here's the complete code to give it a try. Why do you think you get different results?</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[17]:</div>
 <div class='inner_cell'>
     <div class='input_area'>
 <div class=' highlight hl-ipython3'><pre><span></span><span class='kn'>import</span> <span class='nn'>tensorflow</span> <span class='k'>as</span> <span class='nn'>tf</span>
 <span class='nb'>print</span><span class='p'>(</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>__version__</span><span class='p'>)</span>
 <span class='n'>mnist</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>datasets</span><span class='o'>.</span><span class='n'>mnist</span>
 <span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>),</span> <span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span> <span class='o'>=</span> <span class='n'>mnist</span><span class='o'>.</span><span class='n'>load_data</span><span class='p'>()</span>
-<span class='n'>training_images</span><span class='o'>=</span><span class='n'>training_images</span><span class='o'>/</span><span class='mf'>255.0</span>
+<span class='n'>training_images</span><span class='o'>=</span><span class='n'>training_images</span><span class='o'>.</span><span class='n'>reshape</span><span class='p'>(</span><span class='mi'>60000</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>1</span><span class='p'>)</span>
+<span class='n'>training_images</span><span class='o'>=</span><span class='n'>training_images</span> <span class='o'>/</span> <span class='mf'>255.0</span>
+<span class='n'>test_images</span> <span class='o'>=</span> <span class='n'>test_images</span><span class='o'>.</span><span class='n'>reshape</span><span class='p'>(</span><span class='mi'>10000</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>1</span><span class='p'>)</span>
 <span class='n'>test_images</span><span class='o'>=</span><span class='n'>test_images</span><span class='o'>/</span><span class='mf'>255.0</span>
 <span class='n'>model</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>models</span><span class='o'>.</span><span class='n'>Sequential</span><span class='p'>([</span>
+  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Conv2D</span><span class='p'>(</span><span class='mi'>32</span><span class='p'>,</span> <span class='p'>(</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>),</span> <span class='n'>activation</span><span class='o'>=</span><span class='s1'>&#39;relu&#39;</span><span class='p'>,</span> <span class='n'>input_shape</span><span class='o'>=</span><span class='p'>(</span><span class='mi'>28</span><span class='p'>,</span> <span class='mi'>28</span><span class='p'>,</span> <span class='mi'>1</span><span class='p'>)),</span>
+  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>MaxPooling2D</span><span class='p'>(</span><span class='mi'>2</span><span class='p'>,</span> <span class='mi'>2</span><span class='p'>),</span>
   <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Flatten</span><span class='p'>(),</span>
-  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>512</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>relu</span><span class='p'>),</span>
-  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>softmax</span><span class='p'>)</span>
+  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>128</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='s1'>&#39;relu&#39;</span><span class='p'>),</span>
+  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='s1'>&#39;softmax&#39;</span><span class='p'>)</span>
 <span class='p'>])</span>
-<span class='n'>model</span><span class='o'>.</span><span class='n'>compile</span><span class='p'>(</span><span class='n'>optimizer</span><span class='o'>=</span><span class='s1'>&#39;adam&#39;</span><span class='p'>,</span> <span class='n'>loss</span><span class='o'>=</span><span class='s1'>&#39;sparse_categorical_crossentropy&#39;</span><span class='p'>)</span>
-<span class='n'>model</span><span class='o'>.</span><span class='n'>fit</span><span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>,</span> <span class='n'>epochs</span><span class='o'>=</span><span class='mi'>5</span><span class='p'>)</span>
-<span class='n'>model</span><span class='o'>.</span><span class='n'>evaluate</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span>
-<span class='n'>classifications</span> <span class='o'>=</span> <span class='n'>model</span><span class='o'>.</span><span class='n'>predict</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>)</span>
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>classifications</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>])</span>
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>test_labels</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>])</span>
+<span class='n'>model</span><span class='o'>.</span><span class='n'>compile</span><span class='p'>(</span><span class='n'>optimizer</span><span class='o'>=</span><span class='s1'>&#39;adam&#39;</span><span class='p'>,</span> <span class='n'>loss</span><span class='o'>=</span><span class='s1'>&#39;sparse_categorical_crossentropy&#39;</span><span class='p'>,</span> <span class='n'>metrics</span><span class='o'>=</span><span class='p'>[</span><span class='s1'>&#39;accuracy&#39;</span><span class='p'>])</span>
+<span class='n'>model</span><span class='o'>.</span><span class='n'>fit</span><span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>,</span> <span class='n'>epochs</span><span class='o'>=</span><span class='mi'>10</span><span class='p'>)</span>
+<span class='n'>test_loss</span><span class='p'>,</span> <span class='n'>test_acc</span> <span class='o'>=</span> <span class='n'>model</span><span class='o'>.</span><span class='n'>evaluate</span><span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span>
+<span class='nb'>print</span><span class='p'>(</span><span class='n'>test_acc</span><span class='p'>)</span>
 </pre></div>
 
     </div>
@@ -14856,101 +14529,31 @@ Epoch 5/30
 
 
 <div class='output_subarea output_stream output_stdout output_text'>
-<pre>1.13.1
-Epoch 1/5
-60000/60000 [==============================] - 18s 295us/sample - loss: 0.2024
-Epoch 2/5
-60000/60000 [==============================] - 15s 256us/sample - loss: 0.0818
-Epoch 3/5
-60000/60000 [==============================] - 16s 262us/sample - loss: 0.0531
-Epoch 4/5
-60000/60000 [==============================] - 16s 259us/sample - loss: 0.0367
-Epoch 5/5
-60000/60000 [==============================] - 16s 266us/sample - loss: 0.0269
-10000/10000 [==============================] - 1s 86us/sample - loss: 0.0637
-[2.1945258e-10 4.0893786e-10 3.8862879e-08 9.5302096e-07 1.1423730e-13
- 3.0100249e-11 5.3545825e-14 9.9999654e-01 1.7650142e-09 2.5158711e-06]
-7
+<pre>1.12.0
+Epoch 1/10
+60000/60000==============================] - 6s 104us/sample - loss: 0.1510 - acc: 0.9551
+Epoch 2/10
+60000/60000==============================] - 5s 79us/sample - loss: 0.0512 - acc: 0.9843
+Epoch 3/10
+60000/60000==============================] - 5s 77us/sample - loss: 0.0319 - acc: 0.9902
+Epoch 4/10
+60000/60000==============================] - 5s 78us/sample - loss: 0.0209 - acc: 0.9934
+Epoch 5/10
+60000/60000==============================] - 5s 78us/sample - loss: 0.0136 - acc: 0.9956
+Epoch 6/10
+60000/60000==============================] - 5s 78us/sample - loss: 0.0111 - acc: 0.9964
+Epoch 7/10
+60000/60000==============================] - 5s 79us/sample - loss: 0.0076 - acc: 0.9974
+Epoch 8/10
+60000/60000==============================] - 5s 78us/sample - loss: 0.0052 - acc: 0.9985
+Epoch 9/10
+60000/60000==============================] - 5s 81us/sample - loss: 0.0046 - acc: 0.9988
+Epoch 10/10
+60000/60000==============================] - 5s 81us/sample - loss: 0.0053 - acc: 0.9981
+10000/10000==============================] - 1s 53us/sample - loss: 0.0583 - acc: 0.9873
+0.9873
 </pre>
 </div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h1 id='Exercise-8:'>Exercise 8:</h1><p>Earlier when you trained for extra epochs you had an issue where your loss might change. It might have taken a bit of time for you to wait for the training to do that, and you might have thought 'wouldn't it be nice if I could stop the training when I reach a desired value?' -- i.e. 95% accuracy might be enough for you, and if you reach that after 3 epochs, why sit around waiting for it to finish a lot more epochs....So how would you fix that? Like any other program...you have callbacks! Let's see them in action...</p>
-
-</div>
-</div>
-</div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[18]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='kn'>import</span> <span class='nn'>tensorflow</span> <span class='k'>as</span> <span class='nn'>tf</span>
-<span class='nb'>print</span><span class='p'>(</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>__version__</span><span class='p'>)</span>
-
-<span class='k'>class</span> <span class='nc'>myCallback</span><span class='p'>(</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>callbacks</span><span class='o'>.</span><span class='n'>Callback</span><span class='p'>):</span>
-  <span class='k'>def</span> <span class='nf'>on_epoch_end</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>epoch</span><span class='p'>,</span> <span class='n'>logs</span><span class='o'>=</span><span class='p'>{}):</span>
-    <span class='k'>if</span><span class='p'>(</span><span class='n'>logs</span><span class='o'>.</span><span class='n'>get</span><span class='p'>(</span><span class='s1'>&#39;loss&#39;</span><span class='p'>)</span><span class='o'>&lt;</span><span class='mf'>0.4</span><span class='p'>):</span>
-      <span class='nb'>print</span><span class='p'>(</span><span class='s2'>&quot;</span><span class='se'>\n</span><span class='s2'>Reached 60% accuracy so cancelling training!&quot;</span><span class='p'>)</span>
-      <span class='bp'>self</span><span class='o'>.</span><span class='n'>model</span><span class='o'>.</span><span class='n'>stop_training</span> <span class='o'>=</span> <span class='kc'>True</span>
-
-<span class='n'>callbacks</span> <span class='o'>=</span> <span class='n'>myCallback</span><span class='p'>()</span>
-<span class='n'>mnist</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>datasets</span><span class='o'>.</span><span class='n'>fashion_mnist</span>
-<span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>),</span> <span class='p'>(</span><span class='n'>test_images</span><span class='p'>,</span> <span class='n'>test_labels</span><span class='p'>)</span> <span class='o'>=</span> <span class='n'>mnist</span><span class='o'>.</span><span class='n'>load_data</span><span class='p'>()</span>
-<span class='n'>training_images</span><span class='o'>=</span><span class='n'>training_images</span><span class='o'>/</span><span class='mf'>255.0</span>
-<span class='n'>test_images</span><span class='o'>=</span><span class='n'>test_images</span><span class='o'>/</span><span class='mf'>255.0</span>
-<span class='n'>model</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>models</span><span class='o'>.</span><span class='n'>Sequential</span><span class='p'>([</span>
-  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Flatten</span><span class='p'>(),</span>
-  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>512</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>relu</span><span class='p'>),</span>
-  <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='mi'>10</span><span class='p'>,</span> <span class='n'>activation</span><span class='o'>=</span><span class='n'>tf</span><span class='o'>.</span><span class='n'>nn</span><span class='o'>.</span><span class='n'>softmax</span><span class='p'>)</span>
-<span class='p'>])</span>
-<span class='n'>model</span><span class='o'>.</span><span class='n'>compile</span><span class='p'>(</span><span class='n'>optimizer</span><span class='o'>=</span><span class='s1'>&#39;adam&#39;</span><span class='p'>,</span> <span class='n'>loss</span><span class='o'>=</span><span class='s1'>&#39;sparse_categorical_crossentropy&#39;</span><span class='p'>)</span>
-<span class='n'>model</span><span class='o'>.</span><span class='n'>fit</span><span class='p'>(</span><span class='n'>training_images</span><span class='p'>,</span> <span class='n'>training_labels</span><span class='p'>,</span> <span class='n'>epochs</span><span class='o'>=</span><span class='mi'>5</span><span class='p'>,</span> <span class='n'>callbacks</span><span class='o'>=</span><span class='p'>[</span><span class='n'>callbacks</span><span class='p'>])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class='output_wrapper'>
-<div class='output'>
-
-
-<div class='output_area'>
-
-    <div class='prompt'></div>
-
-
-<div class='output_subarea output_stream output_stdout output_text'>
-<pre>1.13.1
-Epoch 1/5
-60000/60000 [==============================] - 16s 270us/sample - loss: 0.4741
-Epoch 2/5
-59840/60000 [============================&gt;.] - ETA: 0s - loss: 0.3592
-Reached 60% accuracy so cancelling training!
-60000/60000 [==============================] - 15s 254us/sample - loss: 0.3589
-</pre>
-</div>
-</div>
-
-<div class='output_area'>
-
-    <div class='prompt output_prompt'>Out[18]:</div>
-
-
-
-
-<div class='output_text output_subarea output_execute_result'>
-<pre>&lt;tensorflow.python.keras.callbacks.History at 0x7fabde78a4d0&gt;</pre>
-</div>
-
 </div>
 
 </div>
@@ -15011,7 +14614,7 @@ document.getElementById('ipynb').height=$("#ipynb").contents().find("#notebook")
           
             <a href="/tags/Project/" rel="tag"># Project</a>
           
-            <a href="/tags/Computer-Vision/" rel="tag"># Computer Vision</a>
+            <a href="/tags/Convolutional-Neural-Networks/" rel="tag"># Convolutional Neural Networks</a>
           
         </div>
       
@@ -15024,8 +14627,8 @@ document.getElementById('ipynb').height=$("#ipynb").contents().find("#notebook")
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/The-Hello-World-of-Deep-Learning/2019/05/21/" rel="next" title="The Hello World of Deep Learning">
-                <i class="fa fa-chevron-left"></i> The Hello World of Deep Learning
+              <a href="/Beyond-Hello-World-A-Computer-Vision-Example/2019/05/22/" rel="next" title="Beyond Hello World, A Computer Vision Example">
+                <i class="fa fa-chevron-left"></i> Beyond Hello World, A Computer Vision Example
               </a>
             
           </div>
@@ -15033,10 +14636,6 @@ document.getElementById('ipynb').height=$("#ipynb").contents().find("#notebook")
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Improving-Computer-Vision-Accuracy-using-Convolutions/2019/05/23/" rel="prev" title="Improving Computer Vision Accuracy using Convolutions">
-                Improving Computer Vision Accuracy using Convolutions <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
