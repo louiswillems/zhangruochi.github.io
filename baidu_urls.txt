@@ -1,3 +1,3 @@
+https://zhangruochi.com/Exploring-how-Convolutions-and-Pooling-work/2019/05/23/
 https://zhangruochi.com/Improving-Computer-Vision-Accuracy-using-Convolutions/2019/05/23/
 https://zhangruochi.com/Beyond-Hello-World-A-Computer-Vision-Example/2019/05/22/
-https://zhangruochi.com/The-Hello-World-of-Deep-Learning/2019/05/21/
