@@ -450,36 +450,33 @@
 <p>Kernel Method 不是对特征做低维空间到高维空间的映射，只是用来计算映射到高维空间之后的内积的一种简便方法。</p>
 </blockquote>
 <p>我们如果想对原本线性不可分的数据集进行分割，一般有两种方法:</p>
-<ol type="1">
-<li>Soft Margin<br>
-</li>
-<li>对Input Space做Feature Expansion，把数据集映射到高维中去，形成了Feature Space。 我们几乎可以认为（We are safe but not certain）原本在低维中线性不可分的数据集在足够高的维度中存在线性可分的超平面。</li>
+<ol>
+<li>Soft Margin  </li>
+<li>对Input Space做Feature Expansion，把数据集映射到高维中去，形成了Feature Space。<br>我们几乎可以认为（We are safe but not certain）原本在低维中线性不可分的数据集在足够高的维度中存在线性可分的超平面。</li>
 </ol>
-<p>对于2，我们所做的就是要在Feature Space套用原本在线性可分情况下的Input Space中使用过的优化方法，来找到那个Maximaizing Margin的超平面。原理机制一模一样，是二次规划，唯一不同是代入数据的不同，我们需要代入<span class="math inline">\(\phi(x)\)</span>而不是<span class="math inline">\(x\)</span>。这时（在假设我们已知了如何选取mapping之后）才有了Kernel Method的概念。</p>
-<p>Kernel Trick的意义，是简化计算二次规划中间的内积计算。因为中间步骤有一步必须求得<span class="math inline">\(\phi(x_i)^{T}\phi(x_j)\)</span>，而我们可以定义核函数<span class="math inline">\(K(x_i,x_j)=\phi(x_i)^{T}\phi(x_j)\)</span>，使得我们在不需要显式计算每一个<span class="math inline">\(\phi(x_i)\)</span>、甚至不需要知道<span class="math inline">\(\phi(\cdot )\)</span>长什么样的情况下，直接求出<span class="math inline">\(\phi(x_i)^{T}\phi(x_j)\)</span>的值来。</p>
+<p>对于2，我们所做的就是要在Feature Space套用原本在线性可分情况下的Input Space中使用过的优化方法，来找到那个Maximaizing Margin的超平面。原理机制一模一样，是二次规划，唯一不同是代入数据的不同，我们需要代入$\phi(x)$而不是$x$。这时（在假设我们已知了如何选取mapping之后）才有了Kernel Method的概念。</p>
+<p>Kernel Trick的意义，是简化计算二次规划中间的内积计算。因为中间步骤有一步必须求得$\phi(x_i)^{T}\phi(x_j)$，而我们可以定义核函数$K(x_i,x_j)=\phi(x_i)^{T}\phi(x_j)$，使得我们在不需要显式计算每一个$\phi(x_i)$、甚至不需要知道$\phi(\cdot )$长什么样的情况下，直接求出$\phi(x_i)^{T}\phi(x_j)$的值来。</p>
 <p>也就是说，<strong>核函数</strong>、<strong>内积</strong>、<strong>相似度</strong>这三个词是等价的。因为inner product其实就是一种similarity的度量。核函数和映射是无关的。</p>
 <p><strong>一句话概括的话，核函数等于映射至高维空间后的高维特征的点积，目的是降低计算的复杂度</strong>。</p>
-<p><span class="math display">\[K(x_1,x_2) = \phi(x_1)^{T}*\phi(x_2)\]</span></p>
-<h3 id="example">Example:</h3>
-<ol type="1">
-<li><span class="math inline">\(K(X_1,X_2) = &lt;P(X_1,X_2)&gt;\)</span></li>
+<script type="math/tex; mode=display">K(x_1,x_2) = \phi(x_1)^{T}*\phi(x_2)</script><h3 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h3><ol>
+<li>$K(X_1,X_2) = <p(x_1,x_2)>$</p(x_1,x_2)></li>
 </ol>
-<p>已知 <span class="math inline">\(P(X) = (X,X^2)\)</span>, 可得 <span class="math inline">\(K(X_1,X_2) = &lt;P(X_1),P(X_2)&gt; = &lt;(X_1,X_1^2),(X_2,X_2^2)&gt; = X_1X_2+X_1^2 X_2^2\)</span></p>
-<p>很多时候，我们只关心核函数，不需要显式地表示映射函数。可以用核函数表示低维空间下特性向量的操作（例子中的 <span class="math inline">\(X_1X_2+X_1^2 X_2^2\)</span> ），令其代替映射后高维特征的点积（ (<span class="math inline">\(X_1\)</span>,<span class="math inline">\(X_1^2\)</span>) 与 (<span class="math inline">\(X_2\)</span>,<span class="math inline">\(X_2^2\)</span>) 的点积）。</p>
-<ol start="2" type="1">
-<li>内积平方 我们现在考虑核函数<span class="math inline">\(K(v_1,v_2) = &lt;v_1,v_2&gt;^2\)</span>，即“内积平方”。 这里面<span class="math inline">\(v_1=(x_1,y_1), v_2=(x_2,y_2)\)</span>是二维空间中的两个点。</li>
+<p>已知 $P(X) = (X,X^2)$, 可得 $K(X_1,X_2) = <p(x_1),p(x_2)> = &lt;(X_1,X_1^2),(X_2,X_2^2)&gt; = X_1X_2+X_1^2 X_2^2$</p(x_1),p(x_2)></p>
+<p>很多时候，我们只关心核函数，不需要显式地表示映射函数。可以用核函数表示低维空间下特性向量的操作（例子中的 $X_1X_2+X_1^2 X_2^2$ ），令其代替映射后高维特征的点积（ ($X_1$,$X_1^2$) 与 ($X_2$,$X_2^2$) 的点积）。</p>
+<ol>
+<li>内积平方<br>我们现在考虑核函数$K(v_1,v_2) = <v_1,v_2>^2$，即“内积平方”。<br>这里面$v_1=(x_1,y_1), v_2=(x_2,y_2)$是二维空间中的两个点。</v_1,v_2></li>
 </ol>
-<p>这个核函数对应着一个二维空间到三维空间的映射，它的表达式是： <span class="math display">\[P(x,y)=(x^2,\sqrt{2}xy,y^2)\]</span> 可以验证， <span class="math display">\[
-\begin{align} &lt;P(v_1),P(v_2)&gt; &amp;= \, &lt;(x_1^2,\sqrt{2}x_1y_1,y_1^2),(x_2^2,\sqrt{2}x_2y_2,y_2^2)&gt; \\ &amp;= \, x_1^2x_2^2 + 2x_1x_2y_1y_2+y_1^2y_2^2 \\ &amp;= \, (x_1x_2 + y_1y_2)^2 \\ &amp;= \, \, &lt;v_1,v_2&gt;^2 \\ &amp;= \, K(v_1,v_2) \end{align}
-\]</span></p>
-<ol start="3" type="1">
+<p>这个核函数对应着一个二维空间到三维空间的映射，它的表达式是：</p>
+<script type="math/tex; mode=display">P(x,y)=(x^2,\sqrt{2}xy,y^2)</script><p>可以验证，</p>
+<script type="math/tex; mode=display">
+\begin{align} <P(v_1),P(v_2)> &= \, <(x_1^2,\sqrt{2}x_1y_1,y_1^2),(x_2^2,\sqrt{2}x_2y_2,y_2^2)> \\ &= \, x_1^2x_2^2 + 2x_1x_2y_1y_2+y_1^2y_2^2 \\ &= \, (x_1x_2 + y_1y_2)^2 \\ &= \, \, <v_1,v_2>^2 \\ &= \, K(v_1,v_2) \end{align}</script><ol>
 <li>多项式核函数的特征映射</li>
 </ol>
-<p><img src="1.png"> <img src="2.png"></p>
-<ol start="4" type="1">
+<p><img src="1.png" alt=""><br><img src="2.png" alt=""></p>
+<ol>
 <li>RBF 核函数</li>
 </ol>
-<p><img src="3.png"> <img src="4.png"></p>
+<p><img src="3.png" alt=""><br><img src="4.png" alt=""></p>
 
       
     </div>
@@ -659,7 +656,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -670,7 +667,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -681,7 +678,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -752,7 +749,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-text">Example:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-text">Example:</span></a></li></ol></div>
             
 
           </div>
