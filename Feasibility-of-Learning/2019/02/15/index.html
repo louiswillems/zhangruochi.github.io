@@ -445,41 +445,45 @@
       
 
       
-        <h2 id="Feasibility-of-Learning"><a href="#Feasibility-of-Learning" class="headerlink" title="Feasibility of Learning"></a>Feasibility of Learning</h2><blockquote>
+        <h2 id="feasibility-of-learning">Feasibility of Learning</h2>
+<blockquote>
 <p>我们希望找到无限逼近实际函数f的假设函数g</p>
 </blockquote>
-<p><img src="feasibility01.png" alt=""></p>
+<p><img src="feasibility01.png"></p>
 <ul>
-<li><p>$g(hypothesis) \approx f(real function)$ inside $D$: sure!</p>
-</li>
-<li><p>$g(hypothesis) \approx f(real function)$ outside $D$: No! (what we want)</p>
-</li>
+<li><p><span class="math inline">\(g(hypothesis) \approx f(real function)\)</span> inside <span class="math inline">\(D\)</span>: sure!</p></li>
+<li><p><span class="math inline">\(g(hypothesis) \approx f(real function)\)</span> outside <span class="math inline">\(D\)</span>: No! (what we want)</p></li>
 </ul>
-<h2 id="Hoeffding’s-Inequality"><a href="#Hoeffding’s-Inequality" class="headerlink" title="Hoeffding’s Inequality"></a>Hoeffding’s Inequality</h2><p><img src="feasibility02.png" alt=""></p>
-<script type="math/tex; mode=display">P(| \nu-\mu| > \epsilon)  \leqslant 2e^{-2\epsilon^{2}N}</script><ul>
-<li>valid for all N and $\epsilon$</li>
-<li>does not depend on $\mu$, no need to know $\mu$</li>
-<li>larger sample size N or looser gap $\epsilon$ =&gt; higher probability for $\nu \approx \mu$</li>
+<h2 id="hoeffdings-inequality">Hoeffding’s Inequality</h2>
+<p><img src="feasibility02.png"></p>
+<p><span class="math display">\[P(| \nu-\mu| &gt; \epsilon)  \leqslant 2e^{-2\epsilon^{2}N}\]</span></p>
+<ul>
+<li>valid for all N and <span class="math inline">\(\epsilon\)</span></li>
+<li>does not depend on <span class="math inline">\(\mu\)</span>, no need to know <span class="math inline">\(\mu\)</span></li>
+<li>larger sample size N or looser gap <span class="math inline">\(\epsilon\)</span> =&gt; higher probability for <span class="math inline">\(\nu \approx \mu\)</span></li>
 </ul>
-<h2 id="Connection-to-Learning"><a href="#Connection-to-Learning" class="headerlink" title="Connection to Learning"></a>Connection to Learning</h2><ul>
-<li>if large N, can probably infer unknow $| h(x) \neq f(x) |$ by know $| h(x_{n} \neq y_n)|$</li>
-<li>$E<em>{in}(h)$: 在已知的样本里，假设函数与实际函数不相等的概率。$E</em>{out}(h)$: 在所有样本里，上述二者不相等的概率。</li>
-<li><script type="math/tex; mode=display">[|E_{in}(h) - E_{out}(h)| > \epsilon] \leqslant 2e^{-2\epsilon^{2}N}</script></li>
-<li>$E<em>{in}(h)$ small is a good choice, but $E</em>{in}(h)$ is not always small.</li>
+<h2 id="connection-to-learning">Connection to Learning</h2>
+<ul>
+<li>if large N, can probably infer unknow <span class="math inline">\(\| h(x) \neq f(x) \|\)</span> by know <span class="math inline">\(\| h(x_{n} \neq y_n)\|\)</span></li>
+<li><span class="math inline">\(E_{in}(h)\)</span>: 在已知的样本里，假设函数与实际函数不相等的概率。<span class="math inline">\(E_{out}(h)\)</span>: 在所有样本里，上述二者不相等的概率。</li>
+<li><span class="math display">\[[|E_{in}(h) - E_{out}(h)| &gt; \epsilon] \leqslant 2e^{-2\epsilon^{2}N}\]</span></li>
+<li><span class="math inline">\(E_{in}(h)\)</span> small is a good choice, but <span class="math inline">\(E_{in}(h)\)</span> is not always small.</li>
 </ul>
-<h2 id="multiple-h"><a href="#multiple-h" class="headerlink" title="multiple h"></a>multiple h</h2><p>掷硬币，求出现反面的概率。</p>
-<h3 id="bad-sample"><a href="#bad-sample" class="headerlink" title="bad sample"></a>bad sample</h3><ul>
+<h2 id="multiple-h">multiple h</h2>
+<p>掷硬币，求出现反面的概率。</p>
+<h3 id="bad-sample">bad sample</h3>
+<ul>
 <li>掷骰子150次，每次掷5下，有超过99%的概率会出现连续5次都是正面。</li>
-<li>这就是一个bad sample，因为其使得$E<em>{in}(h)$ far away $E</em>{out}(h)$<ul>
-<li>$E_{in}(h)$ = 0</li>
-<li>$E_{out}(h)$ =  $1/2$</li>
+<li>这就是一个bad sample，因为其使得<span class="math inline">\(E_{in}(h)\)</span> far away <span class="math inline">\(E_{out}(h)\)</span>
+<ul>
+<li><span class="math inline">\(E_{in}(h)\)</span> = 0</li>
+<li><span class="math inline">\(E_{out}(h)\)</span> = <span class="math inline">\(1/2\)</span></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p>对于M个假设函数，出现 bad sample 的概率:<br><img src="feasibility03.png" alt="feasibility03"></p>
+<p>对于M个假设函数，出现 bad sample 的概率: <img src="feasibility03.png" alt="feasibility03"></p>
 <ul>
 <li>所有假设函数都是安全的</li>
-<li>最优P为lowest $E<em>{in}(h</em>{m})$</li>
+<li>最优P为lowest <span class="math inline">\(E_{in}(h_{m})\)</span></li>
 </ul>
 
       
@@ -666,7 +670,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">68</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -677,7 +681,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -759,7 +763,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Feasibility-of-Learning"><span class="nav-text">Feasibility of Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hoeffding’s-Inequality"><span class="nav-text">Hoeffding’s Inequality</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Connection-to-Learning"><span class="nav-text">Connection to Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multiple-h"><span class="nav-text">multiple h</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bad-sample"><span class="nav-text">bad sample</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#feasibility-of-learning"><span class="nav-text">Feasibility of Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hoeffdings-inequality"><span class="nav-text">Hoeffding’s Inequality</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#connection-to-learning"><span class="nav-text">Connection to Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multiple-h"><span class="nav-text">multiple h</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bad-sample"><span class="nav-text">bad sample</span></a></li></ol></li></ol></div>
             
 
           </div>
