@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhangruochi.com/Exploring-how-Convolutions-and-Pooling-work/2019/05/23/</loc>
+    <lastmod>2019-05-31</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Transfer-Learning/2019/05/31/</loc>
+    <lastmod>2019-05-31</lastmod>
+  </url>  <url>
     <loc>https://zhangruochi.com/Python-Multiprocessing/2019/05/30/</loc>
-    <lastmod>2019-05-30</lastmod>
+    <lastmod>2019-05-31</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Data-Augmentation/2019/05/31/</loc>
     <lastmod>2019-05-30</lastmod>
@@ -20,9 +26,6 @@
     <lastmod>2019-05-30</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Using-more-sophisticated-images-with-Convolutional-Neural-Networks/2019/05/30/</loc>
-    <lastmod>2019-05-29</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Exploring-how-Convolutions-and-Pooling-work/2019/05/23/</loc>
     <lastmod>2019-05-29</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Sequential-Logic/2019/05/27/</loc>
