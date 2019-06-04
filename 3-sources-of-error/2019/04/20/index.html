@@ -85,7 +85,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -124,13 +124,13 @@
 
 
 
-<meta name="description" content="3 sources of errorIn forming predictions, there are 3 sources of error:  Noise Bias Variance   Noise contribution Data inherently noisy  The world works is that there’s some true relationship between">
+<meta name="description" content="3 sources of error In forming predictions, there are 3 sources of error:  Noise Bias Variance  Noise contribution  Data inherently noisy  The world works is that there&apos;s some true relationship between">
 <meta name="keywords" content="Concept">
 <meta property="og:type" content="article">
 <meta property="og:title" content="3 sources of error">
 <meta property="og:url" content="https://zhangruochi.com/3-sources-of-error/2019/04/20/index.html">
 <meta property="og:site_name" content="RUOCHI">
-<meta property="og:description" content="3 sources of errorIn forming predictions, there are 3 sources of error:  Noise Bias Variance   Noise contribution Data inherently noisy  The world works is that there’s some true relationship between">
+<meta property="og:description" content="3 sources of error In forming predictions, there are 3 sources of error:  Noise Bias Variance  Noise contribution  Data inherently noisy  The world works is that there&apos;s some true relationship between">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/3-sources-of-error/2019/04/20/1.png">
 <meta property="og:image" content="https://zhangruochi.com/3-sources-of-error/2019/04/20/2.png">
@@ -142,7 +142,7 @@
 <meta property="og:updated_time" content="2019-05-13T07:52:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3 sources of error">
-<meta name="twitter:description" content="3 sources of errorIn forming predictions, there are 3 sources of error:  Noise Bias Variance   Noise contribution Data inherently noisy  The world works is that there’s some true relationship between">
+<meta name="twitter:description" content="3 sources of error In forming predictions, there are 3 sources of error:  Noise Bias Variance  Noise contribution  Data inherently noisy  The world works is that there&apos;s some true relationship between">
 <meta name="twitter:image" content="https://zhangruochi.com/3-sources-of-error/2019/04/20/1.png">
 
 
@@ -445,23 +445,31 @@
       
 
       
-        <h2 id="3-sources-of-error"><a href="#3-sources-of-error" class="headerlink" title="3 sources of error"></a>3 sources of error</h2><p>In forming predictions, there are 3 sources of error:</p>
-<ol>
+        <h2 id="sources-of-error">3 sources of error</h2>
+<p>In forming predictions, there are 3 sources of error:</p>
+<ol type="1">
 <li>Noise</li>
 <li>Bias</li>
-<li>Variance </li>
+<li>Variance</li>
 </ol>
-<h3 id="Noise-contribution"><a href="#Noise-contribution" class="headerlink" title="Noise contribution"></a>Noise contribution</h3><blockquote>
+<h3 id="noise-contribution">Noise contribution</h3>
+<blockquote>
 <p>Data inherently noisy</p>
 </blockquote>
-<p>The world works is that there’s some true relationship between X and Y. Or generically, between x and y. And we’re representing that arbitrary relationship defined by the world, by $f_{w}$ true. Which is the notation we’re using for that functional relationship. But of course that’s not a perfect description between x and y. There are lot of other contributing factors have the impact on y. Lots and lots of other things that we can’t ever perfectly capture with just some function between x and y, and so that is the noise that’s inherent in this process represented by this epsilon term.</p>
-<p><img src="1.png" alt=""></p>
-<h3 id="Bias-contribution"><a href="#Bias-contribution" class="headerlink" title="Bias contribution"></a>Bias contribution</h3><script type="math/tex; mode=display">Bias(x) = f_{w}(X) - f_{\hat{w}}(X)</script><p>For one data set of size N, we get this fit. But there are other datasets. For the fits associated with those data sets. there’s a continuum of possible fits we might have gotten. And for all those possible fits, here this dashed green line represents our average fit, averaged over all those fits weighted by how likely they were to have appeared.<br>What bias is it’s the difference between this average fit and the true function.</p>
-<p><img src="2.png" alt=""></p>
-<h3 id="Variance-contribution"><a href="#Variance-contribution" class="headerlink" title="Variance contribution"></a>Variance contribution</h3><p>What variance is how different can my specific fits to a given data set be from one another, as I’m looking at different possible data sets? To summarize what this variance is saying is, how much can the fits vary?</p>
-<p><img src="3.png" alt=""><br><img src="4.png" alt=""></p>
-<h2 id="Average-prediction-error-at-x-t"><a href="#Average-prediction-error-at-x-t" class="headerlink" title="Average prediction error at x_{t}"></a>Average prediction error at x_{t}</h2><script type="math/tex; mode=display">\sigma^{2} + [bias(f_{\hat{w}}(X_{t}))]^{2} + var(f_{\hat{w}}(X_{t}))</script><p><img src="7.png" alt=""></p>
-<h2 id="prove"><a href="#prove" class="headerlink" title="prove"></a>prove</h2><p><img src="5.png" alt="5.png"><br><img src="6.png" alt="6.png"></p>
+<p>The world works is that there's some true relationship between X and Y. Or generically, between x and y. And we're representing that arbitrary relationship defined by the world, by <span class="math inline">\(f_{w}\)</span> true. Which is the notation we're using for that functional relationship. But of course that's not a perfect description between x and y. There are lot of other contributing factors have the impact on y. Lots and lots of other things that we can't ever perfectly capture with just some function between x and y, and so that is the noise that's inherent in this process represented by this epsilon term.</p>
+<p><img src="1.png"></p>
+<h3 id="bias-contribution">Bias contribution</h3>
+<p><span class="math display">\[Bias(x) = f_{w}(X) - f_{\hat{w}}(X)\]</span></p>
+<p>For one data set of size N, we get this fit. But there are other datasets. For the fits associated with those data sets. there's a continuum of possible fits we might have gotten. And for all those possible fits, here this dashed green line represents our average fit, averaged over all those fits weighted by how likely they were to have appeared. What bias is it's the difference between this average fit and the true function.</p>
+<p><img src="2.png"></p>
+<h3 id="variance-contribution">Variance contribution</h3>
+<p>What variance is how different can my specific fits to a given data set be from one another, as I'm looking at different possible data sets? To summarize what this variance is saying is, how much can the fits vary?</p>
+<p><img src="3.png"> <img src="4.png"></p>
+<h2 id="average-prediction-error-at-x_t">Average prediction error at x_{t}</h2>
+<p><span class="math display">\[\sigma^{2} + [bias(f_{\hat{w}}(X_{t}))]^{2} + var(f_{\hat{w}}(X_{t})) \]</span></p>
+<p><img src="7.png"></p>
+<h2 id="prove">prove</h2>
+<p><img src="5.png" alt="5.png"> <img src="6.png" alt="6.png"></p>
 
       
     </div>
@@ -647,7 +655,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -669,7 +677,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -740,7 +748,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-sources-of-error"><span class="nav-text">3 sources of error</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Noise-contribution"><span class="nav-text">Noise contribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bias-contribution"><span class="nav-text">Bias contribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Variance-contribution"><span class="nav-text">Variance contribution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Average-prediction-error-at-x-t"><span class="nav-text">Average prediction error at x_{t}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prove"><span class="nav-text">prove</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sources-of-error"><span class="nav-text">3 sources of error</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#noise-contribution"><span class="nav-text">Noise contribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bias-contribution"><span class="nav-text">Bias contribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#variance-contribution"><span class="nav-text">Variance contribution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#average-prediction-error-at-x_t"><span class="nav-text">Average prediction error at x_{t}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prove"><span class="nav-text">prove</span></a></li></ol></div>
             
 
           </div>
