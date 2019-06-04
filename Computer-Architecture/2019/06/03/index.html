@@ -124,18 +124,18 @@
 
 
 
-<meta name="description" content="Overview This chapter is the pinnacle of the hardware part of our journey. We are now ready to take all the chips that we’ve built in chapters 1–3 and integrate them into a general-purpose computer sy">
+<meta name="description" content="OverviewThis chapter is the pinnacle of the hardware part of our journey. We are now ready to take all the chips that we’ve built in chapters 1–3 and integrate them into a general-purpose computer sys">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Computer Architecture">
 <meta property="og:url" content="https://zhangruochi.com/Computer-Architecture/2019/06/03/index.html">
 <meta property="og:site_name" content="RUOCHI">
-<meta property="og:description" content="Overview This chapter is the pinnacle of the hardware part of our journey. We are now ready to take all the chips that we’ve built in chapters 1–3 and integrate them into a general-purpose computer sy">
+<meta property="og:description" content="OverviewThis chapter is the pinnacle of the hardware part of our journey. We are now ready to take all the chips that we’ve built in chapters 1–3 and integrate them into a general-purpose computer sys">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/Computer-Architecture/2019/06/03/1.png">
-<meta property="og:updated_time" content="2019-06-03T14:55:52.303Z">
+<meta property="og:updated_time" content="2019-06-04T14:09:41.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Computer Architecture">
-<meta name="twitter:description" content="Overview This chapter is the pinnacle of the hardware part of our journey. We are now ready to take all the chips that we’ve built in chapters 1–3 and integrate them into a general-purpose computer sy">
+<meta name="twitter:description" content="OverviewThis chapter is the pinnacle of the hardware part of our journey. We are now ready to take all the chips that we’ve built in chapters 1–3 and integrate them into a general-purpose computer sys">
 <meta name="twitter:image" content="https://zhangruochi.com/Computer-Architecture/2019/06/03/1.png">
 
 
@@ -438,60 +438,43 @@
       
 
       
-        <h2 id="overview">Overview</h2>
-<p>This chapter is the pinnacle of the hardware part of our journey. We are now ready to take all the chips that we’ve built in chapters 1–3 and integrate them into a general-purpose computer system capable of running programs written in the machine language presented in chapter 4. The specific computer we will build, called Hack, has two important virtues. <strong>On the one hand</strong>, Hack is a simple machine that can be constructed in just a few hours, using previously built chips and the hardware simulator supplied with the book. <strong>On the other hand</strong>, Hack is sufficiently powerful to illustrate the key operating principles and hardware elements of any general-purpose computer. Therefore, building it will give you an excellent understanding of how modern computers work at the low hardware and software levels.</p>
-<h2 id="the-von-neumann-architecture">The von Neumann Architecture</h2>
-<p><img src="1.png"></p>
-<p><strong>The von Neumann machine is a practical architecture and the conceptual blueprint of almost all computer platforms today.</strong> At the heart of this architecture lies the <strong>stored program concept</strong>: The computer’s memory stores not only the data that the computer manipulates, but also the very instructions that tell the computer what to do. Let us explore this architecture in some detail.</p>
-<h3 id="memory">Memory</h3>
-<h4 id="physical-perspective">Physical Perspective</h4>
-<p>the memory is a linear sequence of addressable registers, each having a unique address and a value, which is a fixed-size word of information.</p>
-<h4 id="logical-perspective">Logical Perspective</h4>
-<p>he memory is divided into two areas. One area is dedicated for storing data,e.g. the arrays and objects of programs that are presently executing, while the other area is dedicated for storing the programs’ instructions.</p>
-<h4 id="data-memory">Data Memory</h4>
-<p>High-level programs manipulate abstract artifacts like variables, arrays, and objects. After the programs are translated into machine language, these data abstractions become binary codes, <strong>stored in the computer’s memory</strong>. Once an individual register has been selected from the memory by specifying its address, its contents can be either <strong>read</strong> or <strong>written</strong> to.</p>
-<h4 id="instruction-memory">Instruction Memory</h4>
-<p>Before high-level programs can be executed on the computer, they must be translated into machine language. These instructions are stored in the computer’s instruction memory as binary codes. <strong>In each step of a program’s execution, the CPU fetches (i.e., reads) a binary machine instruction from a selected register in the instruction memory, decodes it, executes the specified instruction, and figures out which instruction to fetch and execute next.</strong></p>
-<h3 id="central-processing-unitcpu">Central Processing Unit(CPU)</h3>
-<p>The CPU—the centerpiece of the computer’s architecture—is in charge of executing the instructions of the currently loaded program. The CPU executes these tasks using three main hardware elements: an <strong>Arithmetic-Logic Unit (ALU)</strong>, a set of <strong>registers</strong>, and a <strong>control unit</strong>.</p>
+        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>This chapter is the pinnacle of the hardware part of our journey. We are now ready to take all the chips that we’ve built in chapters 1–3 and integrate them into a general-purpose computer system capable of running programs written in the machine language presented in chapter 4. The specific computer we will build, called Hack, has two important virtues. <strong>On the one hand</strong>, Hack is a simple machine that can be constructed in just a few hours, using previously built chips and the hardware simulator supplied with the book. <strong>On the other hand</strong>, Hack is sufficiently powerful to illustrate the key operating principles and hardware elements of any general-purpose computer. Therefore, building it will give you an excellent understanding of how modern computers work at the low hardware and software levels.</p>
+<h2 id="The-von-Neumann-Architecture"><a href="#The-von-Neumann-Architecture" class="headerlink" title="The von Neumann Architecture"></a>The von Neumann Architecture</h2><p><img src="1.png" alt=""></p>
+<p><strong>The von Neumann machine is a practical architecture and the conceptual blueprint of almost all computer platforms today.</strong><br>At the heart of this architecture lies the <strong>stored program concept</strong>: The computer’s memory stores not only the data that the computer manipulates, but also the very instructions that tell the computer what to do. Let us explore this architecture in some detail.</p>
+<h3 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h3><h4 id="Physical-Perspective"><a href="#Physical-Perspective" class="headerlink" title="Physical Perspective"></a>Physical Perspective</h4><p>the memory is a linear sequence of addressable registers, each having a unique address and a value, which is a fixed-size word of information.</p>
+<h4 id="Logical-Perspective"><a href="#Logical-Perspective" class="headerlink" title="Logical Perspective"></a>Logical Perspective</h4><p>he memory is divided into two areas. One area is dedicated for storing data,e.g. the arrays and objects of programs that are presently executing, while the other area is dedicated for storing the programs’ instructions.</p>
+<h4 id="Data-Memory"><a href="#Data-Memory" class="headerlink" title="Data Memory"></a>Data Memory</h4><p>High-level programs manipulate abstract artifacts like variables, arrays, and objects. After the programs are translated into machine language, these data abstractions become binary codes, <strong>stored in the computer’s memory</strong>. Once an individual register has been selected from the memory by specifying its address, its contents can be either <strong>read</strong> or <strong>written</strong> to.</p>
+<h4 id="Instruction-Memory"><a href="#Instruction-Memory" class="headerlink" title="Instruction Memory"></a>Instruction Memory</h4><p>Before high-level programs can be executed on the computer, they must be translated into machine language. These instructions are stored in the computer’s instruction memory as binary codes. <strong>In each step of a program’s execution, the CPU fetches (i.e., reads) a binary machine instruction from a selected register in the instruction memory, decodes it, executes the specified instruction, and figures out which instruction to fetch and execute next.</strong></p>
+<h3 id="Central-Processing-Unit-CPU"><a href="#Central-Processing-Unit-CPU" class="headerlink" title="Central Processing Unit(CPU)"></a>Central Processing Unit(CPU)</h3><p>The CPU—the centerpiece of the computer’s architecture—is in charge of executing the instructions of the currently loaded program.  The CPU executes these tasks using three main hardware elements: an <strong>Arithmetic-Logic Unit (ALU)</strong>, a set of <strong>registers</strong>, and a <strong>control unit</strong>.</p>
 <p>The CPU operation can be described as a repeated loop: decode the current instruction, execute it, figure out which instruction to execute next, fetch it, decode it, and so on. This process is sometimes referred to as the <strong>fetch-execute cycle</strong>.</p>
-<h4 id="arithmetic-logic-unit">Arithmetic Logic Unit</h4>
-<ul>
+<h4 id="Arithmetic-Logic-Unit"><a href="#Arithmetic-Logic-Unit" class="headerlink" title="Arithmetic Logic Unit"></a>Arithmetic Logic Unit</h4><ul>
 <li>perform all the low-level arithmetic and logical operations</li>
 <li>Any function not supported by the ALU as a primitive hardware operation can be later realized by the computer’s system software</li>
 </ul>
-<h4 id="registers">Registers</h4>
-<ul>
+<h4 id="Registers"><a href="#Registers" class="headerlink" title="Registers"></a>Registers</h4><ul>
 <li>store the intermediate results(rather than ship them in and out of the CPU chip and store them in RAM chip)</li>
 <li>typically equipped with a small set of 2 up to 32 resident high-speed registers, each capable of holding a single word.</li>
 </ul>
-<h4 id="control-unit">Control Unit</h4>
-<ul>
+<h4 id="Control-Unit"><a href="#Control-Unit" class="headerlink" title="Control Unit"></a>Control Unit</h4><ul>
 <li>decoded binary instructions</li>
 <li>signal various hardware devices (ALU, registers, memory) how to execute the instructions.</li>
 </ul>
-<h3 id="registers-1">Registers</h3>
-<p>CPU-resident registers save unnecessary memory access, and allow using thinner instruction formats, resulting in faster throughput.(saved ourselves a great deal of time and overhead)</p>
-<h4 id="data-registers">Data registers</h4>
-<ul>
+<h3 id="Registers-1"><a href="#Registers-1" class="headerlink" title="Registers"></a>Registers</h3><p>CPU-resident registers save unnecessary memory access, and allow using thinner instruction formats, resulting in faster throughput.(saved ourselves a great deal of time and overhead)</p>
+<h4 id="Data-registers"><a href="#Data-registers" class="headerlink" title="Data registers"></a>Data registers</h4><ul>
 <li>calculate (a − b)*c, temporary result(a - b) can be stored in some memory register.</li>
 <li>Typically, CPU’s use at least one and up to 32 data registers.</li>
 </ul>
-<h4 id="address-registers">Address registers</h4>
-<ul>
+<h4 id="Address-registers"><a href="#Address-registers" class="headerlink" title="Address registers"></a>Address registers</h4><ul>
 <li>the output of an address register is typically connected to the address input of a memory device.</li>
-<li>set Memory[17] to 1. First set A=17(<span class="citation" data-cites="17">@17</span>), followed by M=1(M mnemonic stand for Memory[17])</li>
-<li>In addition to supporting this fundamental addressing operation, an address register is, well, a register. Therefore, if needed, it can be used as yet another data register. D=17( <span class="citation" data-cites="17">@17</span>, D=A)</li>
+<li>set Memory[17] to 1. First set A=17(@17), followed by M=1(M mnemonic stand for Memory[17])</li>
+<li>In addition to supporting this fundamental addressing operation, an address register is, well, a register. Therefore, if needed, it can be used as yet another data register. D=17( @17, D=A)</li>
 </ul>
-<h4 id="program-counter">Program counter</h4>
-<p>When executing a program, the CPU must always keep track of the address of the instruction that must be fetched and executed next. This address is kept in a special register called <strong>program counter</strong>.</p>
-<h3 id="input-and-output">Input and Output</h3>
-<p>computer scientists have devised clever schemes to make all these different devices look exactly the same to the computer. The key trick in managing this complexity is called <strong>memory-mapped I/O</strong>.</p>
+<h4 id="Program-counter"><a href="#Program-counter" class="headerlink" title="Program counter"></a>Program counter</h4><p>When executing a program, the CPU must always keep track of the address of the instruction that must be fetched and executed next. This address is kept in a special register called <strong>program counter</strong>.</p>
+<h3 id="Input-and-Output"><a href="#Input-and-Output" class="headerlink" title="Input and Output"></a>Input and Output</h3><p>computer scientists have devised clever schemes to make all these different devices look exactly the same to the computer. The key trick in managing this complexity is called <strong>memory-mapped I/O</strong>.</p>
 <ul>
 <li>The basic idea is to create a binary emulation of the I/O device, making it “look” to the CPU as if it were a <strong>regular memory segment.</strong></li>
 <li>each I/O device is allocated an exclusive area in memory, becoming its “memory map.”</li>
 <li>the data that drives each I/O device must be serialized. example: 2-dimensional grid of pixels, must be mapped on a 1-dimensional vector of fixed-size memory registers.</li>
-<li></li>
 </ul>
 
       
@@ -525,8 +508,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/the-functions-of-Pooling/2019/06/04/" rel="prev" title="the functions of Pooling">
-                the functions of Pooling <i class="fa fa-chevron-right"></i>
+              <a href="/the-functions-of-Pooling/2019/06/04/" rel="prev" title="The functions of Pooling">
+                The functions of Pooling <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -765,7 +748,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#overview"><span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-von-neumann-architecture"><span class="nav-text">The von Neumann Architecture</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#memory"><span class="nav-text">Memory</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#physical-perspective"><span class="nav-text">Physical Perspective</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#logical-perspective"><span class="nav-text">Logical Perspective</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#data-memory"><span class="nav-text">Data Memory</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#instruction-memory"><span class="nav-text">Instruction Memory</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#central-processing-unitcpu"><span class="nav-text">Central Processing Unit(CPU)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#arithmetic-logic-unit"><span class="nav-text">Arithmetic Logic Unit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#registers"><span class="nav-text">Registers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#control-unit"><span class="nav-text">Control Unit</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#registers-1"><span class="nav-text">Registers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#data-registers"><span class="nav-text">Data registers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#address-registers"><span class="nav-text">Address registers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#program-counter"><span class="nav-text">Program counter</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#input-and-output"><span class="nav-text">Input and Output</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-von-Neumann-Architecture"><span class="nav-text">The von Neumann Architecture</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory"><span class="nav-text">Memory</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Physical-Perspective"><span class="nav-text">Physical Perspective</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Logical-Perspective"><span class="nav-text">Logical Perspective</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Memory"><span class="nav-text">Data Memory</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Instruction-Memory"><span class="nav-text">Instruction Memory</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Central-Processing-Unit-CPU"><span class="nav-text">Central Processing Unit(CPU)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Arithmetic-Logic-Unit"><span class="nav-text">Arithmetic Logic Unit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Registers"><span class="nav-text">Registers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Control-Unit"><span class="nav-text">Control Unit</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Registers-1"><span class="nav-text">Registers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-registers"><span class="nav-text">Data registers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Address-registers"><span class="nav-text">Address registers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Program-counter"><span class="nav-text">Program counter</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-and-Output"><span class="nav-text">Input and Output</span></a></li></ol></li></ol></div>
             
 
           </div>
