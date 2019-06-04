@@ -1,22 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zhangruochi.com/Low-Level-Programming-Taste-Project/2019/06/04/</loc>
-    <lastmod>2019-06-04</lastmod>
-  </url>  <url>
     <loc>https://zhangruochi.com/Computer-Architecture/2019/06/03/</loc>
     <lastmod>2019-06-04</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/the-functions-of-Pooling/2019/06/04/</loc>
     <lastmod>2019-06-04</lastmod>
   </url>  <url>
+    <loc>https://zhangruochi.com/Operations-on-word-vectors-Debiasing/2019/03/28/</loc>
+    <lastmod>2019-06-04</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Debris-20190529/2019/05/29/</loc>
+    <lastmod>2019-06-04</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Overfittingin-decision-trees/2019/05/11/</loc>
+    <lastmod>2019-06-04</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Improving-Computer-Vision-Accuracy-using-Convolutions/2019/05/23/</loc>
+    <lastmod>2019-06-04</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Machine-Languages/2019/06/02/</loc>
+    <lastmod>2019-06-04</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Low-Level-Programming-Taste-Project/2019/06/04/</loc>
+    <lastmod>2019-06-04</lastmod>
+  </url>  <url>
     <loc>https://zhangruochi.com/Debris-20190530/2019/05/30/</loc>
     <lastmod>2019-06-04</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Python-Multiprocessing/2019/05/30/</loc>
-    <lastmod>2019-06-03</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Machine-languages/2019/06/02/</loc>
     <lastmod>2019-06-03</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Boolean-Arithmetic/2019/05/21/</loc>
@@ -37,9 +49,6 @@
     <loc>https://zhangruochi.com/Debris-20190509/2019/05/09/</loc>
     <lastmod>2019-05-30</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Debris-20190529/2019/05/29/</loc>
-    <lastmod>2019-05-30</lastmod>
-  </url>  <url>
     <loc>https://zhangruochi.com/Understanding-Logistic-Regression/2019/02/24/</loc>
     <lastmod>2019-05-30</lastmod>
   </url>  <url>
@@ -50,9 +59,6 @@
     <lastmod>2019-05-27</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Horses-or-Humans-with-Validation/2019/05/23/</loc>
-    <lastmod>2019-05-23</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Improving-Computer-Vision-Accuracy-using-Convolutions/2019/05/23/</loc>
     <lastmod>2019-05-23</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Beyond-Hello-World-A-Computer-Vision-Example/2019/05/22/</loc>
@@ -87,9 +93,6 @@
   </url>  <url>
     <loc>https://zhangruochi.com/3-sources-of-error/2019/04/20/</loc>
     <lastmod>2019-05-13</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Overfittingin-decision-trees/2019/05/11/</loc>
-    <lastmod>2019-05-11</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Logistic-Regression-and-Maximum-likelihood-estimation/2019/05/03/</loc>
     <lastmod>2019-05-03</lastmod>
@@ -140,9 +143,6 @@
     <lastmod>2019-03-29</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/P2P-System/2019/02/14/</loc>
-    <lastmod>2019-03-29</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Operations-on-word-vectors-Debiasing/2019/03/28/</loc>
     <lastmod>2019-03-29</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Neural-Machine-Translation-with-Attention/2019/03/29/</loc>
