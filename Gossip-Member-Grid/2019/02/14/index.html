@@ -124,13 +124,13 @@
 
 
 
-<meta name="description" content="Gossip Tree-Based Multicast Protocol  Build a spanning tree among the processes of the multicast group Use spanning tree to disseminate multicasts Use either acknowledgments (ACKs) or negative acknowl">
+<meta name="description" content="GossipTree-Based Multicast Protocol Build a spanning tree among the processes of the multicast group Use spanning tree to disseminate multicasts Use either acknowledgments (ACKs) or negative acknowled">
 <meta name="keywords" content="Protocol,Failure Detection,Dissemination,Grid,Member,Multicat,Suspicion Mechanism">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gossip,Member,Grid">
 <meta property="og:url" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/index.html">
 <meta property="og:site_name" content="RUOCHI">
-<meta property="og:description" content="Gossip Tree-Based Multicast Protocol  Build a spanning tree among the processes of the multicast group Use spanning tree to disseminate multicasts Use either acknowledgments (ACKs) or negative acknowl">
+<meta property="og:description" content="GossipTree-Based Multicast Protocol Build a spanning tree among the processes of the multicast group Use spanning tree to disseminate multicasts Use either acknowledgments (ACKs) or negative acknowled">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/gossip_member_grid01.png">
 <meta property="og:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/gossip_member_grid02.png">
@@ -144,7 +144,7 @@
 <meta property="og:updated_time" content="2019-03-29T22:05:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gossip,Member,Grid">
-<meta name="twitter:description" content="Gossip Tree-Based Multicast Protocol  Build a spanning tree among the processes of the multicast group Use spanning tree to disseminate multicasts Use either acknowledgments (ACKs) or negative acknowl">
+<meta name="twitter:description" content="GossipTree-Based Multicast Protocol Build a spanning tree among the processes of the multicast group Use spanning tree to disseminate multicasts Use either acknowledgments (ACKs) or negative acknowled">
 <meta name="twitter:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/gossip_member_grid01.png">
 
 
@@ -447,99 +447,88 @@
       
 
       
-        <h2 id="gossip">Gossip</h2>
-<h3 id="tree-based-multicast-protocol">Tree-Based Multicast Protocol</h3>
-<ul>
+        <h2 id="Gossip"><a href="#Gossip" class="headerlink" title="Gossip"></a>Gossip</h2><h3 id="Tree-Based-Multicast-Protocol"><a href="#Tree-Based-Multicast-Protocol" class="headerlink" title="Tree-Based Multicast Protocol"></a>Tree-Based Multicast Protocol</h3><ul>
 <li>Build a spanning tree among the processes of the multicast group</li>
 <li>Use spanning tree to disseminate multicasts</li>
 <li>Use either acknowledgments (ACKs) or negative acknowledgements (NAKs) to repair multicasts not received</li>
-<li><strong>SRM</strong> (Scalable Reliable Multicast)
-<ul>
+<li><strong>SRM</strong> (Scalable Reliable Multicast)<ul>
 <li>Uses NAKs</li>
 <li>But adds random delays, and uses exponential backoff to avoid NAK storms</li>
-</ul></li>
-<li><strong>RMTP</strong> (Reliable Multicast Transport Protocol)
-<ul>
+</ul>
+</li>
+<li><strong>RMTP</strong> (Reliable Multicast Transport Protocol)<ul>
 <li>Uses ACKs</li>
 <li>But ACKs only sent to designated receivers, which then re-transmit missing multicasts</li>
-</ul></li>
-<li>These protocols still cause an O(N) ACK/NAK overhead</li>
-<li><img src="gossip_member_grid01.png" title="fig:" alt="gossip_member_grid01.png"></li>
 </ul>
-<h3 id="epidemic-multicast">Epidemic Multicast</h3>
-<p><img src="gossip_member_grid02.png"></p>
+</li>
+<li>These protocols still cause an O(N) ACK/NAK overhead</li>
+<li><img src="gossip_member_grid01.png" alt="gossip_member_grid01.png"></li>
+</ul>
+<h3 id="Epidemic-Multicast"><a href="#Epidemic-Multicast" class="headerlink" title="Epidemic Multicast"></a>Epidemic Multicast</h3><p><img src="gossip_member_grid02.png" alt=""></p>
 <ul>
-<li><strong>Push</strong> gossip
+<li><p><strong>Push</strong> gossip</p>
 <ul>
 <li>Once you have a multicast message, you start gossiping about it</li>
 <li>Multiple messages? Gossip a random subset of them, or recently-received ones, or higher priority ones</li>
-</ul></li>
-<li><strong>Pull</strong> gossip
+</ul>
+</li>
+<li><p><strong>Pull</strong> gossip</p>
 <ul>
 <li>Periodically poll a few randomly selected processes for new multicast messages that you haven’t received</li>
 <li>Get those messages</li>
-</ul></li>
-<li><strong>Hybrid variant</strong>: Push-Pull
-<ul>
-<li>As the name suggests</li>
-</ul></li>
 </ul>
-<h3 id="topology-aware-gossip">Topology-Aware Gossip</h3>
-<p><img src="gossip_member_grid03.png"></p>
+</li>
+<li><strong>Hybrid variant</strong>: Push-Pull<ul>
+<li>As the name suggests</li>
+</ul>
+</li>
+</ul>
+<h3 id="Topology-Aware-Gossip"><a href="#Topology-Aware-Gossip" class="headerlink" title="Topology-Aware Gossip"></a>Topology-Aware Gossip</h3><p><img src="gossip_member_grid03.png" alt=""></p>
 <ul>
 <li>Network topology is hierachical</li>
 <li>Random gossip target selection =&gt; core routers face O(N) load</li>
-<li>In subnet i, which contains <span class="math inline">\(n_i\)</span> nodes, pick gossip target in your subnet with probability <span class="math inline">\(\frac{1}{n_i}\)</span></li>
-<li>Router <span class="math inline">\(load=O(1)\)</span></li>
-<li>Dissemination <span class="math inline">\(time=O(log(N))\)</span></li>
+<li>In subnet i, which contains $n_i$ nodes, pick gossip target in your subnet with probability $\frac{1}{n_i}$</li>
+<li>Router $load=O(1)$</li>
+<li>Dissemination $time=O(log(N))$</li>
 </ul>
-<h2 id="member">Member</h2>
-<p><img src="gossip_member_grid04.png"></p>
+<h2 id="Member"><a href="#Member" class="headerlink" title="Member"></a>Member</h2><p><img src="gossip_member_grid04.png" alt=""></p>
 <p>two sub-protocals</p>
 <ul>
 <li>Failure Detection</li>
 <li>Dissemination</li>
 </ul>
-<h3 id="failure-detection">Failure Detection</h3>
-<p>some process find out the failure process quickly</p>
+<h3 id="Failure-Detection"><a href="#Failure-Detection" class="headerlink" title="Failure Detection"></a>Failure Detection</h3><p>some process find out the failure process quickly</p>
 <ul>
-<li>Desirable propertities
-<ul>
+<li>Desirable propertities<ul>
 <li>Completeness (most important)</li>
 <li>Accuracy</li>
 <li>Speed</li>
 <li>Scale</li>
-</ul></li>
 </ul>
-<h4 id="gossip-style-failure-detection">Gossip Style Failure Detection</h4>
-<p><img src="gossip_member_grid05.png"> <img src="gossip_member_grid06.png"></p>
+</li>
+</ul>
+<h4 id="Gossip-Style-Failure-Detection"><a href="#Gossip-Style-Failure-Detection" class="headerlink" title="Gossip Style Failure Detection"></a>Gossip Style Failure Detection</h4><p><img src="gossip_member_grid05.png" alt=""><br><img src="gossip_member_grid06.png" alt=""></p>
 <p><strong>Could use mylti-level Gossip</strong></p>
-<h4 id="swim-failure-detection">Swim Failure Detection</h4>
-<ul>
-<li>Two choice for the <span class="math inline">\(P_j\)</span>(failure process)</li>
-<li>Directed ping to <span class="math inline">\(P_j\)</span> and indirected ping to <span class="math inline">\(P_j\)</span> (Randomly select another process and then send ping to <span class="math inline">\(P_j\)</span>)</li>
-<li>Constant time =&gt; <span class="math inline">\(O(1)\)</span></li>
-<li><img src="gossip_member_grid07.png"></li>
+<h4 id="Swim-Failure-Detection"><a href="#Swim-Failure-Detection" class="headerlink" title="Swim Failure Detection"></a>Swim Failure Detection</h4><ul>
+<li>Two choice for the $P_j$(failure process)</li>
+<li>Directed ping to $P_j$ and indirected ping to $P_j$ (Randomly select another process and then send ping to $P_j$)</li>
+<li>Constant time =&gt; $O(1)$</li>
+<li><img src="gossip_member_grid07.png" alt=""></li>
 </ul>
-<h3 id="dissemination">Dissemination</h3>
-<ul>
-<li>Multicast Dissemination(Hardware/IP)
-<ul>
+<h3 id="Dissemination"><a href="#Dissemination" class="headerlink" title="Dissemination"></a>Dissemination</h3><ul>
+<li>Multicast Dissemination(Hardware/IP)<ul>
 <li>unreliable</li>
-</ul></li>
-<li>Point-to-Point
-<ul>
+</ul>
+</li>
+<li>Point-to-Point <ul>
 <li>expensive</li>
-</ul></li>
+</ul>
+</li>
 <li>Infection style Dissemination</li>
 </ul>
-<h3 id="suspicion-mechanism">Suspicion Mechanism</h3>
-<p>Suspect a process before <strong>declaring</strong> it as failed in the group</p>
-<p><img src="gossip_member_grid08.png"></p>
-<h2 id="grid">Grid</h2>
-<figure>
-<img src="gossip_member_grid09.png" alt="gossip_member_grid09.png"><figcaption>gossip_member_grid09.png</figcaption>
-</figure>
+<h3 id="Suspicion-Mechanism"><a href="#Suspicion-Mechanism" class="headerlink" title="Suspicion Mechanism"></a>Suspicion Mechanism</h3><p>Suspect a process before <strong>declaring</strong> it as failed in the group</p>
+<p><img src="gossip_member_grid08.png" alt=""></p>
+<h2 id="Grid"><a href="#Grid" class="headerlink" title="Grid"></a>Grid</h2><p><img src="gossip_member_grid09.png" alt="gossip_member_grid09.png"></p>
 <p>two level scheduling infrastructure</p>
 <ul>
 <li>Inter-site protol</li>
@@ -732,7 +721,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-count">74</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -825,7 +814,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#gossip"><span class="nav-text">Gossip</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tree-based-multicast-protocol"><span class="nav-text">Tree-Based Multicast Protocol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epidemic-multicast"><span class="nav-text">Epidemic Multicast</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#topology-aware-gossip"><span class="nav-text">Topology-Aware Gossip</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#member"><span class="nav-text">Member</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#failure-detection"><span class="nav-text">Failure Detection</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#gossip-style-failure-detection"><span class="nav-text">Gossip Style Failure Detection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#swim-failure-detection"><span class="nav-text">Swim Failure Detection</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dissemination"><span class="nav-text">Dissemination</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#suspicion-mechanism"><span class="nav-text">Suspicion Mechanism</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grid"><span class="nav-text">Grid</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gossip"><span class="nav-text">Gossip</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tree-Based-Multicast-Protocol"><span class="nav-text">Tree-Based Multicast Protocol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Epidemic-Multicast"><span class="nav-text">Epidemic Multicast</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Topology-Aware-Gossip"><span class="nav-text">Topology-Aware Gossip</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Member"><span class="nav-text">Member</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Failure-Detection"><span class="nav-text">Failure Detection</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Gossip-Style-Failure-Detection"><span class="nav-text">Gossip Style Failure Detection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Swim-Failure-Detection"><span class="nav-text">Swim Failure Detection</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dissemination"><span class="nav-text">Dissemination</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Suspicion-Mechanism"><span class="nav-text">Suspicion Mechanism</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grid"><span class="nav-text">Grid</span></a></li></ol></div>
             
 
           </div>
