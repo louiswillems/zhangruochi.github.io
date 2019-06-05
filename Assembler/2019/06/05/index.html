@@ -134,7 +134,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/Assembler/2019/06/05/1.png">
 <meta property="og:image" content="https://zhangruochi.com/Assembler/2019/06/05/2.png">
-<meta property="og:updated_time" content="2019-06-05T10:07:43.655Z">
+<meta property="og:updated_time" content="2019-06-05T10:14:54.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Assembler">
 <meta name="twitter:description" content="how to develop a Hack assembler—a program that generates binary code that can run as is on the hardware platform built in last chapter.">
@@ -580,14 +580,44 @@
 <p>To resolve a symbol, look up its value in the symbol table</p>
 <p><img src="2.png"></p>
 <h2 id="the-assembly-process">The assembly process</h2>
-<p><strong>Initialization</strong><br>
-- Construct an empty symbol table - Add the pre-defined symbols to the symbol table</p>
-<p><strong>First pass</strong><br>
-Scan the entire program; For each <strong>instruction</strong> of the form (xxx):<br>
-- Add the pair (xxx, address) to the symbol table, where address is the number of the instruction following (xxx)</p>
-<p><strong>Second pass</strong><br>
-Set n to 16<br>
-Scan the entire program again; for each instruction: - If the instruction is <span class="citation" data-cites="symbol">@symbol</span>, look up symbol in the symbol table; - If (symbol, value) is found, use value to complete the instruction’s translation; - If not found: - Add (symbol, n) to the symbol table, - Use n to complete the instruction’s translation, o n++ - If the instruction is a C-instruction, complete the instruction’s translation - Write the translated instruction to the output file.</p>
+<ol type="1">
+<li><strong>Initialization</strong></li>
+</ol>
+<ul>
+<li>Construct an empty symbol table</li>
+<li>Add the pre-defined symbols to the symbol table</li>
+</ul>
+<ol start="2" type="1">
+<li><strong>First pass</strong></li>
+</ol>
+<ul>
+<li>Scan the entire program;</li>
+<li>For each <strong>instruction</strong> of the form (xxx):
+<ul>
+<li>Add the pair (xxx, address) to the symbol table, where address is the number of the instruction following (xxx)</li>
+</ul></li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Second pass</strong></li>
+</ol>
+<ul>
+<li>Set n to 16</li>
+<li>Scan the entire program again; for each instruction:
+<ul>
+<li>If the instruction is <span class="citation" data-cites="symbol">@symbol</span>, look up symbol in the symbol table;
+<ul>
+<li>If (symbol, value) is found, use value to complete the instruction’s translation;</li>
+<li>If not found:
+<ul>
+<li>Add (symbol, n) to the symbol table,</li>
+<li>Use n to complete the instruction’s translation,</li>
+<li>n++</li>
+</ul></li>
+</ul></li>
+<li>If the instruction is a C-instruction, complete the instruction’s translation</li>
+<li>Write the translated instruction to the output file.</li>
+</ul></li>
+</ul>
 
       
     </div>
