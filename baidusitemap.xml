@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhangruochi.com/Java-Review/2019/06/07/</loc>
+    <lastmod>2019-06-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Fluent-Python/2019/03/05/</loc>
+    <lastmod>2019-06-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Master-Computer-Science/2019/02/20/</loc>
+    <lastmod>2019-06-06</lastmod>
+  </url>  <url>
     <loc>https://zhangruochi.com/Assembler-Project/2019/06/05/</loc>
     <lastmod>2019-06-05</lastmod>
   </url>  <url>
@@ -39,9 +48,6 @@
   </url>  <url>
     <loc>https://zhangruochi.com/Boolean-Arithmetic/2019/05/21/</loc>
     <lastmod>2019-06-01</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Master-Computer-Science/2019/02/20/</loc>
-    <lastmod>2019-05-31</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Transfer-Learning/2019/05/31/</loc>
     <lastmod>2019-05-31</lastmod>
@@ -179,9 +185,6 @@
     <lastmod>2019-03-29</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/</loc>
-    <lastmod>2019-03-29</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Fluent-Python/2019/03/05/</loc>
     <lastmod>2019-03-29</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Feasibility-of-Learning/2019/02/15/</loc>
