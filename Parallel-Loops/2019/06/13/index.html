@@ -124,22 +124,22 @@
 
 
 
-<meta name="description" content="Loop Parallelism In this lecture, we learned different ways of expressing parallel loops. The most general way is to think of each iteration of a parallel loop as an async task, with a finish construc">
+<meta name="description" content="Table of Contents  Loop Parallelism  Parallel Matrix Multiplication Barriers in Parallel Loops  One-Dimensional Iterative Averaging  Iteration Grouping: Chunking of Parallel Loops   Loop Parallelism I">
 <meta name="keywords" content="Loop Parallelism">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Parallel Loops">
 <meta property="og:url" content="https://zhangruochi.com/Parallel-Loops/2019/06/13/index.html">
 <meta property="og:site_name" content="RUOCHI">
-<meta property="og:description" content="Loop Parallelism In this lecture, we learned different ways of expressing parallel loops. The most general way is to think of each iteration of a parallel loop as an async task, with a finish construc">
+<meta property="og:description" content="Table of Contents  Loop Parallelism  Parallel Matrix Multiplication Barriers in Parallel Loops  One-Dimensional Iterative Averaging  Iteration Grouping: Chunking of Parallel Loops   Loop Parallelism I">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/Parallel-Loops/2019/06/13/1.png">
 <meta property="og:image" content="https://zhangruochi.com/Parallel-Loops/2019/06/13/2.png">
 <meta property="og:image" content="https://zhangruochi.com/Parallel-Loops/2019/06/13/3.png">
 <meta property="og:image" content="https://zhangruochi.com/Parallel-Loops/2019/06/13/4.png">
-<meta property="og:updated_time" content="2019-06-12T19:51:44.941Z">
+<meta property="og:updated_time" content="2019-06-12T20:02:21.430Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Parallel Loops">
-<meta name="twitter:description" content="Loop Parallelism In this lecture, we learned different ways of expressing parallel loops. The most general way is to think of each iteration of a parallel loop as an async task, with a finish construc">
+<meta name="twitter:description" content="Table of Contents  Loop Parallelism  Parallel Matrix Multiplication Barriers in Parallel Loops  One-Dimensional Iterative Averaging  Iteration Grouping: Chunking of Parallel Loops   Loop Parallelism I">
 <meta name="twitter:image" content="https://zhangruochi.com/Parallel-Loops/2019/06/13/1.png">
 
 
@@ -442,7 +442,19 @@
       
 
       
-        <h1 id="loop-parallelism">Loop Parallelism</h1>
+        <h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#loop-parallelism">Loop Parallelism</a>
+<ul>
+<li><a href="#parallel-matrix-multiplication">Parallel Matrix Multiplication</a></li>
+<li><a href="#barriers-in-parallel-loops">Barriers in Parallel Loops</a>
+<ul>
+<li><a href="#one-dimensional-iterative-averaging">One-Dimensional Iterative Averaging</a></li>
+</ul></li>
+<li><a href="#iteration-grouping-chunking-of-parallel-loops">Iteration Grouping: Chunking of Parallel Loops</a></li>
+</ul></li>
+</ul>
+<h1 id="loop-parallelism">Loop Parallelism</h1>
 <p>In this lecture, we learned different ways of expressing parallel loops. The most general way is to think of each iteration of a parallel loop as an async task, with a finish construct encompassing all iterations. This approach can support general cases such as parallelization of the following pointer-chasing while loop (in pseudocode):</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">finish &#123;</span><br><span class="line"><span class="keyword">for</span> (p = head; p != <span class="keyword">null</span> ; p = p.next) <span class="function">async <span class="title">compute</span><span class="params">(p)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>However, further efficiencies can be gained by paying attention to counted-for loops for which the number of iterations is known on entry to the loop (before the loop executes its first iteration). We then learned the forall notation for expressing parallel counted-for loops, such as in the following vector addition statement (in pseudocode):</p>
@@ -754,7 +766,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#loop-parallelism"><span class="nav-text">Loop Parallelism</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#parallel-matrix-multiplication"><span class="nav-text">Parallel Matrix Multiplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#barriers-in-parallel-loops"><span class="nav-text">Barriers in Parallel Loops</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#one-dimensional-iterative-averaging"><span class="nav-text">One-Dimensional Iterative Averaging</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iteration-grouping-chunking-of-parallel-loops"><span class="nav-text">Iteration Grouping: Chunking of Parallel Loops</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#table-of-contents"><span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#loop-parallelism"><span class="nav-text">Loop Parallelism</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#parallel-matrix-multiplication"><span class="nav-text">Parallel Matrix Multiplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#barriers-in-parallel-loops"><span class="nav-text">Barriers in Parallel Loops</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#one-dimensional-iterative-averaging"><span class="nav-text">One-Dimensional Iterative Averaging</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iteration-grouping-chunking-of-parallel-loops"><span class="nav-text">Iteration Grouping: Chunking of Parallel Loops</span></a></li></ol></li></ol></div>
             
 
           </div>
