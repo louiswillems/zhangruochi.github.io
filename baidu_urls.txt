@@ -1,3 +1,3 @@
+https://zhangruochi.com/Data-Flow-Synchronization-and-Pipelining/2019/06/13/
 https://zhangruochi.com/Parallel-Loops/2019/06/13/
 https://zhangruochi.com/Functional-Parallelism/2019/06/12/
-https://zhangruochi.com/Tutorial-of-Java-s-concurrent-packages/2019/06/09/

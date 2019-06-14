@@ -134,9 +134,10 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/Parallel-Loops/2019/06/13/1.png">
 <meta property="og:image" content="https://zhangruochi.com/Parallel-Loops/2019/06/13/2.png">
+<meta property="og:image" content="https://zhangruochi.com/Parallel-Loops/2019/06/13/5.png">
 <meta property="og:image" content="https://zhangruochi.com/Parallel-Loops/2019/06/13/3.png">
 <meta property="og:image" content="https://zhangruochi.com/Parallel-Loops/2019/06/13/4.png">
-<meta property="og:updated_time" content="2019-06-12T20:02:21.430Z">
+<meta property="og:updated_time" content="2019-06-14T09:08:49.404Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Parallel Loops">
 <meta name="twitter:description" content="Table of Contents  Loop Parallelism  Parallel Matrix Multiplication Barriers in Parallel Loops  One-Dimensional Iterative Averaging  Iteration Grouping: Chunking of Parallel Loops   Loop Parallelism I">
@@ -481,6 +482,7 @@
 <p><img src="2.png"></p>
 <p>Though easy to understand, this approach creates nsteps × (n − 1) tasks, which is too many. <strong>Barriers can help reduce the number of tasks created as follows</strong>:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">forall ( i: [<span class="number">1</span>:n-<span class="number">1</span>]) &#123;</span><br><span class="line">  <span class="keyword">for</span> (iter: [<span class="number">0</span>:nsteps-<span class="number">1</span>]) &#123;</span><br><span class="line">    newX[i] = (oldX[i-<span class="number">1</span>] + oldX[i+<span class="number">1</span>]) / <span class="number">2</span>;</span><br><span class="line">    NEXT; <span class="comment">// Barrier</span></span><br><span class="line">    swap pointers newX and oldX;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="5.png"></p>
 <p>In this case, only (n − 1) tasks are created, and there are nsteps barrier (next) operations, each of which involves all (n − 1) tasks. This is a significant improvement since creating tasks is usually more expensive than performing barrier operations.</p>
 <h2 id="iteration-grouping-chunking-of-parallel-loops">Iteration Grouping: Chunking of Parallel Loops</h2>
 <p>We observed that this approach creates n tasks, one per forall iteration, which is wasteful when (as is common in practice) n is much larger than the number of available processor cores.</p>
@@ -529,6 +531,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Data-Flow-Synchronization-and-Pipelining/2019/06/13/" rel="prev" title="Data Flow Synchronization and Pipelining">
+                Data Flow Synchronization and Pipelining <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -673,7 +679,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
