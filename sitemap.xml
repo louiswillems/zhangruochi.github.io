@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhangruochi.com/Distributed-Map-Reduce/2019/06/23/</loc>
+    <loc>https://zhangruochi.com/Client-Server-Programming/2019/06/23/</loc>
     
-    <lastmod>2019-06-23T15:31:22.674Z</lastmod>
+    <lastmod>2019-06-23T19:05:00.434Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/RDD-Programming-Guide/2019/06/23/</loc>
     
-    <lastmod>2019-06-23T11:46:19.628Z</lastmod>
+    <lastmod>2019-06-23T16:17:44.370Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Distributed-Map-Reduce/2019/06/23/</loc>
+    
+    <lastmod>2019-06-23T16:17:12.282Z</lastmod>
     
   </url>
   
