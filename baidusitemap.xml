@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhangruochi.com/Master-Computer-Science/2019/02/20/</loc>
+    <lastmod>2019-06-23</lastmod>
+  </url>  <url>
     <loc>https://zhangruochi.com/Optimistic-Concurrency/2019/06/22/</loc>
     <lastmod>2019-06-22</lastmod>
   </url>  <url>
@@ -12,9 +15,6 @@
   </url>  <url>
     <loc>https://zhangruochi.com/Threads-and-Locks/2019/06/20/</loc>
     <lastmod>2019-06-21</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Master-Computer-Science/2019/02/20/</loc>
-    <lastmod>2019-06-14</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Data-Flow-Synchronization-and-Pipelining/2019/06/13/</loc>
     <lastmod>2019-06-14</lastmod>
