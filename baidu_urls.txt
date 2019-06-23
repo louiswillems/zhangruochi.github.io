@@ -1,3 +1,3 @@
+https://zhangruochi.com/RDD-Programming-Guide/2019/06/23/
+https://zhangruochi.com/Distributed-Map-Reduce/2019/06/23/
 https://zhangruochi.com/Optimistic-Concurrency/2019/06/22/
-https://zhangruochi.com/Actors/2019/06/22/
-https://zhangruochi.com/Critical-Sections-and-Isolation/2019/06/21/
