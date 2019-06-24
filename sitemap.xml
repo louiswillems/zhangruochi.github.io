@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhangruochi.com/Critical-Sections-and-Isolation/2019/06/21/</loc>
+    <loc>https://zhangruochi.com/Message-Passing/2019/06/24/</loc>
     
-    <lastmod>2019-06-23T19:54:15.015Z</lastmod>
+    <lastmod>2019-06-24T13:48:55.333Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Client-Server-Programming/2019/06/23/</loc>
     
-    <lastmod>2019-06-23T19:05:00.434Z</lastmod>
+    <lastmod>2019-06-23T19:59:23.855Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Critical-Sections-and-Isolation/2019/06/21/</loc>
+    
+    <lastmod>2019-06-23T19:54:15.015Z</lastmod>
     
   </url>
   

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zhangruochi.com/Critical-Sections-and-Isolation/2019/06/21/</loc>
-    <lastmod>2019-06-23</lastmod>
+    <loc>https://zhangruochi.com/Message-Passing/2019/06/24/</loc>
+    <lastmod>2019-06-24</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Client-Server-Programming/2019/06/23/</loc>
+    <lastmod>2019-06-23</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Critical-Sections-and-Isolation/2019/06/21/</loc>
     <lastmod>2019-06-23</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/RDD-Programming-Guide/2019/06/23/</loc>
