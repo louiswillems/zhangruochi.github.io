@@ -124,13 +124,13 @@
 
 
 
-<meta name="description" content="作者：谢志宁 链接：https://www.zhihu.com/question/36686900/answer/130890492 来源：知乎 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。   invariance(不变性)，这种不变性包括translation(平移)，rotation(旋转)，scale(尺度) 保留主要的特征同时减少参数(降维，效果类似PCA)和计">
+<meta name="description" content="作者：谢志宁链接：https://www.zhihu.com/question/36686900/answer/130890492来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。   invariance(不变性)，这种不变性包括translation(平移)，rotation(旋转)，scale(尺度) 保留主要的特征同时减少参数(降维，效果类似PCA)和计算量，">
 <meta name="keywords" content="Convolutional Neural Networks">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The functions of Pooling">
 <meta property="og:url" content="https://zhangruochi.com/the-functions-of-Pooling/2019/06/04/index.html">
 <meta property="og:site_name" content="RUOCHI">
-<meta property="og:description" content="作者：谢志宁 链接：https://www.zhihu.com/question/36686900/answer/130890492 来源：知乎 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。   invariance(不变性)，这种不变性包括translation(平移)，rotation(旋转)，scale(尺度) 保留主要的特征同时减少参数(降维，效果类似PCA)和计">
+<meta property="og:description" content="作者：谢志宁链接：https://www.zhihu.com/question/36686900/answer/130890492来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。   invariance(不变性)，这种不变性包括translation(平移)，rotation(旋转)，scale(尺度) 保留主要的特征同时减少参数(降维，效果类似PCA)和计算量，">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/the-functions-of-Pooling/2019/06/04/1.png">
 <meta property="og:image" content="https://zhangruochi.com/the-functions-of-Pooling/2019/06/04/2.png">
@@ -138,7 +138,7 @@
 <meta property="og:updated_time" content="2019-06-04T14:59:40.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The functions of Pooling">
-<meta name="twitter:description" content="作者：谢志宁 链接：https://www.zhihu.com/question/36686900/answer/130890492 来源：知乎 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。   invariance(不变性)，这种不变性包括translation(平移)，rotation(旋转)，scale(尺度) 保留主要的特征同时减少参数(降维，效果类似PCA)和计">
+<meta name="twitter:description" content="作者：谢志宁链接：https://www.zhihu.com/question/36686900/answer/130890492来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。   invariance(不变性)，这种不变性包括translation(平移)，rotation(旋转)，scale(尺度) 保留主要的特征同时减少参数(降维，效果类似PCA)和计算量，">
 <meta name="twitter:image" content="https://zhangruochi.com/the-functions-of-Pooling/2019/06/04/1.png">
 
 
@@ -442,18 +442,18 @@
 
       
         <blockquote>
-<p>作者：谢志宁 链接：https://www.zhihu.com/question/36686900/answer/130890492 来源：知乎 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>作者：谢志宁<br>链接：<a href="https://www.zhihu.com/question/36686900/answer/130890492" target="_blank" rel="noopener">https://www.zhihu.com/question/36686900/answer/130890492</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 </blockquote>
-<ol type="1">
+<ol>
 <li>invariance(不变性)，这种不变性包括translation(平移)，rotation(旋转)，scale(尺度)</li>
 <li>保留主要的特征同时减少参数(降维，效果类似PCA)和计算量，防止过拟合，提高模型泛化能力.</li>
 </ol>
 <p><strong>translation invariance</strong>：这里举一个直观的例子(数字识别)，假设有一个16x16的图片，里面有个数字1，我们需要识别出来，这个数字1可能写的偏左一点(图1)，这个数字1可能偏右一点(图2)，图1到图2相当于向右平移了一个单位，但是图1和图2经过max pooling之后它们都变成了相同的8x8特征矩阵，主要的特征我们捕获到了，同时又将问题的规模从16x16降到了8x8，而且具有平移不变性的特点。图中的a（或b）表示，在原始图片中的这些a（或b）位置，最终都会映射到相同的位置。</p>
-<p><img src="1.png"></p>
+<p><img src="1.png" alt=""></p>
 <p><strong>rotation invariance</strong>：下图表示汉字“一”的识别，第一张相对于x轴有倾斜角，第二张是平行于x轴，两张图片相当于做了旋转，经过多次max pooling后具有相同的特征</p>
-<p><img src="2.png"></p>
+<p><img src="2.png" alt=""></p>
 <p><strong>scale invariance</strong>：下图表示数字“0”的识别，第一张的“0”比较大，第二张的“0”进行了较小，相当于作了缩放，同样地，经过多次max pooling后具有相同的特征</p>
-<p><img src="3.png"></p>
+<p><img src="3.png" alt=""></p>
 
       
     </div>
@@ -630,7 +630,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">89</span>
+                  <span class="site-state-item-count">90</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
