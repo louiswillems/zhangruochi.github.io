@@ -444,65 +444,56 @@
       
 
       
-        <h1 id="table-of-contents">Table of Contents</h1>
-<ul>
-<li><a href="#task-level-parallelism">Task-level Parallelism</a>
-<ul>
+        <h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1><ul>
+<li><a href="#task-level-parallelism">Task-level Parallelism</a><ul>
 <li><a href="#task-creation-and-termination-async-finish">Task Creation and Termination (Async, Finish)</a></li>
-<li><a href="#creating-tasks-in-javas-forkjoin-framework">Creating Tasks in Java's Fork/Join Framework</a></li>
-<li><a href="#computation-graphs-work-span-ideal-parallelism">Computation Graphs, Work, Span, Ideal Parallelism</a>
-<ul>
+<li><a href="#creating-tasks-in-javas-forkjoin-framework">Creating Tasks in Java’s Fork/Join Framework</a></li>
+<li><a href="#computation-graphs-work-span-ideal-parallelism">Computation Graphs, Work, Span, Ideal Parallelism</a><ul>
 <li><a href="#computation-graphs-cgs">Computation Graphs (CGs)</a></li>
 <li><a href="#ideal-parallelism">ideal parallelism</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="#multiprocessor-scheduling-parallel-speedup">Multiprocessor Scheduling, Parallel Speedup</a></li>
 <li><a href="#amdahls-law">Amdahl’s Law</a></li>
-</ul></li>
 </ul>
-<h2 id="task-level-parallelism">Task-level Parallelism</h2>
-<h3 id="task-creation-and-termination-async-finish">Task Creation and Termination (Async, Finish)</h3>
-<ol type="1">
-<li><strong>async</strong> notation: “async ⟨stmt1⟩”, causes the parent task (i.e., the task executing the async statement) to create a new child task to execute the body of the async, ⟨stmt1⟩, asynchronously (i.e., before, after, or in parallel) with the remainder of the parent task.</li>
+</li>
+</ul>
+<h2 id="Task-level-Parallelism"><a href="#Task-level-Parallelism" class="headerlink" title="Task-level Parallelism"></a>Task-level Parallelism</h2><h3 id="Task-Creation-and-Termination-Async-Finish"><a href="#Task-Creation-and-Termination-Async-Finish" class="headerlink" title="Task Creation and Termination (Async, Finish)"></a>Task Creation and Termination (Async, Finish)</h3><ol>
+<li><strong>async</strong> notation:  “async ⟨stmt1⟩”, causes the parent task (i.e., the task executing the async statement) to create a new child task to execute the body of the async, ⟨stmt1⟩, asynchronously (i.e., before, after, or in parallel) with the remainder of the parent task.</li>
 <li><strong>finish notation</strong>: “finish ⟨stmt2⟩” causes the parent task to execute ⟨stmt2⟩, and then wait until ⟨stmt2⟩ and all async tasks created within ⟨stmt2⟩ have completed</li>
 <li>Async and finish constructs may be arbitrarily nested.</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">finish &#123;</span><br><span class="line">  async S1; // asynchronously compute sum of the lower half of the array</span><br><span class="line">  S2;       // compute sum of the upper half of the array in parallel with S1</span><br><span class="line">&#125;</span><br><span class="line">S3; // combine the two partial sums after both S1 and S2 have finished</span><br></pre></td></tr></table></figure>
-<h3 id="creating-tasks-in-javas-forkjoin-framework">Creating Tasks in Java's Fork/Join Framework</h3>
-<p><strong>Fork/Join (FJ) framework</strong> In this framework, a task can be specified in the 𝚌𝚘𝚖𝚙𝚞𝚝𝚎() method of a user-defined class that extends the standard RecursiveAction class in the FJ framework.</p>
+<h3 id="Creating-Tasks-in-Java’s-Fork-Join-Framework"><a href="#Creating-Tasks-in-Java’s-Fork-Join-Framework" class="headerlink" title="Creating Tasks in Java’s Fork/Join Framework"></a>Creating Tasks in Java’s Fork/Join Framework</h3><p><strong>Fork/Join (FJ) framework</strong>  In this framework, a task can be specified in the 𝚌𝚘𝚖𝚙𝚞𝚝𝚎() method of a user-defined class that extends the standard RecursiveAction class in the FJ framework. </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ASum</span> <span class="keyword">extends</span> <span class="title">RecursiveAction</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span>[] A; <span class="comment">// input array</span></span><br><span class="line">  <span class="keyword">int</span> LO, HI; <span class="comment">// subrange</span></span><br><span class="line">  <span class="keyword">int</span> SUM; <span class="comment">// return value</span></span><br><span class="line">  . . .</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">compute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    SUM = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = LO; i &lt;= HI; i++) SUM += A[i];</span><br><span class="line">  &#125; <span class="comment">// compute()</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="computation-graphs-work-span-ideal-parallelism">Computation Graphs, Work, Span, Ideal Parallelism</h3>
-<p><img src="1.png"></p>
-<h4 id="computation-graphs-cgs">Computation Graphs (CGs)</h4>
-<p><strong>Computation Graphs (CGs)</strong>, which model the execution of a parallel program as a partially ordered set. Specifically, a CG consists of:</p>
+<h3 id="Computation-Graphs-Work-Span-Ideal-Parallelism"><a href="#Computation-Graphs-Work-Span-Ideal-Parallelism" class="headerlink" title="Computation Graphs, Work, Span, Ideal Parallelism"></a>Computation Graphs, Work, Span, Ideal Parallelism</h3><p><img src="1.png" alt=""></p>
+<h4 id="Computation-Graphs-CGs"><a href="#Computation-Graphs-CGs" class="headerlink" title="Computation Graphs (CGs)"></a>Computation Graphs (CGs)</h4><p><strong>Computation Graphs (CGs)</strong>, which model the execution of a parallel program as a partially ordered set. Specifically, a CG consists of:</p>
 <ul>
-<li><p>A set of vertices or nodes, in which each node represents a step consisting of an arbitrary sequential computation.</p></li>
-<li><p>A set of directed edges that represent ordering constraints among steps. For fork–join programs, it is useful to partition the edges into three cases:</p>
-<ol type="1">
+<li>A set of vertices or nodes, in which each node represents a step consisting of an arbitrary sequential computation.</li>
+<li><p>A set of directed edges that represent ordering constraints among steps.<br>For fork–join programs, it is useful to partition the edges into three cases:</p>
+<ol>
 <li>Continue edges that capture sequencing of steps within a task.</li>
 <li>Fork edges that connect a fork operation to the first step of child tasks.</li>
 <li>Join edges that connect the last step of a task to all join operations on that task.</li>
-</ol></li>
+</ol>
+</li>
 </ul>
 <p>CGs can be used to define data races, an important class of bugs in parallel programs. We say that a data race occurs on location L in a computation graph, G, if there exist steps S1 and S2 in G such that there is no path of directed edges from S1 to S2 or from S2 to S1 in G, and both S1 and S2 read or write L (with at least one of the accesses being a write, since two parallel reads do not pose a problem).</p>
-<h4 id="ideal-parallelism">ideal parallelism</h4>
-<p>CGs can also be used to reason about the ideal parallelism of a parallel program as follows:</p>
+<h4 id="ideal-parallelism"><a href="#ideal-parallelism" class="headerlink" title="ideal parallelism"></a>ideal parallelism</h4><p>CGs can also be used to reason about the ideal parallelism of a parallel program as follows:</p>
 <ul>
 <li>Define WORK(G) to be the sum of the execution times of all nodes in CG G,</li>
 <li>Define SPAN(G) to be the length of a <strong>longest</strong> path in G, when adding up the execution times of all nodes in the path. The longest paths are known as critical paths, so SPAN also represents the critical path length (CPL) of G.</li>
 </ul>
 <p>Given the above definitions of WORK and SPAN, we define the <strong>ideal parallelism</strong> of Computation Graph G as the ratio, <strong>WORK(G)/SPAN(G)</strong>. The ideal parallelism is an upper limit on the speedup factor that can be obtained from parallel execution of nodes in computation graph G. Note that ideal parallelism is only a function of the parallel program, and does not depend on the actual parallelism available in a physical computer.</p>
-<h3 id="multiprocessor-scheduling-parallel-speedup">Multiprocessor Scheduling, Parallel Speedup</h3>
-<ul>
-<li><span class="math inline">\(T_p\)</span>: <span class="math inline">\(T_p\)</span> as the execution time of a CG on P processors</li>
-<li><span class="math inline">\(T_1\)</span>: <span class="math inline">\(T_1\)</span> as the execution time of a CG on 1 processors</li>
-<li><span class="math inline">\(T_{\infty}\)</span> : <span class="math inline">\(T_{\infty}\)</span> as the execution time of a CG on 1 processors</li>
+<h3 id="Multiprocessor-Scheduling-Parallel-Speedup"><a href="#Multiprocessor-Scheduling-Parallel-Speedup" class="headerlink" title="Multiprocessor Scheduling, Parallel Speedup"></a>Multiprocessor Scheduling, Parallel Speedup</h3><ul>
+<li>$T_p$: $T_p$ as the execution time of a CG on P processors</li>
+<li>$T_1$: $T_1$ as the execution time of a CG on 1 processors</li>
+<li>$T<em>{\infty}$ : $T</em>{\infty}$ as the execution time of a CG on 1 processors</li>
 </ul>
-<p><span class="math display">\[T_{\infty} \leq T_p \leq  T_1\]</span></p>
-<p>We also saw examples for which there could be different values of <span class="math inline">\(T_p\)</span> for different schedules of the same CG on P processors. <img src="2.png"></p>
-<p><strong>speedup</strong>: given schedule of a CG on P processors as, $ Speedup(P) =  $. Speedup(P) must be <span class="math inline">\(\leq\)</span> the number of processors P , and also <span class="math inline">\(\leq\)</span> the ideal parallelism, WORK/SPAN.</p>
-<h3 id="amdahls-law">Amdahl’s Law</h3>
-<p>q is the fraction of WORK in a parallel program that must be executed sequentially: <span class="math display">\[Speedup(P) \leq \frac{1}{q}\]</span></p>
-
+<script type="math/tex; mode=display">T_{\infty} \leq T_p \leq  T_1</script><p>We also saw examples for which there could be different values of $T_p$ for different schedules of the same CG on P processors.<br><img src="2.png" alt=""></p>
+<p><strong>speedup</strong>: given schedule of a CG on P processors as, $ Speedup(P) = \frac{T_1}{T_p} $. Speedup(P) must be $\leq$ the number of processors P , and also $\leq$ the ideal parallelism, WORK/SPAN.</p>
+<h3 id="Amdahl’s-Law"><a href="#Amdahl’s-Law" class="headerlink" title="Amdahl’s Law"></a>Amdahl’s Law</h3><p>q is the fraction of WORK in a parallel program that must be executed sequentially:</p>
+<script type="math/tex; mode=display">Speedup(P) \leq \frac{1}{q}</script>
       
     </div>
     
@@ -687,7 +678,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">91</span>
+                  <span class="site-state-item-count">92</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -698,7 +689,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -780,7 +771,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#table-of-contents"><span class="nav-text">Table of Contents</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#task-level-parallelism"><span class="nav-text">Task-level Parallelism</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#task-creation-and-termination-async-finish"><span class="nav-text">Task Creation and Termination (Async, Finish)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#creating-tasks-in-javas-forkjoin-framework"><span class="nav-text">Creating Tasks in Java&#39;s Fork/Join Framework</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#computation-graphs-work-span-ideal-parallelism"><span class="nav-text">Computation Graphs, Work, Span, Ideal Parallelism</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#computation-graphs-cgs"><span class="nav-text">Computation Graphs (CGs)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ideal-parallelism"><span class="nav-text">ideal parallelism</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multiprocessor-scheduling-parallel-speedup"><span class="nav-text">Multiprocessor Scheduling, Parallel Speedup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#amdahls-law"><span class="nav-text">Amdahl’s Law</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Table-of-Contents"><span class="nav-text">Table of Contents</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Task-level-Parallelism"><span class="nav-text">Task-level Parallelism</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Task-Creation-and-Termination-Async-Finish"><span class="nav-text">Task Creation and Termination (Async, Finish)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Creating-Tasks-in-Java’s-Fork-Join-Framework"><span class="nav-text">Creating Tasks in Java’s Fork/Join Framework</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Computation-Graphs-Work-Span-Ideal-Parallelism"><span class="nav-text">Computation Graphs, Work, Span, Ideal Parallelism</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Computation-Graphs-CGs"><span class="nav-text">Computation Graphs (CGs)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ideal-parallelism"><span class="nav-text">ideal parallelism</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multiprocessor-Scheduling-Parallel-Speedup"><span class="nav-text">Multiprocessor Scheduling, Parallel Speedup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Amdahl’s-Law"><span class="nav-text">Amdahl’s Law</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
