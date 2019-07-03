@@ -124,16 +124,16 @@
 
 
 
-<meta name="description" content="Why Study Peer-to-Peer Systems? First distributed systems that seriously focused on scalability with respect to number of nodes P2P techniques abound in cloud computing systems  Napster(创始人Sean Parker">
+<meta name="description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Why Study Peer-to-Peer Systems? Napster Napster Structure Client Joining a P2P system Problems for Napster   Gn">
 <meta name="keywords" content="Course Note">
 <meta property="og:type" content="article">
 <meta property="og:title" content="P2P System">
 <meta property="og:url" content="https://zhangruochi.com/P2P-System/2019/02/14/index.html">
 <meta property="og:site_name" content="RUOCHI">
-<meta property="og:description" content="Why Study Peer-to-Peer Systems? First distributed systems that seriously focused on scalability with respect to number of nodes P2P techniques abound in cloud computing systems  Napster(创始人Sean Parker">
+<meta property="og:description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Why Study Peer-to-Peer Systems? Napster Napster Structure Client Joining a P2P system Problems for Napster   Gn">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p01.png">
-<meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p01.png">
+<meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p02.png">
 <meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p03.png">
 <meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p04.png">
 <meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p05.png">
@@ -146,10 +146,10 @@
 <meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p12.png">
 <meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p13.png">
 <meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p14.png">
-<meta property="og:updated_time" content="2019-03-29T22:09:01.000Z">
+<meta property="og:updated_time" content="2019-07-03T20:11:57.469Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="P2P System">
-<meta name="twitter:description" content="Why Study Peer-to-Peer Systems? First distributed systems that seriously focused on scalability with respect to number of nodes P2P techniques abound in cloud computing systems  Napster(创始人Sean Parker">
+<meta name="twitter:description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Why Study Peer-to-Peer Systems? Napster Napster Structure Client Joining a P2P system Problems for Napster   Gn">
 <meta name="twitter:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p01.png">
 
 
@@ -452,7 +452,90 @@
       
 
       
-        <h2 id="Why-Study-Peer-to-Peer-Systems"><a href="#Why-Study-Peer-to-Peer-Systems" class="headerlink" title="Why Study Peer-to-Peer Systems?"></a>Why Study Peer-to-Peer Systems?</h2><ul>
+        <h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1><ul>
+<li><a href="#overview">Overview</a><ul>
+<li><a href="#goals-and-objectives">Goals and Objectives</a></li>
+<li><a href="#key-phrasesconcepts">Key Phrases/Concepts</a></li>
+<li><a href="#guiding-questions">Guiding Questions</a></li>
+</ul>
+</li>
+<li><a href="#why-study-peer-to-peer-systems">Why Study Peer-to-Peer Systems?</a></li>
+<li><a href="#napster">Napster</a><ul>
+<li><a href="#napster-structure">Napster Structure</a></li>
+<li><a href="#client">Client</a></li>
+<li><a href="#joining-a-p2p-system">Joining a P2P system</a></li>
+<li><a href="#problems-for-napster">Problems for Napster</a></li>
+</ul>
+</li>
+<li><a href="#gnutella">Gnutella</a><ul>
+<li><a href="#gnutella-structure">Gnutella Structure</a></li>
+<li><a href="#how-do-i-search-for-my-beatles-file">How do I search for my Beatles file?</a><ul>
+<li><a href="#payload-format-in-gnutella-query-message">Payload Format in Gnutella Query Message</a></li>
+<li><a href="#payload-format-in-gnutella-queryhit-message">Payload Format in Gnutella QueryHit Message</a></li>
+</ul>
+</li>
+<li><a href="#avoiding-excessive-traffic">Avoiding excessive traffic</a></li>
+<li><a href="#after-receiving-queryhit-messages">After receiving QueryHit messages</a></li>
+<li><a href="#dealing-with-firewalls">Dealing with Firewalls</a></li>
+<li><a href="#ping-pong">Ping-Pong</a></li>
+<li><a href="#gnutella-summary">Gnutella Summary</a></li>
+</ul>
+</li>
+<li><a href="#fasttrack">FastTrack</a><ul>
+<li><a href="#fasttrack-structure">FastTrack Structure</a></li>
+</ul>
+</li>
+<li><a href="#bittorrent">BitTorrent</a><ul>
+<li><a href="#bittorrent-structure">BitTorrent Structure</a></li>
+<li><a href="#bittorrent-原理简述">BitTorrent 原理简述</a></li>
+</ul>
+</li>
+<li><a href="#chord">Chord</a><ul>
+<li><a href="#comparative-performance">Comparative Performance</a></li>
+<li><a href="#chord-structure">Chord Structure</a><ul>
+<li><a href="#successors">successors</a></li>
+<li><a href="#finger-tables">finger tables</a></li>
+</ul>
+</li>
+<li><a href="#files">Files</a></li>
+<li><a href="#search">Search</a></li>
+<li><a href="#dynamic-changes">Dynamic changes</a></li>
+<li><a href="#virtual-nodes">Virtual Nodes</a></li>
+</ul>
+</li>
+<li><a href="#pastry">Pastry</a><ul>
+<li><a href="#pastry-locality">Pastry Locality</a></li>
+<li><a href="#kelips">Kelips</a></li>
+<li><a href="#kelips-structure">Kelips Structure</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>This week we will focus on Peer-to-Peer Systems. This area is important because it is a precursor to today’s cloud computing. The topic is thus a good segue for us to discuss Key-value Stores next week (Week 4).</p>
+<h3 id="Goals-and-Objectives"><a href="#Goals-and-Objectives" class="headerlink" title="Goals and Objectives"></a>Goals and Objectives</h3><p>After you actively engage in the learning experiences in this module, you should be able to:</p>
+<ul>
+<li>Know how Napster, Gnutella, FastTrack, and BitTorrent work.</li>
+<li>Know and analyze how distributed hash tables work (Chord, Pastry, and Kelips).</li>
+</ul>
+<h3 id="Key-Phrases-Concepts"><a href="#Key-Phrases-Concepts" class="headerlink" title="Key Phrases/Concepts"></a>Key Phrases/Concepts</h3><p>Keep your eyes open for the following key terms or phrases as you interact with the lectures. These topics will help you better understand the content in this module.</p>
+<ul>
+<li>Peer-to-peer systems</li>
+<li>Industrial P2P systems: Napster, Gnutella, FastTrack, BitTorrent</li>
+<li>Distributed hash tables: Chord, Pastry, Kelips</li>
+</ul>
+<h3 id="Guiding-Questions"><a href="#Guiding-Questions" class="headerlink" title="Guiding Questions"></a>Guiding Questions</h3><p>Develop your answers to the following guiding questions while completing the readings and working on assignments throughout the week.</p>
+<ul>
+<li>What is the difference between how Napster clients and Gnutella clients search for files?</li>
+<li>What is the difference between Gnutella and FastTrack?</li>
+<li>What is BitTorrent’s tit for tat mechanism?</li>
+<li>What is consistent hashing?</li>
+<li>Why are DHTs efficient in searching?</li>
+<li>How does Chord route queries?</li>
+<li>How does Pastry route queries?</li>
+<li>How does Kelips route queries?</li>
+<li>What is churn in P2P systems?</li>
+<li>How does Chord maintain correct neighbors in spite of failures and churn?</li>
+</ul>
+<h2 id="Why-Study-Peer-to-Peer-Systems"><a href="#Why-Study-Peer-to-Peer-Systems" class="headerlink" title="Why Study Peer-to-Peer Systems?"></a>Why Study Peer-to-Peer Systems?</h2><ul>
 <li>First distributed systems that seriously focused on <strong>scalability</strong> with respect to number of nodes</li>
 <li>P2P techniques abound in cloud computing systems</li>
 </ul>
@@ -461,21 +544,21 @@
 <h3 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h3><ul>
 <li>Connect to a Napster server<ul>
 <li>Upload list of music files that you want to share</li>
-<li>Server maintains list of <filename, ip_address,="" port_num=""> tuples. </filename,></li>
+<li>Server maintains list of {filename, ip_address, port_num} tuples. </li>
 <li><strong>Server stores no files</strong>.</li>
 </ul>
 </li>
 <li>Search<ul>
 <li>Send server keywords to search with</li>
 <li>Server searches its list with the keywords</li>
-<li>Server returns a list of hosts – <ip_address, portnum=""> tuples – to client</ip_address,></li>
+<li>Server returns a list of hosts – {ip_address, portnum} tuples – to client</li>
 <li>Client pings each host in the list to find transfer rates</li>
 <li>Client fetches file from best host</li>
 </ul>
 </li>
 <li>All communication uses TCP (Transmission Control Protocol)<ul>
 <li>Reliable and ordered networking protocol</li>
-<li><img src="p2p01.png" alt="p2p01.png"></li>
+<li><img src="p2p02.png" alt="p2p02.png"></li>
 </ul>
 </li>
 </ul>
@@ -483,6 +566,15 @@
 <li>Send an http request to well-known url for that P2P service - <a href="http://www.myp2pservice.com" target="_blank" rel="noopener">http://www.myp2pservice.com</a></li>
 <li>Message routed (after lookup in DNS) to introducer, a well known server that keeps track of some recently joined nodes in p2p system</li>
 <li>Introducer initializes new peers’ neighbor table</li>
+</ul>
+<h3 id="Problems-for-Napster"><a href="#Problems-for-Napster" class="headerlink" title="Problems for Napster"></a>Problems for Napster</h3><ul>
+<li>Centralized server a source of congestion</li>
+<li>Centralized server single point of failure</li>
+<li>No security: plaintext messages and passwds</li>
+<li>Napster.com declared to be responsible for users’ copyright violation<ul>
+<li>“Indirect infringement”</li>
+</ul>
+</li>
 </ul>
 <h2 id="Gnutella"><a href="#Gnutella" class="headerlink" title="Gnutella"></a>Gnutella</h2><ul>
 <li>Eliminate the servers</li>
@@ -501,7 +593,9 @@
 <ul>
 <li>Connected in an <strong>overlay graph</strong></li>
 </ul>
-<h3 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h3><p><img src="p2p04.png" alt="p2p04.png"><br><img src="p2p05.png" alt="p2p05.png"><br><img src="p2p06.png" alt="p2p06.png"></p>
+<h3 id="How-do-I-search-for-my-Beatles-file"><a href="#How-do-I-search-for-my-Beatles-file" class="headerlink" title="How do I search for my Beatles file?"></a>How do I search for my Beatles file?</h3><p><img src="p2p04.png" alt="p2p04.png"></p>
+<h4 id="Payload-Format-in-Gnutella-Query-Message"><a href="#Payload-Format-in-Gnutella-Query-Message" class="headerlink" title="Payload Format in Gnutella Query Message"></a>Payload Format in Gnutella Query Message</h4><p><img src="p2p05.png" alt="p2p05.png"></p>
+<h4 id="Payload-Format-in-Gnutella-QueryHit-Message"><a href="#Payload-Format-in-Gnutella-QueryHit-Message" class="headerlink" title="Payload Format in Gnutella QueryHit Message"></a>Payload Format in Gnutella QueryHit Message</h4><p><img src="p2p06.png" alt="p2p06.png"></p>
 <h3 id="Avoiding-excessive-traffic"><a href="#Avoiding-excessive-traffic" class="headerlink" title="Avoiding excessive traffic"></a>Avoiding excessive traffic</h3><ul>
 <li>To avoid duplicate transmissions, each peer maintains a list of recently received messages</li>
 <li>Query forwarded to all neighbors except peer from which received</li>
@@ -546,7 +640,7 @@
 </ul>
 <h3 id="FastTrack-Structure"><a href="#FastTrack-Structure" class="headerlink" title="FastTrack Structure"></a>FastTrack Structure</h3><p><img src="p2p08.png" alt="p2p08.png"></p>
 <ul>
-<li>A supernode stores a directory listing a subset of nearby (<filename,peer pointer="">), similar to Napster servers</filename,peer></li>
+<li>A supernode stores a directory listing a subset of nearby (filename,peer pointer), similar to Napster servers</li>
 <li>Supernode membership changes over time</li>
 <li>Any peer can become (and stay) a supernode, provided it has earned enough reputation</li>
 <li>A peer searches by contacting a nearby supernode</li>
@@ -589,7 +683,7 @@
 <li>File is stored at <strong>first peer with id greater than its key(mod 2^m)</strong></li>
 <li>Consistent Hashing =&gt; with K keys and N peers, each peer stores O(K/N) keys</li>
 </ul>
-<h3 id="Search-1"><a href="#Search-1" class="headerlink" title="Search"></a>Search</h3><ul>
+<h3 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h3><ul>
 <li>At node n, send query for key k to largest successor/finger entry &lt;= k if none exist, send query to successor(n) </li>
 <li><img src="p2p13.png" alt="p2p13.png"></li>
 <li>Search takes O(log(N)) time</li>
@@ -933,7 +1027,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-Study-Peer-to-Peer-Systems"><span class="nav-text">Why Study Peer-to-Peer Systems?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Napster"><span class="nav-text">Napster</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Napster-Structure"><span class="nav-text">Napster Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Client"><span class="nav-text">Client</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Joining-a-P2P-system"><span class="nav-text">Joining a P2P system</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gnutella"><span class="nav-text">Gnutella</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gnutella-Structure"><span class="nav-text">Gnutella Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search"><span class="nav-text">Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Avoiding-excessive-traffic"><span class="nav-text">Avoiding excessive traffic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#After-receiving-QueryHit-messages"><span class="nav-text">After receiving QueryHit messages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dealing-with-Firewalls"><span class="nav-text">Dealing with Firewalls</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ping-Pong"><span class="nav-text">Ping-Pong</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gnutella-Summary"><span class="nav-text">Gnutella Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FastTrack"><span class="nav-text">FastTrack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FastTrack-Structure"><span class="nav-text">FastTrack Structure</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BitTorrent"><span class="nav-text">BitTorrent</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BitTorrent-Structure"><span class="nav-text">BitTorrent Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BitTorrent-原理简述"><span class="nav-text">BitTorrent 原理简述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chord"><span class="nav-text">Chord</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Comparative-Performance"><span class="nav-text">Comparative Performance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chord-Structure"><span class="nav-text">Chord Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#successors"><span class="nav-text">successors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#finger-tables"><span class="nav-text">finger tables</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Files"><span class="nav-text">Files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-1"><span class="nav-text">Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-changes"><span class="nav-text">Dynamic changes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Virtual-Nodes"><span class="nav-text">Virtual Nodes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pastry"><span class="nav-text">Pastry</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pastry-Locality"><span class="nav-text">Pastry Locality</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kelips"><span class="nav-text">Kelips</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kelips-Structure"><span class="nav-text">Kelips Structure</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Table-of-Contents"><span class="nav-text">Table of Contents</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Goals-and-Objectives"><span class="nav-text">Goals and Objectives</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-Phrases-Concepts"><span class="nav-text">Key Phrases/Concepts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Guiding-Questions"><span class="nav-text">Guiding Questions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-Study-Peer-to-Peer-Systems"><span class="nav-text">Why Study Peer-to-Peer Systems?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Napster"><span class="nav-text">Napster</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Napster-Structure"><span class="nav-text">Napster Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Client"><span class="nav-text">Client</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Joining-a-P2P-system"><span class="nav-text">Joining a P2P system</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Problems-for-Napster"><span class="nav-text">Problems for Napster</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gnutella"><span class="nav-text">Gnutella</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gnutella-Structure"><span class="nav-text">Gnutella Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-do-I-search-for-my-Beatles-file"><span class="nav-text">How do I search for my Beatles file?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Payload-Format-in-Gnutella-Query-Message"><span class="nav-text">Payload Format in Gnutella Query Message</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Payload-Format-in-Gnutella-QueryHit-Message"><span class="nav-text">Payload Format in Gnutella QueryHit Message</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Avoiding-excessive-traffic"><span class="nav-text">Avoiding excessive traffic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#After-receiving-QueryHit-messages"><span class="nav-text">After receiving QueryHit messages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dealing-with-Firewalls"><span class="nav-text">Dealing with Firewalls</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ping-Pong"><span class="nav-text">Ping-Pong</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gnutella-Summary"><span class="nav-text">Gnutella Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FastTrack"><span class="nav-text">FastTrack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FastTrack-Structure"><span class="nav-text">FastTrack Structure</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BitTorrent"><span class="nav-text">BitTorrent</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BitTorrent-Structure"><span class="nav-text">BitTorrent Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BitTorrent-原理简述"><span class="nav-text">BitTorrent 原理简述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chord"><span class="nav-text">Chord</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Comparative-Performance"><span class="nav-text">Comparative Performance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chord-Structure"><span class="nav-text">Chord Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#successors"><span class="nav-text">successors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#finger-tables"><span class="nav-text">finger tables</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Files"><span class="nav-text">Files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search"><span class="nav-text">Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-changes"><span class="nav-text">Dynamic changes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Virtual-Nodes"><span class="nav-text">Virtual Nodes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pastry"><span class="nav-text">Pastry</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pastry-Locality"><span class="nav-text">Pastry Locality</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kelips"><span class="nav-text">Kelips</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kelips-Structure"><span class="nav-text">Kelips Structure</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
