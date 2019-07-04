@@ -146,7 +146,7 @@
 <meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p12.png">
 <meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p13.png">
 <meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p14.png">
-<meta property="og:updated_time" content="2019-07-03T20:11:57.469Z">
+<meta property="og:updated_time" content="2019-07-04T02:39:53.282Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="P2P System">
 <meta name="twitter:description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Why Study Peer-to-Peer Systems? Napster Napster Structure Client Joining a P2P system Problems for Napster   Gn">
@@ -676,6 +676,14 @@
 <h3 id="Comparative-Performance"><a href="#Comparative-Performance" class="headerlink" title="Comparative Performance"></a>Comparative Performance</h3><p><img src="p2p10.png" alt="p2p10.png"></p>
 <h3 id="Chord-Structure"><a href="#Chord-Structure" class="headerlink" title="Chord Structure"></a>Chord Structure</h3><p>Tow pointers</p>
 <h4 id="successors"><a href="#successors" class="headerlink" title="successors"></a>successors</h4><p><img src="p2p11.png" alt="p2p11.png"></p>
+<p>Uses Consistent Hashing on node’s (peer’s) address  </p>
+<ul>
+<li>SHA-1(ip_address,port) -&gt; 160 bit string</li>
+<li>Truncated to m bits</li>
+<li>Called peer id (number between 0 and $2^m-1$)</li>
+<li>Not unique but id conflicts very unlikely</li>
+<li>Can then map peers to one of $2^m$ logical points on a circle</li>
+</ul>
 <h4 id="finger-tables"><a href="#finger-tables" class="headerlink" title="finger tables"></a>finger tables</h4><p><img src="p2p12.png" alt="p2p12.png"></p>
 <h3 id="Files"><a href="#Files" class="headerlink" title="Files"></a>Files</h3><p>Filenames also mapped using same consistent hash function</p>
 <ul>
@@ -934,7 +942,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">92</span>
+                  <span class="site-state-item-count">95</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -945,7 +953,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -956,7 +964,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
