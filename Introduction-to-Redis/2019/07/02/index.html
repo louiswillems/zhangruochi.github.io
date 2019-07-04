@@ -124,17 +124,17 @@
 
 
 
-<meta name="description" content="为什么要使用redis来做缓存呢? src: https://blog.csdn.net/WYpersist/article/details/80672951    缓存分为本地缓存和分布式缓存。以java为例，使用自带的map或者guava实现的是本地缓存，最主要的特点是轻量以及快速，生命周期随着jvm的销毁而结束，并且在多实例的情况下，每个实例都需要各自保存一份缓存，缓存不具有一致性。 Red">
+<meta name="description" content="为什么要使用redis来做缓存呢?  src: https://blog.csdn.net/WYpersist/article/details/80672951   缓存分为本地缓存和分布式缓存。以java为例，使用自带的map或者guava实现的是本地缓存，最主要的特点是轻量以及快速，生命周期随着jvm的销毁而结束，并且在多实例的情况下，每个实例都需要各自保存一份缓存，缓存不具有一致性。 Red">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Introduction to Redis">
 <meta property="og:url" content="https://zhangruochi.com/Introduction-to-Redis/2019/07/02/index.html">
 <meta property="og:site_name" content="RUOCHI">
-<meta property="og:description" content="为什么要使用redis来做缓存呢? src: https://blog.csdn.net/WYpersist/article/details/80672951    缓存分为本地缓存和分布式缓存。以java为例，使用自带的map或者guava实现的是本地缓存，最主要的特点是轻量以及快速，生命周期随着jvm的销毁而结束，并且在多实例的情况下，每个实例都需要各自保存一份缓存，缓存不具有一致性。 Red">
+<meta property="og:description" content="为什么要使用redis来做缓存呢?  src: https://blog.csdn.net/WYpersist/article/details/80672951   缓存分为本地缓存和分布式缓存。以java为例，使用自带的map或者guava实现的是本地缓存，最主要的特点是轻量以及快速，生命周期随着jvm的销毁而结束，并且在多实例的情况下，每个实例都需要各自保存一份缓存，缓存不具有一致性。 Red">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-07-02T07:18:50.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Introduction to Redis">
-<meta name="twitter:description" content="为什么要使用redis来做缓存呢? src: https://blog.csdn.net/WYpersist/article/details/80672951    缓存分为本地缓存和分布式缓存。以java为例，使用自带的map或者guava实现的是本地缓存，最主要的特点是轻量以及快速，生命周期随着jvm的销毁而结束，并且在多实例的情况下，每个实例都需要各自保存一份缓存，缓存不具有一致性。 Red">
+<meta name="twitter:description" content="为什么要使用redis来做缓存呢?  src: https://blog.csdn.net/WYpersist/article/details/80672951   缓存分为本地缓存和分布式缓存。以java为例，使用自带的map或者guava实现的是本地缓存，最主要的特点是轻量以及快速，生命周期随着jvm的销毁而结束，并且在多实例的情况下，每个实例都需要各自保存一份缓存，缓存不具有一致性。 Red">
 
 
 
@@ -447,10 +447,11 @@
       
 
       
-        <h2 id="为什么要使用redis来做缓存呢"><a href="#为什么要使用redis来做缓存呢" class="headerlink" title="为什么要使用redis来做缓存呢?"></a>为什么要使用redis来做缓存呢?</h2><blockquote>
-<p>src: <a href="https://blog.csdn.net/WYpersist/article/details/80672951" target="_blank" rel="noopener">https://blog.csdn.net/WYpersist/article/details/80672951</a> </p>
+        <h2 id="为什么要使用redis来做缓存呢">为什么要使用redis来做缓存呢?</h2>
+<blockquote>
+<p>src: https://blog.csdn.net/WYpersist/article/details/80672951</p>
 </blockquote>
-<ol>
+<ol type="1">
 <li>缓存分为本地缓存和分布式缓存。以java为例，使用自带的map或者guava实现的是本地缓存，最主要的特点是轻量以及快速，生命周期随着jvm的销毁而结束，并且在多实例的情况下，每个实例都需要各自保存一份缓存，缓存不具有一致性。</li>
 <li>Redis 可以用几十 G 内存来做缓存，Map 不行，一般 JVM 也就分几个 G 数据就够大了</li>
 <li>Redis 的缓存可以持久化，Map 是内存对象，程序一重启数据就没了</li>
@@ -459,11 +460,13 @@
 <li>Redis 缓存有过期机制，Map 本身无此功能</li>
 <li>Redis 有丰富的 API，Map 就简单太多了</li>
 </ol>
-<h2 id="redis-python交互和实际例子"><a href="#redis-python交互和实际例子" class="headerlink" title="redis python交互和实际例子"></a>redis python交互和实际例子</h2><blockquote>
-<p><a href="https://www.cnblogs.com/alamZ/p/7207784.html" target="_blank" rel="noopener">https://www.cnblogs.com/alamZ/p/7207784.html</a></p>
+<h2 id="redis-python交互和实际例子">redis python交互和实际例子</h2>
+<blockquote>
+<p>https://www.cnblogs.com/alamZ/p/7207784.html</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    r=redis.StrictRedis(host=<span class="string">'localhost'</span>,port=<span class="number">6379</span>)</span><br><span class="line"><span class="keyword">except</span> Exception,e:</span><br><span class="line">    <span class="keyword">print</span> e.message&lt;br&gt;</span><br><span class="line">//方式一：根据数据类型的不同，调用相应的方法，完成读写</span><br><span class="line">r.set(<span class="string">'name'</span>,<span class="string">'hello'</span>)</span><br><span class="line">r.get(<span class="string">'name'</span>)</span><br><span class="line"> </span><br><span class="line">//方式二：pipline</span><br><span class="line">//缓冲多条命令，然后一次性执行，减少服务器-客户端之间TCP数据库包，从而提高效率</span><br><span class="line">pipe = r.pipeline()</span><br><span class="line">pipe.set(<span class="string">'name'</span>, <span class="string">'world'</span>)</span><br><span class="line">pipe.get(<span class="string">'name'</span>)</span><br><span class="line">pipe.execute()</span><br></pre></td></tr></table></figure>
-<h2 id="用户登录"><a href="#用户登录" class="headerlink" title="用户登录"></a>用户登录</h2><p>业务过程如下：</p>
+<h2 id="用户登录">用户登录</h2>
+<p>业务过程如下：</p>
 <ul>
 <li>输入用户名、密码</li>
 <li>密码加密</li>
@@ -651,7 +654,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">95</span>
+                  <span class="site-state-item-count">97</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -662,7 +665,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

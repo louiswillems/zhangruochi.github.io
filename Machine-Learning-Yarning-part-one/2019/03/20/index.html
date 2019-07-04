@@ -442,7 +442,8 @@
 
       
         <p><strong>Reference from <em>Machine Learning Yarning</em> by Andrew Ng</strong></p>
-<h2 id="Setting-up-development-and-test-sets"><a href="#Setting-up-development-and-test-sets" class="headerlink" title="Setting up development and test sets"></a>Setting up development and test sets</h2><ul>
+<h2 id="setting-up-development-and-test-sets">Setting up development and test sets</h2>
+<ul>
 <li>Choose dev and test sets from a distribution that reflects what data you expect to get in the future and want to do well on. This may not be the same as your training data’s distribution.</li>
 <li>Choose dev and test sets from the same distribution if possible.</li>
 <li>Choose a single-number evaluation metric for your team to optimize. If there are multiple goals that you care about, consider combining them into a single formula (such as averaging multiple error metrics) or defining satisficing and optimizing metrics.</li>
@@ -451,22 +452,23 @@
 <li>When starting out on a brand new application, try to establish dev/test sets and a metric quickly, say in less than a week. It might be okay to take longer on mature applications.</li>
 <li>The old heuristic of a 70%/30% train/test split does not apply for problems where you have a lot of data; the dev and test sets can be much less than 30% of the data.</li>
 <li>Your dev set should be large enough to detect meaningful changes in the accuracy of your algorithm, but not necessarily much larger. Your test set should be big enough to give you a confident estimate of the final performance of your system.</li>
-<li>If your dev set and metric are no longer pointing your team in the right direction, quickly change them: <ul>
-<li>If you had overfit the dev set, get more dev set data. </li>
+<li>If your dev set and metric are no longer pointing your team in the right direction, quickly change them:
+<ul>
+<li>If you had overfit the dev set, get more dev set data.</li>
 <li>If the actual distribution you care about is different from the dev/test set distribution, get new dev/test set data.</li>
 <li>If your metric is no longer measuring what is most important to you, change the metric.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="Basic-Error-Analysis"><a href="#Basic-Error-Analysis" class="headerlink" title="Basic Error Analysis"></a>Basic Error Analysis</h2><ul>
+<h2 id="basic-error-analysis">Basic Error Analysis</h2>
+<ul>
 <li>When you start a new project, especially if it is in an area in which you are not an expert, it is hard to correctly guess the most promising directions.</li>
 <li>So don’t start off trying to design and build the perfect system. Instead build and train a basic system as quickly as possible—perhaps in a few days. Then use error analysis to help you identify the most promising directions and iteratively improve your algorithm from there.</li>
 <li>Carry out error analysis by manually examining ~100 dev set examples the algorithm misclassifies and counting the major categories of errors. Use this information to prioritize what types of errors to work on fixing.</li>
-<li>Consider splitting the dev set into an Eyeball dev set, which you will manually examine, and a Blackbox dev set, which you will not manually examine. If performance on the Eyeball dev set is much better than the Blackbox dev set, you have overfit the Eyeball dev set and should consider acquiring more data for it.<ul>
+<li>Consider splitting the dev set into an Eyeball dev set, which you will manually examine, and a Blackbox dev set, which you will not manually examine. If performance on the Eyeball dev set is much better than the Blackbox dev set, you have overfit the Eyeball dev set and should consider acquiring more data for it.
+<ul>
 <li>Why do we explicitly separate the dev set into Eyeball and Blackbox dev sets? Since you will gain intuition about the examples in the Eyeball dev set, you will start to overfit the Eyeball dev set faster. If you see the performance on the Eyeball dev set improving much more rapidly than the performance on the Blackbox dev set, you have overfit the Eyeball dev set. In this case, you might need to discard it and find a new Eyeball dev set by moving more examples from the Blackbox dev set into the Eyeball dev set or by acquiring new labeled data.</li>
 <li>If you are working on a task that even humans cannot do well, then the exercise of examining an Eyeball dev set will not be as helpful because it is harder to figure out why the algorithm didn’t classify an example correctly</li>
-</ul>
-</li>
+</ul></li>
 <li>The Eyeball dev set should be big enough so that your algorithm misclassifies enough examples for you to analyze. A Blackbox dev set of 1,000-10,000 examples is sufficient for many applications.</li>
 <li>If your dev set is not big enough to split this way, just use the entire dev set as an Eyeball dev set for manual error analysis, model selection, and hyperparameter tuning.</li>
 </ul>
@@ -655,7 +657,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">95</span>
+                  <span class="site-state-item-count">97</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -666,7 +668,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -748,7 +750,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Setting-up-development-and-test-sets"><span class="nav-text">Setting up development and test sets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Error-Analysis"><span class="nav-text">Basic Error Analysis</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#setting-up-development-and-test-sets"><span class="nav-text">Setting up development and test sets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#basic-error-analysis"><span class="nav-text">Basic Error Analysis</span></a></li></ol></div>
             
 
           </div>
