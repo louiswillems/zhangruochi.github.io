@@ -139,7 +139,11 @@
 <meta property="og:image" content="https://zhangruochi.com/Key-Value-Stores-Time-and-Ordering/2019/07/04/5.png">
 <meta property="og:image" content="https://zhangruochi.com/Key-Value-Stores-Time-and-Ordering/2019/07/04/6.png">
 <meta property="og:image" content="https://zhangruochi.com/Key-Value-Stores-Time-and-Ordering/2019/07/04/8.png">
-<meta property="og:updated_time" content="2019-07-04T11:25:59.498Z">
+<meta property="og:image" content="https://zhangruochi.com/Key-Value-Stores-Time-and-Ordering/2019/07/04/9.png">
+<meta property="og:image" content="https://zhangruochi.com/Key-Value-Stores-Time-and-Ordering/2019/07/04/10.png">
+<meta property="og:image" content="https://zhangruochi.com/Key-Value-Stores-Time-and-Ordering/2019/07/04/11.png">
+<meta property="og:image" content="https://zhangruochi.com/Key-Value-Stores-Time-and-Ordering/2019/07/04/12.png">
+<meta property="og:updated_time" content="2019-07-04T12:31:11.135Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Key-Value Stores, Time, and Ordering">
 <meta name="twitter:description" content="OverviewThis week we first explore the design of key-value/NoSQL storage systems. This topic is important because it shows how industry-popular systems leverage some of the concepts we’ve learned so f">
@@ -552,6 +556,32 @@
 </ul>
 </li>
 </ul>
+<h2 id="CAP-Theorem"><a href="#CAP-Theorem" class="headerlink" title="CAP Theorem"></a>CAP Theorem</h2><ol>
+<li>Consistency: all nodes see same data at any time, or reads return latest written value by any client</li>
+<li>Availability: the system allows operations all the time, and operations return quickly</li>
+<li>Partition-tolerance: the system continues to work in spite of network partitions(分区容错性)</li>
+</ol>
+<p>Since partition-tolerance is essential in today’s cloud computing systems, CAP theorem implies that a system has to choose between <strong>consistency</strong> and <strong>availability</strong></p>
+<h3 id="Eventual-Consistency"><a href="#Eventual-Consistency" class="headerlink" title="Eventual Consistency"></a>Eventual Consistency</h3><ul>
+<li>If all writes stop (to a key), then all its values (replicas) will converge eventually.</li>
+<li>If writes continue, then system always tries to keep converging.</li>
+<li>May still return <strong>stale</strong> values to clients (e.g., if many back-to-back writes).</li>
+<li>But works well when there a few periods of low writes – system converges quickly.</li>
+</ul>
+<h3 id="RDBMSs-Vs-Key-value-Store"><a href="#RDBMSs-Vs-Key-value-Store" class="headerlink" title="RDBMSs Vs. Key-value Store"></a>RDBMSs Vs. Key-value Store</h3><ul>
+<li>Cassandra: Eventual (weak) consistency, availability, partition-tolerance<ul>
+<li>Basically Available Soft-state Eventual<br>consistency</li>
+<li>Prefers availability over consistency</li>
+</ul>
+</li>
+<li>Traditional RDBMSs: Strong consistency over availability under a partition<ul>
+<li>Atomicity</li>
+<li>Consistency</li>
+<li>Isolation</li>
+<li>Durability</li>
+</ul>
+</li>
+</ul>
 <h2 id="Cassandra"><a href="#Cassandra" class="headerlink" title="Cassandra"></a>Cassandra</h2><p><img src="2.png" alt=""></p>
 <h3 id="SSTable"><a href="#SSTable" class="headerlink" title="SSTable"></a>SSTable</h3><p><img src="7.png" alt=""></p>
 <p>所以SSTable是一个简单，但是非常有用的用来交换大量的、排好序的数据片段的数据结构。它的使用场景是：</p>
@@ -680,12 +710,12 @@
 </ul>
 </li>
 </ol>
-<h2 id="Membership"><a href="#Membership" class="headerlink" title="Membership"></a>Membership</h2><ol>
+<h3 id="Membership"><a href="#Membership" class="headerlink" title="Membership"></a>Membership</h3><ol>
 <li>Any server in cluster could be the coordinator</li>
 <li>So every server needs to maintain a list of all the<br>other servers that are currently in the server</li>
 <li>List needs to be updated automatically as servers join, leave, and fail</li>
 </ol>
-<h3 id="Gossip-Style-membership"><a href="#Gossip-Style-membership" class="headerlink" title="Gossip Style membership"></a>Gossip Style membership</h3><p><img src="8.png" alt=""></p>
+<h4 id="Gossip-Style-membership"><a href="#Gossip-Style-membership" class="headerlink" title="Gossip Style membership"></a>Gossip Style membership</h4><p><img src="8.png" alt=""></p>
 <ul>
 <li>Suspicion mechanisms to adaptively set the timeout based on underlying network and failure behavior</li>
 <li>Accrual detector: Failure detector outputs a value (PHI) representing suspicion</li>
@@ -698,7 +728,69 @@
 </li>
 <li>In practice, PHI = 5 =&gt; 10-15 sec detection time</li>
 </ul>
-<h2 id="Cassandra-Vs-RDBMSs"><a href="#Cassandra-Vs-RDBMSs" class="headerlink" title="Cassandra Vs. RDBMSs"></a>Cassandra Vs. RDBMSs</h2><ul>
+<h3 id="Consistency-levels"><a href="#Consistency-levels" class="headerlink" title="Consistency levels"></a>Consistency levels</h3><p>Consistency level指定了读/写操作在通知客户端请求成功之前，必须确保已经成功完成读/写操作的replica的数量. Client is allowed to choose a consistency level for each operation (read/write)</p>
+<ul>
+<li>ANY: any server (may not be replica)<ul>
+<li>Fastest: coordinator caches write and replies quickly to client</li>
+</ul>
+</li>
+<li>ALL: all replicas<ul>
+<li>Ensures strong consistency, but slowest</li>
+</ul>
+</li>
+<li>ONE: at least one replica<ul>
+<li>Faster than ALL, but cannot tolerate a failure</li>
+</ul>
+</li>
+<li>QUORUM: quorum across all replicas in all datacenters (DCs)<ul>
+<li>LOCAL_QUORUM: quorum in coordinator’s DC<ul>
+<li>Faster: only waits for quorum in first DC client contacts</li>
+</ul>
+</li>
+<li>EACH_QUORUM: quorum in every DC  <ul>
+<li>Lets each DC do its own quorum: supports hierarchical replies<br><img src="9.png" alt=""></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="QUORUM-in-Detail"><a href="#QUORUM-in-Detail" class="headerlink" title="QUORUM in Detail"></a>QUORUM in Detail</h4><p>Several key-value/NoSQL stores (e.g., Riak and Cassandra) use quorums.</p>
+<ol>
+<li>Reads</li>
+</ol>
+<ul>
+<li>Client specifies value of R (≤ N = total number<br>of replicas of that key).</li>
+<li>R = read consistency level.</li>
+<li>Coordinator waits for R replicas to respond before sending result to client.</li>
+<li>In background, coordinator checks for consistency of remaining (N-R) replicas, and initiates read repair if needed.</li>
+</ul>
+<ol>
+<li>Writes</li>
+</ol>
+<ul>
+<li>Client specifies W (≤ N)</li>
+<li>W = write consistency level.</li>
+<li>Client writes new value to W replicas and returns. Two flavors:<ul>
+<li>Coordinator blocks until quorumis reached.</li>
+<li>Asynchronous:Justwriteandreturn.</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>Two necessary conditions:<ul>
+<li>W+R &gt; N</li>
+<li>W &gt; N/2</li>
+</ul>
+</li>
+<li>Select values based on application<ul>
+<li>(W=1, R=1): very few writes and reads</li>
+<li>(W=N, R=1): great for read-heavy workloads</li>
+<li>(W=N/2+1, R=N/2+1): great for write-heavy workloads</li>
+<li>(W=1, R=N): great for write-heavy workloads with mostly one client writing per key</li>
+</ul>
+</li>
+</ol>
+<h3 id="Cassandra-Vs-RDBMSs"><a href="#Cassandra-Vs-RDBMSs" class="headerlink" title="Cassandra Vs. RDBMSs"></a>Cassandra Vs. RDBMSs</h3><ul>
 <li>MySQL is one of the most popular (and has been for a while)</li>
 <li>On &gt; 50GB data</li>
 <li>MySQL<ul>
@@ -713,6 +805,45 @@
 </li>
 <li>Orders of magnitude faster</li>
 </ul>
+<h2 id="HBase"><a href="#HBase" class="headerlink" title="HBase"></a>HBase</h2><blockquote>
+<p>src <a href="https://seawaylee.github.io/2017/11/21/大数据/HBase/HBase学习笔记（一）-%20快速入门/" target="_blank" rel="noopener">https://seawaylee.github.io/2017/11/21/大数据/HBase/HBase学习笔记（一）-%20快速入门/</a></p>
+</blockquote>
+<p>Unlike Cassandra, HBase prefers consistency (over availability)</p>
+<h3 id="API-functions"><a href="#API-functions" class="headerlink" title="API functions"></a>API functions</h3><ul>
+<li>Get/Put(row)</li>
+<li>Scan(row range, filter) – range queries • MultiPut</li>
+</ul>
+<h3 id="HBase-数据模型"><a href="#HBase-数据模型" class="headerlink" title="HBase 数据模型"></a>HBase 数据模型</h3><p><img src="10.png" alt=""></p>
+<ul>
+<li>与nosql数据库一样,rowkey 是用来检索记录的主键。</li>
+<li>Hbase表中的每个列,都归属于某个列族。列表都以列族为前缀,例如 course:histroy, course:math 都属于course这个列族。</li>
+<li>由 rowKey + columnFamily + version 唯一确定的单元</li>
+<li>每个cell都保存着同一份数据的多个版本,版本通过时间戳来索引。时间戳的类型是64位整型。间戳可以由HBASE(在数据写入时自动)赋值,此时时间戳是精确到毫秒的当前系统时间。时间戳也可以由客户显式赋值。如果应用程序要避免数据版本冲突,就必须自己生成具有唯一性的时间戳。每个cell中,不同版本的数据按照时间倒序排序,即最新的数据排在最前面。为了避免数据存在过多版本造成的的管理(包括存贮和索引)负担,HBASE提供了两种数据版本回收方式。一是保存数据的最后n个版本,二是保存最近一段时间内的版本（比如最近七天）。用户可以针对每个列族进行设置</li>
+</ul>
+<h3 id="HBase-体系图"><a href="#HBase-体系图" class="headerlink" title="HBase 体系图"></a>HBase 体系图</h3><p><img src="11.png" alt=""></p>
+<h4 id="Writes-1"><a href="#Writes-1" class="headerlink" title="Writes"></a>Writes</h4><ul>
+<li>Client向HRegionServer发送写请求</li>
+<li>HRegionServer将数据写到Hlog(write ahead log)。为了数据的持久化和恢复</li>
+<li>HRegionServer将数据写到内存(memstore)</li>
+<li>反馈Client写成功</li>
+</ul>
+<h4 id="Write"><a href="#Write" class="headerlink" title="Write"></a>Write</h4><ul>
+<li>通过ZK和 -ROOT- .META. 表定位HRegionServer</li>
+<li>数据从内存和硬盘合并后返回给Client</li>
+<li>数据块会缓存</li>
+</ul>
+<h4 id="Flush"><a href="#Flush" class="headerlink" title="Flush"></a>Flush</h4><ul>
+<li>当memstore数据达到阀值（默认64M），将数据刷到硬盘，将内存中的数据删除，同事删除HLog中的历史数据。</li>
+<li>将数据存储到HDFS中</li>
+<li>在Hlog中做标记点</li>
+</ul>
+<h4 id="数据合并过程"><a href="#数据合并过程" class="headerlink" title="数据合并过程"></a>数据合并过程</h4><ul>
+<li>当数据块达到4块，HMaster将数据加载到本地，进行合并</li>
+<li>当合并的数据超过256M，进行拆分，将拆分后的region分配给不同的HRegionServer管理</li>
+<li>当HRegionServer宕机后，将HRegionServer上的Hlog拆分，然后分配给不同的HRegionServer加载，修改 .META.</li>
+<li>注意：Hlog会同步到HDFS</li>
+</ul>
+<h3 id="HBase读写原理图"><a href="#HBase读写原理图" class="headerlink" title="HBase读写原理图"></a>HBase读写原理图</h3><p><img src="12.png" alt=""></p>
 
       
     </div>
@@ -985,7 +1116,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Goals-and-Objectives"><span class="nav-text">Goals and Objectives</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-Phrases-Concepts"><span class="nav-text">Key Phrases/Concepts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Guiding-Questions"><span class="nav-text">Guiding Questions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-key-value-NoSQL"><span class="nav-text">Why key-value/ NoSQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-key-value-abstraction"><span class="nav-text">The key-value abstraction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RDBMSs"><span class="nav-text">RDBMSs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RDBMSs’s-mismatch-for-today’s-workload"><span class="nav-text">RDBMSs’s mismatch for today’s workload</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Needs-of-today’s-workload"><span class="nav-text">Needs of today’s workload</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-value-data-model"><span class="nav-text">Key-value data model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Column-oriented-storage"><span class="nav-text">Column-oriented storage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cassandra"><span class="nav-text">Cassandra</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSTable"><span class="nav-text">SSTable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Partitioner"><span class="nav-text">Partitioner</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Placement-Strategies"><span class="nav-text">Data Placement Strategies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Snitches"><span class="nav-text">Snitches</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Writes"><span class="nav-text">Writes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Writes-at-a-replica-node"><span class="nav-text">Writes at a replica node</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reads"><span class="nav-text">Reads</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Membership"><span class="nav-text">Membership</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gossip-Style-membership"><span class="nav-text">Gossip Style membership</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cassandra-Vs-RDBMSs"><span class="nav-text">Cassandra Vs. RDBMSs</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Goals-and-Objectives"><span class="nav-text">Goals and Objectives</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-Phrases-Concepts"><span class="nav-text">Key Phrases/Concepts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Guiding-Questions"><span class="nav-text">Guiding Questions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-key-value-NoSQL"><span class="nav-text">Why key-value/ NoSQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-key-value-abstraction"><span class="nav-text">The key-value abstraction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RDBMSs"><span class="nav-text">RDBMSs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RDBMSs’s-mismatch-for-today’s-workload"><span class="nav-text">RDBMSs’s mismatch for today’s workload</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Needs-of-today’s-workload"><span class="nav-text">Needs of today’s workload</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-value-data-model"><span class="nav-text">Key-value data model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Column-oriented-storage"><span class="nav-text">Column-oriented storage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAP-Theorem"><span class="nav-text">CAP Theorem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Eventual-Consistency"><span class="nav-text">Eventual Consistency</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RDBMSs-Vs-Key-value-Store"><span class="nav-text">RDBMSs Vs. Key-value Store</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cassandra"><span class="nav-text">Cassandra</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSTable"><span class="nav-text">SSTable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Partitioner"><span class="nav-text">Partitioner</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Placement-Strategies"><span class="nav-text">Data Placement Strategies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Snitches"><span class="nav-text">Snitches</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Writes"><span class="nav-text">Writes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Writes-at-a-replica-node"><span class="nav-text">Writes at a replica node</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reads"><span class="nav-text">Reads</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Membership"><span class="nav-text">Membership</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Gossip-Style-membership"><span class="nav-text">Gossip Style membership</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Consistency-levels"><span class="nav-text">Consistency levels</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#QUORUM-in-Detail"><span class="nav-text">QUORUM in Detail</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cassandra-Vs-RDBMSs"><span class="nav-text">Cassandra Vs. RDBMSs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HBase"><span class="nav-text">HBase</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#API-functions"><span class="nav-text">API functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HBase-数据模型"><span class="nav-text">HBase 数据模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HBase-体系图"><span class="nav-text">HBase 体系图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Writes-1"><span class="nav-text">Writes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Write"><span class="nav-text">Write</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Flush"><span class="nav-text">Flush</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据合并过程"><span class="nav-text">数据合并过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HBase读写原理图"><span class="nav-text">HBase读写原理图</span></a></li></ol></li></ol></div>
             
 
           </div>
