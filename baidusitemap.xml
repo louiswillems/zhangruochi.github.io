@@ -1,32 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zhangruochi.com/%E6%B1%82%E5%AF%BC%E6%B3%95%E5%88%99/2019/07/05/</loc>
-    <lastmod>2019-07-04</lastmod>
+    <loc>https://zhangruochi.com/Combining-Distribution-and-Multithreading/2019/06/24/</loc>
+    <lastmod>2019-07-05</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Time-and-Ordering/2019/07/04/</loc>
-    <lastmod>2019-07-04</lastmod>
+    <loc>https://zhangruochi.com/Client-Server-Programming/2019/06/23/</loc>
+    <lastmod>2019-07-05</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Key-Value-Stores-Time-and-Ordering/2019/07/04/</loc>
-    <lastmod>2019-07-04</lastmod>
+    <loc>https://zhangruochi.com/Distributed-Map-Reduce/2019/06/23/</loc>
+    <lastmod>2019-07-05</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Consistent-Hashing-Algorithm/2019/07/04/</loc>
-    <lastmod>2019-07-04</lastmod>
+    <loc>https://zhangruochi.com/Message-Passing/2019/06/24/</loc>
+    <lastmod>2019-07-05</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/%E5%88%86%E5%B8%83%E5%BC%8F%E5%93%88%E5%B8%8C-DHT-%E7%9A%84%E5%8E%9F%E7%90%86/2019/07/04/</loc>
-    <lastmod>2019-07-04</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/P2P-System/2019/02/14/</loc>
-    <lastmod>2019-07-04</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/</loc>
-    <lastmod>2019-07-03</lastmod>
+    <loc>https://zhangruochi.com/RDD-Programming-Guide/2019/06/23/</loc>
+    <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/</loc>
-    <lastmod>2019-07-03</lastmod>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/P2P-System/2019/02/14/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Key-Value-Stores-Time-and-Ordering/2019/07/04/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Time-and-Ordering/2019/07/04/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Consistent-Hashing-Algorithm/2019/07/04/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/%E5%88%86%E5%B8%83%E5%BC%8F%E5%93%88%E5%B8%8C-DHT-%E7%9A%84%E5%8E%9F%E7%90%86/2019/07/04/</loc>
+    <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Introduction-to-Redis/2019/07/02/</loc>
-    <lastmod>2019-07-02</lastmod>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/%E6%B1%82%E5%AF%BC%E6%B3%95%E5%88%99/2019/07/05/</loc>
+    <lastmod>2019-07-04</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Introduction-to-Big-Data/2019/07/02/</loc>
     <lastmod>2019-07-02</lastmod>
@@ -34,22 +49,7 @@
     <loc>https://zhangruochi.com/Master-Computer-Science/2019/02/20/</loc>
     <lastmod>2019-06-24</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Combining-Distribution-and-Multithreading/2019/06/24/</loc>
-    <lastmod>2019-06-24</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Client-Server-Programming/2019/06/23/</loc>
-    <lastmod>2019-06-24</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Message-Passing/2019/06/24/</loc>
-    <lastmod>2019-06-24</lastmod>
-  </url>  <url>
     <loc>https://zhangruochi.com/Critical-Sections-and-Isolation/2019/06/21/</loc>
-    <lastmod>2019-06-23</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/RDD-Programming-Guide/2019/06/23/</loc>
-    <lastmod>2019-06-23</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Distributed-Map-Reduce/2019/06/23/</loc>
     <lastmod>2019-06-23</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Optimistic-Concurrency/2019/06/22/</loc>
@@ -171,9 +171,6 @@
   </url>  <url>
     <loc>https://zhangruochi.com/AdaBoost-Summary/2019/05/14/</loc>
     <lastmod>2019-05-14</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/TFserving-Introdcution/2019/05/13/</loc>
-    <lastmod>2019-05-13</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/3-sources-of-error/2019/04/20/</loc>
     <lastmod>2019-05-13</lastmod>
