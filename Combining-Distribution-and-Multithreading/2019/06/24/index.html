@@ -124,19 +124,19 @@
 
 
 
-<meta name="description" content="Table of Contents  Combining Distribution and Multithreading Multithreaded Servers MPI and Multithreading Distributed Actors Distributed Reactive Programming  Combining Distribution and Multithreading">
+<meta name="description" content="Table of Contents Combining Distribution and Multithreading Multithreaded Servers MPI and Multithreading Distributed Actors Distributed Reactive Programming  Combining Distribution and MultithreadingL">
 <meta name="keywords" content="Java,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Combining Distribution and Multithreading">
 <meta property="og:url" content="https://zhangruochi.com/Combining-Distribution-and-Multithreading/2019/06/24/index.html">
 <meta property="og:site_name" content="RUOCHI">
-<meta property="og:description" content="Table of Contents  Combining Distribution and Multithreading Multithreaded Servers MPI and Multithreading Distributed Actors Distributed Reactive Programming  Combining Distribution and Multithreading">
+<meta property="og:description" content="Table of Contents Combining Distribution and Multithreading Multithreaded Servers MPI and Multithreading Distributed Actors Distributed Reactive Programming  Combining Distribution and MultithreadingL">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/Combining-Distribution-and-Multithreading/2019/06/24/1.png">
-<meta property="og:updated_time" content="2019-07-05T08:07:12.902Z">
+<meta property="og:updated_time" content="2019-07-05T09:46:15.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Combining Distribution and Multithreading">
-<meta name="twitter:description" content="Table of Contents  Combining Distribution and Multithreading Multithreaded Servers MPI and Multithreading Distributed Actors Distributed Reactive Programming  Combining Distribution and Multithreading">
+<meta name="twitter:description" content="Table of Contents Combining Distribution and Multithreading Multithreaded Servers MPI and Multithreading Distributed Actors Distributed Reactive Programming  Combining Distribution and MultithreadingL">
 <meta name="twitter:image" content="https://zhangruochi.com/Combining-Distribution-and-Multithreading/2019/06/24/1.png">
 
 
@@ -273,7 +273,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
-            collects
+            Collects
           </a>
         </li>
       
@@ -407,8 +407,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Parallel-Computation/" itemprop="url" rel="index">
-                    <span itemprop="name">Parallel Computation</span>
+                  <a href="/categories/Big-Data-Architecture/" itemprop="url" rel="index">
+                    <span itemprop="name">Big Data Architecture</span>
                   </a>
                 </span>
 
@@ -418,8 +418,19 @@
                 
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Distributed-Cloud-Computing/" itemprop="url" rel="index">
+                  <a href="/categories/Big-Data-Architecture/Distributed-Cloud-Computing/" itemprop="url" rel="index">
                     <span itemprop="name">Distributed & Cloud Computing</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Big-Data-Architecture/Parallel-Computation/" itemprop="url" rel="index">
+                    <span itemprop="name">Parallel Computation</span>
                   </a>
                 </span>
 
@@ -460,73 +471,67 @@
       
 
       
-        <h1 id="table-of-contents">Table of Contents</h1>
-<ul>
+        <h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1><ul>
 <li><a href="#combining-distribution-and-multithreading">Combining Distribution and Multithreading</a></li>
 <li><a href="#multithreaded-servers">Multithreaded Servers</a></li>
 <li><a href="#mpi-and-multithreading">MPI and Multithreading</a></li>
 <li><a href="#distributed-actors">Distributed Actors</a></li>
 <li><a href="#distributed-reactive-programming">Distributed Reactive Programming</a></li>
 </ul>
-<h2 id="combining-distribution-and-multithreading">Combining Distribution and Multithreading</h2>
-<p><strong>Lecture Summary</strong>: In this lecture, we introduced processes and threads, which serve as the fundamental building blocks of distributed computing software.</p>
+<h2 id="Combining-Distribution-and-Multithreading"><a href="#Combining-Distribution-and-Multithreading" class="headerlink" title="Combining Distribution and Multithreading"></a>Combining Distribution and Multithreading</h2><p><strong>Lecture Summary</strong>: In this lecture, we introduced processes and threads, which serve as the fundamental building blocks of distributed computing software. </p>
 <blockquote>
 <p>example: a process corresponds to a single Java Virtual Machine (JVM) instance, and threads are created within a JVM instance.</p>
 </blockquote>
-<ol type="1">
-<li>multiple threads</li>
+<ol>
+<li>multiple threads </li>
 </ol>
 <ul>
 <li>sharing of memory</li>
 <li>improved responsiveness</li>
-<li>improved performance: since threads in the same process can communicate with each other through a shared address space.</li>
+<li>improved performance: since threads in the same process can communicate with each other through a shared address space. </li>
 </ul>
-<ol start="2" type="1">
+<ol>
 <li>multiple processes</li>
 </ol>
 <ul>
 <li>responsiveness: e.g., when a JVM is paused during garbage collection)</li>
 <li>scalability: going past the scalability limitations of multithreading</li>
-<li>improved resilience: e.g.,JVM failures</li>
+<li>improved resilience: e.g.,JVM failures </li>
 </ul>
-<p><strong>In summary</strong>:</p>
-<ol type="1">
-<li>processes are the basic units of distribution in a cluster of nodes: we can distribute processes across multiple nodes in a data center, and even create multiple processes within a node.</li>
+<p><strong>In summary</strong>: </p>
+<ol>
+<li>processes are the basic units of distribution in a cluster of nodes: we can distribute processes across multiple nodes in a data center, and even create multiple processes within a node. </li>
 <li>Threads are the basic unit of parallelism and concurrency: we can create multiple threads in a process that can share resources like memory, and contribute to improved performance. However, it is not possible for two threads belonging to the same process to be scheduled on different nodes.</li>
 </ol>
-<p><img src="1.png"></p>
-<h2 id="multithreaded-servers">Multithreaded Servers</h2>
-<p><strong>Lecture Summary</strong>: In this lecture, we learned about multithreaded servers as an extension to the servers that we studied in client-server programming. As a motivating example, we studied the timeline for a single request sent to a standard sequential file server, which typically consists of four steps:</p>
+<p><img src="1.png" alt=""></p>
+<h2 id="Multithreaded-Servers"><a href="#Multithreaded-Servers" class="headerlink" title="Multithreaded Servers"></a>Multithreaded Servers</h2><p><strong>Lecture Summary</strong>: In this lecture, we learned about multithreaded servers as an extension to the servers that we studied in client-server programming. As a motivating example, we studied the timeline for a single request sent to a standard sequential file server, which typically consists of four steps:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while True:</span><br><span class="line">    1. accept the request</span><br><span class="line">    2. extract the necessary information from the request</span><br><span class="line">    3. read the file</span><br><span class="line">    4. send the file</span><br></pre></td></tr></table></figure>
-<p>In practice, step3 is usually the most time-consuming step in this sequence. However, threads can be used to reduce this bottleneck.</p>
+<p>In practice, step3  is usually the most time-consuming step in this sequence. However, threads can be used to reduce this bottleneck.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">while True: </span><br><span class="line">    1. accept the request</span><br><span class="line">    new thread &#123;</span><br><span class="line"></span><br><span class="line">    2. extract the necessary information from the request</span><br><span class="line">    3. read the file</span><br><span class="line">    4. send the file </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>In this way, it is possible to process multiple requests simultaneously because they are executing in different threads.</p>
 <p>One challenge of following this approach literally is that there is a significant overhead in creating and starting a Java thread. However, since there is usually an upper bound on the number of threads that can be efficiently utilized within a node (often limited by the number of cores or hardware context), it is wasteful to create more threads than that number. There are two approaches that are commonly taken to address this challenge in Java applications.</p>
-<ol type="1">
+<ol>
 <li>thread pool: threads can be reused across multiple requests instead of creating a new thread for each request.</li>
-<li>lightweight tasking (e.g., as in Java's ForkJoin framework) which execute on a thread pool with a bounded number of threads, and offer the advantage that the overhead of task creation is significantly smaller than that of thread creation.</li>
+<li>lightweight tasking (e.g., as in Java’s ForkJoin framework) which execute on a thread pool with a bounded number of threads, and offer the advantage that the overhead of task creation is significantly smaller than that of thread creation. </li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SampleThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> processingCount = <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">    SampleThread(<span class="keyword">int</span> processingCount) &#123;</span><br><span class="line">        <span class="keyword">this</span>.processingCount = processingCount;</span><br><span class="line">        LOGGER.info(<span class="string">"Thread Created"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        LOGGER.info(<span class="string">"Thread "</span> + <span class="keyword">this</span>.getName() + <span class="string">" started"</span>);</span><br><span class="line">        <span class="keyword">while</span> (processingCount &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                LOGGER.info(<span class="string">"Thread "</span> + <span class="keyword">this</span>.getName() + <span class="string">" interrupted"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            processingCount--;</span><br><span class="line">        &#125;</span><br><span class="line">        LOGGER.info(<span class="string">"Thread "</span> + <span class="keyword">this</span>.getName() + <span class="string">" exiting"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">givenStartedThread_whenJoinCalled_waitsTillCompletion</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">  <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    Thread t2 = <span class="keyword">new</span> SampleThread(<span class="number">1</span>);</span><br><span class="line">    t2.start();</span><br><span class="line">    LOGGER.info(<span class="string">"Invoking join"</span>);</span><br><span class="line">    t2.join();</span><br><span class="line">    LOGGER.info(<span class="string">"Returned from join"</span>);</span><br><span class="line">    assertFalse(t2.isAlive());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// INFO: Thread Created</span></span><br><span class="line"><span class="comment">// INFO: Invoking join</span></span><br><span class="line"><span class="comment">// INFO: Thread Thread-1 started</span></span><br><span class="line"><span class="comment">// INFO: Thread Thread-1 exiting</span></span><br><span class="line"><span class="comment">// INFO: Returned from join</span></span><br></pre></td></tr></table></figure>
-<h2 id="mpi-and-multithreading">MPI and Multithreading</h2>
-<p><strong>Lecture Summary</strong>: In this lecture, we learned how to extend the Message Passing Interface (MPI) with threads. As we learned earlier in the lecture on Processes and Threads, it can be inefficient to create one process per processor core in a multicore node since there is a lot of unnecessary duplication of memory, resources, and overheads when doing so. This same issue arises for MPI programs in which each rank corresponds to a single-threaded process by default. Thus, there are many motivations for creating multiple threads in an MPI process, including the fact that threads can communicate with each other much more efficiently using shared memory, compared with the message-passing that is used to communicate among processes.</p>
-<p>One approach to enable multithreading in MPI applications is to create one MPI process (rank) per node, which starts execution in a single thread that is referred to as a master thread. This thread calls MPI_Init() and MPI_Finalize() for its rank, and creates a number of worker threads to assist in the computation to be performed within its MPI process. Further, all MPI calls are performed only by the master thread. This approach is referred to as the 𝙼𝙿𝙸_𝚃𝙷𝚁𝙴𝙰𝙳_𝙵𝚄𝙽𝙽𝙴𝙻𝙴𝙳 mode, since, even though there are multiple threads, all MPI calls are "funneled'' through the master thread. A second more general mode for MPI and multithreading is referred to as 𝙼𝙿𝙸_𝚃𝙷𝚁𝙴𝙰𝙳_SERIALIZED ; in this mode, multiple threads may make MPI calls but must do so one at a time using appropriate concurrency constructs so that the calls are "serialized''. The most general mode is called MPI_THREAD_MULTIPLE because it allows multiple threads to make MPI calls in parallel; though this mode offers more flexibility than the other modes, it puts an additional burden on the MPI implementation which usually gets reflected in larger overheads for MPI calls relative to the more restrictive modes. Further, even the 𝙼𝙿𝙸_𝚃𝙷𝚁𝙴𝙰𝙳_𝙼𝚄𝙻𝚃𝙸𝙿𝙻𝙴 mode has some notable restrictions, e.g., it is not permitted in this mode for two threads in the same process to wait on the same MPI request related to a nonblocking communication.</p>
-<h2 id="distributed-actors">Distributed Actors</h2>
-<p><strong>Lecture Summary</strong>:</p>
+<h2 id="MPI-and-Multithreading"><a href="#MPI-and-Multithreading" class="headerlink" title="MPI and Multithreading"></a>MPI and Multithreading</h2><p><strong>Lecture Summary</strong>: In this lecture, we learned how to extend the Message Passing Interface (MPI) with threads. As we learned earlier in the lecture on Processes and Threads, it can be inefficient to create one process per processor core in a multicore node since there is a lot of unnecessary duplication of memory, resources, and overheads when doing so. This same issue arises for MPI programs in which each rank corresponds to a single-threaded process by default. Thus, there are many motivations for creating multiple threads in an MPI process, including the fact that threads can communicate with each other much more efficiently using shared memory, compared with the message-passing that is used to communicate among processes.</p>
+<p>One approach to enable multithreading in MPI applications is to create one MPI process (rank) per node, which starts execution in a single thread that is referred to as a master thread. This thread calls MPI<em>Init() and MPI_Finalize() for its rank, and creates a number of worker threads to assist in the computation to be performed within its MPI process. Further, all MPI calls are performed only by the master thread. This approach is referred to as the 𝙼𝙿𝙸</em>𝚃𝙷𝚁𝙴𝙰𝙳<em>𝙵𝚄𝙽𝙽𝙴𝙻𝙴𝙳 mode, since, even though there are multiple threads, all MPI calls are “funneled’’ through the master thread. A second more general mode for MPI and multithreading is referred to as 𝙼𝙿𝙸</em>𝚃𝙷𝚁𝙴𝙰𝙳<em>SERIALIZED ; in this mode, multiple threads may make MPI calls but must do so one at a time using appropriate concurrency constructs so that the calls are “serialized’’. The most general mode is called MPI_THREAD_MULTIPLE because it allows multiple threads to make MPI calls in parallel; though this mode offers more flexibility than the other modes, it puts an additional burden on the MPI implementation which usually gets reflected in larger overheads for MPI calls relative to the more restrictive modes. Further, even the 𝙼𝙿𝙸</em>𝚃𝙷𝚁𝙴𝙰𝙳_𝙼𝚄𝙻𝚃𝙸𝙿𝙻𝙴 mode has some notable restrictions, e.g., it is not permitted in this mode for two threads in the same process to wait on the same MPI request related to a nonblocking communication.</p>
+<h2 id="Distributed-Actors"><a href="#Distributed-Actors" class="headerlink" title="Distributed Actors"></a>Distributed Actors</h2><p><strong>Lecture Summary</strong>:</p>
 <blockquote>
 <p>An actor is an object that has a mailbox, local state, a set of methods and an active (logical) thread of control that can receive one message at a time from the mailbox, invoke a method to perform the work needed by that message, and read and update the local state as needed.</p>
 </blockquote>
 <p>Message-passing in the actor model is nonblocking since the sender and receiver do not need to wait for each other when transmitting messages. The actor paradigm is well suited to both multicore and distributed parallelism, since its message-passing model can be implemented efficiently via shared memory within a single process or in a more distributed manner across multiple processes.</p>
 <p>Most actor implementations that support distributed execution require you to perform the following steps.</p>
-<ol type="1">
-<li>you will need to use some kind of configuration file to specify the host process on which each actor will execute as well as the port that can be used to receive messages from actors on other processes.</li>
+<ol>
+<li>you will need to use some kind of configuration file to specify the host process on which each actor will execute as well as the port that can be used to receive messages from actors on other processes. </li>
 <li>you will need the ability to create actors on remote processes.</li>
 <li>you will need to provide some kind of logical name to refer to a remote actor (since a reference to the actor object can only be used within the process containing that actor).</li>
 <li>messages transmitted among actors that reside in different processes need to be serialized, as in client-server programming.</li>
 </ol>
-<h2 id="distributed-reactive-programming">Distributed Reactive Programming</h2>
-<p><strong>Lecture Summary</strong>: In this lecture, we studied the reactive programming model and its suitability for implementing distributed service oriented architectures using asynchronous events. A key idea behind this model is to balance the “push'' and “pull'' modes found in different distributed programming models. For example, actors can execute in push mode, since the receiver has no control on how many messages it receives. Likewise, Java streams and Spark RDDs operate in pull mode, since their implementations are demand-driven (lazy). The adoption of distributed reactive programming is on a recent upswing, fueled in part by the availability of the Reactive Streams specification which includes support for multiple programming languages. In the case of Java, the specification consists of four interfaces: 𝙵𝚕𝚘𝚠.𝙿𝚞𝚋𝚕𝚒𝚜𝚑𝚎𝚛, 𝙵𝚕𝚘𝚠.𝚂𝚞𝚋𝚜𝚌𝚛𝚒𝚋𝚎𝚛, 𝙵𝚕𝚘𝚠.𝙿𝚛𝚘𝚌𝚎𝚜𝚜, and 𝙵𝚕𝚘𝚠.𝚂𝚞𝚋𝚜𝚌𝚛𝚒𝚙𝚝𝚒𝚘𝚗.</p>
-<p>Conveniently, there is a standard Java implementation of the 𝙵𝚕𝚘𝚠.𝙿𝚞𝚋𝚕𝚒𝚜𝚑𝚎𝚛 interface in the form of the 𝚂𝚞𝚋𝚖𝚒𝚜𝚜𝚒𝚘𝚗𝙿𝚞𝚋𝚕𝚒𝚜𝚑𝚎𝚛 class. If we create an instance of this class called 𝚙𝚞𝚋, a publisher can submit information by calling 𝚙𝚞𝚋.𝚜𝚞𝚋𝚖𝚒𝚝(). Likewise, a subscriber can be registered by calling 𝚙𝚞𝚋.𝚜𝚞𝚋𝚜𝚌𝚛𝚒𝚋𝚎(). Each subscriber has to implement two key methods, 𝚘𝚗𝚂𝚞𝚋𝚜𝚌𝚛𝚒𝚋𝚎() and 𝚘𝚗𝙽𝚎𝚡𝚝(). Both methods allow the subscriber to specify how many elements to request at a time.</p>
-<p>Thus, a key benefit of reactive programming is that the programmer can control the "batching" of information between the publisher and the subscriber to achieve a desired balance between the "push" and "pull" modes.</p>
+<h2 id="Distributed-Reactive-Programming"><a href="#Distributed-Reactive-Programming" class="headerlink" title="Distributed Reactive Programming"></a>Distributed Reactive Programming</h2><p><strong>Lecture Summary</strong>: In this lecture, we studied the reactive programming model and its suitability for implementing distributed service oriented architectures using asynchronous events. A key idea behind this model is to balance the “push’’ and “pull’’ modes found in different distributed programming models. For example, actors can execute in push mode, since the receiver has no control on how many messages it receives. Likewise, Java streams and Spark RDDs operate in pull mode, since their implementations are demand-driven (lazy). The adoption of distributed reactive programming is on a recent upswing, fueled in part by the availability of the Reactive Streams specification which includes support for multiple programming languages. In the case of Java, the specification consists of four interfaces: 𝙵𝚕𝚘𝚠.𝙿𝚞𝚋𝚕𝚒𝚜𝚑𝚎𝚛, 𝙵𝚕𝚘𝚠.𝚂𝚞𝚋𝚜𝚌𝚛𝚒𝚋𝚎𝚛, 𝙵𝚕𝚘𝚠.𝙿𝚛𝚘𝚌𝚎𝚜𝚜, and 𝙵𝚕𝚘𝚠.𝚂𝚞𝚋𝚜𝚌𝚛𝚒𝚙𝚝𝚒𝚘𝚗.</p>
+<p>Conveniently, there is a standard Java implementation of the 𝙵𝚕𝚘𝚠.𝙿𝚞𝚋𝚕𝚒𝚜𝚑𝚎𝚛 interface in the form of the 𝚂𝚞𝚋𝚖𝚒𝚜𝚜𝚒𝚘𝚗𝙿𝚞𝚋𝚕𝚒𝚜𝚑𝚎𝚛 class. If we create an instance of this class called 𝚙𝚞𝚋, a publisher can submit information by calling 𝚙𝚞𝚋.𝚜𝚞𝚋𝚖𝚒𝚝(). Likewise, a subscriber can be registered by calling 𝚙𝚞𝚋.𝚜𝚞𝚋𝚜𝚌𝚛𝚒𝚋𝚎(). Each subscriber has to implement two key methods, 𝚘𝚗𝚂𝚞𝚋𝚜𝚌𝚛𝚒𝚋𝚎() and 𝚘𝚗𝙽𝚎𝚡𝚝(). Both methods allow the subscriber to specify how many elements to request at a time. </p>
+<p>Thus, a key benefit of reactive programming is that the programmer can control the “batching” of information between the publisher and the subscriber to achieve a desired balance between the “push” and “pull” modes.</p>
 
       
     </div>
@@ -714,7 +719,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-count">97</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -725,7 +730,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -736,7 +741,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -807,7 +812,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#table-of-contents"><span class="nav-text">Table of Contents</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#combining-distribution-and-multithreading"><span class="nav-text">Combining Distribution and Multithreading</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multithreaded-servers"><span class="nav-text">Multithreaded Servers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mpi-and-multithreading"><span class="nav-text">MPI and Multithreading</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#distributed-actors"><span class="nav-text">Distributed Actors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#distributed-reactive-programming"><span class="nav-text">Distributed Reactive Programming</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Table-of-Contents"><span class="nav-text">Table of Contents</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Combining-Distribution-and-Multithreading"><span class="nav-text">Combining Distribution and Multithreading</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multithreaded-Servers"><span class="nav-text">Multithreaded Servers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MPI-and-Multithreading"><span class="nav-text">MPI and Multithreading</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Distributed-Actors"><span class="nav-text">Distributed Actors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Distributed-Reactive-Programming"><span class="nav-text">Distributed Reactive Programming</span></a></li></ol></li></ol></div>
             
 
           </div>
