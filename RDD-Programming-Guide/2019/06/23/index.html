@@ -124,18 +124,18 @@
 
 
 
-<meta name="description" content="src https://spark.apache.org/docs/latest/rdd-programming-guide.html  Overview The main abstraction Spark provides is a resilient distributed dataset (RDD), which is a collection of elements partition">
+<meta name="description" content="src https://spark.apache.org/docs/latest/rdd-programming-guide.html  Overview  The main abstraction Spark provides is a resilient distributed dataset (RDD), which is a collection of elements partitio">
 <meta name="keywords" content="Spark">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RDD Programming Guide">
 <meta property="og:url" content="https://zhangruochi.com/RDD-Programming-Guide/2019/06/23/index.html">
 <meta property="og:site_name" content="RUOCHI">
-<meta property="og:description" content="src https://spark.apache.org/docs/latest/rdd-programming-guide.html  Overview The main abstraction Spark provides is a resilient distributed dataset (RDD), which is a collection of elements partition">
+<meta property="og:description" content="src https://spark.apache.org/docs/latest/rdd-programming-guide.html  Overview  The main abstraction Spark provides is a resilient distributed dataset (RDD), which is a collection of elements partitio">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-07-05T09:47:27.715Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RDD Programming Guide">
-<meta name="twitter:description" content="src https://spark.apache.org/docs/latest/rdd-programming-guide.html  Overview The main abstraction Spark provides is a resilient distributed dataset (RDD), which is a collection of elements partition">
+<meta name="twitter:description" content="src https://spark.apache.org/docs/latest/rdd-programming-guide.html  Overview  The main abstraction Spark provides is a resilient distributed dataset (RDD), which is a collection of elements partitio">
 
 
 
@@ -459,38 +459,44 @@
 
       
         <blockquote>
-<p>src <a href="https://spark.apache.org/docs/latest/rdd-programming-guide.html" target="_blank" rel="noopener">https://spark.apache.org/docs/latest/rdd-programming-guide.html</a></p>
+<p>src https://spark.apache.org/docs/latest/rdd-programming-guide.html</p>
 </blockquote>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ol>
-<li><p>The main abstraction Spark provides is a resilient distributed dataset (RDD), which is a collection of elements partitioned across the nodes of the cluster that can be operated on in parallel. </p>
-</li>
-<li><p>A second abstraction in Spark is shared variables that can be used in parallel operations. Spark supports two types of shared variables: broadcast variables, which can be used to cache a value in memory on all nodes, and accumulators, which are variables that are only “added” to, such as counters and sums.</p>
-</li>
+<h2 id="overview">Overview</h2>
+<ol type="1">
+<li><p>The main abstraction Spark provides is a resilient distributed dataset (RDD), which is a collection of elements partitioned across the nodes of the cluster that can be operated on in parallel.</p></li>
+<li><p>A second abstraction in Spark is shared variables that can be used in parallel operations. Spark supports two types of shared variables: broadcast variables, which can be used to cache a value in memory on all nodes, and accumulators, which are variables that are only “added” to, such as counters and sums.</p></li>
 </ol>
-<h2 id="Initializing-Spark"><a href="#Initializing-Spark" class="headerlink" title="Initializing Spark"></a>Initializing Spark</h2><p>The first thing a Spark program must do is to create a JavaSparkContext object, which tells Spark how to access a cluster. To create a SparkContext you first need to build a SparkConf object that contains information about your application.</p>
+<h2 id="initializing-spark">Initializing Spark</h2>
+<p>The first thing a Spark program must do is to create a JavaSparkContext object, which tells Spark how to access a cluster. To create a SparkContext you first need to build a SparkConf object that contains information about your application.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SparkConf conf = <span class="keyword">new</span> SparkConf().setAppName(appName).setMaster(master);</span><br><span class="line">JavaSparkContext sc = <span class="keyword">new</span> JavaSparkContext(conf);</span><br></pre></td></tr></table></figure>
-<h2 id="Resilient-Distributed-Datasets-RDDs"><a href="#Resilient-Distributed-Datasets-RDDs" class="headerlink" title="Resilient Distributed Datasets (RDDs)"></a>Resilient Distributed Datasets (RDDs)</h2><h3 id="Parallelized-Collections"><a href="#Parallelized-Collections" class="headerlink" title="Parallelized Collections"></a>Parallelized Collections</h3><p>Parallelized collections are created by calling JavaSparkContext’s parallelize method on an existing Collection in your driver program. The elements of the collection are copied to form a distributed dataset that can be operated on in parallel. For example, here is how to create a parallelized collection holding the numbers 1 to 5:</p>
+<h2 id="resilient-distributed-datasets-rdds">Resilient Distributed Datasets (RDDs)</h2>
+<h3 id="parallelized-collections">Parallelized Collections</h3>
+<p>Parallelized collections are created by calling JavaSparkContext’s parallelize method on an existing Collection in your driver program. The elements of the collection are copied to form a distributed dataset that can be operated on in parallel. For example, here is how to create a parallelized collection holding the numbers 1 to 5:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; data = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">JavaRDD&lt;Integer&gt; distData = sc.parallelize(data);</span><br></pre></td></tr></table></figure>
-<p>Once created, the distributed dataset (distData) can be operated on in parallel. For example, we might call distData.reduce((a, b) -&gt; a + b) to add up the elements of the list. We describe operations on distributed datasets later on. </p>
+<p>Once created, the distributed dataset (distData) can be operated on in parallel. For example, we might call distData.reduce((a, b) -&gt; a + b) to add up the elements of the list. We describe operations on distributed datasets later on.</p>
 <p>One important parameter for parallel collections is <strong>the number of partitions to cut the dataset into</strong>. Spark will run one task for each partition of the cluster. Typically you want 2-4 partitions for each CPU in your cluster. Normally, Spark tries to set the number of partitions automatically based on your cluster. However, you can also set it manually by passing it as a second parameter to parallelize (e.g. sc.parallelize(data, 10)). Note: some places in the code use the term slices (a synonym for partitions) to maintain backward compatibility.</p>
-<h3 id="External-Datasets"><a href="#External-Datasets" class="headerlink" title="External Datasets"></a>External Datasets</h3><p>Spark can create distributed datasets from any storage source supported by Hadoop, including your local file system, HDFS, Cassandra, HBase, Amazon S3, etc. Spark supports text files, SequenceFiles, and any other Hadoop InputFormat.</p>
+<h3 id="external-datasets">External Datasets</h3>
+<p>Spark can create distributed datasets from any storage source supported by Hadoop, including your local file system, HDFS, Cassandra, HBase, Amazon S3, etc. Spark supports text files, SequenceFiles, and any other Hadoop InputFormat.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JavaRDD&lt;String&gt; distFile = sc.textFile(<span class="string">"data.txt"</span>);</span><br></pre></td></tr></table></figure>
 <p>Once created, distFile can be acted on by dataset operations. For example, we can add up the sizes of all the lines using the map and reduce operations as follows: distFile.map(s -&gt; s.length()).reduce((a, b) -&gt; a + b).</p>
-<h2 id="RDD-Operations"><a href="#RDD-Operations" class="headerlink" title="RDD Operations"></a>RDD Operations</h2><p>RDDs support two types of operations:  </p>
-<ol>
+<h2 id="rdd-operations">RDD Operations</h2>
+<p>RDDs support two types of operations:</p>
+<ol type="1">
 <li><strong>Transformations</strong>, which create a new dataset from an existing one</li>
 </ol>
-<p>All transformations in Spark are <strong>lazy</strong>, in that they do not compute their results right away. Instead, they just remember the transformations applied to some base dataset (e.g. a file). The transformations are only computed when an action requires a result to be returned to the driver program. </p>
-<ol>
+<p>All transformations in Spark are <strong>lazy</strong>, in that they do not compute their results right away. Instead, they just remember the transformations applied to some base dataset (e.g. a file). The transformations are only computed when an action requires a result to be returned to the driver program.</p>
+<ol start="2" type="1">
 <li><strong>Actions</strong>, which return a value to the driver program after running a computation on the dataset.</li>
 </ol>
 <p>By default, each transformed RDD may be recomputed each time you run an action on it. However, you may also persist an RDD in memory using the persist (or cache) method, in which case Spark will keep the elements around on the cluster for much faster access the next time you query it. There is also support for persisting RDDs on disk, or replicated across multiple nodes.</p>
-<h3 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h3><p>To illustrate RDD basics, consider the simple program below:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JavaRDD&lt;String&gt; lines = sc.textFile(<span class="string">"data.txt"</span>);</span><br><span class="line">JavaRDD&lt;Integer&gt; lineLengths = lines.map(s -&gt; s.length());</span><br><span class="line"><span class="keyword">int</span> totalLength = lineLengths.reduce((a, b) -&gt; a + b);</span><br></pre></td></tr></table></figure></p>
+<h3 id="basics">Basics</h3>
+<p>To illustrate RDD basics, consider the simple program below: <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JavaRDD&lt;String&gt; lines = sc.textFile(<span class="string">"data.txt"</span>);</span><br><span class="line">JavaRDD&lt;Integer&gt; lineLengths = lines.map(s -&gt; s.length());</span><br><span class="line"><span class="keyword">int</span> totalLength = lineLengths.reduce((a, b) -&gt; a + b);</span><br></pre></td></tr></table></figure></p>
 <p>The first line defines a base RDD from an external file. This dataset is not loaded in memory or otherwise acted on: <strong>lines is merely a pointer to the file</strong>. The second line defines lineLengths as the result of a map transformation. Again, lineLengths is not immediately computed, due to <strong>laziness</strong>. Finally, we run reduce, which is an action. At this point Spark breaks the computation into tasks to run on separate machines, and each machine runs both its part of the map and a local reduction, returning only its answer to the driver program.</p>
-<p>If we also wanted to use lineLengths again later, we could add:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lineLengths.persist(StorageLevel.MEMORY_ONLY());</span><br></pre></td></tr></table></figure></p>
+<p>If we also wanted to use lineLengths again later, we could add: <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lineLengths.persist(StorageLevel.MEMORY_ONLY());</span><br></pre></td></tr></table></figure></p>
 <p>before the reduce, which would cause lineLengths to be saved in memory after the first time it is computed.</p>
-<h3 id="Passing-Functions-to-Spark"><a href="#Passing-Functions-to-Spark" class="headerlink" title="Passing Functions to Spark"></a>Passing Functions to Spark</h3><p>Spark’s API relies heavily on passing functions in the driver program to run on the cluster. In Java, functions are represented by classes implementing the interfaces in the org.apache.spark.api.java.function package. There are two ways to create such functions:</p>
-<ol>
+<h3 id="passing-functions-to-spark">Passing Functions to Spark</h3>
+<p>Spark’s API relies heavily on passing functions in the driver program to run on the cluster. In Java, functions are represented by classes implementing the interfaces in the org.apache.spark.api.java.function package. There are two ways to create such functions:</p>
+<ol type="1">
 <li>Implement the Function interfaces in your own class, either as an anonymous inner class or a named one, and pass an instance of it to Spark.</li>
 <li>Use lambda expressions to concisely define an implementation.</li>
 </ol>
@@ -498,6 +504,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">JavaRDD&lt;String&gt; lines = sc.textFile(<span class="string">"data.txt"</span>);</span><br><span class="line">JavaRDD&lt;Integer&gt; lineLengths = lines.map(<span class="keyword">new</span> Function&lt;String, Integer&gt;() &#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">(String s)</span> </span>&#123; <span class="keyword">return</span> s.length(); &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">int</span> totalLength = lineLengths.reduce(<span class="keyword">new</span> Function2&lt;Integer, Integer, Integer&gt;() &#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">(Integer a, Integer b)</span> </span>&#123; <span class="keyword">return</span> a + b; &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>Or, if writing the functions inline is unwieldy:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GetLength</span> <span class="keyword">implements</span> <span class="title">Function</span>&lt;<span class="title">String</span>, <span class="title">Integer</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">(String s)</span> </span>&#123; <span class="keyword">return</span> s.length(); &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sum</span> <span class="keyword">implements</span> <span class="title">Function2</span>&lt;<span class="title">Integer</span>, <span class="title">Integer</span>, <span class="title">Integer</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">(Integer a, Integer b)</span> </span>&#123; <span class="keyword">return</span> a + b; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">JavaRDD&lt;String&gt; lines = sc.textFile(<span class="string">"data.txt"</span>);</span><br><span class="line">JavaRDD&lt;Integer&gt; lineLengths = lines.map(<span class="keyword">new</span> GetLength());</span><br><span class="line"><span class="keyword">int</span> totalLength = lineLengths.reduce(<span class="keyword">new</span> Sum());</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -682,7 +689,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">97</span>
+                  <span class="site-state-item-count">99</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -693,7 +700,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -704,7 +711,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -775,7 +782,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Initializing-Spark"><span class="nav-text">Initializing Spark</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Resilient-Distributed-Datasets-RDDs"><span class="nav-text">Resilient Distributed Datasets (RDDs)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Parallelized-Collections"><span class="nav-text">Parallelized Collections</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#External-Datasets"><span class="nav-text">External Datasets</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RDD-Operations"><span class="nav-text">RDD Operations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basics"><span class="nav-text">Basics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Passing-Functions-to-Spark"><span class="nav-text">Passing Functions to Spark</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#overview"><span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#initializing-spark"><span class="nav-text">Initializing Spark</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#resilient-distributed-datasets-rdds"><span class="nav-text">Resilient Distributed Datasets (RDDs)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#parallelized-collections"><span class="nav-text">Parallelized Collections</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#external-datasets"><span class="nav-text">External Datasets</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rdd-operations"><span class="nav-text">RDD Operations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#basics"><span class="nav-text">Basics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#passing-functions-to-spark"><span class="nav-text">Passing Functions to Spark</span></a></li></ol></li></ol></div>
             
 
           </div>

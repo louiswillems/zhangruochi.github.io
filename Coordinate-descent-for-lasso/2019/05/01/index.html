@@ -464,29 +464,40 @@
       
 
       
-        <h2 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h2><blockquote>
+        <h2 id="goal">Goal</h2>
+<blockquote>
 <p>Minimize some function g, Often, hard to find minimum for all coordinates, but easy for each coordinate.</p>
 </blockquote>
-<p><strong>Coordinate descent</strong>:  </p>
-<p>Initialize $\hat{w} = 0$ (or smartly…)<br>——while not converged<br>————-for j =0,1,…,D(pick a coordinate j)<br>———————-$\hat{w<em>{j}} &lt;-  min</em>{w}g(w<em>{0},…w</em>{D})$</p>
-<h2 id="Optimizing-least-squares-objective-one-coordinate-at-a-time"><a href="#Optimizing-least-squares-objective-one-coordinate-at-a-time" class="headerlink" title="Optimizing least squares objective one coordinate at a time"></a>Optimizing least squares objective one coordinate at a time</h2><script type="math/tex; mode=display">RSS(w) = \sum^{N}_{i=1}(y_{i} - \sum^{D}_{j=0}w_{j}h_{j}(xi))^{2}</script><p>aside: $h_{j}(xi)$ represent normalized feature</p>
-<p>Fix all coordinates $w<em>{-j}$(all feature except $w</em>{j}$) and take partial w.r.t $w_{j}$</p>
-<script type="math/tex; mode=display">\frac{\partial}{\partial w_{j}}RSS(w) = -2\sum^{N}_{i=1}h_{j}(x_{i})(y_{i} - \sum^{D}_{j=0}w_{j}h_{j}(xi))</script><p>= <script type="math/tex">-2\sum^{N}_{i=1}h_{j}(x_{i})(y_{i} - \sum_{k \neq j}w_{k}h_{k}(x_{i}) - w_{j}h_{j}(x_{i}))</script><br>= <script type="math/tex">-2\sum^{N}_{i=1}h_{j}(x_{i})(y_{i} - \sum_{k \neq j}w_{k}h_{k}(x_{i})) + 2w_{j}\sum^{N}_{i=1}h_{j}(x_{i})^{2}</script></p>
-<p>by definition, $\sum^{N}<em>{i=1}h</em>{j}(x<em>{i})^{2}$ = 1, \qquad $-2\sum^{N}</em>{i=1}h<em>{j}(x</em>{i})(y<em>{i} - \sum</em>{k \neq j}w<em>{k}h</em>{k}(x<em>{i})) = p</em>{j}$<br>we get  </p>
-<pre><code>$$-2p_{j} + 2w_{j}$$  
-</code></pre><p>Set partial = 0 and solve:</p>
-<pre><code>$$\frac{\partial}{\partial w_{j}}RSS(w) = -p_{j} + w_{j}$$
-</code></pre><p>==&gt; <script type="math/tex">p_{j} =  w_{j}</script></p>
-<h2 id="Coordinate-descent-for-least-squares-regression"><a href="#Coordinate-descent-for-least-squares-regression" class="headerlink" title="Coordinate descent for least squares regression"></a>Coordinate descent for least squares regression</h2><p>Initialize $\hat{w} = 0$ (or smartly…)<br>——while not converged<br>————-for j =0,1,…,D(pick a coordinate j)<br>———————-compute: <script type="math/tex">-2\sum^{N}_{i=1}h_{j}(x_{i})(y_{i} - \sum_{k \neq j}w_{k}h_{k}(x_{i}))</script><br>———————-set: </p>
-<script type="math/tex; mode=display">
+<p><strong>Coordinate descent</strong>:</p>
+<p>Initialize <span class="math inline">\(\hat{w} = 0\)</span> (or smartly...)<br>
+----while not converged<br>
+---------for j =0,1,...,D(pick a coordinate j)<br>
+---------------<span class="math inline">\(\hat{w_{j}} &lt;- min_{w}g(w_{0},...w_{D})\)</span></p>
+<h2 id="optimizing-least-squares-objective-one-coordinate-at-a-time">Optimizing least squares objective one coordinate at a time</h2>
+<p><span class="math display">\[RSS(w) = \sum^{N}_{i=1}(y_{i} - \sum^{D}_{j=0}w_{j}h_{j}(xi))^{2}\]</span></p>
+<p>aside: <span class="math inline">\(h_{j}(xi)\)</span> represent normalized feature</p>
+<p>Fix all coordinates <span class="math inline">\(w_{-j}\)</span>(all feature except <span class="math inline">\(w_{j}\)</span>) and take partial w.r.t <span class="math inline">\(w_{j}\)</span></p>
+<p><span class="math display">\[\frac{\partial}{\partial w_{j}}RSS(w) = -2\sum^{N}_{i=1}h_{j}(x_{i})(y_{i} - \sum^{D}_{j=0}w_{j}h_{j}(xi))\]</span> = <span class="math display">\[-2\sum^{N}_{i=1}h_{j}(x_{i})(y_{i} - \sum_{k \neq j}w_{k}h_{k}(x_{i}) - w_{j}h_{j}(x_{i})) \]</span> = <span class="math display">\[ -2\sum^{N}_{i=1}h_{j}(x_{i})(y_{i} - \sum_{k \neq j}w_{k}h_{k}(x_{i})) + 2w_{j}\sum^{N}_{i=1}h_{j}(x_{i})^{2}\]</span></p>
+<p>by definition, <span class="math inline">\(\sum^{N}_{i=1}h_{j}(x_{i})^{2}\)</span> = 1, <span class="math inline">\(-2\sum^{N}_{i=1}h_{j}(x_{i})(y_{i} - \sum_{k \neq j}w_{k}h_{k}(x_{i})) = p_{j}\)</span><br>
+we get<br>
+<span class="math display">\[-2p_{j} + 2w_{j}\]</span></p>
+<p>Set partial = 0 and solve: <span class="math display">\[\frac{\partial}{\partial w_{j}}RSS(w) = -p_{j} + w_{j}\]</span></p>
+<p>==&gt; <span class="math display">\[p_{j} =  w_{j}\]</span></p>
+<h2 id="coordinate-descent-for-least-squares-regression">Coordinate descent for least squares regression</h2>
+<p>Initialize <span class="math inline">\(\hat{w} = 0\)</span> (or smartly...)<br>
+----while not converged<br>
+---------for j =0,1,...,D(pick a coordinate j)<br>
+---------------compute: <span class="math display">\[ -2\sum^{N}_{i=1}h_{j}(x_{i})(y_{i} - \sum_{k \neq j}w_{k}h_{k}(x_{i})) \]</span> ---------------set: <span class="math display">\[ 
 w_{j} =   
 \left\{
 \begin{aligned}  
-& p_{j} + \frac{\lambda}{2} &\quad if \, p_{j} < -\frac{\lambda}{2} \\
-& 0                         &\quad if \, p_{j} \, in \, [-\frac{\lambda}{2},\frac{\lambda}{2}] \\
-& p_{j} - \frac{\lambda}{2} &\quad if \, p_{j} > \frac{\lambda}{2}
+&amp; p_{j} + \frac{\lambda}{2} &amp;\quad if \, p_{j} &lt; -\frac{\lambda}{2} \\
+&amp; 0                         &amp;\quad if \, p_{j} \, in \, [-\frac{\lambda}{2},\frac{\lambda}{2}] \\
+&amp; p_{j} - \frac{\lambda}{2} &amp;\quad if \, p_{j} &gt; \frac{\lambda}{2}
 \end{aligned}
-\right.</script><p><img src="1.png" alt=""></p>
+\right.
+\]</span></p>
+<p><img src="1.png"></p>
 
       
     </div>
@@ -666,7 +677,7 @@ w_{j} =
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">97</span>
+                  <span class="site-state-item-count">99</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -677,7 +688,7 @@ w_{j} =
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -688,7 +699,7 @@ w_{j} =
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -759,7 +770,7 @@ w_{j} =
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Goal"><span class="nav-text">Goal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optimizing-least-squares-objective-one-coordinate-at-a-time"><span class="nav-text">Optimizing least squares objective one coordinate at a time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Coordinate-descent-for-least-squares-regression"><span class="nav-text">Coordinate descent for least squares regression</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#goal"><span class="nav-text">Goal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#optimizing-least-squares-objective-one-coordinate-at-a-time"><span class="nav-text">Optimizing least squares objective one coordinate at a time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#coordinate-descent-for-least-squares-regression"><span class="nav-text">Coordinate descent for least squares regression</span></a></li></ol></div>
             
 
           </div>
