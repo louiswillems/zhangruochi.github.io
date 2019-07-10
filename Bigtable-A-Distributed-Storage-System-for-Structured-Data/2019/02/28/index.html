@@ -475,92 +475,88 @@
       
 
       
-        <h2 id="abstract">Abstract</h2>
-<ul>
+        <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
 <li>Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size</li>
 </ul>
-<h2 id="data-model">Data Model</h2>
-<p>A Bigtable is a sparse, distributed, persistent multi- dimensional sorted map. The map is indexed by a row key, column key, and a timestamp; each value in the map is an uninterpreted array of bytes.</p>
+<h2 id="Data-Model"><a href="#Data-Model" class="headerlink" title="Data Model"></a>Data Model</h2><p>A Bigtable is a sparse, distributed, persistent multi- dimensional sorted map. The map is indexed by a row key, column key, and a timestamp; each value in the map is an uninterpreted array of bytes.</p>
 <blockquote>
 <p>(row:string, column:string, time:int64) → string</p>
 </blockquote>
-<h3 id="rows">Rows</h3>
-<ul>
-<li>The row keys in a table are arbitrary strings</li>
+<h3 id="Rows"><a href="#Rows" class="headerlink" title="Rows"></a>Rows</h3><ul>
+<li>The row keys in a table are arbitrary strings </li>
 <li>Every read or write of data under a single row key is atomic</li>
 <li>makes it easier for concurrent updates to the same row.</li>
 <li>The row range for a table is dynamically partitioned. Each row range is called a <strong>tablet</strong>, which is the unit of dis- tribution and load balancing</li>
 </ul>
-<h3 id="column-families">Column Families</h3>
-<ul>
+<h3 id="Column-Families"><a href="#Column-Families" class="headerlink" title="Column Families"></a>Column Families</h3><ul>
 <li>Column keys are grouped into sets called column fami- lies, which form the basic unit of access control</li>
 <li>All data stored in a column family is usually of the same type</li>
 <li>A column family must be created before data can be stored under any column key in that family; after a family has been created, any column key within the family can be used</li>
 </ul>
-<h3 id="timestamps">Timestamps</h3>
-<ul>
+<h3 id="Timestamps"><a href="#Timestamps" class="headerlink" title="Timestamps"></a>Timestamps</h3><ul>
 <li>Each cell in a Bigtable can contain multiple versions of the same data; these versions are indexed by timestamp</li>
 </ul>
-<h2 id="api">API</h2>
-<ul>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
 <li>The Bigtable API provides functions for creating and deleting tables and column families. It also provides functions for changing cluster, table, and column family metadata, such as access control rights.</li>
 <li>Bigtable can be used with MapReduce, a framework for running large-scale parallel computations de- veloped at Google. We have written a set of wrappers that allow a Bigtable to be used both as an input source and as an output target for MapReduce jobs.</li>
 </ul>
-<h2 id="building-blocks">Building Blocks</h2>
-<ul>
+<h2 id="Building-Blocks"><a href="#Building-Blocks" class="headerlink" title="Building Blocks"></a>Building Blocks</h2><ul>
 <li>Bigtable is built on several other pieces of Google infrastructure. Bigtable uses the distributed Google File System (GFS) to store log and data files. A Bigtable cluster typically operates in a shared pool of machines that run a wide variety of other distributed applications, and Bigtable processes often share the same machines with processes from other applications. Bigtable de- pends on a cluster management system for scheduling jobs, managing resources on shared machines, dealing with machine failures, and monitoring machine status.</li>
 <li>The Google SSTable file format is used internally to store Bigtable data</li>
 <li>Bigtable relies on a highly-available and persistent distributed lock service called <strong>Chubby</strong></li>
 </ul>
-<h2 id="implementation">Implementation</h2>
-<p>The Bigtable implementation has three major compo- nents: - a library that is linked into every client - one master server - many tablet servers</p>
-<p>A Bigtable cluster stores a number of tables. Each table consists of a set of tablets, and each tablet contains all data associated with a row range. Initially, each table consists of just one tablet. As a table grows, it is auto- matically split into multiple tablets, each approximately 100-200 MB in size by default.</p>
-<h3 id="tablet-location">Tablet Location</h3>
+<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><p>The Bigtable implementation has three major compo- nents: </p>
 <ul>
-<li>We use a three-level hierarchy analogous to that of a B+- tree to store tablet location information <img src="1.png" alt="1.png"></li>
+<li>a library that is linked into every client</li>
+<li>one master server</li>
+<li>many tablet servers</li>
 </ul>
-<h3 id="tablet-assignment">Tablet Assignment</h3>
-<p>Each tablet is assigned to one tablet server at a time - The master keeps track of the set of live tablet servers - Bigtable uses Chubby to keep track of tablet servers - The master is responsible for detecting when a tablet server is no longer serving its tablets, and for reassigning those tablets as soon as possible - When a master is started by the cluster management system, it needs to discover the current tablet assign- ments before it can change them</p>
-<h3 id="tablet-serving">Tablet Serving</h3>
-<ul>
+<p>A Bigtable cluster stores a number of tables. Each table consists of a set of tablets, and each tablet contains all data associated with a row range. Initially, each table consists of just one tablet. As a table grows, it is auto- matically split into multiple tablets, each approximately 100-200 MB in size by default.</p>
+<h3 id="Tablet-Location"><a href="#Tablet-Location" class="headerlink" title="Tablet Location"></a>Tablet Location</h3><ul>
+<li>We use a three-level hierarchy analogous to that of a B+- tree to store tablet location information<br><img src="1.png" alt="1.png"></li>
+</ul>
+<h3 id="Tablet-Assignment"><a href="#Tablet-Assignment" class="headerlink" title="Tablet Assignment"></a>Tablet Assignment</h3><p>Each tablet is assigned to one tablet server at a time</p>
+<pre><code>- The master keeps track of the set of live tablet servers
+- Bigtable uses Chubby to keep track of tablet servers
+- The master is responsible for detecting when a tablet server is no longer serving its tablets, and for reassigning those tablets as soon as possible
+- When a master is started by the cluster management system, it needs to discover the current tablet assign- ments before it can change them
+</code></pre><h3 id="Tablet-Serving"><a href="#Tablet-Serving" class="headerlink" title="Tablet Serving"></a>Tablet Serving</h3><ul>
 <li>Updates are committed to a commit log that stores redo records</li>
 <li>the recently committed ones are stored in memory in a sorted buffer called a memtable</li>
 <li>the older updates are stored in a sequence of SSTables</li>
-<li>To recover a tablet, a tablet server reads its metadata from the METADATA table. This meta- data contains the list of SSTables that comprise a tablet and a set of a redo points, which are pointers into any commit logs that may contain data for the tablet <img src="2.png" alt="2.png"></li>
+<li>To recover a tablet, a tablet server reads its metadata from the METADATA table. This meta- data contains the list of SSTables that comprise a tablet and a set of a redo points, which are pointers into any commit logs that may contain data for the tablet<br><img src="2.png" alt="2.png"></li>
 </ul>
-<h2 id="refinements">Refinements</h2>
-<ol type="1">
-<li>Locality groups
-<ul>
+<h2 id="Refinements"><a href="#Refinements" class="headerlink" title="Refinements"></a>Refinements</h2><ol>
+<li>Locality groups<ul>
 <li>Clients can group multiple column families together into a locality group</li>
-</ul></li>
-<li>Compression
-<ul>
+</ul>
+</li>
+<li>Compression<ul>
 <li>Clients can control whether or not the SSTables for a locality group are compressed, and if so, which compression format is used</li>
-</ul></li>
-<li>Caching for read performance
-<ul>
+</ul>
+</li>
+<li>Caching for read performance<ul>
 <li>To improve read performance, tablet servers use two levels of caching. The <strong>Scan Cache</strong> is a higher-level cache that caches the key-value pairs returned by the SSTable interface to the tablet server code. The <strong>Block Cache</strong> is a lower-level cache that caches SSTables blocks that were read from GFS</li>
-</ul></li>
-<li>Bloom filters
-<ul>
+</ul>
+</li>
+<li>Bloom filters<ul>
 <li>a read operation has to read from all SSTables that make up the state of a tablet</li>
-</ul></li>
-<li>Commit-log implementation
-<ul>
+</ul>
+</li>
+<li>Commit-log implementation<ul>
 <li>we append mutations to a single commit log per tablet server, co-mingling mutations for different tablets in the same physical log file</li>
-</ul></li>
-<li>Speeding up tablet recovery
-<ul>
+</ul>
+</li>
+<li>Speeding up tablet recovery<ul>
 <li>If the master moves a tablet from one tablet server to another, the source tablet server first does a minor compaction on that tablet</li>
-</ul></li>
-<li>Exploiting immutability
-<ul>
+</ul>
+</li>
+<li>Exploiting immutability<ul>
 <li>Besides the SSTable caches, various other parts of the Bigtable system have been simplified by the fact that all of the SSTables that we generate are immutable</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-<h2 id="lesson">Lesson</h2>
-<ol type="1">
+<h2 id="Lesson"><a href="#Lesson" class="headerlink" title="Lesson"></a>Lesson</h2><ol>
 <li>large distributed sys- tems are vulnerable to many types of failures, not just the standard network partitions and fail-stop failures as- sumed in many distributed protocols</li>
 <li>it is important to delay adding new features until it is clear how the new features will be used</li>
 <li>the importance of proper system-level monitoring</li>
@@ -745,7 +741,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">99</span>
+                  <span class="site-state-item-count">100</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -756,7 +752,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -767,7 +763,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -838,7 +834,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#abstract"><span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#data-model"><span class="nav-text">Data Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rows"><span class="nav-text">Rows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#column-families"><span class="nav-text">Column Families</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#timestamps"><span class="nav-text">Timestamps</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#api"><span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#building-blocks"><span class="nav-text">Building Blocks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implementation"><span class="nav-text">Implementation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tablet-location"><span class="nav-text">Tablet Location</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tablet-assignment"><span class="nav-text">Tablet Assignment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tablet-serving"><span class="nav-text">Tablet Serving</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#refinements"><span class="nav-text">Refinements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lesson"><span class="nav-text">Lesson</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Model"><span class="nav-text">Data Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Rows"><span class="nav-text">Rows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Column-Families"><span class="nav-text">Column Families</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Timestamps"><span class="nav-text">Timestamps</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API"><span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Building-Blocks"><span class="nav-text">Building Blocks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Implementation"><span class="nav-text">Implementation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tablet-Location"><span class="nav-text">Tablet Location</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tablet-Assignment"><span class="nav-text">Tablet Assignment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tablet-Serving"><span class="nav-text">Tablet Serving</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Refinements"><span class="nav-text">Refinements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lesson"><span class="nav-text">Lesson</span></a></li></ol></div>
             
 
           </div>
