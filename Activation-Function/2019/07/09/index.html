@@ -133,7 +133,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/Activation-Function/2019/07/09/1.png">
 <meta property="og:image" content="https://zhangruochi.com/Activation-Function/2019/07/09/3.png">
-<meta property="og:updated_time" content="2019-07-09T11:42:12.022Z">
+<meta property="og:updated_time" content="2019-07-10T18:31:50.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Activation Function">
 <meta name="twitter:description" content="激活函数的形式，梯度，性质。">
@@ -472,10 +472,17 @@
 <script type="math/tex; mode=display">w \leftarrow w - \eta x_i\cdot\frac{\partial L}{\partial f}</script><p>由于$w_i$是上一轮迭代的结果，此处可视为常数，而$\eta$是模型超参数，参数$w_i$的更新方向实际上由$x_i\cdot\frac{\partial L}{\partial f}$决定。又考虑到 $\frac{\partial L}{\partial f}$对于所有的$w_i$来说是常数，因此各个$w_i$更新方向之间的差异，完全由对应的输入值$x_i$ 的符号决定。</p>
 <h2 id="以零为中心的影响"><a href="#以零为中心的影响" class="headerlink" title="以零为中心的影响"></a>以零为中心的影响</h2><p>至此，为了描述方便，我们以二维的情况为例。亦即，神经元描述为</p>
 <script type="math/tex; mode=display">f(x;w_1,w_2,b) = f(w_0x_0 + w_1x_1 + b)</script><p>假设对于参数 $w_0$,$w_1$的最优解$w_0^{\prime}$,$w_1^{\prime}$</p>
-<p>\begin{equation}<br>\left{<br>\begin{array}{lr}</p>
-<p>&amp; w_0 &lt; w_0^{\prime} \<br>&amp; w_1 &gt; w_1^{\prime}</p>
-<p>\end{array}<br>\right.<br>\end{equation}</p>
-<p>我们希望$w_0$适当增大，$w_1$适当减少，这里必然要求$x_0$ 和 $x_1$ 符号相反。<br>但在 Sigmoid 函数中，输出值恒为正。这也就是说，如果上一级神经元采用 Sigmoid 函数作为激活函数，<strong>那么我们无法做到$x_0$和$x_1$符号相反</strong>。此时，模型为了收敛，不得不向逆风前行的风助力帆船一样，走 Z 字形逼近最优解。</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\left\{ 
+\begin{array}{lr}
+
+& w_0 < w_0^{\prime} \\
+& w_1 > w_1^{\prime}
+
+\end{array}
+\right.
+\end{equation}</script><p>我们希望$w_0$适当增大，$w_1$适当减少，这里必然要求$x_0$ 和 $x_1$ 符号相反。<br>但在 Sigmoid 函数中，输出值恒为正。这也就是说，如果上一级神经元采用 Sigmoid 函数作为激活函数，<strong>那么我们无法做到$x_0$和$x_1$符号相反</strong>。此时，模型为了收敛，不得不向逆风前行的风助力帆船一样，走 Z 字形逼近最优解。</p>
 <p><img src="3.png" alt=""></p>
 <h2 id="Sigmid"><a href="#Sigmid" class="headerlink" title="Sigmid"></a>Sigmid</h2><h3 id="函数形式"><a href="#函数形式" class="headerlink" title="函数形式"></a>函数形式</h3><script type="math/tex; mode=display">\sigma(x;a) = \frac{1}{1+e^{-ax}}</script><h3 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h3><script type="math/tex; mode=display">\sigma^{\prime} = \sigma(x)(1-\sigma(x))</script><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ul>
 <li>Sigmoid neurons can saturate and lead to vanishing gradients.</li>

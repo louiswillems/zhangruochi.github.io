@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhangruochi.com/Docker-Command-Cheatsheet/2019/07/11/</loc>
+    <loc>https://zhangruochi.com/Activation-Function/2019/07/09/</loc>
     
-    <lastmod>2019-07-10T16:40:28.717Z</lastmod>
+    <lastmod>2019-07-10T18:31:50.291Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://zhangruochi.com/Activation-Function/2019/07/09/</loc>
+    <loc>https://zhangruochi.com/collections/index.html</loc>
     
-    <lastmod>2019-07-09T11:42:12.022Z</lastmod>
+    <lastmod>2019-07-10T17:35:47.549Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Docker-Command-Cheatsheet/2019/07/11/</loc>
+    
+    <lastmod>2019-07-10T16:47:12.104Z</lastmod>
     
   </url>
   
@@ -593,13 +600,6 @@
     <loc>https://zhangruochi.com/Combining-Distribution-and-Multithreading/2019/06/24/</loc>
     
     <lastmod>2019-07-05T09:46:15.285Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/collections/index.html</loc>
-    
-    <lastmod>2019-07-05T09:26:59.385Z</lastmod>
     
   </url>
   
