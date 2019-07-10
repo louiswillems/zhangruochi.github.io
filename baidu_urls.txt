@@ -1,3 +1,3 @@
-https://zhangruochi.com/Docker-Command-Cheatsheet/2019/07/11/
-https://zhangruochi.com/Activation-Function/2019/07/09/
-https://zhangruochi.com/Why-is-the-negative-gradient-direction-the-fastest-direction-the-function-value-descend/2019/07/09/
+https://zhangruochi.com/Generative-Adversarial-Network-Project/2019/07/11/
+https://zhangruochi.com/Autoencoders-Project/2019/07/11/
+https://zhangruochi.com/Image-Captioning-Project/2019/07/11/

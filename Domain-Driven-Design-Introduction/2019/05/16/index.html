@@ -453,7 +453,8 @@
       
 
       
-        <h3 id="DDD把模型分成四层"><a href="#DDD把模型分成四层" class="headerlink" title="DDD把模型分成四层"></a>DDD把模型分成四层</h3><ol>
+        <h3 id="ddd把模型分成四层">DDD把模型分成四层</h3>
+<ol type="1">
 <li>UI 层，负责界面展示。</li>
 <li>应用层（Application Layer），负责业务流程。</li>
 <li>领域层（Domain Layer），负责领域逻辑</li>
@@ -464,17 +465,19 @@
 <li>领域层中包含领域模型，捕捉领域逻辑，暴露出接口用于操作领域模型，这些接口提供的操作可以确保领域是自洽的；</li>
 <li>领域模型既是业务描述，又是代码实现的结构设计，二者的结合点在于公开出来的界面、接口。</li>
 </ul>
-<p><img src="ddd.png" alt=""></p>
-<h3 id="实体-Entity-amp-值对象-Value-Object"><a href="#实体-Entity-amp-值对象-Value-Object" class="headerlink" title="实体(Entity) &amp; 值对象(Value Object)"></a>实体(Entity) &amp; 值对象(Value Object)</h3><p>实体与面向对象中的概念类似，在这里再次提出是因为它是领域模型的基本元素。在领域模型中，实体应该具有唯一的标识符，从设计的一开始就应该考虑实体，决定是否建立一个实体也是十分重要的。</p>
+<p><img src="ddd.png"></p>
+<h3 id="实体entity-值对象value-object">实体(Entity) &amp; 值对象(Value Object)</h3>
+<p>实体与面向对象中的概念类似，在这里再次提出是因为它是领域模型的基本元素。在领域模型中，实体应该具有唯一的标识符，从设计的一开始就应该考虑实体，决定是否建立一个实体也是十分重要的。</p>
 <p>值对象和我们说的编程中数值类型的变量是不同的，它仅仅是没有唯一标识符的实体，比如有两个收获地址的信息完全一样，那它就是值对象，并不是实体。值对象在领域模型中是可以被共享的，他们应该是“不可变的”（只读的），当有其他地方需要用到值对象时，可以将它的副本作为参数传递。</p>
-<h3 id="服务-Services"><a href="#服务-Services" class="headerlink" title="服务(Services)"></a>服务(Services)</h3><p>当我们在分析某一领域时，一直在尝试如何将信息转化为领域模型，但并非所有的点我们都能用Model来涵盖。对象应当有属性，状态和行为，但有时领域中有一些行为是无法映射到具体的对象中的，我们也不能强行将其放入在某一个模型对象中，而将其单独作为一个方法又没有地方，此时就需要服务.</p>
+<h3 id="服务services">服务(Services)</h3>
+<p>当我们在分析某一领域时，一直在尝试如何将信息转化为领域模型，但并非所有的点我们都能用Model来涵盖。对象应当有属性，状态和行为，但有时领域中有一些行为是无法映射到具体的对象中的，我们也不能强行将其放入在某一个模型对象中，而将其单独作为一个方法又没有地方，此时就需要服务.</p>
 <p>服务具有以下特点：</p>
 <ul>
 <li>服务中体现的行为一定是不属于任何实体和值对象的，但它属于领域模型的范围内</li>
 <li>服务的行为一定涉及其他多个对象</li>
 <li>服务的操作是无状态的</li>
 </ul>
-<p><strong>Reference from <a href="https://blog.csdn.net/xuxuerlai/article/details/81318565" target="_blank" rel="noopener">https://blog.csdn.net/xuxuerlai/article/details/81318565</a></strong></p>
+<p><strong>Reference from https://blog.csdn.net/xuxuerlai/article/details/81318565</strong></p>
 
       
     </div>
@@ -654,7 +657,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">100</span>
+                  <span class="site-state-item-count">103</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -676,7 +679,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -747,7 +750,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#DDD把模型分成四层"><span class="nav-text">DDD把模型分成四层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实体-Entity-amp-值对象-Value-Object"><span class="nav-text">实体(Entity) &amp; 值对象(Value Object)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务-Services"><span class="nav-text">服务(Services)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ddd把模型分成四层"><span class="nav-text">DDD把模型分成四层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实体entity-值对象value-object"><span class="nav-text">实体(Entity) &amp; 值对象(Value Object)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务services"><span class="nav-text">服务(Services)</span></a></li></ol></div>
             
 
           </div>
