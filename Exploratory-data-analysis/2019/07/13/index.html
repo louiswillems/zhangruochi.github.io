@@ -137,7 +137,7 @@
 <meta property="og:image" content="https://zhangruochi.com/Exploratory-data-analysis/2019/07/13/13.png">
 <meta property="og:image" content="https://zhangruochi.com/Exploratory-data-analysis/2019/07/13/14.png">
 <meta property="og:image" content="https://zhangruochi.com/Exploratory-data-analysis/2019/07/13/15.png">
-<meta property="og:updated_time" content="2019-07-12T21:02:58.135Z">
+<meta property="og:updated_time" content="2019-07-12T21:11:16.325Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Exploratory data analysis">
 <meta name="twitter:description" content="How to do exploratory data analysis">
@@ -477,56 +477,81 @@
       
 
       
-        <h1 id="exploratory-data-analysis">Exploratory data analysis</h1>
-<h2 id="what-and-why">What and Why?</h2>
-<ul>
+        <h1 id="Exploratory-data-analysis"><a href="#Exploratory-data-analysis" class="headerlink" title="Exploratory data analysis"></a>Exploratory data analysis</h1><h2 id="What-and-Why"><a href="#What-and-Why" class="headerlink" title="What and Why?"></a>What and Why?</h2><ul>
 <li>Better understand the data</li>
 <li>Build an intuition about the data</li>
 <li>Generate hypothesizes</li>
 <li>Find insights</li>
 </ul>
-<h2 id="building-intuition-about-the-data">Building intuition about the data</h2>
-<ol type="1">
-<li>Get domain knowledge – It helps to deeper understand the problem</li>
-<li>Check if the data is intuitive – And agrees with domain knowledge</li>
-<li><h2 id="understand-how-the-data-was-generated">Understand how the data was generated</h2>
-– As it is crucial to set up a proper validation</li>
+<h2 id="Building-intuition-about-the-data"><a href="#Building-intuition-about-the-data" class="headerlink" title="Building intuition about the data"></a>Building intuition about the data</h2><ol>
+<li>Get domain knowledge<br>– It helps to deeper understand the problem</li>
+<li>Check if the data is intuitive<br>– And agrees with domain knowledge</li>
+<li>Understand how the data was generated</li>
+</ol>
+<hr>
+<p>– As it is crucial to set up a proper validation</p>
+<ol>
 <li>Explore individual features</li>
-<li><h2 id="explore-pairs-and-groups">Explore pairs and groups</h2></li>
-<li><h2 id="clean-features-up">Clean features up</h2></li>
+<li>Explore pairs and groups</li>
+</ol>
+<hr>
+<h2 id="6-Clean-features-up"><a href="#6-Clean-features-up" class="headerlink" title="6. Clean features up"></a>6. Clean features up</h2><ol>
 <li>Check for leaks!</li>
 </ol>
-<h2 id="exploring-anonymized-data">Exploring anonymized data</h2>
-<p>Two things to do with anonymized features: 1. Try to decode the features - Guess the true meaning of the feature 2. Guess the feature types - Each type needs its own preprocessing</p>
-<h2 id="visualization">Visualization</h2>
-<blockquote>
+<h2 id="Exploring-anonymized-data"><a href="#Exploring-anonymized-data" class="headerlink" title="Exploring anonymized data"></a>Exploring anonymized data</h2><p>Two things to do with anonymized features:</p>
+<ol>
+<li>Try to decode the features</li>
+</ol>
+<ul>
+<li>Guess the true meaning of the feature</li>
+</ul>
+<ol>
+<li>Guess the feature types</li>
+</ol>
+<ul>
+<li>Each type needs its own preprocessing</li>
+</ul>
+<h2 id="Visualization"><a href="#Visualization" class="headerlink" title="Visualization"></a>Visualization</h2><blockquote>
 <p>EDA is an art And visualizations are our art tools !</p>
 </blockquote>
-<h3 id="tools-for-individual-features-exploration">Tools for individual features exploration</h3>
-<ol type="1">
-<li><p>Histograms: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.hist(x)</span><br></pre></td></tr></table></figure></p></li>
-<li><p>Plot (index versus value): <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x, <span class="string">'.'</span>)</span><br></pre></td></tr></table></figure></p></li>
-<li><p>Statistics: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.describe()</span><br><span class="line">x.mean()</span><br><span class="line">x.var()</span><br></pre></td></tr></table></figure></p></li>
-<li><p>Other tools: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x.value_counts()</span><br><span class="line">x.isnull()</span><br></pre></td></tr></table></figure></p></li>
+<h3 id="Tools-for-individual-features-exploration"><a href="#Tools-for-individual-features-exploration" class="headerlink" title="Tools for individual features exploration"></a>Tools for individual features exploration</h3><ol>
+<li><p>Histograms:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.hist(x)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Plot (index versus value):</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x, <span class="string">'.'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Statistics:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.describe()</span><br><span class="line">x.mean()</span><br><span class="line">x.var()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Other tools:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x.value_counts()</span><br><span class="line">x.isnull()</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h3 id="explore-feature-relations">Explore feature relations</h3>
-<ol type="1">
-<li><p>Pairs − Scatter plot, scatter matrix − Corrplot <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(x1, x2)</span><br><span class="line">pd.scatter_matrix(df)</span><br><span class="line">df.corr()</span><br><span class="line">plt.matshow()</span><br></pre></td></tr></table></figure></p></li>
-<li><p>Groups − Corrplot + clustering − Plot (index vs feature statistics) <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.mean().plot(style=’.’)</span><br><span class="line">df.mean().sort_values().plot(style=’.’)</span><br></pre></td></tr></table></figure></p></li>
+<h3 id="Explore-feature-relations"><a href="#Explore-feature-relations" class="headerlink" title="Explore feature relations"></a>Explore feature relations</h3><ol>
+<li><p>Pairs<br>− Scatter plot, scatter matrix<br>− Corrplot</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(x1, x2)</span><br><span class="line">pd.scatter_matrix(df)</span><br><span class="line">df.corr()</span><br><span class="line">plt.matshow()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Groups<br>− Corrplot + clustering<br>− Plot (index vs feature statistics)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.mean().plot(style=’.’)</span><br><span class="line">df.mean().sort_values().plot(style=’.’)</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h3 id="examples">Examples</h3>
-<p><img src="11.png"> <img src="12.png"> <img src="13.png"> <img src="14.png"> <img src="15.png"></p>
-<h3 id="dataset-cleaning">Dataset cleaning</h3>
-<ol type="1">
-<li><p>Constant features <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train.nunique(axis=<span class="number">1</span>) == <span class="number">1</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>Duplicated features <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">traintest.T.drop_duplicates()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> categorical_feats: </span><br><span class="line">    traintest[f] = raintest[f].factorize()</span><br><span class="line">traintest.T.drop_duplicates()</span><br></pre></td></tr></table></figure></p></li>
-<li><p>Duplicated rows</p></li>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><p><img src="11.png" alt=""><br><img src="12.png" alt=""><br><img src="13.png" alt=""><br><img src="14.png" alt=""><br><img src="15.png" alt=""></p>
+<h3 id="Dataset-cleaning"><a href="#Dataset-cleaning" class="headerlink" title="Dataset cleaning"></a>Dataset cleaning</h3><ol>
+<li><p>Constant features</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train.nunique(axis=<span class="number">1</span>) == <span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Duplicated features</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">traintest.T.drop_duplicates()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> categorical_feats: </span><br><span class="line">    traintest[f] = raintest[f].factorize()</span><br><span class="line">traintest.T.drop_duplicates()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Duplicated rows</p>
+</li>
 </ol>
 <ul>
 <li>Check if same rows have same label</li>
 <li>Find duplicated rows, understand why they are duplicated</li>
 </ul>
-<ol start="4" type="1">
+<ol>
 <li>Check if dataset is shuffled</li>
 </ol>
 
@@ -797,7 +822,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#exploratory-data-analysis"><span class="nav-text">Exploratory data analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#what-and-why"><span class="nav-text">What and Why?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#building-intuition-about-the-data"><span class="nav-text">Building intuition about the data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#understand-how-the-data-was-generated"><span class="nav-text">Understand how the data was generated</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#explore-pairs-and-groups"><span class="nav-text">Explore pairs and groups</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clean-features-up"><span class="nav-text">Clean features up</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#exploring-anonymized-data"><span class="nav-text">Exploring anonymized data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#visualization"><span class="nav-text">Visualization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tools-for-individual-features-exploration"><span class="nav-text">Tools for individual features exploration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#explore-feature-relations"><span class="nav-text">Explore feature relations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#examples"><span class="nav-text">Examples</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dataset-cleaning"><span class="nav-text">Dataset cleaning</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Exploratory-data-analysis"><span class="nav-text">Exploratory data analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-and-Why"><span class="nav-text">What and Why?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Building-intuition-about-the-data"><span class="nav-text">Building intuition about the data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Clean-features-up"><span class="nav-text">6. Clean features up</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exploring-anonymized-data"><span class="nav-text">Exploring anonymized data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Visualization"><span class="nav-text">Visualization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tools-for-individual-features-exploration"><span class="nav-text">Tools for individual features exploration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Explore-feature-relations"><span class="nav-text">Explore feature relations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Examples"><span class="nav-text">Examples</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dataset-cleaning"><span class="nav-text">Dataset cleaning</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

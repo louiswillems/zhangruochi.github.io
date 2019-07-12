@@ -468,44 +468,31 @@
 
       
         <p><strong>Reference from course note of Machine Learning Foundation from University of Washington</strong></p>
-<h3 id="principle-of-occams-razor-simpler-trees-are-better">Principle of Occam’s razor: Simpler trees are better</h3>
-<blockquote class="blockquote-center">
-Among competing hypotheses, the one with fewest assumptions should be selected
-</blockquote>
-<h3 id="early-stopping-for-learning-decision-trees">Early stopping for learning decision trees</h3>
-<ol type="1">
-<li><strong>Limit tree depth</strong>: Stop splitting after a certain depth <img src="1.png"></li>
-<li><strong>Classification error</strong>: Do not consider any split that does not cause a sufficient decrease in classification error
-<ul>
-<li>Typically, add magic parameter <span class="math inline">\(\epsilon\)</span>,Stop if error doesn’t decrease by more than <span class="math inline">\(\epsilon\)</span></li>
+<h3 id="Principle-of-Occam’s-razor-Simpler-trees-are-better"><a href="#Principle-of-Occam’s-razor-Simpler-trees-are-better" class="headerlink" title="Principle of Occam’s razor: Simpler trees are better"></a>Principle of Occam’s razor: Simpler trees are better</h3><blockquote class="blockquote-center">Among competing hypotheses, the one with fewest assumptions should be selected </blockquote>
+
+
+
+
+<h3 id="Early-stopping-for-learning-decision-trees"><a href="#Early-stopping-for-learning-decision-trees" class="headerlink" title="Early stopping for learning decision trees"></a>Early stopping for learning decision trees</h3><ol>
+<li><strong>Limit tree depth</strong>: Stop splitting after a certain depth<br><img src="1.png" alt=""></li>
+<li><strong>Classification error</strong>: Do not consider any split that does not cause a sufficient decrease in classification error<ul>
+<li>Typically, add magic parameter $\epsilon$,Stop if error doesn’t decrease by more than $\epsilon$</li>
 <li>Some pitfalls to this rule</li>
 <li>Very useful in practice</li>
-</ul></li>
-<li><strong>Minimum node “size”</strong>: Do not split an intermediate node which contains too few data points <img src="2.png"></li>
+</ul>
+</li>
+<li><strong>Minimum node “size”</strong>: Do not split an intermediate node which contains too few data points<br><img src="2.png" alt=""></li>
 </ol>
-<h3 id="pruning-simplify-the-tree-after-the-learning-algorithm-terminates">Pruning: Simplify the tree after the learning algorithm terminates</h3>
-<ol type="1">
-<li>Simple measure of complexity of tree
-<center>
-<p>
-<strong>L(T) = number of leaf nodes</strong>
-</p>
-</center></li>
-<li>Balance simplicity &amp; predictive power <strong>Desired total quality format</strong>
-<center>
-<p>
-<strong>Total cost = measure of fit + measure of complexity</strong>
-</p>
-</center>
-<span class="math display">\[C(T) = Error(T) + \lambda L(T)\]</span></li>
+<h3 id="Pruning-Simplify-the-tree-after-the-learning-algorithm-terminates"><a href="#Pruning-Simplify-the-tree-after-the-learning-algorithm-terminates" class="headerlink" title="Pruning: Simplify the tree after the learning algorithm terminates"></a>Pruning: Simplify the tree after the learning algorithm terminates</h3><ol>
+<li>Simple measure of complexity of tree<center><p><strong>L(T) = number of leaf nodes</strong></p></center></li>
+<li>Balance simplicity &amp; predictive power<br><strong>Desired total quality format</strong><br><center><p><strong>Total cost = measure of fit + measure of complexity</strong></p></center><script type="math/tex; mode=display">C(T) = Error(T) + \lambda L(T)</script></li>
 </ol>
 <ul>
-<li><span class="math inline">\(\lambda = 0\)</span>: standard Decision Tree learning</li>
-<li><span class="math inline">\(\lambda = +\inf\)</span>: root, majority classification</li>
-<li><span class="math inline">\(\lambda = 0 - +\inf\)</span>: balance of fit and complexity <img src="3.png"></li>
+<li>$\lambda = 0$: standard Decision Tree learning</li>
+<li>$\lambda = +\inf$: root, majority classification</li>
+<li>$\lambda = 0 - +\inf$: balance of fit and complexity<br><img src="3.png" alt=""></li>
 </ul>
-<h3 id="tree-pruning-algorithm">Tree pruning algorithm</h3>
-<p><img src="4.png"> <img src="5.png"> <img src="6.png"></p>
+<h3 id="Tree-pruning-algorithm"><a href="#Tree-pruning-algorithm" class="headerlink" title="Tree pruning algorithm"></a>Tree pruning algorithm</h3><p><img src="4.png" alt=""><br><img src="5.png" alt=""><br><img src="6.png" alt=""></p>
 
       
     </div>
@@ -784,7 +771,7 @@ Among competing hypotheses, the one with fewest assumptions should be selected
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#principle-of-occams-razor-simpler-trees-are-better"><span class="nav-text">Principle of Occam’s razor: Simpler trees are better</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#early-stopping-for-learning-decision-trees"><span class="nav-text">Early stopping for learning decision trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pruning-simplify-the-tree-after-the-learning-algorithm-terminates"><span class="nav-text">Pruning: Simplify the tree after the learning algorithm terminates</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tree-pruning-algorithm"><span class="nav-text">Tree pruning algorithm</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Principle-of-Occam’s-razor-Simpler-trees-are-better"><span class="nav-text">Principle of Occam’s razor: Simpler trees are better</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Early-stopping-for-learning-decision-trees"><span class="nav-text">Early stopping for learning decision trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pruning-Simplify-the-tree-after-the-learning-algorithm-terminates"><span class="nav-text">Pruning: Simplify the tree after the learning algorithm terminates</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tree-pruning-algorithm"><span class="nav-text">Tree pruning algorithm</span></a></li></ol></div>
             
 
           </div>
