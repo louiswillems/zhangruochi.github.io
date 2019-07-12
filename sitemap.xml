@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangruochi.com/Feature-Engineering-Introduction/2019/07/13/</loc>
+    
+    <lastmod>2019-07-12T17:58:36.533Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Decision-Boundry/2019/07/13/</loc>
+    
+    <lastmod>2019-07-12T16:23:36.119Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/AdaBoost-Summary/2019/05/14/</loc>
+    
+    <lastmod>2019-07-11T18:19:27.888Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangruochi.com/Plan/index.html</loc>
     
     <lastmod>2019-07-11T17:37:05.545Z</lastmod>
@@ -460,13 +481,6 @@
     <loc>https://zhangruochi.com/Understanding-Logistic-Regression/2019/02/24/</loc>
     
     <lastmod>2019-07-05T10:04:06.244Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/AdaBoost-Summary/2019/05/14/</loc>
-    
-    <lastmod>2019-07-05T10:03:58.583Z</lastmod>
     
   </url>
   
