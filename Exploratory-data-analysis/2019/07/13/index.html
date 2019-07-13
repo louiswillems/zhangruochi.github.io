@@ -137,7 +137,7 @@
 <meta property="og:image" content="https://zhangruochi.com/Exploratory-data-analysis/2019/07/13/13.png">
 <meta property="og:image" content="https://zhangruochi.com/Exploratory-data-analysis/2019/07/13/14.png">
 <meta property="og:image" content="https://zhangruochi.com/Exploratory-data-analysis/2019/07/13/15.png">
-<meta property="og:updated_time" content="2019-07-12T21:11:16.325Z">
+<meta property="og:updated_time" content="2019-07-13T14:48:36.208Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Exploratory data analysis">
 <meta name="twitter:description" content="How to do exploratory data analysis">
@@ -554,6 +554,99 @@
 <ol>
 <li>Check if dataset is shuffled</li>
 </ol>
+<h2 id="Validation"><a href="#Validation" class="headerlink" title="Validation"></a>Validation</h2><ol>
+<li>Validation helps us evaluate a quality of the model</li>
+<li>Validation helps us select the model which will perform best on the unseen data</li>
+<li>Underfitting refers to not capturing enough patterns in the data</li>
+<li>Generally, overfitting refers to<ul>
+<li>capturing noize</li>
+<li>capturing patterns which do not generalize to test data</li>
+</ul>
+</li>
+<li>In competitions, overfitting refers to<ul>
+<li>low model’s quality on test data, which was unexpected due to validation scores</li>
+</ul>
+</li>
+<li>There are three main validation strategies:<ol>
+<li>Holdout<blockquote>
+<p>sklearn.model_selection.ShuffleSplit</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>Split train data into two parts: partA and partB.</li>
+<li>Fit the model on partA, predict for partB.</li>
+<li>Use predictions for partB for estimating model quality. Find such hyper-parameters, that quality on partB is maximized.</li>
+</ul>
+<ol>
+<li>KFold <blockquote>
+<p>sklearn.model_selection.Kfold</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>Split train data into K folds.</li>
+<li>Iterate though each fold: retrain the model on all folds except current fold, predict for the current fold.</li>
+<li>Use the predictions to calculate quality on each fold. Find such hyper-parameters, that quality on each fold is maximized. You can also estimate mean and variance of the loss. This is very helpful in order to understand significance of improvement.</li>
+</ul>
+<ol>
+<li>LOO<blockquote>
+<p>sklearn.model_selection.LeaveOneOut</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>Iterate over samples: retrain the model on all samples except current sample, predict for the current sample. You will need to retrain the model N times (if N is the number of samples in the dataset).</li>
+<li>In the end you will get LOO predictions for every sample in the trainset and can calculate loss.</li>
+<li>Notice, that these are validation schemes are supposed to be used to estimate quality of the model. When you found the right hyper-parameters and want to get test predictions don’t forget to retrain your model using all training data.</li>
+</ul>
+<ol>
+<li>Stratification preserve the same target distribution over different folds</li>
+</ol>
+</li>
+</ol>
+<h2 id="Data-split"><a href="#Data-split" class="headerlink" title="Data split"></a>Data split</h2><ol>
+<li>In most cases data is split by:</li>
+</ol>
+<ul>
+<li>Rownumber</li>
+<li>Time</li>
+<li>Id</li>
+</ul>
+<ol>
+<li>Logic of feature generation depends on the data splitting strategy<br>Set up your validation to mimic the train/test split of the competition</li>
+<li>Set up your validation to mimic the train/test split of the competition </li>
+</ol>
+<h3 id="Validation-problems"><a href="#Validation-problems" class="headerlink" title="Validation problems"></a>Validation problems</h3><ol>
+<li>If we have big dispersion of scores on validation stage, we should do extensive validation<ul>
+<li>Average scores from different KFold splits</li>
+<li>Tune model on one split, evaluate score on the other</li>
+</ul>
+</li>
+<li>If submission’s score do not match local validation score,<br>we should<ul>
+<li>Check if we have too little data in public LB</li>
+<li>Check if we overfitted</li>
+<li>Check if we chose correct splitting strategy</li>
+<li>Check if train/test have different distibutions</li>
+</ul>
+</li>
+<li>Expect LB shuffle because of<ul>
+<li>Randomness<br>– Little amount of data<br>– Different public/private distributions</li>
+</ul>
+</li>
+</ol>
+<h2 id="Data-leakage"><a href="#Data-leakage" class="headerlink" title="Data leakage"></a>Data leakage</h2><ul>
+<li>Split should be done on time.<ul>
+<li>In real life we don’t have information from future</li>
+<li>In competitions first thing to look: train/public/private<br>split, is it on time?</li>
+</ul>
+</li>
+<li>Even when split by time, features may contain information about future.<ul>
+<li>User history in CTR tasks</li>
+<li>Weather</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -822,7 +915,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Exploratory-data-analysis"><span class="nav-text">Exploratory data analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-and-Why"><span class="nav-text">What and Why?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Building-intuition-about-the-data"><span class="nav-text">Building intuition about the data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Clean-features-up"><span class="nav-text">6. Clean features up</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exploring-anonymized-data"><span class="nav-text">Exploring anonymized data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Visualization"><span class="nav-text">Visualization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tools-for-individual-features-exploration"><span class="nav-text">Tools for individual features exploration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Explore-feature-relations"><span class="nav-text">Explore feature relations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Examples"><span class="nav-text">Examples</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dataset-cleaning"><span class="nav-text">Dataset cleaning</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Exploratory-data-analysis"><span class="nav-text">Exploratory data analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-and-Why"><span class="nav-text">What and Why?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Building-intuition-about-the-data"><span class="nav-text">Building intuition about the data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Clean-features-up"><span class="nav-text">6. Clean features up</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exploring-anonymized-data"><span class="nav-text">Exploring anonymized data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Visualization"><span class="nav-text">Visualization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tools-for-individual-features-exploration"><span class="nav-text">Tools for individual features exploration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Explore-feature-relations"><span class="nav-text">Explore feature relations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Examples"><span class="nav-text">Examples</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dataset-cleaning"><span class="nav-text">Dataset cleaning</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Validation"><span class="nav-text">Validation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-split"><span class="nav-text">Data split</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Validation-problems"><span class="nav-text">Validation problems</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-leakage"><span class="nav-text">Data leakage</span></a></li></ol></li></ol></div>
             
 
           </div>
