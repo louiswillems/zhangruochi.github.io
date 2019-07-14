@@ -142,7 +142,7 @@
 <meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/8.png">
 <meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/9.png">
 <meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/10.png">
-<meta property="og:updated_time" content="2019-07-14T14:09:43.792Z">
+<meta property="og:updated_time" content="2019-07-14T14:31:25.197Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Metrics">
 <meta name="twitter:description" content="Why should we care about metric">
@@ -694,6 +694,38 @@ g(\alpha^*) = \sum_{i=1}^N sign(\alpha^* - y_i) = 0
 <ol start="4" type="1">
 <li>AUC <span class="math display">\[AUC = \frac{1 - # \ correct \ ordered \  pairs}{total \ number \ pairs}\]</span> <img src="10.png"></li>
 </ol>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">LABEL</th>
+<th style="text-align: left;">TARGET</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0.35</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0.8</td>
+</tr>
+</tbody>
+</table>
+<p>假设有4条样本。2个正样本，2个负样本，那么M*N=4。即总共有4个样本对。分别是：（D,B）,（D,A）,(C,B),（C,A）。在（D,B）样本对中，正样本D预测的概率大于负样本B预测的概率（也就是D的得分比B高），记为1。同理，对于（C,B）。正样本C预测的概率小于负样本C预测的概率，记为0. 最后可以算得，总共有3个符合正样本得分高于负样本得分，故最后的AUC为: <span class="math display">\[auc = \frac{1+1+1}{4} = 0.75\]</span></p>
 <ul>
 <li>Pointwise loss</li>
 <li>Logloss</li>
