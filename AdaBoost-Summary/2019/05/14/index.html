@@ -462,35 +462,35 @@
       
 
       
-        <ol>
-<li><p>initialize equal weights for all samples</p>
-<script type="math/tex; mode=display">\alpha_{i} = \frac{1}{N}</script></li>
-<li><p>Repeat t = 1,…,T</p>
+        <ol type="1">
+<li><p>initialize equal weights for all samples <span class="math display">\[\alpha_{i} = \frac{1}{N}\]</span></p></li>
+<li><p>Repeat t = 1,...,T</p>
 <ul>
-<li>learn $f<em>{t}(x)$ with data weights $\alpha</em>{i}$</li>
-<li>compute weighted error<script type="math/tex; mode=display">weighted_{error_{t}} = \sum_{i=1}^{m}\alpha_{i}I(y_{i} \neq f_{t}(x_{i}))</script></li>
-<li>compute coefficient <script type="math/tex; mode=display">\hat{w_{t}} = \frac{1}{2}\ln(\frac{1 - weighted_{error_{t}} }{weighted_{error_{t}}})</script><ul>
-<li>$\hat{w_{t}}$ is higher when weighted_error is larger</li>
-</ul>
-</li>
-<li>recomputed weights $\alpha_{i}$<script type="math/tex; mode=display">\alpha_{i} =  
+<li>learn <span class="math inline">\(f_{t}(x)\)</span> with data weights <span class="math inline">\(\alpha_{i}\)</span></li>
+<li>compute weighted error <span class="math display">\[weighted_{error_{t}} = \sum_{i=1}^{m}\alpha_{i}I(y_{i} \neq f_{t}(x_{i}))\]</span></li>
+<li>compute coefficient <span class="math display">\[\hat{w_{t}} = \frac{1}{2}\ln(\frac{1 - weighted_{error_{t}} }{weighted_{error_{t}}})\]</span>
+<ul>
+<li><span class="math inline">\(\hat{w_{t}}\)</span> is higher when weighted_error is larger</li>
+</ul></li>
+<li>recomputed weights <span class="math inline">\(\alpha_{i}\)</span> <span class="math display">\[\alpha_{i} =  
     \begin{equation}
     \left\{ 
     \begin{array}{lr}
-      \alpha_{i}e^{-\hat{w_{t}}} & \\ 
-      \alpha_{i}e^{\hat{w{t}}}   &
+      \alpha_{i}e^{-\hat{w_{t}}} &amp; \\ 
+      \alpha_{i}e^{\hat{w{t}}}   &amp;
      \end{array}
      \right.
-     \end{equation}</script></li>
-<li>Normalize weights $\alpha_{i}$<ul>
-<li>if $x<em>{i}$ often mistake, weight $\alpha</em>{i}$ gets very large</li>
-<li>if $x<em>{i}$ often correct, weight $\alpha</em>{i}$ gets very small<script type="math/tex; mode=display">\alpha_{i} = \frac{\alpha_{i}}{\sum_{i}^{m}\alpha_{i}}</script></li>
-</ul>
-</li>
-</ul>
-</li>
+     \end{equation}
+  \]</span></li>
+<li>Normalize weights <span class="math inline">\(\alpha_{i}\)</span>
+<ul>
+<li>if <span class="math inline">\(x_{i}\)</span> often mistake, weight <span class="math inline">\(\alpha_{i}\)</span> gets very large</li>
+<li>if <span class="math inline">\(x_{i}\)</span> often correct, weight <span class="math inline">\(\alpha_{i}\)</span> gets very small <span class="math display">\[\alpha_{i} = \frac{\alpha_{i}}{\sum_{i}^{m}\alpha_{i}}\]</span></li>
+</ul></li>
+</ul></li>
 </ol>
-<h3 id="screen-shoot"><a href="#screen-shoot" class="headerlink" title="screen shoot"></a>screen shoot</h3><p><img src="adaboost.png" alt=""></p>
+<h3 id="screen-shoot">screen shoot</h3>
+<p><img src="adaboost.png"></p>
 
       
     </div>
@@ -676,7 +676,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">108</span>
+                  <span class="site-state-item-count">109</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -687,7 +687,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

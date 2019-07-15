@@ -460,75 +460,62 @@
       
 
       
-        <h2 id="Multiprocessing-Pool中-apply-apply-async-map-map-async的区别"><a href="#Multiprocessing-Pool中-apply-apply-async-map-map-async的区别" class="headerlink" title="Multiprocessing.Pool中 apply, apply_async, map, map_async的区别"></a>Multiprocessing.Pool中 apply, apply_async, map, map_async的区别</h2><div class="table-container">
+        <h2 id="multiprocessing.pool中-apply-apply_async-map-map_async的区别">Multiprocessing.Pool中 apply, apply_async, map, map_async的区别</h2>
 <table>
-<thead>
-<tr>
-<th style="text-align:left"></th>
-<th style="text-align:left"></th>
-<th style="text-align:left"></th>
-<th style="text-align:left"></th>
-<th style="text-align:left"></th>
-</tr>
-</thead>
 <tbody>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">Multi-args</td>
-<td style="text-align:left">Concurrence</td>
-<td style="text-align:left">Blocking</td>
-<td style="text-align:left">Ordered-results</td>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Multi-args</td>
+<td style="text-align: left;">Concurrence</td>
+<td style="text-align: left;">Blocking</td>
+<td style="text-align: left;">Ordered-results</td>
 </tr>
-<tr>
-<td style="text-align:left">map</td>
-<td style="text-align:left">no</td>
-<td style="text-align:left">yes</td>
-<td style="text-align:left">yes</td>
-<td style="text-align:left">yes</td>
+<tr class="even">
+<td style="text-align: left;">map</td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
 </tr>
-<tr>
-<td style="text-align:left">apply</td>
-<td style="text-align:left">yes</td>
-<td style="text-align:left">no</td>
-<td style="text-align:left">yes</td>
-<td style="text-align:left">no</td>
+<tr class="odd">
+<td style="text-align: left;">apply</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
 </tr>
-<tr>
-<td style="text-align:left">map_async</td>
-<td style="text-align:left">no</td>
-<td style="text-align:left">yes</td>
-<td style="text-align:left">no</td>
-<td style="text-align:left">yes</td>
+<tr class="even">
+<td style="text-align: left;">map_async</td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">yes</td>
 </tr>
-<tr>
-<td style="text-align:left">apply_async</td>
-<td style="text-align:left">yes</td>
-<td style="text-align:left">yes</td>
-<td style="text-align:left">no</td>
-<td style="text-align:left">no</td>
+<tr class="odd">
+<td style="text-align: left;">apply_async</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">no</td>
 </tr>
 </tbody>
 </table>
-</div>
 <ul>
 <li>apply 与 apply_async相比，apply是阻塞的，通常不在使用。apply_async方法还有一个回调callback，如果提供，则在函数完成时调用。callback是可调用对象，接收输入参数。当func的结果变为可用时，将理解传递给callback。callback禁止执行任何阻塞操作，否则将接收其他异步操作中的结果。</li>
 <li>map 与 map_async 相比，map_async 不会阻塞主线程。</li>
-<li>map 和 map_async 返回结果是根据参数的顺序有序，apply 与 apply_async 无序<br>from multiprocessing import Pool<br>import time</li>
+<li>map 和 map_async 返回结果是根据参数的顺序有序，apply 与 apply_async 无序 from multiprocessing import Pool import time</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"> </span><br><span class="line">result = []</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mycallback</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> result.append(x)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">worker</span><span class="params">(num)</span>:</span></span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> num</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    e1 = time.time()</span><br><span class="line">    pool = Pool()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        pool.apply_async(worker, args = (i, ),callback = mycallback)   </span><br><span class="line">    pool.close()</span><br><span class="line">    pool.join()</span><br><span class="line">    e2 = time.time()</span><br><span class="line">    print(float(e2 - e1)) <span class="comment"># 2.07s</span></span><br><span class="line"> </span><br><span class="line">    print(result)  <span class="comment"># [2, 4, 3, 0, 1, 5, 6, 7, 8, 9]</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">worker</span><span class="params">(num)</span>:</span></span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> num</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    e1 = time.time()</span><br><span class="line">    pool = Pool()</span><br><span class="line"> </span><br><span class="line">    result = pool.map(worker, [i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>)])</span><br><span class="line"></span><br><span class="line">    e2 = time.time()</span><br><span class="line">    print(float(e2 - e1))</span><br><span class="line"></span><br><span class="line">    print(result) <span class="comment">#[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"> </span><br><span class="line">result = []</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mycallback</span><span class="params">(x)</span>:</span></span><br><span class="line">    result.append(x)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">worker</span><span class="params">(num)</span>:</span></span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> num</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    e1 = time.time()</span><br><span class="line">    pool = Pool(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">    pool.map_async(worker, [i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>)], callback = mycallback)   </span><br><span class="line"></span><br><span class="line">    pool.close()</span><br><span class="line">    pool.join()</span><br><span class="line"></span><br><span class="line">    e2 = time.time()</span><br><span class="line">    print(float(e2 - e1)) <span class="comment"># 2.07s</span></span><br><span class="line"> </span><br><span class="line">    print(result)  <span class="comment"># [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]</span></span><br></pre></td></tr></table></figure>
-<h2 id="多进程写入同一个文件时，为了避免写入顺序混乱，有如下几种解决办法。"><a href="#多进程写入同一个文件时，为了避免写入顺序混乱，有如下几种解决办法。" class="headerlink" title="多进程写入同一个文件时，为了避免写入顺序混乱，有如下几种解决办法。"></a>多进程写入同一个文件时，为了避免写入顺序混乱，有如下几种解决办法。</h2><p><strong>对写入操作进行加锁</strong>  对当前进行写入操作的进程锁定，直到该进程写完十个字，也就是一个完成的操作，后解除该进程的锁定，放它离开。切换到另外一个进程来操作。因为一次只能一个进程执行写入操作，而且必须执行完成完整的操作，才允许切换。所以不会造成文件内容的混乱。但是加锁一般会完造成程序的执行效率下降。而且，如果写入操作分散在整个代码的多处，lock作为一个不可直接打包的资源是没有办法作为一个参数直接给Pool的map方法里的函数传参的。为了解决这个问题，有两种解决方法，一种是使用多进程的管理器Manager()，并使用偏函数的办法传递对象Manager.Lock()。第二种是在进程池创建时传递multiprocessing.Lock()对象。</p>
+<h2 id="多进程写入同一个文件时为了避免写入顺序混乱有如下几种解决办法">多进程写入同一个文件时，为了避免写入顺序混乱，有如下几种解决办法。</h2>
+<p><strong>对写入操作进行加锁</strong> 对当前进行写入操作的进程锁定，直到该进程写完十个字，也就是一个完成的操作，后解除该进程的锁定，放它离开。切换到另外一个进程来操作。因为一次只能一个进程执行写入操作，而且必须执行完成完整的操作，才允许切换。所以不会造成文件内容的混乱。但是加锁一般会完造成程序的执行效率下降。而且，如果写入操作分散在整个代码的多处，lock作为一个不可直接打包的资源是没有办法作为一个参数直接给Pool的map方法里的函数传参的。为了解决这个问题，有两种解决方法，一种是使用多进程的管理器Manager()，并使用偏函数的办法传递对象Manager.Lock()。第二种是在进程池创建时传递multiprocessing.Lock()对象。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool,Lock,Manager</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> partial</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">worker</span><span class="params">(lock,x)</span>:</span></span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    lock.acquire()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">'result.txt'</span>, <span class="string">'a+'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.writelines(str(x))</span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        lock.release()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    e1 = time.time()</span><br><span class="line">    pool = Pool(<span class="number">4</span>)</span><br><span class="line">    manager = Manager()</span><br><span class="line">    lock = manager.Lock()</span><br><span class="line"></span><br><span class="line">    partial_worker = partial(worker, lock)</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># for i in range(10):</span></span><br><span class="line">    <span class="comment">#     pool.apply_async(partial_worker, (i,))</span></span><br><span class="line">    pool.map(partial_worker, [i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>)])</span><br><span class="line"> </span><br><span class="line">    pool.close()</span><br><span class="line">    pool.join()</span><br><span class="line">    e2 = time.time()</span><br><span class="line">    print(float(e2 - e1))</span><br></pre></td></tr></table></figure>
 <p><strong>通过initializer参数在Pool对象创建时传递Lock对象</strong>。这种方式将Lock对象变为了所有子进程的全局对象。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_request</span><span class="params">(data)</span>:</span></span><br><span class="line">    api_url = <span class="string">'http://api.xxxx.com/?data=%s'</span></span><br><span class="line">    start_time = clock()</span><br><span class="line">    <span class="keyword">print</span> urllib2.urlopen(api_url % data).read()</span><br><span class="line">    end_time = clock()</span><br><span class="line">    lock.acquire()</span><br><span class="line">    whit open(<span class="string">'request.log'</span>, <span class="string">'a+'</span>) <span class="keyword">as</span> logs:</span><br><span class="line">        logs.write(<span class="string">'request %s cost: %s\n'</span> % (data, end_time - start_time))</span><br><span class="line">    lock.release()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(l)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> lock</span><br><span class="line">    lock = l</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    data_list = [<span class="string">'data1'</span>, <span class="string">'data2'</span>, <span class="string">'data3'</span>]</span><br><span class="line">    lock = Lock()</span><br><span class="line">    pool = Pool(<span class="number">8</span>, initializer=init, initargs=(lock,))</span><br><span class="line">    pool.map(send_request, data_list)</span><br><span class="line">    pool.close()</span><br><span class="line">    pool.join()</span><br></pre></td></tr></table></figure>
-<p><strong>更优雅的方法，使用multiprocessing的回调函数。</strong></p>
-<ul>
-<li>把写入操作抽象为单独的一个函数</li>
-<li>把进程需要写入的内容，作为返回值返回</li>
-<li>使用回调函数写入进程返回内容。</li>
-</ul>
+<p><strong>更优雅的方法，使用multiprocessing的回调函数。</strong> - 把写入操作抽象为单独的一个函数 - 把进程需要写入的内容，作为返回值返回 - 使用回调函数写入进程返回内容。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mycallback</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'result.txt'</span>, <span class="string">'a+'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.writelines(str(x))</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">worker</span><span class="params">(num)</span>:</span></span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> num</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    e1 = time.time()</span><br><span class="line">    pool = Pool()</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        pool.apply_async(worker, (i,), callback=mycallback)</span><br><span class="line"> </span><br><span class="line">    pool.close()</span><br><span class="line">    pool.join()</span><br><span class="line">    e2 = time.time()</span><br><span class="line">    print(float(e2 - e1))</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -713,7 +700,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">108</span>
+                  <span class="site-state-item-count">109</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -724,7 +711,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -806,7 +793,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Multiprocessing-Pool中-apply-apply-async-map-map-async的区别"><span class="nav-text">Multiprocessing.Pool中 apply, apply_async, map, map_async的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多进程写入同一个文件时，为了避免写入顺序混乱，有如下几种解决办法。"><span class="nav-text">多进程写入同一个文件时，为了避免写入顺序混乱，有如下几种解决办法。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#multiprocessing.pool中-apply-apply_async-map-map_async的区别"><span class="nav-text">Multiprocessing.Pool中 apply, apply_async, map, map_async的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多进程写入同一个文件时为了避免写入顺序混乱有如下几种解决办法"><span class="nav-text">多进程写入同一个文件时，为了避免写入顺序混乱，有如下几种解决办法。</span></a></li></ol></div>
             
 
           </div>
