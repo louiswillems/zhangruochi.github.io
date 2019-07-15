@@ -132,21 +132,21 @@
 <meta property="og:site_name" content="RUOCHI.AI">
 <meta property="og:description" content="Why should we care about metric">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/resources/1.png">
-<meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/resources/2.png">
-<meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/resources/3.png">
-<meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/resources/4.png">
-<meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/resources/5.png">
-<meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/resources/6.png">
+<meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/1.png">
+<meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/2.png">
+<meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/3.png">
+<meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/4.png">
+<meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/5.png">
+<meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/6.png">
 <meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/7.png">
 <meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/8.png">
 <meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/9.png">
 <meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/10.png">
-<meta property="og:updated_time" content="2019-07-14T14:31:25.197Z">
+<meta property="og:updated_time" content="2019-07-15T08:22:55.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Metrics">
 <meta name="twitter:description" content="Why should we care about metric">
-<meta name="twitter:image" content="https://zhangruochi.com/Metrics/2019/07/14/resources/1.png">
+<meta name="twitter:image" content="https://zhangruochi.com/Metrics/2019/07/14/1.png">
 
 
 
@@ -496,7 +496,7 @@
 <li>当一阶导数和二阶导数都等于0时，为驻点。</li>
 </ul>
 <h2 id="mse">MSE</h2>
-<p><img src="resources/1.png"></p>
+<p><img src="1.png"></p>
 <p>Let's start with MSE loss. It is defined as follows:</p>
 <p><span class="math display">\[ 
 MSE(y, \hat y) = \frac{1}{N} \sum_{i=1}^N (\hat y_i - y_i)^2
@@ -524,7 +524,7 @@ MSE(y, \hat y) = \frac{1}{N} \sum_{i=1}^N (\hat y_i - y_i)^2
 <p>Since second derivative <span class="math inline">\(\frac{d^2 f}{d \alpha^2}\)</span> is positive at point <span class="math inline">\(\alpha^\*\)</span>, then what we found is local minima.</p>
 <p>So, that is how it is possible to find, that optial constant for MSE metric is target mean value.</p>
 <h2 id="mae">MAE</h2>
-<p><img src="resources/2.png"></p>
+<p><img src="2.png"></p>
 <p>Similarly to the way we found optimal constant for MSE loss, we can find it for MAE.</p>
 <p><span class="math display">\[ 
 MAE(y, \hat y) = \frac{1}{N} \sum_{i=1}^N |\hat y_i - y_i|
@@ -541,10 +541,10 @@ MAE(y, \hat y) = \frac{1}{N} \sum_{i=1}^N |\hat y_i - y_i|
 g(\alpha^*) = \sum_{i=1}^N sign(\alpha^* - y_i) = 0
 \]</span></p>
 <p>Note that <span class="math inline">\(g(\alpha^*)\)</span> is piecewise-constant non-decreasing function. <span class="math inline">\(g(\alpha^*)=-1\)</span> for all calues of <span class="math inline">\(\alpha\)</span> less then mimimum <span class="math inline">\(y_i\)</span> and <span class="math inline">\(g(\alpha^\*)=1\)</span> for <span class="math inline">\(\alpha &gt; \max_i y_i\)</span>. The function "jumps" by <span class="math inline">\(\frac{2}{N}\)</span> at every point <span class="math inline">\(y_i\)</span>. Here is an example, how this function looks like for <span class="math inline">\(y = [-0.5, 0, 1, 3, 3.4]\)</span>:</p>
-<p><img src="resources/3.png"></p>
+<p><img src="3.png"></p>
 <p>Basically there are <span class="math inline">\(N\)</span> jumps of the same size, starting from <span class="math inline">\(-1\)</span> and ending at <span class="math inline">\(1\)</span>. It is clear, that you need to do about <span class="math inline">\(\frac{N}{2}\)</span> jumps to hit zero. And that happens exactly at median value of the target vector <span class="math inline">\(g(median(y))=0\)</span>. We should be careful and separate two cases: when there are even number of points and odd, but the intuition remains the same.</p>
 <h2 id="mspe-mape-msle">MSPE, MAPE, MSLE</h2>
-<p><img src="resources/4.png"> <img src="resources/5.png"> <img src="resources/6.png"></p>
+<p><img src="4.png"> <img src="5.png"> <img src="6.png"></p>
 <h1 id="classification">Classification</h1>
 <h2 id="accuracy">Accuracy</h2>
 <p><span class="math display">\[Accuracy = \frac{1}{N}\sum_{i=1}^{N}[\alpha = y_i]\]</span></p>
