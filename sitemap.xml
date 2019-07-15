@@ -2,23 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhangruochi.com/Practical-Guide-for-Kaggle-Competition/2019/07/16/</loc>
+    <loc>https://zhangruochi.com/Advanced-features/2019/07/16/</loc>
     
-    <lastmod>2019-07-15T20:29:17.033Z</lastmod>
+    <lastmod>2019-07-15T22:26:41.383Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://zhangruochi.com/Hyperparameters-tuning/2019/07/16/</loc>
+    <loc>https://zhangruochi.com/Exploratory-data-analysis/2019/07/13/</loc>
     
-    <lastmod>2019-07-15T19:23:12.901Z</lastmod>
+    <lastmod>2019-07-15T22:25:55.400Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Feature-Engineering-Introduction/2019/07/13/</loc>
+    
+    <lastmod>2019-07-15T22:25:47.569Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Metrics/2019/07/14/</loc>
     
-    <lastmod>2019-07-15T08:22:55.316Z</lastmod>
+    <lastmod>2019-07-15T22:25:38.737Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Hyperparameters-tuning/2019/07/16/</loc>
+    
+    <lastmod>2019-07-15T22:25:25.385Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Practical-Guide-for-Kaggle-Competition/2019/07/16/</loc>
+    
+    <lastmod>2019-07-15T22:24:59.563Z</lastmod>
     
   </url>
   
@@ -26,20 +47,6 @@
     <loc>https://zhangruochi.com/Mean-Encodings/2019/07/15/</loc>
     
     <lastmod>2019-07-14T19:54:20.306Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Feature-Engineering-Introduction/2019/07/13/</loc>
-    
-    <lastmod>2019-07-14T19:53:14.169Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Exploratory-data-analysis/2019/07/13/</loc>
-    
-    <lastmod>2019-07-13T17:28:19.222Z</lastmod>
     
   </url>
   

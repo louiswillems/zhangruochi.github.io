@@ -142,7 +142,7 @@
 <meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/8.png">
 <meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/9.png">
 <meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/10.png">
-<meta property="og:updated_time" content="2019-07-15T08:22:55.316Z">
+<meta property="og:updated_time" content="2019-07-15T22:25:38.737Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Metrics">
 <meta name="twitter:description" content="Why should we care about metric">
@@ -432,6 +432,28 @@
 
                 
                 
+                  , 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Competition/" itemprop="url" rel="index">
+                    <span itemprop="name">Competition</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Competition/Tricks/" itemprop="url" rel="index">
+                    <span itemprop="name">Tricks</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -471,95 +493,63 @@
       
 
       
-        <h1 id="overview">Overview</h1>
-<ol type="1">
-<li>Why there are so many metrics? – Different metrics for different problems</li>
-<li>Why should we care about metric in competitions? – It is how the competitors are ranked!</li>
+        <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><ol>
+<li>Why there are so many metrics?<br>– Different metrics for different problems</li>
+<li>Why should we care about metric in competitions?<br>– It is how the competitors are ranked!</li>
 </ol>
-<h1 id="regression">Regression</h1>
-<p>Why target mean value minimizes MSE error and why target median minimizes MAE.</p>
-<p>Suppose we have a dataset <span class="math display">\[
-\{(x\_i,y\_i)\}\_{i=1}^N
-\]</span></p>
-<p>Basically, we are given pairs: features <span class="math inline">\(x_i\)</span> and corresponding target value <span class="math inline">\(y_i \in \mathbb{R}\)</span>.</p>
-<p>We will denote vector of targets as <span class="math inline">\(y \in \mathbb{R}^N\)</span>, such that <span class="math inline">\(y_i\)</span> is target for object <span class="math inline">\(x_i\)</span>. Similarly, <span class="math inline">\(\hat y \in \mathbb{R}\)</span> denotes predictions for the objects: <span class="math inline">\(\hat y_i\)</span> for object <span class="math inline">\(x_i\)</span>.</p>
-<h2 id="first-order-derivative-and-second-order-derivative">first-order derivative and second-order derivative</h2>
-<p>设<span class="math inline">\(f(x)\)</span>在<span class="math inline">\([a,b]\)</span>上连续，在<span class="math inline">\((a,b)\)</span>内具有一阶和二阶导数，那么:</p>
+<h1 id="Regression"><a href="#Regression" class="headerlink" title="Regression"></a>Regression</h1><p>Why target mean value minimizes MSE error and why target median minimizes MAE.</p>
+<p>Suppose we have a dataset </p>
+<script type="math/tex; mode=display">
+\{(x\_i,y\_i)\}\_{i=1}^N</script><p>Basically, we are given pairs: features $x_i$ and corresponding target value $y_i \in \mathbb{R}$.  </p>
+<p>We will denote vector of targets as $y \in \mathbb{R}^N$, such that $y_i$ is target for object $x_i$. Similarly,  $\hat y \in \mathbb{R}$ denotes predictions for the objects: $\hat y_i$ for object $x_i$.    </p>
+<h2 id="first-order-derivative-and-second-order-derivative"><a href="#first-order-derivative-and-second-order-derivative" class="headerlink" title="first-order derivative and second-order derivative"></a>first-order derivative and second-order derivative</h2><p>设$f(x)$在$[a,b]$上连续，在$(a,b)$内具有一阶和二阶导数，那么:</p>
 <ul>
-<li>若在（a,b)内f''(x)&gt;0,则f(x)在[a,b]上的图形是凹的；</li>
+<li>若在（a,b)内f’’(x)&gt;0,则f(x)在[a,b]上的图形是凹的；</li>
 <li>若在（a,b)内f’‘(x)&lt;0,则f(x)在[a,b]上的图形是凸的。</li>
 </ul>
 <p>结合一阶、二阶导数可以求函数的极值。</p>
 <ul>
 <li>当一阶导数等于0，而二阶导数大于0时，为极小值点；</li>
 <li>当一阶导数等于0，而二阶导数小于0时，为极大值点；</li>
-<li>当一阶导数和二阶导数都等于0时，为驻点。</li>
+<li>当一阶导数和二阶导数都等于0时，为驻点。 </li>
 </ul>
-<h2 id="mse">MSE</h2>
-<p><img src="1.png"></p>
-<p>Let's start with MSE loss. It is defined as follows:</p>
-<p><span class="math display">\[ 
-MSE(y, \hat y) = \frac{1}{N} \sum_{i=1}^N (\hat y_i - y_i)^2
-\]</span></p>
-<p>Now, the question is: if predictions for all the objects were the same and equal to <span class="math inline">\(\alpha\)</span>: <span class="math inline">\(\hat y_i = \alpha\)</span>, what value of <span class="math inline">\(\alpha\)</span> would minimize MSE error?</p>
-<p><span class="math display">\[ 
-\min_{\alpha} f(\alpha) = \frac{1}{N} \sum_{i=1}^N (\alpha - y_i)^2
-\]</span></p>
-<p>The function <span class="math inline">\(f(\alpha)\)</span>, that we want to minimize is smooth with respect to <span class="math inline">\(\alpha\)</span>. A required condition for <span class="math inline">\(\alpha^*\)</span> to be a local optima is <span class="math display">\[
-\frac{d f}{d \alpha}\bigg|_{\alpha=\alpha^*} = 0\, .
-\]</span></p>
-<p>Let's find the points, that satisfy the condition:</p>
-<p><span class="math display">\[
-\frac{d f}{d \alpha}\bigg|_{\alpha=\alpha^*} = \frac{2}{N} \sum_{i=1}^N (\alpha^* - y_i) = 0
-\]</span></p>
-<p><span class="math display">\[
-\frac{2}{N} \sum_{i=1}^N \alpha^* - \frac{2}{N} \sum_{i=1}^N y_i = 0
-\]</span></p>
-<p><span class="math display">\[
- \alpha^* - \frac{1}{N} \sum_{i=1}^N y_i = 0
-\]</span></p>
-<p>And finally: <span class="math display">\[
- \alpha^* =  \frac{1}{N} \sum_{i=1}^N y_i
-\]</span></p>
-<p>Since second derivative <span class="math inline">\(\frac{d^2 f}{d \alpha^2}\)</span> is positive at point <span class="math inline">\(\alpha^\*\)</span>, then what we found is local minima.</p>
+<h2 id="MSE"><a href="#MSE" class="headerlink" title="MSE"></a>MSE</h2><p><img src="1.png" alt=""></p>
+<p>Let’s start with MSE loss. It is defined as follows: </p>
+<script type="math/tex; mode=display">
+MSE(y, \hat y) = \frac{1}{N} \sum_{i=1}^N (\hat y_i - y_i)^2</script><p>Now, the question is: if predictions for all the objects were the same and equal to $\alpha$:  $\hat y_i = \alpha$, what value of $\alpha$ would minimize MSE error? </p>
+<script type="math/tex; mode=display">
+\min_{\alpha} f(\alpha) = \frac{1}{N} \sum_{i=1}^N (\alpha - y_i)^2</script><p>The function $f(\alpha)$, that we want to minimize is smooth with respect to $\alpha$. A required condition for $\alpha^*$ to be a local optima is </p>
+<script type="math/tex; mode=display">
+\frac{d f}{d \alpha}\bigg|_{\alpha=\alpha^*} = 0\, .</script><p>Let’s find the points, that satisfy the condition:</p>
+<script type="math/tex; mode=display">
+\frac{d f}{d \alpha}\bigg|_{\alpha=\alpha^*} = \frac{2}{N} \sum_{i=1}^N (\alpha^* - y_i) = 0</script><script type="math/tex; mode=display">
+\frac{2}{N} \sum_{i=1}^N \alpha^* - \frac{2}{N} \sum_{i=1}^N y_i = 0</script><script type="math/tex; mode=display">
+ \alpha^* - \frac{1}{N} \sum_{i=1}^N y_i = 0</script><p>And finally:</p>
+<script type="math/tex; mode=display">
+ \alpha^* =  \frac{1}{N} \sum_{i=1}^N y_i</script><p>Since second derivative $\frac{d^2 f}{d \alpha^2}$ is positive at point $\alpha^*$, then what we found is local minima.</p>
 <p>So, that is how it is possible to find, that optial constant for MSE metric is target mean value.</p>
-<h2 id="mae">MAE</h2>
-<p><img src="2.png"></p>
+<h2 id="MAE"><a href="#MAE" class="headerlink" title="MAE"></a>MAE</h2><p><img src="2.png" alt=""></p>
 <p>Similarly to the way we found optimal constant for MSE loss, we can find it for MAE.</p>
-<p><span class="math display">\[ 
-MAE(y, \hat y) = \frac{1}{N} \sum_{i=1}^N |\hat y_i - y_i|
-\]</span></p>
-<p><span class="math display">\[ 
-\min_{\alpha} f(\alpha) = \frac{1}{N} \sum_{i=1}^N |\alpha - y_i|
-\]</span></p>
-<p>Recall that $  = sign(x)$, where <span class="math inline">\(sign\)</span> stands for <a href="https://en.wikipedia.org/wiki/Sign_function" target="_blank" rel="noopener">signum function</a> . Thus</p>
-<p><span class="math display">\[
-\frac{d f}{d \alpha}\bigg|_{\alpha=\alpha^*} = \frac{1}{N} \sum_{i=1}^N sign(\alpha^* - y_i) = 0
-\]</span></p>
-<p>So we need to find such <span class="math inline">\(\alpha^\*\)</span> that</p>
-<p><span class="math display">\[
-g(\alpha^*) = \sum_{i=1}^N sign(\alpha^* - y_i) = 0
-\]</span></p>
-<p>Note that <span class="math inline">\(g(\alpha^*)\)</span> is piecewise-constant non-decreasing function. <span class="math inline">\(g(\alpha^*)=-1\)</span> for all calues of <span class="math inline">\(\alpha\)</span> less then mimimum <span class="math inline">\(y_i\)</span> and <span class="math inline">\(g(\alpha^\*)=1\)</span> for <span class="math inline">\(\alpha &gt; \max_i y_i\)</span>. The function "jumps" by <span class="math inline">\(\frac{2}{N}\)</span> at every point <span class="math inline">\(y_i\)</span>. Here is an example, how this function looks like for <span class="math inline">\(y = [-0.5, 0, 1, 3, 3.4]\)</span>:</p>
-<p><img src="3.png"></p>
-<p>Basically there are <span class="math inline">\(N\)</span> jumps of the same size, starting from <span class="math inline">\(-1\)</span> and ending at <span class="math inline">\(1\)</span>. It is clear, that you need to do about <span class="math inline">\(\frac{N}{2}\)</span> jumps to hit zero. And that happens exactly at median value of the target vector <span class="math inline">\(g(median(y))=0\)</span>. We should be careful and separate two cases: when there are even number of points and odd, but the intuition remains the same.</p>
-<h2 id="mspe-mape-msle">MSPE, MAPE, MSLE</h2>
-<p><img src="4.png"> <img src="5.png"> <img src="6.png"></p>
-<h1 id="classification">Classification</h1>
-<h2 id="accuracy">Accuracy</h2>
-<p><span class="math display">\[Accuracy = \frac{1}{N}\sum_{i=1}^{N}[\alpha = y_i]\]</span></p>
-<p>Best constant: <strong>predict the most frequent class.</strong></p>
-<h2 id="logarithmic-loss">Logarithmic loss</h2>
-<ol type="1">
-<li>Binary: <span class="math display">\[LogLoss = -\frac{1}{N}\sum^{N}_{i=1}y_{i}log(\hat{y}_{i}) + (1 - y_i)log(1-\hat{y}_{i})\]</span></li>
-<li>Multiclass: <span class="math display">\[LogLoss = -\frac{1}{N}\sum^{N}_{i=1}\sum^{L}_{i=1}y_{il}log(\hat{y}\_{il}) \]</span></li>
+<script type="math/tex; mode=display">
+MAE(y, \hat y) = \frac{1}{N} \sum_{i=1}^N |\hat y_i - y_i|</script><script type="math/tex; mode=display">
+\min_{\alpha} f(\alpha) = \frac{1}{N} \sum_{i=1}^N |\alpha - y_i|</script><p>Recall that $ \frac{\partial |x|}{dx} = sign(x)$, where $sign$ stands for <a href="https://en.wikipedia.org/wiki/Sign_function" target="_blank" rel="noopener">signum function</a> . Thus</p>
+<script type="math/tex; mode=display">
+\frac{d f}{d \alpha}\bigg|_{\alpha=\alpha^*} = \frac{1}{N} \sum_{i=1}^N sign(\alpha^* - y_i) = 0</script><p>So we need to find such $\alpha^*$ that</p>
+<script type="math/tex; mode=display">
+g(\alpha^*) = \sum_{i=1}^N sign(\alpha^* - y_i) = 0</script><p>Note that $g(\alpha^<em>)$ is piecewise-constant non-decreasing function. $g(\alpha^</em>)=-1$ for all calues of $\alpha$ less then mimimum $y_i$ and $g(\alpha^*)=1$ for $\alpha &gt; \max_i y_i$. The function “jumps” by $\frac{2}{N}$ at every point $y_i$. Here is an example, how this function looks like for $y = [-0.5, 0, 1, 3, 3.4]$:</p>
+<p><img src="3.png" alt=""></p>
+<p>Basically there are $N$ jumps of the same size, starting from $-1$ and ending at $1$. It is clear, that you need to do about $\frac{N}{2}$ jumps to hit zero. And that happens exactly at median value of the target vector $g(median(y))=0$. We should be careful and separate two cases: when there are even number of points and odd, but the intuition remains the same. </p>
+<h2 id="MSPE-MAPE-MSLE"><a href="#MSPE-MAPE-MSLE" class="headerlink" title="MSPE, MAPE, MSLE"></a>MSPE, MAPE, MSLE</h2><p><img src="4.png" alt=""><br><img src="5.png" alt=""><br><img src="6.png" alt=""></p>
+<h1 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h1><h2 id="Accuracy"><a href="#Accuracy" class="headerlink" title="Accuracy"></a>Accuracy</h2><script type="math/tex; mode=display">Accuracy = \frac{1}{N}\sum_{i=1}^{N}[\alpha = y_i]</script><p>Best constant: <strong>predict the most frequent class.</strong></p>
+<h2 id="Logarithmic-loss"><a href="#Logarithmic-loss" class="headerlink" title="Logarithmic loss"></a>Logarithmic loss</h2><ol>
+<li>Binary:<script type="math/tex; mode=display">LogLoss = -\frac{1}{N}\sum^{N}_{i=1}y_{i}log(\hat{y}_{i}) + (1 - y_i)log(1-\hat{y}_{i})</script></li>
+<li>Multiclass:<script type="math/tex; mode=display">LogLoss = -\frac{1}{N}\sum^{N}_{i=1}\sum^{L}_{i=1}y_{il}log(\hat{y}\_{il})</script></li>
 </ol>
 <ul>
 <li>Logloss strongly penalizes completely wrong answers</li>
-<li>Best constant: set <span class="math inline">\(\alpha_{i}\)</span> to frequency of <span class="math inline">\(i-th\)</span> class.</li>
+<li>Best constant: set $\alpha_{i}$ to frequency of $i-th$ class.</li>
 </ul>
-<h2 id="area-under-roc-curve">Area under ROC curve</h2>
-<p><img src="7.png"></p>
+<h2 id="Area-under-ROC-curve"><a href="#Area-under-ROC-curve" class="headerlink" title="Area under ROC curve"></a>Area under ROC curve</h2><p><img src="7.png" alt=""></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line">fpr, tpr, thresholds = metrics.roc_curve(y_true, y_pred)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>TP: true positives</li>
@@ -567,200 +557,219 @@ g(\alpha^*) = \sum_{i=1}^N sign(\alpha^* - y_i) = 0
 <li>Best constant: All constants give same score</li>
 <li>Random predictions lead to AUC = 0.5</li>
 </ul>
-<h2 id="kappa">Kappa</h2>
-<h3 id="cohens-kappa-motivation">Cohen’s Kappa motivation</h3>
-<p><span class="math display">\[CP = 1 - \frac{1-acc}{1-p_e}\]</span></p>
-<ul>
-<li><span class="math inline">\(p_e\)</span>: what accuracy would be on average, if we randomly permute our predictions</li>
+<h2 id="Kappa"><a href="#Kappa" class="headerlink" title="Kappa"></a>Kappa</h2><h3 id="Cohen’s-Kappa-motivation"><a href="#Cohen’s-Kappa-motivation" class="headerlink" title="Cohen’s Kappa motivation"></a>Cohen’s Kappa motivation</h3><script type="math/tex; mode=display">CP = 1 - \frac{1-acc}{1-p_e}</script><ul>
+<li>$p_e$: what accuracy would be on average, if we randomly permute our predictions</li>
 </ul>
-<h3 id="weighted-kappa">Weighted Kappa</h3>
-<p>dataset: - 10 cats - 90 dogs - tigers</p>
-<ol type="1">
+<h3 id="Weighted-Kappa"><a href="#Weighted-Kappa" class="headerlink" title="Weighted Kappa"></a>Weighted Kappa</h3><p>dataset: </p>
+<ul>
+<li>10 cats</li>
+<li>90 dogs</li>
+<li>tigers</li>
+</ul>
+<ol>
 <li>Error weight matrix W</li>
 </ol>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">pred/true</th>
-<th style="text-align: left;">cat</th>
-<th style="text-align: left;">dog</th>
-<th style="text-align: left;">tiger</th>
+<tr>
+<th style="text-align:left">pred/true</th>
+<th style="text-align:left">cat</th>
+<th style="text-align:left">dog</th>
+<th style="text-align:left">tiger</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">cat</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">10</td>
+<tr>
+<td style="text-align:left">cat</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">10</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">dog</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">10</td>
+<tr>
+<td style="text-align:left">dog</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">10</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">tiger</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">0</td>
+<tr>
+<td style="text-align:left">tiger</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
 </tr>
 </tbody>
 </table>
+</div>
 <p><strong>you can define this by youself</strong></p>
-<ol start="2" type="1">
+<ol>
 <li>Confision matrix C</li>
 </ol>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">pred/true</th>
-<th style="text-align: left;">cat</th>
-<th style="text-align: left;">dog</th>
-<th style="text-align: left;">tiger</th>
+<tr>
+<th style="text-align:left">pred/true</th>
+<th style="text-align:left">cat</th>
+<th style="text-align:left">dog</th>
+<th style="text-align:left">tiger</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">cat</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">3</td>
+<tr>
+<td style="text-align:left">cat</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">3</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">dog</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">88</td>
-<td style="text-align: left;">5</td>
+<tr>
+<td style="text-align:left">dog</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">88</td>
+<td style="text-align:left">5</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">tiger</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">10</td>
-<td style="text-align: left;">12</td>
+<tr>
+<td style="text-align:left">tiger</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">12</td>
 </tr>
 </tbody>
 </table>
-<ol start="3" type="1">
+</div>
+<ol>
 <li>weighted error</li>
 </ol>
-<p><span class="math display">\[weighted \, error = \frac{1}{const}\sum_{i,j}C_{ij}W_{ij}\]</span></p>
-<ol start="4" type="1">
+<script type="math/tex; mode=display">weighted \, error = \frac{1}{const}\sum_{i,j}C_{ij}W_{ij}</script><ol>
 <li>weighted Kappa</li>
 </ol>
-<p><span class="math display">\[weighted \, kappa = 1 - \frac{weighted \, error}{weighted \, baseline \, error} \]</span></p>
-<ol start="5" type="1">
+<script type="math/tex; mode=display">weighted \, kappa = 1 - \frac{weighted \, error}{weighted \, baseline \, error}</script><ol>
 <li>Quadratic and Linear Weighted Kappa</li>
 </ol>
-<p>if the target is orderd label, the weighted martix can simply get by follows: <img src="8.png"></p>
+<p>if the target is orderd label, the weighted martix can simply get by follows:<br><img src="8.png" alt=""></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">soft_kappa_grad_hess</span><span class="params">(y, p)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        Returns first and second derivatives of the objective with respect to predictions `p`. </span></span><br><span class="line"><span class="string">        `y` is a vector of corresponding target labels.  </span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    norm = p.dot(p) + y.dot(y)</span><br><span class="line">    </span><br><span class="line">    grad = <span class="number">-2</span> * y / norm + <span class="number">4</span> * p * np.dot(y, p) / (norm ** <span class="number">2</span>)</span><br><span class="line">    hess = <span class="number">8</span> * p * y / (norm ** <span class="number">2</span>) + <span class="number">4</span> * np.dot(y, p) / (norm ** <span class="number">2</span>)  - (<span class="number">16</span> * p ** <span class="number">2</span> * np.dot(y, p)) / (norm ** <span class="number">3</span>)</span><br><span class="line">    <span class="keyword">return</span> grad, hess</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">soft_kappa</span><span class="params">(preds, dtrain)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        Having predictions `preds` and targets `dtrain.get_label()` this function coumputes soft kappa loss.</span></span><br><span class="line"><span class="string">        NOTE, that it assumes `mean(target) = 0`.</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    target = dtrain.get_label()</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'kappa'</span> ,  <span class="number">-2</span> * target.dot(preds) / (target.dot(target) + preds.dot(preds))</span><br></pre></td></tr></table></figure>
-<h1 id="general-approaches-for-metrics-optimization">General approaches for metrics optimization</h1>
-<ul>
+<h1 id="General-approaches-for-metrics-optimization"><a href="#General-approaches-for-metrics-optimization" class="headerlink" title="General approaches for metrics optimization"></a>General approaches for metrics optimization</h1><ul>
 <li>Target metric is what we want to optimize</li>
 <li>Optimization loss is what model optimizes</li>
 </ul>
 <p>The approaches can be broadly divided into several categories, depending on the metric we need to optimize. Some metrics can be optimized directly.</p>
-<p>Approaches in general: – Just run the right model(given the metric we need to optimize) - MSE, Logloss – Preprocess train and optimize another metric - MSPE, MAPE, RMSLE, ... – Optimize another metric,postprocess predictions - Accuracy, Kappa – Write a custom loss function - Any, if you can – Optimize another metric,<strong>use early stopping</strong> <img src="9.png"></p>
-<h2 id="regression-metrics-optimization">Regression metrics optimization</h2>
-<ol type="1">
-<li>MSE and MAE &gt; just find the right model</li>
+<p>Approaches in general:<br>– Just run the right model(given the metric we need to optimize)</p>
+<pre><code>- MSE, Logloss
+</code></pre><p>– Preprocess train and optimize another metric</p>
+<pre><code>- MSPE, MAPE, RMSLE, ...
+</code></pre><p>– Optimize another metric,postprocess predictions </p>
+<pre><code>- Accuracy, Kappa
+</code></pre><p>– Write a custom loss function</p>
+<pre><code>- Any, if you can
+</code></pre><p>– Optimize another metric,<strong>use early stopping</strong><br><img src="9.png" alt=""></p>
+<h2 id="Regression-metrics-optimization"><a href="#Regression-metrics-optimization" class="headerlink" title="Regression metrics optimization"></a>Regression metrics optimization</h2><ol>
+<li>MSE and MAE<blockquote>
+<p>just find the right model</p>
+</blockquote>
+</li>
 <li>MSPE and MAPE</li>
 </ol>
 <ul>
-<li>Use weights for samples (<code>sample_weights</code>)
-<ul>
+<li>Use weights for samples (<code>sample_weights</code>)<ul>
 <li>And use MSE (MAE)</li>
-<li>Not every library accepts sample weights
-<ul>
+<li>Not every library accepts sample weights<ul>
 <li>XGBoost,LightGBMaccept</li>
 <li>Easy to implement if not supported</li>
-</ul></li>
-</ul></li>
-<li>Resample the train set
-<ul>
+</ul>
+</li>
+</ul>
+</li>
+<li>Resample the train set<ul>
 <li>df.sample(weights=sample_weights)</li>
 <li>And use any model that optimizes MSE (MAE)</li>
-</ul></li>
 </ul>
-<ol start="3" type="1">
+</li>
+</ul>
+<ol>
 <li>(R)MSLE</li>
 </ol>
 <ul>
-<li>Transform target for the train set: <span class="math display">\[z_i = log(y_i + 1) \]</span></li>
+<li>Transform target for the train set:<script type="math/tex; mode=display">z_i = log(y_i + 1)</script></li>
 <li>Fit a model with MSE loss:</li>
-<li>Transform predictions back: <span class="math display">\[\hat{y}_i = exp(\hat{z}_{i}) - 1\]</span></li>
+<li>Transform predictions back:<script type="math/tex; mode=display">\hat{y}_i = exp(\hat{z}_{i}) - 1</script></li>
 </ul>
-<ol start="4" type="1">
-<li>AUC <span class="math display">\[AUC = \frac{1 - # \ correct \ ordered \  pairs}{total \ number \ pairs}\]</span> <img src="10.png"></li>
+<ol>
+<li>AUC<script type="math/tex; mode=display">AUC = \frac{1 - # \ correct \ ordered \  pairs}{total \ number \ pairs}</script><img src="10.png" alt=""></li>
 </ol>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">ID</th>
-<th style="text-align: left;">LABEL</th>
-<th style="text-align: left;">TARGET</th>
+<tr>
+<th style="text-align:left">ID</th>
+<th style="text-align:left">LABEL</th>
+<th style="text-align:left">TARGET</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">A</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">0.1</td>
+<tr>
+<td style="text-align:left">A</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0.1</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">B</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">0.4</td>
+<tr>
+<td style="text-align:left">B</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0.4</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">C</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">0.35</td>
+<tr>
+<td style="text-align:left">C</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0.35</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">D</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">0.8</td>
+<tr>
+<td style="text-align:left">D</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0.8</td>
 </tr>
 </tbody>
 </table>
-<p>假设有4条样本。2个正样本，2个负样本，那么M*N=4。即总共有4个样本对。分别是：（D,B）,（D,A）,(C,B),（C,A）。在（D,B）样本对中，正样本D预测的概率大于负样本B预测的概率（也就是D的得分比B高），记为1。同理，对于（C,B）。正样本C预测的概率小于负样本C预测的概率，记为0. 最后可以算得，总共有3个符合正样本得分高于负样本得分，故最后的AUC为: <span class="math display">\[auc = \frac{1+1+1}{4} = 0.75\]</span></p>
-<ul>
+</div>
+<p>假设有4条样本。2个正样本，2个负样本，那么M*N=4。即总共有4个样本对。分别是：（D,B）,（D,A）,(C,B),（C,A）。在（D,B）样本对中，正样本D预测的概率大于负样本B预测的概率（也就是D的得分比B高），记为1。同理，对于（C,B）。正样本C预测的概率小于负样本C预测的概率，记为0. 最后可以算得，总共有3个符合正样本得分高于负样本得分，故最后的AUC为:</p>
+<script type="math/tex; mode=display">auc = \frac{1+1+1}{4} = 0.75</script><ul>
 <li>Pointwise loss</li>
 <li>Logloss</li>
 </ul>
-<ol start="5" type="1">
-<li>Quadratic weighted Kappa
-<ul>
-<li>Optimize MSE <span class="math display">\[kappa = 1 - \frac{mse} / {hard \ to deal \ with \ part}\]</span></li>
-<li>Find right thresholds – Bad:np.round(predictions) − Better: optimize thresholds</li>
-</ul></li>
+<ol>
+<li>Quadratic weighted Kappa<ul>
+<li>Optimize MSE<script type="math/tex; mode=display">kappa = 1 - \frac{mse} / {hard \ to deal \ with \ part}</script></li>
+<li>Find right thresholds<br>  – Bad:np.round(predictions)<br>  − Better: optimize thresholds</li>
+</ul>
+</li>
 </ol>
-<h2 id="probability-calibration">Probability Calibration</h2>
-<ul>
+<h2 id="Probability-Calibration"><a href="#Probability-Calibration" class="headerlink" title="Probability Calibration"></a>Probability Calibration</h2><ul>
 <li>logistic regression，在拟合参数的时候采用的是“最大似然法”来直接优化log-loss,因此，logistic function本身返回的就是经过校验的probability。</li>
 <li>Guassian_NaiveBayes，其应用有个前提假设：所有的特征向量是相互独立的。而在实际的工作中，特征向量集难免有冗余，彼此相关，因此利用Guassian_NaiveBayes拟合模型时，往往会<strong>over-confidence</strong>，所得probability多倾向于0或1。</li>
 <li>RandomForest，与Guassian_NaiveBayes正好相反，由于其分类要旨是取所有分类器的平均，或采用服从多数的策略，因此，RandomForest往往会<strong>under-confidence</strong>，所得probability多在(0，1)之间。</li>
 <li>SupportVector，由于受到hard margin的影响，其预测probability多集中在(0，1)之间，与RandomForest相似，为<strong>under-confidence</strong>的情况。</li>
 </ul>
 <p>为了解决上述模型的over-confidence，或under-confidence的情况，我们可以用“概率校验”来对prediction label进行概率估计。</p>
-<ol type="1">
+<ol>
 <li>non-parameter isotonic regression：isotonic calibration is preferable for non-sigmoid calibration curves and in situations where large amounts of data are available for calibration.</li>
 </ol>
 <ul>
 <li>Just fit Isotonic Regression to your predictions(like in stacking)</li>
 </ul>
-<ol start="2" type="1">
+<ol>
 <li>Platt’s scaling（sigmoid function）: sigmoid calibration is preferable in cases where the calibration curve is sigmoid and where there is limited calibration data.</li>
 </ol>
 <ul>
 <li>JustfitLogisticRegressiontoyourpredictions(like in stacking)</li>
 </ul>
-<ol start="3" type="1">
-<li>Stacking − Just fit XGBoost or neural net to your predictions</li>
+<ol>
+<li>Stacking<br>− Just fit XGBoost or neural net to your predictions</li>
 </ol>
-<p><strong>概率校验</strong>的操作方法如下： 1. 将dataset分为train和test（可用cross_validation.train_test_split）。 2. 用test去拟合校验概率模型； 3. 用train去拟合机器学习模型； 4. 将校验概率模型应用于已经拟合好的机器学习模型上。对机器学习模型的prediction结果进行调整。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sklearn中的实现：sklearn.calibration.CalibratedClassifierCV</span></span><br><span class="line"><span class="comment"># 主要参数：</span></span><br><span class="line"><span class="comment"># base_estimator ：初始分类函数</span></span><br><span class="line"><span class="comment"># method ：校准采用的方法。取值‘sigmoid’ 或者 ‘isotonic’</span></span><br><span class="line"><span class="comment"># cv ：交叉验证的折叠次数。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Gaussian Naive-Bayes with no calibration</span></span><br><span class="line">clf = GaussianNB()</span><br><span class="line">clf.fit(X_train, y_train)  <span class="comment"># GaussianNB itself does not support sample-weights</span></span><br><span class="line">prob_pos_clf = clf.predict_proba(X_test)[:, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Gaussian Naive-Bayes with isotonic calibration</span></span><br><span class="line">clf_isotonic = CalibratedClassifierCV(clf, cv=<span class="number">2</span>, method=<span class="string">'isotonic'</span>)</span><br><span class="line">clf_isotonic.fit(X_train, y_train, sw_train)</span><br><span class="line">prob_pos_isotonic = clf_isotonic.predict_proba(X_test)[:, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Gaussian Naive-Bayes with sigmoid calibration</span></span><br><span class="line">clf_sigmoid = CalibratedClassifierCV(clf, cv=<span class="number">2</span>, method=<span class="string">'sigmoid'</span>)</span><br><span class="line">clf_sigmoid.fit(X_train, y_train, sw_train)</span><br><span class="line">prob_pos_sigmoid = clf_sigmoid.predict_proba(X_test)[:, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Brier scores: (the smaller the better)"</span>)</span><br><span class="line"></span><br><span class="line">clf_score = brier_score_loss(y_test, prob_pos_clf, sw_test)</span><br><span class="line">print(<span class="string">"No calibration: %1.3f"</span> % clf_score)</span><br><span class="line"></span><br><span class="line">clf_isotonic_score = brier_score_loss(y_test, prob_pos_isotonic, sw_test)</span><br><span class="line">print(<span class="string">"With isotonic calibration: %1.3f"</span> % clf_isotonic_score)</span><br><span class="line"></span><br><span class="line">clf_sigmoid_score = brier_score_loss(y_test, prob_pos_sigmoid, sw_test)</span><br><span class="line">print(<span class="string">"With sigmoid calibration: %1.3f"</span> % clf_sigmoid_score)</span><br></pre></td></tr></table></figure></p>
+<p><strong>概率校验</strong>的操作方法如下：</p>
+<ol>
+<li>将dataset分为train和test（可用cross_validation.train_test_split）。</li>
+<li>用test去拟合校验概率模型；</li>
+<li>用train去拟合机器学习模型；</li>
+<li>将校验概率模型应用于已经拟合好的机器学习模型上。对机器学习模型的prediction结果进行调整。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sklearn中的实现：sklearn.calibration.CalibratedClassifierCV</span></span><br><span class="line"><span class="comment"># 主要参数：</span></span><br><span class="line"><span class="comment"># base_estimator ：初始分类函数</span></span><br><span class="line"><span class="comment"># method ：校准采用的方法。取值‘sigmoid’ 或者 ‘isotonic’</span></span><br><span class="line"><span class="comment"># cv ：交叉验证的折叠次数。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Gaussian Naive-Bayes with no calibration</span></span><br><span class="line">clf = GaussianNB()</span><br><span class="line">clf.fit(X_train, y_train)  <span class="comment"># GaussianNB itself does not support sample-weights</span></span><br><span class="line">prob_pos_clf = clf.predict_proba(X_test)[:, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Gaussian Naive-Bayes with isotonic calibration</span></span><br><span class="line">clf_isotonic = CalibratedClassifierCV(clf, cv=<span class="number">2</span>, method=<span class="string">'isotonic'</span>)</span><br><span class="line">clf_isotonic.fit(X_train, y_train, sw_train)</span><br><span class="line">prob_pos_isotonic = clf_isotonic.predict_proba(X_test)[:, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Gaussian Naive-Bayes with sigmoid calibration</span></span><br><span class="line">clf_sigmoid = CalibratedClassifierCV(clf, cv=<span class="number">2</span>, method=<span class="string">'sigmoid'</span>)</span><br><span class="line">clf_sigmoid.fit(X_train, y_train, sw_train)</span><br><span class="line">prob_pos_sigmoid = clf_sigmoid.predict_proba(X_test)[:, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Brier scores: (the smaller the better)"</span>)</span><br><span class="line"></span><br><span class="line">clf_score = brier_score_loss(y_test, prob_pos_clf, sw_test)</span><br><span class="line">print(<span class="string">"No calibration: %1.3f"</span> % clf_score)</span><br><span class="line"></span><br><span class="line">clf_isotonic_score = brier_score_loss(y_test, prob_pos_isotonic, sw_test)</span><br><span class="line">print(<span class="string">"With isotonic calibration: %1.3f"</span> % clf_isotonic_score)</span><br><span class="line"></span><br><span class="line">clf_sigmoid_score = brier_score_loss(y_test, prob_pos_sigmoid, sw_test)</span><br><span class="line">print(<span class="string">"With sigmoid calibration: %1.3f"</span> % clf_sigmoid_score)</span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
     </div>
@@ -940,7 +949,7 @@ g(\alpha^*) = \sum_{i=1}^N sign(\alpha^* - y_i) = 0
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">109</span>
+                  <span class="site-state-item-count">110</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1033,7 +1042,7 @@ g(\alpha^*) = \sum_{i=1}^N sign(\alpha^* - y_i) = 0
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#overview"><span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#regression"><span class="nav-text">Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#first-order-derivative-and-second-order-derivative"><span class="nav-text">first-order derivative and second-order derivative</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mse"><span class="nav-text">MSE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mae"><span class="nav-text">MAE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mspe-mape-msle"><span class="nav-text">MSPE, MAPE, MSLE</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#classification"><span class="nav-text">Classification</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#accuracy"><span class="nav-text">Accuracy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#logarithmic-loss"><span class="nav-text">Logarithmic loss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#area-under-roc-curve"><span class="nav-text">Area under ROC curve</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kappa"><span class="nav-text">Kappa</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cohens-kappa-motivation"><span class="nav-text">Cohen’s Kappa motivation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#weighted-kappa"><span class="nav-text">Weighted Kappa</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#general-approaches-for-metrics-optimization"><span class="nav-text">General approaches for metrics optimization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#regression-metrics-optimization"><span class="nav-text">Regression metrics optimization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#probability-calibration"><span class="nav-text">Probability Calibration</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Overview"><span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Regression"><span class="nav-text">Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#first-order-derivative-and-second-order-derivative"><span class="nav-text">first-order derivative and second-order derivative</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MSE"><span class="nav-text">MSE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MAE"><span class="nav-text">MAE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MSPE-MAPE-MSLE"><span class="nav-text">MSPE, MAPE, MSLE</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Classification"><span class="nav-text">Classification</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Accuracy"><span class="nav-text">Accuracy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logarithmic-loss"><span class="nav-text">Logarithmic loss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Area-under-ROC-curve"><span class="nav-text">Area under ROC curve</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kappa"><span class="nav-text">Kappa</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cohen’s-Kappa-motivation"><span class="nav-text">Cohen’s Kappa motivation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Weighted-Kappa"><span class="nav-text">Weighted Kappa</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#General-approaches-for-metrics-optimization"><span class="nav-text">General approaches for metrics optimization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Regression-metrics-optimization"><span class="nav-text">Regression metrics optimization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Probability-Calibration"><span class="nav-text">Probability Calibration</span></a></li></ol></li></ol></div>
             
 
           </div>

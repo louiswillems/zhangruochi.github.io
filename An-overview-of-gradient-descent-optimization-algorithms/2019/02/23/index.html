@@ -124,19 +124,19 @@
 
 
 
-<meta name="description" content="Reference from An overview of gradient descent optimization algorithms Batch gradient descent \[\theta = \theta - \eta * \triangledown_{\theta}J(\theta)\] 123for i in range(nb_epochs):  params_grad =">
+<meta name="description" content="Reference from An overview of gradient descent optimization algorithms Batch gradient descent\theta = \theta - \eta * \triangledown_{\theta}J(\theta)123for i in range(nb_epochs):  params_grad = evalua">
 <meta name="keywords" content="gradient descent">
 <meta property="og:type" content="article">
 <meta property="og:title" content="An overview of gradient descent optimization algorithms">
 <meta property="og:url" content="https://zhangruochi.com/An-overview-of-gradient-descent-optimization-algorithms/2019/02/23/index.html">
 <meta property="og:site_name" content="RUOCHI.AI">
-<meta property="og:description" content="Reference from An overview of gradient descent optimization algorithms Batch gradient descent \[\theta = \theta - \eta * \triangledown_{\theta}J(\theta)\] 123for i in range(nb_epochs):  params_grad =">
+<meta property="og:description" content="Reference from An overview of gradient descent optimization algorithms Batch gradient descent\theta = \theta - \eta * \triangledown_{\theta}J(\theta)123for i in range(nb_epochs):  params_grad = evalua">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/An-overview-of-gradient-descent-optimization-algorithms/2019/02/23/image1.png">
 <meta property="og:updated_time" content="2019-07-05T10:10:02.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="An overview of gradient descent optimization algorithms">
-<meta name="twitter:description" content="Reference from An overview of gradient descent optimization algorithms Batch gradient descent \[\theta = \theta - \eta * \triangledown_{\theta}J(\theta)\] 123for i in range(nb_epochs):  params_grad =">
+<meta name="twitter:description" content="Reference from An overview of gradient descent optimization algorithms Batch gradient descent\theta = \theta - \eta * \triangledown_{\theta}J(\theta)123for i in range(nb_epochs):  params_grad = evalua">
 <meta name="twitter:image" content="https://zhangruochi.com/An-overview-of-gradient-descent-optimization-algorithms/2019/02/23/image1.png">
 
 
@@ -470,87 +470,57 @@
 
       
         <p><strong>Reference from <a href="https://arxiv.org/abs/1609.04747" target="_blank" rel="noopener">An overview of gradient descent optimization algorithms</a></strong></p>
-<h2 id="batch-gradient-descent">Batch gradient descent</h2>
-<p><span class="math display">\[\theta = \theta - \eta * \triangledown_{\theta}J(\theta)\]</span></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(nb_epochs):</span><br><span class="line">  params_grad = evaluate_gradient(loss_function, data, params)</span><br><span class="line">  params = params - learning_rate * params_grad</span><br></pre></td></tr></table></figure>
+<h2 id="Batch-gradient-descent"><a href="#Batch-gradient-descent" class="headerlink" title="Batch gradient descent"></a>Batch gradient descent</h2><script type="math/tex; mode=display">\theta = \theta - \eta * \triangledown_{\theta}J(\theta)</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(nb_epochs):</span><br><span class="line">  params_grad = evaluate_gradient(loss_function, data, params)</span><br><span class="line">  params = params - learning_rate * params_grad</span><br></pre></td></tr></table></figure>
 <ul>
 <li>Batch gradient descent is guaranteed to converge to the global minimum for convex error surfaces and to a local minimum for non-convex surfaces.</li>
 </ul>
-<h2 id="stochastic-gradient-descent">Stochastic gradient descent</h2>
-<p><span class="math display">\[\theta = \theta - \eta * \triangledown_{\theta}J(\theta; x^{i};y^{i})\]</span></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(nb_epochs):</span><br><span class="line">  np.random.shuffle(data)</span><br><span class="line">  <span class="keyword">for</span> example <span class="keyword">in</span> data:</span><br><span class="line">    params_grad = evaluate_gradient(loss_function, example, params)</span><br><span class="line">    params = params - learning_rate * params_grad</span><br></pre></td></tr></table></figure>
+<h2 id="Stochastic-gradient-descent"><a href="#Stochastic-gradient-descent" class="headerlink" title="Stochastic gradient descent"></a>Stochastic gradient descent</h2><script type="math/tex; mode=display">\theta = \theta - \eta * \triangledown_{\theta}J(\theta; x^{i};y^{i})</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(nb_epochs):</span><br><span class="line">  np.random.shuffle(data)</span><br><span class="line">  <span class="keyword">for</span> example <span class="keyword">in</span> data:</span><br><span class="line">    params_grad = evaluate_gradient(loss_function, example, params)</span><br><span class="line">    params = params - learning_rate * params_grad</span><br></pre></td></tr></table></figure>
 <ul>
 <li>SGD performs frequent updates with a high variance that cause the objective function to fluctuate heavily as in Image 1.</li>
-<li><img src="image1.png" title="fig:" alt="image1.png"></li>
+<li><img src="image1.png" alt="image1.png"></li>
 <li>SGD shows the same convergence behaviour as batch gradient descent, almost certainly converging to a local or the global minimum for non-convex and convex optimization respectively.</li>
 </ul>
-<h2 id="mini-batch-gradient-descent">Mini-batch gradient descent</h2>
-<p><span class="math display">\[\theta = \theta - \eta * \triangledown_{\theta}J(\theta; x^{i:i+n};y^{i:i+n})\]</span></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(nb_epochs):</span><br><span class="line">  np.random.shuffle(data)</span><br><span class="line">  <span class="keyword">for</span> batch <span class="keyword">in</span> get_batches(data, batch_size=<span class="number">50</span>):</span><br><span class="line">    params_grad = evaluate_gradient(loss_function, batch, params)</span><br><span class="line">    params = params - learning_rate * params_grad</span><br></pre></td></tr></table></figure>
+<h2 id="Mini-batch-gradient-descent"><a href="#Mini-batch-gradient-descent" class="headerlink" title="Mini-batch gradient descent"></a>Mini-batch gradient descent</h2><script type="math/tex; mode=display">\theta = \theta - \eta * \triangledown_{\theta}J(\theta; x^{i:i+n};y^{i:i+n})</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(nb_epochs):</span><br><span class="line">  np.random.shuffle(data)</span><br><span class="line">  <span class="keyword">for</span> batch <span class="keyword">in</span> get_batches(data, batch_size=<span class="number">50</span>):</span><br><span class="line">    params_grad = evaluate_gradient(loss_function, batch, params)</span><br><span class="line">    params = params - learning_rate * params_grad</span><br></pre></td></tr></table></figure>
 <ul>
 <li>Common mini-batch sizes range between 50 and 256, but can vary for different applications</li>
 <li>Mini-batch gradient descent is typically the algorithm of choice when training a neural network and the term SGD usually is employed also when mini-batches are used</li>
 </ul>
-<h2 id="challenges">Challenges</h2>
-<ul>
+<h2 id="Challenges"><a href="#Challenges" class="headerlink" title="Challenges"></a>Challenges</h2><ul>
 <li>Choosing a proper learning rate can be difficult</li>
 <li>the same learning rate applies to all parameter updates</li>
-<li>Learning rate schedules
-<ul>
+<li>Learning rate schedules<ul>
 <li>ry to adjust the learning rate during training by e.g. annealing</li>
 <li>reducing the learning rate according to a pre-defined schedule or when the change in objective between epochs falls below a threshold</li>
-</ul></li>
+</ul>
+</li>
 <li>Another key challenge of minimizing highly non-convex error functions common for neural networks is avoiding getting trapped in their numerous suboptimal local minima</li>
 </ul>
-<h2 id="momentum">Momentum</h2>
-<p>Momentum is a method that helps accelerate SGD in the relevant direction and dampens oscillations as can be seen in Image 3. It does this by adding a fraction of the update vector of the past time step to the current update vector:</p>
-<p><span class="math display">\[\begin{align*}
-&amp; v_{t} = \gamma v_{t-1} +  \eta * \triangledown_{\theta}J(\theta) \\
-&amp; \theta = \theta - v_{t}\\
-\end{align*}\]</span></p>
+<h2 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h2><p>Momentum is a method that helps accelerate SGD in the relevant direction and dampens oscillations as can be seen in Image 3. It does this by adding a fraction of the update vector of the past time step to the current update vector:</p>
+<p>\begin{align<em>}<br>&amp; v<em>{t} = \gamma v</em>{t-1} +  \eta </em> \triangledown<em>{\theta}J(\theta) \<br>&amp; \theta = \theta - v</em>{t}\<br>\end{align*}</p>
 <ul>
-<li>The momentum term <span class="math inline">\(\gamma\)</span> is usually set to 0.9 or a similar value.</li>
+<li>The momentum term $\gamma$ is usually set to 0.9 or a similar value.</li>
 <li>The ball accumulates momentum as it rolls downhill, becoming faster and faster on the way</li>
 </ul>
-<h2 id="nesterov-accelerated-gradient">Nesterov accelerated gradient</h2>
-<p><span class="math display">\[\begin{align*}
-&amp; v_{t} = \gamma v_{t-1} +  \eta * \triangledown_{\theta}J(\theta - \gamma * m) \\
-&amp; \theta = \theta - v_{t}\\
-\end{align*}\]</span></p>
+<h2 id="Nesterov-accelerated-gradient"><a href="#Nesterov-accelerated-gradient" class="headerlink" title="Nesterov accelerated gradient"></a>Nesterov accelerated gradient</h2><p>\begin{align<em>}<br>&amp; v<em>{t} = \gamma v</em>{t-1} +  \eta </em> \triangledown<em>{\theta}J(\theta - \gamma * m) \<br>&amp; \theta = \theta - v</em>{t}\<br>\end{align*}</p>
 <ul>
-<li>既然参数要沿着 <span class="math inline">\(\theta - \gamma * m\)</span>更新，那就先先计算未来位置的梯度</li>
+<li>既然参数要沿着 $\theta - \gamma * m$更新，那就先先计算未来位置的梯度</li>
 <li>This anticipatory update prevents us from going too fast and results in increased responsiveness, which has significantly increased the performance of RNNs on a number of tasks</li>
 </ul>
-<h2 id="adagrad">Adagrad</h2>
-<p><span class="math display">\[\begin{align*}
-&amp; s = s + \triangledown J(\theta) \bigodot \triangledown J(\theta) \\
-&amp; \theta = \theta - \frac{\eta}{\sqrt{s + \epsilon}} \bigodot \triangledown J(\theta) \\
-\end{align*}\]</span></p>
+<h2 id="Adagrad"><a href="#Adagrad" class="headerlink" title="Adagrad"></a>Adagrad</h2><p>\begin{align<em>}<br>&amp; s = s + \triangledown J(\theta) \bigodot \triangledown J(\theta) \<br>&amp; \theta = \theta - \frac{\eta}{\sqrt{s + \epsilon}} \bigodot \triangledown J(\theta) \<br>\end{align</em>}</p>
 <ul>
-<li>One of Adagrad's main benefits is that it eliminates the need to manually tune the learning rate</li>
-<li>Adagrad modifies the general learning rate <span class="math inline">\(\gamma\)</span> at each time step t for every parameter <span class="math inline">\(\theta_{i}\)</span> based on the past gradients that have been computed for <span class="math inline">\(\theta_{i}\)</span></li>
+<li>One of Adagrad’s main benefits is that it eliminates the need to manually tune the learning rate</li>
+<li>Adagrad modifies the general learning rate $\gamma$ at each time step t for every parameter $\theta<em>{i}$ based on the past gradients that have been computed for $\theta</em>{i}$</li>
 </ul>
-<h2 id="rmsprop">RMSprop</h2>
-<p><span class="math display">\[\begin{align*}
-&amp; v_{t} = \gamma v_{t-1} + (1-\gamma) * \triangledown J(\theta) \bigodot \triangledown J(\theta) \\
-&amp; \theta = \theta - v_{t} \\
-\end{align*}\]</span></p>
+<h2 id="RMSprop"><a href="#RMSprop" class="headerlink" title="RMSprop"></a>RMSprop</h2><p>\begin{align<em>}<br>&amp; v<em>{t} = \gamma v</em>{t-1} + (1-\gamma) </em> \triangledown J(\theta) \bigodot \triangledown J(\theta) \<br>&amp; \theta = \theta - v_{t} \<br>\end{align*}</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.train.RMSPropOptimizer(learning_rate=learning_rate, momentum=<span class="number">0.9</span>, decay=<span class="number">0.9</span>, epsilon=<span class="number">1e-10</span>)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>加入Momentum，主要是解决学习速率过快衰减的问题</li>
-<li>RMSprop as well divides the learning rate by an exponentially decaying average of squared gradients. Hinton suggests <span class="math inline">\(\gamma\)</span> to be set to 0.9, while a good default value for the learning rate <span class="math inline">\(\eta\)</span> is 0.001.</li>
+<li>RMSprop as well divides the learning rate by an exponentially decaying average of squared gradients. Hinton suggests $\gamma$ to be set to 0.9, while a good default value for the learning rate $\eta$ is 0.001.</li>
 </ul>
-<h2 id="adaptive-moment-estimation-adam">Adaptive moment estimation (Adam)</h2>
-<p><span class="math display">\[\begin{align*}
-&amp; m = \beta_{1} * m + (1-\beta_{1}) * \triangledown J(\theta) \\
-&amp; s = \beta_{2} * s + (1-\beta_{2}) * \triangledown J(\theta) \bigodot \triangledown J(\theta) \\
-&amp; m = \frac{m}{1-\beta^{t}_{1}} \\
-&amp; s = \frac{s}{1-\beta^{t}_{2}} \\
-&amp; \theta = \theta - \frac{\eta}{\sqrt{s + \epsilon}} \bigodot m
-\end{align*}\]</span></p>
+<h2 id="Adaptive-moment-estimation-Adam"><a href="#Adaptive-moment-estimation-Adam" class="headerlink" title="Adaptive moment estimation (Adam)"></a>Adaptive moment estimation (Adam)</h2><p>\begin{align<em>}<br>&amp; m = \beta_{1} </em> m + (1-\beta<em>{1}) * \triangledown J(\theta) \<br>&amp; s = \beta</em>{2} <em> s + (1-\beta_{2}) </em> \triangledown J(\theta) \bigodot \triangledown J(\theta) \<br>&amp; m = \frac{m}{1-\beta^{t}<em>{1}} \<br>&amp; s = \frac{s}{1-\beta^{t}</em>{2}} \<br>&amp; \theta = \theta - \frac{\eta}{\sqrt{s + \epsilon}} \bigodot m<br>\end{align*}</p>
 <ul>
 <li>其结合了Momentum和RMSprop算法的思想。相比Momentum算法，其学习速率是自适应的，而相比RMSprop，其增加了冲量项, 第三和第四项主要是为了放大它们</li>
-<li>The authors propose default values of 0.9 for <span class="math inline">\(\beta1\)</span>, 0.9999 for <span class="math inline">\(\beta2\)</span> and <span class="math inline">\(10^{-8}\)</span> for <span class="math inline">\(\epsilon\)</span></li>
+<li>The authors propose default values of 0.9 for $\beta1$, 0.9999 for $\beta2$ and $10^{-8}$ for $\epsilon$</li>
 </ul>
 
       
@@ -737,7 +707,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">109</span>
+                  <span class="site-state-item-count">110</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -830,7 +800,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#batch-gradient-descent"><span class="nav-text">Batch gradient descent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stochastic-gradient-descent"><span class="nav-text">Stochastic gradient descent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mini-batch-gradient-descent"><span class="nav-text">Mini-batch gradient descent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#challenges"><span class="nav-text">Challenges</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#momentum"><span class="nav-text">Momentum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nesterov-accelerated-gradient"><span class="nav-text">Nesterov accelerated gradient</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adagrad"><span class="nav-text">Adagrad</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rmsprop"><span class="nav-text">RMSprop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adaptive-moment-estimation-adam"><span class="nav-text">Adaptive moment estimation (Adam)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Batch-gradient-descent"><span class="nav-text">Batch gradient descent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stochastic-gradient-descent"><span class="nav-text">Stochastic gradient descent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mini-batch-gradient-descent"><span class="nav-text">Mini-batch gradient descent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Challenges"><span class="nav-text">Challenges</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Momentum"><span class="nav-text">Momentum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nesterov-accelerated-gradient"><span class="nav-text">Nesterov accelerated gradient</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adagrad"><span class="nav-text">Adagrad</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RMSprop"><span class="nav-text">RMSprop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adaptive-moment-estimation-Adam"><span class="nav-text">Adaptive moment estimation (Adam)</span></a></li></ol></div>
             
 
           </div>

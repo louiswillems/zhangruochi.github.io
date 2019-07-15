@@ -456,73 +456,69 @@
       
 
       
-        <h1 id="sequential-logic">Sequential Logic</h1>
-<p><strong>Combinational chips</strong> compute functions that depend solely on combinations of their input values. These relatively simple chips provide many important processing functions (like the ALU), but they cannot <strong>maintain state</strong>. Since computers must be able to not only compute values but also store and recall values, they must be equipped with memory elements that can preserve data over time. These memory elements are built from <strong>sequential chips</strong>.</p>
-<p><img src="1.png"></p>
-<h2 id="flip-flop">Flip-Flop</h2>
-<p><img src="DFF.png"></p>
+        <h1 id="Sequential-Logic"><a href="#Sequential-Logic" class="headerlink" title="Sequential Logic"></a>Sequential Logic</h1><p><strong>Combinational chips</strong> compute functions that depend solely on combinations of their input values. These relatively simple chips provide many important processing functions (like the ALU), but they cannot <strong>maintain state</strong>. Since computers must be able to not only compute values but also store and recall values, they must be equipped with memory elements that can preserve data over time. These memory elements are built from <strong>sequential chips</strong>.</p>
+<p><img src="1.png" alt=""></p>
+<h2 id="Flip-Flop"><a href="#Flip-Flop" class="headerlink" title="Flip-Flop"></a>Flip-Flop</h2><p><img src="DFF.png" alt=""></p>
 <ul>
 <li>the DFF has a clock input that continuously changes according to the master clock’s signal.</li>
 <li>1-bit input, 1-bit output</li>
 <li>Thegateoutputsitspreviousinput:</li>
 </ul>
-<p><span class="math display">\[out(t)=in(t-1)\]</span></p>
-<ul>
+<script type="math/tex; mode=display">out(t)=in(t-1)</script><ul>
 <li>Implementation: a gate that can flip between two stable states: <strong>remembering 0</strong>, or <strong>remembering 1</strong></li>
 <li>Gates that feature this behavior are called data flip-flops.</li>
 </ul>
-<h2 id="bit-register">1-bit register</h2>
-<p>A single-bit register, which we call Bit, or binary cell, is designed to <strong>store</strong> a single bit of information (0 or 1). The chip interface consists of</p>
+<h2 id="1-bit-register"><a href="#1-bit-register" class="headerlink" title="1-bit register"></a>1-bit register</h2><p>A single-bit register, which we call Bit, or binary cell, is designed to <strong>store</strong> a single bit of information (0 or 1). The chip interface consists of </p>
 <ul>
 <li>an <strong>input pin</strong> that carries a data bit;</li>
 <li>a <strong>load pin</strong> that enables the cell for writes;</li>
 <li>an <strong>output pin</strong> that emits the current state of the cell</li>
 </ul>
-<h3 id="readwrite-behavior">read/write behavior</h3>
-<ul>
+<h3 id="read-write-behavior"><a href="#read-write-behavior" class="headerlink" title="read/write behavior"></a>read/write behavior</h3><ul>
 <li><strong>Read</strong>: To read the contents of a register, we simply probe its output.</li>
 <li><strong>Write</strong>: To write a new data value d into a register, we put d in the in input and assert (set to 1) the load input. In the next clock cycle, the register commits to the new data value, and its output starts emitting d.</li>
 </ul>
-<p><img src="register1.png"></p>
+<p><img src="register1.png" alt=""></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 1-bit register:</span><br><span class="line"> * If load[t] == 1 <span class="keyword">then</span> out[t+1] = <span class="keyword">in</span>[t]</span><br><span class="line"> *                 <span class="keyword">else</span> out does not change (out[t+1] = out[t])</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">CHIP Bit &#123;</span><br><span class="line">    IN <span class="keyword">in</span>, load;</span><br><span class="line">    OUT out;</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    // Put your code here:</span><br><span class="line"></span><br><span class="line">    Mux(a=dout,b=<span class="keyword">in</span>, sel=load, out=out1);</span><br><span class="line">    DFF(<span class="keyword">in</span>=out1,out=dout,out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="multi-bit-register-also-known-as-register">Multi-bit register (also known as “register”)</h2>
-<p>A w-bit register can be created from an array of w 1-bit registers.</p>
-<p><img src="register16.png"></p>
+<h2 id="Multi-bit-register-also-known-as-“register”"><a href="#Multi-bit-register-also-known-as-“register”" class="headerlink" title="Multi-bit register (also known as “register”)"></a>Multi-bit register (also known as “register”)</h2><p>A w-bit register can be created from an array of w 1-bit registers.</p>
+<p><img src="register16.png" alt=""></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 16-bit register:</span><br><span class="line"> * If load[t] == 1 <span class="keyword">then</span> out[t+1] = <span class="keyword">in</span>[t]</span><br><span class="line"> * <span class="keyword">else</span> out does not change</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">CHIP Register &#123;</span><br><span class="line">    IN <span class="keyword">in</span>[16], load;</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    // Put your code here:</span><br><span class="line">    Bit(<span class="keyword">in</span>=<span class="keyword">in</span>[0],load=load,out=out[0]);</span><br><span class="line">    Bit(<span class="keyword">in</span>=<span class="keyword">in</span>[1],load=load,out=out[1]);</span><br><span class="line">    Bit(<span class="keyword">in</span>=<span class="keyword">in</span>[2],load=load,out=out[2]);</span><br><span class="line">    Bit(<span class="keyword">in</span>=<span class="keyword">in</span>[3],load=load,out=out[3]);</span><br><span class="line">    Bit(<span class="keyword">in</span>=<span class="keyword">in</span>[4],load=load,out=out[4]);</span><br><span class="line">    Bit(<span class="keyword">in</span>=<span class="keyword">in</span>[5],load=load,out=out[5]);</span><br><span class="line">    Bit(<span class="keyword">in</span>=<span class="keyword">in</span>[6],load=load,out=out[6]);</span><br><span class="line">    Bit(<span class="keyword">in</span>=<span class="keyword">in</span>[7],load=load,out=out[7]);</span><br><span class="line">    Bit(<span class="keyword">in</span>=<span class="keyword">in</span>[8],load=load,out=out[8]);</span><br><span class="line">    Bit(<span class="keyword">in</span>=<span class="keyword">in</span>[9],load=load,out=out[9]);</span><br><span class="line">    Bit(<span class="keyword">in</span>=<span class="keyword">in</span>[10],load=load,out=out[10]);</span><br><span class="line">    Bit(<span class="keyword">in</span>=<span class="keyword">in</span>[11],load=load,out=out[11]);</span><br><span class="line">    Bit(<span class="keyword">in</span>=<span class="keyword">in</span>[12],load=load,out=out[12]);</span><br><span class="line">    Bit(<span class="keyword">in</span>=<span class="keyword">in</span>[13],load=load,out=out[13]);</span><br><span class="line">    Bit(<span class="keyword">in</span>=<span class="keyword">in</span>[14],load=load,out=out[14]);</span><br><span class="line">    Bit(<span class="keyword">in</span>=<span class="keyword">in</span>[15],load=load,out=out[15]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="random-access-memory-ram">Random Access Memory (RAM)</h2>
-<ol type="1">
-<li><p>Architecture A sequence of n addressable registers, with addresses 0 to n-1</p></li>
-<li><p>The number of registers (n) and the width of each register (w) are called the memory’s <strong>size</strong> and <strong>width</strong></p></li>
-<li><p>Address width <span class="math display">\[k = log_2 n\]</span></p></li>
+<h2 id="Random-Access-Memory-RAM"><a href="#Random-Access-Memory-RAM" class="headerlink" title="Random Access Memory (RAM)"></a>Random Access Memory (RAM)</h2><ol>
+<li><p>Architecture<br>A sequence of n addressable registers, with addresses 0 to n-1</p>
+</li>
+<li><p>The number of registers (n) and the width of each register (w) are called the memory’s <strong>size</strong> and <strong>width</strong></p>
+</li>
+<li><p>Address width</p>
+<script type="math/tex; mode=display">k = log_2 n</script></li>
 <li><p>To read Register i:</p>
 <ul>
 <li>set address = i</li>
 <li>probe out</li>
-</ul></li>
+</ul>
+</li>
 <li><p>To set Register i to v:</p>
 <ul>
 <li>set address = i</li>
-<li>set in = v</li>
+<li>set in = v </li>
 <li>set load = 1</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-<p><img src="RAM.png"></p>
+<p><img src="RAM.png" alt=""></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Memory of 8 registers, each 16 bit-wide. Out holds the value</span><br><span class="line"> * stored at the memory location specified by address. If load=1, <span class="keyword">then</span> </span><br><span class="line"> * the <span class="keyword">in</span> value is loaded into the memory location specified by address </span><br><span class="line"> * (the loaded value will be emitted to out after the next time step.)</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">CHIP RAM8 &#123;</span><br><span class="line">    IN <span class="keyword">in</span>[16], load, address[3];</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    DMux8Way(<span class="keyword">in</span>=load,sel=address,a=load0,b=load1,c=load2,d=load3,e=load4,f=load5,g=load6,h=load7);</span><br><span class="line">    Register(<span class="keyword">in</span>=<span class="keyword">in</span>,load=load0,out=out0);</span><br><span class="line">    Register(<span class="keyword">in</span>=<span class="keyword">in</span>,load=load1,out=out1);</span><br><span class="line">    Register(<span class="keyword">in</span>=<span class="keyword">in</span>,load=load2,out=out2);</span><br><span class="line">    Register(<span class="keyword">in</span>=<span class="keyword">in</span>,load=load3,out=out3);</span><br><span class="line">    Register(<span class="keyword">in</span>=<span class="keyword">in</span>,load=load4,out=out4);</span><br><span class="line">    Register(<span class="keyword">in</span>=<span class="keyword">in</span>,load=load5,out=out5);</span><br><span class="line">    Register(<span class="keyword">in</span>=<span class="keyword">in</span>,load=load6,out=out6);</span><br><span class="line">    Register(<span class="keyword">in</span>=<span class="keyword">in</span>,load=load7,out=out7);</span><br><span class="line">    Mux8Way16(a=out0,b=out1,c=out2,d=out3,e=out4,f=out5,g=out6,h=out7,sel=address,out=out);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="program-counter">Program Counter</h2>
-<ul>
+<h2 id="Program-Counter"><a href="#Program-Counter" class="headerlink" title="Program Counter"></a>Program Counter</h2><ul>
 <li>The computer must keep track of which instruction should be fetched and executed next</li>
 <li>This control mechanism can be realized by a register called Program Counter</li>
 <li>The PC contains the address of the instruction that will be fetched and executed next</li>
-<li>The PC is designed to support three possible control operations:
-<ol type="1">
+<li>The PC is designed to support three possible control operations:<ol>
 <li><strong>Reset</strong>: fetch the first instruction (PC = 0)</li>
 <li><strong>Next</strong>: fetch the next instruction (PC++)</li>
 <li><strong>Goto</strong>: fetch instruction n(PC = n)</li>
-</ol></li>
+</ol>
+</li>
 </ul>
-<p><img src="counter.png"></p>
+<p><img src="counter.png" alt=""></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * A 16-bit counter with load and reset control bits.</span><br><span class="line"> * <span class="keyword">if</span>      (reset[t] == 1) out[t+1] = 0</span><br><span class="line"> * <span class="keyword">else</span> <span class="keyword">if</span> (load[t] == 1)  out[t+1] = <span class="keyword">in</span>[t]</span><br><span class="line"> * <span class="keyword">else</span> <span class="keyword">if</span> (inc[t] == 1)   out[t+1] = out[t] + 1  (<span class="built_in">integer</span> addition)</span><br><span class="line"> * <span class="keyword">else</span>                    out[t+1] = out[t]</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">CHIP PC &#123;</span><br><span class="line">    IN <span class="keyword">in</span>[16],load,inc,reset;</span><br><span class="line">    OUT out[16];</span><br><span class="line"></span><br><span class="line">    PARTS:</span><br><span class="line">    // Put your code here:</span><br><span class="line">    Inc16(<span class="keyword">in</span>=out5,out=out1);</span><br><span class="line">    Mux16(a=out5,b=out1,sel=inc,out=out2);</span><br><span class="line">    Mux16(a=out2,b=<span class="keyword">in</span>,sel=load,out=out3);</span><br><span class="line">    Mux16(a=out3,b=<span class="literal">false</span>,sel=reset,out=out4);</span><br><span class="line">    Register(<span class="keyword">in</span>=out4,load=<span class="literal">true</span>,out=out5,out=out);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
       
     </div>
     
@@ -707,7 +703,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">109</span>
+                  <span class="site-state-item-count">110</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -800,7 +796,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sequential-logic"><span class="nav-text">Sequential Logic</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#flip-flop"><span class="nav-text">Flip-Flop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bit-register"><span class="nav-text">1-bit register</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#readwrite-behavior"><span class="nav-text">read/write behavior</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multi-bit-register-also-known-as-register"><span class="nav-text">Multi-bit register (also known as “register”)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#random-access-memory-ram"><span class="nav-text">Random Access Memory (RAM)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#program-counter"><span class="nav-text">Program Counter</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Sequential-Logic"><span class="nav-text">Sequential Logic</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Flip-Flop"><span class="nav-text">Flip-Flop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-bit-register"><span class="nav-text">1-bit register</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#read-write-behavior"><span class="nav-text">read/write behavior</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multi-bit-register-also-known-as-“register”"><span class="nav-text">Multi-bit register (also known as “register”)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Random-Access-Memory-RAM"><span class="nav-text">Random Access Memory (RAM)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Program-Counter"><span class="nav-text">Program Counter</span></a></li></ol></li></ol></div>
             
 
           </div>
