@@ -124,13 +124,13 @@
 
 
 
-<meta name="description" content="Table of Contents  Overview  Goals and Objectives Key Phrases/Concepts Guiding Questions  Introduction  Two categories of cloud  What is a cloud?  Four major characteristics  A cloud is a distribyted">
+<meta name="description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Introduction Two categories of cloud   What is a cloud? Four major characteristics   A cloud is a distribyted s">
 <meta name="keywords" content="Map,Reduce,Server,Client,YARN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Introduction to Cloud Computing">
 <meta property="og:url" content="https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/index.html">
 <meta property="og:site_name" content="RUOCHI.AI">
-<meta property="og:description" content="Table of Contents  Overview  Goals and Objectives Key Phrases/Concepts Guiding Questions  Introduction  Two categories of cloud  What is a cloud?  Four major characteristics  A cloud is a distribyted">
+<meta property="og:description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Introduction Two categories of cloud   What is a cloud? Four major characteristics   A cloud is a distribyted s">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/01.png">
 <meta property="og:image" content="https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/02.png">
@@ -144,7 +144,7 @@
 <meta property="og:updated_time" content="2019-07-05T09:48:49.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Introduction to Cloud Computing">
-<meta name="twitter:description" content="Table of Contents  Overview  Goals and Objectives Key Phrases/Concepts Guiding Questions  Introduction  Two categories of cloud  What is a cloud?  Four major characteristics  A cloud is a distribyted">
+<meta name="twitter:description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Introduction Two categories of cloud   What is a cloud? Four major characteristics   A cloud is a distribyted s">
 <meta name="twitter:image" content="https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/01.png">
 
 
@@ -466,278 +466,265 @@
       
 
       
-        <h1 id="table-of-contents">Table of Contents</h1>
-<ul>
-<li><a href="#overview">Overview</a>
-<ul>
+        <h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1><ul>
+<li><a href="#overview">Overview</a><ul>
 <li><a href="#goals-and-objectives">Goals and Objectives</a></li>
 <li><a href="#key-phrasesconcepts">Key Phrases/Concepts</a></li>
 <li><a href="#guiding-questions">Guiding Questions</a></li>
-</ul></li>
-<li><a href="#introduction">Introduction</a>
-<ul>
+</ul>
+</li>
+<li><a href="#introduction">Introduction</a><ul>
 <li><a href="#two-categories-of-cloud">Two categories of cloud</a></li>
-</ul></li>
-<li><a href="#what-is-a-cloud">What is a cloud?</a>
-<ul>
+</ul>
+</li>
+<li><a href="#what-is-a-cloud">What is a cloud?</a><ul>
 <li><a href="#four-major-characteristics">Four major characteristics</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="#a-cloud-is-a-distribyted-system">A cloud is a distribyted system</a></li>
 <li><a href="#economics-of-clouds">Economics of clouds</a></li>
-<li><a href="#what-is-a-distributed-system">What is a distributed system</a>
-<ul>
+<li><a href="#what-is-a-distributed-system">What is a distributed system</a><ul>
 <li><a href="#our-interest-in-distributed-systems-involves">Our interest in distributed systems involves</a></li>
-</ul></li>
-<li><a href="#mapreduce-paradigm">MapReduce paradigm</a>
-<ul>
+</ul>
+</li>
+<li><a href="#mapreduce-paradigm">MapReduce paradigm</a><ul>
 <li><a href="#map">Map</a></li>
 <li><a href="#reduce">Reduce</a></li>
-</ul></li>
-<li><a href="#mapreduce-scheduling">MapReduce Scheduling</a>
-<ul>
+</ul>
+</li>
+<li><a href="#mapreduce-scheduling">MapReduce Scheduling</a><ul>
 <li><a href="#the-yarn-scheduler">The YARN SCHEDULER</a></li>
 <li><a href="#mapreduce-example">MapReduce Example</a></li>
-</ul></li>
-<li><a href="#fault-tolerance">Fault tolerance</a>
-<ul>
+</ul>
+</li>
+<li><a href="#fault-tolerance">Fault tolerance</a><ul>
 <li><a href="#stragglers">stragglers</a></li>
 <li><a href="#locality">Locality</a></li>
-</ul></li>
 </ul>
-<h2 id="overview">Overview</h2>
-<p>This week you will see what cloud computing is, a bit about its history and economics, and why cloud computing is all about distributed systems topics (which the course focuses on).</p>
-<h3 id="goals-and-objectives">Goals and Objectives</h3>
-<p>After you actively engage in the learning experiences in this module, you should be able to:</p>
+</li>
+</ul>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>This week you will see what cloud computing is, a bit about its history and economics, and why cloud computing is all about distributed systems topics (which the course focuses on).</p>
+<h3 id="Goals-and-Objectives"><a href="#Goals-and-Objectives" class="headerlink" title="Goals and Objectives"></a>Goals and Objectives</h3><p>After you actively engage in the learning experiences in this module, you should be able to:</p>
 <ul>
 <li>Know the key differences between cloud computing and previous generations of distributed systems.</li>
 <li>Design MapReduce programs for a variety of problems.</li>
 <li>Know how Hadoop schedules jobs.</li>
 </ul>
-<h3 id="key-phrasesconcepts">Key Phrases/Concepts</h3>
-<p>Keep your eyes open for the following key terms or phrases as you complete the readings and interact with the lectures. These topics will help you better understand the content in this module.</p>
+<h3 id="Key-Phrases-Concepts"><a href="#Key-Phrases-Concepts" class="headerlink" title="Key Phrases/Concepts"></a>Key Phrases/Concepts</h3><p>Keep your eyes open for the following key terms or phrases as you complete the readings and interact with the lectures. These topics will help you better understand the content in this module.</p>
 <ul>
 <li>Clouds</li>
 <li>MapReduce paradigm</li>
 <li>Hadoop YARN</li>
 </ul>
-<h3 id="guiding-questions">Guiding Questions</h3>
-<p>Develop your answers to the following guiding questions while completing the readings and working on assignments throughout the week.</p>
+<h3 id="Guiding-Questions"><a href="#Guiding-Questions" class="headerlink" title="Guiding Questions"></a>Guiding Questions</h3><p>Develop your answers to the following guiding questions while completing the readings and working on assignments throughout the week.</p>
 <ul>
 <li>Why is cloud computing popular today?</li>
 <li>What is different in cloud computing compared to previous generations of distributed systems?</li>
 <li>How does one program in MapReduce?</li>
 <li>How does the MapReduce system schedule jobs?</li>
 </ul>
-<h2 id="overview-1">Overview</h2>
-<ul>
-<li>Why this course is about distributed system comcepts in cloud?
-<ul>
+<h2 id="Overview-1"><a href="#Overview-1" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>Why this course is about distributed system comcepts in cloud?<ul>
 <li>clouds are distributed system</li>
-</ul></li>
-<li>Cloud examples
-<ul>
-<li>MapReduce and Hadoops</li>
-</ul></li>
 </ul>
-<h2 id="introduction">Introduction</h2>
-<ul>
+</li>
+<li>Cloud examples<ul>
+<li>MapReduce and Hadoops</li>
+</ul>
+</li>
+</ul>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
 <li>Customers save money and time</li>
 </ul>
-<h3 id="two-categories-of-cloud">Two categories of cloud</h3>
-<ol type="1">
-<li>public
-<ul>
+<h3 id="Two-categories-of-cloud"><a href="#Two-categories-of-cloud" class="headerlink" title="Two categories of cloud"></a>Two categories of cloud</h3><ol>
+<li>public<ul>
 <li>provide service to any paying customer</li>
-</ul></li>
-<li>private
-<ul>
+</ul>
+</li>
+<li>private<ul>
 <li>accessbile only to company employees</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-<h2 id="what-is-a-cloud">What is a cloud?</h2>
-<ol type="1">
-<li><p>Informal definition &gt; lots of storage + compute circle nearby</p></li>
+<h2 id="What-is-a-cloud"><a href="#What-is-a-cloud" class="headerlink" title="What is a cloud?"></a>What is a cloud?</h2><ol>
+<li><p>Informal definition</p>
+<blockquote>
+<p>lots of storage + compute circle nearby</p>
+</blockquote>
+</li>
 <li><p>Components</p>
-<ol type="1">
-<li>a single-site cloud
-<ul>
+<ol>
+<li>a single-site cloud<ul>
 <li>Compute nodes (grouped into racks) (servers)</li>
 <li>Switches, connecting the racks</li>
 <li>A network topology, e.g. hierarchical</li>
 <li>Storage(backend) nodes, connecting to the network</li>
 <li>Front-end for submiting jobs and receiveing client requests</li>
 <li>Software services</li>
-</ul></li>
-<li>a geographically distributed cloud
-<ul>
+</ul>
+</li>
+<li>a geographically distributed cloud<ul>
 <li>Mutiple such sites</li>
 <li>Each site perhaps with different structures and services</li>
-</ul></li>
-</ol></li>
+</ul>
+</li>
 </ol>
-<p><img src="01.png"></p>
-<h3 id="four-major-characteristics">Four major characteristics</h3>
-<p>Distinguish today's clouds from previous generations of distributed computing systems and problems</p>
-<ol type="1">
-<li><strong>Massive scale</strong> Massive-scale essentially means that data centers are very large. They contain tens of thousands, sometimes hundreds of thousands of servers and you could run your computation across as many servers as you want and as many servers as your application will scale</li>
-<li><strong>On-demand access</strong> Pay-as-you-go, no upfront commitment. Anyone can access it
-<ul>
+</li>
+</ol>
+<p><img src="01.png" alt=""></p>
+<h3 id="Four-major-characteristics"><a href="#Four-major-characteristics" class="headerlink" title="Four major characteristics"></a>Four major characteristics</h3><p>Distinguish today’s clouds from previous generations of distributed computing systems and problems</p>
+<ol>
+<li><strong>Massive scale</strong><br> Massive-scale essentially means that data centers are very large. They contain tens of thousands, sometimes hundreds of thousands of servers and you could run your computation across as many servers as you want and as many servers as your application will scale</li>
+<li><strong>On-demand access</strong><br> Pay-as-you-go, no upfront commitment. Anyone can access it<ul>
 <li>HaaS: Hardware as a Service</li>
 <li>IaaS: Infrastructure as a Service(Ex: Amazon Web Services (AWS: EC2 and S3))</li>
 <li>PaaS: Platform as a Service(You get access to flexible computing and storage infrastructure, coupled with a software platform (often tightly), Ex: Google’s AppEngine (Python, Java, Go))</li>
 <li>SaaS: Software as a Service(You get access to software services, when you need them. Often said to subsume SOA (Service Oriented Architectures), Ex: Google docs, MS Office on demand)</li>
-</ul></li>
-<li><strong>Data-intensive Nature</strong>
-<ul>
+</ul>
+</li>
+<li><strong>Data-intensive Nature</strong><ul>
 <li>Typically store data at datacenters</li>
 <li>Use compute nodes nearby</li>
 <li>Compute nodes run computation services</li>
 <li>In data-intensive computing, <strong>the focus shifts from computation to the data</strong>: CPU utilization no longer the most important resource metric, instead I/O is (disk and/or network)</li>
-</ul></li>
-<li><strong>New Cloud Programming Paradigms</strong>
-<ul>
+</ul>
+</li>
+<li><strong>New Cloud Programming Paradigms</strong><ul>
 <li>MapReduce/Hadoop, NoSQL/Cassandra/MongoDB and many others.</li>
 <li>Easy to write and run highly parallel programs in new cloud programming paradigms:</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-<h2 id="a-cloud-is-a-distribyted-system">A cloud is a distribyted system</h2>
-<ol type="1">
-<li>A cloud consists of
-<ul>
+<h2 id="A-cloud-is-a-distribyted-system"><a href="#A-cloud-is-a-distribyted-system" class="headerlink" title="A cloud is a distribyted system"></a>A cloud is a distribyted system</h2><ol>
+<li>A cloud consists of<ul>
 <li>Hundreds to thousands of machines in a datacenter (server side)</li>
 <li>Thousands to millions of machines accessing these services (client side)</li>
-</ul></li>
-<li>Servers communicate amongst one another
-<ul>
+</ul>
+</li>
+<li>Servers communicate amongst one another<ul>
 <li>Distributed System</li>
 <li>Essentially a cluster!</li>
-</ul></li>
-<li>Clients communicate with servers
-<ul>
+</ul>
+</li>
+<li>Clients communicate with servers<ul>
 <li>Also a distributed system!</li>
-</ul></li>
-<li>Clients also communicate with each other
-<ul>
+</ul>
+</li>
+<li>Clients also communicate with each other<ul>
 <li>Also a distributed system!</li>
-<li><img src="02.png"></li>
-</ul></li>
+<li><img src="02.png" alt=""></li>
+</ul>
+</li>
 <li><strong>Four Features of Clouds = All Distributed Systems Features</strong></li>
 <li><strong>Cloud = A Fancy Word for a Distributed System</strong></li>
 </ol>
-<h2 id="economics-of-clouds">Economics of clouds</h2>
-<p><img src="03.png"></p>
-<h2 id="what-is-a-distributed-system">What is a distributed system</h2>
-<ul>
+<h2 id="Economics-of-clouds"><a href="#Economics-of-clouds" class="headerlink" title="Economics of clouds"></a>Economics of clouds</h2><p><img src="03.png" alt=""></p>
+<h2 id="What-is-a-distributed-system"><a href="#What-is-a-distributed-system" class="headerlink" title="What is a distributed system"></a>What is a distributed system</h2><ul>
 <li>A distributed system is a collection of independent computers that appear to the users of the system as a single computer.[Andrew Tanenbaum]</li>
 <li>A distributed system is several computers doing something together. Thus, a distributed system has three primary characteristics: multiple computers, interconnections, and shared state. [Michael Schroeder]</li>
-<li>A distributed system is a collection of entities, each of which is <strong>autonomous</strong>, <strong>programmable</strong>, <strong>asynchronous</strong> and failure- prone, and which communicate through an unreliable communication medium.
-<ul>
+<li>A distributed system is a collection of entities, each of which is <strong>autonomous</strong>, <strong>programmable</strong>, <strong>asynchronous</strong> and failure- prone, and which communicate through an unreliable communication medium.<ul>
 <li><strong>programmable</strong>,Eliminates “Humans Interacting with each other”</li>
 <li><strong>asynchronous</strong>, Distinguishes distributed systems from parallel systems (e.g., multiprocessor systems)</li>
-</ul></li>
 </ul>
-<h3 id="our-interest-in-distributed-systems-involves">Our interest in distributed systems involves</h3>
-<ul>
+</li>
+</ul>
+<h3 id="Our-interest-in-distributed-systems-involves"><a href="#Our-interest-in-distributed-systems-involves" class="headerlink" title="Our interest in distributed systems involves"></a>Our interest in distributed systems involves</h3><ul>
 <li>algorithmics</li>
 <li>design and implementation</li>
-<li>maintenance,</li>
+<li>maintenance, </li>
 <li>study</li>
 </ul>
-<h2 id="mapreduce-paradigm">MapReduce paradigm</h2>
+<h2 id="MapReduce-paradigm"><a href="#MapReduce-paradigm" class="headerlink" title="MapReduce paradigm"></a>MapReduce paradigm</h2><ul>
+<li><p>(map square (1,2,3,4))</p>
 <ul>
-<li>(map square (1,2,3,4))
-<ul>
-<li>output: (1,4,9,16) process each record sequentially and independently</li>
-</ul></li>
-<li>(reduce + (1,4,9,16))
+<li>output: (1,4,9,16)<br>process each record sequentially and independently</li>
+</ul>
+</li>
+<li><p>(reduce + (1,4,9,16))</p>
 <ul>
 <li>(+16 (+9 (+4)))</li>
-<li>output: 30 process set of all records in batches</li>
-</ul></li>
+<li>output: 30<br>process set of all records in batches </li>
 </ul>
-<h3 id="map">Map</h3>
-<ul>
+</li>
+</ul>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><ul>
 <li>Map task processes each record <strong>sequentially and independently</strong></li>
-<li><strong>Parallelly</strong> process different map tasks <img src="04.png"></li>
+<li><strong>Parallelly</strong> process different map tasks<br>  <img src="04.png" alt=""></li>
 </ul>
-<h3 id="reduce">Reduce</h3>
-<ul>
+<h3 id="Reduce"><a href="#Reduce" class="headerlink" title="Reduce"></a>Reduce</h3><ul>
 <li>Reduce process set of all records in batches</li>
-<li>Parallelly process by partitioning records <img src="05.png"></li>
+<li>Parallelly process by partitioning records<br>  <img src="05.png" alt=""></li>
 </ul>
-<h2 id="mapreduce-scheduling">MapReduce Scheduling</h2>
-<p>1.Externally, for the user: 1. write map program, write reduce program 2. submit job; wait for result 3. need to know nothing about parallel programming</p>
-<ol start="2" type="1">
-<li>Internally, for the paradigm and scheduler
-<ol type="1">
-<li>Parallelize Map
-<ul>
+<h2 id="MapReduce-Scheduling"><a href="#MapReduce-Scheduling" class="headerlink" title="MapReduce Scheduling"></a>MapReduce Scheduling</h2><p>1.Externally, for the user:</p>
+<pre><code>1. write map program, write reduce program
+2. submit job; wait for result
+3. need to know nothing about parallel programming
+</code></pre><ol>
+<li>Internally, for the paradigm and scheduler<ol>
+<li>Parallelize Map<ul>
 <li>each Map task is independent</li>
 <li>all Map output records with teh same key should assign to the same Reducer</li>
-</ul></li>
+</ul>
+</li>
 <li>Transfer data from Map to Reduce</li>
-<li>Parallelize Reduce
-<ul>
-<li>each Reduce task is independent</li>
+<li>Parallelize Reduce<ul>
+<li>each Reduce task is independent </li>
 <li>use partition function</li>
-</ul></li>
-<li>Implement Storage for Map input, Map output, Reduce input, Reduce output
-<ul>
+</ul>
+</li>
+<li>Implement Storage for Map input, Map output, Reduce input, Reduce output<ul>
 <li>Map input: DFS</li>
 <li>Map output: local disk</li>
 <li>Reduce input: remote disk</li>
 <li>Reduce output: DFS</li>
-</ul></li>
-</ol></li>
+</ul>
+</li>
 </ol>
-<p><img src="06.png"></p>
-<h3 id="the-yarn-scheduler">The YARN SCHEDULER</h3>
-<ul>
+</li>
+</ol>
+<p><img src="06.png" alt=""></p>
+<h3 id="The-YARN-SCHEDULER"><a href="#The-YARN-SCHEDULER" class="headerlink" title="The YARN SCHEDULER"></a>The YARN SCHEDULER</h3><ul>
 <li>Used in Hadoop 2.x +</li>
 <li>YARN = Yet Another Resource Negotiator</li>
-<li>Treats each server as a collection of containers
-<ul>
+<li>Treats each server as a collection of containers<ul>
 <li>Container = some CPU + some memory</li>
-</ul></li>
-<li>Has 3 main components
-<ul>
-<li>Global Resource Manager (RM)
-<ul>
+</ul>
+</li>
+<li>Has 3 main components<ul>
+<li>Global Resource Manager (RM)<ul>
 <li>scheduling</li>
-</ul></li>
-<li>Per-server Node Manager (NM)
-<ul>
+</ul>
+</li>
+<li>Per-server Node Manager (NM)<ul>
 <li>Daemon and server-specific functions</li>
-</ul></li>
-<li>Per-application (job) Application Master (AM)
-<ul>
+</ul>
+</li>
+<li>Per-application (job) Application Master (AM)<ul>
 <li>Container negotiation with RM and NMs</li>
 <li>Detecting task failures of that job</li>
-</ul></li>
-</ul></li>
 </ul>
-<p><img src="07.png"></p>
-<h3 id="mapreduce-example">MapReduce Example</h3>
-<p><img src="08.png"></p>
-<h2 id="fault-tolerance">Fault tolerance</h2>
-<ul>
-<li>Server failure
-<ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="07.png" alt=""></p>
+<h3 id="MapReduce-Example"><a href="#MapReduce-Example" class="headerlink" title="MapReduce Example"></a>MapReduce Example</h3><p><img src="08.png" alt=""></p>
+<h2 id="Fault-tolerance"><a href="#Fault-tolerance" class="headerlink" title="Fault tolerance"></a>Fault tolerance</h2><ul>
+<li>Server failure<ul>
 <li>NM,AM heartbeats to RM</li>
 <li>NM keep track of each task running at its server</li>
-</ul></li>
-<li>RM failure
-<ul>
-<li>use old checkpoints and bring up secondary RM</li>
-</ul></li>
 </ul>
-<h3 id="stragglers">stragglers</h3>
-<ul>
+</li>
+<li>RM failure<ul>
+<li>use old checkpoints and bring up secondary RM</li>
+</ul>
+</li>
+</ul>
+<h3 id="stragglers"><a href="#stragglers" class="headerlink" title="stragglers"></a>stragglers</h3><ul>
 <li>the slowest machine slows the entire job</li>
 <li><strong>speculative exection</strong>: backup execction of straggler task</li>
 </ul>
-<h3 id="locality">Locality</h3>
-<p><img src="09.png"></p>
+<h3 id="Locality"><a href="#Locality" class="headerlink" title="Locality"></a>Locality</h3><p><img src="09.png" alt=""></p>
 <p><strong>Reference from some slides from Coursera course <a href="https://www.coursera.org/learn/cloud-computing" target="_blank" rel="noopener">Cloud Computing</a></strong></p>
 
       
@@ -924,7 +911,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">107</span>
+                  <span class="site-state-item-count">108</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1017,7 +1004,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#table-of-contents"><span class="nav-text">Table of Contents</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#overview"><span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#goals-and-objectives"><span class="nav-text">Goals and Objectives</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#key-phrasesconcepts"><span class="nav-text">Key Phrases/Concepts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#guiding-questions"><span class="nav-text">Guiding Questions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#overview-1"><span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#two-categories-of-cloud"><span class="nav-text">Two categories of cloud</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#what-is-a-cloud"><span class="nav-text">What is a cloud?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#four-major-characteristics"><span class="nav-text">Four major characteristics</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#a-cloud-is-a-distribyted-system"><span class="nav-text">A cloud is a distribyted system</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#economics-of-clouds"><span class="nav-text">Economics of clouds</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#what-is-a-distributed-system"><span class="nav-text">What is a distributed system</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#our-interest-in-distributed-systems-involves"><span class="nav-text">Our interest in distributed systems involves</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mapreduce-paradigm"><span class="nav-text">MapReduce paradigm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-text">Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reduce"><span class="nav-text">Reduce</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mapreduce-scheduling"><span class="nav-text">MapReduce Scheduling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-yarn-scheduler"><span class="nav-text">The YARN SCHEDULER</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mapreduce-example"><span class="nav-text">MapReduce Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fault-tolerance"><span class="nav-text">Fault tolerance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stragglers"><span class="nav-text">stragglers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#locality"><span class="nav-text">Locality</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Table-of-Contents"><span class="nav-text">Table of Contents</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Goals-and-Objectives"><span class="nav-text">Goals and Objectives</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-Phrases-Concepts"><span class="nav-text">Key Phrases/Concepts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Guiding-Questions"><span class="nav-text">Guiding Questions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview-1"><span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-categories-of-cloud"><span class="nav-text">Two categories of cloud</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-a-cloud"><span class="nav-text">What is a cloud?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Four-major-characteristics"><span class="nav-text">Four major characteristics</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-cloud-is-a-distribyted-system"><span class="nav-text">A cloud is a distribyted system</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Economics-of-clouds"><span class="nav-text">Economics of clouds</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-a-distributed-system"><span class="nav-text">What is a distributed system</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Our-interest-in-distributed-systems-involves"><span class="nav-text">Our interest in distributed systems involves</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MapReduce-paradigm"><span class="nav-text">MapReduce paradigm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-text">Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reduce"><span class="nav-text">Reduce</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MapReduce-Scheduling"><span class="nav-text">MapReduce Scheduling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-YARN-SCHEDULER"><span class="nav-text">The YARN SCHEDULER</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MapReduce-Example"><span class="nav-text">MapReduce Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fault-tolerance"><span class="nav-text">Fault tolerance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stragglers"><span class="nav-text">stragglers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Locality"><span class="nav-text">Locality</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
