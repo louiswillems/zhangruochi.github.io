@@ -138,7 +138,7 @@
 <meta property="og:image" content="https://zhangruochi.com/Ensemble-Methods/2019/07/17/15.png">
 <meta property="og:image" content="https://zhangruochi.com/Ensemble-Methods/2019/07/17/16.png">
 <meta property="og:image" content="https://zhangruochi.com/Ensemble-Methods/2019/07/17/18.png">
-<meta property="og:updated_time" content="2019-07-16T20:18:18.660Z">
+<meta property="og:updated_time" content="2019-07-16T22:55:56.526Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ensemble Methods">
 <meta name="twitter:description" content="Ensemble methods Ensemble methods means combining different machine learning models to get a better prediction  Averageing (or blending)(model_1 + model_2)/2Weighted averagingmodel_1 * 0.3 + model_2 *">
@@ -566,9 +566,7 @@
 <li>No epochs - different connections instead</li>
 </ul>
 <h3 id="first-level-Tips"><a href="#first-level-Tips" class="headerlink" title="first level Tips"></a>first level Tips</h3><ol>
-<li>Diversity based on algo</li>
-</ol>
-<ul>
+<li>Diversity based on algo<ul>
 <li>2-3 gradient boosted trees(xgboost, H2O, catboost)</li>
 <li>2-3 Neural Net (keras, pyTorch)</li>
 <li>1-2 ExtraTree/ Random Forest( sklearn)</li>
@@ -578,19 +576,17 @@
 <li>1 svm with nonlinear kernel if size/memory allows(sklearn)</li>
 <li>1 svm with nonlinear kernel if size/memory allows(sklearn)</li>
 </ul>
-<ol>
-<li>Diversity based on input data</li>
-</ol>
-<ul>
+</li>
+<li>Diversity based on input data<ul>
 <li>Categorical features: One hot, label encoding, target encoding, frequency.</li>
 <li>Numberical features: outliner, binning, derivatives, percentiles, scaling</li>
 <li>Interactions: col1 */+-col2, groupby, unsupervied</li>
 <li>For classification target, we can use regression models in middle level </li>
 </ul>
-<h3 id="Subquent-level-tips"><a href="#Subquent-level-tips" class="headerlink" title="Subquent level tips"></a>Subquent level tips</h3><ol>
-<li>Simpler(or shallower) algo</li>
+</li>
 </ol>
-<ul>
+<h3 id="Subquent-level-tips"><a href="#Subquent-level-tips" class="headerlink" title="Subquent level tips"></a>Subquent level tips</h3><ol>
+<li>Simpler(or shallower) algo<ul>
 <li>gradient boosted tree with small depth(2 or 3)</li>
 <li>linear models with high reglarization</li>
 <li>Extra Trees</li>
@@ -598,16 +594,16 @@
 <li>Knn with BrayCurtis Distance</li>
 <li>Brute forcing a seach for best linear weights based on cv</li>
 </ul>
-<ol>
-<li>Feature engineering</li>
-</ol>
-<ul>
+</li>
+<li>Feature engineering<ul>
 <li>parwise differences between meta features</li>
 <li>row-wise statics like average or stds</li>
 <li>Standard feature selection techniques</li>
 <li>For evenry 7.5 models in previous level we add 1 in meta(empirical)</li>
 <li>Be mindful of target leakage</li>
 </ul>
+</li>
+</ol>
 <h3 id="Software"><a href="#Software" class="headerlink" title="Software"></a>Software</h3><ul>
 <li>StackNet (<a href="https://github.com/kaz-Anova/StackNet" target="_blank" rel="noopener">https://github.com/kaz-Anova/StackNet</a>)</li>
 <li>Stacked ensembles from H20</li>
