@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhangruochi.com/Pipeline-for-data-science-project/2019/07/17/</loc>
+    <lastmod>2019-07-16</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Practical-Guide-for-Kaggle-Competition/2019/07/16/</loc>
+    <lastmod>2019-07-16</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Metrics/2019/07/14/</loc>
+    <lastmod>2019-07-16</lastmod>
+  </url>  <url>
     <loc>https://zhangruochi.com/Ensemble-Methods/2019/07/17/</loc>
     <lastmod>2019-07-16</lastmod>
   </url>  <url>
@@ -13,13 +22,7 @@
     <loc>https://zhangruochi.com/Feature-Engineering-Introduction/2019/07/13/</loc>
     <lastmod>2019-07-15</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Metrics/2019/07/14/</loc>
-    <lastmod>2019-07-15</lastmod>
-  </url>  <url>
     <loc>https://zhangruochi.com/Hyperparameters-tuning/2019/07/16/</loc>
-    <lastmod>2019-07-15</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Practical-Guide-for-Kaggle-Competition/2019/07/16/</loc>
     <lastmod>2019-07-15</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Mean-Encodings/2019/07/15/</loc>

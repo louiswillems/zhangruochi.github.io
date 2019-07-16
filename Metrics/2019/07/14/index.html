@@ -142,7 +142,7 @@
 <meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/8.png">
 <meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/9.png">
 <meta property="og:image" content="https://zhangruochi.com/Metrics/2019/07/14/10.png">
-<meta property="og:updated_time" content="2019-07-15T22:25:38.737Z">
+<meta property="og:updated_time" content="2019-07-16T20:49:07.560Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Metrics">
 <meta name="twitter:description" content="Why should we care about metric">
@@ -536,19 +536,19 @@ MAE(y, \hat y) = \frac{1}{N} \sum_{i=1}^N |\hat y_i - y_i|</script><script type=
 <script type="math/tex; mode=display">
 \frac{d f}{d \alpha}\bigg|_{\alpha=\alpha^*} = \frac{1}{N} \sum_{i=1}^N sign(\alpha^* - y_i) = 0</script><p>So we need to find such $\alpha^*$ that</p>
 <script type="math/tex; mode=display">
-g(\alpha^*) = \sum_{i=1}^N sign(\alpha^* - y_i) = 0</script><p>Note that $g(\alpha^<em>)$ is piecewise-constant non-decreasing function. $g(\alpha^</em>)=-1$ for all calues of $\alpha$ less then mimimum $y_i$ and $g(\alpha^*)=1$ for $\alpha &gt; \max_i y_i$. The function “jumps” by $\frac{2}{N}$ at every point $y_i$. Here is an example, how this function looks like for $y = [-0.5, 0, 1, 3, 3.4]$:</p>
+g(\alpha^*) = \sum_{i=1}^N sign(\alpha^* - y_i) = 0</script><p>Note that $g(\alpha^*)$ is piecewise-constant non-decreasing function. $g(\alpha^*)=-1$ for all calues of $\alpha$ less then mimimum $y_i$ and $g(\alpha^*)=1$ for $\alpha &gt; \max_i y_i$. The function “jumps” by $\frac{2}{N}$ at every point $y_i$. Here is an example, how this function looks like for $y = [-0.5, 0, 1, 3, 3.4]$:</p>
 <p><img src="3.png" alt=""></p>
 <p>Basically there are $N$ jumps of the same size, starting from $-1$ and ending at $1$. It is clear, that you need to do about $\frac{N}{2}$ jumps to hit zero. And that happens exactly at median value of the target vector $g(median(y))=0$. We should be careful and separate two cases: when there are even number of points and odd, but the intuition remains the same. </p>
 <h2 id="MSPE-MAPE-MSLE"><a href="#MSPE-MAPE-MSLE" class="headerlink" title="MSPE, MAPE, MSLE"></a>MSPE, MAPE, MSLE</h2><p><img src="4.png" alt=""><br><img src="5.png" alt=""><br><img src="6.png" alt=""></p>
 <h1 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h1><h2 id="Accuracy"><a href="#Accuracy" class="headerlink" title="Accuracy"></a>Accuracy</h2><script type="math/tex; mode=display">Accuracy = \frac{1}{N}\sum_{i=1}^{N}[\alpha = y_i]</script><p>Best constant: <strong>predict the most frequent class.</strong></p>
 <h2 id="Logarithmic-loss"><a href="#Logarithmic-loss" class="headerlink" title="Logarithmic loss"></a>Logarithmic loss</h2><ol>
 <li>Binary:<script type="math/tex; mode=display">LogLoss = -\frac{1}{N}\sum^{N}_{i=1}y_{i}log(\hat{y}_{i}) + (1 - y_i)log(1-\hat{y}_{i})</script></li>
-<li>Multiclass:<script type="math/tex; mode=display">LogLoss = -\frac{1}{N}\sum^{N}_{i=1}\sum^{L}_{i=1}y_{il}log(\hat{y}\_{il})</script></li>
-</ol>
-<ul>
+<li>Multiclass:<script type="math/tex; mode=display">LogLoss = -\frac{1}{N}\sum^{N}_{i=1}\sum^{L}_{i=1}y_{il}log(\hat{y}\_{il})</script><ul>
 <li>Logloss strongly penalizes completely wrong answers</li>
 <li>Best constant: set $\alpha_{i}$ to frequency of $i-th$ class.</li>
 </ul>
+</li>
+</ol>
 <h2 id="Area-under-ROC-curve"><a href="#Area-under-ROC-curve" class="headerlink" title="Area under ROC curve"></a>Area under ROC curve</h2><p><img src="7.png" alt=""></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line">fpr, tpr, thresholds = metrics.roc_curve(y_true, y_pred)</span><br></pre></td></tr></table></figure>
 <ul>
@@ -638,38 +638,45 @@ g(\alpha^*) = \sum_{i=1}^N sign(\alpha^* - y_i) = 0</script><p>Note that $g(\alp
 </table>
 </div>
 <ol>
-<li>weighted error</li>
+<li><p>weighted error</p>
+<script type="math/tex; mode=display">weighted \, error = \frac{1}{const}\sum_{i,j}C_{ij}W_{ij}</script></li>
+<li><p>weighted Kappa</p>
+<script type="math/tex; mode=display">weighted \, kappa = 1 - \frac{weighted \, error}{weighted \, baseline \, error}</script></li>
+<li><p>Quadratic and Linear Weighted Kappa<br>if the target is orderd label, the weighted martix can simply get by follows:<br><img src="8.png" alt=""></p>
+</li>
 </ol>
-<script type="math/tex; mode=display">weighted \, error = \frac{1}{const}\sum_{i,j}C_{ij}W_{ij}</script><ol>
-<li>weighted Kappa</li>
-</ol>
-<script type="math/tex; mode=display">weighted \, kappa = 1 - \frac{weighted \, error}{weighted \, baseline \, error}</script><ol>
-<li>Quadratic and Linear Weighted Kappa</li>
-</ol>
-<p>if the target is orderd label, the weighted martix can simply get by follows:<br><img src="8.png" alt=""></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">soft_kappa_grad_hess</span><span class="params">(y, p)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        Returns first and second derivatives of the objective with respect to predictions `p`. </span></span><br><span class="line"><span class="string">        `y` is a vector of corresponding target labels.  </span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    norm = p.dot(p) + y.dot(y)</span><br><span class="line">    </span><br><span class="line">    grad = <span class="number">-2</span> * y / norm + <span class="number">4</span> * p * np.dot(y, p) / (norm ** <span class="number">2</span>)</span><br><span class="line">    hess = <span class="number">8</span> * p * y / (norm ** <span class="number">2</span>) + <span class="number">4</span> * np.dot(y, p) / (norm ** <span class="number">2</span>)  - (<span class="number">16</span> * p ** <span class="number">2</span> * np.dot(y, p)) / (norm ** <span class="number">3</span>)</span><br><span class="line">    <span class="keyword">return</span> grad, hess</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">soft_kappa</span><span class="params">(preds, dtrain)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        Having predictions `preds` and targets `dtrain.get_label()` this function coumputes soft kappa loss.</span></span><br><span class="line"><span class="string">        NOTE, that it assumes `mean(target) = 0`.</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    target = dtrain.get_label()</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'kappa'</span> ,  <span class="number">-2</span> * target.dot(preds) / (target.dot(target) + preds.dot(preds))</span><br></pre></td></tr></table></figure>
 <h1 id="General-approaches-for-metrics-optimization"><a href="#General-approaches-for-metrics-optimization" class="headerlink" title="General approaches for metrics optimization"></a>General approaches for metrics optimization</h1><ul>
 <li>Target metric is what we want to optimize</li>
 <li>Optimization loss is what model optimizes</li>
 </ul>
 <p>The approaches can be broadly divided into several categories, depending on the metric we need to optimize. Some metrics can be optimized directly.</p>
-<p>Approaches in general:<br>– Just run the right model(given the metric we need to optimize)</p>
-<pre><code>- MSE, Logloss
-</code></pre><p>– Preprocess train and optimize another metric</p>
-<pre><code>- MSPE, MAPE, RMSLE, ...
-</code></pre><p>– Optimize another metric,postprocess predictions </p>
-<pre><code>- Accuracy, Kappa
-</code></pre><p>– Write a custom loss function</p>
-<pre><code>- Any, if you can
-</code></pre><p>– Optimize another metric,<strong>use early stopping</strong><br><img src="9.png" alt=""></p>
+<p>Approaches in general:</p>
+<ol>
+<li>Just run the right model(given the metric we need to optimize)<ul>
+<li>MSE, Logloss</li>
+</ul>
+</li>
+<li>Preprocess train and optimize another metric<ul>
+<li>MSPE, MAPE, RMSLE, …</li>
+</ul>
+</li>
+<li>Optimize another metric,postprocess predictions<ul>
+<li>Accuracy, Kappa</li>
+</ul>
+</li>
+<li>Write a custom loss function<ul>
+<li>Any, if you can</li>
+</ul>
+</li>
+<li>Optimize another metric,<strong>use early stopping</strong><br><img src="9.png" alt=""></li>
+</ol>
 <h2 id="Regression-metrics-optimization"><a href="#Regression-metrics-optimization" class="headerlink" title="Regression metrics optimization"></a>Regression metrics optimization</h2><ol>
 <li>MSE and MAE<blockquote>
 <p>just find the right model</p>
 </blockquote>
 </li>
-<li>MSPE and MAPE</li>
-</ol>
-<ul>
+<li>MSPE and MAPE<ul>
 <li>Use weights for samples (<code>sample_weights</code>)<ul>
 <li>And use MSE (MAE)</li>
 <li>Not every library accepts sample weights<ul>
@@ -685,16 +692,14 @@ g(\alpha^*) = \sum_{i=1}^N sign(\alpha^* - y_i) = 0</script><p>Note that $g(\alp
 </ul>
 </li>
 </ul>
-<ol>
-<li>(R)MSLE</li>
-</ol>
-<ul>
+</li>
+<li>(R)MSLE<ul>
 <li>Transform target for the train set:<script type="math/tex; mode=display">z_i = log(y_i + 1)</script></li>
 <li>Fit a model with MSE loss:</li>
 <li>Transform predictions back:<script type="math/tex; mode=display">\hat{y}_i = exp(\hat{z}_{i}) - 1</script></li>
 </ul>
-<ol>
-<li>AUC<script type="math/tex; mode=display">AUC = \frac{1 - # \ correct \ ordered \  pairs}{total \ number \ pairs}</script><img src="10.png" alt=""></li>
+</li>
+<li>AUC<script type="math/tex; mode=display">AUC = \frac{1 - \# \, correct \, ordered \,  pairs}{total \, number \, pairs}</script><img src="10.png" alt=""> </li>
 </ol>
 <div class="table-container">
 <table>
@@ -736,7 +741,7 @@ g(\alpha^*) = \sum_{i=1}^N sign(\alpha^* - y_i) = 0</script><p>Note that $g(\alp
 </ul>
 <ol>
 <li>Quadratic weighted Kappa<ul>
-<li>Optimize MSE<script type="math/tex; mode=display">kappa = 1 - \frac{mse} / {hard \ to deal \ with \ part}</script></li>
+<li>Optimize MSE<script type="math/tex; mode=display">kappa = 1 - \frac{mse}{hard \ to deal \ with \ part}</script></li>
 <li>Find right thresholds<br>  – Bad:np.round(predictions)<br>  − Better: optimize thresholds</li>
 </ul>
 </li>
@@ -749,19 +754,15 @@ g(\alpha^*) = \sum_{i=1}^N sign(\alpha^* - y_i) = 0</script><p>Note that $g(\alp
 </ul>
 <p>为了解决上述模型的over-confidence，或under-confidence的情况，我们可以用“概率校验”来对prediction label进行概率估计。</p>
 <ol>
-<li>non-parameter isotonic regression：isotonic calibration is preferable for non-sigmoid calibration curves and in situations where large amounts of data are available for calibration.</li>
-</ol>
-<ul>
+<li>non-parameter isotonic regression：isotonic calibration is preferable for non-sigmoid calibration curves and in situations where large amounts of data are available for calibration.<ul>
 <li>Just fit Isotonic Regression to your predictions(like in stacking)</li>
 </ul>
-<ol>
-<li>Platt’s scaling（sigmoid function）: sigmoid calibration is preferable in cases where the calibration curve is sigmoid and where there is limited calibration data.</li>
-</ol>
-<ul>
+</li>
+<li>Platt’s scaling（sigmoid function）: sigmoid calibration is preferable in cases where the calibration curve is sigmoid and where there is limited calibration data.<ul>
 <li>JustfitLogisticRegressiontoyourpredictions(like in stacking)</li>
 </ul>
-<ol>
-<li>Stacking<br>− Just fit XGBoost or neural net to your predictions</li>
+</li>
+<li>Stacking<br> − Just fit XGBoost or neural net to your predictions</li>
 </ol>
 <p><strong>概率校验</strong>的操作方法如下：</p>
 <ol>
@@ -949,7 +950,7 @@ g(\alpha^*) = \sum_{i=1}^N sign(\alpha^* - y_i) = 0</script><p>Note that $g(\alp
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">111</span>
+                  <span class="site-state-item-count">112</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
