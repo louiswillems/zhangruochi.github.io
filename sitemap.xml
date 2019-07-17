@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhangruochi.com/Ensemble-Methods/2019/07/17/</loc>
+    <loc>https://zhangruochi.com/Stacking/2019/07/17/</loc>
     
-    <lastmod>2019-07-16T23:21:06.697Z</lastmod>
+    <lastmod>2019-07-17T15:34:18.311Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Metrics/2019/07/14/</loc>
+    
+    <lastmod>2019-07-17T08:40:01.347Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Hyperparameters-tuning/2019/07/16/</loc>
     
-    <lastmod>2019-07-16T22:56:26.023Z</lastmod>
+    <lastmod>2019-07-17T01:23:02.970Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Advanced-features/2019/07/16/</loc>
+    
+    <lastmod>2019-07-16T23:27:08.081Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Ensemble-Methods/2019/07/17/</loc>
+    
+    <lastmod>2019-07-16T23:21:06.697Z</lastmod>
     
   </url>
   
@@ -40,20 +61,6 @@
     <loc>https://zhangruochi.com/Practical-Guide-for-Kaggle-Competition/2019/07/16/</loc>
     
     <lastmod>2019-07-16T20:59:18.403Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Metrics/2019/07/14/</loc>
-    
-    <lastmod>2019-07-16T20:49:07.560Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Advanced-features/2019/07/16/</loc>
-    
-    <lastmod>2019-07-15T22:26:41.383Z</lastmod>
     
   </url>
   
