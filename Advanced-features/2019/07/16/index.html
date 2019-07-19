@@ -491,15 +491,19 @@
       
 
       
-        <h1 id="Advanced-Features"><a href="#Advanced-Features" class="headerlink" title="Advanced Features"></a>Advanced Features</h1><h2 id="Statistics-and-distance-based-features"><a href="#Statistics-and-distance-based-features" class="headerlink" title="Statistics and distance based features"></a>Statistics and distance based features</h2><h3 id="Groupby-feature"><a href="#Groupby-feature" class="headerlink" title="Groupby feature"></a>Groupby feature</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gb = df.groupby([<span class="string">'user_id'</span>,<span class="string">'page_id'</span>], as_index = <span class="keyword">False</span>).agg(&#123;<span class="string">'ad_price'</span>: &#123;<span class="string">'max_price'</span>: np.max, <span class="string">'min_price'</span>: np.min&#125;&#125;)</span><br><span class="line">gb.columns = [<span class="string">'user_id'</span>,<span class="string">'page_id'</span>,<span class="string">'min_price'</span>,<span class="string">'max_price'</span>]</span><br></pre></td></tr></table></figure>
-<p><img src="5.png" alt=""></p>
+        <h1 id="advanced-features">Advanced Features</h1>
+<h2 id="statistics-and-distance-based-features">Statistics and distance based features</h2>
+<h3 id="groupby-feature">Groupby feature</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gb = df.groupby([<span class="string">'user_id'</span>,<span class="string">'page_id'</span>], as_index = <span class="keyword">False</span>).agg(&#123;<span class="string">'ad_price'</span>: &#123;<span class="string">'max_price'</span>: np.max, <span class="string">'min_price'</span>: np.min&#125;&#125;)</span><br><span class="line">gb.columns = [<span class="string">'user_id'</span>,<span class="string">'page_id'</span>,<span class="string">'min_price'</span>,<span class="string">'max_price'</span>]</span><br></pre></td></tr></table></figure>
+<p><img src="5.png"></p>
 <ul>
 <li>How many pages user visited</li>
 <li>Standard deviation of prices</li>
 <li>Most visited page</li>
 <li>Many, many more</li>
 </ul>
-<h3 id="Neighbors"><a href="#Neighbors" class="headerlink" title="Neighbors"></a>Neighbors</h3><ul>
+<h3 id="neighbors">Neighbors</h3>
+<ul>
 <li>Explicit group is not needed</li>
 <li>More flexible</li>
 <li>Much harder to implement</li>
@@ -511,65 +515,60 @@
 <li>Number of schools/supermarkets/parking lots in 500m, 1000m,..</li>
 <li>Distance to closest subway station</li>
 </ul>
-<p>KNN features as example:</p>
+<p>KNN features as example: - Mean encode all the variables - For every point, find 2000 nearest neighbors using Bray-Curtis metric <span class="math display">\[\frac{\sum|\mu_i - \upsilon_i|}{|\mu_i + \upsilon_i|}\]</span> - Calculate various features from those 2000 neighbors - Mean target of nearest 5,10,15,500, 2000 neighbors - Mean distance to 10 closest neighbors - Mean distance to 10 closest neighbors with target 1 - Mean distance to 10 closest neighbors with target 0</p>
+<h2 id="matrix-factorizations-for-feature-extraction">Matrix Factorizations for Feature Extraction</h2>
 <ul>
-<li>Mean encode all the variables</li>
-<li>For every point, find 2000 nearest neighbors using Bray-Curtis metric<script type="math/tex; mode=display">\frac{\sum|\mu_i - \upsilon_i|}{|\mu_i + \upsilon_i|}</script></li>
-<li>Calculate various features from those 2000 neighbors<ul>
-<li>Mean target of nearest 5,10,15,500, 2000 neighbors</li>
-<li>Mean distance to 10 closest neighbors</li>
-<li>Mean distance to 10 closest neighbors with target 1</li>
-<li>Mean distance to 10 closest neighbors with target 0</li>
-</ul>
-</li>
-</ul>
-<h2 id="Matrix-Factorizations-for-Feature-Extraction"><a href="#Matrix-Factorizations-for-Feature-Extraction" class="headerlink" title="Matrix Factorizations for Feature Extraction"></a>Matrix Factorizations for Feature Extraction</h2><ul>
 <li>Matrix Factorization is a very general approach for dimensionality reduction and feature extraction</li>
 <li>It can be applied for transforming categorical features into real-valued</li>
 <li>Many of tricks trick suitable for linear models can be useful for MF</li>
 </ul>
-<p><img src="6.png" alt=""><br><img src="7.png" alt=""></p>
+<p><img src="6.png"> <img src="7.png"></p>
 <ul>
 <li>Can be apply only for some columns</li>
-<li>Can provide additional diversity<br>  − Good for ensembles</li>
-<li>It is a lossy transformation. Its’ efficiency depends on:<br>  − Particulartask<br>  − Numberoflatentfactors(Usually 5-100)</li>
+<li>Can provide additional diversity − Good for ensembles</li>
+<li>It is a lossy transformation. Its’ efficiency depends on: − Particulartask − Numberoflatentfactors(Usually 5-100)</li>
 <li>Several MF methods you can find in sklearn</li>
-<li>SVD and PCA<br>  − Standart tools for Matrix Factorization</li>
-<li>TruncatedSVD<br>  − Works with sparse matrices</li>
-<li>Non-negative Matrix Factorization (NMF)<br>  − Ensures that all latent factors are non-negative<br>  − Good for counts-like data</li>
+<li>SVD and PCA − Standart tools for Matrix Factorization</li>
+<li>TruncatedSVD − Works with sparse matrices</li>
+<li>Non-negative Matrix Factorization (NMF) − Ensures that all latent factors are non-negative − Good for counts-like data</li>
 </ul>
-<h2 id="Feature-interactions"><a href="#Feature-interactions" class="headerlink" title="Feature interactions"></a>Feature interactions</h2><p><img src="8.png" alt=""><br><img src="9.png" alt=""><br><img src="10.png" alt=""></p>
+<h2 id="feature-interactions">Feature interactions</h2>
+<p><img src="8.png"> <img src="9.png"> <img src="10.png"></p>
 <ul>
-<li>We have a lot of possible interactions − N*N for N features<ul>
+<li>We have a lot of possible interactions − N*N for N features
+<ul>
 <li>Even more if use several types in interactions</li>
-</ul>
-</li>
-<li>Need to reduce its’ number<ul>
+</ul></li>
+<li>Need to reduce its’ number
+<ul>
 <li>Dimensionality reduction</li>
 <li>Feature selection</li>
-</ul>
-</li>
-<li>Interactions’ order<ul>
+</ul></li>
+<li>Interactions' order
+<ul>
 <li>We looked at 2nd and higher order interactions.</li>
 <li>It is hard to do generation and selection automatically.</li>
 <li>Manual building of high-order interactions is some kind of art.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Frequent-operations-for-feature-interaction"><a href="#Frequent-operations-for-feature-interaction" class="headerlink" title="Frequent operations for feature interaction"></a>Frequent operations for feature interaction</h3><ul>
+<h3 id="frequent-operations-for-feature-interaction">Frequent operations for feature interaction</h3>
+<ul>
 <li>Multiplication</li>
 <li>Sum</li>
 <li>Diff</li>
 <li>Division</li>
 </ul>
-<h3 id="Example-of-interaction-generation-pipeline"><a href="#Example-of-interaction-generation-pipeline" class="headerlink" title="Example of interaction generation pipeline"></a>Example of interaction generation pipeline</h3><p><img src="11.png" alt=""></p>
-<h3 id="Extract-features-from-DT"><a href="#Extract-features-from-DT" class="headerlink" title="Extract features from DT"></a>Extract features from DT</h3><p><img src="12.png" alt=""><br>get the index of the leaf that each sample is predicted as. it a method to get the high order features</p>
+<h3 id="example-of-interaction-generation-pipeline">Example of interaction generation pipeline</h3>
+<p><img src="11.png"></p>
+<h3 id="extract-features-from-dt">Extract features from DT</h3>
+<p><img src="12.png"> get the index of the leaf that each sample is predicted as. it a method to get the high order features</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tree.apply()</span><br></pre></td></tr></table></figure>
-<h2 id="tSNE"><a href="#tSNE" class="headerlink" title="tSNE"></a>tSNE</h2><ul>
+<h2 id="tsne">tSNE</h2>
+<ul>
 <li>Result heavily depends on hyperparameters (perplexity)</li>
 <li>Good practice is to use several projections with different perplexities (5-100)</li>
-<li>Due to stochastic nature, tSNE provides different projections even for the same data\hyperparams<br>  − Train and test should be projected together</li>
-<li>tSNE runs for a long time with a big number of features<br>  − it is common to do dimensionality reduction before projection.</li>
+<li>Due to stochastic nature, tSNE provides different projections even for the same data − Train and test should be projected together</li>
+<li>tSNE runs for a long time with a big number of features − it is common to do dimensionality reduction before projection.</li>
 </ul>
 
       
@@ -756,7 +755,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">113</span>
+                  <span class="site-state-item-count">114</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -849,7 +848,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Advanced-Features"><span class="nav-text">Advanced Features</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Statistics-and-distance-based-features"><span class="nav-text">Statistics and distance based features</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Groupby-feature"><span class="nav-text">Groupby feature</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Neighbors"><span class="nav-text">Neighbors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matrix-Factorizations-for-Feature-Extraction"><span class="nav-text">Matrix Factorizations for Feature Extraction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Feature-interactions"><span class="nav-text">Feature interactions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Frequent-operations-for-feature-interaction"><span class="nav-text">Frequent operations for feature interaction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-of-interaction-generation-pipeline"><span class="nav-text">Example of interaction generation pipeline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extract-features-from-DT"><span class="nav-text">Extract features from DT</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tSNE"><span class="nav-text">tSNE</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#advanced-features"><span class="nav-text">Advanced Features</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#statistics-and-distance-based-features"><span class="nav-text">Statistics and distance based features</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#groupby-feature"><span class="nav-text">Groupby feature</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#neighbors"><span class="nav-text">Neighbors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#matrix-factorizations-for-feature-extraction"><span class="nav-text">Matrix Factorizations for Feature Extraction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#feature-interactions"><span class="nav-text">Feature interactions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#frequent-operations-for-feature-interaction"><span class="nav-text">Frequent operations for feature interaction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example-of-interaction-generation-pipeline"><span class="nav-text">Example of interaction generation pipeline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extract-features-from-dt"><span class="nav-text">Extract features from DT</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tsne"><span class="nav-text">tSNE</span></a></li></ol></li></ol></div>
             
 
           </div>

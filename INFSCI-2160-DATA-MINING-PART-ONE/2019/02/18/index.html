@@ -472,227 +472,213 @@
 
       
         <p><strong>Reference from some lecture slides of INFSCI 2160 DATA MINING lectured by Matt Berezo</strong></p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ol>
-<li>What is Artificial Intelligence?<br><img src="29AF0C1A006683910109C1BA949541C4.png" alt="Screen Shot 2019-02-18 at 13.13.28.png"><br>The goal of machine learning/AI/data mining is to develop an algorithm that performs well on new, <strong>unseen inputs</strong>. The ability to perform well on previously unobserved inputs is called <strong>generalization</strong></li>
-</ol>
-<ol>
-<li>Data Mining process<br><img src="83DD4C0B5649752C8A1EAE6A78058344.png" alt="Screen Shot 2019-02-18 at 13.15.58.png"></li>
+<h2 id="introduction">Introduction</h2>
+<ol type="1">
+<li><p>What is Artificial Intelligence? <img src="29AF0C1A006683910109C1BA949541C4.png" alt="Screen Shot 2019-02-18 at 13.13.28.png"> The goal of machine learning/AI/data mining is to develop an algorithm that performs well on new, <strong>unseen inputs</strong>. The ability to perform well on previously unobserved inputs is called <strong>generalization</strong></p></li>
+<li><p>Data Mining process <img src="83DD4C0B5649752C8A1EAE6A78058344.png" alt="Screen Shot 2019-02-18 at 13.15.58.png"></p></li>
 </ol>
 <ul>
 <li><strong>Business undertanding</strong> is important</li>
 <li><strong>Data understranding</strong> is important</li>
 </ul>
-<h2 id="Regression"><a href="#Regression" class="headerlink" title="Regression"></a>Regression</h2><ul>
-<li>Simple linear regression involves 2 variables:<ul>
+<h2 id="regression">Regression</h2>
+<ul>
+<li>Simple linear regression involves 2 variables:
+<ul>
 <li>A predictor variable, x</li>
 <li>A response variable, y</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<script type="math/tex; mode=display">\hat{y_{i}} = \hat{\alpha} + \hat{\beta_{i}}X_{i}</script><ul>
-<li>$\hat{y_{i}}$ = Estimated prediction of y</li>
-<li>$\hat{\alpha}$ = Intercept</li>
-<li>$\hat{\beta_{i}}$ = coefficient/parameter</li>
-</ul>
+<p><span class="math display">\[\hat{y_{i}} = \hat{\alpha} + \hat{\beta_{i}}X_{i}\]</span> - <span class="math inline">\(\hat{y_{i}}\)</span> = Estimated prediction of y - <span class="math inline">\(\hat{\alpha}\)</span> = Intercept - <span class="math inline">\(\hat{\beta_{i}}\)</span> = coefficient/parameter</p>
 <p><strong>Goal</strong>: Obtain coefficient estimates that the linear model fits the available data well, and will also perform well (generalize) on unseen data</p>
-<h3 id="The-least-square-approach"><a href="#The-least-square-approach" class="headerlink" title="The least square approach"></a>The least square approach</h3><script type="math/tex; mode=display">\begin{align*}
-& \hat{\beta_{1}} = \frac{\sum_{i=1}^{n}{(x_{i}-\bar{x})(y_{i}-\bar{y})}}{\sum_{i=1}^{n}{(x_{i} - \bar{x})^{2}}}\\
-& \hat{\beta_{0}} = \bar{y} - \hat{\beta_{1}}\bar{x}
-\end{align*}</script><h3 id="Coefficient-Accuracy"><a href="#Coefficient-Accuracy" class="headerlink" title="Coefficient Accuracy"></a>Coefficient Accuracy</h3><p>We can compute the standard error of our coefficients</p>
-<h4 id="what-is-SE-standaed-error"><a href="#what-is-SE-standaed-error" class="headerlink" title="what is SE (standaed error)?"></a>what is SE (standaed error)?</h4><blockquote>
+<h3 id="the-least-square-approach">The least square approach</h3>
+<p><span class="math display">\[\begin{align*}
+&amp; \hat{\beta_{1}} = \frac{\sum_{i=1}^{n}{(x_{i}-\bar{x})(y_{i}-\bar{y})}}{\sum_{i=1}^{n}{(x_{i} - \bar{x})^{2}}}\\
+&amp; \hat{\beta_{0}} = \bar{y} - \hat{\beta_{1}}\bar{x}
+\end{align*}
+\]</span></p>
+<h3 id="coefficient-accuracy">Coefficient Accuracy</h3>
+<p>We can compute the standard error of our coefficients</p>
+<h4 id="what-is-se-standaed-error">what is SE (standaed error)?</h4>
+<blockquote>
 <p>If the purpose is <strong>Descriptive</strong>, use standard Deviation; if the purpose is <strong>Estimation</strong>, use standard Error.</p>
 </blockquote>
-<p>很容易混淆,我们拿到一个样本,对样本观察值离散程度的量化是$SD:sd(x)$; 而我们可以从很多个样本中得到很多个均值，这些均值的离散度用SE来量化,也就是$SE=sd(\bar{x})$</p>
+<p>很容易混淆,我们拿到一个样本,对样本观察值离散程度的量化是<span class="math inline">\(SD:sd(x)\)</span>; 而我们可以从很多个样本中得到很多个均值，这些均值的离散度用SE来量化,也就是<span class="math inline">\(SE=sd(\bar{x})\)</span></p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## generate 1000 sample with sample size 100</span></span><br><span class="line">a = sapply(rep(<span class="number">100</span>, <span class="number">1000</span>), rnorm)</span><br><span class="line">a.mean = colMeans(a)</span><br><span class="line"><span class="comment">## estimate SEM by simulation</span></span><br><span class="line">sd(a.mean)</span><br><span class="line"></span><br><span class="line"><span class="comment">## estimate SEM by sigma/sqrt(n), sigma = 1</span></span><br><span class="line"><span class="number">1</span>/sqrt(<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## estimate SEM by sample 1</span></span><br><span class="line">sd(a[, <span class="number">1</span>])/sqrt(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-<p><strong>We have established that the average of $\hat{\mu}$ over many data sets will be very close to $\mu$, but that a single estimate $\hat{\mu}$ may be a substantial underestimate or overestimate of $\mu$. How far off will that single estimate of $\hat{\mu}$ be?</strong></p>
-<script type="math/tex; mode=display">\begin{align*}
-& SE(\hat{\beta_{0}})^{2} = \sigma^{2}\lbrack\frac{1}{n} + \frac{\bar{x}^{2}}{\sum_{i=1}^{n}{(x_{i} - \bar{x})^{2}}}\rbrack\\
-& SE(\hat{\beta_{1}})^{2} = \frac{\sigma^{2}}{\sum_{i=1}^{n}{(x_{i} - \bar{x})^{2}}}\\
-\end{align*}</script><p>When we get the SE of parameters, we can calculate the 95% confidence interval </p>
-<script type="math/tex; mode=display">\hat{B_{i}} = +/- 2 * SE(\hat{B_{i}})</script><p>Standard errors can also be used to perform <strong>hypothesis tests</strong> on the coefficients. The most common hypothesis test involves testing the null hypothesis</p>
+<p><strong>We have established that the average of <span class="math inline">\(\hat{\mu}\)</span> over many data sets will be very close to <span class="math inline">\(\mu\)</span>, but that a single estimate <span class="math inline">\(\hat{\mu}\)</span> may be a substantial underestimate or overestimate of <span class="math inline">\(\mu\)</span>. How far off will that single estimate of <span class="math inline">\(\hat{\mu}\)</span> be?</strong></p>
+<p><span class="math display">\[\begin{align*}
+&amp; SE(\hat{\beta_{0}})^{2} = \sigma^{2}\lbrack\frac{1}{n} + \frac{\bar{x}^{2}}{\sum_{i=1}^{n}{(x_{i} - \bar{x})^{2}}}\rbrack\\
+&amp; SE(\hat{\beta_{1}})^{2} = \frac{\sigma^{2}}{\sum_{i=1}^{n}{(x_{i} - \bar{x})^{2}}}\\
+\end{align*}\]</span></p>
+<p>When we get the SE of parameters, we can calculate the 95% confidence interval</p>
+<p><span class="math display">\[\hat{B_{i}} = +/- 2 * SE(\hat{B_{i}})\]</span></p>
+<p>Standard errors can also be used to perform <strong>hypothesis tests</strong> on the coefficients. The most common hypothesis test involves testing the null hypothesis</p>
 <ul>
 <li><strong>Null hypothesis(H0)</strong>: there is <strong>no</strong> relationship between x and y</li>
 <li><strong>Alternative hypothesis(Ha)</strong>: there is a relationship between x and y</li>
 </ul>
-<p>Mathematically, this corresponds to testing</p>
-<script type="math/tex; mode=display">\begin{align*}
+<p>Mathematically, this corresponds to testing <span class="math display">\[\begin{align*}
 H_{0}: \beta_{1} = 0 \\
 H_{a}: \beta_{1} \ne 0 \\
-\end{align*}</script><p>To test the null hypothesis, we need to determine whether $\hat{β<em>{1}}$, our estimate for $\hat{β</em>{1}}$ , is sufficiently far from zero that we can be confident that $\hat{β_{1}}$ is non-zero</p>
-<script type="math/tex; mode=display">t = \frac{\hat{β_{1}} - 0}{SE(\hat{\beta_{1}})}</script><h3 id="Model-Accuracy"><a href="#Model-Accuracy" class="headerlink" title="Model Accuracy"></a>Model Accuracy</h3><ul>
-<li><p>RSS: Residual Sum of Squares</p>
-<script type="math/tex; mode=display">e_{1}^{2} + e_{2}^{2} + e_{3}^{2} + .....</script></li>
-<li><p>RSE: Residual standard error</p>
-<script type="math/tex; mode=display">\sqrt\frac{RSS}{(N-2)}</script></li>
-<li>R squared<br>How much better does your model do than simply using the mean, in terms of<br>SSE?<script type="math/tex; mode=display">R^{2} = 1 - (\frac{\sum{(y_{i} - \hat{y}_{i})^{2}}}{\sum{(y_{i} - \overline{y}_{i})^{2}}})</script><ul>
-<li>R-square takes form of a proportion and gives a value between 0 and 1 (1 = perfect model)</li>
-</ul>
-</li>
-</ul>
-<h3 id="Multiple-Linear-Regression"><a href="#Multiple-Linear-Regression" class="headerlink" title="Multiple Linear Regression"></a>Multiple Linear Regression</h3><ul>
-<li>F-stat<br>If the F-stat is larger than 1 and the p-value is &lt;= 0.05, we can determine that our predictors and model have a relationship with the response variable</li>
-</ul>
-<script type="math/tex; mode=display">\frac{TSS - RSS}{p} / \frac{RSS}{n-p-1}</script><pre><code>- Where p = our number of predictors
-- N = number of observations
-</code></pre><p><img src="9784E656D9E9D2613CF3D07CA064D3AA.jpg" alt="IMG_0310.jpg"></p>
+\end{align*}\]</span></p>
+<p>To test the null hypothesis, we need to determine whether <span class="math inline">\(\hat{β_{1}}\)</span>, our estimate for <span class="math inline">\(\hat{β_{1}}\)</span> , is sufficiently far from zero that we can be confident that <span class="math inline">\(\hat{β_{1}}\)</span> is non-zero</p>
+<p><span class="math display">\[t = \frac{\hat{β_{1}} - 0}{SE(\hat{\beta_{1}})}\]</span></p>
+<h3 id="model-accuracy">Model Accuracy</h3>
 <ul>
-<li>R-squared<script type="math/tex; mode=display">R^{2} = 1 - \frac{\sum{(y_{i} - \hat{y}_{i})^{2}} / (n-d-1)}{\sum{(y_{i} - \overline{y}_{i})^{2}}/(n-d)}</script></li>
+<li><p>RSS: Residual Sum of Squares <span class="math display">\[e_{1}^{2} + e_{2}^{2} + e_{3}^{2} + .....\]</span></p></li>
+<li><p>RSE: Residual standard error <span class="math display">\[\sqrt\frac{RSS}{(N-2)}\]</span></p></li>
+<li><p>R squared How much better does your model do than simply using the mean, in terms of SSE? <span class="math display">\[R^{2} = 1 - (\frac{\sum{(y_{i} - \hat{y}_{i})^{2}}}{\sum{(y_{i} - \overline{y}_{i})^{2}}})\]</span></p>
+<ul>
+<li>R-square takes form of a proportion and gives a value between 0 and 1 (1 = perfect model)</li>
+</ul></li>
 </ul>
-<h3 id="Feature-Selection"><a href="#Feature-Selection" class="headerlink" title="Feature Selection"></a>Feature Selection</h3><h4 id="Stepwise-Procedures"><a href="#Stepwise-Procedures" class="headerlink" title="Stepwise Procedures"></a>Stepwise Procedures</h4><ul>
-<li><p>Backward Elimination<br>  This is the simplest of all variable selection procedures and can be easily implemented without special software. In situations where there is a complex hierarchy, backward elimination can be run manually while taking account of what variables are eligible for removal.</p>
-<ol>
+<h3 id="multiple-linear-regression">Multiple Linear Regression</h3>
+<ul>
+<li>F-stat If the F-stat is larger than 1 and the p-value is &lt;= 0.05, we can determine that our predictors and model have a relationship with the response variable</li>
+</ul>
+<p><span class="math display">\[\frac{TSS - RSS}{p} / \frac{RSS}{n-p-1}\]</span> - Where p = our number of predictors - N = number of observations</p>
+<figure>
+<img src="9784E656D9E9D2613CF3D07CA064D3AA.jpg" alt="IMG_0310.jpg"><figcaption>IMG_0310.jpg</figcaption>
+</figure>
+<ul>
+<li>R-squared <span class="math display">\[R^{2} = 1 - \frac{\sum{(y_{i} - \hat{y}_{i})^{2}} / (n-d-1)}{\sum{(y_{i} - \overline{y}_{i})^{2}}/(n-d)}\]</span></li>
+</ul>
+<h3 id="feature-selection">Feature Selection</h3>
+<h4 id="stepwise-procedures">Stepwise Procedures</h4>
+<ul>
+<li>Backward Elimination This is the simplest of all variable selection procedures and can be easily implemented without special software. In situations where there is a complex hierarchy, backward elimination can be run manually while taking account of what variables are eligible for removal.
+<ol type="1">
 <li>Start with all the predictors in the model</li>
-<li>Remove the predictor with highest p-value greater than $\alpha$</li>
+<li>Remove the predictor with highest p-value greater than <span class="math inline">\(\alpha\)</span></li>
 <li>Refit the model and goto 2</li>
-<li>Stop when all p-values are less than $\alpha$</li>
-</ol>
-</li>
-<li><p>Forward Selection<br>  This just reverses the backward method.</p>
-<ol>
+<li>Stop when all p-values are less than <span class="math inline">\(\alpha\)</span></li>
+</ol></li>
+<li>Forward Selection This just reverses the backward method.
+<ol type="1">
 <li>Start with no variables in the model.</li>
 <li>For all predictors not in the model, check their p-value if they are added to the model. Choose the one with lowest p-value less than αcrit .</li>
 <li>Continue until no new predictors can be added.</li>
-</ol>
-</li>
+</ol></li>
 </ul>
-<h4 id="Ridge-regression-i-e-L2-norm-regulizar"><a href="#Ridge-regression-i-e-L2-norm-regulizar" class="headerlink" title="Ridge regression (i.e., L2 norm regulizar)"></a>Ridge regression (i.e., L2 norm regulizar)</h4><p>Ridge looks to minimize:</p>
-<script type="math/tex; mode=display">RSS + \lambda\sum_{j=1}^{p}{\beta_{j}^{2}}</script><ul>
-<li>$\lambda$ is a tuning parameter</li>
+<h4 id="ridge-regression-i.e.-l2-norm-regulizar">Ridge regression (i.e., L2 norm regulizar)</h4>
+<p>Ridge looks to minimize: <span class="math display">\[RSS + \lambda\sum_{j=1}^{p}{\beta_{j}^{2}}\]</span></p>
+<ul>
+<li><span class="math inline">\(\lambda\)</span> is a tuning parameter</li>
 </ul>
-<h3 id="Bias-vs-Variance-Trade-off"><a href="#Bias-vs-Variance-Trade-off" class="headerlink" title="Bias vs. Variance Trade-off"></a>Bias vs. Variance Trade-off</h3><p>Ideally, we want to derive a model that has low bias, low variance, and low MSE on test data<br><img src="CA80BF1FC8D3AA010CDDFE5A646489BF.png" alt="Screen Shot 2019-02-18 at 20.01.09.png"></p>
-<h3 id="Local-Polynomial-Regression"><a href="#Local-Polynomial-Regression" class="headerlink" title="Local Polynomial Regression"></a>Local Polynomial Regression</h3><ul>
+<h3 id="bias-vs.-variance-trade-off">Bias vs. Variance Trade-off</h3>
+<p>Ideally, we want to derive a model that has low bias, low variance, and low MSE on test data <img src="CA80BF1FC8D3AA010CDDFE5A646489BF.png" alt="Screen Shot 2019-02-18 at 20.01.09.png"></p>
+<h3 id="local-polynomial-regression">Local Polynomial Regression</h3>
+<ul>
 <li>The fitted value changes with x in a nonparametric manner</li>
-<li>Define a weight function so that only values within a smoothing window [𝑥0 - h(𝑥0 ), 𝑥0 + h(𝑥0 )] will be considered in the estimate of $\hat{y}$</li>
+<li>Define a weight function so that only values within a smoothing window [𝑥0 - h(𝑥0 ), 𝑥0 + h(𝑥0 )] will be considered in the estimate of <span class="math inline">\(\hat{y}\)</span></li>
 </ul>
-<h3 id="Model-Performance"><a href="#Model-Performance" class="headerlink" title="Model Performance"></a>Model Performance</h3><h3 id="Cross-validation"><a href="#Cross-validation" class="headerlink" title="Cross-validation"></a>Cross-validation</h3><p>The goal of cross-validation is to test the model’s ability to predict new data that was not used in estimating it, in order to flag problems like overfitting or selection bias[6] and to give an insight on how the model will generalize to an independent dataset (i.e., an unknown dataset, for instance from a real problem).</p>
-<h4 id="Advantages-of-LOOCV"><a href="#Advantages-of-LOOCV" class="headerlink" title="Advantages of LOOCV"></a>Advantages of LOOCV</h4><p>Advantages of LOOCV:</p>
+<h3 id="model-performance">Model Performance</h3>
+<h3 id="cross-validation">Cross-validation</h3>
+<p>The goal of cross-validation is to test the model’s ability to predict new data that was not used in estimating it, in order to flag problems like overfitting or selection bias[6] and to give an insight on how the model will generalize to an independent dataset (i.e., an unknown dataset, for instance from a real problem).</p>
+<h4 id="advantages-of-loocv">Advantages of LOOCV</h4>
+<p>Advantages of LOOCV: - Works well on small datasets - Meticulously tests the data</p>
+<p>Disadvantages of LOOCV: - Computationally expensive on “big data” sets - Can result in high variability since model is only tested on one observation</p>
+<h4 id="overfitting">Overfitting</h4>
 <ul>
-<li>Works well on small datasets</li>
-<li>Meticulously tests the data</li>
-</ul>
-<p>Disadvantages of LOOCV:</p>
-<ul>
-<li>Computationally expensive on “big data” sets</li>
-<li>Can result in high variability since model is only tested on one observation</li>
-</ul>
-<h4 id="Overfitting"><a href="#Overfitting" class="headerlink" title="Overfitting"></a>Overfitting</h4><ul>
 <li>Use cross-validation</li>
 <li>Ensemble/combine models together</li>
 <li>Use regularization techniques to penalize models that are too complex</li>
 </ul>
-<h3 id="Non-parametric-Methods"><a href="#Non-parametric-Methods" class="headerlink" title="Non-parametric Methods"></a>Non-parametric Methods</h3><p>Advantages of Non-parametric Methods:</p>
+<h3 id="non-parametric-methods">Non-parametric Methods</h3>
+<p>Advantages of Non-parametric Methods: - Do not assume an explicit form of f(x), so the model is more "flexible"</p>
+<p>Disadvantages of Non-Parametric Methods: - Often are more complex and thus more difficult to interpret</p>
+<h4 id="k-nearest-neighbors">K Nearest-Neighbors</h4>
 <ul>
-<li>Do not assume an explicit form of f(x), so the model is more “flexible”</li>
+<li>KNN is a <strong>non-parametric method</strong>, vs. linear and logistic regression which are parametric approaches since they assume a linear functional form for f(x) <img src="BFE33EA434D8355137098AEF9241AEEC.png" alt="Screen Shot 2019-02-18 at 22.26.44.png"></li>
 </ul>
-<p>Disadvantages of Non-Parametric Methods:</p>
+<h3 id="accuracy-and-error-rate">Accuracy and Error Rate</h3>
+<p><img src="3FB3E0B341C2DD82395CB962430B6E34.png" alt="Screen Shot 2019-02-19 at 00.26.12.png"> <img src="youden.png" alt="youden.png"> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line">y = np.array([<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>])</span><br><span class="line">scores = np.array([<span class="number">0.1</span>, <span class="number">0.4</span>, <span class="number">0.35</span>, <span class="number">0.8</span>])</span><br><span class="line">fpr, tpr, thresholds = metrics.roc_curve(y, scores, pos_label=<span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fpr</span><br><span class="line">array([<span class="number">0.</span> , <span class="number">0.</span> , <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1.</span> ])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>tpr</span><br><span class="line">array([<span class="number">0.</span> , <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1.</span> , <span class="number">1.</span> ])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>thresholds</span><br><span class="line">array([<span class="number">1.8</span> , <span class="number">0.8</span> , <span class="number">0.4</span> , <span class="number">0.35</span>, <span class="number">0.1</span> ])</span><br></pre></td></tr></table></figure></p>
+<h3 id="classification">Classification</h3>
+<h4 id="naïve-bayes">Naïve Bayes</h4>
 <ul>
-<li>Often are more complex and thus more difficult to interpret</li>
-</ul>
-<h4 id="K-Nearest-Neighbors"><a href="#K-Nearest-Neighbors" class="headerlink" title="K Nearest-Neighbors"></a>K Nearest-Neighbors</h4><ul>
-<li>KNN is a <strong>non-parametric method</strong>, vs. linear and logistic regression which are parametric approaches since they assume a linear functional form for f(x)<br><img src="BFE33EA434D8355137098AEF9241AEEC.png" alt="Screen Shot 2019-02-18 at 22.26.44.png"></li>
-</ul>
-<h3 id="Accuracy-and-Error-Rate"><a href="#Accuracy-and-Error-Rate" class="headerlink" title="Accuracy and Error Rate"></a>Accuracy and Error Rate</h3><p><img src="3FB3E0B341C2DD82395CB962430B6E34.png" alt="Screen Shot 2019-02-19 at 00.26.12.png"><br><img src="youden.png" alt="youden.png"><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line">y = np.array([<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>])</span><br><span class="line">scores = np.array([<span class="number">0.1</span>, <span class="number">0.4</span>, <span class="number">0.35</span>, <span class="number">0.8</span>])</span><br><span class="line">fpr, tpr, thresholds = metrics.roc_curve(y, scores, pos_label=<span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fpr</span><br><span class="line">array([<span class="number">0.</span> , <span class="number">0.</span> , <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1.</span> ])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>tpr</span><br><span class="line">array([<span class="number">0.</span> , <span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">1.</span> , <span class="number">1.</span> ])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>thresholds</span><br><span class="line">array([<span class="number">1.8</span> , <span class="number">0.8</span> , <span class="number">0.4</span> , <span class="number">0.35</span>, <span class="number">0.1</span> ])</span><br></pre></td></tr></table></figure></p>
-<h3 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h3><h4 id="Naive-Bayes"><a href="#Naive-Bayes" class="headerlink" title="Naïve Bayes"></a>Naïve Bayes</h4><ul>
 <li>a Naïve Bayes classifier assumes independence between features</li>
 <li>Naïve Bayes assumes that the continuous variables are normally distributed</li>
-<li>For continuous random variables, probabilities are areas under the curve<br><img src="IMG_77C6064B4F18.png" alt="IMG_77C6064B4F18.png"></li>
+<li>For continuous random variables, probabilities are areas under the curve <img src="IMG_77C6064B4F18.png" alt="IMG_77C6064B4F18.png"></li>
 </ul>
-<h4 id="Decision-Trees"><a href="#Decision-Trees" class="headerlink" title="Decision Trees"></a>Decision Trees</h4><p>Constructing Decision Trees for Regression</p>
-<ol>
-<li>First, we divide the predictor space into distinct and non-overlapping regions (𝑅1, 𝑅2,𝑅3 … 𝑅𝑛)</li>
-<li>To make a prediction, we typically use the mean of the training data in the region to which it belongs</li>
-</ol>
-<p><strong>How do we construct R1 and R2?</strong><br>The goal is to find regions that minimize the residual sum of squares (RSS)</p>
-<p>Decision trees can get too complex, memorize the training data, and overfit on test data</p>
-<ul>
-<li>It is advised to first build a very large tree and then <strong>prune</strong> it back to obtain a subtree<ul>
-<li>Given a subtree, we can estimate the test error rate using cross-validation</li>
-</ul>
-</li>
-<li><strong>Cost complexity pruning</strong> i.e., <strong>weakest link pruning</strong> gives us the most efficient way to choose our subset of trees</li>
-</ul>
-<h4 id="Decision-Trees-Advantages-and-Disadvantages"><a href="#Decision-Trees-Advantages-and-Disadvantages" class="headerlink" title="Decision Trees Advantages and Disadvantages"></a>Decision Trees Advantages and Disadvantages</h4><p>Advantages:</p>
-<ul>
-<li>Trees are easy to explain and are intuitive</li>
-<li>Trees can be displayed graphically and are easy to interpret</li>
-<li>Trees can handle qualitative predictors without dummy variables</li>
-</ul>
-<p>Disadvantages:</p>
-<ul>
-<li>Trees to not usually have the same level of predictive accuracy as other regression and classification methods</li>
-<li>Trees can be non-robust, i.e., a small change in the data can cause a large change in the tree</li>
-</ul>
-<h4 id="Bagging-and-Random-Forests"><a href="#Bagging-and-Random-Forests" class="headerlink" title="Bagging and Random Forests"></a>Bagging and Random Forests</h4><p><strong>Bootstrap aggregation</strong>, also known as <strong>bagging</strong>, is a procedure of reducing the variance of a statistical learning method</p>
-<ul>
-<li>This is a good way to reduce variance→by taking many training sets from the population and build<br>separate learning methods using each set</li>
-<li>We can then calculate f1,f2,f3… and average them in order to obtain a low-variance<br>statistical model</li>
-<li>We can do this by bootstrapping, or taking repeated random samples from the training set</li>
-</ul>
+<h4 id="decision-trees">Decision Trees</h4>
+<p>Constructing Decision Trees for Regression 1. First, we divide the predictor space into distinct and non-overlapping regions (𝑅1, 𝑅2,𝑅3 ... 𝑅𝑛) 2. To make a prediction, we typically use the mean of the training data in the region to which it belongs</p>
+<p><strong>How do we construct R1 and R2?</strong> The goal is to find regions that minimize the residual sum of squares (RSS)</p>
+<p>Decision trees can get too complex, memorize the training data, and overfit on test data - It is advised to first build a very large tree and then <strong>prune</strong> it back to obtain a subtree - Given a subtree, we can estimate the test error rate using cross-validation - <strong>Cost complexity pruning</strong> i.e., <strong>weakest link pruning</strong> gives us the most efficient way to choose our subset of trees</p>
+<h4 id="decision-trees-advantages-and-disadvantages">Decision Trees Advantages and Disadvantages</h4>
+<p>Advantages: - Trees are easy to explain and are intuitive - Trees can be displayed graphically and are easy to interpret - Trees can handle qualitative predictors without dummy variables</p>
+<p>Disadvantages: - Trees to not usually have the same level of predictive accuracy as other regression and classification methods - Trees can be non-robust, i.e., a small change in the data can cause a large change in the tree</p>
+<h4 id="bagging-and-random-forests">Bagging and Random Forests</h4>
+<p><strong>Bootstrap aggregation</strong>, also known as <strong>bagging</strong>, is a procedure of reducing the variance of a statistical learning method - This is a good way to reduce variance→by taking many training sets from the population and build separate learning methods using each set - We can then calculate f1,f2,f3... and average them in order to obtain a low-variance statistical model - We can do this by bootstrapping, or taking repeated random samples from the training set</p>
 <p><strong>Ensemble learning</strong> is a machine learning paradigm where multiple learners are trained to solve the same problem</p>
-<p><strong>Random forests</strong> provide an improvement over bagged trees by decorrelating them</p>
+<p><strong>Random forests</strong> provide an improvement over bagged trees by decorrelating them - Like bagging, decision trees are made on bootstrapped training samples - Random forests are an <strong>ensemble</strong> method for decision trees - The difference is, each time a split in the tree is considered, a random sample of predictors is chosen as split candidates from the full set of predictors. So, at each split of the tree, the algorithm can’t even consider a majority of the predictors</p>
+<h3 id="support-vector-machines">Support Vector Machines</h3>
 <ul>
-<li>Like bagging, decision trees are made on bootstrapped training samples</li>
-<li>Random forests are an <strong>ensemble</strong> method for decision trees</li>
-<li>The difference is, each time a split in the tree is considered, a random sample of predictors is chosen as split candidates from the full set of predictors. So, at each split of the tree, the algorithm can’t even consider a majority of the predictors</li>
-</ul>
-<h3 id="Support-Vector-Machines"><a href="#Support-Vector-Machines" class="headerlink" title="Support Vector Machines"></a>Support Vector Machines</h3><ul>
 <li>SVM’s use a classifying tool called <strong>maximum margin classifier</strong></li>
 <li>maximum margin classifiers can’t be applied to most datasets because they require the classes to be <strong>separated by a linear boundary</strong></li>
 <li>Support vector classifiers are an extension of maximum margin classifiers that can be applied to a broader range of datasets</li>
 </ul>
-<h4 id="hyperplane"><a href="#hyperplane" class="headerlink" title="hyperplane"></a>hyperplane</h4><p>A hyperplane is a flat subspace in p-dimensional space with p – 1 dimensions<br><img src="BEC28A552A36163DACC7817A18999E6B.png" alt="Screen Shot 2019-02-19 at 02.46.26.png"></p>
-<h4 id="parameters"><a href="#parameters" class="headerlink" title="parameters"></a>parameters</h4><ul>
-<li>C = a nonnegative tuning parameter<ul>
+<h4 id="hyperplane">hyperplane</h4>
+<p>A hyperplane is a flat subspace in p-dimensional space with p – 1 dimensions <img src="BEC28A552A36163DACC7817A18999E6B.png" alt="Screen Shot 2019-02-19 at 02.46.26.png"></p>
+<h4 id="parameters">parameters</h4>
+<ul>
+<li>C = a nonnegative tuning parameter
+<ul>
 <li>C can be thought of as a budget for the amount the margin can be violated by n observations. If C = 0, there is no budget for violations to the margin</li>
 <li>large C, Overfitting</li>
 <li>small C, underfitting</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="What-if-the-decision-boundary-for-the-two-classes-is-not-linear"><a href="#What-if-the-decision-boundary-for-the-two-classes-is-not-linear" class="headerlink" title="What if the decision boundary for the two classes is not linear?"></a>What if the decision boundary for the two classes is not linear?</h4><ul>
+<h4 id="what-if-the-decision-boundary-for-the-two-classes-is-not-linear">What if the decision boundary for the two classes is not linear?</h4>
+<ul>
 <li>enlarging the feature space with kernels</li>
 <li>A kernel is a function that quantifies the similarity between two observations</li>
 </ul>
-<h3 id="Multinomial-Logistic-Regression"><a href="#Multinomial-Logistic-Regression" class="headerlink" title="Multinomial Logistic Regression"></a>Multinomial Logistic Regression</h3><ul>
+<h3 id="multinomial-logistic-regression">Multinomial Logistic Regression</h3>
+<ul>
 <li>Similar to binary logistic regression, all probabilities in the output will sum to 1</li>
 <li>This is just an extension of the same math from logistic regression</li>
 </ul>
-<h4 id="Drawbacks"><a href="#Drawbacks" class="headerlink" title="Drawbacks"></a>Drawbacks</h4><ul>
+<h4 id="drawbacks">Drawbacks</h4>
+<ul>
 <li>Models involve many parameters, which makes their interpretation tedious</li>
 <li>Maximum-likelihood estimation can encounter numerical problems if the data is separable and if the predicted probabilities are close to either 0 or 1</li>
 </ul>
-<h3 id="XGBoost"><a href="#XGBoost" class="headerlink" title="XGBoost"></a>XGBoost</h3><h4 id="overview"><a href="#overview" class="headerlink" title="overview"></a>overview</h4><p>Advantages of XGBoost:</p>
+<h3 id="xgboost">XGBoost</h3>
+<h4 id="overview">overview</h4>
+<p>Advantages of XGBoost:</p>
 <ul>
 <li>Scalability: XGBoost system runs 10x faster than existing popular solutions on a single machine</li>
 <li>XGBoost accepts null values: users don’t have to impute missing values, drop records, etc.</li>
 <li>Less time spent on feature selection and more time spent on hyperparametric tuning</li>
 </ul>
 <p>Typically, one tree is not as strong as an ensemble/combination of other trees. XGBoost uses an ensemble method to gather information from other trees.</p>
-<h4 id="Objective-Function-and-Regularization"><a href="#Objective-Function-and-Regularization" class="headerlink" title="Objective Function and Regularization"></a>Objective Function and Regularization</h4><p>The additive function fixes what we have already learned, and adds one new tree at a time<br><img src="8227ABDFF7CF20D89F91BFAAE7C2C7F8.png" alt="Screen Shot 2019-02-19 at 04.46.06.png"></p>
-<p>But how do we choose which tree we want at each step?</p>
-<blockquote>
-<p>We pick the one that optimizes our objective function! This is known as an <strong>additive function</strong></p>
-</blockquote>
-<h4 id="Objective-Functions"><a href="#Objective-Functions" class="headerlink" title="Objective Functions"></a>Objective Functions</h4><ul>
+<h4 id="objective-function-and-regularization">Objective Function and Regularization</h4>
+<p>The additive function fixes what we have already learned, and adds one new tree at a time <img src="8227ABDFF7CF20D89F91BFAAE7C2C7F8.png" alt="Screen Shot 2019-02-19 at 04.46.06.png"></p>
+<p>But how do we choose which tree we want at each step? &gt; We pick the one that optimizes our objective function! This is known as an <strong>additive function</strong></p>
+<h4 id="objective-functions">Objective Functions</h4>
+<ul>
 <li>Linear: Continuous numeric prediction</li>
 <li>Binary: logistic,binary classification</li>
 <li>Multi:softmax: multiclassification</li>
 </ul>
-<h4 id="Tree-Boosting-Parameters"><a href="#Tree-Boosting-Parameters" class="headerlink" title="Tree Boosting Parameters"></a>Tree Boosting Parameters</h4><p><strong>Reference from <a href="https://www.cnblogs.com/sarahp/p/6900572.html" target="_blank" rel="noopener">https://www.cnblogs.com/sarahp/p/6900572.html</a></strong></p>
+<h4 id="tree-boosting-parameters">Tree Boosting Parameters</h4>
+<p><strong>Reference from <a href="https://www.cnblogs.com/sarahp/p/6900572.html" target="_blank" rel="noopener">https://www.cnblogs.com/sarahp/p/6900572.html</a></strong></p>
 <ul>
-<li><strong>Eta</strong> (i.e., learning rate): Step shrinkage use in update to prevent overfitting. After each boosting step, we can get<br>the weights of new features. Eta shrinks the weights to make the boosting process more conservative</li>
+<li><strong>Eta</strong> (i.e., learning rate): Step shrinkage use in update to prevent overfitting. After each boosting step, we can get the weights of new features. Eta shrinks the weights to make the boosting process more conservative</li>
 <li>Gamma: Minimum loss reduction required to make a further partition on a leaf node of a tree. Larger gamma = more conservative model (这个指定了一个结点被分割时，所需要的最小损失函数减小的大小)</li>
 <li>Max depth: Maximum depth of a tree. Increasing this value will make the model more complex (树的最大深度，值越大，树越复杂)</li>
 <li>Minimum child weight: Minimum sum of instance weight needed in a child. If the tree partition step results in a leaf node with the sum of instance weight less than this set parameter, the building process will stop partitioning. Larger weight = more conservative model (定义了一个子集的所有观察值的最小权重和)</li>
-<li>Subsample: A subsample ratio of the training instances. Setting to 0.5 would make XGBoost randomly sample half<br>of the training data prior to growing trees and will help prevent overfitting (样本的采样率，如果设置成0.5，那么Xgboost会随机选择一般的样本作为训练集)</li>
+<li>Subsample: A subsample ratio of the training instances. Setting to 0.5 would make XGBoost randomly sample half of the training data prior to growing trees and will help prevent overfitting (样本的采样率，如果设置成0.5，那么Xgboost会随机选择一般的样本作为训练集)</li>
 <li>Column sample by tree: Subsample ratio of columns when constructing a tree</li>
 <li>Column sample by level: Subsample ratio of columns for each level of the tree</li>
 <li>Column sample by node: Subsample ratio of columns for each node (split)</li>
-<li>Lambda: L2 regularization </li>
+<li>Lambda: L2 regularization</li>
 <li>Alpha: L1 regularization</li>
 <li>Scale positive weight: Control the balance of positive and negative weights</li>
 </ul>
-<h3 id="REVIEW"><a href="#REVIEW" class="headerlink" title="REVIEW"></a>REVIEW</h3><h4 id="What-is-the-difference-between-boost-ensemble-bootstrap-and-bagging"><a href="#What-is-the-difference-between-boost-ensemble-bootstrap-and-bagging" class="headerlink" title="What is the difference between boost, ensemble, bootstrap and bagging?"></a>What is the difference between boost, ensemble, bootstrap and bagging?</h4><p><strong>Reference from <a href="https://www.quora.com/What-is-the-difference-between-boost-ensemble-bootstrap-and-bagging" target="_blank" rel="noopener">https://www.quora.com/What-is-the-difference-between-boost-ensemble-bootstrap-and-bagging</a></strong></p>
+<h3 id="review">REVIEW</h3>
+<h4 id="what-is-the-difference-between-boost-ensemble-bootstrap-and-bagging">What is the difference between boost, ensemble, bootstrap and bagging?</h4>
+<p><strong>Reference from <a href="https://www.quora.com/What-is-the-difference-between-boost-ensemble-bootstrap-and-bagging" target="_blank" rel="noopener">https://www.quora.com/What-is-the-difference-between-boost-ensemble-bootstrap-and-bagging</a></strong></p>
 <ul>
 <li>Boosting is the idea of training iteratively the same “weak” classifier, so that at each iteration, the i-th classifier is supposed to correct the mistakes made by the previous classifier (i-1). It is done by weighting more the misclassified observations.</li>
 <li>The final classifier is calculated by a weighted mean of all the “weak” classifiers, the weights being close to the accuracies calculated for each classifier.</li>
@@ -700,9 +686,10 @@ H_{a}: \beta_{1} \ne 0 \\
 <li>Bootstrapping means taking a sample of a population by drawing with replacement. It is one of the main ideas behind Bagging (which stands for Bootstrap AGGregatING).</li>
 <li>Bagging means training the same classifier on different subsets (that may be overlapping) of one dataset. You do so with bootstrap.</li>
 </ul>
-<h4 id="RF-vs-XGBoost"><a href="#RF-vs-XGBoost" class="headerlink" title="RF vs XGBoost"></a>RF vs XGBoost</h4><p><strong>Reference from <a href="https://www.cnblogs.com/sarahp/p/6900572.html" target="_blank" rel="noopener">https://www.cnblogs.com/sarahp/p/6900572.html</a></strong></p>
+<h4 id="rf-vs-xgboost">RF vs XGBoost</h4>
+<p><strong>Reference from <a href="https://www.cnblogs.com/sarahp/p/6900572.html" target="_blank" rel="noopener">https://www.cnblogs.com/sarahp/p/6900572.html</a></strong></p>
 <ul>
-<li><p>RF use bagging:</p>
+<li>RF use bagging:
 <ul>
 <li>种集成学习算法，基于bootstrap sampling 自助采样法，重复性有放回的随机采用部分样本进行训练最后再将结果 voting 或者 averaging</li>
 <li>它是并行式算法，因为不同基学习器是独立</li>
@@ -710,16 +697,14 @@ H_{a}: \beta_{1} \ne 0 \\
 <li>bagging可以用于二分类／多分类／回归</li>
 <li>每个基学习器的未用作训练样本可用来做包外估计，评价泛化性能。</li>
 <li>bagging主要关注降低<strong>方差</strong></li>
-<li>两个步骤 1. 抽样训练（采样样本，采样特征） 2 融合 </li>
-</ul>
-</li>
-<li><p>XGBoost use boosting(Gradient Boosting Decision Tree):</p>
+<li>两个步骤 1. 抽样训练（采样样本，采样特征） 2 融合</li>
+</ul></li>
+<li>XGBoost use boosting(Gradient Boosting Decision Tree):
 <ul>
 <li>gbdt的基本原理是boost 里面的 boosting tree（提升树），并使用 gradient boost。</li>
 <li>Gradient Boosting是一种Boosting的方法，其与传统的Boosting的区别是，每一次的计算是为了减少上一次的残差(residual)，而为了消除残差，可以在残差减少的梯度(Gradient)方向上建立一个新的模型。所以说，在Gradient Boosting中，每个新的模型的建立是为了使得之前模型的残差往梯度方向减少，与传统Boosting对正确、错误样本进行加权有着很大的区别。这个梯度代表上一轮学习器损失函数对预测值求导。</li>
 <li>与Boosting Tree的区别：Boosting Tree的适合于损失函数为平方损失或者指数损失。而Gradient Boosting适合各类损失函数（损失函数为：平方损失则相当于Boosting Tree拟合残差、损失函数为：使用指数损失则可以近似于Adaboost，但树是回归树）</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 
       
@@ -906,7 +891,7 @@ H_{a}: \beta_{1} \ne 0 \\
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">113</span>
+                  <span class="site-state-item-count">114</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -999,7 +984,7 @@ H_{a}: \beta_{1} \ne 0 \\
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regression"><span class="nav-text">Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-least-square-approach"><span class="nav-text">The least square approach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coefficient-Accuracy"><span class="nav-text">Coefficient Accuracy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#what-is-SE-standaed-error"><span class="nav-text">what is SE (standaed error)?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-Accuracy"><span class="nav-text">Model Accuracy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multiple-Linear-Regression"><span class="nav-text">Multiple Linear Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Feature-Selection"><span class="nav-text">Feature Selection</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Stepwise-Procedures"><span class="nav-text">Stepwise Procedures</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ridge-regression-i-e-L2-norm-regulizar"><span class="nav-text">Ridge regression (i.e., L2 norm regulizar)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bias-vs-Variance-Trade-off"><span class="nav-text">Bias vs. Variance Trade-off</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-Polynomial-Regression"><span class="nav-text">Local Polynomial Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-Performance"><span class="nav-text">Model Performance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cross-validation"><span class="nav-text">Cross-validation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Advantages-of-LOOCV"><span class="nav-text">Advantages of LOOCV</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Overfitting"><span class="nav-text">Overfitting</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Non-parametric-Methods"><span class="nav-text">Non-parametric Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#K-Nearest-Neighbors"><span class="nav-text">K Nearest-Neighbors</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Accuracy-and-Error-Rate"><span class="nav-text">Accuracy and Error Rate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Classification"><span class="nav-text">Classification</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Naive-Bayes"><span class="nav-text">Naïve Bayes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Decision-Trees"><span class="nav-text">Decision Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Decision-Trees-Advantages-and-Disadvantages"><span class="nav-text">Decision Trees Advantages and Disadvantages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bagging-and-Random-Forests"><span class="nav-text">Bagging and Random Forests</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Support-Vector-Machines"><span class="nav-text">Support Vector Machines</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hyperplane"><span class="nav-text">hyperplane</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parameters"><span class="nav-text">parameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-if-the-decision-boundary-for-the-two-classes-is-not-linear"><span class="nav-text">What if the decision boundary for the two classes is not linear?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multinomial-Logistic-Regression"><span class="nav-text">Multinomial Logistic Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Drawbacks"><span class="nav-text">Drawbacks</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XGBoost"><span class="nav-text">XGBoost</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#overview"><span class="nav-text">overview</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Objective-Function-and-Regularization"><span class="nav-text">Objective Function and Regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Objective-Functions"><span class="nav-text">Objective Functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tree-Boosting-Parameters"><span class="nav-text">Tree Boosting Parameters</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#REVIEW"><span class="nav-text">REVIEW</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#What-is-the-difference-between-boost-ensemble-bootstrap-and-bagging"><span class="nav-text">What is the difference between boost, ensemble, bootstrap and bagging?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RF-vs-XGBoost"><span class="nav-text">RF vs XGBoost</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#regression"><span class="nav-text">Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-least-square-approach"><span class="nav-text">The least square approach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#coefficient-accuracy"><span class="nav-text">Coefficient Accuracy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#what-is-se-standaed-error"><span class="nav-text">what is SE (standaed error)?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#model-accuracy"><span class="nav-text">Model Accuracy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multiple-linear-regression"><span class="nav-text">Multiple Linear Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#feature-selection"><span class="nav-text">Feature Selection</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#stepwise-procedures"><span class="nav-text">Stepwise Procedures</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ridge-regression-i.e.-l2-norm-regulizar"><span class="nav-text">Ridge regression (i.e., L2 norm regulizar)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bias-vs.-variance-trade-off"><span class="nav-text">Bias vs. Variance Trade-off</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#local-polynomial-regression"><span class="nav-text">Local Polynomial Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#model-performance"><span class="nav-text">Model Performance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cross-validation"><span class="nav-text">Cross-validation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#advantages-of-loocv"><span class="nav-text">Advantages of LOOCV</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#overfitting"><span class="nav-text">Overfitting</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#non-parametric-methods"><span class="nav-text">Non-parametric Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#k-nearest-neighbors"><span class="nav-text">K Nearest-Neighbors</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#accuracy-and-error-rate"><span class="nav-text">Accuracy and Error Rate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#classification"><span class="nav-text">Classification</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#naïve-bayes"><span class="nav-text">Naïve Bayes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#decision-trees"><span class="nav-text">Decision Trees</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#decision-trees-advantages-and-disadvantages"><span class="nav-text">Decision Trees Advantages and Disadvantages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bagging-and-random-forests"><span class="nav-text">Bagging and Random Forests</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#support-vector-machines"><span class="nav-text">Support Vector Machines</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hyperplane"><span class="nav-text">hyperplane</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parameters"><span class="nav-text">parameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#what-if-the-decision-boundary-for-the-two-classes-is-not-linear"><span class="nav-text">What if the decision boundary for the two classes is not linear?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multinomial-logistic-regression"><span class="nav-text">Multinomial Logistic Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#drawbacks"><span class="nav-text">Drawbacks</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xgboost"><span class="nav-text">XGBoost</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#overview"><span class="nav-text">overview</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#objective-function-and-regularization"><span class="nav-text">Objective Function and Regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#objective-functions"><span class="nav-text">Objective Functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tree-boosting-parameters"><span class="nav-text">Tree Boosting Parameters</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#review"><span class="nav-text">REVIEW</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#what-is-the-difference-between-boost-ensemble-bootstrap-and-bagging"><span class="nav-text">What is the difference between boost, ensemble, bootstrap and bagging?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rf-vs-xgboost"><span class="nav-text">RF vs XGBoost</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

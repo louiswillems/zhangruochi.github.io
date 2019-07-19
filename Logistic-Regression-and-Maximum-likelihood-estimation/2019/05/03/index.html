@@ -463,21 +463,28 @@
       
 
       
-        <h3 id="为什么-LR-用极大似然估计而不用最小二乘"><a href="#为什么-LR-用极大似然估计而不用最小二乘" class="headerlink" title="为什么 LR 用极大似然估计而不用最小二乘"></a>为什么 LR 用极大似然估计而不用最小二乘</h3><ol>
-<li>如果用最小二乘法，目标函数就是 <script type="math/tex; mode=display">E_{w,b}=\sum_{i=1}^{m}\left ( y_{i}-\frac{1}{1+e^{-\left ( w^{T}x_{i}+b \right )}}\right )^2</script>是非凸的，不容易求解，会得到局部最优。</li>
+        <h3 id="为什么-lr-用极大似然估计而不用最小二乘">为什么 LR 用极大似然估计而不用最小二乘</h3>
+<ol type="1">
+<li>如果用最小二乘法，目标函数就是 <span class="math display">\[E_{w,b}=\sum_{i=1}^{m}\left ( y_{i}-\frac{1}{1+e^{-\left ( w^{T}x_{i}+b \right )}}\right )^2 \]</span> 是非凸的，不容易求解，会得到局部最优。</li>
 </ol>
-<p><img src="1.png" alt=""></p>
-<ol>
-<li>如果用最大似然估计，目标函数就是对数似然函数： <script type="math/tex; mode=display">l_{w,b}=\sum_{i=1}^{m}\left ( -y_{i}\left ( w^{T}x_{i}+b \right )+ln\left ( 1+e^{w^{T}x_{i}+b} \right ) \right )</script></li>
+<p><img src="1.png"></p>
+<ol start="2" type="1">
+<li>如果用最大似然估计，目标函数就是对数似然函数： <span class="math display">\[l_{w,b}=\sum_{i=1}^{m}\left ( -y_{i}\left ( w^{T}x_{i}+b \right )+ln\left ( 1+e^{w^{T}x_{i}+b} \right ) \right )\]</span></li>
 </ol>
 <p>是关于 (w,b) 的高阶连续可导凸函数，可以方便通过一些凸优化算法求解，比如梯度下降法、牛顿法等。</p>
-<p><img src="2.png" alt=""></p>
-<h3 id="LR-cost-function-的具体推导过程"><a href="#LR-cost-function-的具体推导过程" class="headerlink" title="LR cost function 的具体推导过程"></a>LR cost function 的具体推导过程</h3><p>最大化似然概率的形式:</p>
-<script type="math/tex; mode=display">max \prod_{i=1}^{m}p(y_{i}|x_{i},\theta)</script><p>对于二分类问题有:</p>
-<script type="math/tex; mode=display">p_{1}=p(y=1|x,\theta)=\frac{e^{x\theta}}{1+e^{x\theta}},y=1</script><script type="math/tex; mode=display">p_{0}=p(y=0|x,\theta)=\frac{1}{1+e^{x\theta}},y=0</script><p>用一个式子表示上面这个分段的函数为：</p>
-<script type="math/tex; mode=display">p=p(y|x,\theta)=p_{1}^{y_{i}}\ast p_{0}^{1-y_{i}}</script><p>代入目标函数中，再对目标函数取对数，则目标函数变为：</p>
-<script type="math/tex; mode=display">max \sum_{i=1}^{m}({y_{i}\log{p_{1}}+(1-y_{i})\log{p_{0})}}</script><p>如果用 $h<em>{\theta}(x</em>{i})$ 来表示 $p<em>{1}$ ，则可用 $1-h</em>{\theta}(x<em>{i})$ 来表示 $p</em>{0}$ ，再将目标函数max换成min，则目标函数变为：</p>
-<script type="math/tex; mode=display">min -\frac{1}{m}\sum_{i=1}^{m}({y_{i}\log{h_{\theta}(x_{i})}+(1-y_{i})\log({1-h_{\theta}(x_{i})}))}</script><p><strong>Reference from <a href="https://www.zhihu.com/question/65350200" target="_blank" rel="noopener">https://www.zhihu.com/question/65350200</a></strong></p>
+<p><img src="2.png"></p>
+<h3 id="lr-cost-function-的具体推导过程">LR cost function 的具体推导过程</h3>
+<p>最大化似然概率的形式:</p>
+<p><span class="math display">\[max \prod_{i=1}^{m}p(y_{i}|x_{i},\theta)\]</span></p>
+<p>对于二分类问题有:</p>
+<p><span class="math display">\[p_{1}=p(y=1|x,\theta)=\frac{e^{x\theta}}{1+e^{x\theta}},y=1\]</span> <span class="math display">\[p_{0}=p(y=0|x,\theta)=\frac{1}{1+e^{x\theta}},y=0\]</span></p>
+<p>用一个式子表示上面这个分段的函数为：</p>
+<p><span class="math display">\[p=p(y|x,\theta)=p_{1}^{y_{i}}\ast p_{0}^{1-y_{i}}\]</span></p>
+<p>代入目标函数中，再对目标函数取对数，则目标函数变为：</p>
+<p><span class="math display">\[max \sum_{i=1}^{m}({y_{i}\log{p_{1}}+(1-y_{i})\log{p_{0})}}\]</span></p>
+<p>如果用 <span class="math inline">\(h_{\theta}(x_{i})\)</span> 来表示 <span class="math inline">\(p_{1}\)</span> ，则可用 <span class="math inline">\(1-h_{\theta}(x_{i})\)</span> 来表示 <span class="math inline">\(p_{0}\)</span> ，再将目标函数max换成min，则目标函数变为：</p>
+<p><span class="math display">\[min -\frac{1}{m}\sum_{i=1}^{m}({y_{i}\log{h_{\theta}(x_{i})}+(1-y_{i})\log({1-h_{\theta}(x_{i})}))}\]</span></p>
+<p><strong>Reference from <a href="https://www.zhihu.com/question/65350200" target="_blank" rel="noopener">https://www.zhihu.com/question/65350200</a></strong></p>
 
       
     </div>
@@ -663,7 +670,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">113</span>
+                  <span class="site-state-item-count">114</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -756,7 +763,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么-LR-用极大似然估计而不用最小二乘"><span class="nav-text">为什么 LR 用极大似然估计而不用最小二乘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LR-cost-function-的具体推导过程"><span class="nav-text">LR cost function 的具体推导过程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么-lr-用极大似然估计而不用最小二乘"><span class="nav-text">为什么 LR 用极大似然估计而不用最小二乘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lr-cost-function-的具体推导过程"><span class="nav-text">LR cost function 的具体推导过程</span></a></li></ol></div>
             
 
           </div>
