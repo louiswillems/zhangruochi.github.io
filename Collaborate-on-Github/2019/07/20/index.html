@@ -132,7 +132,7 @@
 <meta property="og:site_name" content="RUOCHI.AI">
 <meta property="og:description" content="How to collaborate with others on Github">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-20T15:48:45.316Z">
+<meta property="og:updated_time" content="2019-07-20T16:03:34.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Collaborate on Github ">
 <meta name="twitter:description" content="How to collaborate with others on Github">
@@ -460,9 +460,10 @@
 <li>origin: 自己的远程master分支</li>
 <li>master: 自己的本地master</li>
 </ul></li>
-<li><p>在本地修改文件, 然后推送到自己的远程仓库 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git add -A</span><br><span class="line">git commit -m &quot;...&quot; </span><br><span class="line">git push origin master </span><br><span class="line">``` </span><br><span class="line">6. 去自己的 github 提交pull request</span><br><span class="line">7. 下次在本地修改文件时,需要用远程仓库更新自己的本地master</span><br></pre></td></tr></table></figure></p></li>
+<li><p>在本地修改文件, 然后推送到自己的远程仓库 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add -A</span><br><span class="line">git commit -m &quot;...&quot; </span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure></p></li>
+<li><p>去自己的 github 提交pull request</p></li>
+<li><p>下次在本地修改文件时,需要用远程仓库更新自己的本地master <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch upstream</span><br><span class="line">git merge upstream/master</span><br></pre></td></tr></table></figure></p></li>
 </ol>
-<p>git fetch upstream git merge upstream/master ```</p>
 
       
     </div>
