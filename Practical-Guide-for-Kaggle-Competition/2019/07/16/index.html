@@ -464,115 +464,115 @@
       
 
       
-        <h1 id="practical-guide-for-competition">Practical Guide for Competition</h1>
-<h2 id="define-your-goals.">Define your goals.</h2>
-<p>What you can get out of your participation? 1. To learn more about an interesting problem 2. To get acquainted with new software tools 3. To hunt for a medal</p>
-<h2 id="working-with-ideas">Working with ideas</h2>
-<ol type="1">
+        <h1 id="Practical-Guide-for-Competition"><a href="#Practical-Guide-for-Competition" class="headerlink" title="Practical Guide for Competition"></a>Practical Guide for Competition</h1><h2 id="Define-your-goals"><a href="#Define-your-goals" class="headerlink" title="Define your goals."></a>Define your goals.</h2><p>What you can get out of your participation?</p>
+<ol>
+<li>To learn more about an interesting problem</li>
+<li>To get acquainted with new software tools</li>
+<li>To hunt for a medal</li>
+</ol>
+<h2 id="Working-with-ideas"><a href="#Working-with-ideas" class="headerlink" title="Working with ideas"></a>Working with ideas</h2><ol>
 <li>Organize ideas in some structure</li>
 <li>Select the most important and promising ideas</li>
 <li>Try to understand the reasons why something does/doesn’t work</li>
 </ol>
-<h3 id="initial-pipeline">Initial pipeline</h3>
-<ol type="1">
+<h3 id="Initial-pipeline"><a href="#Initial-pipeline" class="headerlink" title="Initial pipeline"></a>Initial pipeline</h3><ol>
 <li>Get familiar with problem domain</li>
 <li>Start with simple (or even primitive) solution</li>
-<li>Debug full pipeline − From reading data to writing submission file</li>
-<li>“From simple to complex” − I prefer to start with Random Forest rather than Gradient Boosted Decision Trees</li>
+<li>Debug full pipeline<br> − From reading data to writing submission file</li>
+<li>“From simple to complex”<br> − I prefer to start with Random Forest rather than Gradient Boosted Decision Trees</li>
 </ol>
-<h3 id="data-loading">data loading</h3>
-<ol type="1">
+<h3 id="data-loading"><a href="#data-loading" class="headerlink" title="data loading"></a>data loading</h3><ol>
 <li>Do basic preprocessing and convert csv/txt files into hdf5/npy for much faster loading</li>
 <li>Do not forget that by default data is stored in 64-bit arrays, most of the times you can safely downcast it to 32-bits</li>
 <li>Large datasets can be processed in chunks</li>
 </ol>
-<h3 id="performance-evaluation">Performance evaluation</h3>
-<ol type="1">
+<h3 id="Performance-evaluation"><a href="#Performance-evaluation" class="headerlink" title="Performance evaluation"></a>Performance evaluation</h3><ol>
 <li>Extensive validation is not always needed</li>
 <li>Start with fastest models - such as LightGBM</li>
 </ol>
-<h2 id="everything-is-a-hyperparameter">Everything is a hyperparameter</h2>
-<p>Sort all parameters by these principles: 1. Importance 2. Feasibility 3. Understanding</p>
+<h2 id="Everything-is-a-hyperparameter"><a href="#Everything-is-a-hyperparameter" class="headerlink" title="Everything is a hyperparameter"></a>Everything is a hyperparameter</h2><p>Sort all parameters by these principles: </p>
+<ol>
+<li>Importance</li>
+<li>Feasibility</li>
+<li>Understanding</li>
+</ol>
 <p>Note: changing one parameter can affect the whole pipeline</p>
-<p><img src="1.png"></p>
-<h2 id="tricks">tricks</h2>
-<ol type="1">
-<li>Fast and dirty always better
-<ul>
+<p><img src="1.png" alt=""></p>
+<h2 id="tricks"><a href="#tricks" class="headerlink" title="tricks"></a>tricks</h2><ol>
+<li>Fast and dirty always better<ul>
 <li>Don’t pay too much attention to code quality</li>
 <li>Keep things simple: save only important things</li>
-<li>If you feel uncomfortable with given computational resources</li>
+<li>If you feel uncomfortable with given computational resources </li>
 <li>rent a larger server</li>
-</ul></li>
-<li>Use good variable names
-<ul>
-<li>If your code is hard to read — you definitely will have problems soon or later</li>
-</ul></li>
-<li>Keep your research reproducible
-<ul>
-<li>Fix random seed − Write down exactly how any features were generated − Use Version Control Systems (VCS, for example, git)</li>
-</ul></li>
-<li>Reuse code − Especially important to use same code for train and test stages</li>
-<li>Read papers
-<ul>
+</ul>
+</li>
+<li>Use good variable names<ul>
+<li>If your code is hard to read — you definitely will have<br>problems soon or later</li>
+</ul>
+</li>
+<li>Keep your research reproducible<ul>
+<li>Fix random seed<br>− Write down exactly how any features were generated<br>− Use Version Control Systems (VCS, for example, git)</li>
+</ul>
+</li>
+<li>Reuse code<br> − Especially important to use same code for train and test stages</li>
+<li>Read papers<ul>
 <li>For example, how to optimize AUC</li>
-</ul></li>
+</ul>
+</li>
 <li>Read forums and examine kernels first</li>
-<li>Code organization
-<ul>
+<li>Code organization<ul>
 <li>keeping it clean</li>
 <li>macros</li>
 <li>test/val</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-<h2 id="pipeline-detail">Pipeline detail</h2>
+<h2 id="Pipeline-detail"><a href="#Pipeline-detail" class="headerlink" title="Pipeline detail"></a>Pipeline detail</h2><div class="table-container">
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">Procedure</th>
-<th style="text-align: left;">days</th>
+<tr>
+<th style="text-align:left">Procedure</th>
+<th style="text-align:left">days</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">Understand the problem</td>
-<td style="text-align: left;">1 ~ 2 days</td>
+<tr>
+<td style="text-align:left">Understand the problem</td>
+<td style="text-align:left">1 ~ 2 days</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Exploratory data analysis</td>
-<td style="text-align: left;">1 ~ 2 days</td>
+<tr>
+<td style="text-align:left">Exploratory data analysis</td>
+<td style="text-align:left">1 ~ 2 days</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Define cv strategy</td>
-<td style="text-align: left;">1 day</td>
+<tr>
+<td style="text-align:left">Define cv strategy</td>
+<td style="text-align:left">1 day</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Feature Engineering</td>
-<td style="text-align: left;">until last 3 ~ 4 days</td>
+<tr>
+<td style="text-align:left">Feature Engineering</td>
+<td style="text-align:left">until last 3 ~ 4 days</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Modeling</td>
-<td style="text-align: left;">Until last 3 ~ 4 days</td>
+<tr>
+<td style="text-align:left">Modeling</td>
+<td style="text-align:left">Until last 3 ~ 4 days</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Ensembling</td>
-<td style="text-align: left;">last 3 ~ 4 days</td>
+<tr>
+<td style="text-align:left">Ensembling</td>
+<td style="text-align:left">last 3 ~ 4 days</td>
 </tr>
 </tbody>
 </table>
-<h3 id="understand-broadly-the-problem">Understand broadly the problem</h3>
-<ol type="1">
+</div>
+<h3 id="Understand-broadly-the-problem"><a href="#Understand-broadly-the-problem" class="headerlink" title="Understand broadly the problem"></a>Understand broadly the problem</h3><ol>
 <li>type of problem</li>
 <li>How big is the dataset</li>
 <li>What is the metric</li>
 <li>Previous code revelant</li>
-<li>Hardware needed (cpu, gpu ....)</li>
+<li>Hardware needed (cpu, gpu ….)</li>
 <li>Software needed (TF, Sklearn, xgboost, lightgBM)</li>
 </ol>
-<h3 id="eda">EDA</h3>
-<p>see the blog <a href="https://zhangruochi.com/Exploratory-data-analysis/2019/07/13/">Exploratory data analysis</a></p>
-<h3 id="define-cv-strategy">Define cv strategy</h3>
-<ol type="1">
+<h3 id="EDA"><a href="#EDA" class="headerlink" title="EDA"></a>EDA</h3><p>see the blog <a href="https://zhangruochi.com/Exploratory-data-analysis/2019/07/13/">Exploratory data analysis</a></p>
+<h3 id="Define-cv-strategy"><a href="#Define-cv-strategy" class="headerlink" title="Define cv strategy"></a>Define cv strategy</h3><ol>
 <li>This setp is critical</li>
 <li>Is time is important? <strong>Time-based validation</strong></li>
 <li>Different entities than the train. <strong>StratifiedKFold Validation</strong></li>
@@ -580,12 +580,9 @@
 <li>Combination of all the above</li>
 <li>Use the leader board to test</li>
 </ol>
-<h3 id="feature-engineering">Feature Engineering</h3>
-<p><img src="2.png"></p>
-<h3 id="modeling">Modeling</h3>
-<p><img src="3.png"></p>
-<h3 id="ensembling">Ensembling</h3>
-<p><img src="4.png"></p>
+<h3 id="Feature-Engineering"><a href="#Feature-Engineering" class="headerlink" title="Feature Engineering"></a>Feature Engineering</h3><p><img src="2.png" alt=""></p>
+<h3 id="Modeling"><a href="#Modeling" class="headerlink" title="Modeling"></a>Modeling</h3><p><img src="3.png" alt=""></p>
+<h3 id="Ensembling"><a href="#Ensembling" class="headerlink" title="Ensembling"></a>Ensembling</h3><p><img src="4.png" alt=""></p>
 
       
     </div>
@@ -765,7 +762,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">117</span>
+                  <span class="site-state-item-count">118</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -776,7 +773,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -858,7 +855,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#practical-guide-for-competition"><span class="nav-text">Practical Guide for Competition</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#define-your-goals."><span class="nav-text">Define your goals.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#working-with-ideas"><span class="nav-text">Working with ideas</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#initial-pipeline"><span class="nav-text">Initial pipeline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#data-loading"><span class="nav-text">data loading</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#performance-evaluation"><span class="nav-text">Performance evaluation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#everything-is-a-hyperparameter"><span class="nav-text">Everything is a hyperparameter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tricks"><span class="nav-text">tricks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pipeline-detail"><span class="nav-text">Pipeline detail</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#understand-broadly-the-problem"><span class="nav-text">Understand broadly the problem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eda"><span class="nav-text">EDA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#define-cv-strategy"><span class="nav-text">Define cv strategy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#feature-engineering"><span class="nav-text">Feature Engineering</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#modeling"><span class="nav-text">Modeling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ensembling"><span class="nav-text">Ensembling</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Practical-Guide-for-Competition"><span class="nav-text">Practical Guide for Competition</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Define-your-goals"><span class="nav-text">Define your goals.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Working-with-ideas"><span class="nav-text">Working with ideas</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Initial-pipeline"><span class="nav-text">Initial pipeline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#data-loading"><span class="nav-text">data loading</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Performance-evaluation"><span class="nav-text">Performance evaluation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Everything-is-a-hyperparameter"><span class="nav-text">Everything is a hyperparameter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tricks"><span class="nav-text">tricks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pipeline-detail"><span class="nav-text">Pipeline detail</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Understand-broadly-the-problem"><span class="nav-text">Understand broadly the problem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EDA"><span class="nav-text">EDA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Define-cv-strategy"><span class="nav-text">Define cv strategy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Feature-Engineering"><span class="nav-text">Feature Engineering</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modeling"><span class="nav-text">Modeling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ensembling"><span class="nav-text">Ensembling</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

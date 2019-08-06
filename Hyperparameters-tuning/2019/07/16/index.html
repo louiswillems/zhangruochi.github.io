@@ -481,102 +481,98 @@
       
 
       
-        <h1 id="hyperparameters-tuning">Hyperparameters tuning</h1>
-<blockquote>
+        <h1 id="Hyperparameters-tuning"><a href="#Hyperparameters-tuning" class="headerlink" title="Hyperparameters tuning"></a>Hyperparameters tuning</h1><blockquote>
 <p>Don’t spend too much time tuning hyperparameters， Only if you don’t have any more ideas or you have spare computational resources</p>
 </blockquote>
-<h2 id="general-pipeline">General pipeline</h2>
-<ol type="1">
+<h2 id="General-pipeline"><a href="#General-pipeline" class="headerlink" title="General pipeline"></a>General pipeline</h2><ol>
 <li>Select the most influential parameters</li>
 </ol>
 <ul>
 <li>There are tons of parameters and we can’t tune all of them</li>
 </ul>
-<ol start="2" type="1">
+<ol>
 <li>Understand, how exactly they influence the training</li>
 </ol>
 <ul>
-<li>A parameter in red – Increase it to underfitting – Increasing it impedes fitting – Decrease to allow model fit easier</li>
-<li>A parameter in green
-<ul>
+<li>A parameter in red<br>  – Increase it to underfitting<br>  – Increasing it impedes fitting<br>  – Decrease to allow model fit easier</li>
+<li>A parameter in green<ul>
 <li>Increasing it leads to a better fit(overfit) on trainset</li>
 <li>Increase it,if model underfits</li>
 <li>Decreaseifoverfits</li>
-</ul></li>
 </ul>
-<ol start="3" type="1">
+</li>
+</ul>
+<ol>
 <li>Tune them!</li>
 </ol>
 <ul>
 <li>Manually (change and examine)</li>
-<li>Automatically(hyperopt,etc.) – Hyperopt – Scikit-optimize – Spearmint – GPyOpt – RoBO – SMAC3</li>
+<li>Automatically(hyperopt,etc.)<br>  – Hyperopt<br>  – Scikit-optimize<br>  – Spearmint<br>  – GPyOpt<br>  – RoBO<br>  – SMAC3</li>
 </ul>
-<h2 id="tree-based-model">Tree based model</h2>
-<h3 id="gbdt">GBDT</h3>
+<h2 id="Tree-based-model"><a href="#Tree-based-model" class="headerlink" title="Tree based model"></a>Tree based model</h2><h3 id="GBDT"><a href="#GBDT" class="headerlink" title="GBDT"></a>GBDT</h3><div class="table-container">
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">XGBoost</th>
-<th style="text-align: left;">LightGBM</th>
+<tr>
+<th style="text-align:left">XGBoost</th>
+<th style="text-align:left">LightGBM</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;"><font color="blue">max_depth</font></td>
-<td style="text-align: left;"><font color="blue">max_depth/num_leaves</font></td>
+<tr>
+<td style="text-align:left"><font color="blue">max_depth</font></td>
+<td style="text-align:left"><font color="blue">max_depth/num_leaves</font></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><font color="blue">subsample</font></td>
-<td style="text-align: left;"><font color="blue">bagging_fraction</font></td>
+<tr>
+<td style="text-align:left"><font color="blue">subsample</font></td>
+<td style="text-align:left"><font color="blue">bagging_fraction</font></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><font color="blue">colsample_bytree<font>/<font color="blue">colsample_bylevel</font></font></font></td>
-<td style="text-align: left;"><font color="blue">feature_fraction</font></td>
+<tr>
+<td style="text-align:left"><font color="blue">colsample_bytree<font>/<font color="blue">colsample_bylevel</font></font></font></td>
+<td style="text-align:left"><font color="blue">feature_fraction</font></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><font color="red">min_child_weight </font></td>
-<td style="text-align: left;"><font color="red">min_data_in_leaf</font></td>
+<tr>
+<td style="text-align:left"><font color="red">min_child_weight </font></td>
+<td style="text-align:left"><font color="red">min_data_in_leaf</font></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><font color="red">lambda, alpha</font></td>
-<td style="text-align: left;"><font color="red">lambda, alpha</font></td>
+<tr>
+<td style="text-align:left"><font color="red">lambda, alpha</font></td>
+<td style="text-align:left"><font color="red">lambda, alpha</font></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><font color="blue"> eta </font></td>
-<td style="text-align: left;"><font color="red">learning_rate</font></td>
+<tr>
+<td style="text-align:left"><font color="blue"> eta </font></td>
+<td style="text-align:left"><font color="red">learning_rate</font></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><font color="blue">num_round</font></td>
-<td style="text-align: left;"><font color="blue">num_iterations</font></td>
+<tr>
+<td style="text-align:left"><font color="blue">num_round</font></td>
+<td style="text-align:left"><font color="blue">num_iterations</font></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">seed</td>
-<td style="text-align: left;">seed</td>
+<tr>
+<td style="text-align:left">seed</td>
+<td style="text-align:left">seed</td>
 </tr>
 </tbody>
 </table>
-<h3 id="randomforestextratrees">RandomForest/ExtraTrees</h3>
-<ul>
+</div>
+<h3 id="RandomForest-ExtraTrees"><a href="#RandomForest-ExtraTrees" class="headerlink" title="RandomForest/ExtraTrees"></a>RandomForest/ExtraTrees</h3><ul>
 <li><font color="yellow">N_estimators (the higher the better)</font></li>
 <li><font color="blue">cmax_depth</font></li>
 <li><font color="blue">cmax_features</font></li>
 <li><font color="red">cmin_samples_leaf</font></li>
-<li>criterion ('gini' is better in most of time)</li>
+<li>criterion (‘gini’ is better in most of time)</li>
 <li>random_state</li>
 <li>n_jobs</li>
 </ul>
-<h3 id="neural-nets">Neural Nets</h3>
-<ul>
+<h3 id="Neural-Nets"><a href="#Neural-Nets" class="headerlink" title="Neural Nets"></a>Neural Nets</h3><ul>
 <li><font color="blue">Number of neurons per layer</font></li>
 <li><font color="blue">Number of layers</font></li>
-<li>Optimizers – <font color="red">SGD + momentum</font> – <font color="blue">Adam/Adadelta/Adagrad/...</font> - In practice lead to more overfitting</li>
+<li>Optimizers<br>  – <font color="red">SGD + momentum</font><br>  – <font color="blue">Adam/Adadelta/Adagrad/…</font><pre><code>  - In practice lead to more overfitting
+</code></pre></li>
 <li><font color="blue">Batch size</font></li>
 <li>Learning rate (not too high or not too low, depend on other parameters)</li>
-<li>Regularization – <font color="blue">L2/L1 for weights</font> – <font color="blue">Dropout/Dropconnect</font> – <font color="blue">Static dropconnect</font></li>
+<li>Regularization<br>  – <font color="blue">L2/L1 for weights</font><br>  – <font color="blue">Dropout/Dropconnect</font><br>  – <font color="blue">Static dropconnect</font></li>
 </ul>
-<h3 id="linear-model">Linear Model</h3>
-<p><font color="red">Regularization parameter (C, alpha, lambda, ...)</font> – Start with very small value and increase it. – SVC starts to work slower as C increases</p>
-<p>Regularization type – L1/L2/L1+L2 -- try each – L1 can be used for feature selection</p>
+<h3 id="Linear-Model"><a href="#Linear-Model" class="headerlink" title="Linear Model"></a>Linear Model</h3><p><font color="red">Regularization parameter (C, alpha, lambda, …)</font><br>– Start with very small value and increase it.<br>– SVC starts to work slower as C increases</p>
+<p>Regularization type<br>– L1/L2/L1+L2 — try each<br>– L1 can be used for feature selection</p>
 
       
     </div>
@@ -756,7 +752,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">117</span>
+                  <span class="site-state-item-count">118</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -767,7 +763,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -849,7 +845,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hyperparameters-tuning"><span class="nav-text">Hyperparameters tuning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#general-pipeline"><span class="nav-text">General pipeline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tree-based-model"><span class="nav-text">Tree based model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gbdt"><span class="nav-text">GBDT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#randomforestextratrees"><span class="nav-text">RandomForest/ExtraTrees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#neural-nets"><span class="nav-text">Neural Nets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linear-model"><span class="nav-text">Linear Model</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hyperparameters-tuning"><span class="nav-text">Hyperparameters tuning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#General-pipeline"><span class="nav-text">General pipeline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tree-based-model"><span class="nav-text">Tree based model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GBDT"><span class="nav-text">GBDT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RandomForest-ExtraTrees"><span class="nav-text">RandomForest/ExtraTrees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Neural-Nets"><span class="nav-text">Neural Nets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Model"><span class="nav-text">Linear Model</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
