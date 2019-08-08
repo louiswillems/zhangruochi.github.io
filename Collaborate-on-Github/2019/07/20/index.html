@@ -449,28 +449,20 @@
       
 
       
-        <h2 id="Github-Pull-Request"><a href="#Github-Pull-Request" class="headerlink" title="Github Pull Request"></a>Github Pull Request</h2><ol>
-<li>Fork 别人的仓库</li>
-<li><p>Clone 自己刚 fork 的仓库到本地</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Git clone &#123;address&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>给自己的仓库添加远程源仓库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add upstream &#123;source address&#125;</span><br></pre></td></tr></table></figure>
-</li>
+        <h2 id="github-pull-request">Github Pull Request</h2>
+<ol type="1">
+<li><p>Fork 别人的仓库</p></li>
+<li><p>Clone 自己刚 fork 的仓库到本地 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Git clone &#123;address&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>给自己的仓库添加远程源仓库 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add upstream &#123;source address&#125;</span><br></pre></td></tr></table></figure></p></li>
 <li><p>注意此时各个分支的代指：</p>
 <ul>
 <li>upstream/master: source master</li>
 <li>origin: 自己的远程master分支</li>
 <li>master: 自己的本地master</li>
-</ul>
-</li>
-<li><p>在本地修改文件, 然后推送到自己的远程仓库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add -A</span><br><span class="line">git commit -m &quot;...&quot; </span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>去自己的 github 提交pull request</p>
-</li>
-<li>下次在本地修改文件时,需要用远程仓库更新自己的本地master<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch upstream</span><br><span class="line">git merge upstream/master</span><br></pre></td></tr></table></figure>
-</li>
+</ul></li>
+<li><p>在本地修改文件, 然后推送到自己的远程仓库 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add -A</span><br><span class="line">git commit -m &quot;...&quot; </span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure></p></li>
+<li><p>去自己的 github 提交pull request</p></li>
+<li><p>下次在本地修改文件时,需要用远程仓库更新自己的本地master <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch upstream</span><br><span class="line">git merge upstream/master</span><br></pre></td></tr></table></figure></p></li>
 </ol>
 
       
@@ -657,7 +649,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">118</span>
+                  <span class="site-state-item-count">119</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -750,7 +742,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Github-Pull-Request"><span class="nav-text">Github Pull Request</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#github-pull-request"><span class="nav-text">Github Pull Request</span></a></li></ol></div>
             
 
           </div>
