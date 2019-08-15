@@ -463,38 +463,25 @@
       
 
       
-        <h2 id="逻辑回归的输出是什么">逻辑回归的输出是什么？</h2>
-<p><span class="math display">\[h_{\theta} = P(y = 1| x;\theta)\]</span></p>
-<p><strong>也就是给定x和在参数theta下，y=1(default)的概率</strong></p>
-<h2 id="逻辑回归的输入是什么">逻辑回归的输入是什么？</h2>
-<p><span class="math display">\[ y_{\theta} = \beta_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} .... \]</span></p>
-<p><strong>也就是线性回归</strong></p>
+        <h2 id="逻辑回归的输出是什么？"><a href="#逻辑回归的输出是什么？" class="headerlink" title="逻辑回归的输出是什么？"></a>逻辑回归的输出是什么？</h2><script type="math/tex; mode=display">h_{\theta} = P(y = 1| x;\theta)</script><p><strong>也就是给定x和在参数theta下，y=1(default)的概率</strong></p>
+<h2 id="逻辑回归的输入是什么？"><a href="#逻辑回归的输入是什么？" class="headerlink" title="逻辑回归的输入是什么？"></a>逻辑回归的输入是什么？</h2><script type="math/tex; mode=display">y_{\theta} = \beta_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} ....</script><p><strong>也就是线性回归</strong></p>
 <ul>
 <li>所以Logistic Regression的决策边界是线性回归</li>
 <li>逻辑回归的本质还是<strong>线性回归</strong>，也会看到有一些文章说在特征到结果的映射中多加了一层<strong>函数映射</strong></li>
 </ul>
-<h2 id="我们用什么把输入与输出联系起来">我们用什么把输入与输出联系起来？</h2>
-<p>Logit function:</p>
-<p><span class="math display">\[Logit(p) =  ln(odds) = ln(\frac{p}{1-p})\]</span></p>
-<figure>
-<img src="logit.png" alt="logit"><figcaption>logit</figcaption>
-</figure>
+<h2 id="我们用什么把输入与输出联系起来？"><a href="#我们用什么把输入与输出联系起来？" class="headerlink" title="我们用什么把输入与输出联系起来？"></a>我们用什么把输入与输出联系起来？</h2><p>Logit function:</p>
+<script type="math/tex; mode=display">Logit(p) =  ln(odds) = ln(\frac{p}{1-p})</script><p><img src="logit.png" alt="logit"></p>
 <ul>
-<li><p>定义域为[0,1], 值域为R.</p></li>
+<li>定义域为[0,1], 值域为R.</li>
 <li><p>将上述方程取反函数，得到sigmoid函数，定义域为R, y为P, 值域为[0,1].</p>
-<p><span class="math display">\[Sigmoid(\alpha) = logit^{-1}(\alpha) = \frac{1}{1+e^{-\alpha}}\]</span></p></li>
+<script type="math/tex; mode=display">Sigmoid(\alpha) = logit^{-1}(\alpha) = \frac{1}{1+e^{-\alpha}}</script></li>
 </ul>
-<figure>
-<img src="sigmoid.png" alt="sigmoid"><figcaption>sigmoid</figcaption>
-</figure>
-<h2 id="maximum-likelihood-estimation-来估计参数theta的值">Maximum likelihood estimation 来估计参数theta的值</h2>
-<p><span class="math display">\[L(\theta) = \prod_{i:y_{i}=1}p(x_{i})\prod_{i^{\prime}:y_{i^{\prime}}=0}(1-p(x_{i^{\prime}}))\]</span></p>
-<ul>
+<p><img src="sigmoid.png" alt="sigmoid"></p>
+<h2 id="Maximum-likelihood-estimation-来估计参数theta的值"><a href="#Maximum-likelihood-estimation-来估计参数theta的值" class="headerlink" title="Maximum likelihood estimation 来估计参数theta的值"></a>Maximum likelihood estimation 来估计参数theta的值</h2><script type="math/tex; mode=display">L(\theta) = \prod_{i:y_{i}=1}p(x_{i})\prod_{i^{\prime}:y_{i^{\prime}}=0}(1-p(x_{i^{\prime}}))</script><ul>
 <li>Get coefficients that maximizes the likelihood, then use them for predictions</li>
-<li>Maximizing the likelihood function is equivalent to minimizing the cost function <span class="math inline">\(J(\theta)\)</span></li>
+<li>Maximizing the likelihood function is equivalent to minimizing the cost function $J(\theta)$</li>
 </ul>
-<p><span class="math display">\[J(\theta) = - \sum_{i=1}^{n}[y_{i}log(P(y_{i} = 1 | x)) + (1 - y_{i})log(1 - P(y_{i}=1|x))]\]</span></p>
-
+<script type="math/tex; mode=display">J(\theta) = - \sum_{i=1}^{n}[y_{i}log(P(y_{i} = 1 | x)) + (1 - y_{i})log(1 - P(y_{i}=1|x))]</script>
       
     </div>
     
@@ -679,7 +666,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">120</span>
+                  <span class="site-state-item-count">121</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -772,7 +759,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归的输出是什么"><span class="nav-text">逻辑回归的输出是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归的输入是什么"><span class="nav-text">逻辑回归的输入是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我们用什么把输入与输出联系起来"><span class="nav-text">我们用什么把输入与输出联系起来？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maximum-likelihood-estimation-来估计参数theta的值"><span class="nav-text">Maximum likelihood estimation 来估计参数theta的值</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归的输出是什么？"><span class="nav-text">逻辑回归的输出是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归的输入是什么？"><span class="nav-text">逻辑回归的输入是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我们用什么把输入与输出联系起来？"><span class="nav-text">我们用什么把输入与输出联系起来？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maximum-likelihood-estimation-来估计参数theta的值"><span class="nav-text">Maximum likelihood estimation 来估计参数theta的值</span></a></li></ol></div>
             
 
           </div>

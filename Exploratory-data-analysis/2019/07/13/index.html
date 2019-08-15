@@ -489,108 +489,134 @@
       
 
       
-        <h1 id="exploratory-data-analysis">Exploratory data analysis</h1>
-<p><img src="EDA.png"></p>
-<h2 id="what-and-why">What and Why?</h2>
-<ul>
+        <h1 id="Exploratory-data-analysis"><a href="#Exploratory-data-analysis" class="headerlink" title="Exploratory data analysis"></a>Exploratory data analysis</h1><p><img src="EDA.png" alt=""></p>
+<h2 id="What-and-Why"><a href="#What-and-Why" class="headerlink" title="What and Why?"></a>What and Why?</h2><ul>
 <li>Better understand the data</li>
 <li>Build an intuition about the data</li>
 <li>Generate hypothesizes</li>
 <li>Find insights</li>
 </ul>
-<h2 id="building-intuition-about-the-data">Building intuition about the data</h2>
-<ol type="1">
-<li>Get domain knowledge – It helps to deeper understand the problem</li>
-<li>Check if the data is intuitive – And agrees with domain knowledge</li>
+<h2 id="Building-intuition-about-the-data"><a href="#Building-intuition-about-the-data" class="headerlink" title="Building intuition about the data"></a>Building intuition about the data</h2><ol>
+<li>Get domain knowledge<br>– It helps to deeper understand the problem</li>
+<li>Check if the data is intuitive<br>– And agrees with domain knowledge</li>
 <li>Understand how the data was generated</li>
 </ol>
-<ul>
-<li><h2 id="as-it-is-crucial-to-set-up-a-proper-validation">As it is crucial to set up a proper validation</h2></li>
-</ul>
-<ol start="4" type="1">
+<h2 id="As-it-is-crucial-to-set-up-a-proper-validation"><a href="#As-it-is-crucial-to-set-up-a-proper-validation" class="headerlink" title="- As it is crucial to set up a proper validation"></a>- As it is crucial to set up a proper validation</h2><ol>
 <li>Explore individual features</li>
-<li><h2 id="explore-pairs-and-groups">Explore pairs and groups</h2></li>
-<li><h2 id="clean-features-up">Clean features up</h2></li>
+<li>Explore pairs and groups</li>
+</ol>
+<hr>
+<h2 id="6-Clean-features-up"><a href="#6-Clean-features-up" class="headerlink" title="6. Clean features up"></a>6. Clean features up</h2><ol>
 <li>Check for leaks!</li>
 </ol>
-<h2 id="exploring-anonymized-data">Exploring anonymized data</h2>
-<p>Two things to do with anonymized features: 1. Try to decode the features - Guess the true meaning of the feature 2. Guess the feature types - Each type needs its own preprocessing</p>
-<h2 id="visualization">Visualization</h2>
-<blockquote>
+<h2 id="Exploring-anonymized-data"><a href="#Exploring-anonymized-data" class="headerlink" title="Exploring anonymized data"></a>Exploring anonymized data</h2><p>Two things to do with anonymized features:</p>
+<ol>
+<li>Try to decode the features</li>
+</ol>
+<ul>
+<li>Guess the true meaning of the feature</li>
+</ul>
+<ol>
+<li>Guess the feature types</li>
+</ol>
+<ul>
+<li>Each type needs its own preprocessing</li>
+</ul>
+<h2 id="Visualization"><a href="#Visualization" class="headerlink" title="Visualization"></a>Visualization</h2><blockquote>
 <p>EDA is an art And visualizations are our art tools !</p>
 </blockquote>
-<h3 id="tools-for-individual-features-exploration">Tools for individual features exploration</h3>
-<ol type="1">
-<li><p>Histograms: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.hist(x)</span><br></pre></td></tr></table></figure></p></li>
-<li><p>Plot (index versus value): <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x, <span class="string">'.'</span>)</span><br></pre></td></tr></table></figure></p></li>
-<li><p>Statistics: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.describe()</span><br><span class="line">x.mean()</span><br><span class="line">x.var()</span><br></pre></td></tr></table></figure></p></li>
-<li><p>Other tools: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x.value_counts()</span><br><span class="line">x.isnull()</span><br></pre></td></tr></table></figure></p></li>
+<h3 id="Tools-for-individual-features-exploration"><a href="#Tools-for-individual-features-exploration" class="headerlink" title="Tools for individual features exploration"></a>Tools for individual features exploration</h3><ol>
+<li><p>Histograms:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.hist(x)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Plot (index versus value):</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x, <span class="string">'.'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Statistics:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.describe()</span><br><span class="line">x.mean()</span><br><span class="line">x.var()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Other tools:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x.value_counts()</span><br><span class="line">x.isnull()</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h3 id="explore-feature-relations">Explore feature relations</h3>
-<ol type="1">
-<li><p>Pairs − Scatter plot, scatter matrix − Corrplot <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(x1, x2)</span><br><span class="line">pd.scatter_matrix(df)</span><br><span class="line">df.corr()</span><br><span class="line">plt.matshow()</span><br></pre></td></tr></table></figure></p></li>
-<li><p>Groups − Corrplot + clustering − Plot (index vs feature statistics) <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.mean().plot(style=’.’)</span><br><span class="line">df.mean().sort_values().plot(style=’.’)</span><br></pre></td></tr></table></figure></p></li>
+<h3 id="Explore-feature-relations"><a href="#Explore-feature-relations" class="headerlink" title="Explore feature relations"></a>Explore feature relations</h3><ol>
+<li><p>Pairs<br>− Scatter plot, scatter matrix<br>− Corrplot</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(x1, x2)</span><br><span class="line">pd.scatter_matrix(df)</span><br><span class="line">df.corr()</span><br><span class="line">plt.matshow()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Groups<br>− Corrplot + clustering<br>− Plot (index vs feature statistics)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.mean().plot(style=’.’)</span><br><span class="line">df.mean().sort_values().plot(style=’.’)</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h3 id="examples">Examples</h3>
-<p><img src="11.png"> <img src="12.png"> <img src="13.png"> <img src="14.png"> <img src="15.png"></p>
-<h3 id="dataset-cleaning">Dataset cleaning</h3>
-<ol type="1">
-<li><p>Constant features <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train.nunique(axis=<span class="number">1</span>) == <span class="number">1</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>Duplicated features <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">traintest.T.drop_duplicates()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> categorical_feats: </span><br><span class="line">    traintest[f] = raintest[f].factorize()</span><br><span class="line">traintest.T.drop_duplicates()</span><br></pre></td></tr></table></figure></p></li>
-<li><p>Duplicated rows</p></li>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><p><img src="11.png" alt=""><br><img src="12.png" alt=""><br><img src="13.png" alt=""><br><img src="14.png" alt=""><br><img src="15.png" alt=""></p>
+<h3 id="Dataset-cleaning"><a href="#Dataset-cleaning" class="headerlink" title="Dataset cleaning"></a>Dataset cleaning</h3><ol>
+<li><p>Constant features</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train.nunique(axis=<span class="number">1</span>) == <span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Duplicated features</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">traintest.T.drop_duplicates()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> categorical_feats: </span><br><span class="line">    traintest[f] = raintest[f].factorize()</span><br><span class="line">traintest.T.drop_duplicates()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Duplicated rows</p>
+</li>
 </ol>
 <ul>
 <li>Check if same rows have same label</li>
 <li>Find duplicated rows, understand why they are duplicated</li>
 </ul>
-<ol start="4" type="1">
+<ol>
 <li>Check if dataset is shuffled</li>
 </ol>
-<h2 id="validation">Validation</h2>
-<ol type="1">
+<h2 id="Validation"><a href="#Validation" class="headerlink" title="Validation"></a>Validation</h2><ol>
 <li>Validation helps us evaluate a quality of the model</li>
 <li>Validation helps us select the model which will perform best on the unseen data</li>
 <li>Underfitting refers to not capturing enough patterns in the data</li>
-<li>Generally, overfitting refers to
-<ul>
+<li>Generally, overfitting refers to<ul>
 <li>capturing noize</li>
 <li>capturing patterns which do not generalize to test data</li>
-</ul></li>
-<li>In competitions, overfitting refers to
-<ul>
+</ul>
+</li>
+<li>In competitions, overfitting refers to<ul>
 <li>low model’s quality on test data, which was unexpected due to validation scores</li>
-</ul></li>
-<li>There are three main validation strategies:
-<ol type="1">
-<li>Holdout &gt; sklearn.model_selection.ShuffleSplit</li>
+</ul>
+</li>
+<li>There are three main validation strategies:<ol>
+<li>Holdout<blockquote>
+<p>sklearn.model_selection.ShuffleSplit</p>
+</blockquote>
+</li>
 </ol>
 <ul>
 <li>Split train data into two parts: partA and partB.</li>
 <li>Fit the model on partA, predict for partB.</li>
 <li>Use predictions for partB for estimating model quality. Find such hyper-parameters, that quality on partB is maximized.</li>
 </ul>
-<ol start="2" type="1">
-<li>KFold &gt; sklearn.model_selection.Kfold</li>
+<ol>
+<li>KFold <blockquote>
+<p>sklearn.model_selection.Kfold</p>
+</blockquote>
+</li>
 </ol>
 <ul>
 <li>Split train data into K folds.</li>
 <li>Iterate though each fold: retrain the model on all folds except current fold, predict for the current fold.</li>
 <li>Use the predictions to calculate quality on each fold. Find such hyper-parameters, that quality on each fold is maximized. You can also estimate mean and variance of the loss. This is very helpful in order to understand significance of improvement.</li>
 </ul>
-<ol start="3" type="1">
-<li>LOO &gt; sklearn.model_selection.LeaveOneOut</li>
+<ol>
+<li>LOO<blockquote>
+<p>sklearn.model_selection.LeaveOneOut</p>
+</blockquote>
+</li>
 </ol>
 <ul>
 <li>Iterate over samples: retrain the model on all samples except current sample, predict for the current sample. You will need to retrain the model N times (if N is the number of samples in the dataset).</li>
 <li>In the end you will get LOO predictions for every sample in the trainset and can calculate loss.</li>
-<li>Notice, that these are validation schemes are supposed to be used to estimate quality of the model. When you found the right hyper-parameters and want to get test predictions don't forget to retrain your model using all training data.</li>
+<li>Notice, that these are validation schemes are supposed to be used to estimate quality of the model. When you found the right hyper-parameters and want to get test predictions don’t forget to retrain your model using all training data.</li>
 </ul>
-<ol start="4" type="1">
+<ol>
 <li>Stratification preserve the same target distribution over different folds</li>
-</ol></li>
 </ol>
-<h2 id="data-split">Data split</h2>
-<ol type="1">
+</li>
+</ol>
+<h2 id="Data-split"><a href="#Data-split" class="headerlink" title="Data split"></a>Data split</h2><ol>
 <li>In most cases data is split by:</li>
 </ol>
 <ul>
@@ -598,41 +624,39 @@
 <li>Time</li>
 <li>Id</li>
 </ul>
-<ol start="2" type="1">
-<li>Logic of feature generation depends on the data splitting strategy Set up your validation to mimic the train/test split of the competition</li>
-<li>Set up your validation to mimic the train/test split of the competition</li>
+<ol>
+<li>Logic of feature generation depends on the data splitting strategy<br>Set up your validation to mimic the train/test split of the competition</li>
+<li>Set up your validation to mimic the train/test split of the competition </li>
 </ol>
-<h3 id="validation-problems">Validation problems</h3>
-<ol type="1">
-<li>If we have big dispersion of scores on validation stage, we should do extensive validation
-<ul>
+<h3 id="Validation-problems"><a href="#Validation-problems" class="headerlink" title="Validation problems"></a>Validation problems</h3><ol>
+<li>If we have big dispersion of scores on validation stage, we should do extensive validation<ul>
 <li>Average scores from different KFold splits</li>
 <li>Tune model on one split, evaluate score on the other</li>
-</ul></li>
-<li>If submission’s score do not match local validation score, we should
-<ul>
+</ul>
+</li>
+<li>If submission’s score do not match local validation score,<br>we should<ul>
 <li>Check if we have too little data in public LB</li>
 <li>Check if we overfitted</li>
 <li>Check if we chose correct splitting strategy</li>
 <li>Check if train/test have different distibutions</li>
-</ul></li>
-<li>Expect LB shuffle because of
-<ul>
-<li>Randomness – Little amount of data – Different public/private distributions</li>
-</ul></li>
+</ul>
+</li>
+<li>Expect LB shuffle because of<ul>
+<li>Randomness<br>– Little amount of data<br>– Different public/private distributions</li>
+</ul>
+</li>
 </ol>
-<h2 id="data-leakage">Data leakage</h2>
-<ul>
-<li>Split should be done on time.
-<ul>
+<h2 id="Data-leakage"><a href="#Data-leakage" class="headerlink" title="Data leakage"></a>Data leakage</h2><ul>
+<li>Split should be done on time.<ul>
 <li>In real life we don’t have information from future</li>
-<li>In competitions first thing to look: train/public/private split, is it on time?</li>
-</ul></li>
-<li>Even when split by time, features may contain information about future.
-<ul>
+<li>In competitions first thing to look: train/public/private<br>split, is it on time?</li>
+</ul>
+</li>
+<li>Even when split by time, features may contain information about future.<ul>
 <li>User history in CTR tasks</li>
 <li>Weather</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 
       
@@ -813,7 +837,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">120</span>
+                  <span class="site-state-item-count">121</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -906,7 +930,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#exploratory-data-analysis"><span class="nav-text">Exploratory data analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#what-and-why"><span class="nav-text">What and Why?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#building-intuition-about-the-data"><span class="nav-text">Building intuition about the data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#as-it-is-crucial-to-set-up-a-proper-validation"><span class="nav-text">As it is crucial to set up a proper validation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#explore-pairs-and-groups"><span class="nav-text">Explore pairs and groups</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clean-features-up"><span class="nav-text">Clean features up</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#exploring-anonymized-data"><span class="nav-text">Exploring anonymized data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#visualization"><span class="nav-text">Visualization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tools-for-individual-features-exploration"><span class="nav-text">Tools for individual features exploration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#explore-feature-relations"><span class="nav-text">Explore feature relations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#examples"><span class="nav-text">Examples</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dataset-cleaning"><span class="nav-text">Dataset cleaning</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#validation"><span class="nav-text">Validation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#data-split"><span class="nav-text">Data split</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#validation-problems"><span class="nav-text">Validation problems</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#data-leakage"><span class="nav-text">Data leakage</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Exploratory-data-analysis"><span class="nav-text">Exploratory data analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-and-Why"><span class="nav-text">What and Why?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Building-intuition-about-the-data"><span class="nav-text">Building intuition about the data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#As-it-is-crucial-to-set-up-a-proper-validation"><span class="nav-text">- As it is crucial to set up a proper validation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Clean-features-up"><span class="nav-text">6. Clean features up</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exploring-anonymized-data"><span class="nav-text">Exploring anonymized data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Visualization"><span class="nav-text">Visualization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tools-for-individual-features-exploration"><span class="nav-text">Tools for individual features exploration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Explore-feature-relations"><span class="nav-text">Explore feature relations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Examples"><span class="nav-text">Examples</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dataset-cleaning"><span class="nav-text">Dataset cleaning</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Validation"><span class="nav-text">Validation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-split"><span class="nav-text">Data split</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Validation-problems"><span class="nav-text">Validation problems</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-leakage"><span class="nav-text">Data leakage</span></a></li></ol></li></ol></div>
             
 
           </div>
