@@ -493,123 +493,133 @@
       
 
       
-        <h1 id="feature-preprocessing">Feature Preprocessing</h1>
-<h2 id="numeric-feature">Numeric feature</h2>
-<ol type="1">
-<li>Tree-based models doesn't depend on scaling and Rank</li>
+        <h1 id="Feature-Preprocessing"><a href="#Feature-Preprocessing" class="headerlink" title="Feature Preprocessing"></a>Feature Preprocessing</h1><h2 id="Numeric-feature"><a href="#Numeric-feature" class="headerlink" title="Numeric feature"></a>Numeric feature</h2><ol>
+<li>Tree-based models doesn’t depend on scaling and Rank<br>b. Non-tree-based models hugely depend on scaling and Rank</li>
 </ol>
-<ol start="2" type="a">
-<li>Non-tree-based models hugely depend on scaling and Rank</li>
+<h3 id="scaling"><a href="#scaling" class="headerlink" title="scaling"></a>scaling</h3><ol>
+<li>To [0,1]<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sklearn.preprocessing.MinMaxScaler</span><br><span class="line"></span><br><span class="line">x = (x-min()) / (x.max() - x.min())</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> To mean=<span class="number">0</span>,std=<span class="number">1</span></span><br><span class="line">```python</span><br><span class="line">sklearn.preprocessing.StandardScaler</span><br><span class="line">x = (x - x.mean()) / x.std()</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h3 id="scaling">scaling</h3>
-<ol type="1">
-<li>To [0,1] <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sklearn.preprocessing.MinMaxScaler</span><br><span class="line"></span><br><span class="line">x = (x-min()) / (x.max() - x.min())</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> To mean=<span class="number">0</span>,std=<span class="number">1</span></span><br><span class="line">```python</span><br><span class="line">sklearn.preprocessing.StandardScaler</span><br><span class="line">x = (x - x.mean()) / x.std()</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="rank">Rank</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> rankdata</span><br><span class="line"></span><br><span class="line">rankdata([<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>])</span><br><span class="line"><span class="comment"># array([ 1. ,  2.5,  4. ,  2.5])</span></span><br><span class="line">rankdata([<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>], method=<span class="string">'min'</span>)</span><br><span class="line"><span class="comment"># array([ 1,  2,  4,  2])</span></span><br><span class="line">rankdata([<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>], method=<span class="string">'max'</span>)</span><br><span class="line"><span class="comment"># array([ 1,  3,  4,  3])</span></span><br><span class="line">rankdata([<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>], method=<span class="string">'dense'</span>)</span><br><span class="line"><span class="comment"># array([ 1,  2,  3,  2])</span></span><br><span class="line">rankdata([<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>], method=<span class="string">'ordinal'</span>)</span><br><span class="line"><span class="comment"># array([ 1,  2,  4,  3])</span></span><br></pre></td></tr></table></figure>
-<h2 id="other">Other</h2>
-<p>You can apply log transformation through your data, or there's another possibility. You can extract a square root of the data. Both these transformations can be useful because they drive too big values closer to the features' average value. Along with this, <strong>the values near zero are becoming a bit more distinguishable</strong>. Despite the simplicity, one of these transformations can improve your neural network's results significantly. <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.log(<span class="number">1</span>+x)</span><br><span class="line">np.sqrt(x+<span class="number">2</span>/<span class="number">3</span>)</span><br></pre></td></tr></table></figure></p>
-<h3 id="outlier">outlier</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPPERBOUND,LOWERBOUND = np.percentile(x,[<span class="number">1</span>,<span class="number">99</span>])</span><br><span class="line">y = np.clip(x, UPPERBOUND, LOWERBOUND)</span><br></pre></td></tr></table></figure>
-<h3 id="feature-generation">Feature generation</h3>
-<p>Sometimes, we can engineer these features using <strong>prior knowledge and logic</strong>. Sometimes we have to <strong>dig into the data</strong>, create and check hypothesis, and use this derived knowledge and our intuition to derive new features.</p>
-<ol type="1">
+<h3 id="Rank"><a href="#Rank" class="headerlink" title="Rank"></a>Rank</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> rankdata</span><br><span class="line"></span><br><span class="line">rankdata([<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>])</span><br><span class="line"><span class="comment"># array([ 1. ,  2.5,  4. ,  2.5])</span></span><br><span class="line">rankdata([<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>], method=<span class="string">'min'</span>)</span><br><span class="line"><span class="comment"># array([ 1,  2,  4,  2])</span></span><br><span class="line">rankdata([<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>], method=<span class="string">'max'</span>)</span><br><span class="line"><span class="comment"># array([ 1,  3,  4,  3])</span></span><br><span class="line">rankdata([<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>], method=<span class="string">'dense'</span>)</span><br><span class="line"><span class="comment"># array([ 1,  2,  3,  2])</span></span><br><span class="line">rankdata([<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>], method=<span class="string">'ordinal'</span>)</span><br><span class="line"><span class="comment"># array([ 1,  2,  4,  3])</span></span><br></pre></td></tr></table></figure>
+<h2 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h2><p>You can apply log transformation through your data, or there’s another possibility. You can extract a square root of the data. Both these transformations can be useful because they drive too big values closer to the features’ average value. Along with this, <strong>the values near zero are becoming a bit more distinguishable</strong>. Despite the simplicity, one of these transformations can improve your neural network’s results significantly.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.log(<span class="number">1</span>+x)</span><br><span class="line">np.sqrt(x+<span class="number">2</span>/<span class="number">3</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="outlier"><a href="#outlier" class="headerlink" title="outlier"></a>outlier</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPPERBOUND,LOWERBOUND = np.percentile(x,[<span class="number">1</span>,<span class="number">99</span>])</span><br><span class="line">y = np.clip(x, UPPERBOUND, LOWERBOUND)</span><br></pre></td></tr></table></figure>
+<h3 id="Feature-generation"><a href="#Feature-generation" class="headerlink" title="Feature generation"></a>Feature generation</h3><p>Sometimes, we can engineer these features using <strong>prior knowledge and logic</strong>. Sometimes we have to <strong>dig into the data</strong>, create and check hypothesis, and use this derived knowledge and our intuition to derive new features.</p>
+<ol>
 <li>prior knowledge</li>
 </ol>
 <p>It is useful to know that adding, multiplications, divisions, and other features interactions can be of help not only for linear models. For example, although gradient within decision tree is a very powerful model, it still experiences difficulties with approximation of multiplications and divisions. And adding size features explicitly can lead to a more robust model with less amount of trees.</p>
-<p><img src="1.png"> <img src="2.png"></p>
-<p>This feature can help the model utilize the differences in people's perception of these prices. Also, we can find similar patterns in tasks which require distinguishing between a human and a robot.</p>
-<p><img src="3.png"></p>
-<ol start="2" type="1">
+<p><img src="1.png" alt=""><br><img src="2.png" alt=""></p>
+<p>This feature can help the model utilize the differences in people’s perception of these prices. Also, we can find similar patterns in tasks which require distinguishing between a human and a robot.</p>
+<p><img src="3.png" alt=""></p>
+<ol>
 <li>EDA(Exploratory data analysis)</li>
 </ol>
-<h2 id="category-feature">Category feature</h2>
-<ol type="1">
-<li>Label and Frequency encodings are often used for tree- based models</li>
+<h2 id="Category-feature"><a href="#Category-feature" class="headerlink" title="Category feature"></a>Category feature</h2><ol>
+<li>Label and Frequency encodings are often used for tree-<br>based models</li>
 <li>One-hot encoding is often used for non-tree-based models</li>
-<li>Interactions of categorical features can help linear models and KNN</li>
+<li>Interactions of categorical features can help linear models<br>and KNN</li>
 </ol>
-<h3 id="ordinal-features">Ordinal features</h3>
-<p>Values in ordinal features are sorted in some meaningful order - Ticket class: 1,2,3 - Driver’s license: A, B, C, D - Education: kindergarden, school, undergraduate, bachelor, master, doctoral</p>
-<ol type="1">
-<li><p>Label encoding maps categories to numbers <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> preprocessing</span><br><span class="line">encoder = preprocessing.LabelEncoder()</span><br><span class="line">encoder.fit(categorical_features)</span><br></pre></td></tr></table></figure></p></li>
-<li><p>Frequency encoding maps categories to their frequencies <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">encoding = titanic.groupby(‘Embarked’).size() </span><br><span class="line">encoding = encoding/len(titanic) </span><br><span class="line">titanic[<span class="string">"enc"</span>] = titanic.Embarked.map(encoding)</span><br></pre></td></tr></table></figure></p></li>
+<h3 id="Ordinal-features"><a href="#Ordinal-features" class="headerlink" title="Ordinal features"></a>Ordinal features</h3><p>Values in ordinal features are sorted in some meaningful order</p>
+<ul>
+<li>Ticket class: 1,2,3 </li>
+<li>Driver’s license: A, B, C, D</li>
+<li>Education: kindergarden, school, undergraduate, bachelor, master, doctoral</li>
+</ul>
+<ol>
+<li><p>Label encoding maps categories to numbers</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> preprocessing</span><br><span class="line">encoder = preprocessing.LabelEncoder()</span><br><span class="line">encoder.fit(categorical_features)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Frequency encoding maps categories to their frequencies</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">encoding = titanic.groupby(‘Embarked’).size() </span><br><span class="line">encoding = encoding/len(titanic) </span><br><span class="line">titanic[<span class="string">"enc"</span>] = titanic.Embarked.map(encoding)</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h2 id="datetime">Datetime</h2>
-<ol type="1">
-<li>Periodicity Day number in week, month, season, year second, minute, hour.</li>
+<h2 id="Datetime"><a href="#Datetime" class="headerlink" title="Datetime"></a>Datetime</h2><ol>
+<li>Periodicity<br>Day number in week, month, season, year second, minute, hour.</li>
 <li>Time since</li>
 </ol>
 <ul>
-<li>Row-independent moment For example: since 00:00:00 UTC, 1 January 1970;</li>
-<li>Row-dependent important moment Number of days left until next holidays / time passed after last holiday. <img src="4.png"></li>
+<li>Row-independent moment<br>For example: since 00:00:00 UTC, 1 January 1970;</li>
+<li>Row-dependent important moment<br>Number of days left until next holidays / time passed after last holiday.<br><img src="4.png" alt=""></li>
 </ul>
-<ol start="3" type="1">
+<ol>
 <li>Difference between dates</li>
 </ol>
 <ul>
-<li>datetime_feature_1 - datetime_feature_2 <img src="5.png"></li>
+<li>datetime_feature_1 - datetime_feature_2<br><img src="5.png" alt=""></li>
 </ul>
-<h2 id="coordinates">Coordinates</h2>
-<ol type="1">
-<li>Interesting places from train/test data or additional data Generally, you can calculate distances to important points on the map. You can extract interesting points on the map from your trained test data.</li>
+<h2 id="Coordinates"><a href="#Coordinates" class="headerlink" title="Coordinates"></a>Coordinates</h2><ol>
+<li>Interesting places from train/test data or additional data<br>Generally, you can calculate distances to important points on the map. You can extract interesting points on the map from your trained test data.</li>
 <li>Centers of clusters</li>
-<li>Aggregated statistics use coordinates is to calculate aggregated statistics for objects surrounding area. <img src="6.png"></li>
-<li>If you train decision trees from them, you can add slightly rotated coordinates is new features. And this will help a model make more precise selections on the map. <img src="7.png"></li>
+<li>Aggregated statistics<br>use coordinates is to calculate aggregated statistics for objects surrounding area.<br><img src="6.png" alt=""></li>
+<li>If you train decision trees from them, you can add slightly rotated coordinates is new features. And this will help a model make more precise selections on the map.<br><img src="7.png" alt=""></li>
 </ol>
-<h2 id="missing-data">Missing Data</h2>
-<h3 id="fillna-approaches">Fillna approaches</h3>
-<ol type="1">
+<h2 id="Missing-Data"><a href="#Missing-Data" class="headerlink" title="Missing Data"></a>Missing Data</h2><h3 id="Fillna-approaches"><a href="#Fillna-approaches" class="headerlink" title="Fillna approaches"></a>Fillna approaches</h3><ol>
 <li>-999, -1, etc</li>
 <li>mean, median</li>
-<li>Reconstruct value
-<ul>
+<li>Reconstruct value<ul>
 <li>we should be very careful with replacing missing values before our feature generation</li>
-</ul></li>
-<li>It can be beneficial to change the missing values or categories which present in the test data but do not present in the train data. The intention for doing so appeals to the fact that the model which didn't have that category in the train data will eventually treat it <strong>randomly</strong>.</li>
+</ul>
+</li>
+<li>It can be beneficial to change the missing values or categories which present in the test data but do not present in the train data. The intention for doing so appeals to the fact that the model which didn’t have that category in the train data will eventually treat it <strong>randomly</strong>.</li>
 </ol>
-<h3 id="isnull-feature">Isnull feature</h3>
+<h3 id="Isnull-feature"><a href="#Isnull-feature" class="headerlink" title="Isnull feature"></a>Isnull feature</h3><div class="table-container">
 <table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">0.1</td>
-<td style="text-align: left;">False</td>
+<tr>
+<td style="text-align:left">0.1</td>
+<td style="text-align:left">False</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">0.2</td>
-<td style="text-align: left;">False</td>
+<tr>
+<td style="text-align:left">0.2</td>
+<td style="text-align:left">False</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">NaN</td>
-<td style="text-align: left;">True</td>
+<tr>
+<td style="text-align:left">NaN</td>
+<td style="text-align:left">True</td>
 </tr>
 </tbody>
 </table>
-<h1 id="feature-extraction">Feature extraction</h1>
-<h2 id="texts">Texts</h2>
-<ol type="1">
+</div>
+<h1 id="Feature-extraction"><a href="#Feature-extraction" class="headerlink" title="Feature extraction"></a>Feature extraction</h1><h2 id="Texts"><a href="#Texts" class="headerlink" title="Texts"></a>Texts</h2><ol>
 <li><p>Preprocessing</p>
 <ul>
-<li>Lowercase, stemming, lemmarization, stopwords <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Lowercase: Very, very -&gt; very,very </span><br><span class="line">lemmarization: I had a car -&gt; I have a car</span><br><span class="line">stopwords: sklearn.feature_extraction.text.CountVectorizer(max_df)</span><br></pre></td></tr></table></figure></li>
-</ul></li>
-<li><p>Bag of words <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Design the Vocabulary</span><br><span class="line"># Create Document Vectors</span><br><span class="line"></span><br><span class="line">&quot;it was the worst of times&quot; = [1, 1, 1, 0, 1, 1, 1, 0, 0, 0]</span><br><span class="line">&quot;it was the age of wisdom&quot; = [1, 1, 1, 0, 1, 0, 0, 1, 1, 0]</span><br><span class="line">&quot;it was the age of foolishness&quot; = [1, 1, 1, 0, 1, 0, 0, 1, 0, 1]</span><br></pre></td></tr></table></figure></p>
+<li>Lowercase, stemming, lemmarization, stopwords <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Lowercase: Very, very -&gt; very,very </span><br><span class="line">lemmarization: I had a car -&gt; I have a car</span><br><span class="line">stopwords: sklearn.feature_extraction.text.CountVectorizer(max_df)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Bag of words</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Design the Vocabulary</span><br><span class="line"># Create Document Vectors</span><br><span class="line"></span><br><span class="line">&quot;it was the worst of times&quot; = [1, 1, 1, 0, 1, 1, 1, 0, 0, 0]</span><br><span class="line">&quot;it was the age of wisdom&quot; = [1, 1, 1, 0, 1, 0, 0, 1, 1, 0]</span><br><span class="line">&quot;it was the age of foolishness&quot; = [1, 1, 1, 0, 1, 0, 0, 1, 0, 1]</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>Huge vectors</p></li>
-<li><p>Ngrams can help to use local context <img src="10.png"> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.feature_extraction.text import CountVectorizer</span><br><span class="line"># Ngram_range, analyzer</span><br></pre></td></tr></table></figure></p></li>
-<li><p>TF-IDF can be of use as postprocessing &gt; 如果某个词或短语在一篇文章中出现的频率TF高，并且在其他文章中很少出现，则认为此词或者短语具有很好的类别区分能力，适合用来分类。TFIDF实际上是：TF * IDF，TF词频(Term Frequency)，IDF反文档频率(Inverse Document Frequency)。TF表示词条在文档d中出现的频率（另一说：TF词频(Term Frequency)指的是某一个给定的词语在该文件中出现的次数）。IDF的主要思想是：如果包含词条t的文档越少，也就是n越小，IDF越大（见后续公式），则说明词条t具有很好的类别区分能力。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Term frequency</span></span><br><span class="line">tf = <span class="number">1</span> / x.sum(axis=<span class="number">1</span>) [:,<span class="keyword">None</span>]</span><br><span class="line">x = x * tf</span><br><span class="line"><span class="comment">## Inverse Document Frequency</span></span><br><span class="line">idf = np.log(x.shape[<span class="number">0</span>] / (x &gt; <span class="number">0</span>).sum(<span class="number">0</span>)) x = x * idf</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction.text <span class="keyword">import</span> TfidfVectorizer</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
+<li>Huge vectors</li>
+<li><p>Ngrams can help to use local context<br><img src="10.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.feature_extraction.text import CountVectorizer</span><br><span class="line"># Ngram_range, analyzer</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>TF-IDF can be of use as postprocessing</p>
+<blockquote>
+<p>如果某个词或短语在一篇文章中出现的频率TF高，并且在其他文章中很少出现，则认为此词或者短语具有很好的类别区分能力，适合用来分类。TFIDF实际上是：TF * IDF，TF词频(Term Frequency)，IDF反文档频率(Inverse Document Frequency)。TF表示词条在文档d中出现的频率（另一说：TF词频(Term Frequency)指的是某一个给定的词语在该文件中出现的次数）。IDF的主要思想是：如果包含词条t的文档越少，也就是n越小，IDF越大（见后续公式），则说明词条t具有很好的类别区分能力。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Term frequency</span></span><br><span class="line">tf = <span class="number">1</span> / x.sum(axis=<span class="number">1</span>) [:,<span class="keyword">None</span>]</span><br><span class="line">x = x * tf</span><br><span class="line"><span class="comment">## Inverse Document Frequency</span></span><br><span class="line">idf = np.log(x.shape[<span class="number">0</span>] / (x &gt; <span class="number">0</span>).sum(<span class="number">0</span>)) x = x * idf</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction.text <span class="keyword">import</span> TfidfVectorizer</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+</li>
 <li><p>Word2vec</p>
 <ul>
 <li>Relatively small vectors</li>
 <li>Pretrained models</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-<h2 id="images">Images</h2>
-<ul>
+<h2 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h2><ul>
 <li>Features can be extracted from different layers</li>
 <li>Careful choosing of pretrained network can help</li>
-<li>Finetuning allows to refine pretrained models <img src="8.png"></li>
-<li>Data augmentation can improve the model <img src="9.png"></li>
+<li>Finetuning allows to refine pretrained models<br><img src="8.png" alt=""></li>
+<li>Data augmentation can improve the model<br><img src="9.png" alt=""></li>
 </ul>
 
       
@@ -796,7 +806,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">128</span>
+                  <span class="site-state-item-count">129</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -889,7 +899,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#feature-preprocessing"><span class="nav-text">Feature Preprocessing</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#numeric-feature"><span class="nav-text">Numeric feature</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#scaling"><span class="nav-text">scaling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rank"><span class="nav-text">Rank</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#other"><span class="nav-text">Other</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#outlier"><span class="nav-text">outlier</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#feature-generation"><span class="nav-text">Feature generation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#category-feature"><span class="nav-text">Category feature</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ordinal-features"><span class="nav-text">Ordinal features</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#datetime"><span class="nav-text">Datetime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#coordinates"><span class="nav-text">Coordinates</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#missing-data"><span class="nav-text">Missing Data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fillna-approaches"><span class="nav-text">Fillna approaches</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#isnull-feature"><span class="nav-text">Isnull feature</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#feature-extraction"><span class="nav-text">Feature extraction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#texts"><span class="nav-text">Texts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#images"><span class="nav-text">Images</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Feature-Preprocessing"><span class="nav-text">Feature Preprocessing</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Numeric-feature"><span class="nav-text">Numeric feature</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#scaling"><span class="nav-text">scaling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rank"><span class="nav-text">Rank</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other"><span class="nav-text">Other</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#outlier"><span class="nav-text">outlier</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Feature-generation"><span class="nav-text">Feature generation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Category-feature"><span class="nav-text">Category feature</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ordinal-features"><span class="nav-text">Ordinal features</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Datetime"><span class="nav-text">Datetime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Coordinates"><span class="nav-text">Coordinates</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Missing-Data"><span class="nav-text">Missing Data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Fillna-approaches"><span class="nav-text">Fillna approaches</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Isnull-feature"><span class="nav-text">Isnull feature</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Feature-extraction"><span class="nav-text">Feature extraction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Texts"><span class="nav-text">Texts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Images"><span class="nav-text">Images</span></a></li></ol></li></ol></div>
             
 
           </div>

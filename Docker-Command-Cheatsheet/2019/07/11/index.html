@@ -461,13 +461,27 @@
 
       
         <ul>
-<li><p>Docker download and upload files <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp &lt;containerID&gt;:path localpath</span><br></pre></td></tr></table></figure></p></li>
-<li><p>RM image <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">docker rmi &lt;REPOSITORY&gt;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>RM container <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br><span class="line">docker rm &lt;REPOSITORY&gt;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>Run a container of an image with port mapping <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 127.0.0.1:&lt;Port1&gt;:&lt;Port1&gt; -p 127.0.0.1:&lt;Port2&gt;:&lt;Port2&gt; --name &lt;name&gt; &lt;REPOSITORY&gt;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>Start or stop a container <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker start -a &lt;NAMES&gt;</span><br><span class="line">docker stop &lt;NAMES&gt;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>Commit a runnning container to a image <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br><span class="line">docker commit &lt;ContainerID&gt; &lt;ImageName&gt;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>Enter into docker container <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it &lt;ContainerID&gt; /bin/bash</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Docker download and upload files</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp &lt;containerID&gt;:path localpath</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>RM image</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br><span class="line">docker rmi &lt;REPOSITORY&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>RM container</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br><span class="line">docker rm &lt;REPOSITORY&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Run a container of an image with port mapping</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 127.0.0.1:&lt;Port1&gt;:&lt;Port1&gt; -p 127.0.0.1:&lt;Port2&gt;:&lt;Port2&gt; --name &lt;name&gt; &lt;REPOSITORY&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Start or stop a container</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker start -a &lt;NAMES&gt;</span><br><span class="line">docker stop &lt;NAMES&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Commit a runnning container to a image</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br><span class="line">docker commit &lt;ContainerID&gt; &lt;ImageName&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Enter into docker container</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it &lt;ContainerID&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 
       
@@ -645,7 +659,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">128</span>
+                  <span class="site-state-item-count">129</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

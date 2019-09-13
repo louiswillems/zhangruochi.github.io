@@ -124,13 +124,13 @@
 
 
 
-<meta name="description" content="Table of Contents  Overview  Goals and Objectives Key Phrases/Concepts Guiding Questions  Gossip  what is multicast? What are the requirements for multicast protocol? Centralized Multicast Protocol Tr">
+<meta name="description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Gossip what is multicast? What are the requirements for multicast protocol? Centralized Multicast Protocol Tree">
 <meta name="keywords" content="Protocol,Failure Detection,Dissemination,Grid,Member,Multicat,Suspicion Mechanism">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gossip,Member,Grid">
 <meta property="og:url" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/index.html">
 <meta property="og:site_name" content="RUOCHI.AI">
-<meta property="og:description" content="Table of Contents  Overview  Goals and Objectives Key Phrases/Concepts Guiding Questions  Gossip  what is multicast? What are the requirements for multicast protocol? Centralized Multicast Protocol Tr">
+<meta property="og:description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Gossip what is multicast? What are the requirements for multicast protocol? Centralized Multicast Protocol Tree">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/10.png">
 <meta property="og:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/gossip_member_grid01.png">
@@ -147,7 +147,7 @@
 <meta property="og:updated_time" content="2019-07-05T09:49:04.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gossip,Member,Grid">
-<meta name="twitter:description" content="Table of Contents  Overview  Goals and Objectives Key Phrases/Concepts Guiding Questions  Gossip  what is multicast? What are the requirements for multicast protocol? Centralized Multicast Protocol Tr">
+<meta name="twitter:description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Gossip what is multicast? What are the requirements for multicast protocol? Centralized Multicast Protocol Tree">
 <meta name="twitter:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/10.png">
 
 
@@ -469,16 +469,14 @@
       
 
       
-        <h1 id="table-of-contents">Table of Contents</h1>
-<ul>
-<li><a href="#overview">Overview</a>
-<ul>
+        <h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1><ul>
+<li><a href="#overview">Overview</a><ul>
 <li><a href="#goals-and-objectives">Goals and Objectives</a></li>
 <li><a href="#key-phrasesconcepts">Key Phrases/Concepts</a></li>
 <li><a href="#guiding-questions">Guiding Questions</a></li>
-</ul></li>
-<li><a href="#gossip">Gossip</a>
-<ul>
+</ul>
+</li>
+<li><a href="#gossip">Gossip</a><ul>
 <li><a href="#what-is-multicast">what is multicast?</a></li>
 <li><a href="#what-are-the-requirements-for-multicast-protocol">What are the requirements for multicast protocol?</a></li>
 <li><a href="#centralized-multicast-protocol">Centralized Multicast Protocol</a></li>
@@ -486,186 +484,164 @@
 <li><a href="#epidemic-multicast">Epidemic Multicast</a></li>
 <li><a href="#topology-aware-gossip">Topology-Aware Gossip</a></li>
 <li><a href="#gossip-summary">Gossip Summary</a></li>
-</ul></li>
-<li><a href="#member">Member</a>
-<ul>
+</ul>
+</li>
+<li><a href="#member">Member</a><ul>
 <li><a href="#two-sub-protocals">Two sub-protocals</a></li>
-<li><a href="#failure-detection">Failure Detection</a>
-<ul>
+<li><a href="#failure-detection">Failure Detection</a><ul>
 <li><a href="#gossip-style-failure-detection">Gossip Style Failure Detection</a></li>
 <li><a href="#swim-failure-detection">Swim Failure Detection</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="#dissemination">Dissemination</a></li>
 <li><a href="#suspicion-mechanism">Suspicion Mechanism</a></li>
 <li><a href="#member-summary">Member Summary</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="#grid">Grid</a></li>
 </ul>
-<h2 id="overview">Overview</h2>
-<p>This week’s video lectures cover the topics of Grids, Membership, and Gossip. With this, you have all the concepts you need to complete the Programming Assignment in this course.</p>
-<h3 id="goals-and-objectives">Goals and Objectives</h3>
-<p>After you actively engage in the learning experiences in this module, you should be able to:</p>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>This week’s video lectures cover the topics of Grids, Membership, and Gossip. With this, you have all the concepts you need to complete the Programming Assignment in this course.</p>
+<h3 id="Goals-and-Objectives"><a href="#Goals-and-Objectives" class="headerlink" title="Goals and Objectives"></a>Goals and Objectives</h3><p>After you actively engage in the learning experiences in this module, you should be able to:</p>
 <ul>
 <li>Analyze various gossip/epidemic protocols.</li>
 <li>Design and analyze various distributed membership protocols.</li>
 <li>Know what grid computing is.</li>
 </ul>
-<h3 id="key-phrasesconcepts">Key Phrases/Concepts</h3>
-<p>Keep your eyes open for the following key terms or phrases as you interact with the lectures. These topics will help you better understand the content in this module.</p>
+<h3 id="Key-Phrases-Concepts"><a href="#Key-Phrases-Concepts" class="headerlink" title="Key Phrases/Concepts"></a>Key Phrases/Concepts</h3><p>Keep your eyes open for the following key terms or phrases as you interact with the lectures. These topics will help you better understand the content in this module.</p>
 <ul>
 <li>Failure detectors</li>
 <li>Membership protocols</li>
 <li>Gossip/epidemic protocols</li>
 <li>Grid computing</li>
 </ul>
-<h3 id="guiding-questions">Guiding Questions</h3>
-<p>Develop your answers to the following guiding questions while completing the activities throughout the week.</p>
+<h3 id="Guiding-Questions"><a href="#Guiding-Questions" class="headerlink" title="Guiding Questions"></a>Guiding Questions</h3><p>Develop your answers to the following guiding questions while completing the activities throughout the week.</p>
 <ul>
 <li>Why are gossip and epidemic protocols fast and reliable?</li>
 <li>What is the most efficient way for cloud computing systems to detect failures of servers?</li>
 <li>How is grid computing related to cloud computing?</li>
 </ul>
-<h2 id="gossip">Gossip</h2>
-<h3 id="what-is-multicast">what is multicast?</h3>
-<p>Suppose you have a group of processes or a group of nodes. Each of these processes or each of these nodes is potentially a process at some host on the Internet or connected to the network. And essentially, all we need is that these processes or nodes need to be able to talk with each other by being able to <strong>send</strong> and <strong>receive</strong> messages.</p>
-<h3 id="what-are-the-requirements-for-multicast-protocol">What are the requirements for multicast protocol?</h3>
-<ul>
+<h2 id="Gossip"><a href="#Gossip" class="headerlink" title="Gossip"></a>Gossip</h2><h3 id="what-is-multicast"><a href="#what-is-multicast" class="headerlink" title="what is multicast?"></a>what is multicast?</h3><p>Suppose you have a group of processes or a group of nodes. Each of these processes or each of these nodes is potentially a process at some host on the Internet or connected to the network. And essentially, all we need is that these processes or nodes need to be able to talk with each other by being able to <strong>send</strong> and <strong>receive</strong> messages.</p>
+<h3 id="What-are-the-requirements-for-multicast-protocol"><a href="#What-are-the-requirements-for-multicast-protocol" class="headerlink" title="What are the requirements for multicast protocol?"></a>What are the requirements for multicast protocol?</h3><ul>
 <li>fault tolerance</li>
 <li>scalability</li>
 </ul>
-<h3 id="centralized-multicast-protocol">Centralized Multicast Protocol</h3>
-<p><img src="10.png"></p>
+<h3 id="Centralized-Multicast-Protocol"><a href="#Centralized-Multicast-Protocol" class="headerlink" title="Centralized Multicast Protocol"></a>Centralized Multicast Protocol</h3><p><img src="10.png" alt=""></p>
 <ul>
 <li>If the sender fails, no one can received the multicast.</li>
-<li>the overhead on the sender is very high. O(n)</li>
+<li>the overhead on the sender is very high.  O(n)</li>
 </ul>
-<h3 id="tree-based-multicast-protocol">Tree-Based Multicast Protocol</h3>
-<ul>
+<h3 id="Tree-Based-Multicast-Protocol"><a href="#Tree-Based-Multicast-Protocol" class="headerlink" title="Tree-Based Multicast Protocol"></a>Tree-Based Multicast Protocol</h3><ul>
 <li>Build a spanning tree among the processes of the multicast group</li>
 <li>Use spanning tree to disseminate multicasts</li>
 <li>Use either acknowledgments (ACKs) or negative acknowledgements (NAKs) to repair multicasts not received</li>
-<li><strong>SRM</strong> (Scalable Reliable Multicast)
-<ul>
+<li><strong>SRM</strong> (Scalable Reliable Multicast)<ul>
 <li>Uses NAKs</li>
 <li>But adds random delays, and uses exponential backoff to avoid NAK storms</li>
-</ul></li>
-<li><strong>RMTP</strong> (Reliable Multicast Transport Protocol)
-<ul>
+</ul>
+</li>
+<li><strong>RMTP</strong> (Reliable Multicast Transport Protocol)<ul>
 <li>Uses ACKs</li>
 <li>But ACKs only sent to designated receivers, which then re-transmit missing multicasts</li>
-</ul></li>
-<li>These protocols still cause an O(N) ACK/NAK overhead</li>
-<li><img src="gossip_member_grid01.png" title="fig:" alt="gossip_member_grid01.png"></li>
 </ul>
-<h3 id="epidemic-multicast">Epidemic Multicast</h3>
-<p><img src="gossip_member_grid02.png"></p>
-<p>the sender periodically picks b nodes as gossip targets and sends them copies of the multicast message using what is known as a gossip message. When b turns from uninfected into infected they starts periodically sending out gossip message.</p>
+</li>
+<li>These protocols still cause an O(N) ACK/NAK overhead</li>
+<li><img src="gossip_member_grid01.png" alt="gossip_member_grid01.png"></li>
+</ul>
+<h3 id="Epidemic-Multicast"><a href="#Epidemic-Multicast" class="headerlink" title="Epidemic Multicast"></a>Epidemic Multicast</h3><p><img src="gossip_member_grid02.png" alt=""></p>
+<p>the sender periodically picks b nodes as gossip targets and sends them copies of the multicast message using what is known as a gossip message. When b turns from uninfected into infected they starts periodically sending out gossip message.  </p>
 <ul>
-<li><strong>Push</strong> gossip
-<ul>
+<li><strong>Push</strong> gossip<ul>
 <li>Once you have a multicast message, you start gossiping about it</li>
 <li>Multiple messages? Gossip a random subset of them, or recently-received ones, or higher priority ones</li>
-</ul></li>
-<li><strong>Pull</strong> gossip
-<ul>
+</ul>
+</li>
+<li><strong>Pull</strong> gossip<ul>
 <li>Periodically poll a few randomly selected processes for new multicast messages that you haven’t received</li>
 <li>Get those messages</li>
-</ul></li>
-<li><strong>Hybrid variant</strong>: Push-Pull
-<ul>
-<li>As the name suggests</li>
-</ul></li>
 </ul>
-<h3 id="topology-aware-gossip">Topology-Aware Gossip</h3>
-<p><img src="gossip_member_grid03.png"></p>
+</li>
+<li><strong>Hybrid variant</strong>: Push-Pull<ul>
+<li>As the name suggests</li>
+</ul>
+</li>
+</ul>
+<h3 id="Topology-Aware-Gossip"><a href="#Topology-Aware-Gossip" class="headerlink" title="Topology-Aware Gossip"></a>Topology-Aware Gossip</h3><p><img src="gossip_member_grid03.png" alt=""></p>
 <ul>
 <li>Network topology is hierachical</li>
 <li>Random gossip target selection =&gt; core routers face O(N) load</li>
-<li>In subnet i, which contains <span class="math inline">\(n_i\)</span> nodes, pick gossip target in your subnet with probability <span class="math inline">\(\frac{1}{n_i}\)</span></li>
-<li>Router <span class="math inline">\(load=O(1)\)</span></li>
-<li>Dissemination <span class="math inline">\(time=O(log(N))\)</span></li>
+<li>In subnet i, which contains $n_i$ nodes, pick gossip target in your subnet with probability $\frac{1}{n_i}$</li>
+<li>Router $load=O(1)$</li>
+<li>Dissemination $time=O(log(N))$</li>
 </ul>
-<h3 id="gossip-summary">Gossip Summary</h3>
-<ul>
+<h3 id="Gossip-Summary"><a href="#Gossip-Summary" class="headerlink" title="Gossip Summary"></a>Gossip Summary</h3><ul>
 <li>Multicast is an important problem</li>
 <li>Tree-bases multicast protocols</li>
 <li>When concerns the scalability and fault tolerance, the gossip protocol is a good choice</li>
 <li>Also known as epidemic</li>
 <li>Fast, reliable, Fault-tolerant, scalability, topology-aware</li>
 </ul>
-<h2 id="member">Member</h2>
-<p>The membership list Which maintains the list of most or all of the other processes that are currently in your system and that have not yet failed. That means non-faulty processes. This membership list is accessed by a variety of applications, for instance the application might be a distributed hash table.</p>
-<p><img src="11.png"></p>
-<h3 id="two-sub-protocals">Two sub-protocals</h3>
-<ul>
+<h2 id="Member"><a href="#Member" class="headerlink" title="Member"></a>Member</h2><p>The membership list Which maintains the list of most or all of the other processes that are currently in your system and that have not yet failed. That means non-faulty processes. This membership list is accessed by a variety of applications, for instance the application might be a distributed hash table.</p>
+<p><img src="11.png" alt=""></p>
+<h3 id="Two-sub-protocals"><a href="#Two-sub-protocals" class="headerlink" title="Two sub-protocals"></a>Two sub-protocals</h3><ul>
 <li>Failure Detection</li>
 <li>Dissemination</li>
 </ul>
-<p><img src="gossip_member_grid04.png"></p>
-<h3 id="failure-detection">Failure Detection</h3>
-<p>some process find out the failure process quickly</p>
+<p><img src="gossip_member_grid04.png" alt=""></p>
+<h3 id="Failure-Detection"><a href="#Failure-Detection" class="headerlink" title="Failure Detection"></a>Failure Detection</h3><p>some process find out the failure process quickly</p>
 <ul>
-<li>Desirable propertities
-<ul>
+<li>Desirable propertities<ul>
 <li>Completeness (most important)</li>
 <li>Accuracy</li>
 <li>Speed</li>
 <li>Scale</li>
-</ul></li>
 </ul>
-<h4 id="gossip-style-failure-detection">Gossip Style Failure Detection</h4>
-<p><img src="gossip_member_grid05.png"> <img src="gossip_member_grid06.png"></p>
-<ol type="1">
-<li>If the heartbeat has not increased for more than <span class="math inline">\(T_{tail}\)</span> seconds, the member is considered fail.</li>
-<li>After <span class="math inline">\(T_{cleanup}\)</span> seconds, it will delete the member from the list.</li>
-<li>N heartbeats take:
-<ul>
+</li>
+</ul>
+<h4 id="Gossip-Style-Failure-Detection"><a href="#Gossip-Style-Failure-Detection" class="headerlink" title="Gossip Style Failure Detection"></a>Gossip Style Failure Detection</h4><p><img src="gossip_member_grid05.png" alt=""><br><img src="gossip_member_grid06.png" alt=""></p>
+<ol>
+<li>If the heartbeat has not increased for more than $T_{tail}$ seconds, the member is considered fail.</li>
+<li>After $T_{cleanup}$ seconds, it will delete the member from the list.</li>
+<li>N heartbeats take:<ul>
 <li>O(log(n)) time to propagate if bandwith allowed per node is O(n)</li>
 <li>O(Nlog(n)) time to propagate if bandwith allowed per node is O(1)</li>
-</ul></li>
-<li>Multi-level Gossip
-<ul>
-<li><img src="12.png"></li>
-</ul></li>
+</ul>
+</li>
+<li>Multi-level Gossip<ul>
+<li><img src="12.png" alt=""></li>
+</ul>
+</li>
 <li>All-to-all and gossip-based heartbeating are in fact suboptimal because they have in fact they are O(Nlog(N)) for the gossip-based heartbeating. The key here is to realize that these two protocols mix up the <strong>failure detection</strong> and the <strong>dissemination components</strong>. Essentially they are trying to have all the processes in the system detect the failure by themselves and not really using dissemination component separately.</li>
 </ol>
-<h4 id="swim-failure-detection">Swim Failure Detection</h4>
-<ul>
-<li>Two choice for the <span class="math inline">\(P_j\)</span>(failure process)</li>
-<li>Directed ping to <span class="math inline">\(P_j\)</span> and indirected ping to <span class="math inline">\(P_j\)</span> (Randomly select another process and then send ping to <span class="math inline">\(P_j\)</span>)</li>
-<li>Constant time =&gt; <span class="math inline">\(O(1)\)</span></li>
-<li><img src="gossip_member_grid07.png"></li>
+<h4 id="Swim-Failure-Detection"><a href="#Swim-Failure-Detection" class="headerlink" title="Swim Failure Detection"></a>Swim Failure Detection</h4><ul>
+<li>Two choice for the $P_j$(failure process)</li>
+<li>Directed ping to $P_j$ and indirected ping to $P_j$ (Randomly select another process and then send ping to $P_j$)</li>
+<li>Constant time =&gt; $O(1)$</li>
+<li><img src="gossip_member_grid07.png" alt=""></li>
 </ul>
-<h3 id="dissemination">Dissemination</h3>
-<ul>
-<li>Multicast Dissemination(Hardware/IP)
-<ul>
+<h3 id="Dissemination"><a href="#Dissemination" class="headerlink" title="Dissemination"></a>Dissemination</h3><ul>
+<li>Multicast Dissemination(Hardware/IP)<ul>
 <li>unreliable</li>
-</ul></li>
-<li>Point-to-Point
-<ul>
+</ul>
+</li>
+<li>Point-to-Point <ul>
 <li>expensive</li>
-</ul></li>
+</ul>
+</li>
 <li>Infection style Dissemination</li>
 </ul>
-<h3 id="suspicion-mechanism">Suspicion Mechanism</h3>
-<p>Suspect a process before <strong>declaring</strong> it as failed in the group</p>
-<p><img src="gossip_member_grid08.png"></p>
-<h3 id="member-summary">Member Summary</h3>
-<ul>
+<h3 id="Suspicion-Mechanism"><a href="#Suspicion-Mechanism" class="headerlink" title="Suspicion Mechanism"></a>Suspicion Mechanism</h3><p>Suspect a process before <strong>declaring</strong> it as failed in the group</p>
+<p><img src="gossip_member_grid08.png" alt=""></p>
+<h3 id="Member-Summary"><a href="#Member-Summary" class="headerlink" title="Member Summary"></a>Member Summary</h3><ul>
 <li>在数据中心中，出错是常态，并不是意外</li>
 <li>每一个分布式系统都会使用错误检测器</li>
 <li>很多分布式系统使用了成员关系服务</li>
-<li>使用环形错误检测的有 – IBM SP2和很多其他相似的集群/机器</li>
-<li>使用流言式的错误检测的有 – 亚马逊Amazon EC2/S3</li>
+<li>使用环形错误检测的有<br>  – IBM SP2和很多其他相似的集群/机器</li>
+<li>使用流言式的错误检测的有<br>  – 亚马逊Amazon EC2/S3</li>
 </ul>
-<h2 id="grid">Grid</h2>
-<blockquote>
-<p>src: https://www.zhihu.com/question/20773707/answer/16583447 网格计算的设计目标是解决对于任何单一的超级计算机来说仍然大得难以解决的问题，并同时保持解决多个较小的问题的灵活性。这样，网格计算就提供了一个多用户环境。它的第二个目标就是：更好的利用可用计算力，迎合大型的计算练习的断断续续的需求。有了网格计算技术，您可以将服务器、存储系统和网络联合在一起，组成一个大的系统，从而为用户提供功能强大的多系统资源来处理特定的任务。对于最终用户或应用程序来说，数据文件、应用程序和系统看起来就像是一个巨大的虚拟计算系统。网格计算与其他所有的分布式计算范例都有所区别：网格计算的本质在于以有效且优化的方式来利用组织中各种异构松耦合资源，来实现复杂的工作负载管理和信息虚拟化功能。</p>
+<h2 id="Grid"><a href="#Grid" class="headerlink" title="Grid"></a>Grid</h2><blockquote>
+<p>src: <a href="https://www.zhihu.com/question/20773707/answer/16583447" target="_blank" rel="noopener">https://www.zhihu.com/question/20773707/answer/16583447</a><br>网格计算的设计目标是解决对于任何单一的超级计算机来说仍然大得难以解决的问题，并同时保持解决多个较小的问题的灵活性。这样，网格计算就提供了一个多用户环境。它的第二个目标就是：更好的利用可用计算力，迎合大型的计算练习的断断续续的需求。有了网格计算技术，您可以将服务器、存储系统和网络联合在一起，组成一个大的系统，从而为用户提供功能强大的多系统资源来处理特定的任务。对于最终用户或应用程序来说，数据文件、应用程序和系统看起来就像是一个巨大的虚拟计算系统。网格计算与其他所有的分布式计算范例都有所区别：网格计算的本质在于以有效且优化的方式来利用组织中各种异构松耦合资源，来实现复杂的工作负载管理和信息虚拟化功能。</p>
 </blockquote>
-<figure>
-<img src="gossip_member_grid09.png" alt="gossip_member_grid09.png"><figcaption>gossip_member_grid09.png</figcaption>
-</figure>
+<p><img src="gossip_member_grid09.png" alt="gossip_member_grid09.png"></p>
 <p>two level scheduling infrastructure</p>
 <ul>
 <li>Inter-site protol</li>
@@ -859,7 +835,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">128</span>
+                  <span class="site-state-item-count">129</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -952,7 +928,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#table-of-contents"><span class="nav-text">Table of Contents</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#overview"><span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#goals-and-objectives"><span class="nav-text">Goals and Objectives</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#key-phrasesconcepts"><span class="nav-text">Key Phrases/Concepts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#guiding-questions"><span class="nav-text">Guiding Questions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gossip"><span class="nav-text">Gossip</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-multicast"><span class="nav-text">what is multicast?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#what-are-the-requirements-for-multicast-protocol"><span class="nav-text">What are the requirements for multicast protocol?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#centralized-multicast-protocol"><span class="nav-text">Centralized Multicast Protocol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tree-based-multicast-protocol"><span class="nav-text">Tree-Based Multicast Protocol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epidemic-multicast"><span class="nav-text">Epidemic Multicast</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#topology-aware-gossip"><span class="nav-text">Topology-Aware Gossip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gossip-summary"><span class="nav-text">Gossip Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#member"><span class="nav-text">Member</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#two-sub-protocals"><span class="nav-text">Two sub-protocals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#failure-detection"><span class="nav-text">Failure Detection</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#gossip-style-failure-detection"><span class="nav-text">Gossip Style Failure Detection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#swim-failure-detection"><span class="nav-text">Swim Failure Detection</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dissemination"><span class="nav-text">Dissemination</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#suspicion-mechanism"><span class="nav-text">Suspicion Mechanism</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#member-summary"><span class="nav-text">Member Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grid"><span class="nav-text">Grid</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Table-of-Contents"><span class="nav-text">Table of Contents</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Goals-and-Objectives"><span class="nav-text">Goals and Objectives</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-Phrases-Concepts"><span class="nav-text">Key Phrases/Concepts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Guiding-Questions"><span class="nav-text">Guiding Questions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gossip"><span class="nav-text">Gossip</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-multicast"><span class="nav-text">what is multicast?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-are-the-requirements-for-multicast-protocol"><span class="nav-text">What are the requirements for multicast protocol?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Centralized-Multicast-Protocol"><span class="nav-text">Centralized Multicast Protocol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tree-Based-Multicast-Protocol"><span class="nav-text">Tree-Based Multicast Protocol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Epidemic-Multicast"><span class="nav-text">Epidemic Multicast</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Topology-Aware-Gossip"><span class="nav-text">Topology-Aware Gossip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gossip-Summary"><span class="nav-text">Gossip Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Member"><span class="nav-text">Member</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-sub-protocals"><span class="nav-text">Two sub-protocals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Failure-Detection"><span class="nav-text">Failure Detection</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Gossip-Style-Failure-Detection"><span class="nav-text">Gossip Style Failure Detection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Swim-Failure-Detection"><span class="nav-text">Swim Failure Detection</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dissemination"><span class="nav-text">Dissemination</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Suspicion-Mechanism"><span class="nav-text">Suspicion Mechanism</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Member-Summary"><span class="nav-text">Member Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grid"><span class="nav-text">Grid</span></a></li></ol></li></ol></div>
             
 
           </div>

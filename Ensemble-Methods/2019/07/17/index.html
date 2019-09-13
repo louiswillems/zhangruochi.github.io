@@ -489,24 +489,17 @@
       
 
       
-        <h1 id="ensemble-methods">Ensemble methods</h1>
-<blockquote>
+        <h1 id="Ensemble-methods"><a href="#Ensemble-methods" class="headerlink" title="Ensemble methods"></a>Ensemble methods</h1><blockquote>
 <p>Ensemble methods means combining different machine learning models to get a better prediction</p>
 </blockquote>
-<h2 id="averageing-or-blending">Averageing (or blending)</h2>
-<p><span class="math display">\[(model_1 + model_2)/2\]</span></p>
-<h2 id="weighted-averaging">Weighted averaging</h2>
-<p><span class="math display">\[model_1 * 0.3 + model_2 * 0.7\]</span></p>
-<h2 id="conditional-averaging">Conditional averaging</h2>
-<p><span class="math display">\[model_1 \, if \, x &lt; 50 \, else \, model_2 \]</span></p>
-<h2 id="bagging">Bagging</h2>
-<h3 id="what-is-bagging">What is bagging</h3>
-<p>Bagging means <strong>averaging</strong> slightly different versions of the <strong>same model</strong> to improve accuracy</p>
-<h3 id="why-bagging">Why bagging</h3>
-<p>There are 2 main sources of errors in modeling: - Bias (underfitting) - Variance (overfitting) Bagging try to reduce the variance</p>
-<p><img src="17.png"></p>
-<h3 id="parameterss-that-control-bagging">Parameterss that control bagging</h3>
+<h2 id="Averageing-or-blending"><a href="#Averageing-or-blending" class="headerlink" title="Averageing (or blending)"></a>Averageing (or blending)</h2><script type="math/tex; mode=display">(model_1 + model_2)/2</script><h2 id="Weighted-averaging"><a href="#Weighted-averaging" class="headerlink" title="Weighted averaging"></a>Weighted averaging</h2><script type="math/tex; mode=display">model_1 * 0.3 + model_2 * 0.7</script><h2 id="Conditional-averaging"><a href="#Conditional-averaging" class="headerlink" title="Conditional averaging"></a>Conditional averaging</h2><script type="math/tex; mode=display">model_1 \, if \, x < 50 \, else \, model_2</script><h2 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h2><h3 id="What-is-bagging"><a href="#What-is-bagging" class="headerlink" title="What is bagging"></a>What is bagging</h3><p>Bagging means <strong>averaging</strong> slightly different versions of the <strong>same model</strong> to improve accuracy</p>
+<h3 id="Why-bagging"><a href="#Why-bagging" class="headerlink" title="Why bagging"></a>Why bagging</h3><p>There are 2 main sources of errors in modeling:</p>
 <ul>
+<li>Bias (underfitting)</li>
+<li>Variance (overfitting)<br>Bagging try to reduce the variance</li>
+</ul>
+<p><img src="17.png" alt=""></p>
+<h3 id="Parameterss-that-control-bagging"><a href="#Parameterss-that-control-bagging" class="headerlink" title="Parameterss that control bagging"></a>Parameterss that control bagging</h3><ul>
 <li>Changing the seed</li>
 <li>Row sampling or bootstraping</li>
 <li>Shuffling</li>
@@ -516,83 +509,68 @@
 <li>Parallelism</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">model = RandomForestRegressor()</span><br><span class="line">bags = <span class="number">10</span></span><br><span class="line">seed = <span class="number">1</span></span><br><span class="line">bagged_prediction = np.zeros(test.shape[<span class="number">0</span>])</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">0</span>,bags):</span><br><span class="line">    model.set_params(randm_state = seed + n)</span><br><span class="line">    model.fit(train,y)</span><br><span class="line">    preds = model.predict(test)</span><br><span class="line">    bagged_prediction += preds</span><br><span class="line"></span><br><span class="line">bagged_prediction /= bags</span><br></pre></td></tr></table></figure>
-<h2 id="boosting">Boosting</h2>
-<h3 id="what-is-boosting">What is Boosting</h3>
-<p>A form of weighted averaging of models where each model is built sequentially via taking into account the past model performance</p>
-<h3 id="main-boosting-types">Main boosting types</h3>
-<ol type="1">
+<h2 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h2><h3 id="What-is-Boosting"><a href="#What-is-Boosting" class="headerlink" title="What is Boosting"></a>What is Boosting</h3><p>A form of weighted averaging of models where each model is built sequentially via taking into account the past model performance</p>
+<h3 id="Main-boosting-types"><a href="#Main-boosting-types" class="headerlink" title="Main boosting types"></a>Main boosting types</h3><ol>
 <li>Weight based</li>
 <li>Residual based</li>
 </ol>
-<h4 id="weighted-based">Weighted based</h4>
-<p><img src="13.png"></p>
-<h4 id="weighted-based-boosting-parameters">Weighted based boosting parameters</h4>
-<ul>
+<h4 id="Weighted-based"><a href="#Weighted-based" class="headerlink" title="Weighted based"></a>Weighted based</h4><p><img src="13.png" alt=""></p>
+<h4 id="Weighted-based-boosting-parameters"><a href="#Weighted-based-boosting-parameters" class="headerlink" title="Weighted based boosting parameters"></a>Weighted based boosting parameters</h4><ul>
 <li>Learning rate</li>
 <li>Number of estimators</li>
 <li>Input model - can be anything that accepts weights</li>
-<li>Sub boosting type:
-<ul>
+<li>Sub boosting type:<ul>
 <li>AdaBoost</li>
 <li>LogitBoost</li>
-</ul></li>
 </ul>
-<h4 id="residual-based-boosting">Residual based boosting</h4>
-<p><img src="14.png"> <img src="15.png"></p>
+</li>
+</ul>
+<h4 id="Residual-based-boosting"><a href="#Residual-based-boosting" class="headerlink" title="Residual based boosting"></a>Residual based boosting</h4><p><img src="14.png" alt=""><br><img src="15.png" alt=""></p>
 <p>we use the error to get the <strong>direction</strong>, and update our prediction through that direction</p>
-<h3 id="residual-based-boosting-parameters">Residual based boosting parameters</h3>
-<ul>
+<h3 id="Residual-based-boosting-parameters"><a href="#Residual-based-boosting-parameters" class="headerlink" title="Residual based boosting parameters"></a>Residual based boosting parameters</h3><ul>
 <li>Learning rate</li>
 <li>Number of estimators</li>
 <li>Row sampling</li>
 <li>Column (sub) sampling</li>
 <li>Input model - better be trees</li>
-<li>Sub boosting type:
-<ul>
+<li>Sub boosting type:<ul>
 <li>Fully gradient based</li>
 <li>Dart</li>
-</ul></li>
-<li>Implementation
-<ul>
+</ul>
+</li>
+<li>Implementation <ul>
 <li>XGBoost</li>
 <li>LightGBM</li>
-<li>H2O's GBM</li>
+<li>H2O’s GBM</li>
 <li>Catboost</li>
-<li>Sklearn's GBM</li>
-</ul></li>
+<li>Sklearn’s GBM</li>
 </ul>
-<h2 id="stacking">Stacking</h2>
-<h3 id="what-is-stacking">What is stacking?</h3>
-<p>Stacking means making prediction of a number of models in a hold-out set and than using a different(Meta) model to train on these prediction</p>
-<h3 id="methology">Methology</h3>
-<ol type="1">
+</li>
+</ul>
+<h2 id="Stacking"><a href="#Stacking" class="headerlink" title="Stacking"></a>Stacking</h2><h3 id="What-is-stacking"><a href="#What-is-stacking" class="headerlink" title="What is stacking?"></a>What is stacking?</h3><p>Stacking means making prediction of a number of models in a hold-out set and than using a different(Meta) model to train on these prediction</p>
+<h3 id="Methology"><a href="#Methology" class="headerlink" title="Methology"></a>Methology</h3><ol>
 <li>Split the train set into two disjoint sets (train and dev)</li>
 <li>Train several base learners on the first part</li>
 <li>Make predictions with the base learners on the dev set and test set</li>
 <li>using the predictions of dev set to train a meta model and make predictions on test set</li>
 </ol>
-<p><img src="16.png"></p>
+<p><img src="16.png" alt=""></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">train,dev,y_train,y_dev = train_test_split(train,y_train, test_size = <span class="number">0.2</span>)</span><br><span class="line">model1 = RandomForestRegressor()</span><br><span class="line">model2 = LinearRegression()</span><br><span class="line"></span><br><span class="line">model1.fit(train,y_train)</span><br><span class="line">model2.fit(train,y_train)</span><br><span class="line"></span><br><span class="line">pred1 = model1.predict(dev)</span><br><span class="line">pred2 = model2.predict(dev)</span><br><span class="line"></span><br><span class="line">test_pred1 = model1.predict(test)</span><br><span class="line">test_pred2 = model2.predict(test)</span><br><span class="line"></span><br><span class="line">stacked_predcitions = np.column_stack((pred1,pred2))</span><br><span class="line">stacked_test_predcitions = np.column_stack((test_pred1,test_pred2))</span><br><span class="line"></span><br><span class="line">meta_model = LinearRegression()</span><br><span class="line">meta_model.fit(stacked_predcitions,y_dev)</span><br><span class="line"></span><br><span class="line">final_predictions = meta_model.predict(stacked_test_predcitions)</span><br></pre></td></tr></table></figure>
-<h3 id="things-to-be-mindful-of">Things to be mindful of</h3>
-<ul>
-<li>With time sensitive data - respect time</li>
+<h3 id="Things-to-be-mindful-of"><a href="#Things-to-be-mindful-of" class="headerlink" title="Things to be mindful of"></a>Things to be mindful of</h3><ul>
+<li>With time  sensitive data - respect time</li>
 <li>Diversity as important as performance(different model you choose need bring new information, no matter how weak the model is)</li>
 <li>Diversity</li>
 </ul>
-<h2 id="stacknet">StackNet</h2>
-<p>A scalable meta modelling methology taht utilizes stacking to combine multiple models in a neural network architecture of multiple levels</p>
-<p><img src="18.png"></p>
-<h3 id="how-to-train">How to train</h3>
-<ul>
+<h2 id="StackNet"><a href="#StackNet" class="headerlink" title="StackNet"></a>StackNet</h2><p>A scalable meta modelling methology taht utilizes stacking to combine multiple models in a neural network architecture of multiple levels</p>
+<p><img src="18.png" alt=""></p>
+<h3 id="How-to-train"><a href="#How-to-train" class="headerlink" title="How to train"></a>How to train</h3><ul>
 <li>cannot use BP</li>
 <li>use stacking to link each model/node with target</li>
 <li>to extend to many levels, we can use KFold parameters</li>
 <li>No epochs - different connections instead</li>
 </ul>
-<h3 id="first-level-tips">first level Tips</h3>
-<ol type="1">
-<li>Diversity based on algo
-<ul>
+<h3 id="first-level-Tips"><a href="#first-level-Tips" class="headerlink" title="first level Tips"></a>first level Tips</h3><ol>
+<li>Diversity based on algo<ul>
 <li>2-3 gradient boosted trees(xgboost, H2O, catboost)</li>
 <li>2-3 Neural Net (keras, pyTorch)</li>
 <li>1-2 ExtraTree/ Random Forest( sklearn)</li>
@@ -601,87 +579,85 @@
 <li>1 Factorization machine (libfm)</li>
 <li>1 svm with nonlinear kernel if size/memory allows(sklearn)</li>
 <li>1 svm with nonlinear kernel if size/memory allows(sklearn)</li>
-</ul></li>
-<li>Diversity based on input data
-<ul>
+</ul>
+</li>
+<li>Diversity based on input data<ul>
 <li>Categorical features: One hot, label encoding, target encoding, frequency.</li>
 <li>Numberical features: outliner, binning, derivatives, percentiles, scaling</li>
 <li>Interactions: col1 */+-col2, groupby, unsupervied</li>
-<li>For classification target, we can use regression models in middle level</li>
-</ul></li>
+<li>For classification target, we can use regression models in middle level </li>
+</ul>
+</li>
 </ol>
-<h3 id="subquent-level-tips">Subquent level tips</h3>
-<ol type="1">
-<li>Simpler(or shallower) algo
-<ul>
+<h3 id="Subquent-level-tips"><a href="#Subquent-level-tips" class="headerlink" title="Subquent level tips"></a>Subquent level tips</h3><ol>
+<li>Simpler(or shallower) algo<ul>
 <li>gradient boosted tree with small depth(2 or 3)</li>
 <li>linear models with high reglarization</li>
 <li>Extra Trees</li>
 <li>Shallow network</li>
 <li>Knn with BrayCurtis Distance</li>
 <li>Brute forcing a seach for best linear weights based on cv</li>
-</ul></li>
-<li>Feature engineering
-<ul>
+</ul>
+</li>
+<li>Feature engineering<ul>
 <li>parwise differences between meta features</li>
 <li>row-wise statics like average or stds</li>
 <li>Standard feature selection techniques</li>
 <li>For evenry 7.5 models in previous level we add 1 in meta(empirical)</li>
 <li>Be mindful of target leakage</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-<h3 id="validation-schema">Validation schema</h3>
-<p>There are a number of ways to validate second level models (meta-models). In this reading material you will find a description for the most popular ones. If not specified, we assume that the data does not have a time component. We also assume we already validated and fixed hyperparameters for the first level models (models).</p>
-<ol type="1">
-<li>Simple holdout scheme
-<ol type="1">
+<h3 id="Validation-schema"><a href="#Validation-schema" class="headerlink" title="Validation schema"></a>Validation schema</h3><p>There are a number of ways to validate second level models (meta-models). In this reading material you will find a description for the most popular ones. If not specified, we assume that the data does not have a time component. We also assume we already validated and fixed hyperparameters for the first level models (models).</p>
+<ol>
+<li>Simple holdout scheme<ol>
 <li>Split train data into three parts: partA and partB and partC.</li>
 <li>Fit N diverse models on partA, predict for partB, partC, test_data getting meta-features partB_meta, partC_meta and test_meta respectively.</li>
 <li>Fit a metamodel to a partB_meta while validating its hyperparameters on partC_meta.</li>
 <li>When the metamodel is validated, fit it to [partB_meta, partC_meta] and predict for test_meta.</li>
-</ol></li>
-<li>Meta holdout scheme with OOF meta-features
-<ol type="1">
-<li>Split train data into K folds. Iterate though each fold: retrain N diverse models on all folds except current fold, predict for the current fold. After this step for each object in train_data we will have N meta-features (also known as out-of-fold predictions, OOF). Let's call them train_meta.</li>
-<li>Fit models to whole train data and predict for test data. Let's call these features test_meta.</li>
+</ol>
+</li>
+<li>Meta holdout scheme with OOF meta-features<ol>
+<li>Split train data into K folds. Iterate though each fold: retrain N diverse models on all folds except current fold, predict for the current fold. After this step for each object in train_data we will have N meta-features (also known as out-of-fold predictions, OOF). Let’s call them train_meta.</li>
+<li>Fit models to whole train data and predict for test data. Let’s call these features test_meta.</li>
 <li>Split train_meta into two parts: train_metaA and train_metaB. Fit a meta-model to train_metaA while validating its hyperparameters on train_metaB.</li>
 <li>When the meta-model is validated, fit it to train_meta and predict for test_meta.</li>
-</ol></li>
-<li>Meta KFold scheme with OOF meta-features
-<ol type="1">
+</ol>
+</li>
+<li>Meta KFold scheme with OOF meta-features<ol>
 <li>Obtain OOF predictions train_meta and test metafeatures test_meta using b.1 and b.2.</li>
 <li>Use KFold scheme on train_meta to validate hyperparameters for meta-model. A common practice to fix seed for this KFold to be the same as seed for KFold used to get OOF predictions.</li>
 <li>When the meta-model is validated, fit it to train_meta and predict for test_meta.</li>
-</ol></li>
-<li>Holdout scheme with OOF meta-features
-<ol type="1">
+</ol>
+</li>
+<li>Holdout scheme with OOF meta-features<ol>
 <li>Split train data into two parts: partA and partB.</li>
-<li>Split partA into K folds. Iterate though each fold: retrain N diverse models on all folds except current fold, predict for the current fold. After this step for each object in partA we will have N meta-features (also known as out-of-fold predictions, OOF). Let's call them partA_meta.</li>
+<li>Split partA into K folds. Iterate though each fold: retrain N diverse models on all folds except current fold, predict for the current fold. After this step for each object in partA we will have N meta-features (also known as out-of-fold predictions, OOF). Let’s call them partA_meta.</li>
 <li>Fit models to whole partA and predict for partB and test_data, getting partB_meta and test_meta respectively.</li>
 <li>Fit a meta-model to a partA_meta, using partB_meta to validate its hyperparameters.</li>
 <li>When the meta-model is validated basically do 2. and 3. without dividing train_data into parts and then train a meta-model. That is, first get out-of-fold predictions train_meta for the train_data using models. Then train models on train_data, predict for test_data, getting test_meta. Train meta-model on the train_meta and predict for test_meta.</li>
-</ol></li>
-<li>KFold scheme with OOF meta-features
-<ol type="1">
-<li>To validate the model we basically do d.1 -- d.4 but we divide train data into parts partA and partB M times using KFold strategy with M folds.</li>
+</ol>
+</li>
+<li>KFold scheme with OOF meta-features<ol>
+<li>To validate the model we basically do d.1 — d.4 but we divide train data into parts partA and partB M times using KFold strategy with M folds.</li>
 <li>When the meta-model is validated do d.5.</li>
-</ol></li>
+</ol>
+</li>
 </ol>
 <p>Validation in presence of time component</p>
-<ol type="1">
-<li>KFold scheme in time series In time-series task we usually have a fixed period of time we are asked to predict. Like day, week, month or arbitrary period with duration of T.
-<ol type="1">
+<ol>
+<li>KFold scheme in time series<br> In time-series task we usually have a fixed period of time we are asked to predict. Like day, week, month or arbitrary period with duration of T.<ol>
 <li>Split the train data into chunks of duration T. Select first M chunks.</li>
 <li>Fit N diverse models on those M chunks and predict for the chunk M+1. Then fit those models on first M+1 chunks and predict for chunk M+2 and so on, until you hit the end. After that use all train data to fit models and get predictions for test. Now we will have meta-features for the chunks starting from number M+1 as well as meta-features for the test.</li>
 <li>Now we can use meta-features from first K chunks [M+1,M+2,..,M+K] to fit level 2 models and validate them on chunk M+K+1. Essentially we are back to step 1. with the lesser amount of chunks and meta-features instead of features.</li>
-</ol></li>
-<li>KFold scheme in time series with limited amount of data We may often encounter a situation, where scheme f) is not applicable, especially with limited amount of data. For example, when we have only years 2014, 2015, 2016 in train and we need to predict for a whole year 2017 in test. In such cases scheme c) could be of help, but with one constraint: KFold split should be done with the respect to the time component. For example, in case of data with several years we would treat each year as a fold.</li>
 </ol>
-<h3 id="software">Software</h3>
-<ul>
-<li>StackNet (https://github.com/kaz-Anova/StackNet)</li>
+</li>
+<li>KFold scheme in time series with limited amount of data<br> We may often encounter a situation, where scheme f) is not applicable, especially with limited amount of data. For example, when we have only years 2014, 2015, 2016 in train and we need to predict for a whole year 2017 in test. In such cases scheme c) could be of help, but with one constraint: KFold split should be done with the respect to the time component. For example, in case of data with several years we would treat each year as a fold.</li>
+</ol>
+<h3 id="Software"><a href="#Software" class="headerlink" title="Software"></a>Software</h3><ul>
+<li>StackNet (<a href="https://github.com/kaz-Anova/StackNet" target="_blank" rel="noopener">https://github.com/kaz-Anova/StackNet</a>)</li>
 <li>Stacked ensembles from H20</li>
-<li>Xcessiv (https://github.com/reiinakano/xcessiv)</li>
+<li>Xcessiv (<a href="https://github.com/reiinakano/xcessiv" target="_blank" rel="noopener">https://github.com/reiinakano/xcessiv</a>)</li>
 </ul>
 
       
@@ -862,7 +838,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">128</span>
+                  <span class="site-state-item-count">129</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -955,7 +931,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ensemble-methods"><span class="nav-text">Ensemble methods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#averageing-or-blending"><span class="nav-text">Averageing (or blending)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#weighted-averaging"><span class="nav-text">Weighted averaging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conditional-averaging"><span class="nav-text">Conditional averaging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bagging"><span class="nav-text">Bagging</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-bagging"><span class="nav-text">What is bagging</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#why-bagging"><span class="nav-text">Why bagging</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parameterss-that-control-bagging"><span class="nav-text">Parameterss that control bagging</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#boosting"><span class="nav-text">Boosting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-boosting"><span class="nav-text">What is Boosting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#main-boosting-types"><span class="nav-text">Main boosting types</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#weighted-based"><span class="nav-text">Weighted based</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#weighted-based-boosting-parameters"><span class="nav-text">Weighted based boosting parameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#residual-based-boosting"><span class="nav-text">Residual based boosting</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#residual-based-boosting-parameters"><span class="nav-text">Residual based boosting parameters</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stacking"><span class="nav-text">Stacking</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-stacking"><span class="nav-text">What is stacking?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#methology"><span class="nav-text">Methology</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#things-to-be-mindful-of"><span class="nav-text">Things to be mindful of</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stacknet"><span class="nav-text">StackNet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#how-to-train"><span class="nav-text">How to train</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#first-level-tips"><span class="nav-text">first level Tips</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#subquent-level-tips"><span class="nav-text">Subquent level tips</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#validation-schema"><span class="nav-text">Validation schema</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#software"><span class="nav-text">Software</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ensemble-methods"><span class="nav-text">Ensemble methods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Averageing-or-blending"><span class="nav-text">Averageing (or blending)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Weighted-averaging"><span class="nav-text">Weighted averaging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conditional-averaging"><span class="nav-text">Conditional averaging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bagging"><span class="nav-text">Bagging</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-bagging"><span class="nav-text">What is bagging</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-bagging"><span class="nav-text">Why bagging</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parameterss-that-control-bagging"><span class="nav-text">Parameterss that control bagging</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boosting"><span class="nav-text">Boosting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-Boosting"><span class="nav-text">What is Boosting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Main-boosting-types"><span class="nav-text">Main boosting types</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Weighted-based"><span class="nav-text">Weighted based</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Weighted-based-boosting-parameters"><span class="nav-text">Weighted based boosting parameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Residual-based-boosting"><span class="nav-text">Residual based boosting</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Residual-based-boosting-parameters"><span class="nav-text">Residual based boosting parameters</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stacking"><span class="nav-text">Stacking</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-stacking"><span class="nav-text">What is stacking?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Methology"><span class="nav-text">Methology</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Things-to-be-mindful-of"><span class="nav-text">Things to be mindful of</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StackNet"><span class="nav-text">StackNet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-train"><span class="nav-text">How to train</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#first-level-Tips"><span class="nav-text">first level Tips</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subquent-level-tips"><span class="nav-text">Subquent level tips</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Validation-schema"><span class="nav-text">Validation schema</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Software"><span class="nav-text">Software</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
