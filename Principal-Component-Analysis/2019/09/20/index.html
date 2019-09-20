@@ -135,7 +135,7 @@
 <meta property="og:image" content="https://zhangruochi.com/Principal-Component-Analysis/2019/09/20/281DB10DBBA2A911809814DDBC34A624.png">
 <meta property="og:image" content="https://zhangruochi.com/Principal-Component-Analysis/2019/09/20/1259CBBBA592F9731BB2753A218942FD.png">
 <meta property="og:image" content="https://zhangruochi.com/Principal-Component-Analysis/2019/09/20/F94CA8E5F54491CE435380F760D081FA.png">
-<meta property="og:updated_time" content="2019-09-20T18:01:22.316Z">
+<meta property="og:updated_time" content="2019-09-20T18:08:55.344Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Principal Component Analysis">
 <meta name="twitter:description" content="What is PCA and how to do dimensionality reduction based on it">
@@ -468,10 +468,10 @@
 <p>High dimensional data, for example images, often have the property that it lies on a low dimensional subspace, and that many dimensions are highly correlated. Here's an illustration in two dimensions. We can think of dimensionality reduction as a way of compressing data with some loss, similar to jpg or mp3. Principal Component Analysis (PCA) is one of the most fundamental dimensionality reduction techniques that are used in machine learning.</p>
 <h2 id="pre-knowledge">Pre-knowledge</h2>
 <h3 id="orthogonal-projections">Orthogonal Projections</h3>
-<p>Recall that for projection of a vector <span class="math inline">\(\boldsymbol x\)</span> onto a 1-dimensional subspace <span class="math inline">\(U\)</span> with basis vector <span class="math inline">\(\boldsymbol b\)</span> we have: <span class="math display">\[{\pi_U}(\boldsymbol x) = \frac{\boldsymbol b\boldsymbol b^T}{\{\lVert\boldsymbol  b \rVert}^2}\boldsymbol x\]</span></p>
-<p><span class="math display">\[\lambda = \frac{\langle \boldsymbol b,\boldsymbol x\rangle} {||\boldsymbol b||^{2}}\]</span></p>
+<p>Recall that for projection of a vector <span class="math inline">\(\boldsymbol x\)</span> onto a 1-dimensional subspace <span class="math inline">\(U\)</span> with basis vector <span class="math inline">\(\boldsymbol b\)</span> we have: <span class="math display">\[{\pi_U}(\boldsymbol x) = \frac{\boldsymbol b\boldsymbol b^T}{\lbrace\lVert\boldsymbol  b \rVert\rbrace^2}\boldsymbol x\]</span></p>
+<p><span class="math display">\[\lambda = \frac{\langle \boldsymbol b,\boldsymbol x\rangle} {\lbrace\boldsymbol b\rbrace^{2}}\]</span></p>
 <ul>
-<li><span class="math inline">\(\frac{\boldsymbol b\boldsymbol b^T}{\{\lVert\boldsymbol b \rVert}^2}\)</span> is the projection matrix.</li>
+<li><span class="math inline">\(\frac{\boldsymbol b\boldsymbol b^T}{\lbrace\lVert\boldsymbol b \rVert^2}\)</span> is the projection matrix.</li>
 <li><span class="math inline">\(\lambda\)</span> is he coordinate of our projection with respect to the basis b The procedure we get this equation is as follows:</li>
 </ul>
 <p><span class="math display">\[\begin{equation}
@@ -512,7 +512,7 @@
 <p>Assuming we have data <span class="math inline">\(X_1,\cdots,X_n\)</span>, we want to find parameters <span class="math inline">\(beta i_n\)</span> and orthonormal basis vectors <span class="math inline">\(b_i\)</span>, such that the average squared reconstruction era is minimised. And we can write the average squared reconstruction error as follows.</p>
 <p><span class="math display">\[H = \frac{1}{N} \sum_{n=1}^{N}||x_n - \widetilde{x_n}||^{2}\]</span></p>
 <p>The parameters are the <span class="math inline">\(\beta_{i_n}\)</span> and the <span class="math inline">\(b_i\)</span>. We set the partial derivatives of J with respect to these parameters to zero and solve for the optimal parameters</p>
-<p><span class="math display">\[\frac{\partial{J}}{\partial\{\beta_{in},b_i\}} = \frac{\partial J}{\partial \widetilde{x_n}} \frac{\partial \widetilde{x_n}}{\partial\{\beta_{in},b_i\}}\]</span></p>
+<p><span class="math display">\[\frac{\partial{J}}{\partial\lbrace\beta_{in},b_i\rbrace} = \frac{\partial J}{\partial \widetilde{x_n}} \frac{\partial \widetilde{x_n}}{\partial\lbrace\beta_{in},b_i\rbrace}\]</span></p>
 <p><span class="math display">\[ \frac{\partial J}{\partial \widetilde{x_n}} = -\frac{2}{N}(x_n - \widetilde{x_n})^{T}\]</span></p>
 <p>We can prove that the optimal coordinates of <span class="math inline">\(\widetilde{x_n}\)</span> with respect to our basis are the orthogonal projections of the coordinates of our original data point onto the ith basis vector that spans our principal subspace.</p>
 <figure>
