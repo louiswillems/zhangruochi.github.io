@@ -467,7 +467,7 @@
 <script type="math/tex; mode=display">\alpha_{i} = \frac{1}{N}</script></li>
 <li><p>Repeat t = 1,…,T</p>
 <ul>
-<li>learn $f<em>{t}(x)$ with data weights $\alpha</em>{i}$</li>
+<li>learn $f_{t}(x)$ with data weights $\alpha_{i}$</li>
 <li>compute weighted error<script type="math/tex; mode=display">weighted_{error_{t}} = \sum_{i=1}^{m}\alpha_{i}I(y_{i} \neq f_{t}(x_{i}))</script></li>
 <li>compute coefficient <script type="math/tex; mode=display">\hat{w_{t}} = \frac{1}{2}\ln(\frac{1 - weighted_{error_{t}} }{weighted_{error_{t}}})</script><ul>
 <li>$\hat{w_{t}}$ is higher when weighted_error is larger</li>
@@ -483,8 +483,8 @@
      \right.
      \end{equation}</script></li>
 <li>Normalize weights $\alpha_{i}$<ul>
-<li>if $x<em>{i}$ often mistake, weight $\alpha</em>{i}$ gets very large</li>
-<li>if $x<em>{i}$ often correct, weight $\alpha</em>{i}$ gets very small<script type="math/tex; mode=display">\alpha_{i} = \frac{\alpha_{i}}{\sum_{i}^{m}\alpha_{i}}</script></li>
+<li>if $x_{i}$ often mistake, weight $\alpha_{i}$ gets very large</li>
+<li>if $x_{i}$ often correct, weight $\alpha_{i}$ gets very small<script type="math/tex; mode=display">\alpha_{i} = \frac{\alpha_{i}}{\sum_{i}^{m}\alpha_{i}}</script></li>
 </ul>
 </li>
 </ul>

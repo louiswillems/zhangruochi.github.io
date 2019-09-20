@@ -482,14 +482,14 @@
 </ul>
 <h2 id="Connection-to-Learning"><a href="#Connection-to-Learning" class="headerlink" title="Connection to Learning"></a>Connection to Learning</h2><ul>
 <li>if large N, can probably infer unknow $| h(x) \neq f(x) |$ by know $| h(x_{n} \neq y_n)|$</li>
-<li>$E<em>{in}(h)$: 在已知的样本里，假设函数与实际函数不相等的概率。$E</em>{out}(h)$: 在所有样本里，上述二者不相等的概率。</li>
+<li>$E_{in}(h)$: 在已知的样本里，假设函数与实际函数不相等的概率。$E_{out}(h)$: 在所有样本里，上述二者不相等的概率。</li>
 <li><script type="math/tex; mode=display">[|E_{in}(h) - E_{out}(h)| > \epsilon] \leqslant 2e^{-2\epsilon^{2}N}</script></li>
-<li>$E<em>{in}(h)$ small is a good choice, but $E</em>{in}(h)$ is not always small.</li>
+<li>$E_{in}(h)$ small is a good choice, but $E_{in}(h)$ is not always small.</li>
 </ul>
 <h2 id="multiple-h"><a href="#multiple-h" class="headerlink" title="multiple h"></a>multiple h</h2><p>掷硬币，求出现反面的概率。</p>
 <h3 id="bad-sample"><a href="#bad-sample" class="headerlink" title="bad sample"></a>bad sample</h3><ul>
 <li>掷骰子150次，每次掷5下，有超过99%的概率会出现连续5次都是正面。</li>
-<li>这就是一个bad sample，因为其使得$E<em>{in}(h)$ far away $E</em>{out}(h)$<ul>
+<li>这就是一个bad sample，因为其使得$E_{in}(h)$ far away $E_{out}(h)$<ul>
 <li>$E_{in}(h)$ = 0</li>
 <li>$E_{out}(h)$ =  $1/2$</li>
 </ul>
@@ -498,7 +498,7 @@
 <p>对于M个假设函数，出现 bad sample 的概率:<br><img src="feasibility03.png" alt="feasibility03"></p>
 <ul>
 <li>所有假设函数都是安全的</li>
-<li>最优P为lowest $E<em>{in}(h</em>{m})$</li>
+<li>最优P为lowest $E_{in}(h_{m})$</li>
 </ul>
 
       

@@ -467,7 +467,7 @@
 <li>最大后验估计(MAP)：找出最大化后验概率的参数 <script type="math/tex; mode=display">\theta^{\prime} = argmax_{\theta}P(D|\theta)P(\theta)</script>预测阶段，借助参数做预测：<script type="math/tex; mode=display">P(X^{new}|\theta^{\prime},D)</script></li>
 <li>贝叶斯估计：借助先验分布 $P(\theta)$, 与观测数据得到的$P(D|\theta)$ 得出后验分布，预测阶段借助后验分布有:<script type="math/tex; mode=display">P(X^{new}|D) = \int{P(X^{new},\theta|D)d\theta} = \int{P(X^{new}|\theta,D)P(\theta|D)d\theta}</script></li>
 </ol>
-<h2 id="共轭分布与共轭先验"><a href="#共轭分布与共轭先验" class="headerlink" title="共轭分布与共轭先验"></a>共轭分布与共轭先验</h2><p>现在有了先验分布、似然，就可以接着做贝叶斯估计了。我们根据以往数据，给出先验知识，例如在以前的数据中，硬币出现了$\alpha<em>{h}$次正面，$\alpha</em>{t}$次背面，代入beta分布后有：</p>
+<h2 id="共轭分布与共轭先验"><a href="#共轭分布与共轭先验" class="headerlink" title="共轭分布与共轭先验"></a>共轭分布与共轭先验</h2><p>现在有了先验分布、似然，就可以接着做贝叶斯估计了。我们根据以往数据，给出先验知识，例如在以前的数据中，硬币出现了$\alpha_{h}$次正面，$\alpha_{t}$次背面，代入beta分布后有：</p>
 <script type="math/tex; mode=display">P(\theta|\alpha_{h},\alpha_{t}) = \frac{1}{B(\alpha_{h},\alpha_{t})}\theta^{\alpha_{h}-1}(1-\theta)^{\alpha_{t}-1}</script><script type="math/tex; mode=display">P(\theta|\alpha_{h},\alpha_{t}) \propto \theta^{\alpha_{h}-1}(1-\theta)^{\alpha_{t}-1}</script><p>接着贝叶斯估计有:</p>
 <script type="math/tex; mode=display">\begin{equation}\begin{split}
 P(\theta|D) & \propto \theta^{m_h}(1-\theta)^{m_t}\theta^{\alpha_h-1}(1-\theta)^{\alpha_{t}-1}

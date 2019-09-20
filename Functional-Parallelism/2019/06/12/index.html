@@ -484,7 +484,7 @@
 <h1 id="Functional-Parallelism"><a href="#Functional-Parallelism" class="headerlink" title="Functional Parallelism"></a>Functional Parallelism</h1><p><strong>Future tasks</strong> are tasks with return values<br><strong>Future object</strong> is a “handle” for accessing a task’s return value</p>
 <p>There are two key operations that can be performed on a future object, A</p>
 <ol>
-<li><p>Assignment — A can be assigned a reference to a future object returned by a task of the form, future { ⟨ task-with-return-value ⟩ } (using pseudocode notation). The content of the future object is constrained to be <em>single assignment</em> (similar to a final variable in Java), and cannot be modified after the future task has returned.</p>
+<li><p>Assignment — A can be assigned a reference to a future object returned by a task of the form, future { ⟨ task-with-return-value ⟩ } (using pseudocode notation). The content of the future object is constrained to be _single assignment_ (similar to a final variable in Java), and cannot be modified after the future task has returned.</p>
 </li>
 <li><p>Blocking read — the operation, A.get(), waits until the task associated with future object A has completed, and then propagates the task’s return value as the value returned by A.get(). Any statement, S, executed after A.get() can be assured that the task associated with future object A must have completed before S starts execution.</p>
 </li>

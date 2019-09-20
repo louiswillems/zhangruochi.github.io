@@ -535,16 +535,16 @@
 <li>Classification Setting</li>
 </ol>
 <ul>
-<li>$\hat{y<em>{0}} = \hat{f(x</em>{0})}$ is the predicted output class</li>
+<li>$\hat{y_{0}} = \hat{f(x_{0})}$ is the predicted output class</li>
 <li>Test error rate:<script type="math/tex; mode=display">Average(I(y_{0} \neq \hat{y_{0}}))</script></li>
 </ul>
 <h4 id="Bayes-classifier"><a href="#Bayes-classifier" class="headerlink" title="Bayes classifier"></a>Bayes classifier</h4><ul>
 <li>Bayes classifier assigns each observation to the most likely class given the feature values.</li>
-<li>Assign $x<em>{0}$ to class ! that has largest $Pr(Y= j|X = x</em>{0})$</li>
+<li>Assign $x_{0}$ to class ! that has largest $Pr(Y= j|X = x_{0})$</li>
 </ul>
 <h4 id="K-Nearest-Neighbors"><a href="#K-Nearest-Neighbors" class="headerlink" title="K-Nearest Neighbors"></a>K-Nearest Neighbors</h4><ul>
 <li>Define a positive integer K</li>
-<li>For each test observation $x<em>{0}$ , identify K points in the training data that are closest to $x</em>{0}$ referred to as $N_{0}$</li>
+<li>For each test observation $x_{0}$ , identify K points in the training data that are closest to $x_{0}$ referred to as $N_{0}$</li>
 <li>Estimate the conditional probability for class j as fraction of points in $N_{0}$ whose response values equal to j<script type="math/tex; mode=display">Pr(Y = j | X = x_{0}) = \frac{1}{k}\sum_{i \in N_{0}}I(y_{i} == j)</script></li>
 </ul>
 <p><a href="knn.png">knn</a></p>

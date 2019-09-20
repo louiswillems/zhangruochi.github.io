@@ -486,14 +486,14 @@ a\mu_{1} + b\nu_{1} \\
 a\mu_{2} + b\nu_{2} \\ 
 a\mu_{3} + b\nu_{3} \\ 
 \end{pmatrix}</script><p>so that the set of all three-by-one matrices (together with the set of real numbers) is a vector space. This space is usually called \mathbb{R^{3}}.</p>
-<h2 id="Linear-independence"><a href="#Linear-independence" class="headerlink" title="Linear independence"></a>Linear independence</h2><p>The set of vectors, ${u<em>{1}, u</em>{2}, . . . , u<em>{n}}$, are linearly independent if for any scalars $c</em>{1}, c<em>{2}, . . . , c</em>{n}$, the equation</p>
-<script type="math/tex; mode=display">c_{1}u_{1}+c_{2}u_{2}+···+c_{n}u_{n} = 0</script><p>has only the solution $c<em>{1} = c</em>{2} = ··· = c_{n} = 0$</p>
-<h2 id="Span-basis-and-dimension"><a href="#Span-basis-and-dimension" class="headerlink" title="Span, basis and dimension"></a>Span, basis and dimension</h2><h3 id="Span"><a href="#Span" class="headerlink" title="Span"></a>Span</h3><p>Given a set of vectors, one can generate a vector space by forming all linear combinations of that set of vectors. The span of the set of vectors ${v<em>{1}, v</em>{2}, . . . , v<em>{n}}$ is the vector space consisting of all linear combinations of $v</em>{1}, v<em>{2}, . . . , v</em>{n}$. We say that a set of vectors spans a vector space.</p>
+<h2 id="Linear-independence"><a href="#Linear-independence" class="headerlink" title="Linear independence"></a>Linear independence</h2><p>The set of vectors, ${u_{1}, u_{2}, . . . , u_{n}}$, are linearly independent if for any scalars $c_{1}, c_{2}, . . . , c_{n}$, the equation</p>
+<script type="math/tex; mode=display">c_{1}u_{1}+c_{2}u_{2}+···+c_{n}u_{n} = 0</script><p>has only the solution $c_{1} = c_{2} = ··· = c_{n} = 0$</p>
+<h2 id="Span-basis-and-dimension"><a href="#Span-basis-and-dimension" class="headerlink" title="Span, basis and dimension"></a>Span, basis and dimension</h2><h3 id="Span"><a href="#Span" class="headerlink" title="Span"></a>Span</h3><p>Given a set of vectors, one can generate a vector space by forming all linear combinations of that set of vectors. The span of the set of vectors ${v_{1}, v_{2}, . . . , v_{n}}$ is the vector space consisting of all linear combinations of $v_{1}, v_{2}, . . . , v_{n}$. We say that a set of vectors spans a vector space.</p>
 <h3 id="basis"><a href="#basis" class="headerlink" title="basis"></a>basis</h3><p>The <strong>smallest</strong> set of vectors needed to span a vector space forms a <strong>basis</strong> for that vector space</p>
 <h3 id="dimension"><a href="#dimension" class="headerlink" title="dimension"></a>dimension</h3><p><strong>The number</strong> of vectors in a basis gives the dimension of the vector space </p>
 <h2 id="Gram-Schmidt-process"><a href="#Gram-Schmidt-process" class="headerlink" title="Gram-Schmidt process"></a>Gram-Schmidt process</h2><p>Given any basis for a vector space, we can use an algorithm called the Gram-Schmidt process to construct an <strong>orthonormal basis</strong> for that space</p>
-<p>Let the vectors $v<em>{1}, v</em>{2}, . . . , v<em>{n}$ be a basis for some n- dimensional vector space. We will assume here that these vectors are column matrices, but this process also applies more generally. We will construct an orthogonal basis $u</em>{1}, u<em>{2}, . . . , u</em>{n}$, and then normalize each vector to obtain an orthonormal basis.</p>
-<p>First, define $u<em>{1} = v</em>{1}$, To find the next orthogonal basis vector, define</p>
+<p>Let the vectors $v_{1}, v_{2}, . . . , v_{n}$ be a basis for some n- dimensional vector space. We will assume here that these vectors are column matrices, but this process also applies more generally. We will construct an orthogonal basis $u_{1}, u_{2}, . . . , u_{n}$, and then normalize each vector to obtain an orthonormal basis.</p>
+<p>First, define $u_{1} = v_{1}$, To find the next orthogonal basis vector, define</p>
 <script type="math/tex; mode=display">
 u_{2} = v_{2} - \frac{(u_{1}^{T}v_{2})u_{1}}{u_{1}^{T}u_{1}}</script><p>The next orthogonal vector in the new basis can be found from</p>
 <script type="math/tex; mode=display">
@@ -545,7 +545,7 @@ x_{5} \\
 2 \\
 0 \\
 1 \\
-\end{pmatrix}</script><p>where the free variables $x<em>{2}$, $x</em>{4}$, and $x_{5}$ can take any values. By writing the null space in this form, a basis for Null(A) is made evident, and is given by</p>
+\end{pmatrix}</script><p>where the free variables $x_{2}$, $x_{4}$, and $x_{5}$ can take any values. By writing the null space in this form, a basis for Null(A) is made evident, and is given by</p>
 <script type="math/tex; mode=display">
 \left\{
 \begin{pmatrix}
@@ -585,7 +585,7 @@ x_{5} \\
 \begin{pmatrix}
 1 & 0 & 0 & \frac{1}{4} \\
 0 & 1 & \frac{1}{2} & -\frac{1}{4} \\
-\end{pmatrix}</script><p>The null space is determined from $x<em>{1} = 0$ and $x</em>{2} = −\frac{x_{3}}{2}$, and we can write</p>
+\end{pmatrix}</script><p>The null space is determined from $x_{1} = 0$ and $x_{2} = −\frac{x_{3}}{2}$, and we can write</p>
 <script type="math/tex; mode=display">
 Null(A) = span \left\{ \begin{pmatrix} 0 \\ -1 \\ 2 \end{pmatrix}\right\}</script><p>The general solution to the original underdetermined linear system is <strong>the sum of the null space and the particular solution</strong> and is given by</p>
 <script type="math/tex; mode=display">
@@ -631,9 +631,9 @@ d \\
 <h2 id="Orthogonal-projections"><a href="#Orthogonal-projections" class="headerlink" title="Orthogonal projections"></a>Orthogonal projections</h2><p>Suppose that V is an n-dimensional vector space and W is a p-dimensional subspace of V.  In general, the orthogonal projection of v onto W is given by</p>
 <script type="math/tex; mode=display">
 v_{proj_{W}} = (v^{T}s_{1})s_{1} + (v^{T}s_{2})s_{2} + · · · + (v^{T}s_{p})s_{p};</script><p>and we can write</p>
-<script type="math/tex; mode=display">v=v_{proj_{W}} +(v−v_{proj_{W}})</script><p>$v<em>{proj</em>{W}}$ is closer to v than any other vector in W</p>
+<script type="math/tex; mode=display">v=v_{proj_{W}} +(v−v_{proj_{W}})</script><p>$v_{proj_{W}}$ is closer to v than any other vector in W</p>
 <h2 id="The-least-squares-problem"><a href="#The-least-squares-problem" class="headerlink" title="The least-squares problem"></a>The least-squares problem</h2><p><img src="linear.png" alt="linear.png"></p>
-<p>These equations constitute a system of n equations in the two unknowns $\beta<em>{0}$ and $\beta</em>{1}$. The corresponding<br>matrix equation is given by:</p>
+<p>These equations constitute a system of n equations in the two unknowns $\beta_{0}$ and $\beta_{1}$. The corresponding<br>matrix equation is given by:</p>
 <script type="math/tex; mode=display">
 \begin{pmatrix}
 1 & x_{1} \\
@@ -651,7 +651,7 @@ y_{2} \\
 \vdots \\
 y_{n}
 \end{pmatrix}</script><p>This is an overdetermined system of equations with no solution. The problem of least squares is to find the best solution.</p>
-<p>We can generalize this problem as follows. Suppose we are given a matrix equation, $Ax = b$, that has no solution because b is not in the column space of A. So instead we solve $Ax = b<em>{projCol(A)}$ , where $b</em>{projCol(A)}$ is the projection of b onto the column space of A. The solution is then called the least-squares solution for x.</p>
+<p>We can generalize this problem as follows. Suppose we are given a matrix equation, $Ax = b$, that has no solution because b is not in the column space of A. So instead we solve $Ax = b_{projCol(A)}$ , where $b_{projCol(A)}$ is the projection of b onto the column space of A. The solution is then called the least-squares solution for x.</p>
 <script type="math/tex; mode=display">b_{projCol(A)} = A(A^{T}A)^{−1}A^{T}b.</script><h2 id="Laplace-expansion"><a href="#Laplace-expansion" class="headerlink" title="Laplace expansion"></a>Laplace expansion</h2><script type="math/tex; mode=display">
 \begin{vmatrix}
 a & b & c \\
@@ -679,7 +679,7 @@ g & h \\
 <li>Property 3: The determinant is a linear function of the first row, holding all other rows fixed.</li>
 </ul>
 <h2 id="The-eigenvalue-problem"><a href="#The-eigenvalue-problem" class="headerlink" title="The eigenvalue problem"></a>The eigenvalue problem</h2><p>Let A be a square matrix, x a column vector, and λ a scalar. The eigenvalue problem for A solves</p>
-<script type="math/tex; mode=display">Ax = \lambda x</script><p>for eigenvalues $\lambda<em>{i}$ with corresponding eigenvectors $x</em>{i}$. Making use of the identity matrix I, the eigenvalue problem can be rewritten as</p>
+<script type="math/tex; mode=display">Ax = \lambda x</script><p>for eigenvalues $\lambda_{i}$ with corresponding eigenvectors $x_{i}$. Making use of the identity matrix I, the eigenvalue problem can be rewritten as</p>
 <script type="math/tex; mode=display">(A−\lambda I)x = 0</script><p>For there to be nonzero eigenvectors, the matrix $(A − \lambda I)$ must be singular, that is,</p>
 <script type="math/tex; mode=display">det(A−\lambda I) = 0.</script><h2 id="Matrix-diagonalization"><a href="#Matrix-diagonalization" class="headerlink" title="Matrix diagonalization"></a>Matrix diagonalization</h2><p>For concreteness, consider a two-by-two matrix A with eigenvalues and eigenvectors given by</p>
 <script type="math/tex; mode=display">

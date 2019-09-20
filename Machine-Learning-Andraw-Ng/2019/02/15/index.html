@@ -859,7 +859,7 @@ h_θ(x) = \left[ \begin{array}{ccc}
 <p>Two techniques to help with this are feature scaling and mean normalization. Feature scaling involves dividing the input values by the range (i.e. the maximum value minus the minimum value) of the input variable, resulting in a new range of just 1. Mean normalization involves subtracting the average value for an input variable from the values for that input variable resulting in a new average value for the input variable of just zero. To implement both of these techniques, adjust your input values as shown in this formula:</p>
 <script type="math/tex; mode=display">x_i:=\frac{x_i−μ_i}{si}</script><p>Where μi is the average of all the values for feature (i) and si is the range of values (max - min), or si is the standard deviation.</p>
 <p>For example, if xi represents housing prices with a range of 100 to 2000 and a mean value of 1000, then, $x_i:=\frac{price−1000}{1900}$.</p>
-<h4 id="Gradient-Descent-in-Practice-II-Learning-Rate"><a href="#Gradient-Descent-in-Practice-II-Learning-Rate" class="headerlink" title="Gradient Descent in Practice II - Learning Rate"></a>Gradient Descent in Practice II - Learning Rate</h4><p><strong>Debugging gradient descent.</strong> Make a plot with number of iterations on the x-axis. Now plot the cost function, $J<em>{(θ)}$ over the number of iterations of gradient descent. If $J</em>{(θ)}$ ever increases, then you probably need to decrease α.</p>
+<h4 id="Gradient-Descent-in-Practice-II-Learning-Rate"><a href="#Gradient-Descent-in-Practice-II-Learning-Rate" class="headerlink" title="Gradient Descent in Practice II - Learning Rate"></a>Gradient Descent in Practice II - Learning Rate</h4><p><strong>Debugging gradient descent.</strong> Make a plot with number of iterations on the x-axis. Now plot the cost function, $J_{(θ)}$ over the number of iterations of gradient descent. If $J_{(θ)}$ ever increases, then you probably need to decrease α.</p>
 <p><strong>Automatic convergence test.</strong> Declare convergence if $J_{(θ)}$ decreases by less than E in one iteration, where E is some small value such as 10−3. However in practice it’s difficult to choose this threshold value.</p>
 <p><img src="4EE8460134CEE8A6DB707B15130E319D.png" alt="Screen Shot 2018-03-04 at 18.28.02.png"></p>
 <p>It has been proven that if learning rate α is sufficiently small, then $J_{(θ)}$ will decrease on every iteration.</p>
@@ -874,7 +874,7 @@ h_θ(x) = \left[ \begin{array}{ccc}
 <p>Polynomial Regression</p>
 <p>Our hypothesis function need not be linear (a straight line) if that does not fit the data well.</p>
 <p>We can change the behavior or curve of our hypothesis function by making it a quadratic, cubic or square root function (or any other form).</p>
-<p>For example, if our hypothesis function is $h<em>θ(x)=θ_0+θ_1x_1$ then we can create additional features based on x1, to get the quadratic function $h</em>θ(x)=θ_0+θ_1x_1+θ_2x^2_1$ or the cubic function $hθ(x)=θ_0+θ_1x_1+θ_2x^2_1+θ_3x^3_1$<br>In the cubic version, we have created new features $x_2$ and $x_3$ where $x_2=x^2_1$ and $x_3=x^3_1$.</p>
+<p>For example, if our hypothesis function is $h_θ(x)=θ_0+θ_1x_1$ then we can create additional features based on x1, to get the quadratic function $h_θ(x)=θ_0+θ_1x_1+θ_2x^2_1$ or the cubic function $hθ(x)=θ_0+θ_1x_1+θ_2x^2_1+θ_3x^3_1$<br>In the cubic version, we have created new features $x_2$ and $x_3$ where $x_2=x^2_1$ and $x_3=x^3_1$.</p>
 <p>To make it a square root function, we could do: $h_θ(x)=θ_0+θ_1x_1+θ_2\sqrt{x_1}$<br>One important thing to keep in mind is, if you choose your features this way then feature scaling becomes very important.</p>
 <p>eg. if $x_1$ has range 1 - 1000 then range of $x^2_1$ becomes 1 - 1000000 and that of $x^3_1$ becomes 1 - 1000000000</p>
 <h3 id="Normal-Equation"><a href="#Normal-Equation" class="headerlink" title="Normal Equation"></a>Normal Equation</h3><p>Gradient descent gives one way of minimizing J. Let’s discuss a second way of doing so, this time performing the minimization explicitly and without resorting to an iterative algorithm. In the “Normal Equation” method, we will minimize J by explicitly taking its derivatives with respect to the θj ’s, and setting them to zero. This allows us to find the optimum theta without iteration. The normal equation formula is given below: </p>
@@ -891,7 +891,7 @@ h_θ(x) = \left[ \begin{array}{ccc}
 <p>Solutions to the above problems include deleting a feature that is linearly dependent with another or deleting one or more features when there are too many features.</p>
 <h2 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h2><h3 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h3><p>To attempt classification, one method is to use linear regression and map all predictions greater than 0.5 as a 1 and all less than 0.5 as a 0. However, this method doesn’t work well because classification is not actually a linear function.</p>
 <p>The classification problem is just like the regression problem, except that the values we now want to predict take on only a small number of discrete values. For now, we will focus on the binary classification problem in which y can take on only two values, 0 and 1. (Most of what we say here will also generalize to the multiple-class case.) For instance, if we are trying to build a spam classifier for email, then $x^{(i)}$ may be some features of a piece of email, and y may be 1 if it is a piece of spam mail, and 0 otherwise. Hence, y∈{0,1}. 0 is also called the negative class, and 1 the positive class, and they are sometimes also denoted by the symbols “-” and “+.” Given $x^{(i)}$, the corresponding $y^{(i)}$ is also called the label for the training example.</p>
-<h3 id="Hypothesis-Representation"><a href="#Hypothesis-Representation" class="headerlink" title="Hypothesis Representation"></a>Hypothesis Representation</h3><p>We could approach the classification problem ignoring the fact that y is discrete-valued, and use our old linear regression algorithm to try to predict y given x. However, it is easy to construct examples where this method performs very poorly. Intuitively, it also doesn’t make sense for hθ(x) to take values larger than 1 or smaller than 0 when we know that y ∈ {0, 1}. To fix this, let’s change the form for our hypotheses $h<em>θ(x)$ to satisfy $0≤h</em>θ(x)≤1$. This is accomplished by plugging $θ^Tx$ into the Logistic Function.</p>
+<h3 id="Hypothesis-Representation"><a href="#Hypothesis-Representation" class="headerlink" title="Hypothesis Representation"></a>Hypothesis Representation</h3><p>We could approach the classification problem ignoring the fact that y is discrete-valued, and use our old linear regression algorithm to try to predict y given x. However, it is easy to construct examples where this method performs very poorly. Intuitively, it also doesn’t make sense for hθ(x) to take values larger than 1 or smaller than 0 when we know that y ∈ {0, 1}. To fix this, let’s change the form for our hypotheses $h_θ(x)$ to satisfy $0≤h_θ(x)≤1$. This is accomplished by plugging $θ^Tx$ into the Logistic Function.</p>
 <p>Our new form uses the “Sigmoid Function,” also called the “Logistic Function”:</p>
 <script type="math/tex; mode=display">
 \begin{align*}
@@ -939,7 +939,7 @@ h_θ(x) = \left[ \begin{array}{ccc}
 <p><img src="7C227E67AE2C20B141CD3F4B9D3A7A77.png" alt="Screen Shot 2018-03-05 at 16.38.30.png"></p>
 <p><strong>Note that writing the cost function in this way guarantees that J(θ) is convex for logistic regression.</strong></p>
 <h3 id="Simplified-Cost-Function-and-Gradient-Descent"><a href="#Simplified-Cost-Function-and-Gradient-Descent" class="headerlink" title="Simplified Cost Function and Gradient Descent"></a>Simplified Cost Function and Gradient Descent</h3><p>We can compress our cost function’s two conditional cases into one case:</p>
-<script type="math/tex; mode=display">Cost(h_θ(x),y)=−ylog(h_θ(x))−(1−y)log(1−h_θ(x))</script><p>Notice that when y is equal to 1, then the second term $(1−y)log(1−h<em>θ(x))$ will be zero and will not affect the result. If y is equal to 0, then the first term $−ylog(h</em>θ(x))$ will be zero and will not affect the result.</p>
+<script type="math/tex; mode=display">Cost(h_θ(x),y)=−ylog(h_θ(x))−(1−y)log(1−h_θ(x))</script><p>Notice that when y is equal to 1, then the second term $(1−y)log(1−h_θ(x))$ will be zero and will not affect the result. If y is equal to 0, then the first term $−ylog(h_θ(x))$ will be zero and will not affect the result.</p>
 <p>We can fully write out our entire cost function as follows:</p>
 <script type="math/tex; mode=display">J(θ)=−\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}log(h_θ(x^{(i)}))+(1−y^{(i)})log(1−h_θ(x^{(i)}))]</script><h4 id="Gradient-Descent-1"><a href="#Gradient-Descent-1" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h4><p>Remember that the general form of gradient descent is:</p>
 <script type="math/tex; mode=display">Repeat \left\{
@@ -959,10 +959,10 @@ h_θ(x) = \left[ \begin{array}{ccc}
 \end{align*}</script><p>We are basically choosing one class and then lumping all the others into a single second class. We do this repeatedly, applying binary logistic regression to each case, and then use the hypothesis that returned the highest value as our prediction.</p>
 <p>The following image shows how one could classify 3 classes:</p>
 <p><img src="BBF9A94F6DBB2A31F5ED6998975550F4.png" alt="Screen Shot 2018-03-05 at 16.59.52.png"></p>
-<p>To summarize:<br>Train a logistic regression classifier $h<em>θ(x)$ for each class to predict the probability that y = i, To make a prediction on a new x, pick the class that maximizes $h</em>θ(x)$.</p>
+<p>To summarize:<br>Train a logistic regression classifier $h_θ(x)$ for each class to predict the probability that y = i, To make a prediction on a new x, pick the class that maximizes $h_θ(x)$.</p>
 <h3 id="Solving-the-problem-of-Overfitting"><a href="#Solving-the-problem-of-Overfitting" class="headerlink" title="Solving the problem of Overfitting"></a>Solving the problem of Overfitting</h3><h4 id="The-Problem-of-Overfitting"><a href="#The-Problem-of-Overfitting" class="headerlink" title="The Problem of Overfitting"></a>The Problem of Overfitting</h4><p>Consider the problem of predicting y from $x \in R$. The leftmost figure below shows the result of fitting a $y = θ_0+θ_1x$ to a dataset. We see that the data doesn’t really lie on straight line, and so the fit is not very good.</p>
 <p><img src="C88419E9C1B6C95CDBB8BBCF11D141CD.png" alt="Screen Shot 2018-03-05 at 17.05.11.png"></p>
-<p>Instead, if we had added an extra feature $x<em>2$ , and fit $y=θ_0+θ_1x+θ_2x_2$ , then we obtain a slightly better fit to the data (See middle figure). Naively, it might seem that the more features we add, the better. However, there is also a danger in adding too many features: The rightmost figure is the result of fitting a 5th order polynomial $y=\sum^5</em>{j=0}θ_jx_j$. We see that even though the fitted curve passes through the data perfectly, we would not expect this to be a very good predictor of, say, housing prices (y) for different living areas (x). Without formally defining what these terms mean, we’ll say the figure on the left shows an instance of underfitting—in which the data clearly shows structure not captured by the model—and the figure on the right is an example of overfitting.</p>
+<p>Instead, if we had added an extra feature $x_2$ , and fit $y=θ_0+θ_1x+θ_2x_2$ , then we obtain a slightly better fit to the data (See middle figure). Naively, it might seem that the more features we add, the better. However, there is also a danger in adding too many features: The rightmost figure is the result of fitting a 5th order polynomial $y=\sum^5_{j=0}θ_jx_j$. We see that even though the fitted curve passes through the data perfectly, we would not expect this to be a very good predictor of, say, housing prices (y) for different living areas (x). Without formally defining what these terms mean, we’ll say the figure on the left shows an instance of underfitting—in which the data clearly shows structure not captured by the model—and the figure on the right is an example of overfitting.</p>
 <ul>
 <li><strong>Underfitting</strong>, or <strong>high bias</strong>, is when the form of our hypothesis function h maps poorly to the trend of the data. It is usually caused by a function that is too simple or uses too few features. </li>
 <li><strong>Overfitting</strong>, or <strong>high variance</strong>, is caused by a hypothesis function that fits the available data but does not generalize well to predict new data. It is usually caused by a complicated function that creates a lot of unnecessary curves and angles unrelated to the data.</li>
@@ -1044,10 +1044,10 @@ a_3^{(2)}\\
 \end{align*}</script><p>This is saying that we compute our activation nodes by using a 3×4 matrix of parameters. We apply each row of the parameters to our inputs to obtain the value for one activation node. Our hypothesis output is the logistic function applied to the sum of the values of our activation nodes, which have been multiplied by yet another parameter matrix $Θ^{(2)}$ containing the weights for our second layer of nodes.</p>
 <p>Each layer gets its own matrix of weights, $Θ^{(j)}$.</p>
 <p>The dimensions of these matrices of weights is determined as follows:</p>
-<p>If network has $s<em>j$ units in layer j and $s</em>{j+1}$ units in layer j+1, then $Θ^{(j)}$ will be of dimension $s_{j+1}×(s_j+1)$.</p>
+<p>If network has $s_j$ units in layer j and $s_{j+1}$ units in layer j+1, then $Θ^{(j)}$ will be of dimension $s_{j+1}×(s_j+1)$.</p>
 <p>The +1 comes from the addition in $Θ^{(j)}$ of the “bias nodes,” $x_0$ and $Θ^{(j)}_0$. In other words the output nodes will not include the bias nodes while the inputs will. The following image summarizes our model representation:</p>
 <p><img src="E393ACC2A3014435290235CA61D6B235.png" alt="Screen Shot 2018-03-05 at 23.27.21.png"></p>
-<p>Example: If layer 1 has 2 input nodes and layer 2 has 4 activation nodes. Dimension of $Θ^{(1)}$ is going to be 4×3 where $s<em>j=2$ and $s</em>{j+1}=4$, so $s_{j+1}×(s_j+1)=4×3$.</p>
+<p>Example: If layer 1 has 2 input nodes and layer 2 has 4 activation nodes. Dimension of $Θ^{(1)}$ is going to be 4×3 where $s_j=2$ and $s_{j+1}=4$, so $s_{j+1}×(s_j+1)=4×3$.</p>
 <h4 id="Examples-and-Intuitions-I"><a href="#Examples-and-Intuitions-I" class="headerlink" title="Examples and Intuitions I"></a>Examples and Intuitions I</h4><p>A simple example of applying neural networks is by predicting x1 AND x2, which is the logical ‘and’ operator and is only true if both x1 and x2 are 1.</p>
 <p>The graph of our functions will look like:</p>
 <script type="math/tex; mode=display">
@@ -1152,7 +1152,7 @@ a^{(3)}\\
 <p>We can move on to evaluate our new hypothesis.</p>
 <p>A hypothesis may have a low error for the training examples but still be inaccurate (because of overfitting). Thus, to evaluate a hypothesis, given a dataset of training examples, we can split up the data into two sets: a <strong>training set</strong> and a <strong>test set</strong>. Typically, the training set consists of 70% of your data and the test set is the remaining 30%.</p>
 <p>The new procedure using these two sets is then:</p>
-<p>Learn Θ and minimize $J<em>{train}(Θ)$ using the training set<br>Compute the test set error $J</em>{test}(Θ)$</p>
+<p>Learn Θ and minimize $J_{train}(Θ)$ using the training set<br>Compute the test set error $J_{test}(Θ)$</p>
 <h3 id="The-test-set-error"><a href="#The-test-set-error" class="headerlink" title="The test set error"></a>The test set error</h3><ol>
 <li>For linear regression: <script type="math/tex">J_{test}(Θ)=\frac{1}{2m_{test}}\sum^{m_{test}}_{i=1}(h_Θ(x^{(i)}_{test})−y^{(i)}_{test})^2</script><br>For classification ~ Misclassification error (aka 0/1 misclassification error):<script type="math/tex; mode=display">
 \begin{equation}
@@ -1188,13 +1188,13 @@ err(h_Θ(x),y)= \left\{
 <p>The training error will tend to <strong>decrease</strong> as we increase the degree d of the polynomial.</p>
 <p>At the same time, the cross validation error will tend to <strong>decrease</strong> as we increase d up to a point, and then it will <strong>increase</strong> as d is increased, forming a convex curve.</p>
 <ul>
-<li>High bias (underfitting): both $J<em>{train}(Θ)$ and $J</em>{CV}(Θ)$ will be high. Also, $J<em>{CV}(Θ) \approx J</em>{train}(Θ)$.</li>
-<li>High variance (overfitting): $J<em>{train}(Θ)$ will be low and $J</em>{CV}(Θ)$ will be much greater than $J_{train}(Θ)$.</li>
+<li>High bias (underfitting): both $J_{train}(Θ)$ and $J_{CV}(Θ)$ will be high. Also, $J_{CV}(Θ) \approx J_{train}(Θ)$.</li>
+<li>High variance (overfitting): $J_{train}(Θ)$ will be low and $J_{CV}(Θ)$ will be much greater than $J_{train}(Θ)$.</li>
 </ul>
 <p>The is summarized in the figure below:<br><img src="781A117D7463E287879157F7CAE8C804.png" alt="Screen Shot 2018-03-07 at 02.32.42.png"></p>
 <h3 id="Regularization-and-Bias-Variance"><a href="#Regularization-and-Bias-Variance" class="headerlink" title="Regularization and Bias/Variance"></a>Regularization and Bias/Variance</h3><p><img src="515C8236E4F14AA312CAB97EBE4D2A4B.png" alt="Screen Shot 2018-03-07 at 02.34.37.png"><br>In the figure above, we see that as λ increases, our fit becomes more rigid. On the other hand, as λ approaches 0, we tend to over overfit the data. So how do we choose our parameter λ to get it ‘just right’ ? In order to choose the model and the regularization term λ, we need to:</p>
 <ol>
-<li>Create a list of lambdas (i.e. $λ \in \left{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24\right}$);</li>
+<li>Create a list of lambdas (i.e. $λ \in \left\{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24\right\}$);</li>
 <li>Create a set of models with different degrees or any other variants.</li>
 <li>Iterate through the λs and for each λ go through all the models to learn some Θ.</li>
 <li>Compute the cross validation error using the learned Θ (computed with λ) on the $J_{CV}(Θ)$ <strong>without</strong> regularization or <strong>λ = 0</strong>.</li>
@@ -1207,9 +1207,9 @@ err(h_Θ(x),y)= \left\{
 <li>The error value will plateau out after a certain m, or training set size.</li>
 </ul>
 <h4 id="Experiencing-high-bias"><a href="#Experiencing-high-bias" class="headerlink" title="Experiencing high bias:"></a>Experiencing high bias:</h4><ul>
-<li><p><strong>Low training set size</strong>: causes $J<em>{train}(Θ)$ to be low and $J</em>{CV}(Θ)$ to be high.</p>
+<li><p><strong>Low training set size</strong>: causes $J_{train}(Θ)$ to be low and $J_{CV}(Θ)$ to be high.</p>
 </li>
-<li><p><strong>Large training set size</strong>: causes both $J<em>{train}(Θ)$ and $J_CV(Θ)$ to be high with $J</em>{train}(Θ) \approx J_{CV}(Θ)$.</p>
+<li><p><strong>Large training set size</strong>: causes both $J_{train}(Θ)$ and $J_CV(Θ)$ to be high with $J_{train}(Θ) \approx J_{CV}(Θ)$.</p>
 </li>
 </ul>
 <blockquote>
@@ -1217,9 +1217,9 @@ err(h_Θ(x),y)= \left\{
 </blockquote>
 <p><img src="3DF331A0CEECDA3ACF1DA4FC358DFF4A.png" alt="Screen Shot 2018-03-07 at 02.48.32.png"></p>
 <h4 id="Experiencing-high-variance"><a href="#Experiencing-high-variance" class="headerlink" title="Experiencing high variance:"></a>Experiencing high variance:</h4><ul>
-<li><p><strong>Low training set size</strong>: causes $J<em>{train}(Θ)$ to be low and $J</em>{CV}(Θ)$ to be high.</p>
+<li><p><strong>Low training set size</strong>: causes $J_{train}(Θ)$ to be low and $J_{CV}(Θ)$ to be high.</p>
 </li>
-<li><p><strong>Large training set size</strong>: $J<em>{train}(Θ)$ increases with training set size and $J</em>{CV}(Θ)$ continues to decrease without leveling off. Also, $J<em>{train}(Θ) &lt; J</em>{CV}(Θ)$ but the difference between them remains significant.</p>
+<li><p><strong>Large training set size</strong>: $J_{train}(Θ)$ increases with training set size and $J_{CV}(Θ)$ continues to decrease without leveling off. Also, $J_{train}(Θ) &lt; J_{CV}(Θ)$ but the difference between them remains significant.</p>
 </li>
 </ul>
 <blockquote>

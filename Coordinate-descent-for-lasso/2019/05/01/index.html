@@ -466,11 +466,11 @@
 <p>Minimize some function g, Often, hard to find minimum for all coordinates, but easy for each coordinate.</p>
 </blockquote>
 <p><strong>Coordinate descent</strong>:  </p>
-<p>Initialize $\hat{w} = 0$ (or smartly…)<br>——while not converged<br>————-for j =0,1,…,D(pick a coordinate j)<br>———————-$\hat{w<em>{j}} &lt;-  min</em>{w}g(w<em>{0},…w</em>{D})$</p>
+<p>Initialize $\hat{w} = 0$ (or smartly…)<br>——while not converged<br>————-for j =0,1,…,D(pick a coordinate j)<br>———————-$\hat{w_{j}} &lt;-  min_{w}g(w_{0},…w_{D})$</p>
 <h2 id="Optimizing-least-squares-objective-one-coordinate-at-a-time"><a href="#Optimizing-least-squares-objective-one-coordinate-at-a-time" class="headerlink" title="Optimizing least squares objective one coordinate at a time"></a>Optimizing least squares objective one coordinate at a time</h2><script type="math/tex; mode=display">RSS(w) = \sum^{N}_{i=1}(y_{i} - \sum^{D}_{j=0}w_{j}h_{j}(xi))^{2}</script><p>aside: $h_{j}(xi)$ represent normalized feature</p>
-<p>Fix all coordinates $w<em>{-j}$(all feature except $w</em>{j}$) and take partial w.r.t $w_{j}$</p>
+<p>Fix all coordinates $w_{-j}$(all feature except $w_{j}$) and take partial w.r.t $w_{j}$</p>
 <script type="math/tex; mode=display">\frac{\partial}{\partial w_{j}}RSS(w) = -2\sum^{N}_{i=1}h_{j}(x_{i})(y_{i} - \sum^{D}_{j=0}w_{j}h_{j}(xi))</script><p>= <script type="math/tex">-2\sum^{N}_{i=1}h_{j}(x_{i})(y_{i} - \sum_{k \neq j}w_{k}h_{k}(x_{i}) - w_{j}h_{j}(x_{i}))</script><br>= <script type="math/tex">-2\sum^{N}_{i=1}h_{j}(x_{i})(y_{i} - \sum_{k \neq j}w_{k}h_{k}(x_{i})) + 2w_{j}\sum^{N}_{i=1}h_{j}(x_{i})^{2}</script></p>
-<p>by definition, $\sum^{N}<em>{i=1}h</em>{j}(x<em>{i})^{2}$ = 1, \qquad $-2\sum^{N}</em>{i=1}h<em>{j}(x</em>{i})(y<em>{i} - \sum</em>{k \neq j}w<em>{k}h</em>{k}(x<em>{i})) = p</em>{j}$<br>we get  </p>
+<p>by definition, $\sum^{N}_{i=1}h_{j}(x_{i})^{2}$ = 1, \qquad $-2\sum^{N}_{i=1}h_{j}(x_{i})(y_{i} - \sum_{k \neq j}w_{k}h_{k}(x_{i})) = p_{j}$<br>we get  </p>
 <pre><code>$$-2p_{j} + 2w_{j}$$  
 </code></pre><p>Set partial = 0 and solve:</p>
 <pre><code>$$\frac{\partial}{\partial w_{j}}RSS(w) = -p_{j} + w_{j}$$

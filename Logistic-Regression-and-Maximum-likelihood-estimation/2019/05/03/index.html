@@ -476,7 +476,7 @@
 <script type="math/tex; mode=display">max \prod_{i=1}^{m}p(y_{i}|x_{i},\theta)</script><p>对于二分类问题有:</p>
 <script type="math/tex; mode=display">p_{1}=p(y=1|x,\theta)=\frac{e^{x\theta}}{1+e^{x\theta}},y=1</script><script type="math/tex; mode=display">p_{0}=p(y=0|x,\theta)=\frac{1}{1+e^{x\theta}},y=0</script><p>用一个式子表示上面这个分段的函数为：</p>
 <script type="math/tex; mode=display">p=p(y|x,\theta)=p_{1}^{y_{i}}\ast p_{0}^{1-y_{i}}</script><p>代入目标函数中，再对目标函数取对数，则目标函数变为：</p>
-<script type="math/tex; mode=display">max \sum_{i=1}^{m}({y_{i}\log{p_{1}}+(1-y_{i})\log{p_{0})}}</script><p>如果用 $h<em>{\theta}(x</em>{i})$ 来表示 $p<em>{1}$ ，则可用 $1-h</em>{\theta}(x<em>{i})$ 来表示 $p</em>{0}$ ，再将目标函数max换成min，则目标函数变为：</p>
+<script type="math/tex; mode=display">max \sum_{i=1}^{m}({y_{i}\log{p_{1}}+(1-y_{i})\log{p_{0})}}</script><p>如果用 $h_{\theta}(x_{i})$ 来表示 $p_{1}$ ，则可用 $1-h_{\theta}(x_{i})$ 来表示 $p_{0}$ ，再将目标函数max换成min，则目标函数变为：</p>
 <script type="math/tex; mode=display">min -\frac{1}{m}\sum_{i=1}^{m}({y_{i}\log{h_{\theta}(x_{i})}+(1-y_{i})\log({1-h_{\theta}(x_{i})}))}</script><p><strong>Reference from <a href="https://www.zhihu.com/question/65350200" target="_blank" rel="noopener">https://www.zhihu.com/question/65350200</a></strong></p>
 
       
