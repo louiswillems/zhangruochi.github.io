@@ -5,8 +5,8 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -269,7 +269,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -279,7 +279,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -429,20 +429,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Sequence-Models/2019/03/27/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="RUOCHI.AI">
     </span>
 
@@ -488,7 +488,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
                     <span itemprop="name">Artificial Intelligence</span>
                   </a>
@@ -499,7 +499,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Artificial-Intelligence/Deep-Learning/" itemprop="url" rel="index">
                     <span itemprop="name">Deep Learning</span>
                   </a>
@@ -721,7 +721,7 @@
 </ul>
 </li>
 <li>Full example can be found here:<ul>
-<li><img src="01.png" alt=""></li>
+<li><img src="01.png" alt></li>
 </ul>
 </li>
 </ul>
@@ -741,7 +741,7 @@
 </li>
 <li>Recurrent neural networks doesn’t have the two mentioned problems.</li>
 <li>Lets build a RNN that solves <strong>name entity recognition</strong> task:<ul>
-<li><img src="02.png" alt=""></li>
+<li><img src="02.png" alt></li>
 <li>In this problem T<sub>x</sub> = T<sub>y</sub>. In other problems where they aren’t equal, the RNN architecture may be different.</li>
 <li>a<sup><0></0></sup> is usually initialized with zeros, but some others may initialize it randomly in some cases.</li>
 <li>There are three weight matrices here: W<sub>ax</sub>, W<sub>aa</sub>, and W<sub>ya</sub> with shapes:<ul>
@@ -754,7 +754,7 @@
 </li>
 <li>The weight matrix W<sub>aa</sub> is the memory the RNN is trying to maintain from the previous layers.</li>
 <li>A lot of papers and books write the same architecture this way:<ul>
-<li><img src="03.png" alt=""></li>
+<li><img src="03.png" alt></li>
 <li>Its harder to interpreter. Its easier to roll this drawings to the unrolled version we have descried.</li>
 </ul>
 </li>
@@ -762,13 +762,13 @@
 <li>Lets have this example ‘ He Said, “Teddy Roosevelt was a great president”  ‘. In this example Teddy is a person name but we know that from the word <strong>President</strong> that came after Teddy not from <strong>He</strong> and <strong>said</strong> that is before it.</li>
 <li>So limitation of the discussed architecture is that it can not learn from behind. To address this problem we will later discuss <strong>Bidirectional</strong> RNNs  (BRNNs).</li>
 <li>Now lets discuss the forward propagation equations on the discussed architecture:<ul>
-<li><img src="04.png" alt=""></li>
+<li><img src="04.png" alt></li>
 <li>The activation function of a is usually tanh or RELU and for y depends on your task choosing some activation functions like sigmoid and softmax. In name entity recognition task we are solving, we will use Sigmoid because we only have two classes.</li>
 </ul>
 </li>
 <li>In order to help us develop complex RNN architectures, the last equations needs to be simplified a bit.</li>
 <li><strong>Simplified RNN notation</strong>:<ul>
-<li><img src="05.png" alt=""></li>
+<li><img src="05.png" alt></li>
 <li>w<sub>a</sub> shape: (NoOfHiddenNeurons, NoOfHiddenNeurons + n<sub>x</sub>)</li>
 <li>[a<sup><t-1></t-1></sup>, x<sup>t</sup>] shape: (NoOfHiddenNeurons + n<sub>x</sub>, 1)<h3 id="Backpropagation-through-time"><a href="#Backpropagation-through-time" class="headerlink" title="Backpropagation through time"></a>Backpropagation through time</h3></li>
 </ul>
@@ -776,37 +776,37 @@
 <li>Lets see how backpropagation works with the RNN architecture we have developed.</li>
 <li>Often, Deep learning frameworks do backpropagation automatically for you. But its useful to know how it works especially in RNNs.</li>
 <li>Here is the graph:<ul>
-<li><img src="06.png" alt=""></li>
+<li><img src="06.png" alt></li>
 <li>Where w<sup>a</sup>, b<sup>a</sup>, w<sup>y</sup>, and b<sup>y</sup> are shared across each element in a sequence.</li>
 </ul>
 </li>
 <li>We will use the cross entropy loss function:<ul>
-<li><img src="07.png" alt=""></li>
+<li><img src="07.png" alt></li>
 <li>Where the first equation is the loss for one element and the loss for the whole sequence is given by the summation over all the calculated values.</li>
 </ul>
 </li>
 <li>Graph with losses:<ul>
-<li><img src="08.png" alt=""></li>
+<li><img src="08.png" alt></li>
 </ul>
 </li>
 <li>The backpropagation here is called <strong>backpropagation through time</strong> because of the passed activation <code>a</code> from one sequence element to another.<h3 id="Different-types-of-RNNs"><a href="#Different-types-of-RNNs" class="headerlink" title="Different types of RNNs"></a>Different types of RNNs</h3></li>
 <li>So far we have seen only one RNN architecture in which T<sub>x</sub> equals T<sub>Y</sub> always. In some other problems, they may not equal so we need different architectures.</li>
 <li>The ideas in this section was inspired by Andrej Karpathy <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank" rel="noopener">blog</a>. Mainly this image has all types:<ul>
-<li><img src="09.jpg" alt=""></li>
+<li><img src="09.jpg" alt></li>
 </ul>
 </li>
 <li>The architecture we have descried before is called <strong>Many to Many</strong>.</li>
 <li>In sentiment analysis problem, X is a text while Y is an integer that rangers from 1 to 5. The RNN architecture for that is <strong>Many to One</strong> as in Andrej Karpathy image.<ul>
-<li><img src="10.png" alt=""></li>
+<li><img src="10.png" alt></li>
 </ul>
 </li>
 <li>A <strong>One to Many</strong> architecture application would be music generation.<ul>
-<li><img src="11.png" alt=""></li>
+<li><img src="11.png" alt></li>
 <li>Note that starting the second layer we are feeding the generated output back to the network.</li>
 </ul>
 </li>
 <li>There are another interesting architecture in <strong>Many To Many</strong>. Applications like machine translation inputs and outputs sequences have different lengths in most of the cases. So an alternative Many To Many architecture that fits the translation would be as follows:<ul>
-<li><img src="12.png" alt=""></li>
+<li><img src="12.png" alt></li>
 <li>There are an encoder and a decoder in the architecture. The encoder encodes the input sequence into one matrix and feed it to the decoder to generate the outputs. Encoder and decoder have different weight matrices.</li>
 </ul>
 </li>
@@ -831,12 +831,12 @@
 </li>
 <li>Given the sentence “Cats average 15 hours of sleep a day. <code>&lt;EOS&gt;</code>“<ul>
 <li>In training time we will use this:<ul>
-<li><img src="13.png" alt=""></li>
+<li><img src="13.png" alt></li>
 <li>We pass to 0 vector - One hot -  to the first layer.</li>
 </ul>
 </li>
 <li>The loss function is defined by cross entropy loss:<ul>
-<li><img src="14.png" alt=""></li>
+<li><img src="14.png" alt></li>
 <li><code>i</code>  is for all elements in the training set.</li>
 </ul>
 </li>
@@ -854,7 +854,7 @@
 <li>After a sequence model is trained on a language model, to check what the model has learned you can apply it on a sample novel sequence.</li>
 <li>Lets see the steps of how we can sample a novel sequence from a trained sequence language model:<ol>
 <li>Given this model:<ul>
-<li><img src="15.png" alt=""></li>
+<li><img src="15.png" alt></li>
 </ul>
 </li>
 <li>We first pass a<sup><0></0></sup> = zeros vector, and x<sup><1></1></sup> = zeros vector.</li>
@@ -891,7 +891,7 @@
 </li>
 <li><p>As we have discussed in Deep neural networks, deeper networks are luckily to get into the vanishing gradient problem. In deep nets to compute the weights of the earlier layers you have to compute all the weights after these weights which causes the gradient to vanish. That also happens with RNNs with a long sequence size.</p>
 <ul>
-<li><img src="16.png" alt=""></li>
+<li><img src="16.png" alt></li>
 <li>For computing the word “Was”, we need to compute the gradient for everything behind. Multiplying by  fractions tends to vanish the gradient, while multiplication of large number tends to explode it.</li>
 <li>Therefore half of your weights may not be updated properly!</li>
 </ul>
@@ -908,7 +908,7 @@
 </li>
 <li><p>Exploding gradients can be easily seen when your weight values become <code>NAN</code> . So one of the ways solve exploding gradient is to apply <strong>gradient clipping</strong> means if your gradient is more than a threshold deal with the gradient as a fixed value. </p>
 <ul>
-<li><img src="26.png" alt=""></li>
+<li><img src="26.png" alt></li>
 </ul>
 </li>
 <li><p><strong>Extra</strong>:</p>
@@ -941,7 +941,7 @@
 </li>
 <li><p>The basic RNN unit can be visualized to be like this:</p>
 <ul>
-<li><img src="17.png" alt=""></li>
+<li><img src="17.png" alt></li>
 </ul>
 </li>
 <li><p>We will represent the GRU with a similar drawings.</p>
@@ -952,7 +952,7 @@
 </li>
 <li><p>Equations of the GRUs:</p>
 <ul>
-<li><img src="18.png" alt=""></li>
+<li><img src="18.png" alt></li>
 <li>The update gate is between 0 and 1<ul>
 <li>To understand GRUs imagine that the update gate is either 0 or 1 most of the time.</li>
 </ul>
@@ -974,7 +974,7 @@
 </ul>
 </li>
 <li>Drawing for the GRUs<ul>
-<li><img src="19.png" alt=""></li>
+<li><img src="19.png" alt></li>
 <li>Drawings like in <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener">http://colah.github.io/posts/2015-08-Understanding-LSTMs/</a> is so popular and makes it easier to understand GRUs and LSTMs. But Andrew Ng finds its better to look at the equations.</li>
 </ul>
 </li>
@@ -993,7 +993,7 @@
 <li>What has been descried so var is the Simplified GRU unit. Lets now describe the full one:<ul>
 <li>The full GRU contains a new gate that is used with to calculate the candidate C. The gate tells you how relevance is C<sup>\<t-1></t-1></sup> to C<sup>\<t></t></sup></li>
 <li>Equations:<ul>
-<li><img src="20.png" alt=""></li>
+<li><img src="20.png" alt></li>
 </ul>
 </li>
 <li>Shapes are the same</li>
@@ -1005,12 +1005,12 @@
 <li>Other unit that can make you do long term dependences is an LSTM unit and its more powerful and general than GRUs.</li>
 <li>In LSTMs , C<sup>\<t></t></sup> != a<sup>\<t></t></sup></li>
 <li>Here are the equations of an LSTM unit:<ul>
-<li><img src="21.png" alt=""></li>
+<li><img src="21.png" alt></li>
 </ul>
 </li>
 <li>In GRUs we have an update gate <code>U</code>, a relevance gate <code>r</code>, and a candidate cell variables C<sup>~\<t></t></sup> while in LSTMs we have an update gate <code>U</code> - Sometimes its called Input gate I -, a forget gate <code>F</code>, an output gate <code>O</code>, and a candidate cell variables C<sup>~\<t></t></sup></li>
 <li>Drawings - which is inspired from <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener">http://colah.github.io/posts/2015-08-Understanding-LSTMs/</a> -: <ul>
-<li><img src="22.png" alt=""></li>
+<li><img src="22.png" alt></li>
 </ul>
 </li>
 <li>Some Variants on LSTMs includes:<ul>
@@ -1023,13 +1023,13 @@
 <li>There isn’t a universal superior in choosing between LSTMs and its variants. Some win and some problems and some don’t. One of the advantages of GRUs is that its simpler and can be used to build much bigger network but the LSTM is more powerful and general as we said.<h3 id="Bidirectional-RNN"><a href="#Bidirectional-RNN" class="headerlink" title="Bidirectional RNN"></a>Bidirectional RNN</h3></li>
 <li>There are still some ideas to make a powerful sequence model. One of them is bidirectional RNNs and another is Deep RNNs.</li>
 <li>As we saw before, here are an example on Name entity recognition:<ul>
-<li><img src="23.png" alt=""></li>
+<li><img src="23.png" alt></li>
 </ul>
 </li>
 <li>The name Teddy cannot be learned from <strong>He</strong> and <strong>said</strong>, but can be learned from <strong>bears</strong>.</li>
 <li>BRNNs fixes this issue.</li>
 <li>Here are BRNNs architecture:<ul>
-<li><img src="24.png" alt=""></li>
+<li><img src="24.png" alt></li>
 </ul>
 </li>
 <li>Hint that BRNNs are <strong>acyclic graph</strong>!</li>
@@ -1042,7 +1042,7 @@
 <li><p>In a lot of cases the standard one layer RNNs will solve your problem. But in some problems its useful to stack some RNN layers to make a deeper network.</p>
 </li>
 <li>For example, a deep RNN with 3 layers would look like this:<ul>
-<li><img src="25.png" alt=""></li>
+<li><img src="25.png" alt></li>
 </ul>
 </li>
 <li>In feed forward deep nets we can have till 100 or 200 layer and this would be a so big network. In deep RNNs stacking 3 layers is considered deep and already expensive.</li>
@@ -1064,7 +1064,7 @@
 <li>Word embeddings is a way of representing words. It lets your algorithm automatically understand the analogies between words like “king” and “queen”.</li>
 <li>So far we have defined our language by a vocabulary. Then represented our words with one hot vector that represent the word in the vocabulary.<ul>
 <li>An image example would be:<ul>
-<li><img src="27.png" alt=""></li>
+<li><img src="27.png" alt></li>
 </ul>
 </li>
 <li>We will use the annotation <strong>O</strong> <sub>idx</sub> for any word that is represented with one hot like in the image.</li>
@@ -1077,7 +1077,7 @@
 </ul>
 </li>
 <li>So, instead of a one-hot presentation, won’t it be nice if we can learn a featurized representation with each of these words: Man, Woman, King, Queen, Apple, and orange?<ul>
-<li><img src="28.png" alt=""></li>
+<li><img src="28.png" alt></li>
 <li>Each word will have a 300 features with type of float point number for example.</li>
 <li>Each word column will be 300 dimensional vector which will be the representation.</li>
 <li>We will use the notation <strong>e</strong><sub>5391</sub> to describe Man word features vector.</li>
@@ -1091,7 +1091,7 @@
 </ul>
 </li>
 <li>To visualize word embeddings we use t-SNE algorithm to reduce the features to 2 dimensions which makes it easy to visualize. <ul>
-<li><img src="29.png" alt=""></li>
+<li><img src="29.png" alt></li>
 <li>You will get a sense that more related words distance are smaller than other distances.</li>
 </ul>
 </li>
@@ -1100,7 +1100,7 @@
 <h4 id="Using-word-embeddings"><a href="#Using-word-embeddings" class="headerlink" title="Using word embeddings"></a>Using word embeddings</h4><ul>
 <li>Lets see how we can take the feature representation we have extracted from each word and apply it in Name entity recognition problem.</li>
 <li>Given this example - From named entity recognition - :<ul>
-<li><img src="30.png" alt=""></li>
+<li><img src="30.png" alt></li>
 </ul>
 </li>
 <li><strong>Sally Johnson</strong> is a persons name.</li>
@@ -1124,7 +1124,7 @@
 </ul>
 </li>
 <li>Word embeddings has an interesting relationship to the face recognition task:<ul>
-<li><img src="31.png" alt=""></li>
+<li><img src="31.png" alt></li>
 <li>In this problem we encode each face into a vector and then check how similar is these vectors.</li>
 <li>The word <strong>encode</strong> and <strong>embeddings</strong> has a similar meaning here.</li>
 <li>In the word embeddings task, we are getting a vector say from e<sub>1</sub> to e<sub>300</sub> for each word in our vocabulary. We will discuss the algorithm in the next sections.</li>
@@ -1135,7 +1135,7 @@
 <li>One of the most fascinating properties of word embeddings is that they can also help with analogy reasoning. Analogy reasoning is one of the most important applications of NLP.</li>
 <li>Analogies example:<ul>
 <li>Given this word embeddings table:<ul>
-<li><img src="32.png" alt=""></li>
+<li><img src="32.png" alt></li>
 </ul>
 </li>
 <li>Can we conclude this relation:<ul>
@@ -1146,7 +1146,7 @@
 <li>Lets subtract e<sub>Man</sub> from e<sub>Woman</sub>. This will equal the vector <code>[-2  0  0  0]</code></li>
 <li>Similar e<sub>King</sub> - e<sub>Queen</sub> = <code>[-2  0  0  0]</code></li>
 <li>So the difference is about the gender in both.<ul>
-<li><img src="33.png" alt=""></li>
+<li><img src="33.png" alt></li>
 <li>This vector represents the gender.</li>
 <li>This drawing is 2D visualization of the 4D vector that has been extracted by t-SNE algorithm. It was drawing for just clarification! Don’t rely on t-SNE algorithm in finding parallels.</li>
 </ul>
@@ -1156,7 +1156,7 @@
 </ul>
 </li>
 <li>It can also represented mathematically by:<ul>
-<li><img src="34.png" alt=""></li>
+<li><img src="34.png" alt></li>
 </ul>
 </li>
 <li>It turns out that e<sub>Queen</sub> is the best solution here that gets the the similar vector.</li>
@@ -1164,7 +1164,7 @@
 </li>
 <li>Cosine similarity:<ul>
 <li>Equation:<ul>
-<li><img src="35.png" alt=""></li>
+<li><img src="35.png" alt></li>
 <li><script type="math/tex; mode=display">\text{CosineSimilarity(u, v)} = \frac {u . v} {||u||_2 ||v||_2} = cos(\theta)</script></li>
 <li>The top part represents the inner product of <code>u</code> and <code>v</code> vectors. That will be large if the vectors are so similar.</li>
 </ul>
@@ -1178,7 +1178,7 @@
 <li>Lets take an example:<ul>
 <li>Suppose we are using 10,000 words as our vocabulary.</li>
 <li>The algorithm should extract a matrix <code>E</code> of the shape (300, 10,000) in case we are extracting 300 features. (300, 10,001) if we have <code>&lt;UNK&gt;</code> token.<ul>
-<li><img src="36.png" alt=""></li>
+<li><img src="36.png" alt></li>
 </ul>
 </li>
 <li>If O<sub>6257</sub> is the one hot encoding of the word <strong>orange</strong>, then <code>E</code>. O<sub>6257</sub> equals e<sub>6257</sub> which shape is (300, 1)</li>
@@ -1194,12 +1194,12 @@
 <li>We will start by learning the complex examples to make more sense.</li>
 <li><strong><u>Neural language model</u></strong>:<ul>
 <li>Lets start by example:<ul>
-<li><img src="37.png" alt=""></li>
+<li><img src="37.png" alt></li>
 </ul>
 </li>
 <li>We want to build a language model so that we can predict the next word.</li>
 <li>So we use this neural network to learn the language model<ul>
-<li><img src="38.png" alt=""></li>
+<li><img src="38.png" alt></li>
 <li>We get e<sub>j</sub> by <code>E</code>. o<sub>j</sub></li>
 <li>NN layer has parameters <code>W1</code> and <code>b1</code> while softmax layer has parameters <code>W2</code> and <code>b2</code></li>
 <li>Input dimension is (300*6, 1) if we the window size is 6.</li>
@@ -1267,14 +1267,14 @@
 </li>
 <li><p>The last model has a problem with the softmax classifier:</p>
 <ul>
-<li><img src="39.png" alt=""></li>
+<li><img src="39.png" alt></li>
 <li>Here we are summing 10,000 numbers which corresponds to the number of words in our vocabulary.</li>
 <li>If this number is larger say 1 million, the computation will become so slow.</li>
 </ul>
 </li>
 <li><p>The solution for the past problem is to use “<strong>Hierarchical softmax classifier</strong>“ which works as a tree classifier.</p>
 <ul>
-<li><img src="40.png" alt=""></li>
+<li><img src="40.png" alt></li>
 </ul>
 </li>
 <li><p>In practice the hierarchical softmax classifier doesn’t use a balanced tree like the drawn one. Common words are in the top and less common are in the bottom.</p>
@@ -1318,9 +1318,9 @@
 <ul>
 <li>Lets say that the context word are <code>c</code> and the word are <code>t</code> and <code>y</code> is the target.</li>
 <li>We will apply the simple logistic regression model.</li>
-<li><img src="41.png" alt=""></li>
+<li><img src="41.png" alt></li>
 <li>The logistic regression model can be drawn like this:</li>
-<li><img src="42.png" alt=""></li>
+<li><img src="42.png" alt></li>
 <li>So we are like having 10,000 binary classification problem, and we only train k+1 classifier of them in each iteration.</li>
 </ul>
 </li>
@@ -1328,7 +1328,7 @@
 <ul>
 <li>We can sample according to empirical frequencies in words corpus which means according to how often different words appears. But the problem with that is that we will have more frequent words like the, of, and..</li>
 <li>The best is to sample with this equation - According to authors - :<ul>
-<li><img src="43.png" alt=""></li>
+<li><img src="43.png" alt></li>
 </ul>
 </li>
 </ul>
@@ -1346,7 +1346,7 @@
 <li>Then we will calculate this for every pair, X<sub>ct</sub> = # times <code>t</code> appears in context of <code>c</code></li>
 <li>X<sub>ct</sub> = X<sub>tc</sub> if we choose a window pair, but they will not equal if we choose the previous words for example. In GloVe they use a window which means they are equal</li>
 <li>The model is defined like this:<ul>
-<li><img src="44.png" alt=""></li>
+<li><img src="44.png" alt></li>
 </ul>
 </li>
 <li>f(x) -the weighting term- is used for many reasons which includes:<ul>
@@ -1366,13 +1366,13 @@
 </ul>
 <h3 id="Applications-using-Word-Embeddings"><a href="#Applications-using-Word-Embeddings" class="headerlink" title="Applications using Word Embeddings"></a>Applications using Word Embeddings</h3><h4 id="Sentiment-Classification"><a href="#Sentiment-Classification" class="headerlink" title="Sentiment Classification"></a>Sentiment Classification</h4><ul>
 <li>As we have discussed before, Sentiment classification is the process of finding if a text has a positive or a negative review. Its so useful in NLP and is used in so many applications. An example would be:<ul>
-<li><img src="45.png" alt=""></li>
+<li><img src="45.png" alt></li>
 </ul>
 </li>
 <li>One of the challenges with it, is that you might haven’t a huge labeled training data for it, but using word embeddings can help getting rid of this.</li>
 <li>The common dataset sizes varies from 10,000 to 100,000 words.</li>
 <li>A simple sentiment classification model would be like this:<ul>
-<li><img src="46.png" alt=""></li>
+<li><img src="46.png" alt></li>
 <li>The embedding matrix may have been trained on say 100 billion words.</li>
 <li>Number of features given a word is 300.</li>
 <li>We can use <strong>sum</strong> or <strong>average</strong> given all the words then pass it to a softmax classifier. That makes this classifier works for short or long sentences.</li>
@@ -1380,7 +1380,7 @@
 </li>
 <li>One of the problems with this simple model is that it ignores words order! for example “Completely lacking in <strong>good</strong> taste, <strong>good</strong> service, and <strong>good</strong> ambience” has the word good 3 times but its a negative review!</li>
 <li>A better model uses an RNN for solving this problem:<ul>
-<li><img src="47.png" alt=""></li>
+<li><img src="47.png" alt></li>
 <li>And so if you train this algorithm, you end up with a pretty decent sentiment classification algorithm.</li>
 <li>Also it will generalize even if words aren’t in your dataset, for example the sentencte “Completely <strong><u>absent of</u></strong> good taste, good service, and good ambience” will be the same as the trained word!</li>
 </ul>
@@ -1399,7 +1399,7 @@
 <li>Addressing bias in word embeddings steps:<ul>
 <li>Idea is by paper: <a href="https://arxiv.org/abs/1607.06520" target="_blank" rel="noopener">https://arxiv.org/abs/1607.06520</a></li>
 <li>Given this learned embeddings: <ul>
-<li><img src="48.png" alt=""></li>
+<li><img src="48.png" alt></li>
 </ul>
 </li>
 <li>We need to solve the <strong>gender bias</strong> here. The steps we will discuss can help solve any bias problem but we are focusing here on gender bias.</li>
@@ -1413,7 +1413,7 @@
 </li>
 <li>Choose some k differences and average them.</li>
 <li>This will help you find this:<ul>
-<li><img src="49.png" alt=""></li>
+<li><img src="49.png" alt></li>
 </ul>
 </li>
 <li>By that we have found the bias direction which is 1D vector and the non-bias vector which is 299D vector.</li>
@@ -1421,7 +1421,7 @@
 </li>
 <li>Neutralize: For every word that is not definitional, project to get rid of bias.<ul>
 <li>Babysitter and doctor needs to be neutral so we project them on nonbias with the direction of the bias:<ul>
-<li><img src="50.png" alt=""></li>
+<li><img src="50.png" alt></li>
 <li>After that they will be equal in the term of gender.</li>
 <li>To do this the authors of the paper trained a classifier to tell the words that they need to be  neutralized or not.</li>
 </ul>
@@ -1436,7 +1436,7 @@
 </ul>
 </li>
 <li>We want to do this because the distance between grandfather and babysitter is bigger than babysitter and grandmother:<ul>
-<li><img src="51.png" alt=""></li>
+<li><img src="51.png" alt></li>
 </ul>
 </li>
 <li>To do that, we move grandfather and grandmother to a point where they will be in the middle of the non-bias axis.</li>
@@ -1455,13 +1455,13 @@
 <li>In this section we will learn about sequence to sequence - Many to Many -  models which are useful in various applications including machine translation and speech recognition.</li>
 <li>Lets start by the basic model:<ul>
 <li>Given this machine translation problem in which X is a French sequence and Y is an English sequence.<ul>
-<li><img src="52.png" alt=""></li>
+<li><img src="52.png" alt></li>
 </ul>
 </li>
 <li>Our architecture will include <strong>encoder</strong> and <strong>decoder</strong>.</li>
 <li>The encoder is built with RNNs - LSTM or GRU are included - and takes the input sequence and then outputs a vector that should represent the whole input.</li>
 <li>After that the decoder network, are also built with RNNs and outputs the output sequence using the vector that has been built by the encoder.</li>
-<li><img src="53.png" alt=""></li>
+<li><img src="53.png" alt></li>
 <li>These ideas are from these papers:<ul>
 <li>[<a href="https://arxiv.org/abs/1409.3215" target="_blank" rel="noopener">Sutskever</a> et al., 2014. Sequence to sequence learning with neural networks]</li>
 <li>[<a href="https://arxiv.org/abs/1406.1078" target="_blank" rel="noopener">Cho et</a> al., 2014. Learning phrase representations using RNN encoder-decoder for statistical machine translation]</li>
@@ -1472,7 +1472,7 @@
 <li>With an architecture similar to the one previously mentioned works for image captioning problem:<ul>
 <li>In this problem X is an image, while Y is a sentence.</li>
 <li>The model architecture image:<ul>
-<li><img src="54.png" alt=""></li>
+<li><img src="54.png" alt></li>
 </ul>
 </li>
 <li>The architecture uses a CNN pretrained AlexNet as an encoder for the image, and the decoder is an RNN.</li>
@@ -1488,7 +1488,7 @@
 <h4 id="Picking-the-most-likely-sentence"><a href="#Picking-the-most-likely-sentence" class="headerlink" title="Picking the most likely sentence"></a>Picking the most likely sentence</h4><ul>
 <li>There are some similarities between the language model we have learned previously, and the machine translation model we have just discussed, but there are some differences as well.</li>
 <li>The language model we have learned as so similar to the decoder of the machined translation model, except for a<sup>0</sup><ul>
-<li><img src="55.png" alt=""></li>
+<li><img src="55.png" alt></li>
 </ul>
 </li>
 <li>The problems formations also are different:<ul>
@@ -1510,7 +1510,7 @@
 </ul>
 </li>
 <li>So we need to get the best output, this can be take by the equation:<ul>
-<li><img src="56.png" alt=""></li>
+<li><img src="56.png" alt></li>
 </ul>
 </li>
 <li>The most common algorithm is the beam search, which we will explain in the next section.</li>
@@ -1539,7 +1539,7 @@
 <li>In the previous section we have discussed the basic beam search. In this section we will try to do some refinements to it to work even better.</li>
 <li>The first thing is <strong>Length optimization</strong><ul>
 <li>In beam search we are trying to optimize:<ul>
-<li><img src="56.png" alt=""></li>
+<li><img src="56.png" alt></li>
 </ul>
 </li>
 <li>And to do that we multiply:<ul>
@@ -1549,12 +1549,12 @@
 <li>Each probability is a fraction. Also maybe a small fraction.</li>
 <li>Multiplying small fractions will cause a <strong>numerical overflow</strong>! Meaning that it’s too small for the floating part representation in your computer to store accurately.</li>
 <li>So in practice we use <strong>summing</strong> <strong>logs</strong> instead of multiplying directly.<ul>
-<li><img src="57.png" alt=""></li>
+<li><img src="57.png" alt></li>
 </ul>
 </li>
 <li>But theres another problem. The two optimization functions we have mentions tends to find small sequences! Because multiplying a lot of fractions gives a smaller value.</li>
 <li>So theres another change , by dividing by the number of elements in the sequence.<ul>
-<li><img src="58.png" alt=""></li>
+<li><img src="58.png" alt></li>
 <li>alpha is a hyper parameter to tune.</li>
 <li>If alpha = 0, Then its like we do nothing.</li>
 <li>If alpha = 1, Then its like we are using full sequence length.</li>
@@ -1598,7 +1598,7 @@
 </li>
 <li>The error analysis process is as following:<ul>
 <li>You choose N error examples and make the following table:<ul>
-<li><img src="59.png" alt=""></li>
+<li><img src="59.png" alt></li>
 </ul>
 </li>
 <li><code>B</code>  for beam search, <code>R</code> is for the RNN.</li>
@@ -1652,19 +1652,19 @@
 </li>
 <li><p>So here are the equations for the n-grams:</p>
 <ul>
-<li><img src="60.png" alt=""></li>
+<li><img src="60.png" alt></li>
 </ul>
 </li>
 <li><p>Lets put this together to formalize the BLEU score:</p>
 <ul>
 <li><strong>P<sub>n</sub></strong> = Bleu score on n-grams only</li>
 <li><strong>Combined Bleu score</strong> equation:<ul>
-<li><img src="61.png" alt=""></li>
+<li><img src="61.png" alt></li>
 <li>For example if we want Bleu for 4, we compute P<sub>1</sub>, P<sub>2</sub>, P<sub>3</sub>, P<sub>4</sub> and then average them and take the exp.</li>
 </ul>
 </li>
 <li>Another equation is <strong>BP penalty</strong> which stands for brevity penalty. It turns out that if a machine outputs a small number of words it will get a better score so we need to handle that.<ul>
-<li><img src="62.png" alt=""></li>
+<li><img src="62.png" alt></li>
 </ul>
 </li>
 </ul>
@@ -1677,14 +1677,14 @@
 <li>The attention algorithm, the attention idea has been one of the most influential ideas in deep learning. </li>
 <li>The problem of long sequences:<ul>
 <li>Given this model, inputs, and outputs.<ul>
-<li><img src="63.png" alt=""></li>
+<li><img src="63.png" alt></li>
 </ul>
 </li>
 <li>The encoder should memorize this long sequence into one vector, and the decoder has to process this vector to generate the translation.</li>
 <li>If a human would translate this sentence, he wouldn’t read the whole sentence and memorize it then try to translate it. He translates a part at a time.</li>
 <li>The performance of this model decreases if a sentence is so long.</li>
 <li>We will discuss the attention model that works like a human that looks at parts at a time. That will significantly increase the accuracy even with bigger sequence:<ul>
-<li><img src="64.png" alt=""></li>
+<li><img src="64.png" alt></li>
 <li>Blue is the normal model, while green is the model with attention mechanism.</li>
 </ul>
 </li>
@@ -1698,18 +1698,18 @@
 </li>
 <li>Now for the intuition:<ul>
 <li>Suppose that our decoder is a bidirectional RNN:<ul>
-<li><img src="65.png" alt=""></li>
+<li><img src="65.png" alt></li>
 </ul>
 </li>
 <li>We gave the French sentence to the encoder and it should generate a vector that represents the inputs.</li>
 <li>Now to generate the first word in English which is “Jane” we will make another RNN which is the decoder.</li>
 <li>attention weights are used to specify which words are needed when to generate a word. So to generate “jane” we will look at “jane”, “visite”, “l’Afrique”<ul>
-<li><img src="66.png" alt=""></li>
+<li><img src="66.png" alt></li>
 </ul>
 </li>
 <li>alpha<sup>1,1</sup>, alpha<sup>1,2</sup>, and alpha<sup>1,3</sup> are the attention weights used.</li>
 <li>And so to generate any word there will be a set of attention weights that controls which words we are looking at right now.<ul>
-<li><img src="67.png" alt=""></li>
+<li><img src="67.png" alt></li>
 </ul>
 </li>
 <li>​</li>
@@ -1719,20 +1719,20 @@
 <h4 id="Attention-Model"><a href="#Attention-Model" class="headerlink" title="Attention Model"></a>Attention Model</h4><ul>
 <li>Lets formalize the intuition from the last section into the exact details on how this can be implemented.</li>
 <li>First we will have an bidirectional RNN - most common is LSTMs - that encodes French language:<ul>
-<li><img src="68.png" alt=""></li>
+<li><img src="68.png" alt></li>
 </ul>
 </li>
 <li>For learning purposes, lets assume that a<sup>\<t></t></sup> will include the both directions.</li>
 <li>We will have an RNN to extract the output using a context <code>c</code> which is computer using the attention weights. This denotes how much information do it needs to look in a<sup>\<t></t></sup><ul>
-<li><img src="69.png" alt=""></li>
+<li><img src="69.png" alt></li>
 </ul>
 </li>
 <li>Sum of the attention weights for each element in the sequence should be 1:<ul>
-<li><img src="70.png" alt=""></li>
+<li><img src="70.png" alt></li>
 </ul>
 </li>
 <li>Also the context <code>c</code> are calculated using this equation:<ul>
-<li><img src="71.png" alt=""></li>
+<li><img src="71.png" alt></li>
 </ul>
 </li>
 <li>Lets see how can we compute the attention weights:<ul>
@@ -1741,11 +1741,11 @@
 </ul>
 </li>
 <li>We are going to softmax the attention weights so that their sum is 1:<ul>
-<li><img src="72.png" alt=""></li>
+<li><img src="72.png" alt></li>
 </ul>
 </li>
 <li>Now we need to know how to calculate e<sup>\&lt;t, t’&gt;</sup>. We will compute e using a small neural network:<ul>
-<li><img src="73.png" alt=""></li>
+<li><img src="73.png" alt></li>
 <li>s<sup>\<t-1></t-1></sup> is the hidden state of the RNN s, and a<sup>\&lt;t’&gt;</sup> is the activation of the other bidirectional RNN. </li>
 </ul>
 </li>
@@ -1753,7 +1753,7 @@
 </li>
 <li>One of the disadvantages of this algorithm is that it takes quadratic time or quadratic cost to run.</li>
 <li>One fun way to see how attention works is by visualizing the attention weights:<ul>
-<li><img src="74.png" alt=""></li>
+<li><img src="74.png" alt></li>
 </ul>
 </li>
 </ul>
@@ -1763,7 +1763,7 @@
 <li>X: audio clip</li>
 <li>Y: transcript</li>
 <li>If you plot an audio clip it should look like this:<ul>
-<li><img src="75.png" alt=""></li>
+<li><img src="75.png" alt></li>
 <li>The horizontal axis is time while the vertical is changes in air pressure.</li>
 </ul>
 </li>
@@ -1771,7 +1771,7 @@
 <li>It is quite difficult to work with “raw” representation of audio.</li>
 <li>Because even human ear doesn’t process raw wave forms, the human ear can process different frequencies.</li>
 <li>There’s a common preprocessing step for an audio to generate a spectrogram which works similarly to human ears.<ul>
-<li><img src="76.png" alt=""></li>
+<li><img src="76.png" alt></li>
 <li>The horizontal axis is time while the vertical is frequencies. Intensity of different colors shows the amount of energy.</li>
 </ul>
 </li>
@@ -1782,13 +1782,13 @@
 </ul>
 </li>
 <li>You can build an accurate speech recognition system using the attention model that we have descried in the previous section:<ul>
-<li><img src="77.png" alt=""></li>
+<li><img src="77.png" alt></li>
 </ul>
 </li>
 <li>One of the methods that seem to work well is CTC cost which stands for “Connectionist temporal classification” <ul>
 <li>To explain this lets say that Y = “<u>the quick brown fox</u>“</li>
 <li>We are going to use an RNN with input, output structure:<ul>
-<li><img src="78.png" alt=""></li>
+<li><img src="78.png" alt></li>
 </ul>
 </li>
 <li>Hint: this is a bidirectional RNN, but it practice a bidirectional RNN are used.</li>
@@ -1816,7 +1816,7 @@
 <li>With the rise of deep learning speech recognition, there are a lot of devices that can be waked up by saying some words with your voice. These systems are called trigger word systems.</li>
 <li>For example, Alexa - a smart device made by amazon - can answer your call “Alexa, What time is it” and then Alexa will reply you.</li>
 <li>Trigger word detection system includes:<ul>
-<li><img src="79.png" alt=""></li>
+<li><img src="79.png" alt></li>
 </ul>
 </li>
 <li>Now the trigger word detection literature is still evolving so there actually isn’t a single universally agreed on algorithm for trigger word detection yet. But lets discuss an algorithm that can be used.</li>
@@ -1828,14 +1828,14 @@
 </li>
 <li>Y will be labels 0 or 1. 0 represents the non trigger word, while 1 is that trigger word that we need to detect.</li>
 <li>The model architecture can be like this:<ul>
-<li><img src="80.png" alt=""></li>
+<li><img src="80.png" alt></li>
 <li>The vertical lines in the audio clip represents the trigger words. The corresponding to this will be 1.</li>
 </ul>
 </li>
 <li>One disadvantage of this is the imbalanced dataset outputs. There will be a lot of zeros and little ones.</li>
 <li>A hack to solve this is to make an output a few ones for several times or for a fixed period of time before reverting back to zero.<ul>
-<li><img src="81.png" alt=""></li>
-<li><img src="85.png" alt=""></li>
+<li><img src="81.png" alt></li>
+<li><img src="85.png" alt></li>
 </ul>
 </li>
 <li>​</li>
@@ -1845,13 +1845,13 @@
 <h2 id="Extras"><a href="#Extras" class="headerlink" title="Extras"></a>Extras</h2><h3 id="Machine-translation-attention-model-From-notebooks"><a href="#Machine-translation-attention-model-From-notebooks" class="headerlink" title="Machine translation attention model (From notebooks)"></a>Machine translation attention model (From notebooks)</h3><ul>
 <li>The model is built with keras layers.</li>
 <li>The attention model.<ul>
-<li><img src="83.png" alt=""></li>
+<li><img src="83.png" alt></li>
 <li>There are two separate LSTMs in this model. Because the one at the bottom of the picture is a Bi-directional LSTM and comes <em>before</em> the attention mechanism, we will call it <em>pre-attention</em> Bi-LSTM. The LSTM at the top of the diagram comes <em>after</em> the attention mechanism, so we will call it the <em>post-attention</em> LSTM. The pre-attention Bi-LSTM goes through $T_x$ time steps; the post-attention LSTM goes through $T_y$ time steps. </li>
 <li>The post-attention LSTM passes $s^{\langle t \rangle}, c^{\langle t \rangle}$ from one time step to the next. In the lecture videos, we were using only a basic RNN for the post-activation sequence model, so the state captured by the RNN output activations $s^{\langle t\rangle}$. But since we are using an LSTM here, the LSTM has both the output activation $s^{\langle t\rangle}$ and the hidden cell state $c^{\langle t\rangle}$. However, unlike previous text generation examples (such as Dinosaurus in week 1), in this model the post-activation LSTM at time $t$ does will not take the specific generated $y^{\langle t-1 \rangle}$ as input; it only takes $s^{\langle t\rangle}$ and $c^{\langle t\rangle}$ as input. We have designed the model this way, because (unlike language generation where adjacent characters are highly correlated) there isn’t as strong a dependency between the previous character and the next character in a YYYY-MM-DD date. </li>
 </ul>
 </li>
 <li>What one “Attention” step does to calculate the attention variables $\alpha^{\langle t, t’ \rangle}$, which are used to compute the context variable $context^{\langle t \rangle}$ for each timestep in the output ($t=1, \ldots, T_y$). <ul>
-<li><img src="84.png" alt=""></li>
+<li><img src="84.png" alt></li>
 <li>The diagram uses a <code>RepeatVector</code> node to copy $s^{\langle t-1 \rangle}$’s value $T_x$ times, and then <code>Concatenation</code> to concatenate $s^{\langle t-1 \rangle}$ and $a^{\langle t \rangle}$ to compute $e^{\langle t, t’}$, which is then passed through a softmax to compute $\alpha^{\langle t, t’ \rangle}$. </li>
 </ul>
 </li>
@@ -2029,7 +2029,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
             
@@ -2044,7 +2044,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2080,13 +2080,13 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external="" nofollow""="">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external="" nofollow""="">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>

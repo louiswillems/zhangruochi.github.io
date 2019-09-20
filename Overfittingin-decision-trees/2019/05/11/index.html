@@ -5,8 +5,8 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -190,7 +190,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -200,7 +200,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -350,20 +350,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Overfittingin-decision-trees/2019/05/11/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="RUOCHI.AI">
     </span>
 
@@ -409,7 +409,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
                     <span itemprop="name">Artificial Intelligence</span>
                   </a>
@@ -420,7 +420,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Artificial-Intelligence/Machine-Learning/" itemprop="url" rel="index">
                     <span itemprop="name">Machine Learning</span>
                   </a>
@@ -474,14 +474,14 @@
 
 
 <h3 id="Early-stopping-for-learning-decision-trees"><a href="#Early-stopping-for-learning-decision-trees" class="headerlink" title="Early stopping for learning decision trees"></a>Early stopping for learning decision trees</h3><ol>
-<li><strong>Limit tree depth</strong>: Stop splitting after a certain depth<br><img src="1.png" alt=""></li>
+<li><strong>Limit tree depth</strong>: Stop splitting after a certain depth<br><img src="1.png" alt></li>
 <li><strong>Classification error</strong>: Do not consider any split that does not cause a sufficient decrease in classification error<ul>
 <li>Typically, add magic parameter $\epsilon$,Stop if error doesn’t decrease by more than $\epsilon$</li>
 <li>Some pitfalls to this rule</li>
 <li>Very useful in practice</li>
 </ul>
 </li>
-<li><strong>Minimum node “size”</strong>: Do not split an intermediate node which contains too few data points<br><img src="2.png" alt=""></li>
+<li><strong>Minimum node “size”</strong>: Do not split an intermediate node which contains too few data points<br><img src="2.png" alt></li>
 </ol>
 <h3 id="Pruning-Simplify-the-tree-after-the-learning-algorithm-terminates"><a href="#Pruning-Simplify-the-tree-after-the-learning-algorithm-terminates" class="headerlink" title="Pruning: Simplify the tree after the learning algorithm terminates"></a>Pruning: Simplify the tree after the learning algorithm terminates</h3><ol>
 <li>Simple measure of complexity of tree<center><p><strong>L(T) = number of leaf nodes</strong></p></center></li>
@@ -490,9 +490,9 @@
 <ul>
 <li>$\lambda = 0$: standard Decision Tree learning</li>
 <li>$\lambda = +\inf$: root, majority classification</li>
-<li>$\lambda = 0 - +\inf$: balance of fit and complexity<br><img src="3.png" alt=""></li>
+<li>$\lambda = 0 - +\inf$: balance of fit and complexity<br><img src="3.png" alt></li>
 </ul>
-<h3 id="Tree-pruning-algorithm"><a href="#Tree-pruning-algorithm" class="headerlink" title="Tree pruning algorithm"></a>Tree pruning algorithm</h3><p><img src="4.png" alt=""><br><img src="5.png" alt=""><br><img src="6.png" alt=""></p>
+<h3 id="Tree-pruning-algorithm"><a href="#Tree-pruning-algorithm" class="headerlink" title="Tree pruning algorithm"></a>Tree pruning algorithm</h3><p><img src="4.png" alt><br><img src="5.png" alt><br><img src="6.png" alt></p>
 
       
     </div>
@@ -663,7 +663,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
             
@@ -678,7 +678,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -714,13 +714,13 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external="" nofollow""="">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external="" nofollow""="">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>

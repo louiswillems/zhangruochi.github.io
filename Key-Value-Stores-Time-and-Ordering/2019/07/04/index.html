@@ -5,8 +5,8 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -195,7 +195,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -205,7 +205,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -355,20 +355,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Key-Value-Stores-Time-and-Ordering/2019/07/04/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="RUOCHI.AI">
     </span>
 
@@ -414,7 +414,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Big-Data-Architecture/" itemprop="url" rel="index">
                     <span itemprop="name">Big Data Architecture</span>
                   </a>
@@ -425,7 +425,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Big-Data-Architecture/Distributed-Cloud-Computing/" itemprop="url" rel="index">
                     <span itemprop="name">Distributed & Cloud Computing</span>
                   </a>
@@ -562,7 +562,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="1.png" alt=""></p>
+<p><img src="1.png" alt></p>
 <h3 id="Column-oriented-storage"><a href="#Column-oriented-storage" class="headerlink" title="Column-oriented storage"></a>Column-oriented storage</h3><ul>
 <li>RDBMSs store an entire row together (on disk or at a server)</li>
 <li>NoSQL systems typically store a <strong>column</strong> together (or a group of columns).<ul>
@@ -601,8 +601,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="Cassandra"><a href="#Cassandra" class="headerlink" title="Cassandra"></a>Cassandra</h2><p><img src="2.png" alt=""></p>
-<h3 id="SSTable"><a href="#SSTable" class="headerlink" title="SSTable"></a>SSTable</h3><p><img src="7.png" alt=""></p>
+<h2 id="Cassandra"><a href="#Cassandra" class="headerlink" title="Cassandra"></a>Cassandra</h2><p><img src="2.png" alt></p>
+<h3 id="SSTable"><a href="#SSTable" class="headerlink" title="SSTable"></a>SSTable</h3><p><img src="7.png" alt></p>
 <p>所以SSTable是一个简单，但是非常有用的用来交换大量的、排好序的数据片段的数据结构。它的使用场景是：</p>
 <ul>
 <li>需要高效地存储大量的键-值对数据</li>
@@ -623,7 +623,7 @@
 </li>
 </ol>
 <p>当使用Cassandra CLI 命令行工具创建keyspace时的默认副本放置策略。假定根据partitioner得到第一个节点设为N1，它的顺时针的节点为N2，N3…则这种策略会把keyspace的第一个副本放置在N1上，然后其他副本依次放置在N2，N3..上</p>
-<p><img src="3.png" alt=""></p>
+<p><img src="3.png" alt></p>
 <ol>
 <li>NetworkTopologyStrategy: for multi-DC deployments (data center)<ul>
 <li>Two replicas per DC</li>
@@ -638,7 +638,7 @@
 </ol>
 <p>这种策略用于当你知道节点如何在数据中心(Data Center)分组的情况或者你希望部署集群横跨多个数据中心，此时你必须指定每个数据中心要多少个副本，(一般推荐设为2或者3）。在这种情况下，副本放置策略由数据中心自己决定。具体为，先由partitioner决定第一个node设为N1，在架子(rack1)上，属于数据中心DC1，则第一个副本放在N1，其他副本也必须分别放在DC1中，优先选择<strong>不是rack1的架子</strong>，如果没有其他rack，则只能放在rack1上。</p>
 <p>比如如图所示，现在有两个数据中心，蓝色表示DC1，绿色表示DC2，DC1上有2个架子，分别是Rack1和Rack2。则如果partitioner选择的第一个节点是DC1的节点N3的话，那么副本R1就放在DC1的节点N3 上，而这个副本的下一个副本R2就放在同一个DC，也就是DC1的下一个rack上（如果有），它刚好发现，顺时针的下一个节点N4刚好也是DC1，但是是另外一个架子(Rack2),所以副本R2放在N4上。对于属于DC2的2个副本也遵循同样的策略。</p>
-<p><img src="4.png" alt=""></p>
+<p><img src="4.png" alt></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE KEYSPACE Excelsior WITH REPLICATION = &#123; <span class="string">'class'</span> : <span class="string">'SimpleStrategy'</span>,<span class="string">'replication_factor'</span> : 3 &#125;;  </span><br><span class="line">CREATE KEYSPACE Excalibur WITH REPLICATION = &#123;<span class="string">'class'</span> :<span class="string">'NetworkTopologyStrategy'</span>, <span class="string">'dc1'</span> : 3, <span class="string">'dc2'</span> : 2&#125;;</span><br></pre></td></tr></table></figure>
 <h3 id="Snitches"><a href="#Snitches" class="headerlink" title="Snitches"></a>Snitches</h3><p>Snitch决定了节点属于哪个数据中心和机架。Snitch通知Cassandra网络拓扑以便请求被有效的路由，并且允许Cassandra在服务器增加到数据中心或机架的时候能够分发副本。特别的，复制策略如何放置副本是基于新snitch提供的信息。Cassandra不会把副本放到一个机架里面（如果机架断电，那就over了）。</p>
 <ul>
@@ -682,7 +682,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="Writes-at-a-replica-node"><a href="#Writes-at-a-replica-node" class="headerlink" title="Writes at a replica node"></a>Writes at a replica node</h3><p><img src="5.png" alt=""></p>
+<h3 id="Writes-at-a-replica-node"><a href="#Writes-at-a-replica-node" class="headerlink" title="Writes at a replica node"></a>Writes at a replica node</h3><p><img src="5.png" alt></p>
 <p>先将数据写进内存中的数据结构memtable，同时追加到磁盘中的commitlog中。memtable内容超出指定容量后会被放进将被刷入磁盘的队列(memtable_flush_queue_size配置队列长度)。若将被刷入磁盘的数据超出了队列长度，C会锁定写,并将内存数据刷进磁盘中的SSTable,之后commit log被清空。</p>
 <ol>
 <li>Log it in disk commit log (for failure recovery)</li>
@@ -713,7 +713,7 @@
 </li>
 <li>A row may be split across multiple SSTables =&gt; reads need to touch multiple SSTables =&gt; reads slower than writes (but still fast)</li>
 </ul>
-<p><img src="6.png" alt=""></p>
+<p><img src="6.png" alt></p>
 <p>首先检查BloomFilter,每个SSTable都有一个Bloomfilter,用以在任何磁盘IO前检查请求PK对应的数据在SSTable中是否存在。BF可能误判但是不会漏判:判断存在,但实际上可能不存在,判断不存在,则一定不存在,则流程不会访问这个SSTable(红色)。若数据很可能存在，则检查PartitionKey cache(索引的缓存)，之后根据索引条目是否在cache中找到而执行不同步骤：</p>
 <ol>
 <li>在索引缓存中找到<ul>
@@ -734,7 +734,7 @@
 <li>So every server needs to maintain a list of all the<br>other servers that are currently in the server</li>
 <li>List needs to be updated automatically as servers join, leave, and fail</li>
 </ol>
-<h4 id="Gossip-Style-membership"><a href="#Gossip-Style-membership" class="headerlink" title="Gossip Style membership"></a>Gossip Style membership</h4><p><img src="8.png" alt=""></p>
+<h4 id="Gossip-Style-membership"><a href="#Gossip-Style-membership" class="headerlink" title="Gossip Style membership"></a>Gossip Style membership</h4><p><img src="8.png" alt></p>
 <ul>
 <li>Suspicion mechanisms to adaptively set the timeout based on underlying network and failure behavior</li>
 <li>Accrual detector: Failure detector outputs a value (PHI) representing suspicion</li>
@@ -767,7 +767,7 @@
 </ul>
 </li>
 <li>EACH_QUORUM: quorum in every DC  <ul>
-<li>Lets each DC do its own quorum: supports hierarchical replies<br><img src="9.png" alt=""></li>
+<li>Lets each DC do its own quorum: supports hierarchical replies<br><img src="9.png" alt></li>
 </ul>
 </li>
 </ul>
@@ -839,14 +839,14 @@
 <li>Get/Put(row)</li>
 <li>Scan(row range, filter) – range queries MultiPut</li>
 </ul>
-<h3 id="HBase-数据模型"><a href="#HBase-数据模型" class="headerlink" title="HBase 数据模型"></a>HBase 数据模型</h3><p><img src="10.png" alt=""></p>
+<h3 id="HBase-数据模型"><a href="#HBase-数据模型" class="headerlink" title="HBase 数据模型"></a>HBase 数据模型</h3><p><img src="10.png" alt></p>
 <ul>
 <li>与nosql数据库一样,rowkey 是用来检索记录的主键。</li>
 <li>Hbase表中的每个列,都归属于某个列族。列表都以列族为前缀,例如 course:histroy, course:math 都属于course这个列族。</li>
 <li>由 rowKey + columnFamily + version 唯一确定的单元</li>
 <li>每个cell都保存着同一份数据的多个版本,版本通过时间戳来索引。时间戳的类型是64位整型。间戳可以由HBASE(在数据写入时自动)赋值,此时时间戳是精确到毫秒的当前系统时间。时间戳也可以由客户显式赋值。如果应用程序要避免数据版本冲突,就必须自己生成具有唯一性的时间戳。每个cell中,不同版本的数据按照时间倒序排序,即最新的数据排在最前面。为了避免数据存在过多版本造成的的管理(包括存贮和索引)负担,HBASE提供了两种数据版本回收方式。一是保存数据的最后n个版本,二是保存最近一段时间内的版本（比如最近七天）。用户可以针对每个列族进行设置</li>
 </ul>
-<h3 id="HBase-体系图"><a href="#HBase-体系图" class="headerlink" title="HBase 体系图"></a>HBase 体系图</h3><p><img src="11.png" alt=""></p>
+<h3 id="HBase-体系图"><a href="#HBase-体系图" class="headerlink" title="HBase 体系图"></a>HBase 体系图</h3><p><img src="11.png" alt></p>
 <h4 id="Writes-1"><a href="#Writes-1" class="headerlink" title="Writes"></a>Writes</h4><ul>
 <li>Client向HRegionServer发送写请求</li>
 <li>HRegionServer将数据写到Hlog(write ahead log)。为了数据的持久化和恢复</li>
@@ -869,7 +869,7 @@
 <li>当HRegionServer宕机后，将HRegionServer上的Hlog拆分，然后分配给不同的HRegionServer加载，修改 .META.</li>
 <li>注意：Hlog会同步到HDFS</li>
 </ul>
-<h3 id="HBase读写原理图"><a href="#HBase读写原理图" class="headerlink" title="HBase读写原理图"></a>HBase读写原理图</h3><p><img src="12.png" alt=""></p>
+<h3 id="HBase读写原理图"><a href="#HBase读写原理图" class="headerlink" title="HBase读写原理图"></a>HBase读写原理图</h3><p><img src="12.png" alt></p>
 
       
     </div>
@@ -1034,7 +1034,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
             
@@ -1049,7 +1049,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1085,13 +1085,13 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external="" nofollow""="">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external="" nofollow""="">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>

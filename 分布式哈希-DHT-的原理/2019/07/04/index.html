@@ -5,8 +5,8 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -187,7 +187,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -197,7 +197,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -347,20 +347,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/分布式哈希-DHT-的原理/2019/07/04/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="RUOCHI.AI">
     </span>
 
@@ -406,7 +406,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Big-Data-Architecture/" itemprop="url" rel="index">
                     <span itemprop="name">Big Data Architecture</span>
                   </a>
@@ -417,7 +417,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Big-Data-Architecture/Distributed-Cloud-Computing/" itemprop="url" rel="index">
                     <span itemprop="name">Distributed & Cloud Computing</span>
                   </a>
@@ -463,12 +463,12 @@
         <h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><h3 id="什么是“散列表-哈希表（hash-table）”？"><a href="#什么是“散列表-哈希表（hash-table）”？" class="headerlink" title="什么是“散列表/哈希表（hash table）”？"></a>什么是“散列表/哈希表（hash table）”？</h3><p><strong>散列表/哈希表</strong>是用来存储“键值对”的一种容器。即key/value pairs，简称“K/V”。有了“散列表”，你可以很方便快速地通过 key 来获得 value。</p>
 <h3 id="如何实现散列表？"><a href="#如何实现散列表？" class="headerlink" title="如何实现散列表？"></a>如何实现散列表？</h3><p>在散列表这种数据结构中，会包含 N 个 bucket（桶）。对于某个具体的散列表，N（桶的数量）通常是【固定不变】的。于是可以对每个桶进行编号，从 0 到 N-1。“桶”是用来存储“键值对”的，你可以把它通俗理解成一个动态数组，里面可以存放【多个】“键值对”。</p>
 <p>下面展示了散列表的【查找】原理。当使用某个 key 进行查找，会先用某个散列函数计算这个key 的散列值。得到散列值通常是一个整数，然后用散列值对N（桶数）进行“取模”运算（除法求余数），就可以算出对应的桶编号。（注：取模运算是最常用的做法，但不是唯一的做法）</p>
-<p><img src="1.png" alt=""></p>
+<p><img src="1.png" alt></p>
 <h3 id="什么是“散列表”的【碰撞-冲突】（Collision）？"><a href="#什么是“散列表”的【碰撞-冲突】（Collision）？" class="headerlink" title="什么是“散列表”的【碰撞/冲突】（Collision）？"></a>什么是“散列表”的【碰撞/冲突】（Collision）？</h3><p>当两个不同的 key 进行哈希计算却得到【相同的散列值】，就是所谓的【散列函数碰撞】。一旦出现这种情况，这两个 key 对应的两个键值对就会被存储在【同一个】桶（bucket）里面。另一种情况是：虽然计算出来的散列值【不同】，但经过“取模运算”之后却得到【相同】的桶编号。这时候也会出现：两个键值对存储在一个桶里面。</p>
 <p>如果某个哈希表在存储数据时【完全没有碰撞】，那么每个桶里面都只有 0个 或 1个 键值对。查找起来就非常快。反之，如果某个哈希表在存储数据时出现【严重碰撞】，就会导致某些桶里面存储了一大堆的键值对。将来查找 key 的时候，如果定位到的是这种“大桶”，就需要在这个桶里面逐一比对 key 是否相同——查找效率就会变得很差。</p>
-<p><img src="2.png" alt=""></p>
+<p><img src="2.png" alt></p>
 <h2 id="分布式散列表（DHT）概述"><a href="#分布式散列表（DHT）概述" class="headerlink" title="分布式散列表（DHT）概述"></a>分布式散列表（DHT）概述</h2><p><strong>分布式散列表</strong>也称为“分布式哈希表”，英文是“distributed hash table”，简称 DHT。</p>
-<p>“分布式散列表”在概念上类似与传统的“散列表”，差异在于——“传统的散列表”主要是用于单机上的某个软件中；“分布式散列表”主要是用于分布式系统（此时，分布式系统的节点可以通俗理解为散列表中的 bucket）。“分布式散列表”主要是用来存储大量的（甚至是海量的）数据。在实际使用场景中，直接对所存储的“每一个业务数据”计算散列值，然后用散列值作为 key，业务数据本身是 value。<br><img src="3.png" alt=""></p>
+<p>“分布式散列表”在概念上类似与传统的“散列表”，差异在于——“传统的散列表”主要是用于单机上的某个软件中；“分布式散列表”主要是用于分布式系统（此时，分布式系统的节点可以通俗理解为散列表中的 bucket）。“分布式散列表”主要是用来存储大量的（甚至是海量的）数据。在实际使用场景中，直接对所存储的“每一个业务数据”计算散列值，然后用散列值作为 key，业务数据本身是 value。<br><img src="3.png" alt></p>
 <h3 id="为什么会出现-DHT？"><a href="#为什么会出现-DHT？" class="headerlink" title="为什么会出现 DHT？"></a>为什么会出现 DHT？</h3><p>在 P2P 文件共享的发展史上，出现过3种不同的技术路线（三代）。</p>
 <ol>
 <li>第1代采用【中央服务器】的模式——每个节点都需要先连接到中央服务器，然后才能查找到自己想要的文件在哪里。这种技术的最大缺点是——中央服务器成为整个 P2P 网络的【单点故障】。<strong>这类 p2p 的典型代表是 Napster</strong>。</li>
@@ -501,7 +501,7 @@
 <li>……</li>
 <li>数据区间 [59,4] 隶属于“节点4”（注：“6比特”的环形空间，63之后是0）</li>
 </ul>
-<p><img src="4.png" alt=""></p>
+<p><img src="4.png" alt></p>
 <h3 id="路由机制"><a href="#路由机制" class="headerlink" title="路由机制"></a>路由机制</h3><h4 id="基本路由（简单遍历）"><a href="#基本路由（简单遍历）" class="headerlink" title="基本路由（简单遍历）"></a>基本路由（简单遍历）</h4><p>当收到请求（key），先看 key 是否在自己这里。如果在自己这里，就直接返回信息；否则就把 key 转发给自己的继任者。以此类推。这种玩法的时间复杂度是：O(N)。对于一个节点数很多的 DHT 网络，这种做法显然【非常低效】。</p>
 <h4 id="高级路由（Finger-Table）"><a href="#高级路由（Finger-Table）" class="headerlink" title="高级路由（Finger Table）"></a>高级路由（Finger Table）</h4><p>由于“基本路由”非常低效，自然就引入更高级的玩法——基于“Finger Table”的路由。“Finger Table”是一个列表，最多包含 m 项（m 就是散列值的比特数），每一项都是节点 ID。假设当前节点的 ID 是 n，那么表中第 i 项的值是：successor( (n + 2i) mod 2m ) 当收到请求（key），就到“Finger Table”中找到【最大的且不超过 key】的那一项，然后把 key 转发给这一项对应的节点。有了“Finger Table”之后，时间复杂度可以优化为：O(log N)。</p>
 <h4 id="节点的加入"><a href="#节点的加入" class="headerlink" title="节点的加入"></a>节点的加入</h4><ol>
@@ -680,7 +680,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
             
@@ -695,7 +695,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -731,13 +731,13 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external="" nofollow""="">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external="" nofollow""="">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>

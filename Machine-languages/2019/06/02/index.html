@@ -5,8 +5,8 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -201,7 +201,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -211,7 +211,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -361,20 +361,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Machine-Languages/2019/06/02/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="RUOCHI.AI">
     </span>
 
@@ -420,7 +420,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Hardware-Architecture/" itemprop="url" rel="index">
                     <span itemprop="name">Hardware Architecture</span>
                   </a>
@@ -513,12 +513,12 @@
 <h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p><strong>Memory</strong> The term memory refers loosely to the collection of hardware devices that store data and instructions in a computer. From the programmer’s standpoint, all memories have the same structure: A continuous array of cells of some fixed width, also called words or locations, each having a <strong>unique address</strong>.</p>
 <p><strong>Processor</strong>  The processor, normally called Central Processing Unit or CPU, is a device capable of performing a fixed set of elementary operations</p>
 <p><strong>Registers</strong>  Memory access is a relatively slow operation, requiring long instruction formats (an address may require 32 bits). For this reason, most processors are equipped with several registers, each capable of holding a single value. Located in the processor’s immediate proximity, the registers serve as a high-speed local memory, allowing the processor to manipulate data and instructions quickly. <strong>This setting enables the programmer to minimize the use of memory access commands, thus speeding up the program’s execution.</strong></p>
-<p><img src="1.png" alt=""></p>
+<p><img src="1.png" alt></p>
 <h2 id="Machine-languages"><a href="#Machine-languages" class="headerlink" title="Machine languages"></a>Machine languages</h2><blockquote>
 <p>A machine language can be viewed as an agreed-upon formalism, designed to manipulate a memory using a processor and a set of registers.</p>
 </blockquote>
 <h3 id="Mnemonics"><a href="#Mnemonics" class="headerlink" title="Mnemonics"></a>Mnemonics</h3><p>For example, the language designer can decide that the operation code 1010 will be represented by the mnemonic add and that the registers of the machine will be symbolically referred to using the symbols R0, R1, R2, and so forth. Using these conventions, one can specify machine language instructions either directly, as 1010001100011001, or symbolically, as, say, ADD R3,R1,R9.</p>
-<p><img src="3.png" alt=""></p>
+<p><img src="3.png" alt></p>
 <h3 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h3><p>Yet irrespective of this variety, all machine lan- guages support similar sets of generic commands, which we now describe.</p>
 <h3 id="Arithmetic-and-Logic-Operations"><a href="#Arithmetic-and-Logic-Operations" class="headerlink" title="Arithmetic and Logic Operations"></a>Arithmetic and Logic Operations</h3><figure class="highlight arm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ADD </span><span class="built_in">R2</span>,<span class="built_in">R1</span>,<span class="built_in">R3</span>    // <span class="built_in">R2</span>-&lt;--<span class="built_in">R1</span>+<span class="built_in">R3</span> where <span class="built_in">R1</span>,<span class="built_in">R2</span>,<span class="built_in">R3</span> are registers</span><br><span class="line"><span class="keyword">ADD </span><span class="built_in">R2</span>,<span class="built_in">R1</span>,foo   // <span class="built_in">R2</span>-&lt;--<span class="built_in">R1</span>+foo where foo stands for the </span><br><span class="line">                // value of the memory location pointed </span><br><span class="line">                // at <span class="keyword">by </span>the user-defined label foo.</span><br><span class="line"><span class="keyword">AND </span><span class="built_in">R1</span>,<span class="built_in">R1</span>,<span class="built_in">R2</span>    // <span class="built_in">R1</span>-&lt;--<span class="keyword">bit </span>wise <span class="keyword">And </span>of <span class="built_in">R1</span> <span class="keyword">and </span><span class="built_in">R2</span></span><br></pre></td></tr></table></figure>
 <h3 id="Memory-Access"><a href="#Memory-Access" class="headerlink" title="Memory Access"></a>Memory Access</h3><p>Memory access commands fall into <strong>two categories</strong>. </p>
@@ -544,8 +544,8 @@
 </ol>
 <p><strong>Unconditional jump</strong> commands like JMP beginWhile specify only the address of the target location<br><strong>Conditional jump</strong> commands like JNG R1,endWhile must also specify a Boolean condition, expressed in some way.</p>
 <figure class="highlight arm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">load</span> <span class="built_in">R1</span>,<span class="number">0</span></span><br><span class="line"><span class="keyword">add </span><span class="number">1</span>, <span class="built_in">R1</span></span><br><span class="line"><span class="symbol">...</span></span><br><span class="line">// do something with <span class="built_in">R1</span> value ...</span><br><span class="line"><span class="symbol">jmp</span> <span class="number">102</span> // goto <span class="number">102</span></span><br></pre></td></tr></table></figure>
-<h3 id="Compilation"><a href="#Compilation" class="headerlink" title="Compilation"></a>Compilation</h3><p><img src="2.png" alt="">                  </p>
-<h2 id="The-Hack-language-specification"><a href="#The-Hack-language-specification" class="headerlink" title="The Hack language specification"></a>The Hack language specification</h2><p><img src="4.png" alt=""></p>
+<h3 id="Compilation"><a href="#Compilation" class="headerlink" title="Compilation"></a>Compilation</h3><p><img src="2.png" alt>                  </p>
+<h2 id="The-Hack-language-specification"><a href="#The-Hack-language-specification" class="headerlink" title="The Hack language specification"></a>The Hack language specification</h2><p><img src="4.png" alt></p>
 <p><strong>Memory Address Spaces</strong> The Hack computer is a von Neumann platform. It is a 16-bit machine, consisting of a CPU, two separate memory modules serving as <strong>instruction memory</strong> and <strong>data memory</strong>, and two memory-mapped I/O devices: a screen and a keyboard.The CPU can only execute programs that reside in the instruction memory.</p>
 <p><strong>Register</strong></p>
 <ol>
@@ -561,7 +561,7 @@
 <li><strong>@value</strong>, where value is either a number or a symbol representing a number. This command simply stores the specified value in the A register. </li>
 </ol>
 <h3 id="The-A-Instruction"><a href="#The-A-Instruction" class="headerlink" title="The A-Instruction"></a>The A-Instruction</h3><p>The A-instruction is used to set the A register to a 15-bit values</p>
-<script type="math/tex; mode=display">@valu</script><p><img src="5.png" alt=""></p>
+<script type="math/tex; mode=display">@valu</script><p><img src="5.png" alt></p>
 <p>The A-instruction is used for three different purposes.</p>
 <ul>
 <li>it provides the only way to <strong>enter a constant</strong> into the computer under program control.</li>
@@ -575,17 +575,17 @@
 <li>what to do next</li>
 </ul>
 <p>The overall semantics of the symbolic instruction dest=comp;jump is as follows. The <strong>comp</strong> field instructs the ALU what to compute. The <strong>dest</strong> field instructs where to store the computed value (ALU output).</p>
-<p><img src="6.png" alt=""></p>
+<p><img src="6.png" alt></p>
 <h4 id="The-Computation-Specification-comp"><a href="#The-Computation-Specification-comp" class="headerlink" title="The Computation Specification(comp)"></a>The Computation Specification(comp)</h4><p>The Hack ALU is designed to compute a fixed set of functions on the D, A, and M registers (where M stands for Memory[A]). </p>
 <p>Recall that the format of the C-instruction is 111accccccdd djjj. Suppose we want to have the ALU compute D-1, the current value of the D register minus 1. According to figure blow, this can be done by issuing the instruction 1110001110000000 (the 7-bit operation code is in bold). To compute the value of D|M, we issue the instruction 1111 010101000000. To compute the constant 􏰁1, we issue the instruction 1110111010000000, and so on.</p>
-<p><img src="7.png" alt=""></p>
+<p><img src="7.png" alt></p>
 <h3 id="The-Destination-Specification"><a href="#The-Destination-Specification" class="headerlink" title="The Destination Specification"></a>The Destination Specification</h3><p>The value computed by the comp part of the C- instruction can be stored in several destinations, as specified by the instruction’s 3-bit dest part.</p>
 <p>Recall that the format of the C-instruction is 111a cccc ccdd djjj. Suppose we want the computer to increment the value of Memory[7] by 1 and to also store the result in the D register. According to figures 4.3 and 4.4, this can be accomplished by the following instructions:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0000 0000 0000 0111    // @7</span><br><span class="line">1111 1101 1101 1000    // MD=M+1</span><br></pre></td></tr></table></figure>
-<p><img src="8.png" alt=""></p>
+<p><img src="8.png" alt></p>
 <h3 id="The-Jump-Specification"><a href="#The-Jump-Specification" class="headerlink" title="The Jump Specification"></a>The Jump Specification</h3><p>The jump field of the C-instruction tells the computer what to do next.</p>
 <figure class="highlight arm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//  <span class="meta">if</span> Memory[<span class="number">3</span>]<span class="number">=5</span> then goto <span class="number">100</span> <span class="meta">else</span> goto <span class="number">200</span></span><br><span class="line"></span><br><span class="line"><span class="comment">@3</span></span><br><span class="line">D<span class="symbol">=M</span>    // D<span class="symbol">=Memory</span>[<span class="number">3</span>]</span><br><span class="line"><span class="comment">@5</span></span><br><span class="line">D<span class="symbol">=D</span>-A  // D<span class="symbol">=D</span>-<span class="number">5</span></span><br><span class="line"><span class="comment">@100</span></span><br><span class="line">D<span class="comment">;JEQ  // If D=0 goto 100</span></span><br><span class="line"><span class="comment">@200</span></span><br><span class="line"><span class="number">0</span><span class="comment">;JMP  // Goto 200</span></span><br></pre></td></tr></table></figure>
-<p><img src="9.png" alt=""></p>
+<p><img src="9.png" alt></p>
 <h3 id="Symbols"><a href="#Symbols" class="headerlink" title="Symbols"></a>Symbols</h3><p>Assembly commands can refer to memory locations (addresses) using either constants or symbols. Symbols are introduced into assembly programs in the following three ways:</p>
 <p><strong>Predefined symbols</strong>: A special subset of RAM addresses can be referred to by any assembly program using the following predefined symbols.</p>
 <ul>
@@ -602,7 +602,7 @@
 <li>The physical display is continuously refreshed from the memory map, many times per second</li>
 <li>Output is effected by writing code that manipulates the screen memory map.</li>
 </ul>
-<p><img src="10.png" alt=""></p>
+<p><img src="10.png" alt></p>
 <h3 id="Screen"><a href="#Screen" class="headerlink" title="Screen"></a>Screen</h3><p>The Hack computer includes a black-and-white screen organized as 256 rows of 512 pixels per row. The screen’s contents are represented by an 8K memory map that starts at RAM address 16384 (0x4000). Each row in the physical screen, starting at the screen’s top left corner, is represented in the RAM by 32 consecutive 16-bit words. Thus the pixel at row r from the top and column c from the left is mapped on the c%16 bit (counting from LSB to MSB) of the word located at RAM[16384 + r *􏰀 32 + c/16]. To write or read a pixel of the physical screen, one reads or writes the corresponding bit in the RAM-resident memory map (1 1⁄4 black, 0 1⁄4 white). Example:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// Draw a single black dot at the screen&apos;s top left corner:</span><br><span class="line">@SCREEN  // Set the A register to point to the memory</span><br><span class="line">         // word that is mapped to the 16 left-most</span><br><span class="line">         // pixels of the top row of the screen.</span><br><span class="line">M=1      // Blacken the left-most pixel.</span><br></pre></td></tr></table></figure>
 <p>!()[11.png]</p>
@@ -610,7 +610,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// Pseudo code</span><br><span class="line">// for (i=0; i&lt;n; i++) &#123;</span><br><span class="line">//     draw 16 black pixels at the</span><br><span class="line">//     beginning of row i</span><br><span class="line">// &#125;</span><br><span class="line"></span><br><span class="line">addr = SCREEN n = RAM[0] i=0</span><br><span class="line">LOOP:</span><br><span class="line">if i &gt; n goto END</span><br><span class="line">RAM[addr] = -1 // 1111111111111111 // advances to the next row</span><br><span class="line">addr = addr + 32</span><br><span class="line">i=i+1</span><br><span class="line">goto LOOP</span><br><span class="line">END:</span><br><span class="line">goto END</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">@SCREEN</span><br><span class="line">D=A</span><br><span class="line">@addr</span><br><span class="line">M=D  // addr = 16384</span><br><span class="line">    // (screen’s base address)</span><br><span class="line">@0</span><br><span class="line">D=M</span><br><span class="line">@n</span><br><span class="line">M=D  // n = RAM[0]</span><br><span class="line"></span><br><span class="line">@i</span><br><span class="line">M=0 //i=0</span><br><span class="line"></span><br><span class="line">(LOOP) </span><br><span class="line">    @i</span><br><span class="line">    D=M</span><br><span class="line">    @n</span><br><span class="line">    D=D-M</span><br><span class="line">    @END</span><br><span class="line">    D;JGT  // if i&gt;n goto END</span><br><span class="line"></span><br><span class="line">    @addr</span><br><span class="line">    A=M</span><br><span class="line">    M=-1   // RAM[addr]=1111111111111111</span><br><span class="line"></span><br><span class="line">    @i</span><br><span class="line">    M=M+1 //i=i+1</span><br><span class="line">    @32</span><br><span class="line">    D=A</span><br><span class="line">    @addr</span><br><span class="line">    M=D+M // addr = addr + 32 @LOOP</span><br><span class="line">    0;JMP // goto LOOP</span><br><span class="line"></span><br><span class="line">(END)</span><br><span class="line">    @END   // program’s end</span><br><span class="line">    0;JMP</span><br></pre></td></tr></table></figure>
 <h3 id="Keyboard"><a href="#Keyboard" class="headerlink" title="Keyboard"></a>Keyboard</h3><p>The Hack computer interfaces with the physical keyboard via a single-word memory map located in RAM address 24576 (0x6000). Whenever a key is pressed on the physical keyboard, its 16-bit ASCII code appears in RAM[24576]. When no key is pressed, the code 0 appears in this location. In addition to the usual ASCII codes, the Hack keyboard recognizes the keys shown in figure 4.6.</p>
-<p><img src="12.png" alt=""></p>
+<p><img src="12.png" alt></p>
 <h2 id="Syntax-Conventions-and-File-Format"><a href="#Syntax-Conventions-and-File-Format" class="headerlink" title="Syntax Conventions and File Format"></a>Syntax Conventions and File Format</h2><p><strong>Binary Code Files</strong>  A binary code file is composed of text lines. Each line is a sequence of sixteen ‘‘0’’ and ‘‘1’’ ASCII characters, coding a single machine language instruction. Taken together, all the lines in the file represent a machine language program. The contract is such that when a machine language program is loaded into the computer’s instruction memory, the binary code represented by the file’s nth line is stored in address n of the instruction memory (the count of both program lines and memory addresses starts at 0). By convention, machine language programs are stored in text files with a ‘‘hack’’ extension, for example, Prog.hack.</p>
 <p><strong>Assembly Language Files</strong> By convention, assembly language programs are stored in text files with an ‘‘asm’’ extension, for example, Prog.asm. An assembly languages file is composed of text lines, each representing either an instruction or a symbol declaration:</p>
 <ul>
@@ -621,21 +621,21 @@
 <p><strong>Comments Text</strong> beginning with two slashes (//) and ending at the end of the line is considered a comment and is ignored.</p>
 <p><strong>White Space</strong> Space characters are ignored. Empty lines are ignored.</p>
 <p><strong>Case Conventions</strong> All the assembly mnemonics must be written in uppercase. The rest (user-defined labels and variable names) is case sensitive. The convention is to use uppercase for labels and lowercase for variable names.</p>
-<h2 id="Hack-programming"><a href="#Hack-programming" class="headerlink" title="Hack programming"></a>Hack programming</h2><h3 id="Hack-assembly-language-overview"><a href="#Hack-assembly-language-overview" class="headerlink" title="Hack assembly language (overview)"></a>Hack assembly language (overview)</h3><p><img src="16.png" alt=""><br><img src="14.png" alt=""></p>
+<h2 id="Hack-programming"><a href="#Hack-programming" class="headerlink" title="Hack programming"></a>Hack programming</h2><h3 id="Hack-assembly-language-overview"><a href="#Hack-assembly-language-overview" class="headerlink" title="Hack assembly language (overview)"></a>Hack assembly language (overview)</h3><p><img src="16.png" alt><br><img src="14.png" alt></p>
 <h4 id="Registers-and-memory"><a href="#Registers-and-memory" class="headerlink" title="Registers and memory"></a>Registers and memory</h4><ul>
 <li>D: data register</li>
 <li>A: address / data register</li>
 <li>M: the currently selected memory register: M = RAM[A]</li>
 </ul>
-<p><img src="15.png" alt=""></p>
+<p><img src="15.png" alt></p>
 <p>Typical operations:</p>
 <figure class="highlight arm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// D = <span class="number">10</span></span><br><span class="line"><span class="comment">@10</span></span><br><span class="line">D<span class="symbol">=A</span></span><br><span class="line"></span><br><span class="line">// D++</span><br><span class="line">D<span class="symbol">=D</span>+<span class="number">1</span></span><br><span class="line"></span><br><span class="line">// D<span class="symbol">=RAM</span>[<span class="number">17</span>]</span><br><span class="line"><span class="comment">@17</span></span><br><span class="line">D<span class="symbol">=M</span></span><br><span class="line"></span><br><span class="line">//RAM[<span class="number">17</span>]<span class="symbol">=D</span></span><br><span class="line"><span class="comment">@17</span></span><br><span class="line">M<span class="symbol">=D</span></span><br><span class="line"></span><br><span class="line">// RAM[<span class="number">17</span>]<span class="number">=10</span></span><br><span class="line"><span class="comment">@10</span></span><br><span class="line">D<span class="symbol">=A</span></span><br><span class="line"><span class="comment">@17</span></span><br><span class="line">M<span class="symbol">=D</span></span><br><span class="line"></span><br><span class="line">// RAM[<span class="number">5</span>] = RAM[<span class="number">3</span>]</span><br><span class="line"><span class="comment">@3 </span></span><br><span class="line">D<span class="symbol">=M</span> </span><br><span class="line"><span class="comment">@5</span></span><br><span class="line">M<span class="symbol">=D</span></span><br></pre></td></tr></table></figure>
 <p><strong>Program example</strong>: add two numbers<br><figure class="highlight arm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// Program: <span class="keyword">Add2.asm</span></span><br><span class="line"><span class="keyword">// </span>Computes: RAM[<span class="number">2</span>] = RAM[<span class="number">0</span>] + RAM[<span class="number">1</span>]</span><br><span class="line">// Usage: put values in RAM[<span class="number">0</span>], RAM[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">@0</span></span><br><span class="line">D<span class="symbol">=A</span></span><br><span class="line"></span><br><span class="line"><span class="comment">@1</span></span><br><span class="line">D<span class="symbol">=D</span>+M</span><br><span class="line"></span><br><span class="line"><span class="comment">@2</span></span><br><span class="line">M<span class="symbol">=D</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="Branching-and-Labels"><a href="#Branching-and-Labels" class="headerlink" title="Branching and Labels"></a>Branching and Labels</h4><p><img src="17.png" alt=""></p>
-<h4 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h4><p><img src="18.png" alt=""></p>
+<h4 id="Branching-and-Labels"><a href="#Branching-and-Labels" class="headerlink" title="Branching and Labels"></a>Branching and Labels</h4><p><img src="17.png" alt></p>
+<h4 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h4><p><img src="18.png" alt></p>
 <h4 id="Iterative-processing"><a href="#Iterative-processing" class="headerlink" title="Iterative processing"></a>Iterative processing</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// pseudo code</span><br><span class="line">// Computes RAM[1] = 1+2+ ... +RAM[0]</span><br><span class="line">n = R0 </span><br><span class="line">i=1 </span><br><span class="line">sum = 0</span><br><span class="line"></span><br><span class="line">LOOP:</span><br><span class="line">    if i &gt; n goto STOP </span><br><span class="line">    sum = sum + i </span><br><span class="line">    i=i+1</span><br><span class="line">    goto LOOP</span><br><span class="line">STOP:</span><br><span class="line">    R1 = sum</span><br></pre></td></tr></table></figure>
 <figure class="highlight arm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">// Computes RAM[<span class="number">1</span>] = <span class="number">1</span>+<span class="number">2</span>+ ... +n</span><br><span class="line">// Usage: put a number (n) in RAM[<span class="number">0</span>]</span><br><span class="line">      <span class="comment">@R0</span></span><br><span class="line">      D<span class="symbol">=M</span></span><br><span class="line">      <span class="comment">@n</span></span><br><span class="line">      M<span class="symbol">=D</span>   // n = <span class="built_in">R0</span></span><br><span class="line">      <span class="comment">@i</span></span><br><span class="line">      M<span class="number">=1</span>   // i = <span class="number">1</span></span><br><span class="line">      <span class="comment">@sum</span></span><br><span class="line">      M<span class="number">=0</span>   // sum = <span class="number">0</span></span><br><span class="line">(LOOP) <span class="comment">@i</span></span><br><span class="line">      D<span class="symbol">=M</span></span><br><span class="line">      <span class="comment">@n</span></span><br><span class="line">      D<span class="symbol">=D</span>-M</span><br><span class="line">      <span class="comment">@STOP</span></span><br><span class="line">      D<span class="comment">;JGT  // if i &gt; n goto STOP</span></span><br><span class="line">      <span class="comment">@sum</span></span><br><span class="line">      D<span class="symbol">=M</span></span><br><span class="line">      <span class="comment">@i</span></span><br><span class="line">      D<span class="symbol">=D</span>+M</span><br><span class="line">      <span class="comment">@sum</span></span><br><span class="line">      M<span class="symbol">=D</span>    // sum = sum + i</span><br><span class="line">      <span class="comment">@i</span></span><br><span class="line">      M<span class="symbol">=M</span>+<span class="number">1</span>  // i = i + <span class="number">1</span></span><br><span class="line">      <span class="comment">@LOOP</span></span><br><span class="line">      <span class="number">0</span><span class="comment">;JMP</span></span><br><span class="line">(STOP) </span><br><span class="line">      <span class="comment">@sum</span></span><br><span class="line">      D<span class="symbol">=M</span></span><br><span class="line">      <span class="comment">@R1</span></span><br><span class="line">      M<span class="symbol">=D</span>    // RAM[<span class="number">1</span>] = sum</span><br><span class="line">(<span class="meta">END</span>) </span><br><span class="line">      <span class="comment">@END</span></span><br><span class="line">      <span class="number">0</span><span class="comment">;JMP</span></span><br></pre></td></tr></table></figure>
-<h4 id="Pointers"><a href="#Pointers" class="headerlink" title="Pointers"></a>Pointers</h4><p><img src="19.png" alt=""></p>
+<h4 id="Pointers"><a href="#Pointers" class="headerlink" title="Pointers"></a>Pointers</h4><p><img src="19.png" alt></p>
 
       
     </div>
@@ -806,7 +806,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
             
@@ -821,7 +821,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -857,13 +857,13 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external="" nofollow""="">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external="" nofollow""="">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>

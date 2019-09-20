@@ -5,8 +5,8 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -186,7 +186,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -196,7 +196,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -346,20 +346,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Task-Parallelism/2019/06/08/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="RUOCHI.AI">
     </span>
 
@@ -405,7 +405,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Big-Data-Architecture/" itemprop="url" rel="index">
                     <span itemprop="name">Big Data Architecture</span>
                   </a>
@@ -416,7 +416,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Big-Data-Architecture/Parallel-Computation/" itemprop="url" rel="index">
                     <span itemprop="name">Parallel Computation</span>
                   </a>
@@ -485,7 +485,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">finish &#123;</span><br><span class="line">  async S1; // asynchronously compute sum of the lower half of the array</span><br><span class="line">  S2;       // compute sum of the upper half of the array in parallel with S1</span><br><span class="line">&#125;</span><br><span class="line">S3; // combine the two partial sums after both S1 and S2 have finished</span><br></pre></td></tr></table></figure>
 <h3 id="Creating-Tasks-in-Java’s-Fork-Join-Framework"><a href="#Creating-Tasks-in-Java’s-Fork-Join-Framework" class="headerlink" title="Creating Tasks in Java’s Fork/Join Framework"></a>Creating Tasks in Java’s Fork/Join Framework</h3><p><strong>Fork/Join (FJ) framework</strong>  In this framework, a task can be specified in the 𝚌𝚘𝚖𝚙𝚞𝚝𝚎() method of a user-defined class that extends the standard RecursiveAction class in the FJ framework. </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ASum</span> <span class="keyword">extends</span> <span class="title">RecursiveAction</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span>[] A; <span class="comment">// input array</span></span><br><span class="line">  <span class="keyword">int</span> LO, HI; <span class="comment">// subrange</span></span><br><span class="line">  <span class="keyword">int</span> SUM; <span class="comment">// return value</span></span><br><span class="line">  . . .</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">compute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    SUM = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = LO; i &lt;= HI; i++) SUM += A[i];</span><br><span class="line">  &#125; <span class="comment">// compute()</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Computation-Graphs-Work-Span-Ideal-Parallelism"><a href="#Computation-Graphs-Work-Span-Ideal-Parallelism" class="headerlink" title="Computation Graphs, Work, Span, Ideal Parallelism"></a>Computation Graphs, Work, Span, Ideal Parallelism</h3><p><img src="1.png" alt=""></p>
+<h3 id="Computation-Graphs-Work-Span-Ideal-Parallelism"><a href="#Computation-Graphs-Work-Span-Ideal-Parallelism" class="headerlink" title="Computation Graphs, Work, Span, Ideal Parallelism"></a>Computation Graphs, Work, Span, Ideal Parallelism</h3><p><img src="1.png" alt></p>
 <h4 id="Computation-Graphs-CGs"><a href="#Computation-Graphs-CGs" class="headerlink" title="Computation Graphs (CGs)"></a>Computation Graphs (CGs)</h4><p><strong>Computation Graphs (CGs)</strong>, which model the execution of a parallel program as a partially ordered set. Specifically, a CG consists of:</p>
 <ul>
 <li>A set of vertices or nodes, in which each node represents a step consisting of an arbitrary sequential computation.</li>
@@ -509,7 +509,7 @@
 <li>$T_1$: $T_1$ as the execution time of a CG on 1 processors</li>
 <li>$T<em>{\infty}$ : $T</em>{\infty}$ as the execution time of a CG on 1 processors</li>
 </ul>
-<script type="math/tex; mode=display">T_{\infty} \leq T_p \leq  T_1</script><p>We also saw examples for which there could be different values of $T_p$ for different schedules of the same CG on P processors.<br><img src="2.png" alt=""></p>
+<script type="math/tex; mode=display">T_{\infty} \leq T_p \leq  T_1</script><p>We also saw examples for which there could be different values of $T_p$ for different schedules of the same CG on P processors.<br><img src="2.png" alt></p>
 <p><strong>speedup</strong>: given schedule of a CG on P processors as, $ Speedup(P) = \frac{T_1}{T_p} $. Speedup(P) must be $\leq$ the number of processors P , and also $\leq$ the ideal parallelism, WORK/SPAN.</p>
 <h3 id="Amdahl’s-Law"><a href="#Amdahl’s-Law" class="headerlink" title="Amdahl’s Law"></a>Amdahl’s Law</h3><p>q is the fraction of WORK in a parallel program that must be executed sequentially:</p>
 <script type="math/tex; mode=display">Speedup(P) \leq \frac{1}{q}</script>
@@ -682,7 +682,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
             
@@ -697,7 +697,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -733,13 +733,13 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external="" nofollow""="">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external="" nofollow""="">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>

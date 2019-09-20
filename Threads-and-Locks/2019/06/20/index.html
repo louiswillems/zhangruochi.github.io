@@ -5,8 +5,8 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -187,7 +187,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -197,7 +197,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -347,20 +347,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Threads-and-Locks/2019/06/20/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="RUOCHI.AI">
     </span>
 
@@ -406,7 +406,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Big-Data-Architecture/" itemprop="url" rel="index">
                     <span itemprop="name">Big Data Architecture</span>
                   </a>
@@ -417,7 +417,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Big-Data-Architecture/Parallel-Computation/" itemprop="url" rel="index">
                     <span itemprop="name">Parallel Computation</span>
                   </a>
@@ -494,7 +494,7 @@
 <li>read-write locks (which can be obtained in Java by creating instances of 𝚁𝚎𝚎𝚗𝚝𝚛𝚊𝚗𝚝𝚁𝚎𝚊𝚍𝚆𝚛𝚒𝚝𝚎𝙻𝚘𝚌𝚔()), whereby multiple threads are permitted to acquire a lock 𝙻 in “read mode”, 𝙻.𝚛𝚎𝚊𝚍𝙻𝚘𝚌𝚔().𝚕𝚘𝚌𝚔(), but only one thread is permitted to acquire the lock in “write mode”, 𝙻.𝚠𝚛𝚒𝚝𝚎𝙻𝚘𝚌𝚔().𝚕𝚘𝚌𝚔().</li>
 </ol>
 <p><strong>However, it is also important to remember that the generality and power of unstructured locks is accompanied by an extra responsibility on the part of the programmer, e.g., ensuring that calls to 𝚞𝚗𝚕𝚘𝚌𝚔() are not forgotten, even in the presence of exceptions.</strong></p>
-<p><img src="2.png" alt=""></p>
+<p><img src="2.png" alt></p>
 <h2 id="Liveness-and-Progress-Guarantees"><a href="#Liveness-and-Progress-Guarantees" class="headerlink" title="Liveness and Progress Guarantees"></a>Liveness and Progress Guarantees</h2><p>There are three ways in which a parallel program may enter a state in which it stops making forward progress. For sequential programs, an “infinite loop” is a common way for a program to stop making forward progress, but there are other ways to obtain an absence of progress in a parallel program.</p>
 <ol>
 <li><strong>Deadlock</strong>: all threads are blocked indefinitely, thereby preventing any forward progress.</li>
@@ -502,7 +502,7 @@
 <li><strong>starvation</strong>: at least one thread is prevented from making any forward progress.</li>
 </ol>
 <p>The term “liveness” refers to a progress guarantee. The three progress guarantees that correspond to the absence of the conditions listed above are deadlock freedom, livelock freedom, and starvation freedom.</p>
-<p><img src="3.png" alt=""></p>
+<p><img src="3.png" alt></p>
 <h3 id="synchronized-用法"><a href="#synchronized-用法" class="headerlink" title="synchronized 用法"></a>synchronized 用法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// --------------------- </span></span><br><span class="line"><span class="comment">// 作者：叉叉哥 </span></span><br><span class="line"><span class="comment">// 来源：CSDN </span></span><br><span class="line"><span class="comment">// 原文：https://blog.csdn.net/xiao__gui/article/details/8188833 </span></span><br><span class="line"><span class="comment">// 版权声明：本文为博主原创文章，转载请附上博文链接！</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sync</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"test开始.."</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"test结束.."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Sync sync = <span class="keyword">new</span> Sync();</span><br><span class="line">        sync.test();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">            Thread thread = <span class="keyword">new</span> MyThread();</span><br><span class="line">            thread.start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行结果：</span></span><br><span class="line"><span class="comment">// test开始..</span></span><br><span class="line"><span class="comment">// test开始..</span></span><br><span class="line"><span class="comment">// test开始..</span></span><br><span class="line"><span class="comment">// test结束..</span></span><br><span class="line"><span class="comment">// test结束..</span></span><br><span class="line"><span class="comment">// test结束..</span></span><br></pre></td></tr></table></figure>
 <p>上面的程序起了三个线程，同时运行Sync类中的test()方法，虽然test()方法加上了synchronized，但是还是同时运行起来，synchronized没起作用。 </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span>(<span class="keyword">this</span>)&#123;</span><br><span class="line">        System.out.println(<span class="string">"test开始.."</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"test结束.."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行结果：</span></span><br><span class="line"><span class="comment">// test开始..</span></span><br><span class="line"><span class="comment">// test开始..</span></span><br><span class="line"><span class="comment">// test开始..</span></span><br><span class="line"><span class="comment">// test结束..</span></span><br><span class="line"><span class="comment">// test结束..</span></span><br><span class="line"><span class="comment">// test结束..</span></span><br></pre></td></tr></table></figure>
@@ -518,7 +518,7 @@
 <p>作者：九茶<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/Bone_ACE/article/details/46362599" target="_blank" rel="noopener">https://blog.csdn.net/Bone_ACE/article/details/46362599</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
 </blockquote>
 <p>五个哲学家（A~E）围着一张圆桌就餐，他们每个人面前都有一盘通心粉。由于通心粉很滑，所以需要两只筷子才能夹住，但每两个盘子之间只放着一只筷子，如下图。<br>哲学家只有两个动作：要么就餐，要么思考。而且他们之间从不交谈。<br>当一个哲学家饿了的时候，就拿起盘子左右两边的筷子开始就餐（不能同时拿起两只筷子）。就餐完以后，就把筷子放回盘子左右，继续思考。 </p>
-<p><img src="1.png" alt=""></p>
+<p><img src="1.png" alt></p>
 <p>由于他们之间互不交谈，所以很容易出现“死锁”：假如每个人都拿着左边的筷子，则所有人都在等右边的筷子，谁都吃不了。<br>我们可以规定，拿着一只筷子等待另一只筷子的时间超过五分钟就放下手中的筷子，并且再等待五分钟之后进行下一次尝试。<br>这个策略消除了死锁，不过还是有可能发生“活锁”：假如这五个人同时拿起左边的筷子，大家都在等另一只筷子，五分钟之后大家同时放下筷子。再过五分钟之后又同时拿起左边的筷子……</p>
 <p>在计算机领域中，哲学家就餐问题可以抽象成资源抢占问题，筷子就是“资源”。一种常用的计算机技术就是给资源“加锁”，一个资源同时只能供一个程序或者一段代码访问。当一个程序要使用的资源被另外一个程序锁定的时候，只能等待资源被解锁。这就容易出现死锁情况，当有两个程序需要访问两个相同的资源时，如果每个程序都锁了一个资源，那么两者都在等待对方解锁另一个资源的解锁，最后谁都无法执行。</p>
 <p>以下介绍三种解决方案。</p>
@@ -699,7 +699,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
             
@@ -714,7 +714,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -750,13 +750,13 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external="" nofollow""="">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external="" nofollow""="">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>

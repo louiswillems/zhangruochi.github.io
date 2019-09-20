@@ -5,8 +5,8 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -197,7 +197,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -207,7 +207,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -357,20 +357,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Neural-Networks-and-Deep-Learning/2019/03/29/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="RUOCHI.AI">
     </span>
 
@@ -416,7 +416,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
                     <span itemprop="name">Artificial Intelligence</span>
                   </a>
@@ -427,7 +427,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Artificial-Intelligence/Deep-Learning/" itemprop="url" rel="index">
                     <span itemprop="name">Deep Learning</span>
                   </a>
@@ -547,14 +547,14 @@
 <h3 id="What-is-a-Neural-Network-NN"><a href="#What-is-a-Neural-Network-NN" class="headerlink" title="What is a (Neural Network) NN?"></a>What is a (Neural Network) NN?</h3><ul>
 <li>Single neuron == linear regression</li>
 <li>Simple NN graph:<ul>
-<li><img src="images/12.jpg" alt=""></li>
+<li><img src="images/12.jpg" alt></li>
 <li>Image taken from <a href="tutorialspoint.com">tutorialspoint.com</a></li>
 </ul>
 </li>
 <li>RELU stands for rectified linear unit is the most popular activation function right now that makes deep NNs train faster now.</li>
 <li>Hidden layers predicts connection between inputs automatically, thats what deep learning is good at.</li>
 <li>Deep NN consists of more hidden layers (Deeper layers)<ul>
-<li><img src="images/13.png" alt=""></li>
+<li><img src="images/13.png" alt></li>
 <li>Image taken from <a href="opennn.net">opennn.net</a></li>
 </ul>
 </li>
@@ -578,7 +578,7 @@
 <ol>
 <li>Data:<ul>
 <li>Using this image we can conclude:<ul>
-<li><img src="images/11.png" alt=""></li>
+<li><img src="images/11.png" alt></li>
 </ul>
 </li>
 <li>For small data NN can perform as Linear regression or SVM (Support vector machine)</li>
@@ -698,14 +698,14 @@
 </ul>
 <h3 id="Computation-graph"><a href="#Computation-graph" class="headerlink" title="Computation graph"></a>Computation graph</h3><ul>
 <li>Its a graph that organizes the computation from left to right.<ul>
-<li><img src="images/02.png" alt=""></li>
+<li><img src="images/02.png" alt></li>
 </ul>
 </li>
 </ul>
 <h3 id="Derivatives-with-a-Computation-Graph"><a href="#Derivatives-with-a-Computation-Graph" class="headerlink" title="Derivatives with a Computation Graph"></a>Derivatives with a Computation Graph</h3><ul>
 <li>Calculus chain rule says:<br>If <code>x -&gt; y -&gt; z</code>          (x effect y and y effects z)<br>Then <code>d(z)/d(x) = d(z)/d(y) * d(y)/d(x)</code></li>
 <li>The video illustrates a big example.<ul>
-<li><img src="images/03.png" alt=""></li>
+<li><img src="images/03.png" alt></li>
 </ul>
 </li>
 <li>We compute the derivatives on a graph from right to left and it will be a lot more easier.</li>
@@ -713,7 +713,7 @@
 </ul>
 <h3 id="Logistic-Regression-Gradient-Descent"><a href="#Logistic-Regression-Gradient-Descent" class="headerlink" title="Logistic Regression Gradient Descent"></a>Logistic Regression Gradient Descent</h3><ul>
 <li>In the video he discussed the derivatives of gradient decent example for one sample with two features <code>x1</code> and <code>x2</code>.<ul>
-<li><img src="images/04.png" alt=""></li>
+<li><img src="images/04.png" alt></li>
 </ul>
 </li>
 </ul>
@@ -721,7 +721,7 @@
 <li><p>Lets say we have these variables:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">X1                  Feature</span><br><span class="line">X2                  Feature</span><br><span class="line">W1                  Weight of the first feature.</span><br><span class="line">W2                  Weight of the second feature.</span><br><span class="line">B                   Logistic Regression parameter.</span><br><span class="line">M                   Number of training examples</span><br><span class="line">Y(i)                Expected output of i</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>So we have:<br><img src="images/09.png" alt=""></p>
+<li><p>So we have:<br><img src="images/09.png" alt></p>
 </li>
 <li><p>Then from right to left we will calculate derivations compared to the result:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">d(a)  = d(l)/d(a) = -(y/a) + ((1-y)/(1-a))</span><br><span class="line">d(z)  = d(l)/d(z) = a - y</span><br><span class="line">d(W1) = X1 * d(z)</span><br><span class="line">d(W2) = X2 * d(z)</span><br><span class="line">d(B) = d(z)</span><br></pre></td></tr></table></figure>
@@ -823,7 +823,7 @@
 </ul>
 <h3 id="Computing-a-Neural-Network’s-Output"><a href="#Computing-a-Neural-Network’s-Output" class="headerlink" title="Computing a Neural Network’s Output"></a>Computing a Neural Network’s Output</h3><ul>
 <li>Equations of Hidden layers:<ul>
-<li><img src="images/05.png" alt=""></li>
+<li><img src="images/05.png" alt></li>
 </ul>
 </li>
 <li>Here are some informations about the last image:<ul>
@@ -932,7 +932,7 @@
 </li>
 <li><p>How we derived the 6 equations of the back propagation:</p>
 <ul>
-<li><img src="images/06.png" alt=""></li>
+<li><img src="images/06.png" alt></li>
 </ul>
 </li>
 </ul>
@@ -1006,7 +1006,7 @@
 </li>
 <li>Neural Researchers thinks that deep neural networks thinks like brains (Simple ==&gt; Complex)</li>
 <li>Circuit theory and deep learning:<ul>
-<li><img src="images/07.png" alt=""></li>
+<li><img src="images/07.png" alt></li>
 </ul>
 </li>
 <li>When starting on an application don’t start directly by dozens of hidden layers. Try the simplest solutions (L Regression) then try the parameters then try the shallow neural network and so on.</li>
@@ -1017,7 +1017,7 @@
 </ul>
 </li>
 <li>Deep NN blocks:<ul>
-<li><img src="images/08.png" alt=""></li>
+<li><img src="images/08.png" alt></li>
 </ul>
 </li>
 </ul>
@@ -1233,7 +1233,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
             
@@ -1248,7 +1248,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1284,13 +1284,13 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external="" nofollow""="">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external="" nofollow""="">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>

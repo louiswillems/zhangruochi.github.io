@@ -5,8 +5,8 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -187,7 +187,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -197,7 +197,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -347,20 +347,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Monotone-Stack/2019/08/16/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="RUOCHI.AI">
     </span>
 
@@ -406,7 +406,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Data-Structure-and-Algorithm/" itemprop="url" rel="index">
                     <span itemprop="name">Data Structure and Algorithm</span>
                   </a>
@@ -464,7 +464,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(array)</span>:</span></span><br><span class="line">    res = [<span class="number">-1</span>] * len(array)</span><br><span class="line">    max_stack = []</span><br><span class="line"></span><br><span class="line">    num2ind = &#123;num:index <span class="keyword">for</span> index,num <span class="keyword">in</span> enumerate(array)&#125;</span><br><span class="line"></span><br><span class="line">    array = array[::<span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">while</span> array:</span><br><span class="line">        num = array.pop()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> max_stack <span class="keyword">and</span> max_stack[<span class="number">-1</span>] &lt; num:</span><br><span class="line">            item = max_stack.pop()</span><br><span class="line">            distance = num2ind[num] - num2ind[item]</span><br><span class="line">            res[num2ind[item]] = distance</span><br><span class="line">        max_stack.append(num)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">array = [<span class="number">5</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>]</span><br><span class="line">print(solution((array))) <span class="comment"># -&gt; [-1, 3, 1, 1, -1]</span></span><br></pre></td></tr></table></figure>
 <h2 id="Trapping-Rain-Water"><a href="#Trapping-Rain-Water" class="headerlink" title="Trapping Rain Water"></a>Trapping Rain Water</h2><p><a href="https://leetcode.com/problems/trapping-rain-water/" target="_blank" rel="noopener">Trapping Rain Water</a> Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [0,1,0,2,1,0,1,3,2,1,2,1]</span><br><span class="line">Output: 6</span><br></pre></td></tr></table></figure>
-<p><img src="1.png" alt=""><br>The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped. Thanks Marcos for contributing this image!</p>
+<p><img src="1.png" alt><br>The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped. Thanks Marcos for contributing this image!</p>
 <ul>
 <li>维护一个单调递减栈，每当新的高度小于等于栈顶高度，则把当前高度的坐标压入栈。</li>
 <li>注意我们不直接把高度压入栈，而是把坐标压入栈，这样方便我们在后来算水平距离。</li>
@@ -474,12 +474,12 @@
 <li>注意不要弹出左边界，一下次该左边界可能成为坑的高度。</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">trap</span><span class="params">(self, height: List[int])</span> -&gt; int:</span></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        area = <span class="number">0</span></span><br><span class="line">        s = []</span><br><span class="line">        <span class="keyword">while</span> i &lt; len(height):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> s <span class="keyword">or</span> height[i] &lt;= height[s[<span class="number">-1</span>]]:</span><br><span class="line">                s.append(i)</span><br><span class="line">                i+=<span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                t = s.pop()</span><br><span class="line">                <span class="keyword">while</span> s <span class="keyword">and</span> s[<span class="number">-1</span>] == t:</span><br><span class="line">                    s.pop()</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> s: </span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                print(i,s)</span><br><span class="line">                area += (i-s[<span class="number">-1</span>]<span class="number">-1</span>) * (min(height[i], height[s[<span class="number">-1</span>]]) - height[t])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> area</span><br></pre></td></tr></table></figure>
-<p><img src="2.jpg" alt=""></p>
+<p><img src="2.jpg" alt></p>
 <h2 id="Largest-Rectangle-in-Histogram"><a href="#Largest-Rectangle-in-Histogram" class="headerlink" title="Largest Rectangle in Histogram"></a>Largest Rectangle in Histogram</h2><p>Given n non-negative integers representing the histogram’s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.</p>
-<p><img src="3.png" alt=""></p>
+<p><img src="3.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [2,1,5,6,2,3]</span><br><span class="line">Output: 10</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">largestRectangleArea</span><span class="params">(self, heights: List[int])</span> -&gt; int:</span></span><br><span class="line">        max_area = <span class="number">0</span></span><br><span class="line">        max_stack = []</span><br><span class="line">        heights.append(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(heights)):</span><br><span class="line">            <span class="keyword">while</span> max_stack <span class="keyword">and</span> heights[max_stack[<span class="number">-1</span>]] &gt;= heights[i]:</span><br><span class="line">                cur = max_stack.pop()</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> max_stack: </span><br><span class="line">                    max_area = max(max_area, heights[cur] * i)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    max_area = max(max_area,heights[cur]*(i - max_stack[<span class="number">-1</span>] - <span class="number">1</span>))</span><br><span class="line">            max_stack.append(i)       </span><br><span class="line">        <span class="keyword">return</span> max_area</span><br></pre></td></tr></table></figure>
-<p><img src="4.jpg" alt=""></p>
+<p><img src="4.jpg" alt></p>
 
       
     </div>
@@ -644,7 +644,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
             
@@ -659,7 +659,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -695,13 +695,13 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external="" nofollow""="">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external="" nofollow""="">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>

@@ -5,8 +5,8 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -192,7 +192,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -202,7 +202,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -352,20 +352,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Advanced-features/2019/07/16/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="RUOCHI.AI">
     </span>
 
@@ -411,7 +411,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
                     <span itemprop="name">Artificial Intelligence</span>
                   </a>
@@ -422,7 +422,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Artificial-Intelligence/Machine-Learning/" itemprop="url" rel="index">
                     <span itemprop="name">Machine Learning</span>
                   </a>
@@ -433,7 +433,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Competition/" itemprop="url" rel="index">
                     <span itemprop="name">Competition</span>
                   </a>
@@ -444,7 +444,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Competition/Tricks/" itemprop="url" rel="index">
                     <span itemprop="name">Tricks</span>
                   </a>
@@ -492,7 +492,7 @@
 
       
         <h1 id="Advanced-Features"><a href="#Advanced-Features" class="headerlink" title="Advanced Features"></a>Advanced Features</h1><h2 id="Statistics-and-distance-based-features"><a href="#Statistics-and-distance-based-features" class="headerlink" title="Statistics and distance based features"></a>Statistics and distance based features</h2><h3 id="Groupby-feature"><a href="#Groupby-feature" class="headerlink" title="Groupby feature"></a>Groupby feature</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gb = df.groupby([<span class="string">'user_id'</span>,<span class="string">'page_id'</span>], as_index = <span class="keyword">False</span>).agg(&#123;<span class="string">'ad_price'</span>: &#123;<span class="string">'max_price'</span>: np.max, <span class="string">'min_price'</span>: np.min&#125;&#125;)</span><br><span class="line">gb.columns = [<span class="string">'user_id'</span>,<span class="string">'page_id'</span>,<span class="string">'min_price'</span>,<span class="string">'max_price'</span>]</span><br></pre></td></tr></table></figure>
-<p><img src="5.png" alt=""></p>
+<p><img src="5.png" alt></p>
 <ul>
 <li>How many pages user visited</li>
 <li>Standard deviation of prices</li>
@@ -528,7 +528,7 @@
 <li>It can be applied for transforming categorical features into real-valued</li>
 <li>Many of tricks trick suitable for linear models can be useful for MF</li>
 </ul>
-<p><img src="6.png" alt=""><br><img src="7.png" alt=""></p>
+<p><img src="6.png" alt><br><img src="7.png" alt></p>
 <ul>
 <li>Can be apply only for some columns</li>
 <li>Can provide additional diversity<br>  − Good for ensembles</li>
@@ -538,7 +538,7 @@
 <li>TruncatedSVD<br>  − Works with sparse matrices</li>
 <li>Non-negative Matrix Factorization (NMF)<br>  − Ensures that all latent factors are non-negative<br>  − Good for counts-like data</li>
 </ul>
-<h2 id="Feature-interactions"><a href="#Feature-interactions" class="headerlink" title="Feature interactions"></a>Feature interactions</h2><p><img src="8.png" alt=""><br><img src="9.png" alt=""><br><img src="10.png" alt=""></p>
+<h2 id="Feature-interactions"><a href="#Feature-interactions" class="headerlink" title="Feature interactions"></a>Feature interactions</h2><p><img src="8.png" alt><br><img src="9.png" alt><br><img src="10.png" alt></p>
 <ul>
 <li>We have a lot of possible interactions − N*N for N features<ul>
 <li>Even more if use several types in interactions</li>
@@ -562,8 +562,8 @@
 <li>Diff</li>
 <li>Division</li>
 </ul>
-<h3 id="Example-of-interaction-generation-pipeline"><a href="#Example-of-interaction-generation-pipeline" class="headerlink" title="Example of interaction generation pipeline"></a>Example of interaction generation pipeline</h3><p><img src="11.png" alt=""></p>
-<h3 id="Extract-features-from-DT"><a href="#Extract-features-from-DT" class="headerlink" title="Extract features from DT"></a>Extract features from DT</h3><p><img src="12.png" alt=""><br>get the index of the leaf that each sample is predicted as. it a method to get the high order features</p>
+<h3 id="Example-of-interaction-generation-pipeline"><a href="#Example-of-interaction-generation-pipeline" class="headerlink" title="Example of interaction generation pipeline"></a>Example of interaction generation pipeline</h3><p><img src="11.png" alt></p>
+<h3 id="Extract-features-from-DT"><a href="#Extract-features-from-DT" class="headerlink" title="Extract features from DT"></a>Extract features from DT</h3><p><img src="12.png" alt><br>get the index of the leaf that each sample is predicted as. it a method to get the high order features</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tree.apply()</span><br></pre></td></tr></table></figure>
 <h2 id="tSNE"><a href="#tSNE" class="headerlink" title="tSNE"></a>tSNE</h2><ul>
 <li>Result heavily depends on hyperparameters (perplexity)</li>
@@ -741,7 +741,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
             
@@ -756,7 +756,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -792,13 +792,13 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external="" nofollow""="">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external="" nofollow""="">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>

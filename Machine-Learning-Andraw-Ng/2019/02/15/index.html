@@ -5,8 +5,8 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -296,7 +296,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -306,7 +306,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -456,20 +456,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Machine-Learning-Andraw-Ng/2019/02/15/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="RUOCHI.AI">
     </span>
 
@@ -515,7 +515,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
                     <span itemprop="name">Artificial Intelligence</span>
                   </a>
@@ -526,7 +526,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Artificial-Intelligence/Machine-Learning/" itemprop="url" rel="index">
                     <span itemprop="name">Machine Learning</span>
                   </a>
@@ -1256,7 +1256,7 @@ h_{\theta} = \left\{
 <h3 id="kernel"><a href="#kernel" class="headerlink" title="kernel"></a>kernel</h3><p><img src="448E12BA8322FB7F9A543F878CA4DE18.png" alt="Screen Shot 2018-03-07 at 15.17.22.png"><br><img src="AFFBD72AF70902A69A0D88CC1D43CE1E.png" alt="Screen Shot 2018-03-07 at 15.17.43.png"><br><img src="396AB89981F0202AB84789EC4618734D.png" alt="Screen Shot 2018-03-07 at 15.19.15.png"><br><img src="E18FC2346F7204E03DBF11B94D74B394.png" alt="Screen Shot 2018-03-07 at 15.19.30.png"><br><img src="19D617B04FEC28135163B0F5C694EBEC.png" alt="Screen Shot 2018-03-07 at 15.20.04.png"><br><img src="7597B35AA6CBE0DE414F5CC36DACF6B2.png" alt="Screen Shot 2018-03-07 at 15.20.24.png"><br><img src="2EB3A7D5D4AFA680E6106F22975A9911.png" alt="Screen Shot 2018-03-07 at 15.20.43.png"></p>
 <h4 id="低维线性不可分到高维线性可分的简单例子"><a href="#低维线性不可分到高维线性可分的简单例子" class="headerlink" title="低维线性不可分到高维线性可分的简单例子"></a>低维线性不可分到高维线性可分的简单例子</h4><p><img src="AAB7D8B8F27F9125ED34BDE4F647DC9C.png" alt="Screen Shot 2018-03-07 at 15.39.51.png"></p>
 <p> <strong>一个核函数把低维空间映射到高维空间的例子</strong></p>
-<p>下面这张图位于第一、二象限内。我们关注红色的门，以及“北京四合院”这几个字下面的紫色的字母。我们把红色的门上的点看成是“+”数据，紫色字母上的点看成是“-”数据，它们的横、纵坐标是两个特征。显然，在这个二维空间内，“+”“-”两类数据不是线性可分的。<br><img src="kernel1.png" alt=""></p>
+<p>下面这张图位于第一、二象限内。我们关注红色的门，以及“北京四合院”这几个字下面的紫色的字母。我们把红色的门上的点看成是“+”数据，紫色字母上的点看成是“-”数据，它们的横、纵坐标是两个特征。显然，在这个二维空间内，“+”“-”两类数据不是线性可分的。<br><img src="kernel1.png" alt></p>
 <p>我们现在考虑核函数，即“内积平方”。这里面是二维空间中的两个点。这个核函数对应着一个二维空间到三维空间的映射，它的表达式是：可以验证，在P这个映射下，原来二维空间中的图在三维空间中的像是这个样子：<br><img src="kernel2.png" alt="kernel2.png"></p>
 <p>(前后轴为x轴，左右轴为y轴，上下轴为z轴）注意到绿色的平面可以完美地分割红色和紫色，也就是说，两类数据在三维空间中变成线性可分的了。而三维中的这个判决边界，再映射回二维空间中是这样的：<br><img src="kernel3.png" alt="kernel3.png"></p>
 <p>这是一条双曲线，它不是线性的。</p>
@@ -1500,7 +1500,7 @@ h_{\theta} = \left\{
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
             
@@ -1515,7 +1515,7 @@ h_{\theta} = \left\{
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1551,13 +1551,13 @@ h_{\theta} = \left\{
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external="" nofollow""="">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external="" nofollow""="">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>

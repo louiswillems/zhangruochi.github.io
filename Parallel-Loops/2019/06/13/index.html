@@ -5,8 +5,8 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -189,7 +189,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -199,7 +199,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -349,20 +349,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Parallel-Loops/2019/06/13/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="RUOCHI.AI">
     </span>
 
@@ -408,7 +408,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Big-Data-Architecture/" itemprop="url" rel="index">
                     <span itemprop="name">Big Data Architecture</span>
                   </a>
@@ -419,7 +419,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Big-Data-Architecture/Parallel-Computation/" itemprop="url" rel="index">
                     <span itemprop="name">Parallel Computation</span>
                   </a>
@@ -477,7 +477,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">finish &#123;</span><br><span class="line"><span class="keyword">for</span> (p = head; p != <span class="keyword">null</span> ; p = p.next) <span class="function">async <span class="title">compute</span><span class="params">(p)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>However, further efficiencies can be gained by paying attention to counted-for loops for which the number of iterations is known on entry to the loop (before the loop executes its first iteration). We then learned the forall notation for expressing parallel counted-for loops, such as in the following vector addition statement (in pseudocode):</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">forall (i : [<span class="number">0</span>:n-<span class="number">1</span>]) </span><br><span class="line">    a[i] = b[i] + c[i]</span><br></pre></td></tr></table></figure>
-<p><img src="1.png" alt=""></p>
+<p><img src="1.png" alt></p>
 <p>We also discussed the fact that Java streams can be an elegant way of specifying parallel loop computations that produce a single output array, e.g., by rewriting the vector addition statement as follows:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = IntStream.rangeClosed(<span class="number">0</span>, N-<span class="number">1</span>).parallel().toArray(i -&gt; b[i] + c[i]);</span><br></pre></td></tr></table></figure>
 <h2 id="Parallel-Matrix-Multiplication"><a href="#Parallel-Matrix-Multiplication" class="headerlink" title="Parallel Matrix Multiplication"></a>Parallel Matrix Multiplication</h2><p>In this lecture, we reminded ourselves of the formula for multiplying two n × n matrices, a and b, to obtain a product matrix, c, of </p>
@@ -493,20 +493,20 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">a = [random.randint(<span class="number">0</span>,<span class="number">1</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">11</span>)]</span><br><span class="line">print(a)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1001</span>):</span><br><span class="line">    new = [<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,len(a)<span class="number">-1</span>):</span><br><span class="line">        new.append((a[j<span class="number">-1</span>] + a[j+<span class="number">1</span>]) / <span class="number">2.0</span>)</span><br><span class="line">    new.append(<span class="number">1</span>)</span><br><span class="line">    a = new</span><br><span class="line"></span><br><span class="line">print(a)</span><br><span class="line"></span><br><span class="line"><span class="comment"># [1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0]</span></span><br><span class="line"><span class="comment"># [0, 0.10000000000000017, 0.19999999999999973, 0.3000000000000005, 0.3999999999999995, 0.5000000000000007, 0.5999999999999994, 0.7000000000000006, 0.7999999999999996, 0.9000000000000002, 1]</span></span><br></pre></td></tr></table></figure>
 <p>A naive approach to parallelizing this method would result in the following pseudocode:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (iter: [<span class="number">0</span>:nsteps-<span class="number">1</span>]) &#123;</span><br><span class="line">  forall (i: [<span class="number">1</span>:n-<span class="number">1</span>]) &#123;</span><br><span class="line">    newX[i] = (oldX[i-<span class="number">1</span>] + oldX[i+<span class="number">1</span>]) / <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  swap pointers newX and oldX;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="2.png" alt=""></p>
+<p><img src="2.png" alt></p>
 <p>Though easy to understand, this approach creates nsteps × (n − 1) tasks, which is too many. <strong>Barriers can help reduce the number of tasks created as follows</strong>:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">forall ( i: [<span class="number">1</span>:n-<span class="number">1</span>]) &#123;</span><br><span class="line">  <span class="keyword">for</span> (iter: [<span class="number">0</span>:nsteps-<span class="number">1</span>]) &#123;</span><br><span class="line">    newX[i] = (oldX[i-<span class="number">1</span>] + oldX[i+<span class="number">1</span>]) / <span class="number">2</span>;</span><br><span class="line">    NEXT; <span class="comment">// Barrier</span></span><br><span class="line">    swap pointers newX and oldX;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="5.png" alt=""></p>
+<p><img src="5.png" alt></p>
 <p>In this case, only (n − 1) tasks are created, and there are nsteps barrier (next) operations, each of which involves all (n − 1) tasks. This is a significant improvement since creating tasks is usually more expensive than performing barrier operations.</p>
 <h2 id="Iteration-Grouping-Chunking-of-Parallel-Loops"><a href="#Iteration-Grouping-Chunking-of-Parallel-Loops" class="headerlink" title="Iteration Grouping: Chunking of Parallel Loops"></a>Iteration Grouping: Chunking of Parallel Loops</h2><p>We observed that this approach creates n tasks, one per forall iteration, which is wasteful when (as is common in practice) n is much larger than the number of available processor cores.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forall (i : [<span class="number">0</span>:n-<span class="number">1</span>]) a[i] = b[i] + c[i]</span><br></pre></td></tr></table></figure>
 <p>To address this problem, we learned a common tactic used in practice that is referred to as loop chunking or iteration grouping, and focuses on reducing the number of tasks created to be closer to the number of processor cores, so as to reduce the overhead of parallel execution:</p>
 <p>With iteration grouping/chunking, the parallel vector addition example above can be rewritten as follows:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">forall (g:[<span class="number">0</span>:ng-<span class="number">1</span>])</span><br><span class="line">  <span class="keyword">for</span> (i : mygroup(g, ng, [<span class="number">0</span>:n-<span class="number">1</span>])) a[i] = b[i] + c[i]</span><br></pre></td></tr></table></figure>
-<p><img src="3.png" alt=""></p>
+<p><img src="3.png" alt></p>
 <p>Note that we have reduced the degree of parallelism from n to the number of groups, <strong>ng</strong>, which now equals the number of iterations/tasks in the forall construct.</p>
 <p>There are two well known approaches for iteration grouping: <strong>block</strong> and <strong>cyclic</strong>. The former approach (block) maps consecutive iterations to the same group, whereas the latter approach (cyclic) maps iterations in the same congruence class (mod ng) to the same group. With these concepts, you should now have a better understanding of how to execute forall loops in practice with lower overhead.</p>
-<p><img src="4.png" alt=""></p>
+<p><img src="4.png" alt></p>
 
       
     </div>
@@ -677,7 +677,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
             
@@ -692,7 +692,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -728,13 +728,13 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external="" nofollow""="">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external="" nofollow""="">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>

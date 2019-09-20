@@ -5,8 +5,8 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -191,7 +191,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -201,7 +201,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -351,20 +351,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Boolean-Functions-and-Gate-Logic/2019/05/20/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="RUOCHI.AI">
     </span>
 
@@ -410,7 +410,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Hardware-Architecture/" itemprop="url" rel="index">
                     <span itemprop="name">Hardware Architecture</span>
                   </a>
@@ -466,15 +466,15 @@
 <li>Infinitely many Boolean expressions are equivalent to the same Boolean function</li>
 <li>Boolean values are the two logic constants True, and False. </li>
 <li>for n independent Boolean variables, each taking one particular Boolean value, there are $2^n$ different possible combinations. A Boolean function has to assign one Boolean value to each one of these combinations. This brings the number of different possible Boolean functions of n variables to a total of $2^{2^n}$</li>
-<li><img src="functions.png" alt=""></li>
+<li><img src="functions.png" alt></li>
 </ul>
 <ol>
-<li>Boolean Identities<br><img src="identities.png" alt=""></li>
+<li>Boolean Identities<br><img src="identities.png" alt></li>
 </ol>
 <h3 id="two-ways-to-represent-the-boolean-functions"><a href="#two-ways-to-represent-the-boolean-functions" class="headerlink" title="two ways to represent the boolean functions"></a>two ways to represent the boolean functions</h3><ol>
 <li><strong>Truth Table Representation</strong>: The simplest way to specify a Boolean function is to enumerate all the possible values of the function’s input variables, along with the function’s output for each set of inputs.</li>
 </ol>
-<p><img src="truth_table.png" alt=""> </p>
+<p><img src="truth_table.png" alt> </p>
 <ol>
 <li><strong>Boolean Expressions</strong>: a Boolean function can also be specified using Boolean operations over its input variables</li>
 </ol>
@@ -483,9 +483,9 @@
 <script type="math/tex; mode=display">f(x,y,z) = \bar(x)y\bar(z) + x\bar(y)\bar(z) + xy\bar(z)</script><p>find all the expressions euqual to 1, use “and” conbines the bits together and use “or” conbine all the expressions.</p>
 <h2 id="Gate-Logic"><a href="#Gate-Logic" class="headerlink" title="Gate Logic"></a>Gate Logic</h2><p>A gate is a physical device that implements a Boolean function. If a Boolean function f operates on n variables and returns m binary results (in all our examples so far, m was 1), the gate that implements f will have n input pins and m output pins.</p>
 <p>Each one of the operations And, Or, and Not can be constructed from it, and it alone (e.g., x Or y = (x Nand x) Nand (y Nand y). And since every Boolean function can be constructed from And, Or, and Not operations using the canonical representation method, it follows that every Boolean function can be constructed from Nand operations alone</p>
-<h3 id="Primitive-and-Composite-Gates"><a href="#Primitive-and-Composite-Gates" class="headerlink" title="Primitive and Composite Gates"></a>Primitive and Composite Gates</h3><p>a primitive gate (see figure 1.3) can be viewed as a black box device that implements an elementary logical operation in one way or another—we don’t care how. Computer scientists can be content with the <strong>abstract notions</strong> of Boolean algebra and gate logic, trusting that someone else (the physicists and electrical engineers—bless their souls) will figure out how to actually realize them in hardware<br><img src="gate.png" alt=""></p>
+<h3 id="Primitive-and-Composite-Gates"><a href="#Primitive-and-Composite-Gates" class="headerlink" title="Primitive and Composite Gates"></a>Primitive and Composite Gates</h3><p>a primitive gate (see figure 1.3) can be viewed as a black box device that implements an elementary logical operation in one way or another—we don’t care how. Computer scientists can be content with the <strong>abstract notions</strong> of Boolean algebra and gate logic, trusting that someone else (the physicists and electrical engineers—bless their souls) will figure out how to actually realize them in hardware<br><img src="gate.png" alt></p>
 <p>We see that any given logic gate can be viewed from two different perspectives: external and internal. As the blow picture a example. The right-hand side of figure gives the gate’s internal architecture, or <strong>implementation</strong>, whereas the left side shows only the gate <strong>interface</strong>. The gate implementation will realize its stated interface, in one way or another.</p>
-<p><img src="implementation.png" alt=""></p>
+<p><img src="implementation.png" alt></p>
 <h3 id="Multi-Bit-Versions-of-Basic-Gates"><a href="#Multi-Bit-Versions-of-Basic-Gates" class="headerlink" title="Multi-Bit Versions of Basic Gates"></a>Multi-Bit Versions of Basic Gates</h3><p>Computer hardware is typically designed to operate on multi-bit arrays called <strong>buses</strong>.</p>
 <p>or example, a basic requirement of a 32-bit computer is to be able to compute (bit-wise) an And function on two given 32-bit buses. To implement this operation, we can build an array of 32 binary And gates, each operating separately on a pair of bits. In order to enclose all this logic in one package, we can encapsulate the gates array in a single chip interface consisting of two 32-bit input buses and one 32-bit output bus.</p>
 <p>example, <strong>Multi-Bit Not</strong> An n-bit Not gate applies the Boolean operation Not to every one of the bits in its n-bit input bus:</p>
@@ -494,14 +494,14 @@
 <p>example, <strong>Multi-Way Or An n-way Or</strong> gate outputs 1 when at least one of its n bit inputs is 1, and 0 otherwise. Here is the 8-way variant of this gate:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Chip name: Or8Way</span><br><span class="line">Inputs: <span class="keyword">in</span>[8]</span><br><span class="line">Outputs: out</span><br><span class="line">Function: out=Or(<span class="keyword">in</span>[0],<span class="keyword">in</span>[1],...,<span class="keyword">in</span>[7]).</span><br></pre></td></tr></table></figure>
 <h3 id="Multiplexor"><a href="#Multiplexor" class="headerlink" title="Multiplexor"></a>Multiplexor</h3><p>A multiplexor is a three-input gate that uses one of the inputs, called <strong>selection bit</strong>, to select and output one of the other two inputs, called <strong>data bits</strong>. Thus, a better name for this device might have been <strong>selector</strong>.</p>
-<p><img src="Multiplexor.png" alt=""></p>
+<p><img src="Multiplexor.png" alt></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Chip name: Xor</span><br><span class="line">Inputs: a, b</span><br><span class="line">Outputs: out</span><br><span class="line">Function: If a=/b <span class="keyword">then</span> out=1 <span class="keyword">else</span> out=0.</span><br></pre></td></tr></table></figure>
 <h3 id="Demultiplexor"><a href="#Demultiplexor" class="headerlink" title="Demultiplexor"></a>Demultiplexor</h3><p>A demultiplexor performs the opposite function of a multiplexor: It takes a single input and channels it to one of two possible outputs according to a selector bit that specifies which output to chose.</p>
 <p><a href="Demultiplexor.png"></a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Chip name: DMux</span><br><span class="line">Inputs: <span class="keyword">in</span>, sel</span><br><span class="line">Outputs: a, b</span><br><span class="line">Function: If sel=0 <span class="keyword">then</span> &#123;a=<span class="keyword">in</span>, b=0&#125; <span class="keyword">else</span> &#123;a=0, b=<span class="keyword">in</span>&#125;.</span><br></pre></td></tr></table></figure>
 <h2 id="Hardware-Description-Language-HDL"><a href="#Hardware-Description-Language-HDL" class="headerlink" title="Hardware Description Language (HDL)"></a>Hardware Description Language (HDL)</h2><p>Thus, using HDL, one can completely plan, debug, and optimize the entire chip before a single penny is spent on actual production. When the HDL program is deemed complete, that is, when the performance of the simulated chip satisfies the client who ordered it, the HDL program can become the blueprint from which many copies of the physical chip can be stamped in silicon.</p>
 <p>An HDL definition of a chip consists of a <strong>header section</strong> and a <strong>parts section</strong>. The header section specifies the chip interface, namely the chip name and the names of its input and output pins. The parts section describes the names and topol- ogy of all the lower-level parts (other chips) from which this chip is constructed</p>
-<h3 id="HDL-implementation-of-a-Xor-gate"><a href="#HDL-implementation-of-a-Xor-gate" class="headerlink" title="HDL implementation of a Xor gate."></a>HDL implementation of a Xor gate.</h3><p><img src="xor.png" alt=""></p>
+<h3 id="HDL-implementation-of-a-Xor-gate"><a href="#HDL-implementation-of-a-Xor-gate" class="headerlink" title="HDL implementation of a Xor gate."></a>HDL implementation of a Xor gate.</h3><p><img src="xor.png" alt></p>
 <h2 id="Hardware-Simulation"><a href="#Hardware-Simulation" class="headerlink" title="Hardware Simulation"></a>Hardware Simulation</h2><p>Since HDL is a hardware construction language, the process of writing and debug- ging HDL programs is quite similar to software development. The main difference is that instead of writing code in a language like Java, we write it in HDL, and instead of using a compiler to translate and test the code, we use a hardware simulator. The hardware simulator is a computer program that knows how to parse and interpret HDL code, turn it into an executable representation, and test it according to the specifications of a given test script</p>
 
       
@@ -673,7 +673,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
             
@@ -688,7 +688,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -724,13 +724,13 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external="" nofollow""="">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external="" nofollow""="">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>

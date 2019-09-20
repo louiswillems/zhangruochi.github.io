@@ -5,8 +5,8 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -185,7 +185,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -195,7 +195,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -345,20 +345,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Activation-Function/2019/07/09/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="RUOCHI.AI">
     </span>
 
@@ -404,7 +404,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
                     <span itemprop="name">Artificial Intelligence</span>
                   </a>
@@ -415,7 +415,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Artificial-Intelligence/Deep-Learning/" itemprop="url" rel="index">
                     <span itemprop="name">Deep Learning</span>
                   </a>
@@ -462,7 +462,7 @@
       
 
       
-        <h2 id="Neuron"><a href="#Neuron" class="headerlink" title="Neuron"></a>Neuron</h2><p><img src="1.png" alt=""><br>如图是神经网络中一个典型的神经元设计，它完全仿照人类大脑中神经元之间传递数据的模式设计。大脑中，神经元通过若干树突（dendrite）的突触（synapse），接受其他神经元的轴突（axon）或树突传递来的消息，而后经过处理再由轴突输出。</p>
+        <h2 id="Neuron"><a href="#Neuron" class="headerlink" title="Neuron"></a>Neuron</h2><p><img src="1.png" alt><br>如图是神经网络中一个典型的神经元设计，它完全仿照人类大脑中神经元之间传递数据的模式设计。大脑中，神经元通过若干树突（dendrite）的突触（synapse），接受其他神经元的轴突（axon）或树突传递来的消息，而后经过处理再由轴突输出。</p>
 <h2 id="参数更新方向"><a href="#参数更新方向" class="headerlink" title="参数更新方向"></a>参数更新方向</h2><p>深度学习一般的学习方法是反向传播。简单来说，就是通过链式法则，求解全局损失函数L(x)对于某一参数w的偏导数（梯度）；而后辅以学习率\eta,向梯度的反方向更新参数w</p>
 <script type="math/tex; mode=display">w \leftarrow w - \eta\cdot\frac{\partial L}{\partial w}</script><p>考虑学习率$\eta$是全局设置的超参数，参数更新的核心步骤即是计算$\frac{\partial L}{\partial w}$ 再考虑到对于某个神经元来说，其输入与输出的关系是</p>
 <script type="math/tex; mode=display">f(x;w,b) = f(\sum_{i}w_i x_i + b)</script><p>根据链式法则，对于参数w_i来说</p>
@@ -481,7 +481,7 @@
 \end{array}
 \right.
 \end{equation}</script><p>我们希望$w_0$适当增大，$w_1$适当减少，这里必然要求$x_0$ 和 $x_1$ 符号相反。<br>但在 Sigmoid 函数中，输出值恒为正。这也就是说，如果上一级神经元采用 Sigmoid 函数作为激活函数，<strong>那么我们无法做到$x_0$和$x_1$符号相反</strong>。此时，模型为了收敛，不得不向逆风前行的风助力帆船一样，走 Z 字形逼近最优解。</p>
-<p><img src="3.png" alt=""></p>
+<p><img src="3.png" alt></p>
 <h2 id="Sigmid"><a href="#Sigmid" class="headerlink" title="Sigmid"></a>Sigmid</h2><h3 id="函数形式"><a href="#函数形式" class="headerlink" title="函数形式"></a>函数形式</h3><script type="math/tex; mode=display">\sigma(x;a) = \frac{1}{1+e^{-ax}}</script><h3 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h3><script type="math/tex; mode=display">\sigma^{\prime} = \sigma(x)(1-\sigma(x))</script><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ul>
 <li>Sigmoid neurons can saturate and lead to vanishing gradients.</li>
 <li>Not zero-centered.</li>
@@ -668,7 +668,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
             
@@ -683,7 +683,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -719,13 +719,13 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external="" nofollow""="">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external="" nofollow""="">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>

@@ -5,8 +5,8 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -235,7 +235,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -245,7 +245,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -395,20 +395,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Convolutional-Neural-Networks/2019/03/27/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="RUOCHI.AI">
     </span>
 
@@ -454,7 +454,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
                     <span itemprop="name">Artificial Intelligence</span>
                   </a>
@@ -465,7 +465,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Artificial-Intelligence/Deep-Learning/" itemprop="url" rel="index">
                     <span itemprop="name">Deep Learning</span>
                   </a>
@@ -637,7 +637,7 @@
 <li>In an image we can detect vertical edges, horizontal edges, or full edge detector.</li>
 <li>Vertical edge detection:<ul>
 <li>An example of convolution operation to detect vertical edges:<ul>
-<li><img src="01.png" alt=""></li>
+<li><img src="01.png" alt></li>
 </ul>
 </li>
 <li>In the last example a <code>6x6</code> matrix convolved with <code>3x3</code> filter/kernel gives us a <code>4x4</code> matrix.</li>
@@ -791,7 +791,7 @@
 <h3 id="Pooling-layers"><a href="#Pooling-layers" class="headerlink" title="Pooling layers"></a>Pooling layers</h3><ul>
 <li>Other than the conv layers, CNNs often uses pooling layers to reduce the size of the inputs, speed up computation, and to make some of the features it detects more robust.</li>
 <li>Max pooling example:<ul>
-<li><img src="02.png" alt=""></li>
+<li><img src="02.png" alt></li>
 <li>This example has <code>f = 2</code>, <code>s = 2</code>, and <code>p = 0</code> hyperparameters</li>
 </ul>
 </li>
@@ -866,7 +866,7 @@
 </li>
 <li>Hint a Conv1 and Pool1 is treated as one layer.</li>
 <li>Some statistics about the last example:<ul>
-<li><img src="03.png" alt=""></li>
+<li><img src="03.png" alt></li>
 </ul>
 </li>
 <li>Hyperparameters are a lot. For choosing the value of each you should follow the guideline that we will discuss later or check the literature and takes some ideas and numbers from it.</li>
@@ -888,7 +888,7 @@
 </ul>
 </li>
 <li>Putting it all together:<ul>
-<li><img src="04.png" alt=""></li>
+<li><img src="04.png" alt></li>
 </ul>
 </li>
 </ul>
@@ -915,7 +915,7 @@
 <li><p><strong>LeNet-5</strong></p>
 <ul>
 <li>The goal for this model was to identify handwritten digits in a <code>32x32x1</code> gray image. Here are the drawing of it:</li>
-<li><img src="05.png" alt=""></li>
+<li><img src="05.png" alt></li>
 <li>This model was published in 1998. The last layer wasn’t using softmax back then.</li>
 <li>It has 60k parameters.</li>
 <li>The dimensions of the image decreases as the number of channels increases.</li>
@@ -930,7 +930,7 @@
 </li>
 <li><p>The goal for the model was the ImageNet challenge which classifies images into 1000 classes. Here are the drawing of the model:</p>
 </li>
-<li><p><img src="06.png" alt=""></p>
+<li><p><img src="06.png" alt></p>
 </li>
 <li><p>Summary:</p>
 <ul>
@@ -966,7 +966,7 @@
 </ul>
 </li>
 <li>Here are the architecture:<ul>
-<li><img src="07.png" alt=""></li>
+<li><img src="07.png" alt></li>
 </ul>
 </li>
 <li>This network is large even by modern standards. It has around 138 million parameters.<ul>
@@ -990,7 +990,7 @@
 <li>In this section we will learn about skip connection which makes you take the activation from one layer and suddenly feed it to another layer even much deeper in NN which allows you to train large NNs even with layers greater than 100.</li>
 <li><strong>Residual block</strong><ul>
 <li>ResNets are built out of some Residual blocks.</li>
-<li><img src="08.png" alt=""></li>
+<li><img src="08.png" alt></li>
 <li>They add a shortcut/skip connection before the second activation.</li>
 <li>The authors of this block find that you can train a deeper NNs using stacking this block.</li>
 <li><a href="https://arxiv.org/abs/1512.03385" target="_blank" rel="noopener">[He et al., 2015. Deep residual networks for image recognition]</a></li>
@@ -998,9 +998,9 @@
 </li>
 <li><strong>Residual Network</strong><ul>
 <li>Are a NN that consists of some Residual blocks.</li>
-<li><img src="09.png" alt=""></li>
+<li><img src="09.png" alt></li>
 <li>These networks can go deeper without hurting the performance. In the normal NN - Plain networks - the theory tell us that if we go deeper we will get a better solution to our problem, but because of the vanishing and exploding gradients problems the performance of the network suffers as it goes deeper. Thanks to Residual Network we can go deeper as we want now.</li>
-<li><img src="10.png" alt=""></li>
+<li><img src="10.png" alt></li>
 <li>On the left is the normal NN and on the right are the ResNet. As you can see the performance of ResNet increases as the network goes deeper.</li>
 <li>In some cases going deeper won’t effect the performance and that depends on the problem on your hand.</li>
 <li>Some people are trying to train 1000 layer now which isn’t used in practice. </li>
@@ -1051,7 +1051,7 @@
 <li><p>Lets take a look at ResNet on images.</p>
 <ul>
 <li>Here are the architecture of <strong>ResNet-34</strong>:</li>
-<li><img src="resNet.jpg" alt=""></li>
+<li><img src="resNet.jpg" alt></li>
 <li>All the 3x3 Conv are same Convs.</li>
 <li>Keep it simple in design of the network.</li>
 <li>spatial size /2 =&gt; # filters x2</li>
@@ -1062,21 +1062,21 @@
 </li>
 <li><p>Useful concept (<strong>Spectrum of Depth</strong>):</p>
 <ul>
-<li><img src="12.png" alt=""></li>
+<li><img src="12.png" alt></li>
 <li>Taken from <a href="icml.cc/2016/tutorials/icml2016_tutorial_deep_residual_networks_kaiminghe.pdf">icml.cc/2016/tutorials/icml2016_tutorial_deep_residual_networks_kaiminghe.pdf</a></li>
 </ul>
 </li>
 <li><p>Residual blocks types:</p>
 <ul>
 <li>Identity block:<ul>
-<li><img src="16.png" alt=""></li>
+<li><img src="16.png" alt></li>
 <li>Hint the conv is followed by a batch norm <code>BN</code> before <code>RELU</code>. Dimensions here are same.</li>
 <li>This skip is over 2 layers. The skip connection can jump n connections where n&gt;2</li>
 <li>This drawing represents <a href="https://keras.io/" target="_blank" rel="noopener">Keras</a> layers.</li>
 </ul>
 </li>
 <li>The convolutional block:<ul>
-<li><img src="17.png" alt=""></li>
+<li><img src="17.png" alt></li>
 <li>The conv can be bottleneck 1 x 1 conv</li>
 </ul>
 </li>
@@ -1131,7 +1131,7 @@
 <li>When you design a CNN you have to decide all the layers yourself. Will you pick a 3 x 3 Conv or 5 x 5 Conv or maybe a max pooling layer. You have so many choices.</li>
 <li>What <strong>inception</strong> tells us is, Why not use all of them at once?</li>
 <li><strong>Inception module</strong>, naive version:<ul>
-<li><img src="13.png" alt=""></li>
+<li><img src="13.png" alt></li>
 <li>Hint that max-pool are same here.</li>
 <li>Input to the inception module are 28 x 28 x 192 and the output are 28 x 28 x 256</li>
 <li>We have done all the Convs and pools we might want and will let the NN learn and decide which it want to use most.</li>
@@ -1174,11 +1174,11 @@
 <li>A 1 x 1 Conv here is called Bottleneck <code>BN</code>.</li>
 <li>It turns out that the 1 x 1 Conv won’t hurt the performance.</li>
 <li><strong>Inception module</strong>, dimensions reduction version:<ul>
-<li><img src="14.png" alt=""></li>
+<li><img src="14.png" alt></li>
 </ul>
 </li>
 <li>Example of inception model in Keras:<ul>
-<li><img src="inception_block1a.png" alt=""></li>
+<li><img src="inception_block1a.png" alt></li>
 </ul>
 </li>
 </ul>
@@ -1186,7 +1186,7 @@
 <li>The inception network consist of concatenated blocks of the Inception module.</li>
 <li>The name inception was taken from a <em>meme</em> image which was taken from <strong>Inception movie</strong></li>
 <li>Here are the full model:<ul>
-<li><img src="15.png" alt=""></li>
+<li><img src="15.png" alt></li>
 </ul>
 </li>
 <li>Some times a Max-Pool block is used before the inception module to reduce the dimensions of the inputs.</li>
@@ -1304,28 +1304,28 @@
 <ul>
 <li><strong>Image Classification</strong>: <ul>
 <li>Classify an image to a specific class. The whole image represents one class. We don’t want to know exactly where are the object. Usually only one object is presented.</li>
-<li><img src="Classification.jpg" alt=""></li>
+<li><img src="Classification.jpg" alt></li>
 </ul>
 </li>
 <li><strong>Classification with localization</strong>:<ul>
 <li>Given an image we want to learn the class of the image and where are the class location in the image. We need to detect a class and a rectangle of where that object is. Usually only one object is presented.</li>
-<li><img src="ClassificationLoc.jpg" alt=""></li>
+<li><img src="ClassificationLoc.jpg" alt></li>
 </ul>
 </li>
 <li><strong>Object detection</strong>:<ul>
 <li>Given an image we want to detect all the object in the image that belong to a specific classes and give their location. An image can contain more than one object with different classes.</li>
-<li><img src="ObjectDetection.png" alt=""></li>
+<li><img src="ObjectDetection.png" alt></li>
 </ul>
 </li>
 <li><strong>Semantic Segmentation</strong>:<ul>
 <li>We want to Label each pixel in the image with a category label. Semantic Segmentation Don’t differentiate instances, only care about pixels. It detects no objects just pixels.</li>
 <li>If there are two objects of the same class is intersected, we won’t be able to separate them.</li>
-<li><img src="SemanticSegmentation.png" alt=""></li>
+<li><img src="SemanticSegmentation.png" alt></li>
 </ul>
 </li>
 <li><strong>Instance Segmentation</strong><ul>
 <li>This is like the full problem. Rather than we want to predict the bounding box, we want to know which pixel label but also distinguish them.</li>
-<li><img src="InstanceSegmentation.png" alt=""></li>
+<li><img src="InstanceSegmentation.png" alt></li>
 </ul>
 </li>
 </ul>
@@ -1381,7 +1381,7 @@
 <li>We will use a Conv net to solve the object detection problem using a technique called the sliding windows detection algorithm.</li>
 <li>For example lets say we are working on Car object detection.</li>
 <li>The first thing, we will train a Conv net on cropped car images and non car images.<ul>
-<li><img src="18.png" alt=""></li>
+<li><img src="18.png" alt></li>
 </ul>
 </li>
 <li>After we finish training of this Conv net we will then use it with the sliding windows technique.</li>
@@ -1401,25 +1401,25 @@
 </ul>
 <h3 id="Convolutional-Implementation-of-Sliding-Windows"><a href="#Convolutional-Implementation-of-Sliding-Windows" class="headerlink" title="Convolutional Implementation of Sliding Windows"></a>Convolutional Implementation of Sliding Windows</h3><ul>
 <li>Turning FC layer into convolutional layers (predict image class from four classes):<ul>
-<li><img src="19.png" alt=""></li>
+<li><img src="19.png" alt></li>
 <li>As you can see in the above image, we turned the FC layer into a Conv layer using a convolution with the width and height of the filter is the same as the width and height of the input.</li>
 </ul>
 </li>
 <li><strong>Convolution implementation of sliding windows</strong>:<ul>
 <li>First lets consider that the Conv net you trained is like this (No FC all is conv layers):<ul>
-<li><img src="20.png" alt=""></li>
+<li><img src="20.png" alt></li>
 </ul>
 </li>
 <li>Say now we have a 16 x 16 x 3 image that we need to apply the sliding windows in. By the normal implementation that have been mentioned in the section before this, we would run this Conv net four times each rectangle size will be 16 x 16.</li>
 <li>The convolution implementation will be as follows:<ul>
-<li><img src="21.png" alt=""></li>
+<li><img src="21.png" alt></li>
 </ul>
 </li>
 <li>Simply we have feed the image into the same Conv net we have trained.</li>
 <li>The left cell of the result “The blue one” will represent the the first sliding window of the normal implementation. The other cells will represent the others.</li>
 <li>Its more efficient because it now shares the computations of the four times needed.</li>
 <li>Another example would be:<ul>
-<li><img src="22.png" alt=""></li>
+<li><img src="22.png" alt></li>
 </ul>
 </li>
 <li>This example has a total of 16 sliding windows that shares the computation together.</li>
@@ -1427,7 +1427,7 @@
 </ul>
 </li>
 <li>The weakness of the algorithm is that the position of the rectangle wont be so accurate. Maybe none of the rectangles is exactly on the object you want to recognize.<ul>
-<li><img src="23.png" alt=""></li>
+<li><img src="23.png" alt></li>
 <li>In red, the rectangle we want and in blue is the required car rectangle.</li>
 </ul>
 </li>
@@ -1439,7 +1439,7 @@
 </li>
 <li><p>Yolo Algorithm:</p>
 <ul>
-<li><img src="24.png" alt=""></li>
+<li><img src="24.png" alt></li>
 </ul>
 <ol>
 <li>Lets say we have an image of 100 X 100</li>
@@ -1462,7 +1462,7 @@
 <li>Intersection Over Union is a function used to evaluate the object detection algorithm.</li>
 <li>It computes size of intersection and divide it by the union. More generally, <em>IoU</em> <em>is a measure of the overlap between two bounding boxes</em>.</li>
 <li>For example:<ul>
-<li><img src="25.png" alt=""></li>
+<li><img src="25.png" alt></li>
 <li>The red is the labeled output and the purple is the predicted output.</li>
 <li>To compute Intersection Over Union we first compute the union area of the two rectangles which is “the first rectangle + second rectangle” Then compute the intersection area between these two rectangles.</li>
 <li>Finally <code>IOU = intersection area / Union area</code></li>
@@ -1475,7 +1475,7 @@
 <li>One of the problems we have addressed in YOLO is that it can detect an object multiple times.</li>
 <li>Non-max Suppression is a way to make sure that YOLO detects the object just once.</li>
 <li>For example:<ul>
-<li><img src="26.png" alt=""></li>
+<li><img src="26.png" alt></li>
 <li>Each car has two or more detections with different probabilities. This came from some of the grids that thinks that this is the center point of the object.</li>
 </ul>
 </li>
@@ -1494,7 +1494,7 @@
 </ul>
 <h3 id="Anchor-Boxes"><a href="#Anchor-Boxes" class="headerlink" title="Anchor Boxes"></a>Anchor Boxes</h3><ul>
 <li>In YOLO, a grid only detects one object. What if a grid cell wants to detect multiple object?<ul>
-<li><img src="27.png" alt=""></li>
+<li><img src="27.png" alt></li>
 <li>Car and person grid is same here.</li>
 <li>In practice this happens rarely.</li>
 </ul>
@@ -1503,7 +1503,7 @@
 <li>If Y = <code>[Pc, bx, by, bh, bw, c1, c2, c3]</code> Then to use two anchor boxes like this:<ul>
 <li>Y = <code>[Pc, bx, by, bh, bw, c1, c2, c3, Pc, bx, by, bh, bw, c1, c2, c3]</code>  We simply have repeated  the one anchor Y.</li>
 <li>The two anchor boxes you choose should be known as a shape:<ul>
-<li><img src="28.png" alt=""></li>
+<li><img src="28.png" alt></li>
 </ul>
 </li>
 </ul>
@@ -1511,7 +1511,7 @@
 <li>So Previously, each object in training image is assigned to grid cell that contains that object’s midpoint.</li>
 <li>With two anchor boxes, Each object in training image is assigned to grid cell that contains object’s midpoint and anchor box for the grid cell with <u>highest IoU</u>. You have to check where your object should be based on its rectangle closest to which anchor box.</li>
 <li>Example of data:<ul>
-<li><img src="29.png" alt=""></li>
+<li><img src="29.png" alt></li>
 <li>Where the car was near the anchor 2 than anchor 1.</li>
 </ul>
 </li>
@@ -1547,7 +1547,7 @@
 <li><p>Your dataset could be an image with a multiple labels and a rectangle for each label, we should go to your dataset and make the shape and values of Y like we agreed.</p>
 <ul>
 <li>An example:<ul>
-<li><img src="30.png" alt=""></li>
+<li><img src="30.png" alt></li>
 </ul>
 </li>
 <li>We first initialize all of them to zeros and ?, then for each label and rectangle choose its closest grid point then the shape to fill it and then the best anchor point based on the IOU. so that the shape of Y for one image should be <code>[HeightOfGrid, WidthOfGrid,16]</code></li>
@@ -1558,16 +1558,16 @@
 <li><p>To make predictions, run the Conv net on an image and run Non-max suppression algorithm for each class you have in our case there are 3 classes.</p>
 <ul>
 <li>You could get something like that:<ul>
-<li><img src="31.png" alt=""></li>
+<li><img src="31.png" alt></li>
 <li>Total number of generated boxes are grid_width <em> grid_height </em> no_of_anchors = 3 x 3 x 2</li>
 </ul>
 </li>
 <li>By removing the low probability predictions you should have:<ul>
-<li><img src="32.png" alt=""></li>
+<li><img src="32.png" alt></li>
 </ul>
 </li>
 <li>Then get the best probability followed by the IOU filtering:<ul>
-<li><img src="33.png" alt=""></li>
+<li><img src="33.png" alt></li>
 </ul>
 </li>
 </ul>
@@ -1609,7 +1609,7 @@
 </li>
 <li><p>The algorithm R-CNN uses to pick windows is called a segmentation algorithm. Outputs something like this:</p>
 <ul>
-<li><img src="34.png" alt=""></li>
+<li><img src="34.png" alt></li>
 </ul>
 </li>
 <li><p>If for example the segmentation algorithm produces 2000 blob then we should run our classifier/CNN on top of these blobs.</p>
@@ -1695,7 +1695,7 @@
 <h4 id="Siamese-Network"><a href="#Siamese-Network" class="headerlink" title="Siamese Network"></a>Siamese Network</h4><ul>
 <li>We will implement the similarity function using a type of NNs called Siamease Network in which we can pass multiple inputs to the two or more networks with the same architecture and parameters.</li>
 <li>Siamese network architecture are as the following:<ul>
-<li><img src="35.png" alt=""></li>
+<li><img src="35.png" alt></li>
 <li>We make 2 identical conv nets which encodes an input image into a vector. In the above image the vector shape is (128, )</li>
 <li>The loss function will be <code>d(x1, x2) = || f(x1) - f(x2) ||^2</code></li>
 <li>If <code>X1</code>, <code>X2</code> are the same person, we want d to be low. If they are different persons, we want d to be high.</li>
@@ -1753,7 +1753,7 @@
 <h4 id="Face-Verification-and-Binary-Classification"><a href="#Face-Verification-and-Binary-Classification" class="headerlink" title="Face Verification and Binary Classification"></a>Face Verification and Binary Classification</h4><ul>
 <li>Triplet loss is one way to learn the parameters of a conv net for face recognition there’s another way to learn these parameters as a straight binary classification problem.</li>
 <li>Learning the similarity function another way:<ul>
-<li><img src="36.png" alt=""></li>
+<li><img src="36.png" alt></li>
 <li>The final layer is a sigmoid layer.</li>
 <li><code>Y&#39; = wi * Sigmoid ( f(x(i)) - f(x(j)) ) + b</code> where the subtraction is the Manhattan distance between f(x(i)) and f(x(j))</li>
 <li>Some other similarities can be Euclidean and Ki square similarity.</li>
@@ -1777,14 +1777,14 @@
 <h3 id="Neural-Style-Transfer"><a href="#Neural-Style-Transfer" class="headerlink" title="Neural Style Transfer"></a>Neural Style Transfer</h3><h4 id="What-is-neural-style-transfer"><a href="#What-is-neural-style-transfer" class="headerlink" title="What is neural style transfer?"></a>What is neural style transfer?</h4><ul>
 <li>Neural style transfer is one of the application of Conv nets.</li>
 <li>Neural style transfer takes a content image <code>C</code> and a style image <code>S</code> and generates the content image <code>G</code> with the style of style image.</li>
-<li><img src="37.png" alt=""></li>
+<li><img src="37.png" alt></li>
 <li>In order to implement this you need to look at the features extracted by the Conv net at the shallower and deeper layers.</li>
 <li>It uses a previously trained convolutional network like VGG, and builds on top of that. The idea of using a network trained on a different task and applying it to a new task is called transfer learning.</li>
 </ul>
 <h4 id="What-are-deep-ConvNets-learning"><a href="#What-are-deep-ConvNets-learning" class="headerlink" title="What are deep ConvNets learning?"></a>What are deep ConvNets learning?</h4><ul>
 <li>Visualizing what a deep network is learning:<ul>
 <li>Given this AlexNet like Conv net:<ul>
-<li><img src="38.png" alt=""></li>
+<li><img src="38.png" alt></li>
 </ul>
 </li>
 <li>Pick a unit in layer l. Find the nine image patches that maximize the unit’s activation. <ul>
@@ -1796,13 +1796,13 @@
 </ul>
 </li>
 <li>You will find out that each layer are learning more complex representations.<ul>
-<li><img src="39.png" alt=""></li>
+<li><img src="39.png" alt></li>
 </ul>
 </li>
 <li>The first layer was created using the weights of the first layer. Other images are generated using the receptive field in the image that triggered the neuron to be max.</li>
 <li><a href="https://arxiv.org/abs/1311.2901" target="_blank" rel="noopener">[Zeiler and Fergus., 2013, Visualizing and understanding convolutional networks]</a></li>
 <li>A good explanation on how to get <strong>receptive field</strong> given a layer:<ul>
-<li><img src="receptiveField.png" alt=""></li>
+<li><img src="receptiveField.png" alt></li>
 <li>From <a href="https://medium.com/@nikasa1889/a-guide-to-receptive-field-arithmetic-for-convolutional-neural-networks-e0f514068807" target="_blank" rel="noopener">A guide to receptive field arithmetic for Convolutional Neural Networks</a></li>
 </ul>
 </li>
@@ -1829,11 +1829,11 @@
 </li>
 <li>The iterations might be as following image:<ul>
 <li>To Generate this:<ul>
-<li><img src="40.png" alt=""></li>
+<li><img src="40.png" alt></li>
 </ul>
 </li>
 <li>You will go through this:<ul>
-<li><img src="41.png" alt=""></li>
+<li><img src="41.png" alt></li>
 </ul>
 </li>
 </ul>
@@ -1858,7 +1858,7 @@
 <li>Say you are using layer l’s activation to measure <strong><em>style</em></strong>.</li>
 <li>Define style as correlation between <strong>activations</strong> across <strong>channels</strong>. <ul>
 <li>That means given an activation like this:<ul>
-<li><img src="42.png" alt=""></li>
+<li><img src="42.png" alt></li>
 </ul>
 </li>
 <li>How correlate is the orange channel with the yellow channel?</li>
@@ -1878,7 +1878,7 @@
 </ul>
 </li>
 <li>To populate the matrix we use these equations to compute style matrix of the style image and the generated image.<ul>
-<li><img src="43.png" alt=""></li>
+<li><img src="43.png" alt></li>
 <li>As it appears its the sum of the multiplication of each member in the matrix.</li>
 </ul>
 </li>
@@ -1930,7 +1930,7 @@
 <li>1D data comes from a lot of resources such as waves, sounds, heartbeat signals. </li>
 <li>In most of the applications that uses 1D data we use Recurrent Neural Network RNN.</li>
 <li>3D data also are available in some applications like CT scan:<ul>
-<li><img src="44.png" alt=""></li>
+<li><img src="44.png" alt></li>
 </ul>
 </li>
 <li>Example of 3D convolution:<ul>
@@ -2155,7 +2155,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
             
@@ -2170,7 +2170,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2206,13 +2206,13 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external="" nofollow""="">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external="" nofollow""="">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>

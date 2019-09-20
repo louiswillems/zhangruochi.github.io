@@ -5,8 +5,8 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -194,7 +194,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -204,7 +204,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -354,20 +354,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/The-difference-between-Lasso-and-Ridge-regularization/2019/05/01/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="RUOCHI.AI">
     </span>
 
@@ -413,7 +413,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
                     <span itemprop="name">Artificial Intelligence</span>
                   </a>
@@ -424,7 +424,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Artificial-Intelligence/Machine-Learning/" itemprop="url" rel="index">
                     <span itemprop="name">Machine Learning</span>
                   </a>
@@ -476,36 +476,36 @@
 </ol>
 <p>==&gt;</p>
 <script type="math/tex; mode=display">\sum y^{2} + W_{0}^{2}\sum h_{0}^{2} + W_{1}^{2}\sum h_{1}^{2} + cross\; term  = constant</script><p>==&gt;</p>
-<script type="math/tex; mode=display">W_{0}^{2}\sum h_{0}^{2} + W_{1}^{2}\sum h_{1}^{2} + cross\; term = constant</script><p><img src="1.png" alt=""></p>
+<script type="math/tex; mode=display">W_{0}^{2}\sum h_{0}^{2} + W_{1}^{2}\sum h_{1}^{2} + cross\; term = constant</script><p><img src="1.png" alt></p>
 <p><strong>椭圆更大的半径表示更大的cost</strong></p>
 <ol>
 <li>增大$\lambda$, 在求最优cost的过程中，$w<em>{0}$ 和 $w</em>{1}$会趋近于0.</li>
 </ol>
-<p><img src="2.png" alt=""></p>
+<p><img src="2.png" alt></p>
 <h2 id="分开表示cost-function-的-rss-和-l2-penalty"><a href="#分开表示cost-function-的-rss-和-l2-penalty" class="headerlink" title="分开表示cost function 的 rss 和 l2 penalty"></a>分开表示cost function 的 rss 和 l2 penalty</h2><ol>
-<li>rss 表示椭圆<br><img src="3.png" alt=""></li>
-<li>l2 norm 表示圆<script type="math/tex; mode=display">\lambda (w_{0}^2 + w_{1}^{2})</script><img src="4.png" alt=""></li>
+<li>rss 表示椭圆<br><img src="3.png" alt></li>
+<li>l2 norm 表示圆<script type="math/tex; mode=display">\lambda (w_{0}^2 + w_{1}^{2})</script><img src="4.png" alt></li>
 </ol>
 <h2 id="Ridge-的最优解"><a href="#Ridge-的最优解" class="headerlink" title="Ridge 的最优解"></a>Ridge 的最优解</h2><p>Ridge的最优解是 rss 和 l2 penalty 之间balance 后的结果</p>
-<p><img src="5.png" alt=""></p>
+<p><img src="5.png" alt></p>
 <h2 id="Cost-Function-of-Lasso"><a href="#Cost-Function-of-Lasso" class="headerlink" title="Cost Function of Lasso"></a>Cost Function of Lasso</h2><script type="math/tex; mode=display">Cost = RSS(W) + \lambda ||W||^{2}_{2} = \sum_{i=1}^{N}(y_{i} - w_{0}h_{0}(x_{i})- w_{1}h_{1}(x_{i}))^{2} + \lambda (|w_{0}| + |w_{1}|)</script><ol>
 <li>上述方程可以表示为一个重心不在原点的椭圆(有cross term)</li>
 </ol>
 <p>==&gt;</p>
 <script type="math/tex; mode=display">\sum y^{2} + W_{0}^{2}\sum h_{0}^{2} + W_{1}^{2}\sum h_{1}^{2} + cross\; term  = constant</script><p>==&gt;</p>
-<script type="math/tex; mode=display">W_{0}^{2}\sum h_{0}^{2} + W_{1}^{2}\sum h_{1}^{2} + cross\; term = constant</script><p><img src="1.png" alt=""></p>
+<script type="math/tex; mode=display">W_{0}^{2}\sum h_{0}^{2} + W_{1}^{2}\sum h_{1}^{2} + cross\; term = constant</script><p><img src="1.png" alt></p>
 <ol>
 <li>增大$\lambda$, 在求最优cost的过程中，$w<em>{0}$ 和 $w</em>{1}$会趋近于0. <strong>但是，不是同时趋近为0，会有部分w先为0</strong></li>
 </ol>
-<p><img src="6.png" alt=""></p>
+<p><img src="6.png" alt></p>
 <h2 id="分开表示cost-function-的-rss-和-l1-penalty"><a href="#分开表示cost-function-的-rss-和-l1-penalty" class="headerlink" title="分开表示cost function 的 rss 和 l1 penalty"></a>分开表示cost function 的 rss 和 l1 penalty</h2><ol>
-<li><p>rss 表示椭圆（和ridge相同）<br><img src="3.png" alt=""></p>
+<li><p>rss 表示椭圆（和ridge相同）<br><img src="3.png" alt></p>
 </li>
 <li><p>l1 norm 表示菱形</p>
-<script type="math/tex; mode=display">\lambda (|w_{0}| + |w_{1}|)</script><p><img src="7.png" alt=""></p>
+<script type="math/tex; mode=display">\lambda (|w_{0}| + |w_{1}|)</script><p><img src="7.png" alt></p>
 </li>
 </ol>
-<h2 id="Lasso-的最优解"><a href="#Lasso-的最优解" class="headerlink" title="Lasso 的最优解"></a>Lasso 的最优解</h2><p>Ridge的最优解是 rss 和 l1 penalty 之间balance 后的结果<br><img src="8.png" alt=""></p>
+<h2 id="Lasso-的最优解"><a href="#Lasso-的最优解" class="headerlink" title="Lasso 的最优解"></a>Lasso 的最优解</h2><p>Ridge的最优解是 rss 和 l1 penalty 之间balance 后的结果<br><img src="8.png" alt></p>
 
       
     </div>
@@ -676,7 +676,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
             
@@ -691,7 +691,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -727,13 +727,13 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external="" nofollow""="">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external="" nofollow""="">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>
