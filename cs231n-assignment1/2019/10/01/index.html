@@ -124,18 +124,18 @@
 
 
 
-<meta name="description" content="k-Nearest Neighbor classifierThe kNN classifier consists of two stages:  During training, the classifier takes the training data and simply remembers it During testing, kNN classifies every test image">
+<meta name="description" content="In this assignment you will practice putting together a simple image classification pipeline, based on the k-Nearest Neighbor or the SVM/Softmax classifier.">
 <meta name="keywords" content="cs231n">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cs231n assignment1">
 <meta property="og:url" content="https://zhangruochi.com/cs231n-assignment1/2019/10/01/index.html">
 <meta property="og:site_name" content="RUOCHI.AI">
-<meta property="og:description" content="k-Nearest Neighbor classifierThe kNN classifier consists of two stages:  During training, the classifier takes the training data and simply remembers it During testing, kNN classifies every test image">
+<meta property="og:description" content="In this assignment you will practice putting together a simple image classification pipeline, based on the k-Nearest Neighbor or the SVM/Softmax classifier.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-01T07:26:33.447Z">
+<meta property="og:updated_time" content="2019-10-01T07:29:34.073Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cs231n assignment1">
-<meta name="twitter:description" content="k-Nearest Neighbor classifierThe kNN classifier consists of two stages:  During training, the classifier takes the training data and simply remembers it During testing, kNN classifies every test image">
+<meta name="twitter:description" content="In this assignment you will practice putting together a simple image classification pipeline, based on the k-Nearest Neighbor or the SVM/Softmax classifier.">
 
 
 
@@ -442,6 +442,10 @@
           
 
           
+              <div class="post-description">
+                  In this assignment you will practice putting together a simple image classification pipeline, based on the k-Nearest Neighbor or the SVM/Softmax classifier.
+              </div>
+          
 
         </div>
       </header>
@@ -456,7 +460,18 @@
       
 
       
-        <h2 id="k-Nearest-Neighbor-classifier"><a href="#k-Nearest-Neighbor-classifier" class="headerlink" title="k-Nearest Neighbor classifier"></a>k-Nearest Neighbor classifier</h2><p>The kNN classifier consists of two stages:</p>
+        <h2 id="The-goals-of-this-assignment-are-as-follows"><a href="#The-goals-of-this-assignment-are-as-follows" class="headerlink" title="The goals of this assignment are as follows"></a>The goals of this assignment are as follows</h2><ul>
+<li>understand the basic Image Classification pipeline and the data-driven approach (train/predict stages)</li>
+<li>understand the train/val/test splits and the use of validation data for hyperparameter tuning.</li>
+<li>develop proficiency in writing efficient vectorized code with numpy</li>
+<li>implement and apply a k-Nearest Neighbor (kNN) classifier</li>
+<li>implement and apply a Multiclass Support Vector Machine (SVM) classifier</li>
+<li>implement and apply a Softmax classifier</li>
+<li>implement and apply a Two layer neural network classifier</li>
+<li>understand the differences and tradeoffs between these classifiers</li>
+<li>get a basic understanding of performance improvements from using higher-level representations than raw pixels (e.g. color histograms, Histogram of Gradient (HOG) features)</li>
+</ul>
+<h2 id="k-Nearest-Neighbor-classifier"><a href="#k-Nearest-Neighbor-classifier" class="headerlink" title="k-Nearest Neighbor classifier"></a>k-Nearest Neighbor classifier</h2><p>The kNN classifier consists of two stages:</p>
 <ul>
 <li>During training, the classifier takes the training data and simply remembers it</li>
 <li>During testing, kNN classifies every test image by comparing to all training images and transfering the labels of the k most similar training examples</li>
@@ -797,7 +812,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#k-Nearest-Neighbor-classifier"><span class="nav-text">k-Nearest Neighbor classifier</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-point"><span class="nav-text">Key point</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KNN-code"><span class="nav-text">KNN code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multiclass-Support-Vector-Machine-exercise"><span class="nav-text"># Multiclass Support Vector Machine exercise</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-points"><span class="nav-text">Key points</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVM-code"><span class="nav-text">SVM code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Implement-a-Softmax-classifier"><span class="nav-text">Implement a Softmax classifier</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Softmax-code"><span class="nav-text">Softmax code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Two-Layer-Neural-Network"><span class="nav-text">Two-Layer Neural Network</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Neural-Net-code"><span class="nav-text">Neural Net code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Higher-Level-Representations-Image-Features"><span class="nav-text">Higher Level Representations: Image Features</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-goals-of-this-assignment-are-as-follows"><span class="nav-text">The goals of this assignment are as follows</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k-Nearest-Neighbor-classifier"><span class="nav-text">k-Nearest Neighbor classifier</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-point"><span class="nav-text">Key point</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KNN-code"><span class="nav-text">KNN code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multiclass-Support-Vector-Machine-exercise"><span class="nav-text"># Multiclass Support Vector Machine exercise</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-points"><span class="nav-text">Key points</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVM-code"><span class="nav-text">SVM code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Implement-a-Softmax-classifier"><span class="nav-text">Implement a Softmax classifier</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Softmax-code"><span class="nav-text">Softmax code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Two-Layer-Neural-Network"><span class="nav-text">Two-Layer Neural Network</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Neural-Net-code"><span class="nav-text">Neural Net code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Higher-Level-Representations-Image-Features"><span class="nav-text">Higher Level Representations: Image Features</span></a></li></ol></div>
             
 
           </div>
