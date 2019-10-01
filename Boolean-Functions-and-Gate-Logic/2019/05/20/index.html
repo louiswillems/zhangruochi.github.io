@@ -124,13 +124,13 @@
 
 
 
-<meta name="description" content="Boolean Logic Every digital device is made from the same building blocks: Elementary logic gates; Nand can build all the other logic gate from itself;  Boolean Algebra Boolean algebra deals with Boole">
+<meta name="description" content="Boolean Logic  Every digital device is made from the same building blocks: Elementary logic gates; Nand can build all the other logic gate from itself;  Boolean Algebra  Boolean algebra deals with Boo">
 <meta name="keywords" content="Boolean Function,Gate">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Boolean Functions and Gate Logic">
 <meta property="og:url" content="https://zhangruochi.com/Boolean-Functions-and-Gate-Logic/2019/05/20/index.html">
 <meta property="og:site_name" content="RUOCHI.AI">
-<meta property="og:description" content="Boolean Logic Every digital device is made from the same building blocks: Elementary logic gates; Nand can build all the other logic gate from itself;  Boolean Algebra Boolean algebra deals with Boole">
+<meta property="og:description" content="Boolean Logic  Every digital device is made from the same building blocks: Elementary logic gates; Nand can build all the other logic gate from itself;  Boolean Algebra  Boolean algebra deals with Boo">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/Boolean-Functions-and-Gate-Logic/2019/05/20/functions.png">
 <meta property="og:image" content="https://zhangruochi.com/Boolean-Functions-and-Gate-Logic/2019/05/20/identities.png">
@@ -142,7 +142,7 @@
 <meta property="og:updated_time" content="2019-05-21T03:20:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Boolean Functions and Gate Logic">
-<meta name="twitter:description" content="Boolean Logic Every digital device is made from the same building blocks: Elementary logic gates; Nand can build all the other logic gate from itself;  Boolean Algebra Boolean algebra deals with Boole">
+<meta name="twitter:description" content="Boolean Logic  Every digital device is made from the same building blocks: Elementary logic gates; Nand can build all the other logic gate from itself;  Boolean Algebra  Boolean algebra deals with Boo">
 <meta name="twitter:image" content="https://zhangruochi.com/Boolean-Functions-and-Gate-Logic/2019/05/20/functions.png">
 
 
@@ -453,56 +453,70 @@
       
 
       
-        <h2 id="Boolean-Logic"><a href="#Boolean-Logic" class="headerlink" title="Boolean Logic"></a>Boolean Logic</h2><ol>
+        <h2 id="boolean-logic">Boolean Logic</h2>
+<ol type="1">
 <li>Every digital device is made from the same building blocks: <strong>Elementary logic gates</strong>;</li>
 <li>Nand can build all the other logic gate from itself;</li>
 </ol>
-<h3 id="Boolean-Algebra"><a href="#Boolean-Algebra" class="headerlink" title="Boolean Algebra"></a>Boolean Algebra</h3><ol>
+<h3 id="boolean-algebra">Boolean Algebra</h3>
+<ol type="1">
 <li><strong>Boolean algebra</strong> deals with Boolean (also called binary) values that are typically labeled true/false, 1/0, yes/no, on/off, and so forth</li>
 <li><strong>A Boolean function</strong> is a function that operates on binary inputs and returns binary outputs.</li>
 </ol>
 <ul>
 <li>Infinitely many Boolean expressions vs. only a finite number of Boolean functions</li>
 <li>Infinitely many Boolean expressions are equivalent to the same Boolean function</li>
-<li>Boolean values are the two logic constants True, and False. </li>
-<li>for n independent Boolean variables, each taking one particular Boolean value, there are $2^n$ different possible combinations. A Boolean function has to assign one Boolean value to each one of these combinations. This brings the number of different possible Boolean functions of n variables to a total of $2^{2^n}$</li>
-<li><img src="functions.png" alt></li>
+<li>Boolean values are the two logic constants True, and False.</li>
+<li>for n independent Boolean variables, each taking one particular Boolean value, there are <span class="math inline">\(2^n\)</span> different possible combinations. A Boolean function has to assign one Boolean value to each one of these combinations. This brings the number of different possible Boolean functions of n variables to a total of <span class="math inline">\(2^{2^n}\)</span></li>
+<li><img src="functions.png"></li>
 </ul>
-<ol>
-<li>Boolean Identities<br><img src="identities.png" alt></li>
+<ol start="3" type="1">
+<li>Boolean Identities <img src="identities.png"></li>
 </ol>
-<h3 id="two-ways-to-represent-the-boolean-functions"><a href="#two-ways-to-represent-the-boolean-functions" class="headerlink" title="two ways to represent the boolean functions"></a>two ways to represent the boolean functions</h3><ol>
+<h3 id="two-ways-to-represent-the-boolean-functions">two ways to represent the boolean functions</h3>
+<ol type="1">
 <li><strong>Truth Table Representation</strong>: The simplest way to specify a Boolean function is to enumerate all the possible values of the function’s input variables, along with the function’s output for each set of inputs.</li>
 </ol>
-<p><img src="truth_table.png" alt> </p>
-<ol>
+<p><img src="truth_table.png"></p>
+<ol start="2" type="1">
 <li><strong>Boolean Expressions</strong>: a Boolean function can also be specified using Boolean operations over its input variables</li>
 </ol>
-<script type="math/tex; mode=display">f(x,y,z) = (x + y) * \bar(z)</script><h4 id="Canonical-Representation"><a href="#Canonical-Representation" class="headerlink" title="Canonical Representation"></a>Canonical Representation</h4><p>Every Boolean function, no matter how complex, can be expressed using three Boolean operators only: And, Or, and Not.</p>
-<p>example: for the figure above, we can get</p>
-<script type="math/tex; mode=display">f(x,y,z) = \bar(x)y\bar(z) + x\bar(y)\bar(z) + xy\bar(z)</script><p>find all the expressions euqual to 1, use “and” conbines the bits together and use “or” conbine all the expressions.</p>
-<h2 id="Gate-Logic"><a href="#Gate-Logic" class="headerlink" title="Gate Logic"></a>Gate Logic</h2><p>A gate is a physical device that implements a Boolean function. If a Boolean function f operates on n variables and returns m binary results (in all our examples so far, m was 1), the gate that implements f will have n input pins and m output pins.</p>
+<p><span class="math display">\[f(x,y,z) = (x + y) * \bar(z)\]</span></p>
+<h4 id="canonical-representation">Canonical Representation</h4>
+<p>Every Boolean function, no matter how complex, can be expressed using three Boolean operators only: And, Or, and Not.</p>
+<p>example: for the figure above, we can get <span class="math display">\[f(x,y,z) = \bar(x)y\bar(z) + x\bar(y)\bar(z) + xy\bar(z)\]</span></p>
+<p>find all the expressions euqual to 1, use "and" conbines the bits together and use "or" conbine all the expressions.</p>
+<h2 id="gate-logic">Gate Logic</h2>
+<p>A gate is a physical device that implements a Boolean function. If a Boolean function f operates on n variables and returns m binary results (in all our examples so far, m was 1), the gate that implements f will have n input pins and m output pins.</p>
 <p>Each one of the operations And, Or, and Not can be constructed from it, and it alone (e.g., x Or y = (x Nand x) Nand (y Nand y). And since every Boolean function can be constructed from And, Or, and Not operations using the canonical representation method, it follows that every Boolean function can be constructed from Nand operations alone</p>
-<h3 id="Primitive-and-Composite-Gates"><a href="#Primitive-and-Composite-Gates" class="headerlink" title="Primitive and Composite Gates"></a>Primitive and Composite Gates</h3><p>a primitive gate (see figure 1.3) can be viewed as a black box device that implements an elementary logical operation in one way or another—we don’t care how. Computer scientists can be content with the <strong>abstract notions</strong> of Boolean algebra and gate logic, trusting that someone else (the physicists and electrical engineers—bless their souls) will figure out how to actually realize them in hardware<br><img src="gate.png" alt></p>
+<h3 id="primitive-and-composite-gates">Primitive and Composite Gates</h3>
+<p>a primitive gate (see figure 1.3) can be viewed as a black box device that implements an elementary logical operation in one way or another—we don’t care how. Computer scientists can be content with the <strong>abstract notions</strong> of Boolean algebra and gate logic, trusting that someone else (the physicists and electrical engineers—bless their souls) will figure out how to actually realize them in hardware <img src="gate.png"></p>
 <p>We see that any given logic gate can be viewed from two different perspectives: external and internal. As the blow picture a example. The right-hand side of figure gives the gate’s internal architecture, or <strong>implementation</strong>, whereas the left side shows only the gate <strong>interface</strong>. The gate implementation will realize its stated interface, in one way or another.</p>
-<p><img src="implementation.png" alt></p>
-<h3 id="Multi-Bit-Versions-of-Basic-Gates"><a href="#Multi-Bit-Versions-of-Basic-Gates" class="headerlink" title="Multi-Bit Versions of Basic Gates"></a>Multi-Bit Versions of Basic Gates</h3><p>Computer hardware is typically designed to operate on multi-bit arrays called <strong>buses</strong>.</p>
+<p><img src="implementation.png"></p>
+<h3 id="multi-bit-versions-of-basic-gates">Multi-Bit Versions of Basic Gates</h3>
+<p>Computer hardware is typically designed to operate on multi-bit arrays called <strong>buses</strong>.</p>
 <p>or example, a basic requirement of a 32-bit computer is to be able to compute (bit-wise) an And function on two given 32-bit buses. To implement this operation, we can build an array of 32 binary And gates, each operating separately on a pair of bits. In order to enclose all this logic in one package, we can encapsulate the gates array in a single chip interface consisting of two 32-bit input buses and one 32-bit output bus.</p>
 <p>example, <strong>Multi-Bit Not</strong> An n-bit Not gate applies the Boolean operation Not to every one of the bits in its n-bit input bus:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Chip name: Not16</span><br><span class="line">Inputs: <span class="keyword">in</span>[16] // a 16-bit pin Outputs: out[16]</span><br><span class="line">Function: For i=0..15 out[i]=Not(<span class="keyword">in</span>[i]).</span><br></pre></td></tr></table></figure>
-<h3 id="Multi-Way-Versions-of-Basic-Gates"><a href="#Multi-Way-Versions-of-Basic-Gates" class="headerlink" title="Multi-Way Versions of Basic Gates"></a>Multi-Way Versions of Basic Gates</h3><p>any 2-way logic gates that accept two inputs have natural generalization to multi- way variants that accept an arbitrary number of inputs.</p>
+<h3 id="multi-way-versions-of-basic-gates">Multi-Way Versions of Basic Gates</h3>
+<p>any 2-way logic gates that accept two inputs have natural generalization to multi- way variants that accept an arbitrary number of inputs.</p>
 <p>example, <strong>Multi-Way Or An n-way Or</strong> gate outputs 1 when at least one of its n bit inputs is 1, and 0 otherwise. Here is the 8-way variant of this gate:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Chip name: Or8Way</span><br><span class="line">Inputs: <span class="keyword">in</span>[8]</span><br><span class="line">Outputs: out</span><br><span class="line">Function: out=Or(<span class="keyword">in</span>[0],<span class="keyword">in</span>[1],...,<span class="keyword">in</span>[7]).</span><br></pre></td></tr></table></figure>
-<h3 id="Multiplexor"><a href="#Multiplexor" class="headerlink" title="Multiplexor"></a>Multiplexor</h3><p>A multiplexor is a three-input gate that uses one of the inputs, called <strong>selection bit</strong>, to select and output one of the other two inputs, called <strong>data bits</strong>. Thus, a better name for this device might have been <strong>selector</strong>.</p>
-<p><img src="Multiplexor.png" alt></p>
+<h3 id="multiplexor">Multiplexor</h3>
+<p>A multiplexor is a three-input gate that uses one of the inputs, called <strong>selection bit</strong>, to select and output one of the other two inputs, called <strong>data bits</strong>. Thus, a better name for this device might have been <strong>selector</strong>.</p>
+<p><img src="Multiplexor.png"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Chip name: Xor</span><br><span class="line">Inputs: a, b</span><br><span class="line">Outputs: out</span><br><span class="line">Function: If a=/b <span class="keyword">then</span> out=1 <span class="keyword">else</span> out=0.</span><br></pre></td></tr></table></figure>
-<h3 id="Demultiplexor"><a href="#Demultiplexor" class="headerlink" title="Demultiplexor"></a>Demultiplexor</h3><p>A demultiplexor performs the opposite function of a multiplexor: It takes a single input and channels it to one of two possible outputs according to a selector bit that specifies which output to chose.</p>
+<h3 id="demultiplexor">Demultiplexor</h3>
+<p>A demultiplexor performs the opposite function of a multiplexor: It takes a single input and channels it to one of two possible outputs according to a selector bit that specifies which output to chose.</p>
 <p><a href="Demultiplexor.png"></a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Chip name: DMux</span><br><span class="line">Inputs: <span class="keyword">in</span>, sel</span><br><span class="line">Outputs: a, b</span><br><span class="line">Function: If sel=0 <span class="keyword">then</span> &#123;a=<span class="keyword">in</span>, b=0&#125; <span class="keyword">else</span> &#123;a=0, b=<span class="keyword">in</span>&#125;.</span><br></pre></td></tr></table></figure>
-<h2 id="Hardware-Description-Language-HDL"><a href="#Hardware-Description-Language-HDL" class="headerlink" title="Hardware Description Language (HDL)"></a>Hardware Description Language (HDL)</h2><p>Thus, using HDL, one can completely plan, debug, and optimize the entire chip before a single penny is spent on actual production. When the HDL program is deemed complete, that is, when the performance of the simulated chip satisfies the client who ordered it, the HDL program can become the blueprint from which many copies of the physical chip can be stamped in silicon.</p>
+<h2 id="hardware-description-language-hdl">Hardware Description Language (HDL)</h2>
+<p>Thus, using HDL, one can completely plan, debug, and optimize the entire chip before a single penny is spent on actual production. When the HDL program is deemed complete, that is, when the performance of the simulated chip satisfies the client who ordered it, the HDL program can become the blueprint from which many copies of the physical chip can be stamped in silicon.</p>
 <p>An HDL definition of a chip consists of a <strong>header section</strong> and a <strong>parts section</strong>. The header section specifies the chip interface, namely the chip name and the names of its input and output pins. The parts section describes the names and topol- ogy of all the lower-level parts (other chips) from which this chip is constructed</p>
-<h3 id="HDL-implementation-of-a-Xor-gate"><a href="#HDL-implementation-of-a-Xor-gate" class="headerlink" title="HDL implementation of a Xor gate."></a>HDL implementation of a Xor gate.</h3><p><img src="xor.png" alt></p>
-<h2 id="Hardware-Simulation"><a href="#Hardware-Simulation" class="headerlink" title="Hardware Simulation"></a>Hardware Simulation</h2><p>Since HDL is a hardware construction language, the process of writing and debug- ging HDL programs is quite similar to software development. The main difference is that instead of writing code in a language like Java, we write it in HDL, and instead of using a compiler to translate and test the code, we use a hardware simulator. The hardware simulator is a computer program that knows how to parse and interpret HDL code, turn it into an executable representation, and test it according to the specifications of a given test script</p>
+<h3 id="hdl-implementation-of-a-xor-gate.">HDL implementation of a Xor gate.</h3>
+<p><img src="xor.png"></p>
+<h2 id="hardware-simulation">Hardware Simulation</h2>
+<p>Since HDL is a hardware construction language, the process of writing and debug- ging HDL programs is quite similar to software development. The main difference is that instead of writing code in a language like Java, we write it in HDL, and instead of using a compiler to translate and test the code, we use a hardware simulator. The hardware simulator is a computer program that knows how to parse and interpret HDL code, turn it into an executable representation, and test it according to the specifications of a given test script</p>
 
       
     </div>
@@ -688,7 +702,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">132</span>
+                  <span class="site-state-item-count">133</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -710,7 +724,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -781,7 +795,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Boolean-Logic"><span class="nav-text">Boolean Logic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Boolean-Algebra"><span class="nav-text">Boolean Algebra</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#two-ways-to-represent-the-boolean-functions"><span class="nav-text">two ways to represent the boolean functions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Canonical-Representation"><span class="nav-text">Canonical Representation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gate-Logic"><span class="nav-text">Gate Logic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Primitive-and-Composite-Gates"><span class="nav-text">Primitive and Composite Gates</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-Bit-Versions-of-Basic-Gates"><span class="nav-text">Multi-Bit Versions of Basic Gates</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-Way-Versions-of-Basic-Gates"><span class="nav-text">Multi-Way Versions of Basic Gates</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multiplexor"><span class="nav-text">Multiplexor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Demultiplexor"><span class="nav-text">Demultiplexor</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hardware-Description-Language-HDL"><span class="nav-text">Hardware Description Language (HDL)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HDL-implementation-of-a-Xor-gate"><span class="nav-text">HDL implementation of a Xor gate.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hardware-Simulation"><span class="nav-text">Hardware Simulation</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#boolean-logic"><span class="nav-text">Boolean Logic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#boolean-algebra"><span class="nav-text">Boolean Algebra</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#two-ways-to-represent-the-boolean-functions"><span class="nav-text">two ways to represent the boolean functions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#canonical-representation"><span class="nav-text">Canonical Representation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gate-logic"><span class="nav-text">Gate Logic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#primitive-and-composite-gates"><span class="nav-text">Primitive and Composite Gates</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-bit-versions-of-basic-gates"><span class="nav-text">Multi-Bit Versions of Basic Gates</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-way-versions-of-basic-gates"><span class="nav-text">Multi-Way Versions of Basic Gates</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multiplexor"><span class="nav-text">Multiplexor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#demultiplexor"><span class="nav-text">Demultiplexor</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hardware-description-language-hdl"><span class="nav-text">Hardware Description Language (HDL)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hdl-implementation-of-a-xor-gate."><span class="nav-text">HDL implementation of a Xor gate.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hardware-simulation"><span class="nav-text">Hardware Simulation</span></a></li></ol></div>
             
 
           </div>
