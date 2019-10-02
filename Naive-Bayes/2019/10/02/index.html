@@ -131,7 +131,7 @@
 <meta property="og:site_name" content="RUOCHI.AI">
 <meta property="og:description" content="Three types of Naive Bayes Algorithms">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-02T17:32:47.446Z">
+<meta property="og:updated_time" content="2019-10-02T17:36:18.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Naive Bayes">
 <meta name="twitter:description" content="Three types of Naive Bayes Algorithms">
@@ -467,7 +467,7 @@
 </ol>
 <h2 id="Naive-Bayes"><a href="#Naive-Bayes" class="headerlink" title="Naive Bayes"></a>Naive Bayes</h2><p>若一个样本有n个特征，分别用$x_1,x_2,x_3,\cdots,x_n$表示，最终的目的是求将样本划分到类$y_k$的概率，即$P(y_k|x_1,x_2,x_3,\cdots,x_n)$。基于贝叶斯公式来估计后验概率$P(y_k|x)$的主要在于$P(x|c)$是所有属性上的联合概率。为了避开这个障碍，朴素贝叶斯采用“属性条件独立性假设”：对已知类别，假设所有属性相互独立。基于此，$P(y_k|x_1,x_2,x_3,\cdots,x_n)$可重写为：</p>
 <script type="math/tex; mode=display">P(y_k|x_1,x_2,x_3,\cdots,x_n) = \frac{P(y_k)P(x_1,x_2,x_3,\cdots,x_n|y_k)}{P(X)} = \frac{P(y_k)}{P(X)}\prod_{i=1}^{n}p(x_i|y_k)</script><p>对于所有类别来说$P(X)$相同，因此最小化分类错误率的贝叶斯最优分类器为：</p>
-<script type="math/tex; mode=display">h_nb(X) = argmax_{y_k\in y}P(y_k)\prod_{i}^{n}P(x_i|y_k)</script><p><strong>显然，朴素贝叶斯分类器的训练过程就是基于训练集$D$来估计类先验概率$P(y_k)$,并为每个属性估计条件概率$P(x_i|y_k)$.</strong></p>
+<script type="math/tex; mode=display">h_{\theta}(X) = argmax_{y_k\in y}P(y_k)\prod_{i}^{n}P(x_i|y_k)</script><p><strong>显然，朴素贝叶斯分类器的训练过程就是基于训练集$D$来估计类先验概率$P(y_k)$,并为每个属性估计条件概率$P(x_i|y_k)$.</strong></p>
 <p>令$D_{y_k}$表示训练集$D$中第$y_k$类样本组成的集合，若有充足的独立同分布样本，则可容易地估计出类先验概率:</p>
 <script type="math/tex; mode=display">P(y_k) = \frac{|D_{y_k}|}{|D|}</script><p>对于离散属性而言，令$D_{y_k,x_i}$表示$D_{y_k}$中第i个属性上取值为$x_i$的样本组成的集合，则条件概率P(x_i|y_k) 可估计为：</p>
 <script type="math/tex; mode=display">P(x_i|y_k) = \frac{|D{y_k,x_i}|}{D_{y_k}}</script><h2 id="Gaussian-Naive-Bayes"><a href="#Gaussian-Naive-Bayes" class="headerlink" title="Gaussian Naive Bayes"></a>Gaussian Naive Bayes</h2><p>连续属性可以考虑概率密度函数,高斯朴素贝叶斯假设$y_k$上的属性$x_i$呈现高斯分布。假定$P(x_i|y_k) \sim \mathcal N (\mu_{i,y_k},\sigma^2_{i,y_k})$, 其中 $\mu_{i,y_k}$ 和 $\sigma^2_{i,y_k}$ 分别是第c类样本在第i个属性上取值的均值和方差，则有：</p>
