@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangruochi.com/Naive-Bayes/2019/10/02/</loc>
+    
+    <lastmod>2019-10-02T17:32:47.446Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangruochi.com/cs231n-assignment1/2019/10/01/</loc>
     
-    <lastmod>2019-10-01T07:29:34.073Z</lastmod>
+    <lastmod>2019-10-01T07:29:34.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Machine-Language/2019/09/22/</loc>
     
-    <lastmod>2019-09-22T19:38:04.097Z</lastmod>
+    <lastmod>2019-09-22T19:38:04.098Z</lastmod>
     
   </url>
   
@@ -39,14 +46,14 @@
   <url>
     <loc>https://zhangruochi.com/Orthogonal-Projections/2019/09/20/</loc>
     
-    <lastmod>2019-09-20T04:36:42.761Z</lastmod>
+    <lastmod>2019-09-20T04:36:42.762Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Vector-and-Space/2019/09/19/</loc>
     
-    <lastmod>2019-09-20T01:54:16.404Z</lastmod>
+    <lastmod>2019-09-20T01:54:16.405Z</lastmod>
     
   </url>
   
@@ -60,7 +67,7 @@
   <url>
     <loc>https://zhangruochi.com/AVL-Tree/2019/09/15/</loc>
     
-    <lastmod>2019-09-15T20:52:57.982Z</lastmod>
+    <lastmod>2019-09-15T20:52:57.983Z</lastmod>
     
   </url>
   
@@ -95,7 +102,7 @@
   <url>
     <loc>https://zhangruochi.com/Sort/2019/09/08/</loc>
     
-    <lastmod>2019-09-10T17:27:23.821Z</lastmod>
+    <lastmod>2019-09-10T17:27:23.822Z</lastmod>
     
   </url>
   
@@ -116,7 +123,7 @@
   <url>
     <loc>https://zhangruochi.com/Hash-Table/2019/08/23/</loc>
     
-    <lastmod>2019-08-23T06:21:59.509Z</lastmod>
+    <lastmod>2019-08-23T06:21:59.510Z</lastmod>
     
   </url>
   
@@ -158,14 +165,14 @@
   <url>
     <loc>https://zhangruochi.com/Remote-Jupyter-notebook/2019/07/27/</loc>
     
-    <lastmod>2019-08-05T09:19:35.226Z</lastmod>
+    <lastmod>2019-08-05T09:19:35.227Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Bayes-Estimation/2019/07/21/</loc>
     
-    <lastmod>2019-07-21T09:50:52.019Z</lastmod>
+    <lastmod>2019-07-21T09:50:52.020Z</lastmod>
     
   </url>
   
@@ -186,28 +193,28 @@
   <url>
     <loc>https://zhangruochi.com/Stacking/2019/07/17/</loc>
     
-    <lastmod>2019-07-17T15:34:18.311Z</lastmod>
+    <lastmod>2019-07-17T15:34:18.312Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Metrics/2019/07/14/</loc>
     
-    <lastmod>2019-07-17T08:40:01.347Z</lastmod>
+    <lastmod>2019-07-17T08:40:01.348Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Hyperparameters-tuning/2019/07/16/</loc>
     
-    <lastmod>2019-07-17T01:23:02.970Z</lastmod>
+    <lastmod>2019-07-17T01:23:02.971Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Advanced-features/2019/07/16/</loc>
     
-    <lastmod>2019-07-16T23:27:08.081Z</lastmod>
+    <lastmod>2019-07-16T23:27:08.082Z</lastmod>
     
   </url>
   
@@ -228,7 +235,7 @@
   <url>
     <loc>https://zhangruochi.com/Pipeline-for-data-science-project/2019/07/17/</loc>
     
-    <lastmod>2019-07-16T22:43:43.928Z</lastmod>
+    <lastmod>2019-07-16T22:43:43.929Z</lastmod>
     
   </url>
   
@@ -242,7 +249,7 @@
   <url>
     <loc>https://zhangruochi.com/Mean-Encodings/2019/07/15/</loc>
     
-    <lastmod>2019-07-14T19:54:20.306Z</lastmod>
+    <lastmod>2019-07-14T19:54:20.307Z</lastmod>
     
   </url>
   
@@ -305,7 +312,7 @@
   <url>
     <loc>https://zhangruochi.com/Dive-into-blog/2019/02/13/</loc>
     
-    <lastmod>2019-07-06T01:55:18.374Z</lastmod>
+    <lastmod>2019-07-06T01:55:18.375Z</lastmod>
     
   </url>
   
@@ -319,7 +326,7 @@
   <url>
     <loc>https://zhangruochi.com/AI-for-Everyone/2019/02/28/</loc>
     
-    <lastmod>2019-07-05T10:32:15.693Z</lastmod>
+    <lastmod>2019-07-05T10:32:15.694Z</lastmod>
     
   </url>
   
@@ -333,14 +340,14 @@
   <url>
     <loc>https://zhangruochi.com/Character-level-language-model/2019/03/28/</loc>
     
-    <lastmod>2019-07-05T10:32:07.567Z</lastmod>
+    <lastmod>2019-07-05T10:32:07.568Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Convolutional-Neural-Networks/2019/03/27/</loc>
     
-    <lastmod>2019-07-05T10:31:57.461Z</lastmod>
+    <lastmod>2019-07-05T10:31:57.462Z</lastmod>
     
   </url>
   
@@ -361,7 +368,7 @@
   <url>
     <loc>https://zhangruochi.com/GRU-MXNET-Implemetation/2019/04/13/</loc>
     
-    <lastmod>2019-07-05T10:31:33.947Z</lastmod>
+    <lastmod>2019-07-05T10:31:33.948Z</lastmod>
     
   </url>
   
@@ -375,14 +382,14 @@
   <url>
     <loc>https://zhangruochi.com/Improving-Computer-Vision-Accuracy-using-Convolutions/2019/05/23/</loc>
     
-    <lastmod>2019-07-05T10:31:23.209Z</lastmod>
+    <lastmod>2019-07-05T10:31:23.210Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Improvise-a-Jazz-Solo-with-an-LSTM-Network/2019/03/28/</loc>
     
-    <lastmod>2019-07-05T10:31:14.361Z</lastmod>
+    <lastmod>2019-07-05T10:31:14.362Z</lastmod>
     
   </url>
   
@@ -396,7 +403,7 @@
   <url>
     <loc>https://zhangruochi.com/Neural-Machine-Translation-with-Attention/2019/03/29/</loc>
     
-    <lastmod>2019-07-05T10:30:44.188Z</lastmod>
+    <lastmod>2019-07-05T10:30:44.189Z</lastmod>
     
   </url>
   
@@ -417,7 +424,7 @@
   <url>
     <loc>https://zhangruochi.com/RNN-MXNET-Implementation/2019/04/12/</loc>
     
-    <lastmod>2019-07-05T10:30:07.399Z</lastmod>
+    <lastmod>2019-07-05T10:30:07.400Z</lastmod>
     
   </url>
   
@@ -466,7 +473,7 @@
   <url>
     <loc>https://zhangruochi.com/Client-Server-Programming/2019/06/23/</loc>
     
-    <lastmod>2019-07-05T10:19:56.708Z</lastmod>
+    <lastmod>2019-07-05T10:19:56.709Z</lastmod>
     
   </url>
   
@@ -501,21 +508,21 @@
   <url>
     <loc>https://zhangruochi.com/%E6%B1%82%E5%AF%BC%E6%B3%95%E5%88%99/2019/07/05/</loc>
     
-    <lastmod>2019-07-05T10:16:08.208Z</lastmod>
+    <lastmod>2019-07-05T10:16:08.209Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Tutorial-of-Java-s-concurrent-packages/2019/06/09/</loc>
     
-    <lastmod>2019-07-05T10:14:53.761Z</lastmod>
+    <lastmod>2019-07-05T10:14:53.762Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Task-Parallelism/2019/06/08/</loc>
     
-    <lastmod>2019-07-05T10:14:48.730Z</lastmod>
+    <lastmod>2019-07-05T10:14:48.731Z</lastmod>
     
   </url>
   
@@ -529,28 +536,28 @@
   <url>
     <loc>https://zhangruochi.com/Python-Multiprocessing/2019/05/30/</loc>
     
-    <lastmod>2019-07-05T10:14:33.909Z</lastmod>
+    <lastmod>2019-07-05T10:14:33.910Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Parallel-Loops/2019/06/13/</loc>
     
-    <lastmod>2019-07-05T10:14:27.662Z</lastmod>
+    <lastmod>2019-07-05T10:14:27.663Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Optimistic-Concurrency/2019/06/22/</loc>
     
-    <lastmod>2019-07-05T10:14:23.077Z</lastmod>
+    <lastmod>2019-07-05T10:14:23.078Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Functional-Parallelism/2019/06/12/</loc>
     
-    <lastmod>2019-07-05T10:14:10.591Z</lastmod>
+    <lastmod>2019-07-05T10:14:10.592Z</lastmod>
     
   </url>
   
@@ -571,7 +578,7 @@
   <url>
     <loc>https://zhangruochi.com/Bigtable-A-Distributed-Storage-System-for-Structured-Data/2019/02/28/</loc>
     
-    <lastmod>2019-07-05T10:13:45.845Z</lastmod>
+    <lastmod>2019-07-05T10:13:45.846Z</lastmod>
     
   </url>
   
@@ -585,7 +592,7 @@
   <url>
     <loc>https://zhangruochi.com/Learning-to-answer-Yes-or-No/2019/02/15/</loc>
     
-    <lastmod>2019-07-05T10:12:07.786Z</lastmod>
+    <lastmod>2019-07-05T10:12:07.787Z</lastmod>
     
   </url>
   
@@ -606,14 +613,14 @@
   <url>
     <loc>https://zhangruochi.com/An-overview-of-gradient-descent-optimization-algorithms/2019/02/23/</loc>
     
-    <lastmod>2019-07-05T10:10:02.672Z</lastmod>
+    <lastmod>2019-07-05T10:10:02.673Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Coordinate-descent-for-lasso/2019/05/01/</loc>
     
-    <lastmod>2019-07-05T10:09:33.038Z</lastmod>
+    <lastmod>2019-07-05T10:09:33.039Z</lastmod>
     
   </url>
   
@@ -627,21 +634,21 @@
   <url>
     <loc>https://zhangruochi.com/Gaussian-Mixed-Model-Introduction/2019/05/15/</loc>
     
-    <lastmod>2019-07-05T10:09:19.103Z</lastmod>
+    <lastmod>2019-07-05T10:09:19.104Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/INFSCI-2160-DATA-MINING-PART-ONE/2019/02/18/</loc>
     
-    <lastmod>2019-07-05T10:09:09.714Z</lastmod>
+    <lastmod>2019-07-05T10:09:09.715Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/INFSCI-2595-Machine-Learning-part-one/2019/02/23/</loc>
     
-    <lastmod>2019-07-05T10:08:35.617Z</lastmod>
+    <lastmod>2019-07-05T10:08:35.618Z</lastmod>
     
   </url>
   
@@ -655,14 +662,14 @@
   <url>
     <loc>https://zhangruochi.com/KMeans-Improving/2019/05/15/</loc>
     
-    <lastmod>2019-07-05T10:06:12.446Z</lastmod>
+    <lastmod>2019-07-05T10:06:12.447Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/KNN-with-KDtree/2019/05/14/</loc>
     
-    <lastmod>2019-07-05T10:06:07.879Z</lastmod>
+    <lastmod>2019-07-05T10:06:07.880Z</lastmod>
     
   </url>
   
@@ -676,7 +683,7 @@
   <url>
     <loc>https://zhangruochi.com/Overfittingin-decision-trees/2019/05/11/</loc>
     
-    <lastmod>2019-07-05T10:04:34.932Z</lastmod>
+    <lastmod>2019-07-05T10:04:34.933Z</lastmod>
     
   </url>
   
@@ -704,14 +711,14 @@
   <url>
     <loc>https://zhangruochi.com/Understanding-Logistic-Regression/2019/02/24/</loc>
     
-    <lastmod>2019-07-05T10:04:06.244Z</lastmod>
+    <lastmod>2019-07-05T10:04:06.245Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/3-sources-of-error/2019/04/20/</loc>
     
-    <lastmod>2019-07-05T10:03:47.803Z</lastmod>
+    <lastmod>2019-07-05T10:03:47.804Z</lastmod>
     
   </url>
   
@@ -725,14 +732,14 @@
   <url>
     <loc>https://zhangruochi.com/The-Hello-World-of-Deep-Learning/2019/05/21/</loc>
     
-    <lastmod>2019-07-05T09:59:41.424Z</lastmod>
+    <lastmod>2019-07-05T09:59:41.425Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Structuring-Machine-Learning-Projects/2019/03/29/</loc>
     
-    <lastmod>2019-07-05T09:58:23.587Z</lastmod>
+    <lastmod>2019-07-05T09:58:23.588Z</lastmod>
     
   </url>
   
@@ -746,14 +753,14 @@
   <url>
     <loc>https://zhangruochi.com/Machine-Learning-Yarning-part-two/2019/03/20/</loc>
     
-    <lastmod>2019-07-05T09:56:46.158Z</lastmod>
+    <lastmod>2019-07-05T09:56:46.159Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Linear-models-Optimization/2019/02/22/</loc>
     
-    <lastmod>2019-07-05T09:54:42.285Z</lastmod>
+    <lastmod>2019-07-05T09:54:42.286Z</lastmod>
     
   </url>
   
@@ -767,14 +774,14 @@
   <url>
     <loc>https://zhangruochi.com/Emojify/2019/03/28/</loc>
     
-    <lastmod>2019-07-05T09:51:23.541Z</lastmod>
+    <lastmod>2019-07-05T09:51:23.542Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Introduction-to-Redis/2019/07/02/</loc>
     
-    <lastmod>2019-07-05T09:49:55.629Z</lastmod>
+    <lastmod>2019-07-05T09:49:55.630Z</lastmod>
     
   </url>
   
@@ -788,14 +795,14 @@
   <url>
     <loc>https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/</loc>
     
-    <lastmod>2019-07-05T09:49:04.455Z</lastmod>
+    <lastmod>2019-07-05T09:49:04.456Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/</loc>
     
-    <lastmod>2019-07-05T09:48:49.830Z</lastmod>
+    <lastmod>2019-07-05T09:48:49.831Z</lastmod>
     
   </url>
   
@@ -809,14 +816,14 @@
   <url>
     <loc>https://zhangruochi.com/Message-Passing/2019/06/24/</loc>
     
-    <lastmod>2019-07-05T09:47:49.370Z</lastmod>
+    <lastmod>2019-07-05T09:47:49.371Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/P2P-System/2019/02/14/</loc>
     
-    <lastmod>2019-07-05T09:47:36.779Z</lastmod>
+    <lastmod>2019-07-05T09:47:36.780Z</lastmod>
     
   </url>
   
@@ -837,7 +844,7 @@
   <url>
     <loc>https://zhangruochi.com/%E5%88%86%E5%B8%83%E5%BC%8F%E5%93%88%E5%B8%8C-DHT-%E7%9A%84%E5%8E%9F%E7%90%86/2019/07/04/</loc>
     
-    <lastmod>2019-07-05T09:46:55.180Z</lastmod>
+    <lastmod>2019-07-05T09:46:55.181Z</lastmod>
     
   </url>
   
@@ -851,7 +858,7 @@
   <url>
     <loc>https://zhangruochi.com/Combining-Distribution-and-Multithreading/2019/06/24/</loc>
     
-    <lastmod>2019-07-05T09:46:15.285Z</lastmod>
+    <lastmod>2019-07-05T09:46:15.286Z</lastmod>
     
   </url>
   
@@ -865,14 +872,14 @@
   <url>
     <loc>https://zhangruochi.com/Fluent-Python/2019/03/05/</loc>
     
-    <lastmod>2019-06-07T01:48:27.826Z</lastmod>
+    <lastmod>2019-06-07T01:48:27.827Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Assembler-Project/2019/06/05/</loc>
     
-    <lastmod>2019-06-05T16:11:59.112Z</lastmod>
+    <lastmod>2019-06-05T16:11:59.113Z</lastmod>
     
   </url>
   

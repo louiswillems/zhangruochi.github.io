@@ -124,17 +124,17 @@
 
 
 
-<meta name="description" content="Think bayesian &amp;amp; Statistics review Main principles  Use prior konwledge Chose answer that explains observations the most Avoid extra assumptions  example A main is running, why?  He is in a hurry">
+<meta name="description" content="Think bayesian &amp;amp; Statistics reviewMain principles Use prior konwledge Chose answer that explains observations the most Avoid extra assumptions  exampleA main is running, why?  He is in a hurry  He">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Think bayesian">
 <meta property="og:url" content="https://zhangruochi.com/Think-bayesian/2019/07/20/index.html">
 <meta property="og:site_name" content="RUOCHI.AI">
-<meta property="og:description" content="Think bayesian &amp;amp; Statistics review Main principles  Use prior konwledge Chose answer that explains observations the most Avoid extra assumptions  example A main is running, why?  He is in a hurry">
+<meta property="og:description" content="Think bayesian &amp;amp; Statistics reviewMain principles Use prior konwledge Chose answer that explains observations the most Avoid extra assumptions  exampleA main is running, why?  He is in a hurry  He">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-07-19T19:26:33.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Think bayesian">
-<meta name="twitter:description" content="Think bayesian &amp;amp; Statistics review Main principles  Use prior konwledge Chose answer that explains observations the most Avoid extra assumptions  example A main is running, why?  He is in a hurry">
+<meta name="twitter:description" content="Think bayesian &amp;amp; Statistics reviewMain principles Use prior konwledge Chose answer that explains observations the most Avoid extra assumptions  exampleA main is running, why?  He is in a hurry  He">
 
 
 
@@ -477,90 +477,64 @@
       
 
       
-        <h1 id="think-bayesian-statistics-review">Think bayesian &amp; Statistics review</h1>
-<h2 id="main-principles">Main principles</h2>
-<ol type="1">
+        <h1 id="Think-bayesian-amp-Statistics-review"><a href="#Think-bayesian-amp-Statistics-review" class="headerlink" title="Think bayesian &amp; Statistics review"></a>Think bayesian &amp; Statistics review</h1><h2 id="Main-principles"><a href="#Main-principles" class="headerlink" title="Main principles"></a>Main principles</h2><ol>
 <li>Use prior konwledge</li>
 <li>Chose answer that explains observations the most</li>
 <li>Avoid extra assumptions</li>
 </ol>
-<h3 id="example">example</h3>
-<p>A main is running, why?</p>
-<ol type="1">
-<li>He is in a hurry</li>
+<h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><p>A main is running, why?</p>
+<ol>
+<li>He is in a hurry </li>
 <li>He is doing exports (use principle 2 to exclude, does not waer a sports suit, contradicts the data)</li>
-<li>He always runs (use principle 3 to exclude)</li>
-<li>He saw a dragon (use principle 1 to exclude)</li>
+<li>He always runs  (use principle 3 to exclude)</li>
+<li>He saw a dragon  (use principle 1 to exclude)</li>
 </ol>
-<h2 id="probability">Probability</h2>
-<p>for throw a dice, the probability of one side is 1/6</p>
-<h2 id="random-variable">Random variable</h2>
-<h3 id="discrete">Discrete</h3>
-<p>Probability Mass Function(PMF) <span class="math display">\[P(X) = \begin{equation}\left\{\begin{array}{**lr**}
-    &amp; 0.2 &amp; x = 1 \\
-    &amp; 0.5 &amp; x = 3 \\
-    &amp; 0.3 &amp; x = 7 \\
-    &amp; 0 &amp; otherwise
-\end{array}\right.\end{equation}  
-\]</span></p>
-<h3 id="continuous">Continuous</h3>
-<p>Probability Density Function(PDF)</p>
-<p><span class="math display">\[
-P(x \in [a,b] = \lmoustache_{a}^{b} p(x)dx )
-\]</span></p>
-<h3 id="independence">Independence</h3>
-<p>X and Y are independent if: <span class="math display">\[P(X,Y) = P(X)P(Y)\]</span></p>
-<ul>
+<h2 id="Probability"><a href="#Probability" class="headerlink" title="Probability"></a>Probability</h2><p>for throw a dice, the probability of one side is 1/6 </p>
+<h2 id="Random-variable"><a href="#Random-variable" class="headerlink" title="Random variable"></a>Random variable</h2><h3 id="Discrete"><a href="#Discrete" class="headerlink" title="Discrete"></a>Discrete</h3><p>Probability Mass Function(PMF)</p>
+<script type="math/tex; mode=display">P(X) = \begin{equation}\left\{\begin{array}{**lr**}
+    & 0.2 & x = 1 \\
+    & 0.5 & x = 3 \\
+    & 0.3 & x = 7 \\
+    & 0 & otherwise
+\end{array}\right.\end{equation}</script><h3 id="Continuous"><a href="#Continuous" class="headerlink" title="Continuous"></a>Continuous</h3><p>Probability Density Function(PDF)</p>
+<script type="math/tex; mode=display">
+P(x \in [a,b] = \lmoustache_{a}^{b} p(x)dx )</script><h3 id="Independence"><a href="#Independence" class="headerlink" title="Independence"></a>Independence</h3><p>X and Y are independent if:</p>
+<script type="math/tex; mode=display">P(X,Y) = P(X)P(Y)</script><ul>
 <li>P(x,y) -&gt; Joint</li>
-<li>P(x) -&gt; Marinals</li>
+<li>P(x)   -&gt; Marinals</li>
 </ul>
-<h2 id="conditional-probability">Conditional probability</h2>
-<p>Probability of X given that Y happened:</p>
-<p><span class="math display">\[P(X|Y) = \frac{P(X,Y)}{P(Y)}\]</span></p>
-<h3 id="chain-rule">Chain rule</h3>
-<p><span class="math display">\[\begin{equation}\begin{split}
-&amp; P(X,Y) = P(X|Y)P(Y) \\
-&amp; P(X,Y,Z) = P(X|Y,Z)P(Y|Z)P(Z) \\
-&amp; P(X_1,\cdots,X_N) = \prod_{i=1}^{N}P(X_i|X_1,\cdots,X_{i-1})
-\end{split} \end{equation}\]</span></p>
-<h3 id="sum-rule">Sum rule</h3>
-<p><span class="math display">\[P(X) = \lmoustache_{-\infty}^{\infty}P(X,Y)dy \]</span></p>
-<h2 id="total-probability">Total probability</h2>
-<ol type="1">
-<li>$B_1, B_2 $ 两两互斥，即 <span class="math inline">\(B_i \cap B_j = \emptyset\)</span> ，<span class="math inline">\(i \neq j\)</span>, i,j=1，2，....，且<span class="math inline">\(P(B_i)&gt;0\)</span>,i=1,2,....;</li>
-<li><span class="math inline">\(B_1 \cup B_2 \cdots = \Omega\)</span> ，则称事件组 <span class="math inline">\(B_1 \cup B_2 \cdots\)</span> 是样本空间 <span class="math inline">\(\Omega\)</span> 的一个划分</li>
+<h2 id="Conditional-probability"><a href="#Conditional-probability" class="headerlink" title="Conditional probability"></a>Conditional probability</h2><p>Probability of X given that Y happened:</p>
+<script type="math/tex; mode=display">P(X|Y) = \frac{P(X,Y)}{P(Y)}</script><h3 id="Chain-rule"><a href="#Chain-rule" class="headerlink" title="Chain rule"></a>Chain rule</h3><script type="math/tex; mode=display">\begin{equation}\begin{split}
+& P(X,Y) = P(X|Y)P(Y) \\
+& P(X,Y,Z) = P(X|Y,Z)P(Y|Z)P(Z) \\
+& P(X_1,\cdots,X_N) = \prod_{i=1}^{N}P(X_i|X_1,\cdots,X_{i-1})
+\end{split} \end{equation}</script><h3 id="Sum-rule"><a href="#Sum-rule" class="headerlink" title="Sum rule"></a>Sum rule</h3><script type="math/tex; mode=display">P(X) = \lmoustache_{-\infty}^{\infty}P(X,Y)dy</script><h2 id="Total-probability"><a href="#Total-probability" class="headerlink" title="Total probability"></a>Total probability</h2><ol>
+<li>$B_1, B_2 \cdots $ 两两互斥，即 $B_i \cap B_j = \emptyset$ ，$i \neq j$, i,j=1，2，….，且$P(B_i)&gt;0$,i=1,2,….;</li>
+<li>$B_1 \cup B_2 \cdots = \Omega$ ，则称事件组 $B_1 \cup B_2 \cdots$ 是样本空间 $\Omega$ 的一个划分</li>
 </ol>
-<p><span class="math display">\[P(A) = \sum_{i=1}^{\infty}P(B_i)(A|B_i)\]</span></p>
-<h2 id="bayes-theorem">Bayes theorem</h2>
-<ul>
-<li><span class="math inline">\(\theta\)</span>: parameters</li>
-<li><span class="math inline">\(X\)</span>: observations</li>
-<li><span class="math inline">\(P(\theta|X)\)</span>: Posterior</li>
-<li><span class="math inline">\(P(X)\)</span>: Evidence</li>
-<li><span class="math inline">\(P(X|\theta)\)</span>: Likelyhood</li>
-<li><span class="math inline">\(P(\theta)\)</span>: Prior</li>
+<script type="math/tex; mode=display">P(A) = \sum_{i=1}^{\infty}P(B_i)(A|B_i)</script><h2 id="Bayes-theorem"><a href="#Bayes-theorem" class="headerlink" title="Bayes theorem"></a>Bayes theorem</h2><ul>
+<li>$\theta$: parameters</li>
+<li>$X$: observations</li>
+<li>$P(\theta|X)$: Posterior</li>
+<li>$P(X)$: Evidence</li>
+<li>$P(X|\theta)$: Likelyhood</li>
+<li>$P(\theta)$: Prior</li>
 </ul>
-<p><span class="math display">\[P(\theta|X) = \frac{P(X,\theta)}{P(X)} = \frac{P(X|\theta)P(\theta)}{P(X)}\]</span></p>
-<h2 id="bayesian-approach-to-statistics">Bayesian approach to statistics</h2>
-<h3 id="frequentist">Frequentist</h3>
-<ul>
+<script type="math/tex; mode=display">P(\theta|X) = \frac{P(X,\theta)}{P(X)} = \frac{P(X|\theta)P(\theta)}{P(X)}</script><h2 id="Bayesian-approach-to-statistics"><a href="#Bayesian-approach-to-statistics" class="headerlink" title="Bayesian approach to statistics"></a>Bayesian approach to statistics</h2><h3 id="Frequentist"><a href="#Frequentist" class="headerlink" title="Frequentist"></a>Frequentist</h3><ul>
 <li>Objective</li>
-<li><span class="math inline">\(\theta\)</span> is fixed, X is random</li>
-<li>training<br>
-Maximum Likelyhood (they try to find the parameters theta that maximize the likelihood, the probability of their data given parameters) <span class="math display">\[\hat{\theta} = argmax_{\theta}P(x|\theta)\]</span></li>
+<li>$\theta$ is fixed, X is random</li>
+<li>training<br>  Maximum Likelyhood (they try to find the parameters theta that maximize the likelihood, the probability of their data given parameters)<script type="math/tex; mode=display">\hat{\theta} = argmax_{\theta}P(x|\theta)</script></li>
 </ul>
-<h3 id="bayesian">Bayesian</h3>
-<ul>
+<h3 id="Bayesian"><a href="#Bayesian" class="headerlink" title="Bayesian"></a>Bayesian</h3><ul>
 <li>Subjective</li>
-<li>X is random, <span class="math inline">\(\theta\)</span> is fixed</li>
-<li>Training(Bayes theorem)<br>
-what Bayesians will try to do is they would try to compute the posterior, the probability of the parameters given the data. <span class="math display">\[P(\theta|x) = \frac{P(X|\theta)P(\theta)}{P(X)}\]</span></li>
-<li>Classification
-<ul>
-<li>Training: <span class="math display">\[P(\theta|x_tr,y_tr) = \frac{P(y_tr|\theta,x_tr)P(\theta)}{P(y_tr|x_tr)}\]</span></li>
-<li>Prediction: <span class="math display">\[P(y_ts|x_ts,x_tr,y_tr) = \lmoustache{P(y_ts|x_ts,\theta)P(\theta|x_tr,y_tr)}d\theta\]</span></li>
-</ul></li>
-<li>On-line learning (get posterior) <span class="math display">\[P_k{\theta} = P(\theta|x_k) = \frac{P(x|\theta)P_{k-1}(\theta)}{P_{(x_k)}}\]</span></li>
+<li>X is random, $\theta$ is fixed</li>
+<li>Training(Bayes theorem)<br>  what Bayesians will try to do is they would try to compute the posterior, the probability of the parameters given the data.<script type="math/tex; mode=display">P(\theta|x) = \frac{P(X|\theta)P(\theta)}{P(X)}</script></li>
+<li>Classification<ul>
+<li>Training:<script type="math/tex; mode=display">P(\theta|x_tr,y_tr) = \frac{P(y_tr|\theta,x_tr)P(\theta)}{P(y_tr|x_tr)}</script></li>
+<li>Prediction:<script type="math/tex; mode=display">P(y_ts|x_ts,x_tr,y_tr) = \lmoustache{P(y_ts|x_ts,\theta)P(\theta|x_tr,y_tr)}d\theta</script></li>
+</ul>
+</li>
+<li>On-line learning (get posterior)<script type="math/tex; mode=display">P_k{\theta} = P(\theta|x_k) = \frac{P(x|\theta)P_{k-1}(\theta)}{P_{(x_k)}}</script></li>
 </ul>
 
       
@@ -741,7 +715,7 @@ what Bayesians will try to do is they would try to compute the posterior, the pr
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">133</span>
+                  <span class="site-state-item-count">134</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -834,7 +808,7 @@ what Bayesians will try to do is they would try to compute the posterior, the pr
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#think-bayesian-statistics-review"><span class="nav-text">Think bayesian &amp; Statistics review</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#main-principles"><span class="nav-text">Main principles</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-text">example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#probability"><span class="nav-text">Probability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#random-variable"><span class="nav-text">Random variable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#discrete"><span class="nav-text">Discrete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#continuous"><span class="nav-text">Continuous</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#independence"><span class="nav-text">Independence</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conditional-probability"><span class="nav-text">Conditional probability</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#chain-rule"><span class="nav-text">Chain rule</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sum-rule"><span class="nav-text">Sum rule</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#total-probability"><span class="nav-text">Total probability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bayes-theorem"><span class="nav-text">Bayes theorem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bayesian-approach-to-statistics"><span class="nav-text">Bayesian approach to statistics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#frequentist"><span class="nav-text">Frequentist</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bayesian"><span class="nav-text">Bayesian</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Think-bayesian-amp-Statistics-review"><span class="nav-text">Think bayesian &amp; Statistics review</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Main-principles"><span class="nav-text">Main principles</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-text">example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Probability"><span class="nav-text">Probability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Random-variable"><span class="nav-text">Random variable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Discrete"><span class="nav-text">Discrete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Continuous"><span class="nav-text">Continuous</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Independence"><span class="nav-text">Independence</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conditional-probability"><span class="nav-text">Conditional probability</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chain-rule"><span class="nav-text">Chain rule</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sum-rule"><span class="nav-text">Sum rule</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Total-probability"><span class="nav-text">Total probability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bayes-theorem"><span class="nav-text">Bayes theorem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bayesian-approach-to-statistics"><span class="nav-text">Bayesian approach to statistics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Frequentist"><span class="nav-text">Frequentist</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bayesian"><span class="nav-text">Bayesian</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

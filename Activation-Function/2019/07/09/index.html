@@ -462,69 +462,44 @@
       
 
       
-        <h2 id="neuron">Neuron</h2>
-<p><img src="1.png"> 如图是神经网络中一个典型的神经元设计，它完全仿照人类大脑中神经元之间传递数据的模式设计。大脑中，神经元通过若干树突（dendrite）的突触（synapse），接受其他神经元的轴突（axon）或树突传递来的消息，而后经过处理再由轴突输出。</p>
-<h2 id="参数更新方向">参数更新方向</h2>
-<p>深度学习一般的学习方法是反向传播。简单来说，就是通过链式法则，求解全局损失函数L(x)对于某一参数w的偏导数（梯度）；而后辅以学习率,向梯度的反方向更新参数w</p>
-<p><span class="math display">\[ w \leftarrow w - \eta\cdot\frac{\partial L}{\partial w} \]</span></p>
-<p>考虑学习率<span class="math inline">\(\eta\)</span>是全局设置的超参数，参数更新的核心步骤即是计算<span class="math inline">\(\frac{\partial L}{\partial w}\)</span> 再考虑到对于某个神经元来说，其输入与输出的关系是 <span class="math display">\[f(x;w,b) = f(\sum_{i}w_i x_i + b)\]</span> 根据链式法则，对于参数w_i来说 <span class="math display">\[\frac{\partial L}{\partial w_i} = \frac{\partial L}{\partial f}\frac{\partial f}{\partial w_i} = x_i\cdot\frac{\partial L}{\partial f} \]</span></p>
-<p>因此，参数的更新步骤变为</p>
-<p><span class="math display">\[ w \leftarrow w - \eta x_i\cdot\frac{\partial L}{\partial f} \]</span></p>
-<p>由于<span class="math inline">\(w_i\)</span>是上一轮迭代的结果，此处可视为常数，而<span class="math inline">\(\eta\)</span>是模型超参数，参数<span class="math inline">\(w_i\)</span>的更新方向实际上由<span class="math inline">\(x_i\cdot\frac{\partial L}{\partial f}\)</span>决定。又考虑到 <span class="math inline">\(\frac{\partial L}{\partial f}\)</span>对于所有的<span class="math inline">\(w_i\)</span>来说是常数，因此各个<span class="math inline">\(w_i\)</span>更新方向之间的差异，完全由对应的输入值<span class="math inline">\(x_i\)</span> 的符号决定。</p>
-<h2 id="以零为中心的影响">以零为中心的影响</h2>
-<p>至此，为了描述方便，我们以二维的情况为例。亦即，神经元描述为</p>
-<p><span class="math display">\[f(x;w_1,w_2,b) = f(w_0x_0 + w_1x_1 + b)\]</span></p>
-<p>假设对于参数 <span class="math inline">\(w_0\)</span>,<span class="math inline">\(w_1\)</span>的最优解<span class="math inline">\(w_0^{\prime}\)</span>,<span class="math inline">\(w_1^{\prime}\)</span></p>
-<p>$$ <span class="math display">\[\begin{equation}
+        <h2 id="Neuron"><a href="#Neuron" class="headerlink" title="Neuron"></a>Neuron</h2><p><img src="1.png" alt><br>如图是神经网络中一个典型的神经元设计，它完全仿照人类大脑中神经元之间传递数据的模式设计。大脑中，神经元通过若干树突（dendrite）的突触（synapse），接受其他神经元的轴突（axon）或树突传递来的消息，而后经过处理再由轴突输出。</p>
+<h2 id="参数更新方向"><a href="#参数更新方向" class="headerlink" title="参数更新方向"></a>参数更新方向</h2><p>深度学习一般的学习方法是反向传播。简单来说，就是通过链式法则，求解全局损失函数L(x)对于某一参数w的偏导数（梯度）；而后辅以学习率\eta,向梯度的反方向更新参数w</p>
+<script type="math/tex; mode=display">w \leftarrow w - \eta\cdot\frac{\partial L}{\partial w}</script><p>考虑学习率$\eta$是全局设置的超参数，参数更新的核心步骤即是计算$\frac{\partial L}{\partial w}$ 再考虑到对于某个神经元来说，其输入与输出的关系是</p>
+<script type="math/tex; mode=display">f(x;w,b) = f(\sum_{i}w_i x_i + b)</script><p>根据链式法则，对于参数w_i来说</p>
+<script type="math/tex; mode=display">\frac{\partial L}{\partial w_i} = \frac{\partial L}{\partial f}\frac{\partial f}{\partial w_i} = x_i\cdot\frac{\partial L}{\partial f}</script><p>因此，参数的更新步骤变为</p>
+<script type="math/tex; mode=display">w \leftarrow w - \eta x_i\cdot\frac{\partial L}{\partial f}</script><p>由于$w_i$是上一轮迭代的结果，此处可视为常数，而$\eta$是模型超参数，参数$w_i$的更新方向实际上由$x_i\cdot\frac{\partial L}{\partial f}$决定。又考虑到 $\frac{\partial L}{\partial f}$对于所有的$w_i$来说是常数，因此各个$w_i$更新方向之间的差异，完全由对应的输入值$x_i$ 的符号决定。</p>
+<h2 id="以零为中心的影响"><a href="#以零为中心的影响" class="headerlink" title="以零为中心的影响"></a>以零为中心的影响</h2><p>至此，为了描述方便，我们以二维的情况为例。亦即，神经元描述为</p>
+<script type="math/tex; mode=display">f(x;w_1,w_2,b) = f(w_0x_0 + w_1x_1 + b)</script><p>假设对于参数 $w_0$,$w_1$的最优解$w_0^{\prime}$,$w_1^{\prime}$</p>
+<script type="math/tex; mode=display">
+\begin{equation}
 \left\{ 
 \begin{array}{lr}
 
-&amp; w_0 &lt; w_0^{\prime} \\
-&amp; w_1 &gt; w_1^{\prime}
+& w_0 < w_0^{\prime} \\
+& w_1 > w_1^{\prime}
 
 \end{array}
 \right.
-\end{equation}\]</span> $$</p>
-<p>我们希望<span class="math inline">\(w_0\)</span>适当增大，<span class="math inline">\(w_1\)</span>适当减少，这里必然要求<span class="math inline">\(x_0\)</span> 和 <span class="math inline">\(x_1\)</span> 符号相反。 但在 Sigmoid 函数中，输出值恒为正。这也就是说，如果上一级神经元采用 Sigmoid 函数作为激活函数，<strong>那么我们无法做到<span class="math inline">\(x_0\)</span>和<span class="math inline">\(x_1\)</span>符号相反</strong>。此时，模型为了收敛，不得不向逆风前行的风助力帆船一样，走 Z 字形逼近最优解。</p>
-<p><img src="3.png"></p>
-<h2 id="sigmid">Sigmid</h2>
-<h3 id="函数形式">函数形式</h3>
-<p><span class="math display">\[\sigma(x;a) = \frac{1}{1+e^{-ax}}\]</span></p>
-<h3 id="导数">导数</h3>
-<p><span class="math display">\[\sigma^{\prime} = \sigma(x)(1-\sigma(x))\]</span></p>
-<h3 id="性质">性质</h3>
-<ul>
+\end{equation}</script><p>我们希望$w_0$适当增大，$w_1$适当减少，这里必然要求$x_0$ 和 $x_1$ 符号相反。<br>但在 Sigmoid 函数中，输出值恒为正。这也就是说，如果上一级神经元采用 Sigmoid 函数作为激活函数，<strong>那么我们无法做到$x_0$和$x_1$符号相反</strong>。此时，模型为了收敛，不得不向逆风前行的风助力帆船一样，走 Z 字形逼近最优解。</p>
+<p><img src="3.png" alt></p>
+<h2 id="Sigmid"><a href="#Sigmid" class="headerlink" title="Sigmid"></a>Sigmid</h2><h3 id="函数形式"><a href="#函数形式" class="headerlink" title="函数形式"></a>函数形式</h3><script type="math/tex; mode=display">\sigma(x;a) = \frac{1}{1+e^{-ax}}</script><h3 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h3><script type="math/tex; mode=display">\sigma^{\prime} = \sigma(x)(1-\sigma(x))</script><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ul>
 <li>Sigmoid neurons can saturate and lead to vanishing gradients.</li>
 <li>Not zero-centered.</li>
-<li><span class="math inline">\(e^{x}\)</span>is computationally expensive.</li>
+<li>$e^{x}$is computationally expensive.</li>
 </ul>
-<h2 id="tanh">Tanh</h2>
-<h3 id="函数形式-1">函数形式</h3>
-<p><span class="math display">\[tanh(x) = 2\sigma(2x) - 1 = \frac{e^x - e^{-x}}{e^x + e^{-x}}\]</span></p>
-<h3 id="导数-1">导数</h3>
-<p><span class="math display">\[\tanh^{\prime} = 1-\tanh^{2}(x)\]</span></p>
-<h3 id="性质-1">性质</h3>
-<ul>
+<h2 id="Tanh"><a href="#Tanh" class="headerlink" title="Tanh"></a>Tanh</h2><h3 id="函数形式-1"><a href="#函数形式-1" class="headerlink" title="函数形式"></a>函数形式</h3><script type="math/tex; mode=display">tanh(x) = 2\sigma(2x) - 1 = \frac{e^x - e^{-x}}{e^x + e^{-x}}</script><h3 id="导数-1"><a href="#导数-1" class="headerlink" title="导数"></a>导数</h3><script type="math/tex; mode=display">\tanh^{\prime} = 1-\tanh^{2}(x)</script><h3 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h3><ul>
 <li>Zero-centered.</li>
-<li><span class="math inline">\(e^{x}\)</span>is computationally expensive.</li>
+<li>$e^{x}$is computationally expensive.</li>
 <li>tanh can saturate and lead to vanishing gradients.</li>
 </ul>
-<h2 id="relu">Relu</h2>
-<h3 id="函数形式-2">函数形式</h3>
-<p><span class="math display">\[f(x) = max(0,x)\]</span></p>
-<h3 id="性质-2">性质</h3>
-<ul>
+<h2 id="Relu"><a href="#Relu" class="headerlink" title="Relu"></a>Relu</h2><h3 id="函数形式-2"><a href="#函数形式-2" class="headerlink" title="函数形式"></a>函数形式</h3><script type="math/tex; mode=display">f(x) = max(0,x)</script><h3 id="性质-2"><a href="#性质-2" class="headerlink" title="性质"></a>性质</h3><ul>
 <li>Fast to compute.</li>
 <li>Gradients do not vanish for 𝑥 &gt; 0.</li>
 <li>Provides faster convergence in practice!</li>
 <li>Not zero-centered.</li>
 <li>Can die: if not activated, never updates!</li>
 </ul>
-<h2 id="relu-1">Relu</h2>
-<h3 id="函数形式-3">函数形式</h3>
-<p><span class="math display">\[f(x) = max(ax,x)\]</span></p>
-<h3 id="性质-3">性质</h3>
-<ul>
+<h2 id="Relu-1"><a href="#Relu-1" class="headerlink" title="Relu"></a>Relu</h2><h3 id="函数形式-3"><a href="#函数形式-3" class="headerlink" title="函数形式"></a>函数形式</h3><script type="math/tex; mode=display">f(x) = max(ax,x)</script><h3 id="性质-3"><a href="#性质-3" class="headerlink" title="性质"></a>性质</h3><ul>
 <li>Will not die</li>
 <li>a != 1</li>
 <li>zero-centered</li>
@@ -708,7 +683,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">133</span>
+                  <span class="site-state-item-count">134</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -801,7 +776,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#neuron"><span class="nav-text">Neuron</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数更新方向"><span class="nav-text">参数更新方向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以零为中心的影响"><span class="nav-text">以零为中心的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sigmid"><span class="nav-text">Sigmid</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数形式"><span class="nav-text">函数形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导数"><span class="nav-text">导数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质"><span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tanh"><span class="nav-text">Tanh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数形式-1"><span class="nav-text">函数形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导数-1"><span class="nav-text">导数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质-1"><span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#relu"><span class="nav-text">Relu</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数形式-2"><span class="nav-text">函数形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质-2"><span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#relu-1"><span class="nav-text">Relu</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数形式-3"><span class="nav-text">函数形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质-3"><span class="nav-text">性质</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Neuron"><span class="nav-text">Neuron</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数更新方向"><span class="nav-text">参数更新方向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以零为中心的影响"><span class="nav-text">以零为中心的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sigmid"><span class="nav-text">Sigmid</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数形式"><span class="nav-text">函数形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导数"><span class="nav-text">导数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质"><span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tanh"><span class="nav-text">Tanh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数形式-1"><span class="nav-text">函数形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导数-1"><span class="nav-text">导数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质-1"><span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relu"><span class="nav-text">Relu</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数形式-2"><span class="nav-text">函数形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质-2"><span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relu-1"><span class="nav-text">Relu</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数形式-3"><span class="nav-text">函数形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质-3"><span class="nav-text">性质</span></a></li></ol></li></ol></div>
             
 
           </div>

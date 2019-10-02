@@ -134,7 +134,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/Functional-Parallelism/2019/06/12/1.png">
 <meta property="og:image" content="https://zhangruochi.com/Functional-Parallelism/2019/06/12/2.png">
-<meta property="og:updated_time" content="2019-07-05T10:14:10.591Z">
+<meta property="og:updated_time" content="2019-07-05T10:14:10.592Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Functional Parallelism">
 <meta name="twitter:description" content="In this module, we will learn about approaches to parallelism that have been inspired by functional programming.">
@@ -463,67 +463,62 @@
       
 
       
-        <h1 id="table-of-contents">Table of Contents</h1>
-<ul>
-<li><a href="#functional-parallelism">Functional Parallelism</a>
-<ul>
+        <h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1><ul>
+<li><a href="#functional-parallelism">Functional Parallelism</a><ul>
 <li><a href="#creating-future-tasks-in-javas-forkjoin-framework">Creating Future Tasks in Java’s Fork/Join Framework</a></li>
 <li><a href="#memoization">Memoization</a></li>
 <li><a href="#java-streams">Java Streams</a></li>
-<li><a href="#determinism-and-data-races">Determinism and Data Races</a>
-<ul>
+<li><a href="#determinism-and-data-races">Determinism and Data Races</a><ul>
 <li><a href="#determinism">Determinism</a></li>
 <li><a href="#data-races">Data Races</a></li>
-</ul></li>
-<li><a href="#forkjoin-框架与-java-stream-api">Fork/Join 框架与 Java Stream API</a>
-<ul>
+</ul>
+</li>
+<li><a href="#forkjoin-框架与-java-stream-api">Fork/Join 框架与 Java Stream API</a><ul>
 <li><a href="#stream的并发实现细节">Stream的并发实现细节</a></li>
 <li><a href="#example">Example</a></li>
-</ul></li>
-</ul></li>
 </ul>
-<h1 id="functional-parallelism">Functional Parallelism</h1>
-<p><strong>Future tasks</strong> are tasks with return values <strong>Future object</strong> is a “handle” for accessing a task’s return value</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Functional-Parallelism"><a href="#Functional-Parallelism" class="headerlink" title="Functional Parallelism"></a>Functional Parallelism</h1><p><strong>Future tasks</strong> are tasks with return values<br><strong>Future object</strong> is a “handle” for accessing a task’s return value</p>
 <p>There are two key operations that can be performed on a future object, A</p>
-<ol type="1">
-<li><p>Assignment — A can be assigned a reference to a future object returned by a task of the form, future { ⟨ task-with-return-value ⟩ } (using pseudocode notation). The content of the future object is constrained to be <em>single assignment</em> (similar to a final variable in Java), and cannot be modified after the future task has returned.</p></li>
-<li><p>Blocking read — the operation, A.get(), waits until the task associated with future object A has completed, and then propagates the task’s return value as the value returned by A.get(). Any statement, S, executed after A.get() can be assured that the task associated with future object A must have completed before S starts execution.</p></li>
+<ol>
+<li><p>Assignment — A can be assigned a reference to a future object returned by a task of the form, future { ⟨ task-with-return-value ⟩ } (using pseudocode notation). The content of the future object is constrained to be _single assignment_ (similar to a final variable in Java), and cannot be modified after the future task has returned.</p>
+</li>
+<li><p>Blocking read — the operation, A.get(), waits until the task associated with future object A has completed, and then propagates the task’s return value as the value returned by A.get(). Any statement, S, executed after A.get() can be assured that the task associated with future object A must have completed before S starts execution.</p>
+</li>
 </ol>
-<h2 id="creating-future-tasks-in-javas-forkjoin-framework">Creating Future Tasks in Java’s Fork/Join Framework</h2>
-<ol type="1">
-<li><p>A future task extends the <strong>RecursiveTask</strong> class in the FJ framework, instead of RecursiveAction as in regular tasks. (RecursiveTask can have return value)</p></li>
-<li><p>The 𝚌𝚘𝚖𝚙𝚞𝚝𝚎() method of a future task must have a non-void return type, whereas it has a void return type for regular tasks.</p></li>
-<li><p>A method call like 𝚕𝚎𝚏𝚝.𝚓𝚘𝚒𝚗() waits for the task referred to by object 𝚕𝚎𝚏𝚝 in both cases, but also provides the task’s return value in the case of future tasks.</p></li>
+<h2 id="Creating-Future-Tasks-in-Java’s-Fork-Join-Framework"><a href="#Creating-Future-Tasks-in-Java’s-Fork-Join-Framework" class="headerlink" title="Creating Future Tasks in Java’s Fork/Join Framework"></a>Creating Future Tasks in Java’s Fork/Join Framework</h2><ol>
+<li><p>A future task extends the <strong>RecursiveTask</strong> class in the FJ framework, instead of RecursiveAction as in regular tasks. (RecursiveTask can have return value)</p>
+</li>
+<li><p>The 𝚌𝚘𝚖𝚙𝚞𝚝𝚎() method of a future task must have a non-void return type, whereas it has a void return type for regular tasks.</p>
+</li>
+<li><p>A method call like 𝚕𝚎𝚏𝚝.𝚓𝚘𝚒𝚗() waits for the task referred to by object 𝚕𝚎𝚏𝚝 in both cases, but also provides the task’s return value in the case of future tasks.</p>
+</li>
 </ol>
-<h2 id="memoization">Memoization</h2>
-<ol type="1">
-<li>Create a data structure that stores the set {(<span class="math inline">\(x_1\)</span>,<span class="math inline">\(y_1 = f(x_1)\)</span>),(<span class="math inline">\(x_2\)</span>,<span class="math inline">\(y_2 = f(x_2)\)</span>),...} for each call <span class="math inline">\(f(x_i)\)</span> that returns <span class="math inline">\(y_i\)</span>.</li>
-<li>Perform look ups in that data structure when processing calls of the form <span class="math inline">\(f(x\prime)\)</span> when <span class="math inline">\(x\prime\)</span> equals one of the <span class="math inline">\(x_i\)</span> inputs for which <span class="math inline">\(f(x_i)\)</span> has already been computed.</li>
+<h2 id="Memoization"><a href="#Memoization" class="headerlink" title="Memoization"></a>Memoization</h2><ol>
+<li>Create a data structure that stores the set {($x_1$,$y_1 = f(x_1)$),($x_2$,$y_2 = f(x_2)$),…} for each call $f(x_i)$ that returns $y_i$.</li>
+<li>Perform look ups in that data structure when processing calls of the form $f(x\prime)$ when $x\prime$ equals one of the $x_i$ inputs for which $f(x_i)$ has already been computed.</li>
 </ol>
 <p>Memoization can be especially helpful for algorithms based on dynamic programming. In the lecture, we used Pascal’s triangle as an illustrative example to motivate memoization.</p>
-<p>The memoization pattern lends itself easily to parallelization using futures by modifying the memoized data structure to store {(<span class="math inline">\(x_1\)</span>,<span class="math inline">\(y_1 = f(x_1)\)</span>),(<span class="math inline">\(x_2\)</span>,<span class="math inline">\(y_2 = f(x_2)\)</span>),...}. The lookup operation can then be replaced by a get() operation on the future value, if a future has already been created for the result of a given input.</p>
-<h2 id="java-streams">Java Streams</h2>
-<p>the following pipeline can be used to compute the average age of all active students using Java streams:</p>
+<p>The memoization pattern lends itself easily to parallelization using futures by modifying the memoized data structure to store  {($x_1$,$y_1 = f(x_1)$),($x_2$,$y_2 = f(x_2)$),…}. The lookup operation can then be replaced by a get() operation on the future value, if a future has already been created for the result of a given input.</p>
+<h2 id="Java-Streams"><a href="#Java-Streams" class="headerlink" title="Java Streams"></a>Java Streams</h2><p>the following pipeline can be used to compute the average age of all active students using Java streams:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">students.stream()</span><br><span class="line">    .filter(s -&gt; s.getStatus() == Student.ACTIVE)</span><br><span class="line">    .mapToInt(a -&gt; a.getAge())</span><br><span class="line">    .average();</span><br></pre></td></tr></table></figure>
 <p>An important benefit of using Java streams when possible is that the pipeline can be made to execute in parallel by designating the source to be a parallel stream, i.e., by simply replacing students.stream() in the above code by students.parallelStream() or Stream.of(students).parallel(). This form of functional parallelism is a major convenience for the programmer, since they <strong>do not</strong> need to worry about explicitly allocating intermediate collections (e.g., a collection of all active students), or about ensuring that parallel accesses to data collections are properly synchronized.</p>
-<h2 id="determinism-and-data-races">Determinism and Data Races</h2>
-<h3 id="determinism">Determinism</h3>
-<p>A parallel program is said to be:</p>
-<ol type="1">
+<h2 id="Determinism-and-Data-Races"><a href="#Determinism-and-Data-Races" class="headerlink" title="Determinism and Data Races"></a>Determinism and Data Races</h2><h3 id="Determinism"><a href="#Determinism" class="headerlink" title="Determinism"></a>Determinism</h3><p>A parallel program is said to be:</p>
+<ol>
 <li><strong>functionally deterministic</strong> if it always computes the same answer when given the same input.</li>
 <li><strong>structurally deterministic</strong> if it always computes the same computation graph, when given the same input.</li>
 </ol>
-<h3 id="data-races">Data Races</h3>
-<p><img src="1.png"></p>
+<h3 id="Data-Races"><a href="#Data-Races" class="headerlink" title="Data Races"></a>Data Races</h3><p><img src="1.png" alt></p>
 <p>There may be cases of “benign” nondeterminism for programs with data races in which different executions with the same input may generate different outputs, but all the outputs may be acceptable in the context of the application, e.g., different locations for a search pattern in a target string.</p>
-<p><img src="2.png"></p>
+<p><img src="2.png" alt></p>
 <blockquote>
 <p>转载于 <a href="https://www.jianshu.com/u/86c421886c32" target="_blank" rel="noopener">一字马胡</a></p>
 </blockquote>
-<h2 id="forkjoin-框架与-java-stream-api">Fork/Join 框架与 Java Stream API</h2>
-<p>Fork/Join框架可以将大的任务切分为足够小的任务，然后将小任务分配给不同的线程来执行，而线程之间通过工作窃取算法来协调资源，提前做完任务的线程可以去“窃取”其他还没有做完任务的线程的任务，而每一个线程都会持有一个双端队列，里面存储着分配给自己的任务，Fork/Join框架在实现上，为了防止线程之间的竞争，线程在消费分配给自己的任务时，是从队列头取任务的，而“窃取”线程则从队列尾部取任务。Fork/Join框架通过fork方法来分割大任务，通过使用join来获取小任务的结果，然后组合成大任务的结果。</p>
-<h3 id="stream的并发实现细节">Stream的并发实现细节</h3>
-<p>Java Stream的操作分为两类，也可以分为三类，具体的细节可以参考该文章：Java Streams API。一个简单的判断一个操作是否是Terminal操作还是Intermediate操作的方法是，如果操作返回的是一个新的Stream，那么就是一个Intermediate操作，否则就是一个Terminal操作。</p>
+<h2 id="Fork-Join-框架与-Java-Stream-API"><a href="#Fork-Join-框架与-Java-Stream-API" class="headerlink" title="Fork/Join 框架与 Java Stream API"></a>Fork/Join 框架与 Java Stream API</h2><p>Fork/Join框架可以将大的任务切分为足够小的任务，然后将小任务分配给不同的线程来执行，而线程之间通过工作窃取算法来协调资源，提前做完任务的线程可以去“窃取”其他还没有做完任务的线程的任务，而每一个线程都会持有一个双端队列，里面存储着分配给自己的任务，Fork/Join框架在实现上，为了防止线程之间的竞争，线程在消费分配给自己的任务时，是从队列头取任务的，而“窃取”线程则从队列尾部取任务。Fork/Join框架通过fork方法来分割大任务，通过使用join来获取小任务的结果，然后组合成大任务的结果。</p>
+<h3 id="Stream的并发实现细节"><a href="#Stream的并发实现细节" class="headerlink" title="Stream的并发实现细节"></a>Stream的并发实现细节</h3><p>Java Stream的操作分为两类，也可以分为三类，具体的细节可以参考该文章：Java Streams API。一个简单的判断一个操作是否是Terminal操作还是Intermediate操作的方法是，如果操作返回的是一个新的Stream，那么就是一个Intermediate操作，否则就是一个Terminal操作。</p>
 <ul>
 <li><strong>Intermediate</strong>：一个流可以后面跟随零个或多个 intermediate 操作。其目的主要是打开流，做出某种程度的数据操作，然后返回一个新的流，交给下一个操作使用。这类操作都是惰性化的（lazy），就是说，仅仅调用到这类方法，并没有真正开始流的遍历。</li>
 <li><strong>Terminal</strong>：一个流只能有一个 terminal 操作，当这个操作执行后，流就被使用“光”了，无法再被操作。所以这必定是流的最后一个操作。Terminal 操作的执行，才会真正开始流的遍历，并且会生成一个结果，或者一个 side effect。</li>
@@ -535,8 +530,7 @@
 <li>Match</li>
 <li>Reduce</li>
 </ul>
-<h3 id="example">Example</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Stream.of(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">                .parallel()</span><br><span class="line">                .map(n -&gt; n*<span class="number">2</span>)</span><br><span class="line">                .collect(Collectors.toCollection(ArrayList::<span class="keyword">new</span>));</span><br></pre></td></tr></table></figure>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Stream.of(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">                .parallel()</span><br><span class="line">                .map(n -&gt; n*<span class="number">2</span>)</span><br><span class="line">                .collect(Collectors.toCollection(ArrayList::<span class="keyword">new</span>));</span><br></pre></td></tr></table></figure>
 <p>解释一下，上面的代码想要实现的功能是将（1，2，3，4）这四个数字每一个都变为其自身的两倍，然后收集这些元素到一个ArrayList中返回。这是一个非常简单的功能，下面是上面的操作流的执行路径：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//step 1:</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span>&lt;T&gt; Stream&lt;T&gt; <span class="title">of</span><span class="params">(T... values)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Arrays.stream(values);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//step 2:</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> &lt;R&gt; <span class="function">Stream&lt;R&gt; <span class="title">map</span><span class="params">(Function&lt;? <span class="keyword">super</span> P_OUT, ? extends R&gt; mapper)</span> </span>&#123;</span><br><span class="line">    Objects.requireNonNull(mapper);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> StatelessOp&lt;P_OUT, R&gt;(<span class="keyword">this</span>, StreamShape.REFERENCE,</span><br><span class="line">                                 StreamOpFlag.NOT_SORTED | StreamOpFlag.NOT_DISTINCT) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function">Sink&lt;P_OUT&gt; <span class="title">opWrapSink</span><span class="params">(<span class="keyword">int</span> flags, Sink&lt;R&gt; sink)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Sink.ChainedReference&lt;P_OUT, R&gt;(sink) &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(P_OUT u)</span> </span>&#123;</span><br><span class="line">                    downstream.accept(mapper.apply(u));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//step 3:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> &lt;R, A&gt; <span class="function">R <span class="title">collect</span><span class="params">(Collector&lt;? <span class="keyword">super</span> P_OUT, A, R&gt; collector)</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">        container = evaluate(ReduceOps.makeRef(collector));</span><br><span class="line">        ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//step 4:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">final</span> &lt;R&gt; <span class="function">R <span class="title">evaluate</span><span class="params">(TerminalOp&lt;E_OUT, R&gt; terminalOp)</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">assert</span> <span class="title">getOutputShape</span><span class="params">()</span> </span>== terminalOp.inputShape();</span><br><span class="line">    <span class="keyword">if</span> (linkedOrConsumed)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(MSG_STREAM_LINKED);</span><br><span class="line">    linkedOrConsumed = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> isParallel()</span><br><span class="line">           ? terminalOp.evaluateParallel(<span class="keyword">this</span>, sourceSpliterator(terminalOp.getOpFlags()))</span><br><span class="line">           : terminalOp.evaluateSequential(<span class="keyword">this</span>, sourceSpliterator(terminalOp.getOpFlags()));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//step 5:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用Fork/Join框架执行操作。</span></span><br></pre></td></tr></table></figure>
 <p>上面的五个步骤是经过一些省略的，需要注意的一点是，intermediate类型的操作仅仅将操作加到一个upstream里面，具体的原文描述如下：</p>
@@ -729,7 +723,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">133</span>
+                  <span class="site-state-item-count">134</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -822,7 +816,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#table-of-contents"><span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#functional-parallelism"><span class="nav-text">Functional Parallelism</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#creating-future-tasks-in-javas-forkjoin-framework"><span class="nav-text">Creating Future Tasks in Java’s Fork/Join Framework</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#memoization"><span class="nav-text">Memoization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-streams"><span class="nav-text">Java Streams</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#determinism-and-data-races"><span class="nav-text">Determinism and Data Races</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#determinism"><span class="nav-text">Determinism</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#data-races"><span class="nav-text">Data Races</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#forkjoin-框架与-java-stream-api"><span class="nav-text">Fork/Join 框架与 Java Stream API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stream的并发实现细节"><span class="nav-text">Stream的并发实现细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-text">Example</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Table-of-Contents"><span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Functional-Parallelism"><span class="nav-text">Functional Parallelism</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Creating-Future-Tasks-in-Java’s-Fork-Join-Framework"><span class="nav-text">Creating Future Tasks in Java’s Fork/Join Framework</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memoization"><span class="nav-text">Memoization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-Streams"><span class="nav-text">Java Streams</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Determinism-and-Data-Races"><span class="nav-text">Determinism and Data Races</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Determinism"><span class="nav-text">Determinism</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Races"><span class="nav-text">Data Races</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fork-Join-框架与-Java-Stream-API"><span class="nav-text">Fork/Join 框架与 Java Stream API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stream的并发实现细节"><span class="nav-text">Stream的并发实现细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-text">Example</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
