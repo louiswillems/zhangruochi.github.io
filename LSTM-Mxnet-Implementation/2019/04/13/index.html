@@ -132,16 +132,16 @@
 <meta property="og:site_name" content="RUOCHI.AI">
 <meta property="og:description" content="Manual implementation of LSTM">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://zhangruochi.com/LSTM-Mxnet-Implementation/2019/04/13/lstm/_0.svg">
+<meta property="og:image" content="https://zhangruochi.com/LSTM-Mxnet-Implementation/2019/04/13/lstm_0.svg">
 <meta property="og:image" content="https://zhangruochi.com/LSTM-Mxnet-Implementation/2019/04/13/lstm_1.svg">
 <meta property="og:image" content="https://zhangruochi.com/LSTM-Mxnet-Implementation/2019/04/13/lstm_2.svg">
 <meta property="og:image" content="https://zhangruochi.com/LSTM-Mxnet-Implementation/2019/04/13/lstm_3.svg">
 <meta property="og:image" content="https://zhangruochi.com/LSTM-Mxnet-Implementation/2019/04/13/rnn.svg">
-<meta property="og:updated_time" content="2019-07-05T10:30:57.349Z">
+<meta property="og:updated_time" content="2019-10-08T23:25:22.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LSTM Mxnet Implementation">
 <meta name="twitter:description" content="Manual implementation of LSTM">
-<meta name="twitter:image" content="https://zhangruochi.com/LSTM-Mxnet-Implementation/2019/04/13/lstm/_0.svg">
+<meta name="twitter:image" content="https://zhangruochi.com/LSTM-Mxnet-Implementation/2019/04/13/lstm_0.svg">
 
 
 
@@ -469,7 +469,7 @@
         <h1 id="长短期记忆（LSTM）"><a href="#长短期记忆（LSTM）" class="headerlink" title="长短期记忆（LSTM）"></a>长短期记忆（LSTM）</h1><p>本节将介绍另一种常用的门控循环神经网络：长短期记忆（long short-term memory，简称 LSTM）[1]。它比门控循环单元的结构稍微复杂一点。</p>
 <h2 id="长短期记忆"><a href="#长短期记忆" class="headerlink" title="长短期记忆"></a>长短期记忆</h2><p>LSTM 中引入了三个门：输入门（input gate）、遗忘门（forget gate）和输出门（output gate），以及与隐藏状态形状相同的记忆细胞（某些文献把记忆细胞当成一种特殊的隐藏状态），从而记录额外的信息。</p>
 <h3 id="输入门、遗忘门和输出门"><a href="#输入门、遗忘门和输出门" class="headerlink" title="输入门、遗忘门和输出门"></a>输入门、遗忘门和输出门</h3><p>同门控循环单元中的重置门和更新门一样，如图 6.7 所示，长短期记忆的门的输入均为当前时间步输入 $\boldsymbol{X}_t$ 与上一时间步隐藏状态 $\boldsymbol{H}_{t-1}$，输出由激活函数为 sigmoid 函数的全连接层计算得到。如此一来，这三个门元素的值域均为 $[0,1]$。</p>
-<p><img src="lstm\_0.svg" alt="长短期记忆中输入门、遗忘门和输出门的计算。"></p>
+<p><img src="lstm_0.svg" alt="长短期记忆中输入门、遗忘门和输出门的计算。"></p>
 <p>具体来说，假设隐藏单元个数为 $h$，给定时间步 $t$ 的小批量输入 $\boldsymbol{X}_t \in \mathbb{R}^{n \times d}$（样本数为 $n$，输入个数为 $d$）和上一时间步隐藏状态 $\boldsymbol{H}_{t-1} \in \mathbb{R}^{n \times h}$。<br>时间步 $t$ 的输入门 $\boldsymbol{I}_t \in \mathbb{R}^{n \times h}$、遗忘门 $\boldsymbol{F}_t \in \mathbb{R}^{n \times h}$ 和输出门 $\boldsymbol{O}_t \in \mathbb{R}^{n \times h}$ 分别计算如下：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
