@@ -136,7 +136,8 @@
 <meta property="og:image" content="https://zhangruochi.com/Variational-Auto-Encoder/2019/10/10/5.png">
 <meta property="og:image" content="https://zhangruochi.com/Variational-Auto-Encoder/2019/10/10/1.png">
 <meta property="og:image" content="https://zhangruochi.com/Variational-Auto-Encoder/2019/10/10/2.png">
-<meta property="og:updated_time" content="2019-10-11T14:06:55.347Z">
+<meta property="og:image" content="https://zhangruochi.com/Variational-Auto-Encoder/2019/10/10/6.png">
+<meta property="og:updated_time" content="2019-10-11T14:17:11.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Variational Auto-Encoder">
 <meta name="twitter:description" content="Pre-knowledge什么是独立同分布(i.i.d)？在概率论与统计学中，独立同分布（英語：Independent and identically distributed，缩写为IID）是指一组随机变量中每个变量的概率分布都相同，且这些随机变量互相独立。 什么是数据集的分布？ 对于supervised learning，分布是指关于特征$X$和结果$Y$的联合分布$F(X,Y)$或者条件分布$">
@@ -487,8 +488,10 @@
 <script type="math/tex; mode=display">p(X)=\sum_Z p(X|Z)p(Z)\tag{1}</script><p>此时$p(X|Z)$就描述了一个由$Z$来生成$X$的模型，而我们假设$Z$服从标准正态分布，也就是$p(Z) \sim \mathcal{N}(0,I)$，如果这个理想能实现，那么我们就可以先从标准正态分布中采样一个$Z$，然后根据$Z$来算一个$X$，也是一个很棒的生成模型。接下来就是结合自编码器来实现重构，保证有效信息没有丢失，再加上一系列的推导，最后把模型实现。框架的示意图如下：</p>
 <p><img src="1.png" alt></p>
 <p>看出了什么问题了吗？如果像这个图的话，我们其实完全不清楚：究竟经过重新采样出来的$Z_k$是不是还对应着原来的$X_k$， 所以我们如果直接最小化$L(\hat{X_k},X_k)$是很不科学的。</p>
-<p><strong>其实，在整个VAE模型中，我们并没有去使用$P(z)$（隐变量空间的分布）是正态分布的假设，我们用的是假设$p(Z|X)$后验分布）是正态分布</strong>具体来说，给定一个真实样本$X_K$，我们假设存在一个专属于$X_K$的后验分布$p(Z|X_k)$，并进一步假设这个分布是（独立的、多元的）正态分布。为什么要强调“专属”呢？因为我们后面要训练一个生成器$X = g(Z)$，希望能够把从分布p(Z|x_k)采样出来的一个$Z_k$还原为$X_k$。这时候每一个$X_k$都配上了一个专属的正态分布，才方便后面的生成器做还原。但这样有多少个$X$就有多少个正态分布了。我们知道正态分布有两组参数：均值$\mu$和$\sigma^{2}$（多元的话，它们都是向量），那我怎么找出专属于$X_k$的正态分布$p(Z|X_k)$的均值和方差呢？好像并没有什么直接的思路。那好吧，那我就用神经网络来拟合出来吧！这就是神经网络时代的哲学：难算的我们都用神经网络来拟合。</p>
+<p><strong>其实，在整个VAE模型中，我们并没有去使用$P(z)$（隐变量空间的分布）是正态分布的假设，我们用的是假设$p(Z|X)$后验分布）是正态分布</strong>具体来说，给定一个特征$X_K$，我们假设存在一个专属于$X_K$的后验分布$p(Z|X_k)$，并进一步假设这个分布是（独立的、多元的）正态分布。为什么要强调“专属”呢？因为我们后面要训练一个生成器$X = g(Z)$，希望能够把从分布p(Z|x_k)采样出来的一个$Z_k$还原为$X_k$。这时候每一个$X_k$都配上了一个专属的正态分布，才方便后面的生成器做还原。但这样有多少个$X$就有多少个正态分布了。我们知道正态分布有两组参数：均值$\mu$和$\sigma^{2}$（多元的话，它们都是向量），那我怎么找出专属于$X_k$的正态分布$p(Z|X_k)$的均值和方差呢？好像并没有什么直接的思路。那好吧，那我就用神经网络来拟合出来吧！这就是神经网络时代的哲学：难算的我们都用神经网络来拟合。</p>
 <p><img src="2.png" alt></p>
+<p>通过这种方法，我们现在将给定输入的每个潜在特征表示为概率分布。当从潜在状态解码时，我们将从每个潜在状态分布中随机采样，生成一个向量作为解码器模型的输入。</p>
+<p><img src="6.png" alt></p>
 <h3 id="Reparameterization-trick"><a href="#Reparameterization-trick" class="headerlink" title="Reparameterization trick"></a>Reparameterization trick</h3><p>其实很简单，就是我们要从$p(Z|X_k)$中采样一个$z_k$，出来，尽管我们知道了$p(Z|X_k)$是正态分布，但是均值方差都是靠模型算出来的，我们要靠这个过程反过来优化均值方差的模型，但是<strong>采样</strong>这个操作是不可导的，而采样的结果是可导的。我们利用</p>
 <script type="math/tex; mode=display">\begin{aligned}&\frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{(z-\mu)^2}{2\sigma^2}\right)dz \\ 
 =& \frac{1}{\sqrt{2\pi}}\exp\left[-\frac{1}{2}\left(\frac{z-\mu}{\sigma}\right)^2\right]d\left(\frac{z-\mu}{\sigma}\right)\end{aligned}\tag{6}</script><p>$(z-\mu)/\sigma=\varepsilon$是服从均值为0、方差为1的标准正态分布的，要同时把$dz$考虑进去，因为乘上$dz$才是概率，不乘是概率密度。</p>
