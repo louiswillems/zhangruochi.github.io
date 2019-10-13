@@ -1,3 +1,3 @@
+https://zhangruochi.com/BackPropagation-through-time/2019/10/12/
 https://zhangruochi.com/Variational-Auto-Encoder/2019/10/10/
 https://zhangruochi.com/Neural-Network-Training/2019/10/05/
-https://zhangruochi.com/Naive-Bayes/2019/10/02/
