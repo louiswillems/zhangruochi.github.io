@@ -135,7 +135,10 @@
 <meta property="og:image" content="https://zhangruochi.com/Single-Variable-Calculus-Functions/2019/10/15/2.png">
 <meta property="og:image" content="https://zhangruochi.com/Single-Variable-Calculus-Functions/2019/10/15/3.png">
 <meta property="og:image" content="https://zhangruochi.com/Single-Variable-Calculus-Functions/2019/10/15/4.png">
-<meta property="og:updated_time" content="2019-10-15T19:59:37.863Z">
+<meta property="og:image" content="https://zhangruochi.com/Single-Variable-Calculus-Functions/2019/10/15/7.png">
+<meta property="og:image" content="https://zhangruochi.com/Single-Variable-Calculus-Functions/2019/10/15/8.png">
+<meta property="og:image" content="https://zhangruochi.com/Single-Variable-Calculus-Functions/2019/10/15/5.png">
+<meta property="og:updated_time" content="2019-10-16T01:07:44.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Single Variable Calculus - Functions">
 <meta name="twitter:description" content="Functions">
@@ -472,7 +475,27 @@
 <script type="math/tex; mode=display">e^{x}e^{y} = e^{x+y}</script><script type="math/tex; mode=display">(e^{x})^{y} = e^{xy}</script><p>Differential/integral properties:</p>
 <script type="math/tex; mode=display">\frac{d}{dx}e^{x} = e^{x}</script><script type="math/tex; mode=display">\int e^{x}dx = e^{x} + C</script><p>Recall the graph of $e^{x}$, plotted here alongside its inverse, $lnx$<br><img src="4.png" alt></p>
 <p>Note that the graphs are symmetric about the line $y = x$(as is true of the graphs of a function and its inverse).</p>
-<h3 id="Euler’s-Formula"><a href="#Euler’s-Formula" class="headerlink" title="Euler’s Formula"></a>Euler’s Formula</h3><script type="math/tex; mode=display">e^{ix} = \cos{x} + i\sin{x}</script><blockquote>
+<h3 id="Euler’s-Formula"><a href="#Euler’s-Formula" class="headerlink" title="Euler’s Formula"></a>Euler’s Formula</h3><script type="math/tex; mode=display">e^{ix} = \cos{x} + i\sin{x}</script><p><img src="7.png" alt><br><img src="8.png" alt></p>
+<h2 id="The-Exponential"><a href="#The-Exponential" class="headerlink" title="The Exponential"></a>The Exponential</h2><script type="math/tex; mode=display">e^{x} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots = \sum_{k=0}^{\infty}\frac{x^{k}}{k!}</script><h3 id="Properties-of-e-x"><a href="#Properties-of-e-x" class="headerlink" title="Properties of $e^{x}$"></a>Properties of $e^{x}$</h3><p>Polynomials are nice because they are easy to integrate and differentiate.</p>
+<script type="math/tex; mode=display">\frac{\mathrm{d}}{\mathrm{d}x}x^{k} = kx^{x-1}</script><script type="math/tex; mode=display">\int x^{k}\mathrm{d}x = \frac{1}{k+1}x^{k+1} + c</script><ol>
+<li>$e^{x+y} = e^{x}+e^{y}$</li>
+<li>$e^{xy} = (e^{x})^{y} = (e^{y})^{x}$</li>
+<li>$\frac{\mathrm{d}}{\mathrm{d}x}e^{x} = e^{x}$</li>
+<li>$\int e^{k}\mathrm{d}x = e^{x} + C$</li>
+</ol>
+<p>Consider the last two properties in terms of the long polynomial.Taking the derivative of the long polynomial for $e^{x}$ gives</p>
+<p><img src="5.png" alt></p>
+<h3 id="More-on-the-long-polynomial"><a href="#More-on-the-long-polynomial" class="headerlink" title="More on the long polynomial"></a>More on the long polynomial</h3><p>The idea of a long polynomial is reasonable, because it actually comes from taking a sequence of polynomials with higher and higher degree:</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\begin{array}{lr}    
+& f_0(x) = 1  &\\
+& f_1(x) = 1+x &\\
+& f_2(x) = 1 + x + \frac{x^{2}}{2} &\\
+& \cdots &\\
+\end{array}
+\end{equation}</script><p>Each polynomial in the sequence is, in a sense, the best approximation possible of that degree. Put another way, taking the first several terms of the long polynomial gives a good polynomial approximation of the function. The more terms included, the better the approximation. This is how calculators compute the exponential function (without having to add up infinitely many things).</p>
+<blockquote>
 <p>reference from <a href="https://web.archive.org/web/20160324155222/http://calculus.seas.upenn.edu/?n=Main.Functions" target="_blank" rel="noopener">https://web.archive.org/web/20160324155222/http://calculus.seas.upenn.edu/?n=Main.Functions</a></p>
 </blockquote>
 
@@ -743,7 +766,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Functions"><span class="nav-text">Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operations-on-Functions"><span class="nav-text">Operations on Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Composition"><span class="nav-text">Composition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inverse"><span class="nav-text">Inverse</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Classes-of-Functions"><span class="nav-text">Classes of Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Polynomials"><span class="nav-text">Polynomials</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rational-Functions"><span class="nav-text">Rational Functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Powers"><span class="nav-text">Powers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trigonometrics"><span class="nav-text">Trigonometrics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exponentials"><span class="nav-text">Exponentials</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Euler’s-Formula"><span class="nav-text">Euler’s Formula</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Functions"><span class="nav-text">Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operations-on-Functions"><span class="nav-text">Operations on Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Composition"><span class="nav-text">Composition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inverse"><span class="nav-text">Inverse</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Classes-of-Functions"><span class="nav-text">Classes of Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Polynomials"><span class="nav-text">Polynomials</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rational-Functions"><span class="nav-text">Rational Functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Powers"><span class="nav-text">Powers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trigonometrics"><span class="nav-text">Trigonometrics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exponentials"><span class="nav-text">Exponentials</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Euler’s-Formula"><span class="nav-text">Euler’s Formula</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Exponential"><span class="nav-text">The Exponential</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Properties-of-e-x"><span class="nav-text">Properties of $e^{x}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#More-on-the-long-polynomial"><span class="nav-text">More on the long polynomial</span></a></li></ol></li></ol></div>
             
 
           </div>
