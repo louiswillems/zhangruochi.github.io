@@ -131,7 +131,7 @@
 <meta property="og:site_name" content="RUOCHI.AI">
 <meta property="og:description" content="DP understanding and practices">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-16T21:40:15.502Z">
+<meta property="og:updated_time" content="2019-11-17T14:09:45.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dynamic Programming">
 <meta name="twitter:description" content="DP understanding and practices">
@@ -451,6 +451,11 @@
         <blockquote>
 <p>动态规划，无非就是利用历史记录，来避免我们的重复计算。</p>
 </blockquote>
+<ol>
+<li><strong>最优子结构</strong>。最优子结构指的是问题的最优解包含子问题的最优解。反过来说，我们可以通过子问题的最优解来推导出问题的最优解。或者理解为后面阶段的状态可以由前面阶段的状态推导出来。</li>
+<li><strong>无后效性</strong>。在推导后面阶段的状态的时候，我们只关心前面阶段的状态值，不关心这个状态是怎么一步步推导出来的。同时，某阶段的状态值一旦确定，就不受之后阶段的决策影响。</li>
+<li><strong>重复子问题</strong>。不同的决策序列，到达某个相同的阶段时，可能会产生重复的状态。</li>
+</ol>
 <h2 id="动态规划三大步骤"><a href="#动态规划三大步骤" class="headerlink" title="动态规划三大步骤"></a>动态规划三大步骤</h2><ol>
 <li>第一步骤：定义数组元素的含义，上面说了，我们会用一个数组，来保存历史数组，假设用一维数组 dp[] 吧。这个时候有一个非常非常重要的点，就是规定这个数组元素的含义，例如 dp[i] 是代表什么意思？</li>
 <li>第二步骤：找出状态转移方程。当我们要计算 dp[n] 时，是可以利用 dp[n-1]，dp[n-2]…..dp[1]，来推出 dp[n] 的，也就是可以利用历史数据来推出新的元素值，所以我们要找出数组元素之间的关系式，例如 dp[n] = dp[n-1] + dp[n-2]，这个就是他们的关系式了。</li>
