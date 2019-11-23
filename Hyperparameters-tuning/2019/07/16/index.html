@@ -131,7 +131,7 @@
 <meta property="og:site_name" content="RUOCHI.AI">
 <meta property="og:description" content="How to tune the Hyperparameters">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-17T01:23:02.971Z">
+<meta property="og:updated_time" content="2019-11-23T19:18:30.078Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hyperparameters tuning">
 <meta name="twitter:description" content="How to tune the Hyperparameters">
@@ -485,16 +485,17 @@
 <p>Don’t spend too much time tuning hyperparameters， Only if you don’t have any more ideas or you have spare computational resources</p>
 </blockquote>
 <h2 id="General-pipeline"><a href="#General-pipeline" class="headerlink" title="General pipeline"></a>General pipeline</h2><ol>
-<li>Select the most influential parameters</li>
-</ol>
-<ul>
+<li>Select the most influential parameters<ul>
 <li>There are tons of parameters and we can’t tune all of them</li>
 </ul>
-<ol>
-<li>Understand, how exactly they influence the training</li>
-</ol>
-<ul>
-<li>A parameter in red<br>  – Increase it to underfitting<br>  – Increasing it impedes fitting<br>  – Decrease to allow model fit easier</li>
+</li>
+<li>Understand, how exactly they influence the training<ul>
+<li>A parameter in red<ul>
+<li>Increase it to underfitting</li>
+<li>Increasing it impedes fitting</li>
+<li>Decrease to allow model fit easier</li>
+</ul>
+</li>
 <li>A parameter in green<ul>
 <li>Increasing it leads to a better fit(overfit) on trainset</li>
 <li>Increase it,if model underfits</li>
@@ -502,13 +503,21 @@
 </ul>
 </li>
 </ul>
-<ol>
-<li>Tune them!</li>
-</ol>
-<ul>
-<li>Manually (change and examine)</li>
-<li>Automatically(hyperopt,etc.)<br>  – Hyperopt<br>  – Scikit-optimize<br>  – Spearmint<br>  – GPyOpt<br>  – RoBO<br>  – SMAC3</li>
+</li>
+<li>Tune them<ul>
+<li>Manually(change and examine)</li>
+<li>Automatically(hyperopt,etc.)<ul>
+<li>Hyperopt</li>
+<li>Scikit-optimize </li>
+<li>Spearmint</li>
+<li>GPyOpt</li>
+<li>RoBO</li>
+<li>SMAC3</li>
 </ul>
+</li>
+</ul>
+</li>
+</ol>
 <h2 id="Tree-based-model"><a href="#Tree-based-model" class="headerlink" title="Tree based model"></a>Tree based model</h2><h3 id="GBDT"><a href="#GBDT" class="headerlink" title="GBDT"></a>GBDT</h3><div class="table-container">
 <table>
 <thead>
@@ -565,14 +574,35 @@
 <h3 id="Neural-Nets"><a href="#Neural-Nets" class="headerlink" title="Neural Nets"></a>Neural Nets</h3><ul>
 <li><font color="blue">Number of neurons per layer</font></li>
 <li><font color="blue">Number of layers</font></li>
-<li>Optimizers<br>  – <font color="red">SGD + momentum</font><br>  – <font color="blue">Adam/Adadelta/Adagrad/…</font><pre><code>  - In practice lead to more overfitting
-</code></pre></li>
+<li>Optimizers<ul>
+<li><font color="red">SGD + momentum</font></li>
+<li><font color="blue">Adam/Adadelta/Adagrad/…</font><ul>
+<li>In practice lead to more overfitting</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><font color="blue">Batch size</font></li>
 <li>Learning rate (not too high or not too low, depend on other parameters)</li>
-<li>Regularization<br>  – <font color="blue">L2/L1 for weights</font><br>  – <font color="blue">Dropout/Dropconnect</font><br>  – <font color="blue">Static dropconnect</font></li>
+<li>Regularization<ul>
+<li><font color="blue">L2/L1 for weights</font></li>
+<li><font color="blue">Dropout/Dropconnect</font></li>
+<li><font color="blue">Static dropconnect</font>
+
+</li>
 </ul>
-<h3 id="Linear-Model"><a href="#Linear-Model" class="headerlink" title="Linear Model"></a>Linear Model</h3><p><font color="red">Regularization parameter (C, alpha, lambda, …)</font><br>– Start with very small value and increase it.<br>– SVC starts to work slower as C increases</p>
-<p>Regularization type<br>– L1/L2/L1+L2 — try each<br>– L1 can be used for feature selection</p>
+</li>
+</ul>
+<h3 id="Linear-Model"><a href="#Linear-Model" class="headerlink" title="Linear Model"></a>Linear Model</h3><p><font color="red">Regularization parameter (C, alpha, lambda, …)</font></p>
+<ul>
+<li>Start with very small value and increase it.</li>
+<li>SVC starts to work slower as C increases</li>
+</ul>
+<p>Regularization type</p>
+<ul>
+<li>L1/L2/L1+L2 — try each</li>
+<li>L1 can be used for feature selection</li>
+</ul>
 
       
     </div>
