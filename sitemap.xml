@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangruochi.com/about/index.html</loc>
+    
+    <lastmod>2019-11-28T21:29:35.296Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangruochi.com/Dependency-Management-Principle/2019/11/28/</loc>
     
     <lastmod>2019-11-28T20:50:56.402Z</lastmod>
@@ -1069,13 +1076,6 @@
     <loc>https://zhangruochi.com/Domain-Driven-Design-Introduction/2019/05/16/</loc>
     
     <lastmod>2019-05-16T03:24:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/about/index.html</loc>
-    
-    <lastmod>2019-05-09T06:48:11.000Z</lastmod>
     
   </url>
   
