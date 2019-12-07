@@ -7,7 +7,7 @@
 
 <html class="theme-next mist use-motion" lang>
 <head><meta name="generator" content="Hexo 3.9.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
@@ -173,7 +173,7 @@
 
 
 
-  <title>The Hello World of Deep Learning | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>The Hello World of Deep Learning | RUOCHI.AI</title>
   
 
 
@@ -192,7 +192,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -13546,21 +13546,22 @@ div#notebook {
         }
     });
     </script>
-    <!-- End of mathjax configuration --><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
-<body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div tabindex='-1' id='notebook' class='border-box-sizing'>
-    <div class='container' id='notebook-container'>
+    <!-- End of mathjax configuration --><link rel=" alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h1 id='The-Hello-World-of-Deep-Learning-with-Neural-Networks'>The Hello World of Deep Learning with Neural Networks</h1>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="The-Hello-World-of-Deep-Learning-with-Neural-Networks">The Hello World of Deep Learning with Neural Networks</h1>
 </div>
 </div>
 </div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Like every first app you should start with something super simple that shows the overall scaffolding for how your code works.</p>
 <p>In the case of creating neural networks, the sample I like to use is one where it learns the relationship between two numbers. So, for example, if you were writing code for a function like this, you already know the 'rules' —</p>
 
@@ -13574,24 +13575,24 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h2 id='Imports'>Imports</h2><p>Let's start with our imports. Here we are importing TensorFlow and calling it tf for ease of use.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Imports">Imports</h2><p>Let's start with our imports. Here we are importing TensorFlow and calling it tf for ease of use.</p>
 <p>We then import a library called numpy, which helps us to represent our data as lists easily and quickly.</p>
 <p>The framework for defining a neural network as a set of Sequential layers is called keras, so we import that too.</p>
 
 </div>
 </div>
 </div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[0]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='kn'>import</span> <span class='nn'>tensorflow</span> <span class='k'>as</span> <span class='nn'>tf</span>
-<span class='kn'>import</span> <span class='nn'>numpy</span> <span class='k'>as</span> <span class='nn'>np</span>
-<span class='kn'>from</span> <span class='nn'>tensorflow</span> <span class='k'>import</span> <span class='n'>keras</span>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="k">import</span> <span class="n">keras</span>
 </pre></div>
 
     </div>
@@ -13599,36 +13600,36 @@ div#notebook {
 </div>
 
 </div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h2 id='Define-and-Compile-the-Neural-Network'>Define and Compile the Neural Network</h2><p>Next we will create the simplest possible neural network. It has 1 layer, and that layer has 1 neuron, and the input shape to it is just 1 value.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Define-and-Compile-the-Neural-Network">Define and Compile the Neural Network</h2><p>Next we will create the simplest possible neural network. It has 1 layer, and that layer has 1 neuron, and the input shape to it is just 1 value.</p>
 
 </div>
 </div>
 </div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[2]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='n'>model</span> <span class='o'>=</span> <span class='n'>tf</span><span class='o'>.</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>Sequential</span><span class='p'>([</span><span class='n'>keras</span><span class='o'>.</span><span class='n'>layers</span><span class='o'>.</span><span class='n'>Dense</span><span class='p'>(</span><span class='n'>units</span><span class='o'>=</span><span class='mi'>1</span><span class='p'>,</span> <span class='n'>input_shape</span><span class='o'>=</span><span class='p'>[</span><span class='mi'>1</span><span class='p'>])])</span>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])])</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class='output_wrapper'>
-<div class='output'>
+<div class="output_wrapper">
+<div class="output">
 
 
-<div class='output_area'>
+<div class="output_area">
 
-    <div class='prompt'></div>
+    <div class="prompt"></div>
 
 
-<div class='output_subarea output_stream output_stdout output_text'>
+<div class="output_subarea output_stream output_stdout output_text">
 <pre>WARNING:tensorflow:From /usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/resource_variable_ops.py:435: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
 Instructions for updating:
 Colocations handled automatically by placer.
@@ -13640,9 +13641,9 @@ Colocations handled automatically by placer.
 </div>
 
 </div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Now we compile our Neural Network. When we do so, we have to specify 2 functions, a loss and an optimizer.</p>
 <p>If you've seen lots of math for machine learning, here's where it's usually used, but in this case it's nicely encapsulated in functions for you. But what happens here — let's explain...</p>
 <p>We know that in our function, the relationship between the numbers is y=2x-1.</p>
@@ -13654,28 +13655,28 @@ Colocations handled automatically by placer.
 </div>
 </div>
 </div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[3]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='n'>model</span><span class='o'>.</span><span class='n'>compile</span><span class='p'>(</span><span class='n'>optimizer</span><span class='o'>=</span><span class='s1'>&#39;sgd&#39;</span><span class='p'>,</span> <span class='n'>loss</span><span class='o'>=</span><span class='s1'>&#39;mean_squared_error&#39;</span><span class='p'>)</span>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;sgd&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mean_squared_error&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class='output_wrapper'>
-<div class='output'>
+<div class="output_wrapper">
+<div class="output">
 
 
-<div class='output_area'>
+<div class="output_area">
 
-    <div class='prompt'></div>
+    <div class="prompt"></div>
 
 
-<div class='output_subarea output_stream output_stdout output_text'>
+<div class="output_subarea output_stream output_stdout output_text">
 <pre>WARNING:tensorflow:From /usr/local/lib/python2.7/dist-packages/tensorflow/python/keras/utils/losses_utils.py:170: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
 Instructions for updating:
 Use tf.cast instead.
@@ -13687,22 +13688,22 @@ Use tf.cast instead.
 </div>
 
 </div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h2 id='Providing-the-Data'>Providing the Data</h2><p>Next up we'll feed in some data. In this case we are taking 6 xs and 6ys. You can see that the relationship between these is that y=2x-1, so where x = -1, y=-3 etc. etc.</p>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Providing-the-Data">Providing the Data</h2><p>Next up we'll feed in some data. In this case we are taking 6 xs and 6ys. You can see that the relationship between these is that y=2x-1, so where x = -1, y=-3 etc. etc.</p>
 <p>A python library called 'Numpy' provides lots of array type data structures that are a defacto standard way of doing it. We declare that we want to use these by specifying the values as an np.array[]</p>
 
 </div>
 </div>
 </div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[0]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='n'>xs</span> <span class='o'>=</span> <span class='n'>np</span><span class='o'>.</span><span class='n'>array</span><span class='p'>([</span><span class='o'>-</span><span class='mf'>1.0</span><span class='p'>,</span>  <span class='mf'>0.0</span><span class='p'>,</span> <span class='mf'>1.0</span><span class='p'>,</span> <span class='mf'>2.0</span><span class='p'>,</span> <span class='mf'>3.0</span><span class='p'>,</span> <span class='mf'>4.0</span><span class='p'>],</span> <span class='n'>dtype</span><span class='o'>=</span><span class='nb'>float</span><span class='p'>)</span>
-<span class='n'>ys</span> <span class='o'>=</span> <span class='n'>np</span><span class='o'>.</span><span class='n'>array</span><span class='p'>([</span><span class='o'>-</span><span class='mf'>3.0</span><span class='p'>,</span> <span class='o'>-</span><span class='mf'>1.0</span><span class='p'>,</span> <span class='mf'>1.0</span><span class='p'>,</span> <span class='mf'>3.0</span><span class='p'>,</span> <span class='mf'>5.0</span><span class='p'>,</span> <span class='mf'>7.0</span><span class='p'>],</span> <span class='n'>dtype</span><span class='o'>=</span><span class='nb'>float</span><span class='p'>)</span>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">ys</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">3.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13710,43 +13711,43 @@ Use tf.cast instead.
 </div>
 
 </div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
-<h1 id='Training-the-Neural-Network'>Training the Neural Network</h1>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Training-the-Neural-Network">Training the Neural Network</h1>
 </div>
 </div>
 </div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>The process of training the neural network, where it 'learns' the relationship between the Xs and Ys is in the <strong>model.fit</strong>  call. This is where it will go through the loop we spoke about above, making a guess, measuring how good or bad it is (aka the loss), using the opimizer to make another guess etc. It will do it for the number of epochs you specify. When you run this code, you'll see the loss on the right hand side.</p>
 
 </div>
 </div>
 </div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[5]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='n'>model</span><span class='o'>.</span><span class='n'>fit</span><span class='p'>(</span><span class='n'>xs</span><span class='p'>,</span> <span class='n'>ys</span><span class='p'>,</span> <span class='n'>epochs</span><span class='o'>=</span><span class='mi'>500</span><span class='p'>)</span>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class='output_wrapper'>
-<div class='output'>
+<div class="output_wrapper">
+<div class="output">
 
 
-<div class='output_area'>
+<div class="output_area">
 
-    <div class='prompt'></div>
+    <div class="prompt"></div>
 
 
-<div class='output_subarea output_stream output_stdout output_text'>
+<div class="output_subarea output_stream output_stdout output_text">
 <pre>WARNING:tensorflow:From /usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
 Instructions for updating:
 Use tf.cast instead.
@@ -14754,14 +14755,14 @@ Epoch 500/500
 </div>
 </div>
 
-<div class='output_area'>
+<div class="output_area">
 
-    <div class='prompt output_prompt'>Out[5]:</div>
-
-
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
-<div class='output_text output_subarea output_execute_result'>
+
+
+<div class="output_text output_subarea output_execute_result">
 <pre>&lt;tensorflow.python.keras.callbacks.History at 0x7f4df552b8d0&gt;</pre>
 </div>
 
@@ -14771,36 +14772,36 @@ Epoch 500/500
 </div>
 
 </div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Ok, now you have a model that has been trained to learn the relationshop between X and Y. You can use the <strong>model.predict</strong> method to have it figure out the Y for a previously unknown X. So, for example, if X = 10, what do you think Y will be? Take a guess before you run this code:</p>
 
 </div>
 </div>
 </div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[6]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span><span class='nb'>print</span><span class='p'>(</span><span class='n'>model</span><span class='o'>.</span><span class='n'>predict</span><span class='p'>([</span><span class='mf'>10.0</span><span class='p'>]))</span>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="mf">10.0</span><span class="p">]))</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class='output_wrapper'>
-<div class='output'>
+<div class="output_wrapper">
+<div class="output">
 
 
-<div class='output_area'>
+<div class="output_area">
 
-    <div class='prompt'></div>
+    <div class="prompt"></div>
 
 
-<div class='output_subarea output_stream output_stdout output_text'>
+<div class="output_subarea output_stream output_stdout output_text">
 <pre>[[18.977217]]
 </pre>
 </div>
@@ -14810,9 +14811,9 @@ Epoch 500/500
 </div>
 
 </div>
-<div class='cell border-box-sizing text_cell rendered'><div class='prompt input_prompt'>
-</div><div class='inner_cell'>
-<div class='text_cell_render border-box-sizing rendered_html'>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>You might have thought 19, right? But it ended up being a little under. Why do you think that is?</p>
 <p>Remember that neural networks deal with probabilities, so given the data that we fed the NN with, it calculated that there is a very high probability that the relationship between X and Y is Y=2X-1, but with only 6 data points we can't know for sure. As a result, the result for 10 is very close to 19, but not necessarily 19.</p>
 <p>As you work with neural networks, you'll see this pattern recurring. You will almost always deal with probabilities, not certainties, and will do a little bit of coding to figure out what the result is based on the probabilities, particularly when it comes to classification.</p>
@@ -14820,12 +14821,12 @@ Epoch 500/500
 </div>
 </div>
 </div>
-<div class='cell border-box-sizing code_cell rendered'>
-<div class='input'>
-<div class='prompt input_prompt'>In&nbsp;[0]:</div>
-<div class='inner_cell'>
-    <div class='input_area'>
-<div class=' highlight hl-ipython3'><pre><span></span> 
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
@@ -14835,9 +14836,9 @@ Epoch 500/500
 </div>
     </div>
   </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type=" text x-mathjax-config">
+<script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-
+</script>
 
 <script type="text/x-mathjax-config">
   MathJax.Hub.Queue(function() {
@@ -14852,7 +14853,7 @@ Epoch 500/500
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
+</body>
 
  
 
@@ -15000,8 +15001,17 @@ document.getElementById('ipynb').height=$("#ipynb").contents().find("#notebook")
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -15018,7 +15028,7 @@ document.getElementById('ipynb').height=$("#ipynb").contents().find("#notebook")
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">157</span>
+                  <span class="site-state-item-count">158</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -15104,6 +15114,22 @@ document.getElementById('ipynb').height=$("#ipynb").contents().find("#notebook")
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#The-Hello-World-of-Deep-Learning-with-Neural-Networks"><span class="nav-text">The Hello World of Deep Learning with Neural Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Imports"><span class="nav-text">Imports</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Define-and-Compile-the-Neural-Network"><span class="nav-text">Define and Compile the Neural Network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Providing-the-Data"><span class="nav-text">Providing the Data</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Training-the-Neural-Network"><span class="nav-text">Training the Neural Network</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -15305,7 +15331,7 @@ document.getElementById('ipynb').height=$("#ipynb").contents().find("#notebook")
     new Valine({
         el: '#comments' ,
         verify: false,
-        notify: false,
+        notify: true,
         appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
         appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
         placeholder: 'Thank you for your reply',
@@ -15658,24 +15684,7 @@ document.getElementById('ipynb').height=$("#ipynb").contents().find("#notebook")
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(bp, s);
 })();
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
 
 
   
