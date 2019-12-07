@@ -135,17 +135,17 @@
 <meta property="og:description" content="applying deep learning to speech recognition">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/Trigger-word-detection/2019/03/29/images/sound.png">
-<meta property="og:image" content="https://zhangruochi.com/Trigger-word-detection/2019/03/29/output_9_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Trigger-word-detection/2019/03/29/images/output_9_0.png">
 <meta property="og:image" content="https://zhangruochi.com/Trigger-word-detection/2019/03/29/images/spectrogram.png">
 <meta property="og:image" content="https://zhangruochi.com/Trigger-word-detection/2019/03/29/images/label_diagram.png">
-<meta property="og:image" content="https://zhangruochi.com/Trigger-word-detection/2019/03/29/output_33_1.png">
+<meta property="og:image" content="https://zhangruochi.com/Trigger-word-detection/2019/03/29/images/output_33_1.png">
 <meta property="og:image" content="https://zhangruochi.com/Trigger-word-detection/2019/03/29/images/ones_reference.png">
 <meta property="og:image" content="https://zhangruochi.com/Trigger-word-detection/2019/03/29/images/train_reference.png">
 <meta property="og:image" content="https://zhangruochi.com/Trigger-word-detection/2019/03/29/images/train_label.png">
 <meta property="og:image" content="https://zhangruochi.com/Trigger-word-detection/2019/03/29/images/model.png">
-<meta property="og:image" content="https://zhangruochi.com/Trigger-word-detection/2019/03/29/output_78_0.png">
-<meta property="og:image" content="https://zhangruochi.com/Trigger-word-detection/2019/03/29/output_79_0.png">
-<meta property="og:updated_time" content="2019-07-05T10:29:06.395Z">
+<meta property="og:image" content="https://zhangruochi.com/Trigger-word-detection/2019/03/29/images/output_78_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Trigger-word-detection/2019/03/29/images/output_79_0.png">
+<meta property="og:updated_time" content="2019-12-07T05:46:27.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Trigger word detection">
 <meta name="twitter:description" content="applying deep learning to speech recognition">
@@ -511,7 +511,7 @@
 <p>Lets see an example. </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IPython.display.Audio(<span class="string">"audio_examples/example_train.wav"</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = graph_spectrogram(<span class="string">"audio_examples/example_train.wav"</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="output_9_0.png" alt="png"></p>
+<p><img src="images/output_9_0.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x</span><br></pre></td></tr></table></figure>
 <pre><code>array([[  9.20850313e-08,   4.94545058e-01,   9.88447548e+01, ...,
           2.30894224e-03,   4.91766839e-02,   3.50139219e-01],
@@ -645,7 +645,7 @@ Overlap 2 =  True
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GRADED FUNCTION: insert_ones</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_ones</span><span class="params">(y, segment_end_ms)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Update the label vector y. The labels of the 50 output steps strictly after the end of the segment </span></span><br><span class="line"><span class="string">    should be set to 1. By strictly we mean that the label of segment_end_y should be 0 while, the</span></span><br><span class="line"><span class="string">    50 followinf labels should be ones.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Arguments:</span></span><br><span class="line"><span class="string">    y -- numpy array of shape (1, Ty), the labels of the training example</span></span><br><span class="line"><span class="string">    segment_end_ms -- the end time of the segment in ms</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">    y -- updated labels</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># duration of the background (in terms of spectrogram time-steps)</span></span><br><span class="line">    segment_end_y = int(segment_end_ms * Ty / <span class="number">10000.0</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Add 1 to the correct index in the background label (y)</span></span><br><span class="line">    <span class="comment">### START CODE HERE ### (≈ 3 lines)</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(segment_end_y+<span class="number">1</span>, segment_end_y+<span class="number">51</span>):</span><br><span class="line">        <span class="keyword">if</span> i &lt; Ty:</span><br><span class="line">            y[<span class="number">0</span>, i] = <span class="number">1.0</span></span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> y</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr1 = insert_ones(np.zeros((<span class="number">1</span>, Ty)), <span class="number">9700</span>)</span><br><span class="line">plt.plot(insert_ones(arr1, <span class="number">4251</span>)[<span class="number">0</span>,:])</span><br><span class="line">print(<span class="string">"sanity checks:"</span>, arr1[<span class="number">0</span>][<span class="number">1333</span>], arr1[<span class="number">0</span>][<span class="number">634</span>], arr1[<span class="number">0</span>][<span class="number">635</span>])</span><br></pre></td></tr></table></figure>
 <pre><code>sanity checks: 0.0 1.0 0.0
-</code></pre><p><img src="output_33_1.png" alt="png"></p>
+</code></pre><p><img src="images/output_33_1.png" alt="png"></p>
 <p><strong>Expected Output</strong></p>
 <table>
     <tr>
@@ -785,40 +785,7 @@ Let's print the model summary to keep track of the shapes.
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.summary()</span><br></pre></td></tr></table></figure>
 
-    _________________________________________________________________
-    Layer (type)                 Output Shape              Param #   
-    =================================================================
-    input_3 (InputLayer)         (None, 5511, 101)         0         
-    _________________________________________________________________
-    conv1d_3 (Conv1D)            (None, 1375, 196)         297136    
-    _________________________________________________________________
-    batch_normalization_2 (Batch (None, 1375, 196)         784       
-    _________________________________________________________________
-    activation_1 (Activation)    (None, 1375, 196)         0         
-    _________________________________________________________________
-    dropout_1 (Dropout)          (None, 1375, 196)         0         
-    _________________________________________________________________
-    gru_1 (GRU)                  (None, 1375, 128)         124800    
-    _________________________________________________________________
-    dropout_2 (Dropout)          (None, 1375, 128)         0         
-    _________________________________________________________________
-    batch_normalization_3 (Batch (None, 1375, 128)         512       
-    _________________________________________________________________
-    gru_2 (GRU)                  (None, 1375, 128)         98688     
-    _________________________________________________________________
-    dropout_3 (Dropout)          (None, 1375, 128)         0         
-    _________________________________________________________________
-    batch_normalization_4 (Batch (None, 1375, 128)         512       
-    _________________________________________________________________
-    dropout_4 (Dropout)          (None, 1375, 128)         0         
-    _________________________________________________________________
-    time_distributed_1 (TimeDist (None, 1375, 1)           129       
-    =================================================================
-    Total params: 522,561
-    Trainable params: 521,657
-    Non-trainable params: 904
-    _________________________________________________________________
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">_________________________________________________________________</span><br><span class="line">Layer (type)                 Output Shape              Param #   </span><br><span class="line">=================================================================</span><br><span class="line">input_3 (InputLayer)         (None, 5511, 101)         0         </span><br><span class="line">_________________________________________________________________</span><br><span class="line">conv1d_3 (Conv1D)            (None, 1375, 196)         297136    </span><br><span class="line">_________________________________________________________________</span><br><span class="line">batch_normalization_2 (Batch (None, 1375, 196)         784       </span><br><span class="line">_________________________________________________________________</span><br><span class="line">activation_1 (Activation)    (None, 1375, 196)         0         </span><br><span class="line">_________________________________________________________________</span><br><span class="line">dropout_1 (Dropout)          (None, 1375, 196)         0         </span><br><span class="line">_________________________________________________________________</span><br><span class="line">gru_1 (GRU)                  (None, 1375, 128)         124800    </span><br><span class="line">_________________________________________________________________</span><br><span class="line">dropout_2 (Dropout)          (None, 1375, 128)         0         </span><br><span class="line">_________________________________________________________________</span><br><span class="line">batch_normalization_3 (Batch (None, 1375, 128)         512       </span><br><span class="line">_________________________________________________________________</span><br><span class="line">gru_2 (GRU)                  (None, 1375, 128)         98688     </span><br><span class="line">_________________________________________________________________</span><br><span class="line">dropout_3 (Dropout)          (None, 1375, 128)         0         </span><br><span class="line">_________________________________________________________________</span><br><span class="line">batch_normalization_4 (Batch (None, 1375, 128)         512       </span><br><span class="line">_________________________________________________________________</span><br><span class="line">dropout_4 (Dropout)          (None, 1375, 128)         0         </span><br><span class="line">_________________________________________________________________</span><br><span class="line">time_distributed_1 (TimeDist (None, 1375, 1)           129       </span><br><span class="line">=================================================================</span><br><span class="line">Total params: 522,561</span><br><span class="line">Trainable params: 521,657</span><br><span class="line">Non-trainable params: 904</span><br><span class="line">_________________________________________________________________</span><br></pre></td></tr></table></figure>
 
 **Expected Output**:
 
@@ -899,9 +866,9 @@ Use this code to convert from the 1,375 step discretization to the 10,000 step d
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IPython.display.Audio(<span class="string">"./raw_data/dev/2.wav"</span>)</span><br></pre></td></tr></table></figure>
 <p>Now lets run the model on these audio clips and see if it adds a chime after “activate”!</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">filename = <span class="string">"./raw_data/dev/1.wav"</span></span><br><span class="line">prediction = detect_triggerword(filename)</span><br><span class="line">chime_on_activate(filename, prediction, <span class="number">0.5</span>)</span><br><span class="line">IPython.display.Audio(<span class="string">"./chime_output.wav"</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="output_78_0.png" alt="png"></p>
+<p><img src="images/output_78_0.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">filename  = <span class="string">"./raw_data/dev/2.wav"</span></span><br><span class="line">prediction = detect_triggerword(filename)</span><br><span class="line">chime_on_activate(filename, prediction, <span class="number">0.5</span>)</span><br><span class="line">IPython.display.Audio(<span class="string">"./chime_output.wav"</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="output_79_0.png" alt="png"></p>
+<p><img src="images/output_79_0.png" alt="png"></p>
 <h1 id="Congratulations"><a href="#Congratulations" class="headerlink" title="Congratulations"></a>Congratulations</h1><p>You’ve come to the end of this assignment! </p>
 <p>Here’s what you should remember:</p>
 <ul>
