@@ -2236,16 +2236,17 @@ Hexo做博客框架不错，就它了。于是我纠结了两个小时选什么�
   
   <script type="text/javascript">
     var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
+    var guest = 'nick,mail';
     guest = guest.split(',').filter(item=>{
       return GUEST.indexOf(item)>-1;
     });
     new Valine({
         el: '#comments' ,
         verify: false,
-        notify: true,
+        notify: false,
         appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
         appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
         placeholder: 'Thank you for your reply',
         avatar:'mm',
         guest_info:guest,
