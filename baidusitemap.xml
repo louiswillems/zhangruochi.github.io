@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhangruochi.com/Java-Review/2019/06/07/</loc>
+    <lastmod>2019-12-20</lastmod>
+  </url>  <url>
     <loc>https://zhangruochi.com/Subword-Models/2019/12/19/</loc>
     <lastmod>2019-12-19</lastmod>
   </url>  <url>
@@ -456,9 +459,6 @@
   </url>  <url>
     <loc>https://zhangruochi.com/Combining-Distribution-and-Multithreading/2019/06/24/</loc>
     <lastmod>2019-07-05</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Java-Review/2019/06/07/</loc>
-    <lastmod>2019-06-07</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Fluent-Python/2019/03/05/</loc>
     <lastmod>2019-06-07</lastmod>
