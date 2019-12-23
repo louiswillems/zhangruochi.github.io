@@ -611,8 +611,8 @@
         <category>Data Mining</category>
       </categories>
       <tags>
-        <tag>Feature Engineering</tag>
         <tag>Project</tag>
+        <tag>Feature Engineering</tag>
       </tags>
   </entry>
   <entry>
@@ -1006,8 +1006,8 @@
         <category>Hardware Architecture</category>
       </categories>
       <tags>
-        <tag>Nand2Tetris</tag>
         <tag>Project</tag>
+        <tag>Nand2Tetris</tag>
       </tags>
   </entry>
   <entry>
@@ -1198,8 +1198,8 @@
     <url>%2FBoolean-Logic-Project%2F2019%2F05%2F21%2F</url>
     <content type="text"><![CDATA[Objective: Implement all the logic gates presented in the chapter. The only building blocks that you can use are primitive Nand gates and the composite gates that you will gradually build on top of them. Resources: The only tool that you need for this project is the hardware simulator supplied with the book. All the chips should be implemented in the HDL language specified in appendix A. For each one of the chips mentioned in the chapter, we provide a skeletal .hdl program (text file) with a missing implementation part. In addition, for each chip we provide a .tst script file that tells the hardware simulator how to test it, along with the correct output file that this script should generate, called .cmp or ‘‘compare file.’’ Your job is to complete the missing implementation parts of the supplied .hdl programs. Contract: When loaded into the hardware simulator, your chip design (modified .hdl program), tested on the supplied .tst file, should produce the outputs listed in the supplied .cmp file. If that is not the case, the simulator will let you know. Tips: The Nand gate is considered primitive and thus there is no need to build it: Whenever you use Nand in one of your HDL programs, the simulator will auto- matically invoke its built-in tools/builtIn/Nand.hdl implementation. We rec- ommend implementing the other gates in this project in the order in which they appear in the chapter. However, since the builtIn directory features working ver- sions of all the chips described in the book, you can always use these chips without defining them first: The simulator will automatically use their built-in versions. For example, consider the skeletal Mux.hdl program supplied in this project. Suppose that for one reason or another you did not complete this program’s im- plementation, but you still want to use Mux gates as internal parts in other chip designs. This is not a problem, thanks to the following convention. If our simula- tor fails to find a Mux.hdl file in the current directory, it automatically invokes a built-in Mux implementation, pre-supplied with the simulator’s software. This built- in implementation—a Java class stored in the builtIn directory—has the same in- terface and functionality as those of the Mux gate described in the book. Thus, if you want the simulator to ignore one or more of your chip implementations, simply move the corresponding .hdl files out of the current directory. Steps: We recommend proceeding in the following order: The hardware simulator needed for this project is available in the tools directory of the book’s software suite. Read appendix A, sections A1–A6 only. Go through the hardware simulator tutorial, parts I, II, and III only. Build and simulate all the chips specified in the projects/01 directory. 123456789101112131415/** * And gate: * out = 1 if (a == 1 and b == 1) * 0 otherwise */CHIP And &#123; IN a, b; OUT out; PARTS: // Put your code here: Nand(a=a,b=b,out=nandout); Not(in=nandout,out=out);&#125; 1234567891011121314151617181920212223242526272829/** * 16-bit bitwise And: * for i = 0..15: out[i] = (a[i] and b[i]) */CHIP And16 &#123; IN a[16], b[16]; OUT out[16]; PARTS: // Put your code here: And(a=a[0],b=b[0],out=out[0]); And(a=a[1],b=b[1],out=out[1]); And(a=a[2],b=b[2],out=out[2]); And(a=a[3],b=b[3],out=out[3]); And(a=a[4],b=b[4],out=out[4]); And(a=a[5],b=b[5],out=out[5]); And(a=a[6],b=b[6],out=out[6]); And(a=a[7],b=b[7],out=out[7]); And(a=a[8],b=b[8],out=out[8]); And(a=a[9],b=b[9],out=out[9]); And(a=a[10],b=b[10],out=out[10]); And(a=a[11],b=b[11],out=out[11]); And(a=a[12],b=b[12],out=out[12]); And(a=a[13],b=b[13],out=out[13]); And(a=a[14],b=b[14],out=out[14]); And(a=a[15],b=b[15],out=out[15]);&#125; 12345678910111213141516/** * Demultiplexor: * &#123;a, b&#125; = &#123;in, 0&#125; if sel == 0 * &#123;0, in&#125; if sel == 1 */CHIP DMux &#123; IN in, sel; OUT a, b; PARTS: // Put your code here: And(a=in,b=sel,out=b); Not(in=sel,out=notsel); And(a=in,b=notsel,out=a);&#125; 123456789101112131415161718/** * 4-way demultiplexor: * &#123;a, b, c, d&#125; = &#123;in, 0, 0, 0&#125; if sel == 00 * &#123;0, in, 0, 0&#125; if sel == 01 * &#123;0, 0, in, 0&#125; if sel == 10 * &#123;0, 0, 0, in&#125; if sel == 11 */CHIP DMux4Way &#123; IN in, sel[2]; OUT a, b, c, d; PARTS: // Put your code here: DMux(in=in,sel=sel[1],a=out1,b=out2); DMux(in=out1,sel=sel[0],a=a,b=b); DMux(in=out2,sel=sel[0],a=c,b=d);&#125; 123456789101112131415161718/** * 8-way demultiplexor: * &#123;a, b, c, d, e, f, g, h&#125; = &#123;in, 0, 0, 0, 0, 0, 0, 0&#125; if sel == 000 * &#123;0, in, 0, 0, 0, 0, 0, 0&#125; if sel == 001 * etc. * &#123;0, 0, 0, 0, 0, 0, 0, in&#125; if sel == 111 */CHIP DMux8Way &#123; IN in, sel[3]; OUT a, b, c, d, e, f, g, h; PARTS: // Put your code here: DMux(in=in,sel=sel[2],a=out1,b=out2); DMux4Way(in=out1,sel=sel[0..1],a=a,b=b,c=c,d=d); DMux4Way(in=out2,sel=sel[0..1],a=e,b=f,c=g,d=h);&#125; 1234567891011121314151617/** * Multiplexor: * out = a if sel == 0 * b otherwise */CHIP Mux &#123; IN a, b, sel; OUT out; PARTS: // Put your code here: Not(in=sel,out=notsel); And(a=a,b=notsel,out=anotsel); And(a=b,b=sel,out=bsel); Or(a=anotsel,b=bsel,out=out);&#125; 1234567891011121314151617181920212223242526272829/** * 16-bit multiplexor: * for i = 0..15 out[i] = a[i] if sel == 0 * b[i] if sel == 1 */CHIP Mux16 &#123; IN a[16], b[16], sel; OUT out[16]; PARTS: // Put your code here: Mux(a=a[0],b=b[0],sel=sel,out=out[0]); Mux(a=a[1],b=b[1],sel=sel,out=out[1]); Mux(a=a[2],b=b[2],sel=sel,out=out[2]); Mux(a=a[3],b=b[3],sel=sel,out=out[3]); Mux(a=a[4],b=b[4],sel=sel,out=out[4]); Mux(a=a[5],b=b[5],sel=sel,out=out[5]); Mux(a=a[6],b=b[6],sel=sel,out=out[6]); Mux(a=a[7],b=b[7],sel=sel,out=out[7]); Mux(a=a[8],b=b[8],sel=sel,out=out[8]); Mux(a=a[9],b=b[9],sel=sel,out=out[9]); Mux(a=a[10],b=b[10],sel=sel,out=out[10]); Mux(a=a[11],b=b[11],sel=sel,out=out[11]); Mux(a=a[12],b=b[12],sel=sel,out=out[12]); Mux(a=a[13],b=b[13],sel=sel,out=out[13]); Mux(a=a[14],b=b[14],sel=sel,out=out[14]); Mux(a=a[15],b=b[15],sel=sel,out=out[15]);&#125; 123456789101112131415161718/** * 4-way 16-bit multiplexor: * out = a if sel == 00 * b if sel == 01 * c if sel == 10 * d if sel == 11 */CHIP Mux4Way16 &#123; IN a[16], b[16], c[16], d[16], sel[2]; OUT out[16]; PARTS: // Put your code here: Mux16(a=a,b=b,sel=sel[0],out=out1); Mux16(a=c,b=d,sel=sel[0],out=out2); Mux16(a=out1,b=out2,sel=sel[1],out=out);&#125; 1234567891011121314151617181920/** * 8-way 16-bit multiplexor: * out = a if sel == 000 * b if sel == 001 * etc. * h if sel == 111 */CHIP Mux8Way16 &#123; IN a[16], b[16], c[16], d[16], e[16], f[16], g[16], h[16], sel[3]; OUT out[16]; PARTS: // Put your code here: Mux4Way16(a=a,b=b,c=c,d=d,sel=sel[0..1],out=out1); Mux4Way16(a=e,b=f,c=g,d=h,sel=sel[0..1],out=out2); Mux16(a=out1,b=out2,sel=sel[2],out=out);&#125; 12345678910111213/** * Not gate: * out = not in */CHIP Not &#123; IN in; OUT out; PARTS: // Put your code here: Nand(a=in,b=in,out=out);&#125; 12345678910111213141516171819202122232425262728/** * 16-bit Not: * for i=0..15: out[i] = not in[i] */CHIP Not16 &#123; IN in[16]; OUT out[16]; PARTS: // Put your code here: Not(in=in[0],out=out[0]); Not(in=in[1],out=out[1]); Not(in=in[2],out=out[2]); Not(in=in[3],out=out[3]); Not(in=in[4],out=out[4]); Not(in=in[5],out=out[5]); Not(in=in[6],out=out[6]); Not(in=in[7],out=out[7]); Not(in=in[8],out=out[8]); Not(in=in[9],out=out[9]); Not(in=in[10],out=out[10]); Not(in=in[11],out=out[11]); Not(in=in[12],out=out[12]); Not(in=in[13],out=out[13]); Not(in=in[14],out=out[14]); Not(in=in[15],out=out[15]);&#125; 12345678910111213141516/** * Or gate: * out = 1 if (a == 1 or b == 1) * 0 otherwise */CHIP Or &#123; IN a, b; OUT out; PARTS: // Put your code here: Nand(a=a,b=a,out=outa); Nand(a=b,b=b,out=outb); Nand(a=outa,b=outb,out=out);&#125; 12345678910111213141516171819202122232425262728/** * 16-bit bitwise Or: * for i = 0..15 out[i] = (a[i] or b[i]) */CHIP Or16 &#123; IN a[16], b[16]; OUT out[16]; PARTS: // Put your code here: Or(a=a[0],b=b[0],out=out[0]); Or(a=a[1],b=b[1],out=out[1]); Or(a=a[2],b=b[2],out=out[2]); Or(a=a[3],b=b[3],out=out[3]); Or(a=a[4],b=b[4],out=out[4]); Or(a=a[5],b=b[5],out=out[5]); Or(a=a[6],b=b[6],out=out[6]); Or(a=a[7],b=b[7],out=out[7]); Or(a=a[8],b=b[8],out=out[8]); Or(a=a[9],b=b[9],out=out[9]); Or(a=a[10],b=b[10],out=out[10]); Or(a=a[11],b=b[11],out=out[11]); Or(a=a[12],b=b[12],out=out[12]); Or(a=a[13],b=b[13],out=out[13]); Or(a=a[14],b=b[14],out=out[14]); Or(a=a[15],b=b[15],out=out[15]);&#125; 12345678910111213141516171819/** * 8-way Or: * out = (in[0] or in[1] or ... or in[7]) */CHIP Or8Way &#123; IN in[8]; OUT out; PARTS: // Put your code here: Or(a=in[0],b=in[1],out=or1); Or(a=in[2],b=in[3],out=or2); Or(a=in[4],b=in[5],out=or3); Or(a=in[6],b=in[7],out=or4); Or(a=or1,b=or2,out=or5); Or(a=or3,b=or4,out=or6); Or(a=or5,b=or6,out=out);&#125; 1234567891011121314151617/** * Exclusive-or gate: * out = not (a == b) */CHIP Xor &#123; IN a, b; OUT out; PARTS: // Put your code here: Not(in=a,out=nota); Not(in=b,out=notb); And(a=nota,b=b,out=t1); And(a=a,b=notb,out=t2); Or(a=t1,b=t2,out=out);&#125;]]></content>
       <tags>
-        <tag>Nand2Tetris</tag>
         <tag>Project</tag>
+        <tag>Nand2Tetris</tag>
       </tags>
   </entry>
   <entry>
@@ -1377,8 +1377,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Sequence Models</tag>
         <tag>Project</tag>
+        <tag>Sequence Models</tag>
       </tags>
   </entry>
   <entry>
@@ -1390,8 +1390,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Sequence Models</tag>
         <tag>Project</tag>
+        <tag>Sequence Models</tag>
       </tags>
   </entry>
   <entry>
@@ -1403,8 +1403,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Sequence Models</tag>
         <tag>Project</tag>
+        <tag>Sequence Models</tag>
       </tags>
   </entry>
   <entry>
@@ -1454,8 +1454,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Sequence Models</tag>
         <tag>Project</tag>
+        <tag>Sequence Models</tag>
       </tags>
   </entry>
   <entry>
@@ -1467,8 +1467,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Sequence Models</tag>
         <tag>Project</tag>
+        <tag>Sequence Models</tag>
         <tag>NLP</tag>
       </tags>
   </entry>
@@ -1481,8 +1481,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Sequence Models</tag>
         <tag>Project</tag>
+        <tag>Sequence Models</tag>
       </tags>
   </entry>
   <entry>
@@ -1494,8 +1494,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Sequence Models</tag>
         <tag>Project</tag>
+        <tag>Sequence Models</tag>
         <tag>NLP</tag>
       </tags>
   </entry>
@@ -1508,8 +1508,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Sequence Models</tag>
         <tag>Project</tag>
+        <tag>Sequence Models</tag>
         <tag>NLP</tag>
       </tags>
   </entry>
@@ -1522,8 +1522,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Sequence Models</tag>
         <tag>Project</tag>
+        <tag>Sequence Models</tag>
         <tag>NLP</tag>
       </tags>
   </entry>
@@ -1536,8 +1536,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Sequence Models</tag>
         <tag>Project</tag>
+        <tag>Sequence Models</tag>
       </tags>
   </entry>
   <entry>
@@ -1685,8 +1685,8 @@
     <content type="text"><![CDATA[Reference from An overview of gradient descent optimization algorithms Batch gradient descent\theta = \theta - \eta * \triangledown_{\theta}J(\theta)123for i in range(nb_epochs): params_grad = evaluate_gradient(loss_function, data, params) params = params - learning_rate * params_grad Batch gradient descent is guaranteed to converge to the global minimum for convex error surfaces and to a local minimum for non-convex surfaces. Stochastic gradient descent\theta = \theta - \eta * \triangledown_{\theta}J(\theta; x^{i};y^{i})12345for i in range(nb_epochs): np.random.shuffle(data) for example in data: params_grad = evaluate_gradient(loss_function, example, params) params = params - learning_rate * params_grad SGD performs frequent updates with a high variance that cause the objective function to fluctuate heavily as in Image 1. SGD shows the same convergence behaviour as batch gradient descent, almost certainly converging to a local or the global minimum for non-convex and convex optimization respectively. Mini-batch gradient descent\theta = \theta - \eta * \triangledown_{\theta}J(\theta; x^{i:i+n};y^{i:i+n})12345for i in range(nb_epochs): np.random.shuffle(data) for batch in get_batches(data, batch_size=50): params_grad = evaluate_gradient(loss_function, batch, params) params = params - learning_rate * params_grad Common mini-batch sizes range between 50 and 256, but can vary for different applications Mini-batch gradient descent is typically the algorithm of choice when training a neural network and the term SGD usually is employed also when mini-batches are used Challenges Choosing a proper learning rate can be difficult the same learning rate applies to all parameter updates Learning rate schedules ry to adjust the learning rate during training by e.g. annealing reducing the learning rate according to a pre-defined schedule or when the change in objective between epochs falls below a threshold Another key challenge of minimizing highly non-convex error functions common for neural networks is avoiding getting trapped in their numerous suboptimal local minima MomentumMomentum is a method that helps accelerate SGD in the relevant direction and dampens oscillations as can be seen in Image 3. It does this by adding a fraction of the update vector of the past time step to the current update vector: \begin{align}&amp; v_{t} = \gamma v_{t-1} + \eta \triangledown_{\theta}J(\theta) \\&amp; \theta = \theta - v_{t}\\\end{align*} The momentum term $\gamma$ is usually set to 0.9 or a similar value. The ball accumulates momentum as it rolls downhill, becoming faster and faster on the way Nesterov accelerated gradient\begin{align}&amp; v_{t} = \gamma v_{t-1} + \eta \triangledown_{\theta}J(\theta - \gamma m) \\&amp; \theta = \theta - v_{t}\\\end{align} 既然参数要沿着 $\theta - \gamma * m$更新，那就先先计算未来位置的梯度 This anticipatory update prevents us from going too fast and results in increased responsiveness, which has significantly increased the performance of RNNs on a number of tasks Adagrad\begin{align}&amp; s = s + \triangledown J(\theta) \bigodot \triangledown J(\theta) \\&amp; \theta = \theta - \frac{\eta}{\sqrt{s + \epsilon}} \bigodot \triangledown J(\theta) \\\end{align} One of Adagrad’s main benefits is that it eliminates the need to manually tune the learning rate Adagrad modifies the general learning rate $\gamma$ at each time step t for every parameter $\theta_{i}$ based on the past gradients that have been computed for $\theta_{i}$ RMSprop\begin{align}&amp; v_{t} = \gamma v_{t-1} + (1-\gamma) \triangledown J(\theta) \bigodot \triangledown J(\theta) \\&amp; \theta = \theta - v_{t} \\\end{align*} 1tf.train.RMSPropOptimizer(learning_rate=learning_rate, momentum=0.9, decay=0.9, epsilon=1e-10) 加入Momentum，主要是解决学习速率过快衰减的问题 RMSprop as well divides the learning rate by an exponentially decaying average of squared gradients. Hinton suggests $\gamma$ to be set to 0.9, while a good default value for the learning rate $\eta$ is 0.001. Adaptive moment estimation (Adam)\begin{align}&amp; m = \beta_{1} m + (1-\beta_{1}) \triangledown J(\theta) \\&amp; s = \beta_{2} s + (1-\beta_{2}) \triangledown J(\theta) \bigodot \triangledown J(\theta) \\&amp; m = \frac{m}{1-\beta^{t}_{1}} \\&amp; s = \frac{s}{1-\beta^{t}_{2}} \\&amp; \theta = \theta - \frac{\eta}{\sqrt{s + \epsilon}} \bigodot m\end{align} 其结合了Momentum和RMSprop算法的思想。相比Momentum算法，其学习速率是自适应的，而相比RMSprop，其增加了冲量项, 第三和第四项主要是为了放大它们 The authors propose default values of 0.9 for $\beta1$, 0.9999 for $\beta2$ and $10^{-8}$ for $\epsilon$]]></content>
       <categories>
         <category>Artificial Intelligence</category>
-        <category>Machine Learning</category>
         <category>Paper Note</category>
+        <category>Machine Learning</category>
       </categories>
       <tags>
         <tag>Machine Learning Algorithm</tag>
