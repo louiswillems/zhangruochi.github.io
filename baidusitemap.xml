@@ -1,11 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zhangruochi.com/Fastai-Data-Block-API/2019/12/29/</loc>
-    <lastmod>2019-12-29</lastmod>
+    <loc>https://zhangruochi.com/Transfer-Learning/2019/05/31/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Variational-Auto-Encoder/2019/10/10/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Orthogonal-Projections/2019/09/20/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Image-Captioning-Project/2019/07/11/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Stacking/2019/07/17/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Mean-Encodings/2019/07/15/</loc>
+    <lastmod>2020-01-09</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/</loc>
-    <lastmod>2019-12-27</lastmod>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Style-Transfer/2019/08/14/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Exploring-how-Convolutions-and-Pooling-work/2019/05/23/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Using-more-sophisticated-images-with-Convolutional-Neural-Networks/2019/05/30/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Horses-or-Humans-with-Validation/2019/05/23/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Improving-Computer-Vision-Accuracy-using-Convolutions/2019/05/23/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Data-Augmentation/2019/05/31/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Autoencoders-Project/2019/07/11/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Generative-Adversarial-Network-Project/2019/07/11/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Beyond-Hello-World-A-Computer-Vision-Example/2019/05/22/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Fastai-Data-Block-API/2019/12/29/</loc>
+    <lastmod>2019-12-29</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/ELMo-OpenAI-GPT-BERT/2019/12/21/</loc>
     <lastmod>2019-12-22</lastmod>
@@ -109,9 +154,6 @@
     <loc>https://zhangruochi.com/BackPropagation-through-time/2019/10/12/</loc>
     <lastmod>2019-10-13</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Variational-Auto-Encoder/2019/10/10/</loc>
-    <lastmod>2019-10-11</lastmod>
-  </url>  <url>
     <loc>https://zhangruochi.com/LSTM-Mxnet-Implementation/2019/04/13/</loc>
     <lastmod>2019-10-09</lastmod>
   </url>  <url>
@@ -137,9 +179,6 @@
     <lastmod>2019-09-22</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Principal-Component-Analysis/2019/09/20/</loc>
-    <lastmod>2019-09-20</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Orthogonal-Projections/2019/09/20/</loc>
     <lastmod>2019-09-20</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Vector-and-Space/2019/09/19/</loc>
@@ -184,9 +223,6 @@
     <loc>https://zhangruochi.com/Reverse-LinkedList/2019/08/08/</loc>
     <lastmod>2019-08-14</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Style-Transfer/2019/08/14/</loc>
-    <lastmod>2019-08-14</lastmod>
-  </url>  <url>
     <loc>https://zhangruochi.com/Remote-Jupyter-notebook/2019/07/27/</loc>
     <lastmod>2019-08-05</lastmod>
   </url>  <url>
@@ -198,9 +234,6 @@
   </url>  <url>
     <loc>https://zhangruochi.com/Think-bayesian/2019/07/20/</loc>
     <lastmod>2019-07-19</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Stacking/2019/07/17/</loc>
-    <lastmod>2019-07-17</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Metrics/2019/07/14/</loc>
     <lastmod>2019-07-17</lastmod>
@@ -220,23 +253,11 @@
     <loc>https://zhangruochi.com/Practical-Guide-for-Kaggle-Competition/2019/07/16/</loc>
     <lastmod>2019-07-16</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Mean-Encodings/2019/07/15/</loc>
-    <lastmod>2019-07-14</lastmod>
-  </url>  <url>
     <loc>https://zhangruochi.com/Decision-Boundry/2019/07/13/</loc>
     <lastmod>2019-07-12</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/AdaBoost-Summary/2019/05/14/</loc>
     <lastmod>2019-07-11</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Generative-Adversarial-Network-Project/2019/07/11/</loc>
-    <lastmod>2019-07-10</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Autoencoders-Project/2019/07/11/</loc>
-    <lastmod>2019-07-10</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Image-Captioning-Project/2019/07/11/</loc>
-    <lastmod>2019-07-10</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Activation-Function/2019/07/09/</loc>
     <lastmod>2019-07-10</lastmod>
@@ -256,28 +277,13 @@
     <loc>https://zhangruochi.com/AI-for-Everyone/2019/02/28/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Beyond-Hello-World-A-Computer-Vision-Example/2019/05/22/</loc>
-    <lastmod>2019-07-05</lastmod>
-  </url>  <url>
     <loc>https://zhangruochi.com/Character-level-language-model/2019/03/28/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Convolutional-Neural-Networks/2019/03/27/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Data-Augmentation/2019/05/31/</loc>
-    <lastmod>2019-07-05</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Exploring-how-Convolutions-and-Pooling-work/2019/05/23/</loc>
-    <lastmod>2019-07-05</lastmod>
-  </url>  <url>
     <loc>https://zhangruochi.com/GRU-MXNET-Implemetation/2019/04/13/</loc>
-    <lastmod>2019-07-05</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Horses-or-Humans-with-Validation/2019/05/23/</loc>
-    <lastmod>2019-07-05</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Improving-Computer-Vision-Accuracy-using-Convolutions/2019/05/23/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Improvise-a-Jazz-Solo-with-an-LSTM-Network/2019/03/28/</loc>
@@ -299,12 +305,6 @@
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/the-functions-of-Pooling/2019/06/04/</loc>
-    <lastmod>2019-07-05</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Transfer-Learning/2019/05/31/</loc>
-    <lastmod>2019-07-05</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Using-more-sophisticated-images-with-Convolutional-Neural-Networks/2019/05/30/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/TFserving-Introdcution/2019/05/13/</loc>
@@ -416,9 +416,6 @@
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Introduction-to-Big-Data/2019/07/02/</loc>
-    <lastmod>2019-07-05</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/The-Hello-World-of-Deep-Learning/2019/05/21/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Structuring-Machine-Learning-Projects/2019/03/29/</loc>
