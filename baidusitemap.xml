@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhangruochi.com/rails-tutorials-toy-app/2020/01/11/</loc>
+    <lastmod>2020-01-11</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Single-Variable-Calculus-Functions/2019/10/15/</loc>
+    <lastmod>2020-01-11</lastmod>
+  </url>  <url>
     <loc>https://zhangruochi.com/Transfer-Learning/2019/05/31/</loc>
     <lastmod>2020-01-09</lastmod>
   </url>  <url>
@@ -147,9 +153,6 @@
   </url>  <url>
     <loc>https://zhangruochi.com/BFS-and-DFS/2019/10/17/</loc>
     <lastmod>2019-10-19</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Single-Variable-Calculus-Functions/2019/10/15/</loc>
-    <lastmod>2019-10-16</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/BackPropagation-through-time/2019/10/12/</loc>
     <lastmod>2019-10-13</lastmod>

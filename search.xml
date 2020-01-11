@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[rails tutorials - toy_app]]></title>
+    <url>%2Frails-tutorials-toy-app%2F2020%2F01%2F11%2F</url>
+    <content type="text"><![CDATA[创建应用12rails new toy_appcd toy_app 修改 Gemfile12345678910...group :development, :test do gem 'sqlite3', '1.4.1' gem 'byebug', '11.0.1', platforms: [:mri, :mingw, :x64_mingw]endgroup :production do gem 'pg', '1.1.4'end... 12# 安装gem时要指定--without production选项，禁止安装生产环境使用的gem bundle install --without production 使用 git 版本控制系统123456git initgit add -Agit commit -m "Initialize repository"git remote add origin https://github.com/&lt;username&gt;/toy_app.gitgit push -u origin master 修改 root route routes app/controllers/application_controller.rb 12345class ApplicationController &lt; ActionController::Base def hello render html: "hello, world!" end end config/routes.rb 123Rails.application.routes.draw do root 'application#hello'end 创建数据资源 User model microposts model relation between user and micropost 12rails generate scaffold User name:string email:stringrails generate scaffold Micropost content:text user_id:integer 修改根路由 config/routes.rb 1234Rails.application.routes.draw do resources :users root 'users#index'end 模型验证 app/models/micropost.rb 12345678class Micropost &lt; ApplicationRecord belongs_to :user validates :content, length: &#123; maximum: 140 &#125;endclass User &lt; ApplicationRecord has_many :micropostsend 数据库迁移1rails db:migrate 部署到heroku123456git add -Agit commit -m "Finish toy app"git pushheroku run rails db:migrategit push heroku]]></content>
+      <categories>
+        <category>Full Stack</category>
+        <category>Ruby on rails</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[Fastai Data Block API]]></title>
     <url>%2FFastai-Data-Block-API%2F2019%2F12%2F29%2F</url>
     <content type="text"><![CDATA[Essentially steps: Define the source of your inputs(X values) 1234567ImageItemList.from_folder(path) ## This step generate the `ItemList` class. ## ItemBase: The ItemBase class defines what an “item” in your inputs or your targets looks like. ## ItemList: An ItemList defines a collections of `items` (e.g., ItemBase objects) including how they are individually fetched and displayed. Define how you want to split your inputs into training and validation datasets using one of the built-in mechanisms for doing so. 123456ImageItemList.from_folder(path) .split_by_folder()## This step generate the `ItemLists` class. ## ItemLists: A collection of ItemList instances for your inputs or targets. the `split` function above will return a separate ItemList instance for both your training and validation sets in an `ItemLists` object. Define the source of your targets (that is your y values) and combine them with the inputs of your training and validation datasets in the form of fastai LabelList objects. LabelList subclasses the PyTorch Dataset class. 1234567891011ImageItemList.from_folder(path) .split_by_folder() .label_from_folder()## This step generate the `LabelLists` class## LabelList: A LabelList is a PyTorch Dataset that combines your input and target ItemList classes (an inputs ItemList + a targets ItemList = a LabelList). ## LabelLists: A collection of LabelList instances you get as a result of your `labeling` function. Again, a LabelList` is a PyTorch Dataset and essentially defines the things, your inputs and optionally targets, fed into the forward function of your model.## Pre-Processing: This is also where any PreProcessor classes you’ve passed into your ItemList class run. These classes define things you want done to your data once before they are turned into PyTorch Datasets/DataLoaders. Examples include things like tokenizing and numericalizing text, filling in missing values in tabular, etc…. You can define a default `PreProcessor` or collection of PreProcessors you want ran by overloading the _processor class variable in your custom ItemList. Add a test dataset (optional). 123456data = (ImageItemList.from_folder(path) .split_by_folder() .label_from_folder() .add_test_folder())## If you add a test set, like we do above, the same pre-processing applied to your validation set will be applied to your test. Add transforms to your LabelList objects (optional). Here you can apply data augmentation to either, or both, your inputs and targets. 1234567data = (ImageItemList.from_folder(path) .split_by_folder() .label_from_folder() .add_test_folder() .transform(tfms, size=64))## Transforms define data augmentation you want done to either, or both, of your inputs and targets datasets. Build PyTorch DataLoaders from the Datasets defined above and package them up into a fastai DataBunch. 12345678910data = (ImageItemList.from_folder(path) .split_by_folder() .label_from_folder() .add_test_folder() .transform(tfms, size=64) .databunch())## The step generate the `DataBunch` class## A DataBunch is a collection of PyTorch DataLoaders returned when you call the databunch function. It also defines how they are created from your training, validation, and optionally test LabelList instances. Once this is done, you’ll have everything you need to train, validate, and test any PyTorch nn.Module using the fastai library. You’ll also have everything you need to later do inference on future data. Example123456789101112131415161718192021222324252627282930313233class ImageTuple(ItemBase): """ we need to create a custom type of items since we feed the model tuples of images. """ def __init__(self, img1, img2): """ The basis is to code the data attribute that is what will be given to the model. Note that we still keep track of the initial object (usuall in an obj attribute) to be able to show nice representations later on. """ self.img1 = img1 self.img2 = img2 self.obj = (img1,img2) self.data = [-1+2*img1.data,-1+2*img2.data] def apply_tfms(self, tfms, **kwargs): """ Then we want to apply data augmentation to our tuple of images. That's done by writing an apply_tfms method as we saw before. Here we pass that call to the two underlying images then update the data. """ self.img1 = self.img1.apply_tfms(tfms, **kwargs) self.img2 = self.img2.apply_tfms(tfms, **kwargs) self.data = [-1+2*self.img1.data,-1+2*self.img2.data] return self def to_one(self): """ We define a last method to stack the two images next to each other, which we will use later for a customized show_batch / show_results behavior. """ return Image(0.5+torch.cat(self.data,2)/2) 1234class TargetTupleList(ItemList): def reconstruct(self, t:Tensor): if len(t.size()) == 0: return t return ImageTuple(Image(t[0]/2+0.5),Image(t[1]/2+0.5)) _bunch contains the name of the class that will be used to create a DataBunch _processor contains a class (or a list of classes) of PreProcessor that will then be used as the default to create processor for this ItemList _label_cls contains the class that will be used to create the labels by default 12345678910111213141516171819202122232425262728293031323334353637383940class ImageTupleList(ImageList): _label_cls=TargetTupleList def __init__(self, items, itemsB=None, **kwargs): super().__init__(items, **kwargs) self.itemsB = itemsB self.copy_new.append('itemsB') def get(self, i): img1 = super().get(i) fn = self.itemsB[random.randint(0, len(self.itemsB)-1)] return ImageTuple(img1, open_image(fn)) def reconstruct(self, t:Tensor): return ImageTuple(Image(t[0]/2+0.5),Image(t[1]/2+0.5)) @classmethod def from_folders(cls, path, folderA, folderB, **kwargs): itemsB = ImageList.from_folder(path/folderB).items res = super().from_folder(path/folderA, itemsB=itemsB, **kwargs) res.path = path return res def show_xys(self, xs, ys, figsize:Tuple[int,int]=(12,6), **kwargs): "Show the `xs` and `ys` on a figure of `figsize`. `kwargs` are passed to the show method." rows = int(math.sqrt(len(xs))) fig, axs = plt.subplots(rows,rows,figsize=figsize) for i, ax in enumerate(axs.flatten() if rows &gt; 1 else [axs]): xs[i].to_one().show(ax=ax, **kwargs) plt.tight_layout() def show_xyzs(self, xs, ys, zs, figsize:Tuple[int,int]=None, **kwargs): """Show `xs` (inputs), `ys` (targets) and `zs` (predictions) on a figure of `figsize`. `kwargs` are passed to the show method.""" figsize = ifnone(figsize, (12,3*len(xs))) fig,axs = plt.subplots(len(xs), 2, figsize=figsize) fig.suptitle('Ground truth / Predictions', weight='bold', size=14) for i,(x,z) in enumerate(zip(xs,zs)): x.to_one().show(ax=axs[i,0], **kwargs) z.to_one().show(ax=axs[i,1], **kwargs) Reference https://blog.usejournal.com/finding-data-block-nirvana-a-journey-through-the-fastai-data-block-api-c38210537fe4 https://docs.fast.ai/tutorial.itemlist.html]]></content>
@@ -218,8 +227,8 @@
         <category>Data Structure and Algorithm</category>
       </categories>
       <tags>
-        <tag>Project</tag>
         <tag>Leetcode</tag>
+        <tag>Project</tag>
       </tags>
   </entry>
   <entry>
@@ -313,6 +322,7 @@
     <url>%2FSingle-Variable-Calculus-Functions%2F2019%2F10%2F15%2F</url>
     <content type="text"><![CDATA[FunctionsA function can be visualized as a machine that takes in an input $x$ and returns an output $f(x)$. The collection of all possible inputs is called the domain, and the collection of all possible outputs is called the range. Operations on FunctionsCompositionthe composition of two function, $f$ and $g$, is defined to be the function that takes as its input x and returns as its output $g(x)$ fed into f. f \circ g(x) = f(g(x))InverseThe inverse is the function that undoes $f$. if you plug f(x) into $f^{-1}$ you will get $x$. Notice that this function works both ways. If you plug $f^{-1}(x)$ into $f(x)$, you will get back $x$ again. f^{-1}(f(x)) = xf(f^{-1}(x)) = x the $\arcsin$ function takes on values $[-\frac{\pi}{2},\frac{\pi}{2}]$ and has a restricted domain [-1,1]. The $\arccos$ function likewise has a restricted domain [-1,1], but it takes values $[0, \pi]$. The $\arctan$ function has an unbounded domain, it is well defined for all inputs. But it has a restricted range $(-\frac{\pi}{2},\frac{\pi}{2})$ Classes of FunctionsPolynomialsA polynomial $P(x)$ is a function of the form P(x) = c_{0} + c_{1}x + c_{2}x^{2} + \cdots + c_{n}x^{n}The top power $n$ is called the degree of the polynomial. We can also write a polynomial using a summation notation. P(x) = \sum^{n}_{k=1}c_{k}x^{k}Rational FunctionsRational functions are functions of the form $\frac{P(x)}{Q(x)}$ where each is a polynomial. You have to be careful of the denominator. When the denominator takes a value of zero, the function may not be well-defined. PowersPower functions are functions of the form $cx^{n}$, where $c$ and $n$ are constant real numbers. TrigonometricsTrigonometric Identities Exponentials The most common such function, referred to as the exponential, is $e^{x}$. This is the most common because of its nice integral and differential properties (below). Algebraic properties of the exponential function: e^{x}e^{y} = e^{x+y}(e^{x})^{y} = e^{xy}Differential/integral properties: \frac{d}{dx}e^{x} = e^{x}\int e^{x}dx = e^{x} + CRecall the graph of $e^{x}$, plotted here alongside its inverse, $lnx$ Note that the graphs are symmetric about the line $y = x$(as is true of the graphs of a function and its inverse). Euler’s Formulae^{ix} = \cos{x} + i\sin{x} The Exponentiale^{x} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots = \sum_{k=0}^{\infty}\frac{x^{k}}{k!}Properties of $e^{x}$Polynomials are nice because they are easy to integrate and differentiate. \frac{\mathrm{d}}{\mathrm{d}x}x^{k} = kx^{x-1}\int x^{k}\mathrm{d}x = \frac{1}{k+1}x^{k+1} + c $e^{x+y} = e^{x}+e^{y}$ $e^{xy} = (e^{x})^{y} = (e^{y})^{x}$ $\frac{\mathrm{d}}{\mathrm{d}x}e^{x} = e^{x}$ $\int e^{k}\mathrm{d}x = e^{x} + C$ Consider the last two properties in terms of the long polynomial.Taking the derivative of the long polynomial for $e^{x}$ gives More on the long polynomialThe idea of a long polynomial is reasonable, because it actually comes from taking a sequence of polynomials with higher and higher degree: \begin{equation} \begin{array}{lr} & f_0(x) = 1 &\\ & f_1(x) = 1+x &\\ & f_2(x) = 1 + x + \frac{x^{2}}{2} &\\ & \cdots &\\ \end{array} \end{equation}Each polynomial in the sequence is, in a sense, the best approximation possible of that degree. Put another way, taking the first several terms of the long polynomial gives a good polynomial approximation of the function. The more terms included, the better the approximation. This is how calculators compute the exponential function (without having to add up infinitely many things). reference from https://web.archive.org/web/20160324155222/http://calculus.seas.upenn.edu/?n=Main.Functions]]></content>
       <categories>
+        <category>Math</category>
         <category>Calculus</category>
       </categories>
   </entry>
@@ -498,8 +508,8 @@
       </categories>
       <tags>
         <tag>Project</tag>
-        <tag>Computer Vision</tag>
         <tag>Convolutional Neural Networks</tag>
+        <tag>Computer Vision</tag>
         <tag>Transfer Learning</tag>
       </tags>
   </entry>
@@ -720,8 +730,8 @@
       </categories>
       <tags>
         <tag>Project</tag>
-        <tag>Computer Vision</tag>
         <tag>NLP</tag>
+        <tag>Computer Vision</tag>
         <tag>Transfer Learning</tag>
       </tags>
   </entry>
@@ -1065,8 +1075,8 @@
       </categories>
       <tags>
         <tag>Project</tag>
-        <tag>Computer Vision</tag>
         <tag>Convolutional Neural Networks</tag>
+        <tag>Computer Vision</tag>
         <tag>Transfer Learning</tag>
       </tags>
   </entry>
@@ -1080,8 +1090,8 @@
       </categories>
       <tags>
         <tag>Project</tag>
-        <tag>Computer Vision</tag>
         <tag>Convolutional Neural Networks</tag>
+        <tag>Computer Vision</tag>
       </tags>
   </entry>
   <entry>
@@ -1114,8 +1124,8 @@
       </categories>
       <tags>
         <tag>Project</tag>
-        <tag>Computer Vision</tag>
         <tag>Convolutional Neural Networks</tag>
+        <tag>Computer Vision</tag>
       </tags>
   </entry>
   <entry>
@@ -1147,8 +1157,8 @@
       </categories>
       <tags>
         <tag>Project</tag>
-        <tag>Computer Vision</tag>
         <tag>Convolutional Neural Networks</tag>
+        <tag>Computer Vision</tag>
       </tags>
   </entry>
   <entry>
@@ -1161,8 +1171,8 @@
       </categories>
       <tags>
         <tag>Project</tag>
-        <tag>Computer Vision</tag>
         <tag>Convolutional Neural Networks</tag>
+        <tag>Computer Vision</tag>
       </tags>
   </entry>
   <entry>
@@ -1175,8 +1185,8 @@
       </categories>
       <tags>
         <tag>Project</tag>
-        <tag>Computer Vision</tag>
         <tag>Convolutional Neural Networks</tag>
+        <tag>Computer Vision</tag>
       </tags>
   </entry>
   <entry>
@@ -1387,8 +1397,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Project</tag>
         <tag>Sequence Models</tag>
+        <tag>Project</tag>
       </tags>
   </entry>
   <entry>
@@ -1400,8 +1410,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Project</tag>
         <tag>Sequence Models</tag>
+        <tag>Project</tag>
       </tags>
   </entry>
   <entry>
@@ -1413,8 +1423,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Project</tag>
         <tag>Sequence Models</tag>
+        <tag>Project</tag>
       </tags>
   </entry>
   <entry>
@@ -1464,8 +1474,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Project</tag>
         <tag>Sequence Models</tag>
+        <tag>Project</tag>
       </tags>
   </entry>
   <entry>
@@ -1477,8 +1487,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Project</tag>
         <tag>Sequence Models</tag>
+        <tag>Project</tag>
         <tag>NLP</tag>
       </tags>
   </entry>
@@ -1491,8 +1501,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Project</tag>
         <tag>Sequence Models</tag>
+        <tag>Project</tag>
       </tags>
   </entry>
   <entry>
@@ -1504,8 +1514,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Project</tag>
         <tag>Sequence Models</tag>
+        <tag>Project</tag>
         <tag>NLP</tag>
       </tags>
   </entry>
@@ -1518,8 +1528,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Project</tag>
         <tag>Sequence Models</tag>
+        <tag>Project</tag>
         <tag>NLP</tag>
       </tags>
   </entry>
@@ -1532,8 +1542,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Project</tag>
         <tag>Sequence Models</tag>
+        <tag>Project</tag>
         <tag>NLP</tag>
       </tags>
   </entry>
@@ -1546,8 +1556,8 @@
         <category>Deep Learning</category>
       </categories>
       <tags>
-        <tag>Project</tag>
         <tag>Sequence Models</tag>
+        <tag>Project</tag>
       </tags>
   </entry>
   <entry>
