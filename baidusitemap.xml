@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zhangruochi.com/rails-tutorials-static-page-and-automated-testing/2020/01/11/</loc>
-    <lastmod>2020-01-11</lastmod>
+    <loc>https://zhangruochi.com/rails-tutorials-data-model/2020/01/17/</loc>
+    <lastmod>2020-01-17</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/rails-tutorials-toy-app/2020/01/11/</loc>
+    <lastmod>2020-01-17</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/rails-tutorials-static-page-and-automated-testing/2020/01/11/</loc>
     <lastmod>2020-01-11</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Single-Variable-Calculus-Functions/2019/10/15/</loc>
@@ -370,7 +373,7 @@
     <loc>https://zhangruochi.com/Machine-Learning-Andraw-Ng/2019/02/15/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Machine-Learning-Yarning-part-one/2019/03/20/</loc>
+    <loc>https://zhangruochi.com/Machine-Learning-Yarning-part-one/2019/03/19/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/An-overview-of-gradient-descent-optimization-algorithms/2019/02/23/</loc>

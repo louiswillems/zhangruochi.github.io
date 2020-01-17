@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhangruochi.com/rails-tutorials-static-page-and-automated-testing/2020/01/11/</loc>
+    <loc>https://zhangruochi.com/rails-tutorials-data-model/2020/01/17/</loc>
     
-    <lastmod>2020-01-11T09:11:13.679Z</lastmod>
+    <lastmod>2020-01-17T15:42:17.179Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/rails-tutorials-toy-app/2020/01/11/</loc>
     
-    <lastmod>2020-01-11T07:21:56.808Z</lastmod>
+    <lastmod>2020-01-17T15:19:48.617Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/rails-tutorials-static-page-and-automated-testing/2020/01/11/</loc>
+    
+    <lastmod>2020-01-11T09:11:13.679Z</lastmod>
     
   </url>
   
@@ -870,7 +877,7 @@
   </url>
   
   <url>
-    <loc>https://zhangruochi.com/Machine-Learning-Yarning-part-one/2019/03/20/</loc>
+    <loc>https://zhangruochi.com/Machine-Learning-Yarning-part-one/2019/03/19/</loc>
     
     <lastmod>2019-07-05T10:10:50.757Z</lastmod>
     
