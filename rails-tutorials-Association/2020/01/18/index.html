@@ -134,7 +134,7 @@
 <meta property="og:description" content="ER    One-to-One Association One person has exactly one personal_info entry One personal_info entry belongs to exactly one person The “belongs to” side is the one with a foreign key  1rails">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/rails-tutorials-Association/2020/01/18/1.png">
-<meta property="og:updated_time" content="2020-01-18T23:01:40.510Z">
+<meta property="og:updated_time" content="2020-01-18T23:17:56.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rails tutorials: Association">
 <meta name="twitter:description" content="ER    One-to-One Association One person has exactly one personal_info entry One personal_info entry belongs to exactly one person The “belongs to” side is the one with a foreign key  1rails">
@@ -471,7 +471,7 @@
       
         <center>
     <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="1.png" width="50%" height="50%">
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="1.png" width="80%" height="80%">
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
     color: #999;
@@ -544,6 +544,30 @@
 <p>app/models/hobby.rb</p>
 </blockquote>
 <figure class="highlight rb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Hobby</span> &lt; ApplicationRecord</span></span><br><span class="line">    has_and_belongs_to_many <span class="symbol">:people</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h2 id="Rich-Many-to-Many-Association"><a href="#Rich-Many-to-Many-Association" class="headerlink" title="Rich Many-to-Many Association"></a>Rich Many-to-Many Association</h2><ul>
+<li>Sometimes, you need to keep some data on the join table</li>
+<li>You need to store grandchild relationships on a model, like Person -&gt; Job -&gt; SalaryRange</li>
+<li>ActiveRecord provides a <code>:through</code> option for this purpose</li>
+<li><strong>Basic idea</strong>: you first create a regular <code>parent-child</code> relationship and then use the child model as a <strong>join</strong> between the parent and grandchild.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rails g model salary_range min_salary:<span class="built_in">float</span>  max_salary:<span class="built_in">float</span> job:references</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>db/migrate/_create_salary_ranges.rb</p>
+</blockquote>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreateSalaryRanges</span> &lt; ActiveRecord::Migration[6.0]</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">change</span></span></span><br><span class="line">    create_table <span class="symbol">:salary_ranges</span> <span class="keyword">do</span> <span class="params">|t|</span></span><br><span class="line">      t.float <span class="symbol">:min_salary</span></span><br><span class="line">      t.float <span class="symbol">:max_salary</span></span><br><span class="line">      t.references <span class="symbol">:job</span>, <span class="symbol">null:</span> <span class="literal">false</span>, <span class="symbol">foreign_key:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">      t.timestamps</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rake db:migrate</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>app/models/salary_range.rb</p>
+</blockquote>
+<figure class="highlight rb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SalaryRange</span> &lt; ApplicationRecord</span></span><br><span class="line">  belongs_to <span class="symbol">:job</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>app/models/job.rb</p>
+</blockquote>
+<figure class="highlight rb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Job</span> &lt; ApplicationRecord</span></span><br><span class="line">  belongs_to <span class="symbol">:person</span></span><br><span class="line">  has_one <span class="symbol">:salary_range</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>app/models/person.rb<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &lt; ApplicationRecord</span></span><br><span class="line">    has_one <span class="symbol">:personal_info</span></span><br><span class="line">    has_many <span class="symbol">:jobs</span></span><br><span class="line">    has_and_belongs_to_many <span class="symbol">:hobbies</span></span><br><span class="line">    has_many <span class="symbol">:approx_salaries</span>, <span class="symbol">through:</span> <span class="symbol">:jobs</span>, <span class="symbol">source:</span> <span class="symbol">:salary_range</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">max_salary</span></span></span><br><span class="line">      approx_salaries.maximum(<span class="symbol">:max_salary</span>)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment"># Average, minimum and sum also available...</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="More-Methods-2"><a href="#More-Methods-2" class="headerlink" title="More Methods"></a>More Methods</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lebron = Person.find_by <span class="symbol">last_name:</span> <span class="string">"James"</span></span><br><span class="line">lebron.max_salary</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -787,7 +811,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#One-to-One-Association"><span class="nav-text">One-to-One Association</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#More-Methods"><span class="nav-text">More Methods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test"><span class="nav-text">Test</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#One-to-Many-Association"><span class="nav-text">One-to-Many Association</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#More-Methods-1"><span class="nav-text">More Methods</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Many-to-Many"><span class="nav-text">Many-to-Many</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#One-to-One-Association"><span class="nav-text">One-to-One Association</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#More-Methods"><span class="nav-text">More Methods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test"><span class="nav-text">Test</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#One-to-Many-Association"><span class="nav-text">One-to-Many Association</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#More-Methods-1"><span class="nav-text">More Methods</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Many-to-Many"><span class="nav-text">Many-to-Many</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rich-Many-to-Many-Association"><span class="nav-text">Rich Many-to-Many Association</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#More-Methods-2"><span class="nav-text">More Methods</span></a></li></ol></li></ol></div>
             
 
           </div>
