@@ -1,3 +1,3 @@
+https://zhangruochi.com/rails-tutorials-Active-Record-CURD/2020/01/18/
 https://zhangruochi.com/Metaprogramming-in-Ruby/2020/01/17/
 https://zhangruochi.com/rails-tutorils-signup/2020/01/17/
-https://zhangruochi.com/rails-tutorials-data-model/2020/01/17/
