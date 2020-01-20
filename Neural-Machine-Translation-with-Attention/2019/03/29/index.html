@@ -138,7 +138,7 @@
 <meta property="og:image" content="https://zhangruochi.com/Neural-Machine-Translation-with-Attention/2019/03/29/images/attn_mechanism.png">
 <meta property="og:image" content="https://zhangruochi.com/Neural-Machine-Translation-with-Attention/2019/03/29/images/table.png">
 <meta property="og:image" content="https://zhangruochi.com/Neural-Machine-Translation-with-Attention/2019/03/29/images/date_attention.png">
-<meta property="og:updated_time" content="2019-07-05T10:30:44.189Z">
+<meta property="og:updated_time" content="2020-01-20T13:02:57.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Neural Machine Translation with Attention">
 <meta name="twitter:description" content="Practice of attention model, You will build a Neural Machine Translation (NMT) model to translate human readable dates (&quot;25th of June, 2009&quot;) into machine readable dates (&quot;2009-06-25&quot;). You will do th">
@@ -488,69 +488,7 @@
 Take a look at [nmt_utils.py](./nmt_utils.py) to see all the formatting. Count and figure out how the formats work, you will need this knowledge later. !--> 
 <h3 id="1-1-Dataset"><a href="#1-1-Dataset" class="headerlink" title="1.1 - Dataset"></a>1.1 - Dataset</h3><p>We will train the model on a dataset of 10000 human readable dates and their equivalent, standardized, machine readable dates. Let’s run the following cells to load the dataset and print some examples. </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m = <span class="number">10000</span></span><br><span class="line">dataset, human_vocab, machine_vocab, inv_machine_vocab = load_dataset(m)</span><br></pre></td></tr></table></figure>
-<pre><code>100%|██████████| 10000/10000 [00:02&lt;00:00, 4299.43it/s]
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dataset[:<span class="number">10</span>]</span><br></pre></td></tr></table></figure>
-<pre><code>[(&#39;29 december 1988&#39;, &#39;1988-12-29&#39;),
- (&#39;wednesday july 11 2018&#39;, &#39;2018-07-11&#39;),
- (&#39;saturday december 19 1981&#39;, &#39;1981-12-19&#39;),
- (&#39;6/13/96&#39;, &#39;1996-06-13&#39;),
- (&#39;monday june 1 1998&#39;, &#39;1998-06-01&#39;),
- (&#39;tuesday june 29 1982&#39;, &#39;1982-06-29&#39;),
- (&#39;28 sep 2012&#39;, &#39;2012-09-28&#39;),
- (&#39;6 04 03&#39;, &#39;2003-04-06&#39;),
- (&#39;thursday may 26 1988&#39;, &#39;1988-05-26&#39;),
- (&#39;friday april 14 2017&#39;, &#39;2017-04-14&#39;)]
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">human_vocab</span><br></pre></td></tr></table></figure>
-<pre><code>{&#39; &#39;: 0,
- &#39;.&#39;: 1,
- &#39;/&#39;: 2,
- &#39;0&#39;: 3,
- &#39;1&#39;: 4,
- &#39;2&#39;: 5,
- &#39;3&#39;: 6,
- &#39;4&#39;: 7,
- &#39;5&#39;: 8,
- &#39;6&#39;: 9,
- &#39;7&#39;: 10,
- &#39;8&#39;: 11,
- &#39;9&#39;: 12,
- &#39;&lt;pad&gt;&#39;: 36,
- &#39;&lt;unk&gt;&#39;: 35,
- &#39;a&#39;: 13,
- &#39;b&#39;: 14,
- &#39;c&#39;: 15,
- &#39;d&#39;: 16,
- &#39;e&#39;: 17,
- &#39;f&#39;: 18,
- &#39;g&#39;: 19,
- &#39;h&#39;: 20,
- &#39;i&#39;: 21,
- &#39;j&#39;: 22,
- &#39;l&#39;: 23,
- &#39;m&#39;: 24,
- &#39;n&#39;: 25,
- &#39;o&#39;: 26,
- &#39;p&#39;: 27,
- &#39;r&#39;: 28,
- &#39;s&#39;: 29,
- &#39;t&#39;: 30,
- &#39;u&#39;: 31,
- &#39;v&#39;: 32,
- &#39;w&#39;: 33,
- &#39;y&#39;: 34}
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">machine_vocab</span><br></pre></td></tr></table></figure>
-<pre><code>{&#39;-&#39;: 0,
- &#39;0&#39;: 1,
- &#39;1&#39;: 2,
- &#39;2&#39;: 3,
- &#39;3&#39;: 4,
- &#39;4&#39;: 5,
- &#39;5&#39;: 6,
- &#39;6&#39;: 7,
- &#39;7&#39;: 8,
- &#39;8&#39;: 9,
- &#39;9&#39;: 10}
-</code></pre><p>You’ve loaded:</p>
+<p>You’ve loaded:</p>
 <ul>
 <li><code>dataset</code>: a list of tuples of (human readable date, machine readable date)</li>
 <li><code>human_vocab</code>: a python dictionary mapping all characters used in the human readable dates to an integer-valued index </li>
@@ -603,308 +541,62 @@ Target after preprocessing (one-hot): [[ 0.  0.  1.  0.  0.  0.  0.  0.  0.  0. 
 </code></pre><h2 id="2-Neural-machine-translation-with-attention"><a href="#2-Neural-machine-translation-with-attention" class="headerlink" title="2 - Neural machine translation with attention"></a>2 - Neural machine translation with attention</h2><p>If you had to translate a book’s paragraph from French to English, you would not read the whole paragraph, then close the book and translate. Even during the translation process, you would read/re-read and focus on the parts of the French paragraph corresponding to the parts of the English you are writing down. </p>
 <p>The attention mechanism tells a Neural Machine Translation model where it should pay attention to at any step. </p>
 <h3 id="2-1-Attention-mechanism"><a href="#2-1-Attention-mechanism" class="headerlink" title="2.1 - Attention mechanism"></a>2.1 - Attention mechanism</h3><p>In this part, you will implement the attention mechanism presented in the lecture videos. Here is a figure to remind you how the model works. The diagram on the left shows the attention model. The diagram on the right shows what one “Attention” step does to calculate the attention variables $\alpha^{\langle t, t’ \rangle}$, which are used to compute the context variable $context^{\langle t \rangle}$ for each timestep in the output ($t=1, \ldots, T_y$). </p>
-<table>
-<td> 
+<p><table></table></p>
+<p><td> 
 <img src="images/attn_model.png" style="width:500;height:500px;"> <br>
-</td> 
-<td> 
+</td> </p>
+<p><td> 
 <img src="images/attn_mechanism.png" style="width:500;height:500px;"> <br>
-</td> 
-</table>
+</td><br>&lt;/table&gt;</p>
 <caption><center> **Figure 1**: Neural machine translation with attention</center></caption>
 
 
 
-Here are some properties of the model that you may notice: 
-
-- There are two separate LSTMs in this model (see diagram on the left). Because the one at the bottom of the picture is a Bi-directional LSTM and comes *before* the attention mechanism, we will call it *pre-attention* Bi-LSTM. The LSTM at the top of the diagram comes *after* the attention mechanism, so we will call it the *post-attention* LSTM. The pre-attention Bi-LSTM goes through $T_x$ time steps; the post-attention LSTM goes through $T_y$ time steps. 
-
-- The post-attention LSTM passes $s^{\langle t \rangle}, c^{\langle t \rangle}$ from one time step to the next. In the lecture videos, we were using only a basic RNN for the post-activation sequence model, so the state captured by the RNN output activations $s^{\langle t\rangle}$. But since we are using an LSTM here, the LSTM has both the output activation $s^{\langle t\rangle}$ and the hidden cell state $c^{\langle t\rangle}$. However, unlike previous text generation examples (such as Dinosaurus in week 1), in this model the post-activation LSTM at time $t$ does will not take the specific generated $y^{\langle t-1 \rangle}$ as input; it only takes $s^{\langle t\rangle}$ and $c^{\langle t\rangle}$ as input. We have designed the model this way, because (unlike language generation where adjacent characters are highly correlated) there isn't as strong a dependency between the previous character and the next character in a YYYY-MM-DD date. 
-
-- We use $a^{\langle t \rangle} = [\overrightarrow{a}^{\langle t \rangle}; \overleftarrow{a}^{\langle t \rangle}]$ to represent the concatenation of the activations of both the forward-direction and backward-directions of the pre-attention Bi-LSTM. 
-
-- The diagram on the right uses a `RepeatVector` node to copy $s^{\langle t-1 \rangle}$'s value $T_x$ times, and then `Concatenation` to concatenate $s^{\langle t-1 \rangle}$ and $a^{\langle t \rangle}$ to compute $e^{\langle t, t'}$, which is then passed through a softmax to compute $\alpha^{\langle t, t' \rangle}$. We'll explain how to use `RepeatVector` and `Concatenation` in Keras below. 
-
-Lets implement this model. You will start by implementing two functions: `one_step_attention()` and `model()`.
-
-**1) `one_step_attention()`**: At step $t$, given all the hidden states of the Bi-LSTM ($[a^{<1>},a^{<2>}, ..., a^{<t_x>}]$) and the previous hidden state of the second LSTM ($s^{<t-1>}$), `one_step_attention()` will compute the attention weights ($[\alpha^{<t,1>},\alpha^{<t,2>}, ..., \alpha^{<t,t_x>}]$) and output the context vector (see Figure  1 (right) for details):
-$$context^{<t>} = \sum_{t' = 0}^{T_x} \alpha^{<t,t'>}a^{<t'>}\tag{1}$$ 
-
-Note that we are denoting the attention in this notebook $context^{\langle t \rangle}$. In the lecture videos, the context was denoted $c^{\langle t \rangle}$, but here we are calling it $context^{\langle t \rangle}$ to avoid confusion with the (post-attention) LSTM's internal memory cell variable, which is sometimes also denoted $c^{\langle t \rangle}$. 
-
-**2) `model()`**: Implements the entire model. It first runs the input through a Bi-LSTM to get back $[a^{<1>},a^{<2>}, ..., a^{<t_x>}]$. Then, it calls `one_step_attention()` $T_y$ times (`for` loop). At each iteration of this loop, it gives the computed context vector $c^{<t>}$ to the second LSTM, and runs the output of the LSTM through a dense layer with softmax activation to generate a prediction $\hat{y}^{<t>}$. 
-
-
-
-**Exercise**: Implement `one_step_attention()`. The function `model()` will call the layers in `one_step_attention()` $T_y$ using a for-loop, and it is important that all $T_y$ copies have the same weights. I.e., it should not re-initiaiize the weights every time. In other words, all $T_y$ steps should have shared weights. Here's how you can implement layers with shareable weights in Keras:
-1. Define the layer objects (as global variables for examples).
-2. Call these objects when propagating the input.
-
-We have defined the layers you need as global variables. Please run the following cells to create them. Please check the Keras documentation to make sure you understand what these layers are: [RepeatVector()](https://keras.io/layers/core/#repeatvector), [Concatenate()](https://keras.io/layers/merge/#concatenate), [Dense()](https://keras.io/layers/core/#dense), [Activation()](https://keras.io/layers/core/#activation), [Dot()](https://keras.io/layers/merge/#dot).
-
-
+<p>Here are some properties of the model that you may notice: </p>
+<ul>
+<li><p>There are two separate LSTMs in this model (see diagram on the left). Because the one at the bottom of the picture is a Bi-directional LSTM and comes <em>before</em> the attention mechanism, we will call it <em>pre-attention</em> Bi-LSTM. The LSTM at the top of the diagram comes <em>after</em> the attention mechanism, so we will call it the <em>post-attention</em> LSTM. The pre-attention Bi-LSTM goes through $T_x$ time steps; the post-attention LSTM goes through $T_y$ time steps. </p>
+</li>
+<li><p>The post-attention LSTM passes $s^{\langle t \rangle}, c^{\langle t \rangle}$ from one time step to the next. In the lecture videos, we were using only a basic RNN for the post-activation sequence model, so the state captured by the RNN output activations $s^{\langle t\rangle}$. But since we are using an LSTM here, the LSTM has both the output activation $s^{\langle t\rangle}$ and the hidden cell state $c^{\langle t\rangle}$. However, unlike previous text generation examples (such as Dinosaurus in week 1), in this model the post-activation LSTM at time $t$ does will not take the specific generated $y^{\langle t-1 \rangle}$ as input; it only takes $s^{\langle t\rangle}$ and $c^{\langle t\rangle}$ as input. We have designed the model this way, because (unlike language generation where adjacent characters are highly correlated) there isn’t as strong a dependency between the previous character and the next character in a YYYY-MM-DD date. </p>
+</li>
+<li><p>We use $a^{\langle t \rangle} = [\overrightarrow{a}^{\langle t \rangle}; \overleftarrow{a}^{\langle t \rangle}]$ to represent the concatenation of the activations of both the forward-direction and backward-directions of the pre-attention Bi-LSTM. </p>
+</li>
+<li><p>The diagram on the right uses a <code>RepeatVector</code> node to copy $s^{\langle t-1 \rangle}$’s value $T_x$ times, and then <code>Concatenation</code> to concatenate $s^{\langle t-1 \rangle}$ and $a^{\langle t \rangle}$ to compute $e^{\langle t, t’}$, which is then passed through a softmax to compute $\alpha^{\langle t, t’ \rangle}$. We’ll explain how to use <code>RepeatVector</code> and <code>Concatenation</code> in Keras below. </p>
+</li>
+</ul>
+<p>Lets implement this model. You will start by implementing two functions: <code>one_step_attention()</code> and <code>model()</code>.</p>
+<p><strong>1) <code>one_step_attention()</code></strong>: At step $t$, given all the hidden states of the Bi-LSTM ($[a^{<1>},a^{<2>}, …, a^{<t_x>}]$) and the previous hidden state of the second LSTM ($s^{<t-1>}$), <code>one_step_attention()</code> will compute the attention weights ($[\alpha^{<t,1>},\alpha^{<t,2>}, …, \alpha^{<t,t_x>}]$) and output the context vector (see Figure  1 (right) for details):</t,t_x></t,2></t,1></t-1></t_x></2></1></p>
+<script type="math/tex; mode=display">context^{<t>} = \sum_{t' = 0}^{T_x} \alpha^{<t,t'>}a^{<t'>}\tag{1}</script><p>Note that we are denoting the attention in this notebook $context^{\langle t \rangle}$. In the lecture videos, the context was denoted $c^{\langle t \rangle}$, but here we are calling it $context^{\langle t \rangle}$ to avoid confusion with the (post-attention) LSTM’s internal memory cell variable, which is sometimes also denoted $c^{\langle t \rangle}$. </p>
+<p><strong>2) <code>model()</code></strong>: Implements the entire model. It first runs the input through a Bi-LSTM to get back $[a^{<1>},a^{<2>}, …, a^{<t_x>}]$. Then, it calls <code>one_step_attention()</code> $T_y$ times (<code>for</code> loop). At each iteration of this loop, it gives the computed context vector $c^{<t>}$ to the second LSTM, and runs the output of the LSTM through a dense layer with softmax activation to generate a prediction $\hat{y}^{<t>}$. </t></t></t_x></2></1></p>
+<p><strong>Exercise</strong>: Implement <code>one_step_attention()</code>. The function <code>model()</code> will call the layers in <code>one_step_attention()</code> $T_y$ using a for-loop, and it is important that all $T_y$ copies have the same weights. I.e., it should not re-initiaiize the weights every time. In other words, all $T_y$ steps should have shared weights. Here’s how you can implement layers with shareable weights in Keras:</p>
+<ol>
+<li>Define the layer objects (as global variables for examples).</li>
+<li>Call these objects when propagating the input.</li>
+</ol>
+<p>We have defined the layers you need as global variables. Please run the following cells to create them. Please check the Keras documentation to make sure you understand what these layers are: <a href="https://keras.io/layers/core/#repeatvector" target="_blank" rel="noopener">RepeatVector()</a>, <a href="https://keras.io/layers/merge/#concatenate" target="_blank" rel="noopener">Concatenate()</a>, <a href="https://keras.io/layers/core/#dense" target="_blank" rel="noopener">Dense()</a>, <a href="https://keras.io/layers/core/#activation" target="_blank" rel="noopener">Activation()</a>, <a href="https://keras.io/layers/merge/#dot" target="_blank" rel="noopener">Dot()</a>.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Defined shared layers as global variables</span></span><br><span class="line">repeator = RepeatVector(Tx)</span><br><span class="line">concatenator = Concatenate(axis=<span class="number">-1</span>)</span><br><span class="line">densor1 = Dense(<span class="number">10</span>, activation = <span class="string">"tanh"</span>)</span><br><span class="line">densor2 = Dense(<span class="number">1</span>, activation = <span class="string">"relu"</span>)</span><br><span class="line">activator = Activation(softmax, name=<span class="string">'attention_weights'</span>) <span class="comment"># We are using a custom softmax(axis = 1) loaded in this notebook</span></span><br><span class="line">dotor = Dot(axes = <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-Now you can use these layers to implement `one_step_attention()`. In order to propagate a Keras tensor object X through one of these layers, use `layer(X)` (or `layer([X,Y])` if it requires multiple inputs.), e.g. `densor(X)` will propagate X through the `Dense(1)` layer defined above.
-
-
+<p>Now you can use these layers to implement <code>one_step_attention()</code>. In order to propagate a Keras tensor object X through one of these layers, use <code>layer(X)</code> (or <code>layer([X,Y])</code> if it requires multiple inputs.), e.g. <code>densor(X)</code> will propagate X through the <code>Dense(1)</code> layer defined above.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GRADED FUNCTION: one_step_attention</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">one_step_attention</span><span class="params">(a, s_prev)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Performs one step of attention: Outputs a context vector computed as a dot product of the attention weights</span></span><br><span class="line"><span class="string">    "alphas" and the hidden states "a" of the Bi-LSTM.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Arguments:</span></span><br><span class="line"><span class="string">    a -- hidden state output of the Bi-LSTM, numpy-array of shape (m, Tx, 2*n_a)</span></span><br><span class="line"><span class="string">    s_prev -- previous hidden state of the (post-attention) LSTM, numpy-array of shape (m, n_s)</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">    context -- context vector, input of the next (post-attetion) LSTM cell</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line">    <span class="comment"># Use repeator to repeat s_prev to be of shape (m, Tx, n_s) so that you can concatenate it with all hidden states "a" (≈ 1 line)</span></span><br><span class="line">    s_prev = repeator(s_prev)</span><br><span class="line">    <span class="comment"># Use concatenator to concatenate a and s_prev on the last axis (≈ 1 line)</span></span><br><span class="line">    concat = concatenator([a,s_prev])</span><br><span class="line">    <span class="comment"># Use densor1 to propagate concat through a small fully-connected neural network to compute the "intermediate energies" variable e. (≈1 lines)</span></span><br><span class="line">    e = densor1(concat)</span><br><span class="line">    <span class="comment"># Use densor2 to propagate e through a small fully-connected neural network to compute the "energies" variable energies. (≈1 lines)</span></span><br><span class="line">    energies = densor2(e)</span><br><span class="line">    <span class="comment"># Use "activator" on "energies" to compute the attention weights "alphas" (≈ 1 line)</span></span><br><span class="line">    alphas = activator(energies)</span><br><span class="line">    <span class="comment"># Use dotor together with "alphas" and "a" to compute the context vector to be given to the next (post-attention) LSTM-cell (≈ 1 line)</span></span><br><span class="line">    context = dotor([alphas,a])</span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> context</span><br></pre></td></tr></table></figure>
-
-You will be able to check the expected output of `one_step_attention()` after you've coded the `model()` function.
-
-**Exercise**: Implement `model()` as explained in figure 2 and the text above. Again, we have defined global layers that will share weights to be used in `model()`.
-
-
+<p>You will be able to check the expected output of <code>one_step_attention()</code> after you’ve coded the <code>model()</code> function.</p>
+<p><strong>Exercise</strong>: Implement <code>model()</code> as explained in figure 2 and the text above. Again, we have defined global layers that will share weights to be used in <code>model()</code>.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">n_a = <span class="number">32</span></span><br><span class="line">n_s = <span class="number">64</span></span><br><span class="line">post_activation_LSTM_cell = LSTM(n_s, return_state = <span class="keyword">True</span>)</span><br><span class="line">output_layer = Dense(len(machine_vocab), activation=softmax)</span><br></pre></td></tr></table></figure>
-
-Now you can use these layers $T_y$ times in a `for` loop to generate the outputs, and their parameters will not be reinitialized. You will have to carry out the following steps: 
-
-1. Propagate the input into a [Bidirectional](https://keras.io/layers/wrappers/#bidirectional) [LSTM](https://keras.io/layers/recurrent/#lstm)
-2. Iterate for $t = 0, \dots, T_y-1$: 
-    1. Call `one_step_attention()` on $[\alpha^{<t,1>},\alpha^{<t,2>}, ..., \alpha^{<t,t_x>}]$ and $s^{<t-1>}$ to get the context vector $context^{<t>}$.
-    2. Give $context^{<t>}$ to the post-attention LSTM cell. Remember pass in the previous hidden-state $s^{\langle t-1\rangle}$ and cell-states $c^{\langle t-1\rangle}$ of this LSTM using `initial_state= [previous hidden state, previous cell state]`. Get back the new hidden state $s^{<t>}$ and the new cell state $c^{<t>}$.
-    3. Apply a softmax layer to $s^{<t>}$, get the output. 
-    4. Save the output by adding it to the list of outputs.
-
-3. Create your Keras model instance, it should have three inputs ("inputs", $s^{<0>}$ and $c^{<0>}$) and output the list of "outputs".
-
-
+<p>Now you can use these layers $T_y$ times in a <code>for</code> loop to generate the outputs, and their parameters will not be reinitialized. You will have to carry out the following steps: </p>
+<ol>
+<li>Propagate the input into a <a href="https://keras.io/layers/wrappers/#bidirectional" target="_blank" rel="noopener">Bidirectional</a> <a href="https://keras.io/layers/recurrent/#lstm" target="_blank" rel="noopener">LSTM</a></li>
+<li><p>Iterate for $t = 0, \dots, T_y-1$: </p>
+<ol>
+<li>Call <code>one_step_attention()</code> on $[\alpha^{<t,1>},\alpha^{<t,2>}, …, \alpha^{<t,t_x>}]$ and $s^{<t-1>}$ to get the context vector $context^{<t>}$.</t></t-1></t,t_x></t,2></t,1></li>
+<li>Give $context^{<t>}$ to the post-attention LSTM cell. Remember pass in the previous hidden-state $s^{\langle t-1\rangle}$ and cell-states $c^{\langle t-1\rangle}$ of this LSTM using <code>initial_state= [previous hidden state, previous cell state]</code>. Get back the new hidden state $s^{<t>}$ and the new cell state $c^{<t>}$.</t></t></t></li>
+<li>Apply a softmax layer to $s^{<t>}$, get the output. </t></li>
+<li>Save the output by adding it to the list of outputs.</li>
+</ol>
+</li>
+<li><p>Create your Keras model instance, it should have three inputs (“inputs”, $s^{<0>}$ and $c^{<0>}$) and output the list of “outputs”.</0></0></p>
+</li>
+</ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GRADED FUNCTION: model</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">model</span><span class="params">(Tx, Ty, n_a, n_s, human_vocab_size, machine_vocab_size)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Arguments:</span></span><br><span class="line"><span class="string">    Tx -- length of the input sequence</span></span><br><span class="line"><span class="string">    Ty -- length of the output sequence</span></span><br><span class="line"><span class="string">    n_a -- hidden state size of the Bi-LSTM</span></span><br><span class="line"><span class="string">    n_s -- hidden state size of the post-attention LSTM</span></span><br><span class="line"><span class="string">    human_vocab_size -- size of the python dictionary "human_vocab"</span></span><br><span class="line"><span class="string">    machine_vocab_size -- size of the python dictionary "machine_vocab"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">    model -- Keras model instance</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Define the inputs of your model with a shape (Tx,)</span></span><br><span class="line">    <span class="comment"># Define s0 and c0, initial hidden state for the decoder LSTM of shape (n_s,)</span></span><br><span class="line">    X = Input(shape=(Tx, human_vocab_size))</span><br><span class="line">    s0 = Input(shape=(n_s,), name=<span class="string">'s0'</span>)</span><br><span class="line">    c0 = Input(shape=(n_s,), name=<span class="string">'c0'</span>)</span><br><span class="line">    s = s0</span><br><span class="line">    c = c0</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Initialize empty list of outputs</span></span><br><span class="line">    outputs = []</span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Step 1: Define your pre-attention Bi-LSTM. Remember to use return_sequences=True. (≈ 1 line)</span></span><br><span class="line">    a = Bidirectional(LSTM(n_a, return_sequences=<span class="keyword">True</span>))(X)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Step 2: Iterate for Ty steps</span></span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(Ty):</span><br><span class="line">    </span><br><span class="line">        <span class="comment"># Step 2.A: Perform one step of the attention mechanism to get back the context vector at step t (≈ 1 line)</span></span><br><span class="line">        context = one_step_attention(a, s)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Step 2.B: Apply the post-attention LSTM cell to the "context" vector.</span></span><br><span class="line">        <span class="comment"># Don't forget to pass: initial_state = [hidden state, cell state] (≈ 1 line)</span></span><br><span class="line">        s, _, c = post_activation_LSTM_cell(context, initial_state=[s, c])</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Step 2.C: Apply Dense layer to the hidden state output of the post-attention LSTM (≈ 1 line)</span></span><br><span class="line">        out = output_layer(s)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Step 2.D: Append "out" to the "outputs" list (≈ 1 line)</span></span><br><span class="line">        outputs.append(out)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Step 3: Create model instance taking three inputs and returning the list of outputs. (≈ 1 line)</span></span><br><span class="line">    model = Model([X, s0, c0], outputs)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
-
-Run the following cell to create your model.
-
-
+<p>Run the following cell to create your model.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model = model(Tx, Ty, n_a, n_s, len(human_vocab), len(machine_vocab))</span><br></pre></td></tr></table></figure>
-
-Let's get a summary of the model to check if it matches the expected output.
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.summary()</span><br></pre></td></tr></table></figure>
-
-    ____________________________________________________________________________________________________
-    Layer (type)                     Output Shape          Param #     Connected to                     
-    ====================================================================================================
-    input_2 (InputLayer)             (None, 30, 37)        0                                            
-    ____________________________________________________________________________________________________
-    s0 (InputLayer)                  (None, 64)            0                                            
-    ____________________________________________________________________________________________________
-    bidirectional_2 (Bidirectional)  (None, 30, 64)        17920       input_2[0][0]                    
-    ____________________________________________________________________________________________________
-    repeat_vector_2 (RepeatVector)   (None, 30, 64)        0           s0[0][0]                         
-                                                                       lstm_2[0][0]                     
-                                                                       lstm_2[1][0]                     
-                                                                       lstm_2[2][0]                     
-                                                                       lstm_2[3][0]                     
-                                                                       lstm_2[4][0]                     
-                                                                       lstm_2[5][0]                     
-                                                                       lstm_2[6][0]                     
-                                                                       lstm_2[7][0]                     
-                                                                       lstm_2[8][0]                     
-    ____________________________________________________________________________________________________
-    concatenate_2 (Concatenate)      (None, 30, 128)       0           bidirectional_2[0][0]            
-                                                                       repeat_vector_2[0][0]            
-                                                                       bidirectional_2[0][0]            
-                                                                       repeat_vector_2[1][0]            
-                                                                       bidirectional_2[0][0]            
-                                                                       repeat_vector_2[2][0]            
-                                                                       bidirectional_2[0][0]            
-                                                                       repeat_vector_2[3][0]            
-                                                                       bidirectional_2[0][0]            
-                                                                       repeat_vector_2[4][0]            
-                                                                       bidirectional_2[0][0]            
-                                                                       repeat_vector_2[5][0]            
-                                                                       bidirectional_2[0][0]            
-                                                                       repeat_vector_2[6][0]            
-                                                                       bidirectional_2[0][0]            
-                                                                       repeat_vector_2[7][0]            
-                                                                       bidirectional_2[0][0]            
-                                                                       repeat_vector_2[8][0]            
-                                                                       bidirectional_2[0][0]            
-                                                                       repeat_vector_2[9][0]            
-    ____________________________________________________________________________________________________
-    dense_4 (Dense)                  (None, 30, 10)        1290        concatenate_2[0][0]              
-                                                                       concatenate_2[1][0]              
-                                                                       concatenate_2[2][0]              
-                                                                       concatenate_2[3][0]              
-                                                                       concatenate_2[4][0]              
-                                                                       concatenate_2[5][0]              
-                                                                       concatenate_2[6][0]              
-                                                                       concatenate_2[7][0]              
-                                                                       concatenate_2[8][0]              
-                                                                       concatenate_2[9][0]              
-    ____________________________________________________________________________________________________
-    dense_5 (Dense)                  (None, 30, 1)         11          dense_4[0][0]                    
-                                                                       dense_4[1][0]                    
-                                                                       dense_4[2][0]                    
-                                                                       dense_4[3][0]                    
-                                                                       dense_4[4][0]                    
-                                                                       dense_4[5][0]                    
-                                                                       dense_4[6][0]                    
-                                                                       dense_4[7][0]                    
-                                                                       dense_4[8][0]                    
-                                                                       dense_4[9][0]                    
-    ____________________________________________________________________________________________________
-    attention_weights (Activation)   (None, 30, 1)         0           dense_5[0][0]                    
-                                                                       dense_5[1][0]                    
-                                                                       dense_5[2][0]                    
-                                                                       dense_5[3][0]                    
-                                                                       dense_5[4][0]                    
-                                                                       dense_5[5][0]                    
-                                                                       dense_5[6][0]                    
-                                                                       dense_5[7][0]                    
-                                                                       dense_5[8][0]                    
-                                                                       dense_5[9][0]                    
-    ____________________________________________________________________________________________________
-    dot_2 (Dot)                      (None, 1, 64)         0           attention_weights[0][0]          
-                                                                       bidirectional_2[0][0]            
-                                                                       attention_weights[1][0]          
-                                                                       bidirectional_2[0][0]            
-                                                                       attention_weights[2][0]          
-                                                                       bidirectional_2[0][0]            
-                                                                       attention_weights[3][0]          
-                                                                       bidirectional_2[0][0]            
-                                                                       attention_weights[4][0]          
-                                                                       bidirectional_2[0][0]            
-                                                                       attention_weights[5][0]          
-                                                                       bidirectional_2[0][0]            
-                                                                       attention_weights[6][0]          
-                                                                       bidirectional_2[0][0]            
-                                                                       attention_weights[7][0]          
-                                                                       bidirectional_2[0][0]            
-                                                                       attention_weights[8][0]          
-                                                                       bidirectional_2[0][0]            
-                                                                       attention_weights[9][0]          
-                                                                       bidirectional_2[0][0]            
-    ____________________________________________________________________________________________________
-    c0 (InputLayer)                  (None, 64)            0                                            
-    ____________________________________________________________________________________________________
-    lstm_2 (LSTM)                    [(None, 64), (None, 6 33024       dot_2[0][0]                      
-                                                                       s0[0][0]                         
-                                                                       c0[0][0]                         
-                                                                       dot_2[1][0]                      
-                                                                       lstm_2[0][0]                     
-                                                                       lstm_2[0][2]                     
-                                                                       dot_2[2][0]                      
-                                                                       lstm_2[1][0]                     
-                                                                       lstm_2[1][2]                     
-                                                                       dot_2[3][0]                      
-                                                                       lstm_2[2][0]                     
-                                                                       lstm_2[2][2]                     
-                                                                       dot_2[4][0]                      
-                                                                       lstm_2[3][0]                     
-                                                                       lstm_2[3][2]                     
-                                                                       dot_2[5][0]                      
-                                                                       lstm_2[4][0]                     
-                                                                       lstm_2[4][2]                     
-                                                                       dot_2[6][0]                      
-                                                                       lstm_2[5][0]                     
-                                                                       lstm_2[5][2]                     
-                                                                       dot_2[7][0]                      
-                                                                       lstm_2[6][0]                     
-                                                                       lstm_2[6][2]                     
-                                                                       dot_2[8][0]                      
-                                                                       lstm_2[7][0]                     
-                                                                       lstm_2[7][2]                     
-                                                                       dot_2[9][0]                      
-                                                                       lstm_2[8][0]                     
-                                                                       lstm_2[8][2]                     
-    ____________________________________________________________________________________________________
-    dense_6 (Dense)                  (None, 11)            715         lstm_2[0][0]                     
-                                                                       lstm_2[1][0]                     
-                                                                       lstm_2[2][0]                     
-                                                                       lstm_2[3][0]                     
-                                                                       lstm_2[4][0]                     
-                                                                       lstm_2[5][0]                     
-                                                                       lstm_2[6][0]                     
-                                                                       lstm_2[7][0]                     
-                                                                       lstm_2[8][0]                     
-                                                                       lstm_2[9][0]                     
-    ====================================================================================================
-    Total params: 52,960
-    Trainable params: 52,960
-    Non-trainable params: 0
-    ____________________________________________________________________________________________________
-
-
-**Expected Output**:
-
-Here is the summary you should see
-<table>
-    <tr>
-        <td>
-            **Total params:**
-        </td>
-        <td>
-         52,960
-        </td>
-    </tr>
-        <tr>
-        <td>
-            **Trainable params:**
-        </td>
-        <td>
-         52,960
-        </td>
-    </tr>
-            <tr>
-        <td>
-            **Non-trainable params:**
-        </td>
-        <td>
-         0
-        </td>
-    </tr>
-                    <tr>
-        <td>
-            **bidirectional_1's output shape **
-        </td>
-        <td>
-         (None, 30, 64)  
-        </td>
-    </tr>
-    <tr>
-        <td>
-            **repeat_vector_1's output shape **
-        </td>
-        <td>
-         (None, 30, 64) 
-        </td>
-    </tr>
-                <tr>
-        <td>
-            **concatenate_1's output shape **
-        </td>
-        <td>
-         (None, 30, 128) 
-        </td>
-    </tr>
-            <tr>
-        <td>
-            **attention_weights's output shape **
-        </td>
-        <td>
-         (None, 30, 1)  
-        </td>
-    </tr>
-        <tr>
-        <td>
-            **dot_1's output shape **
-        </td>
-        <td>
-         (None, 1, 64)
-        </td>
-    </tr>
-           <tr>
-        <td>
-            **dense_3's output shape **
-        </td>
-        <td>
-         (None, 11) 
-        </td>
-    </tr>
-</table>
-
-
+<p>Let’s get a summary of the model to check if it matches the expected output.</p>
 <p>As usual, after creating your model in Keras, you need to compile it and define what loss, optimizer and metrics your are want to use. Compile your model using <code>categorical_crossentropy</code> loss, a custom <a href="https://keras.io/optimizers/#adam" target="_blank" rel="noopener">Adam</a> <a href="https://keras.io/optimizers/#usage-of-optimizers" target="_blank" rel="noopener">optimizer</a> (<code>learning rate = 0.005</code>, $\beta_1 = 0.9$, $\beta_2 = 0.999$, <code>decay = 0.01</code>)  and <code>[&#39;accuracy&#39;]</code> metrics:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### START CODE HERE ### (≈2 lines)</span></span><br><span class="line">opt = Adam(lr = <span class="number">0.005</span>, beta_1=<span class="number">0.9</span>, beta_2=<span class="number">0.999</span>, decay = <span class="number">0.01</span>)</span><br><span class="line">model.compile(loss=<span class="string">'categorical_crossentropy'</span>, optimizer=opt, metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"><span class="comment">### END CODE HERE ###</span></span><br></pre></td></tr></table></figure>
 <p>The last step is to define all your inputs and outputs to fit the model:</p>
@@ -973,7 +665,7 @@ output: 2001-03-01
 <li>You can visualize attention weights $\alpha^{\langle t,t’ \rangle}$ to see what the network is paying attention to while generating each output.</li>
 </ul>
 <p>Congratulations on finishing this assignment! You are now able to implement an attention model and use it to learn complex mappings from one sequence to another. </p>
-</0></0></t></t></t></t></t></t-1></t,t_x></t,2></t,1></t></t></t_x></2></1></t'></t,t'></t></t,t_x></t,2></t,1></t-1></t_x></2></1>
+
       
     </div>
     

@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangruochi.com/Linear-models-Optimization/2019/02/22/</loc>
+    
+    <lastmod>2020-01-20T13:07:27.834Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Stacking/2019/07/17/</loc>
+    
+    <lastmod>2020-01-20T13:04:23.502Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Neural-Machine-Translation-with-Attention/2019/03/29/</loc>
+    
+    <lastmod>2020-01-20T13:02:57.457Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/RNN-Implementation/2019/03/28/</loc>
+    
+    <lastmod>2020-01-20T13:00:49.085Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangruochi.com/rails-tutorials-sessions/2020/01/20/</loc>
     
     <lastmod>2020-01-20T12:56:44.311Z</lastmod>
@@ -103,13 +131,6 @@
     <loc>https://zhangruochi.com/Image-Captioning-Project/2019/07/11/</loc>
     
     <lastmod>2020-01-09T08:31:32.575Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Stacking/2019/07/17/</loc>
-    
-    <lastmod>2020-01-09T08:23:57.055Z</lastmod>
     
   </url>
   
@@ -751,23 +772,9 @@
   </url>
   
   <url>
-    <loc>https://zhangruochi.com/Neural-Machine-Translation-with-Attention/2019/03/29/</loc>
-    
-    <lastmod>2019-07-05T10:30:44.189Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://zhangruochi.com/Operations-on-word-vectors-Debiasing/2019/03/28/</loc>
     
     <lastmod>2019-07-05T10:30:26.568Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/RNN-Implementation/2019/03/28/</loc>
-    
-    <lastmod>2019-07-05T10:30:13.021Z</lastmod>
     
   </url>
   
@@ -1062,13 +1069,6 @@
     <loc>https://zhangruochi.com/Machine-Learning-Yarning-part-two/2019/03/20/</loc>
     
     <lastmod>2019-07-05T09:56:46.159Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Linear-models-Optimization/2019/02/22/</loc>
-    
-    <lastmod>2019-07-05T09:54:42.286Z</lastmod>
     
   </url>
   

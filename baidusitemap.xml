@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhangruochi.com/Linear-models-Optimization/2019/02/22/</loc>
+    <lastmod>2020-01-20</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Stacking/2019/07/17/</loc>
+    <lastmod>2020-01-20</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Neural-Machine-Translation-with-Attention/2019/03/29/</loc>
+    <lastmod>2020-01-20</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/RNN-Implementation/2019/03/28/</loc>
+    <lastmod>2020-01-20</lastmod>
+  </url>  <url>
     <loc>https://zhangruochi.com/rails-tutorials-sessions/2020/01/20/</loc>
     <lastmod>2020-01-20</lastmod>
   </url>  <url>
@@ -44,9 +56,6 @@
     <lastmod>2020-01-09</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Image-Captioning-Project/2019/07/11/</loc>
-    <lastmod>2020-01-09</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Stacking/2019/07/17/</loc>
     <lastmod>2020-01-09</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Mean-Encodings/2019/07/15/</loc>
@@ -319,13 +328,7 @@
     <loc>https://zhangruochi.com/Improvise-a-Jazz-Solo-with-an-LSTM-Network/2019/03/28/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Neural-Machine-Translation-with-Attention/2019/03/29/</loc>
-    <lastmod>2019-07-05</lastmod>
-  </url>  <url>
     <loc>https://zhangruochi.com/Operations-on-word-vectors-Debiasing/2019/03/28/</loc>
-    <lastmod>2019-07-05</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/RNN-Implementation/2019/03/28/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/RNN-MXNET-Implementation/2019/04/12/</loc>
@@ -452,9 +455,6 @@
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Machine-Learning-Yarning-part-two/2019/03/20/</loc>
-    <lastmod>2019-07-05</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Linear-models-Optimization/2019/02/22/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Improving-Deep-Neural-Networks/2019/03/29/</loc>
