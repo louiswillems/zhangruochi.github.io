@@ -126,13 +126,13 @@
 
 
 
-<meta name="description" content="I want to make a classifier to classify the `akita` and `shiba inu`, `alaska` and `husky`.">
+<meta name="description" content="I want to make a classifier to classify the akita and shiba inu, alaska and husky.">
 <meta name="keywords" content="Project,Computer Vision">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Face Blindness Saver">
 <meta property="og:url" content="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/index.html">
 <meta property="og:site_name" content="RUOCHI.AI">
-<meta property="og:description" content="I want to make a classifier to classify the `akita` and `shiba inu`, `alaska` and `husky`.">
+<meta property="og:description" content="I want to make a classifier to classify the akita and shiba inu, alaska and husky.">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/output_16_0.png">
 <meta property="og:image" content="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/output_23_0.png">
@@ -142,10 +142,10 @@
 <meta property="og:image" content="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/output_48_0.png">
 <meta property="og:image" content="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/output_49_0.png">
 <meta property="og:image" content="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/output_53_0.png">
-<meta property="og:updated_time" content="2020-01-09T06:28:53.828Z">
+<meta property="og:updated_time" content="2020-01-23T19:01:03.804Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Face Blindness Saver">
-<meta name="twitter:description" content="I want to make a classifier to classify the `akita` and `shiba inu`, `alaska` and `husky`.">
+<meta name="twitter:description" content="I want to make a classifier to classify the akita and shiba inu, alaska and husky.">
 <meta name="twitter:image" content="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/output_16_0.png">
 
 
@@ -454,7 +454,7 @@
 
           
               <div class="post-description">
-                  I want to make a classifier to classify the `akita` and `shiba inu`, `alaska` and `husky`.
+                  I want to make a classifier to classify the akita and shiba inu, alaska and husky.
               </div>
           
 
@@ -471,8 +471,7 @@
       
 
       
-        <h1 id="Creating-your-own-dataset-from-Google-Images"><a href="#Creating-your-own-dataset-from-Google-Images" class="headerlink" title="Creating your own dataset from Google Images"></a>Creating your own dataset from Google Images</h1><p><em>by: Francisco Ingham and Jeremy Howard. Inspired by <a href="https://www.pyimagesearch.com/2017/12/04/how-to-create-a-deep-learning-dataset-using-google-images/" target="_blank" rel="noopener">Adrian Rosebrock</a></em></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastai.vision <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+        <h1 id="Creating-your-own-dataset-from-Google-Images"><a href="#Creating-your-own-dataset-from-Google-Images" class="headerlink" title="Creating your own dataset from Google Images"></a>Creating your own dataset from Google Images</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastai.vision <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
 <h2 id="Get-a-list-of-URLs"><a href="#Get-a-list-of-URLs" class="headerlink" title="Get a list of URLs"></a>Get a list of URLs</h2><h3 id="Search-and-scroll"><a href="#Search-and-scroll" class="headerlink" title="Search and scroll"></a>Search and scroll</h3><p>Go to <a href="http://images.google.com" target="_blank" rel="noopener">Google Images</a> and search for the images you are interested in. The more specific you are in your Google Search, the better the results and the less manual pruning you will have to do.</p>
 <p>Scroll down until you’ve seen all the images you want to download, or until you see a button that says ‘Show more results’. All the images you scrolled past are now available to download. To get more, click on the button, and continue scrolling. The maximum number of images Google Images shows is 700.</p>
 <p>It is a good idea to put things you want to exclude into the search query, for instance if you are searching for the Eurasian wolf, “canis lupus lupus”, it might be a good idea to exclude other variants:</p>
@@ -481,7 +480,6 @@
 <h3 id="Download-into-file"><a href="#Download-into-file" class="headerlink" title="Download into file"></a>Download into file</h3><p>Now you must run some Javascript code in your browser which will save the URLs of all the images you want for you dataset.</p>
 <p>In Google Chrome press <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>j</kbd> on Windows/Linux and <kbd>Cmd</kbd><kbd>Opt</kbd><kbd>j</kbd> on macOS, and a small window the javascript ‘Console’ will appear. In Firefox press <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>k</kbd> on Windows/Linux or <kbd>Cmd</kbd><kbd>Opt</kbd><kbd>k</kbd> on macOS. That is where you will paste the JavaScript commands.</p>
 <p>You will need to get the urls of each of the images. Before running the following commands, you may want to disable ad blocking extensions (uBlock, AdBlockPlus etc.) in Chrome. Otherwise the window.open() command doesn’t work. Then you can run the following commands:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">urls=<span class="built_in">Array</span>.from(<span class="built_in">document</span>.querySelectorAll(<span class="string">'.rg_i'</span>)).map(<span class="function"><span class="params">el</span>=&gt;</span> el.hasAttribute(<span class="string">'data-src'</span>)?el.getAttribute(<span class="string">'data-src'</span>):el.getAttribute(<span class="string">'data-iurl'</span>));</span><br><span class="line"><span class="built_in">window</span>.open(<span class="string">'data:text/csv;charset=utf-8,'</span> + <span class="built_in">escape</span>(urls.join(<span class="string">'\n'</span>)));</span><br></pre></td></tr></table></figure>
 <h3 id="Create-directory-and-upload-urls-file-into-your-server"><a href="#Create-directory-and-upload-urls-file-into-your-server" class="headerlink" title="Create directory and upload urls file into your server"></a>Create directory and upload urls file into your server</h3><p>Choose an appropriate name for your labeled images. You can run these steps multiple times to create different labels.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(download_images)</span><br></pre></td></tr></table></figure>
 <pre><code>Help on function download_images in module fastai.vision.data:
@@ -1255,18 +1253,7 @@ Test: None, model=Sequential(
 <p><img src="output_48_0.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">interp.plot_top_losses(<span class="number">9</span>, figsize=(<span class="number">15</span>,<span class="number">11</span>))</span><br></pre></td></tr></table></figure>
 <p><img src="output_49_0.png" alt="png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!pip install starlette</span><br></pre></td></tr></table></figure>
-<pre><code>Collecting starlette
-[?25l  Downloading https://files.pythonhosted.org/packages/e1/22/360e07bf7852cc83fecf701bae502b90b62fa8584c4b70ee7bb1ea216dfe/starlette-0.10.2.tar.gz (45kB)
-[K     |████████████████████████████████| 51kB 3.4MB/s  eta 0:00:01
-[?25hBuilding wheels for collected packages: starlette
-  Building wheel for starlette (setup.py) ... [?25ldone
-[?25h  Created wheel for starlette: filename=starlette-0.10.2-cp35-none-any.whl size=58484 sha256=5b3216465d63bb24678d9e6b54680ce1f8d208bafe509c2df635df50a522e26a
-  Stored in directory: /home/zhangruochi/.cache/pip/wheels/28/c6/04/886febad73c854ba4e8a5b4f40aeaec3a97a9ab77795d141fb
-Successfully built starlette
-Installing collected packages: starlette
-Successfully installed starlette-0.10.2
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final_learn.export()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final_learn.export()</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults.device = torch.device(<span class="string">'cpu'</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">img = open_image(path/<span class="string">'akita'</span>/<span class="string">'00000100.jpg'</span>)</span><br><span class="line">img</span><br></pre></td></tr></table></figure>
 <p><img src="output_53_0.png" alt="png"></p>
@@ -1275,7 +1262,6 @@ Successfully installed starlette-0.10.2
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pred_class</span><br></pre></td></tr></table></figure>
 <pre><code>Category akita
 </code></pre><h2 id="Model-Serving"><a href="#Model-Serving" class="headerlink" title="Model Serving"></a>Model Serving</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> starlette.applications <span class="keyword">import</span> Starlette</span><br><span class="line"><span class="keyword">from</span> starlette.responses <span class="keyword">import</span> JSONResponse</span><br><span class="line"><span class="comment"># from starlette.routing import Route</span></span><br><span class="line"><span class="keyword">import</span> uvicorn</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> aiohttp</span><br><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"><span class="keyword">import</span> fastai</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> fastai.vision <span class="keyword">import</span> *</span><br><span class="line">defaults.device = torch.device(<span class="string">'cpu'</span>)</span><br><span class="line">learner = load_learner(<span class="string">"."</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app = Starlette(debug=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">get_bytes</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">with</span> aiohttp.ClientSession() <span class="keyword">as</span> session:</span><br><span class="line">        <span class="keyword">async</span> <span class="keyword">with</span> session.get(url) <span class="keyword">as</span> response:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">await</span> response.read()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/", methods=["GET"])</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">homepage</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> JSONResponse(&#123;<span class="string">'hello'</span>: <span class="string">'world'</span>&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/classify-url", methods=["GET"])</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">classify_url</span><span class="params">(request)</span>:</span></span><br><span class="line">    bytes = <span class="keyword">await</span> get_bytes(request.query_params[<span class="string">"url"</span>])</span><br><span class="line">    img = open_image(BytesIO(bytes))</span><br><span class="line">    pred_class,pred_idx,outputs = learner.predict(img)</span><br><span class="line">    <span class="keyword">return</span> JSONResponse(&#123;</span><br><span class="line">        <span class="string">"predictions"</span>:  str(pred_class)&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    uvicorn.run(app, host=<span class="string">"0.0.0.0"</span>, port=<span class="number">8080</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1435,7 +1421,7 @@ Successfully installed starlette-0.10.2
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">177</span>
+                  <span class="site-state-item-count">179</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

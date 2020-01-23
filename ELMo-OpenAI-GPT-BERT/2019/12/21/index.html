@@ -147,7 +147,7 @@
 <meta property="og:image" content="https://zhangruochi.com/ELMo-OpenAI-GPT-BERT/2019/12/21/bert4.png">
 <meta property="og:image" content="https://zhangruochi.com/ELMo-OpenAI-GPT-BERT/2019/12/21/bert5.png">
 <meta property="og:image" content="https://zhangruochi.com/ELMo-OpenAI-GPT-BERT/2019/12/21/bert6.png">
-<meta property="og:updated_time" content="2019-12-22T05:26:06.946Z">
+<meta property="og:updated_time" content="2020-01-23T19:06:41.541Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ELMo,OpenAI GPT,BERT">
 <meta name="twitter:description" content="The problems of RNN Sequential computation inhibit parallelization No explicit modeling of long and short range We want to model hierarchy (RNNs seem wasteful)  ELMoELMo means Embeddings from Language">
@@ -548,12 +548,12 @@
 </center>
 
 
-<script type="math/tex; mode=display">% <![CDATA[
+<script type="math/tex; mode=display">
 \begin{split}
 h_0 & =UW_e+W_p \\
 h_l & = transformer\_block(h_{l-1}) \\
 P(u) & = softmax(h_n W_e^T)
-\end{split} %]]></script><p>$W_e$ is the embedding matrix, $W_p$ is the positional embedding matrix(Note that it is different with classicial transformer)</p>
+\end{split}</script><p>$W_e$ is the embedding matrix, $W_p$ is the positional embedding matrix(Note that it is different with classicial transformer)</p>
 <h3 id="Fine-Tuning-with-OpenAI"><a href="#Fine-Tuning-with-OpenAI" class="headerlink" title="Fine-Tuning with OpenAI"></a>Fine-Tuning with OpenAI</h3><p>Now that the OpenAI transformer is pre-trained and its layers have been tuned to reasonably handle language, we can start using it for downstream tasks. Let’s first look at sentence classification (classify an email message as “spam” or “not spam”):</p>
 <p>If our input sequence is $x_1,\cdots,x_m$, and the label is y. We can add a <code>softmax layer</code> to do classification and use the cross entrophy to calculate the loss.</p>
 <script type="math/tex; mode=display">L_2(\mathcal{C})=\sum{x,y}logP(y|x^1,...,x^m)</script><p>In general, we should update the parameters to minimize the $L_2$, but we can use <code>Multi-task Learning</code> to get a more generalize model. Therefore we can get the max likelihood of $L3$</p>
@@ -820,7 +820,7 @@ P(u) & = softmax(h_n W_e^T)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">177</span>
+                  <span class="site-state-item-count">179</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
