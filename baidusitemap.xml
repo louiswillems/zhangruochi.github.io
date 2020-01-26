@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhangruochi.com/Minimum-Spanning-Trees/2020/01/25/</loc>
+    <lastmod>2020-01-26</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Unordered-Data-Structure/2020/01/24/</loc>
+    <lastmod>2020-01-25</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Union-Find/2019/11/19/</loc>
+    <lastmod>2020-01-25</lastmod>
+  </url>  <url>
     <loc>https://zhangruochi.com/Ordered-Data-Structures/2020/01/22/</loc>
-    <lastmod>2020-01-23</lastmod>
+    <lastmod>2020-01-24</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/ELMo-OpenAI-GPT-BERT/2019/12/21/</loc>
     <lastmod>2020-01-23</lastmod>
@@ -185,9 +194,6 @@
     <lastmod>2019-11-20</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Greedy-Algorithm/2019/11/19/</loc>
-    <lastmod>2019-11-19</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Union-Find/2019/11/19/</loc>
     <lastmod>2019-11-19</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Flee-from-famine/2019/11/19/</loc>
