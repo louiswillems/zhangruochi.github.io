@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhangruochi.com/Autoencoders-Project/2019/07/11/</loc>
+    <lastmod>2020-01-31</lastmod>
+  </url>  <url>
     <loc>https://zhangruochi.com/Module-Sequential-ModuleList-ModuleDict/2020/01/28/</loc>
     <lastmod>2020-01-28</lastmod>
   </url>  <url>
@@ -116,9 +119,6 @@
     <lastmod>2020-01-09</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Data-Augmentation/2019/05/31/</loc>
-    <lastmod>2020-01-09</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Autoencoders-Project/2019/07/11/</loc>
     <lastmod>2020-01-09</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Generative-Adversarial-Network-Project/2019/07/11/</loc>
