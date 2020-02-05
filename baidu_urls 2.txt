@@ -1,0 +1,3 @@
+https://zhangruochi.com/rails-tutorials-ActionPack/2020/01/19/
+https://zhangruochi.com/rails-tutorials-Association/2020/01/18/
+https://zhangruochi.com/rails-tutorials-Active-Record-CURD/2020/01/18/

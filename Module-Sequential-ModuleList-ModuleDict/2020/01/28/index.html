@@ -126,17 +126,17 @@
 
 
 
-<meta name="description" content="Pytorch: how and when to use Module, Sequential, ModuleList and ModuleDictEffective way to share, reuse and break down the complexity of your modelsReference Github Repo of FrancescoSaverioZuppichini">
+<meta name="description" content="Pytorch: how and when to use Module, Sequential, ModuleList and ModuleDictReference Github Repo of FrancescoSaverioZuppichini You can find the code here  Pytorch is an open source deep learning framew">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Module Sequential ModuleList ModuleDict">
 <meta property="og:url" content="https://zhangruochi.com/Module-Sequential-ModuleList-ModuleDict/2020/01/28/index.html">
 <meta property="og:site_name" content="RUOCHI.AI">
-<meta property="og:description" content="Pytorch: how and when to use Module, Sequential, ModuleList and ModuleDictEffective way to share, reuse and break down the complexity of your modelsReference Github Repo of FrancescoSaverioZuppichini">
+<meta property="og:description" content="Pytorch: how and when to use Module, Sequential, ModuleList and ModuleDictReference Github Repo of FrancescoSaverioZuppichini You can find the code here  Pytorch is an open source deep learning framew">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-01-28T21:23:40.022Z">
+<meta property="og:updated_time" content="2020-02-05T23:40:22.974Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Module Sequential ModuleList ModuleDict">
-<meta name="twitter:description" content="Pytorch: how and when to use Module, Sequential, ModuleList and ModuleDictEffective way to share, reuse and break down the complexity of your modelsReference Github Repo of FrancescoSaverioZuppichini">
+<meta name="twitter:description" content="Pytorch: how and when to use Module, Sequential, ModuleList and ModuleDictReference Github Repo of FrancescoSaverioZuppichini You can find the code here  Pytorch is an open source deep learning framew">
 
 
 
@@ -424,10 +424,10 @@
       
 
       
-        <h1 id="Pytorch-how-and-when-to-use-Module-Sequential-ModuleList-and-ModuleDict"><a href="#Pytorch-how-and-when-to-use-Module-Sequential-ModuleList-and-ModuleDict" class="headerlink" title="Pytorch: how and when to use Module, Sequential, ModuleList and ModuleDict"></a>Pytorch: how and when to use Module, Sequential, ModuleList and ModuleDict</h1><h3 id="Effective-way-to-share-reuse-and-break-down-the-complexity-of-your-models"><a href="#Effective-way-to-share-reuse-and-break-down-the-complexity-of-your-models" class="headerlink" title="Effective way to share, reuse and break down the complexity of your models"></a>Effective way to share, reuse and break down the complexity of your models</h3><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+        <h3 id="Pytorch-how-and-when-to-use-Module-Sequential-ModuleList-and-ModuleDict"><a href="#Pytorch-how-and-when-to-use-Module-Sequential-ModuleList-and-ModuleDict" class="headerlink" title="Pytorch: how and when to use Module, Sequential, ModuleList and ModuleDict"></a>Pytorch: how and when to use Module, Sequential, ModuleList and ModuleDict</h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="https://github.com/FrancescoSaverioZuppichini/Pytorch-how-and-when-to-use-Module-Sequential-ModuleList-and-ModuleDict/blob/master/README.md" target="_blank" rel="noopener">Github Repo of FrancescoSaverioZuppichini</a></li>
+<li>You can find the code <a href="https://github.com/FrancescoSaverioZuppichini/Pytorch-how-and-when-to-use-Module-Sequential-ModuleList-and-ModuleDict" target="_blank" rel="noopener">here</a></li>
 </ul>
-<p>You can find the code <a href="https://github.com/FrancescoSaverioZuppichini/Pytorch-how-and-when-to-use-Module-Sequential-ModuleList-and-ModuleDict" target="_blank" rel="noopener">here</a></p>
 <p><a href="https://pytorch.org/" target="_blank" rel="noopener">Pytorch</a> is an open source deep learning frameworks that provide a smart way to create ML models. Even if the documentation is well made, I still find that most people still are able to write bad and not organized PyTorch code.</p>
 <p>Today, we are going to see how to use the three main building blocks of PyTorch: <code>Module, Sequential and ModuleList</code>. We are going to start with an example and iteratively we will make it better.</p>
 <p>All these four classes are contained into <code>torch.nn</code></p>
@@ -932,7 +932,7 @@ Sequential(
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pytorch-how-and-when-to-use-Module-Sequential-ModuleList-and-ModuleDict"><span class="nav-text">Pytorch: how and when to use Module, Sequential, ModuleList and ModuleDict</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Effective-way-to-share-reuse-and-break-down-the-complexity-of-your-models"><span class="nav-text">Effective way to share, reuse and break down the complexity of your models</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-the-main-building-block"><span class="nav-text">Module: the main building block</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sequential-stack-and-merge-layers"><span class="nav-text">Sequential: stack and merge layers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dynamic-Sequential-create-multiple-layers-at-once"><span class="nav-text">Dynamic Sequential: create multiple layers at once</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ModuleList-when-we-need-to-iterate"><span class="nav-text">ModuleList : when we need to iterate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ModuleDict-when-we-need-to-choose"><span class="nav-text">ModuleDict: when we need to choose</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Final-implementation"><span class="nav-text">Final implementation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-text">Conclusion</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pytorch-how-and-when-to-use-Module-Sequential-ModuleList-and-ModuleDict"><span class="nav-text">Pytorch: how and when to use Module, Sequential, ModuleList and ModuleDict</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-the-main-building-block"><span class="nav-text">Module: the main building block</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sequential-stack-and-merge-layers"><span class="nav-text">Sequential: stack and merge layers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dynamic-Sequential-create-multiple-layers-at-once"><span class="nav-text">Dynamic Sequential: create multiple layers at once</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ModuleList-when-we-need-to-iterate"><span class="nav-text">ModuleList : when we need to iterate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ModuleDict-when-we-need-to-choose"><span class="nav-text">ModuleDict: when we need to choose</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Final-implementation"><span class="nav-text">Final implementation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-text">Conclusion</span></a></li></div>
             
 
           </div>
