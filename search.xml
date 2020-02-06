@@ -1,6 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>AI Overview</title>
+    <url>/AI-Overview/2020/02/05/</url>
+    <content><![CDATA[<h2 id="Two-views-of-AI"><a href="#Two-views-of-AI" class="headerlink" title="Two views of AI"></a>Two views of AI</h2><ol>
+<li><strong>AI agents</strong>: how can we create intelligence? </li>
+</ol>
+<ul>
+<li>achieving human-level intelligence, still very far (e.g., generalize from few examples)</li>
+<li>The first is what one would normally associate with AI: the science and engineering of building ”intelligent” agents. The inspiration of what constitutes intelligence comes from the types of capabilities that humans possess: the ability to perceive a very complex world and make enough sense of it to be able to manipulate it.</li>
+</ul>
+<ol>
+<li><strong>AI tools</strong>: how can we benefit society? </li>
+</ol>
+<ul>
+<li>need to think carefully about real-world consequences (e.g., security, biases)</li>
+<li>The second views AI as a set of tools. We are simply trying to solve problems in the world, and techniques developed by the AI community happen to be useful for that, but these problems are not ones that humans necessarily do well on natively.</li>
+</ul>
+<h2 id="How-should-we-actually-solve-AI-tasks"><a href="#How-should-we-actually-solve-AI-tasks" class="headerlink" title="How should we actually solve AI tasks?"></a>How should we actually solve AI tasks?</h2><p>In this class, we will adopt the <strong>modeling-inference-learning</strong> paradigm to help us navigate the solution space. In reality the lines are blurry, but this paradigm serves as an ideal and a useful guiding principle.</p>
+<h3 id="Modeling"><a href="#Modeling" class="headerlink" title="Modeling"></a>Modeling</h3><ul>
+<li>The first pillar is modeling. Modeling takes messy real world problems and packages them into <strong>neat formal mathematical objects</strong> called models, which can be subject to rigorous analysis and can be operated on by computers. However, modeling is lossy: not all of the richness of the real world can be captured, and therefore there is an art of modeling: what does one keep versus ignore? (An exception to this are games such as Chess, Go or Sodoku, where the real world is identical to the model.)</li>
+<li>As an example, suppose we’re trying to have an AI that can navigate through a busy city. We might formulate this as a graph where nodes represent points in the city, edges represent the roads, and the cost of an edge represents the traffic on that road.</li>
+</ul>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="modeling.png" width="70%" height="70%">
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">Modeling</div>
+</center>
+
+
+<h3 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h3><ul>
+<li>The second pillar is inference. Given a model, the task of inference is to answer questions with respect to the model. For example, given the model of the city, one could ask questions such as: what is the shortest path? what is the cheapest path?</li>
+<li>The focus of inference is usually on <strong>efficient algorithms</strong> that can answer these questions. For some models, computational complexity can be a concern (games such as Go), and usually approximations are needed.</li>
+</ul>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="inference.png" width="70%" height="70%">
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">Inference</div>
+</center>
+
+
+<h3 id="Learning"><a href="#Learning" class="headerlink" title="Learning"></a>Learning</h3><ul>
+<li>But where does the model come from? Remember that the real world is rich, so if the model is to be faithful, the model has to be rich as well. But we can’t possibly write down such a rich model manually.</li>
+<li>The idea behind (machine) learning is to instead get it from data. Instead of constructing a model, one constructs a skeleton of a model (more precisely, a model family), which is a model without parameters. And then if we have the right type of data, we can run a machine learning algorithm to tune the parameters of the model.</li>
+<li>Note that learning here is not tied to a particular approach (e.g., neural networks), but more of a philosophy. This general paradigm will allow us to bridge the gap between logic-based AI and statistical AI.</li>
+</ul>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="learning.png" width="70%" height="70%">
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">Learning</div>
+</center>
+
+
+
+
+<h2 id="Machine-Learning"><a href="#Machine-Learning" class="headerlink" title="Machine Learning"></a>Machine Learning</h2><p>We concentrate on the models that we can use to represent real-world tasks. The topics will in a sense advance from low-level intelligence to high-level intelligence, evolving from models that simply make a reflex decision to models that are based on logical reasoning.</p>
+<p>Supporting all of these models is machine learning, which has been arguably the most crucial ingredient powering recent successes in AI. From a systems engineering perspective, machine learning allows us to shift the information complexity of the model from code to data, which is much easier to obtain (either naturally occurring or via crowdsourcing).</p>
+<p>The main conceptually magical part of learning is that if done properly, the trained model will be able to produce good predictions beyond the set of training examples. This leap of faith is called generalization, and is, explicitly or implicitly, at the heart of any machine learning algorithm. This can even be formalized using tools from probability and statistical learning theory.</p>
+<ul>
+<li>The main driver of recent successes in AI</li>
+<li>Move from ”code” to ”data” to manage the information complex-<br>ity</li>
+<li>Requires a leap of faith: <strong>generalization</strong></li>
+</ul>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="machine-learning.png" width="70%" height="70%">
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">machine-learning.png</div>
+</center>
+
+<h3 id="Reflex-based-models"><a href="#Reflex-based-models" class="headerlink" title="Reflex-based models"></a>Reflex-based models</h3><p>A reflex-based model simply performs a fixed sequence of computations on a given input. Examples include most models found in machine learning, from simple linear classifiers to deep neural networks. The main characteristic of reflex-based models is that their computations are feed-forward; one doesn’t backtrack and consider alternative computations. Inference is trivial in these models because it is just running the fixed computations, which makes these models appealing.</p>
+<ul>
+<li>linear classifiers, deep neural networks</li>
+<li>Most common models in machine learning</li>
+<li>Fully feed-forward (no backtracking)</li>
+</ul>
+<h3 id="State-based-models"><a href="#State-based-models" class="headerlink" title="State-based models"></a>State-based models</h3><p>Reflex-based models are too simple for tasks that require more forethought (e.g., in playing chess or planning a big trip). State-based models overcome this limitation. The key idea is, at a high-level, to model the state of a world and transitions between states which are triggered by actions. Concretely, one can think of states as nodes in a graph and transitions as edges. This reduction is useful because we understand graphs well and have a lot of efficient algorithms for operating on graphs.</p>
+<ul>
+<li>Search problems: you control everything</li>
+<li>Markov decision processes: against nature (e.g., Blackjack)</li>
+<li>Adversarial games: against opponent (e.g., chess)</li>
+</ul>
+<p>application  </p>
+<ul>
+<li>Games: Chess, Go, Pac-Man, Starcraft, etc.</li>
+<li>Robotics: motion planning</li>
+<li>Natural language generation: machine translation, image caption-<br>ing</li>
+</ul>
+<h3 id="Variable-based-models"><a href="#Variable-based-models" class="headerlink" title="Variable-based models"></a>Variable-based models</h3><ul>
+<li>Constraint satisfaction problems: hard constraints (e.g., Sudoku, scheduling)</li>
+</ul>
+<p>Constraint satisfaction problems are variable-based models where we only have hard constraints. For example, in scheduling, we can’t have two people in the same place at the same time.</p>
+<ul>
+<li>Bayesian networks: soft dependencies (e.g., tracking cars from sensors)</li>
+</ul>
+<p>Bayesian networks are variable-based models where variables are random variables which are dependent on each other. For example, the true location of an airplane Ht and its radar reading Et are related, as are the location Ht and the location at the last time step $H_{t−1}$. The exact dependency structure is given by the graph structure and it formally defines a joint probability distribution over all of the variables. This topic is studied thoroughly in probabilistic graphical models (CS228).</p>
+<h2 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h2><p>We are now done with the high-level motivation for the class. Let us now dive into some technical details. Let us focus on the inference and the learning aspect of the modeling-inference-learning paradigm. We will approach <strong>inference</strong> and <strong>learning</strong> from an optimization perspective, which allows us to decouple the mathematical specification of what we want to compute from the algorithms for <strong>how to compute it</strong>.</p>
+<p>In total generality, optimization problems ask that you find the x that lives in a constraint set C that makes the function F(x) as small as possible. There are two types of optimization problems we’ll consider:  discrete optimization problems (mostly for inference) and continuous optimization problems (mostly for learning). Both are backed by a rich research field and are interesting topics in their own right. For this course, we will use the most basic tools from these topics: dynamic programming and gradient descent.</p>
+<ol>
+<li>Discrete optimization: find the best discrete object</li>
+</ol>
+<script type="math/tex; mode=display">min_{p \in Paths} Cost(p)</script><p>Algorithmic tool: dynamic programming</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">computeEditDistance</span><span class="params">(s, t)</span>:</span></span><br><span class="line">    cache = &#123;&#125;  <span class="comment"># (m, n) =&gt; result</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recurse</span><span class="params">(m, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Return the minimum edit distance between:</span></span><br><span class="line"><span class="string">        - first m letters of s</span></span><br><span class="line"><span class="string">        - first n letters of t</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> (m, n) <span class="keyword">in</span> cache:</span><br><span class="line">            <span class="keyword">return</span> cache[(m, n)]</span><br><span class="line">        <span class="keyword">if</span> m == <span class="number">0</span>:  <span class="comment"># Base case</span></span><br><span class="line">            result = n</span><br><span class="line">        <span class="keyword">elif</span> n == <span class="number">0</span>:  <span class="comment"># Base case</span></span><br><span class="line">            result = m</span><br><span class="line">        <span class="keyword">elif</span> s[m - <span class="number">1</span>] == t[n - <span class="number">1</span>]:  <span class="comment"># Last letter matches</span></span><br><span class="line">            result = recurse(m - <span class="number">1</span>, n - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            subCost = <span class="number">1</span> + recurse(m - <span class="number">1</span>, n - <span class="number">1</span>)</span><br><span class="line">            delCost = <span class="number">1</span> + recurse(m - <span class="number">1</span>, n)</span><br><span class="line">            insCost = <span class="number">1</span> + recurse(m, n - <span class="number">1</span>)</span><br><span class="line">            result = min(subCost, delCost, insCost)</span><br><span class="line">        cache[(m, n)] = result</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> recurse(len(s), len(t))</span><br><span class="line"></span><br><span class="line"><span class="comment">#print(computeEditDistance('a cat!', 'the cats!'))</span></span><br><span class="line">print(computeEditDistance(<span class="string">'a cat!'</span> * <span class="number">10</span>, <span class="string">'the cats!'</span> * <span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Continuous optimization: find the best vector of real numbers</li>
+</ol>
+<script type="math/tex; mode=display">min_{w \in \mathbb{R}^d} TrainingError(w)</script><p>Algorithmic tool: gradient descent</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">points = [(<span class="number">2</span>, <span class="number">4</span>), (<span class="number">4</span>, <span class="number">2</span>)]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">F</span><span class="params">(w)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> sum((w * x - y)**<span class="number">2</span> <span class="keyword">for</span> x, y <span class="keyword">in</span> points)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dF</span><span class="params">(w)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> sum(<span class="number">2</span>*(w * x - y) * x <span class="keyword">for</span> x, y <span class="keyword">in</span> points)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Gradient descent</span></span><br><span class="line">w = <span class="number">0</span></span><br><span class="line">eta = <span class="number">0.01</span></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">    value = F(w)</span><br><span class="line">    gradient = dF(w)</span><br><span class="line">    w = w - eta * gradient</span><br><span class="line">    print(<span class="string">'iteration &#123;&#125;: w = &#123;&#125;, F(w) = &#123;&#125;'</span>.format(t, w, value))</span><br></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li>course note from <a href="https://stanford-cs221.github.io/autumn2019/" target="_blank" rel="noopener">cs221</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Artificial Intelligence</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Module Sequential ModuleList ModuleDict</title>
     <url>/Module-Sequential-ModuleList-ModuleDict/2020/01/28/</url>
     <content><![CDATA[<h3 id="Pytorch-how-and-when-to-use-Module-Sequential-ModuleList-and-ModuleDict"><a href="#Pytorch-how-and-when-to-use-Module-Sequential-ModuleList-and-ModuleDict" class="headerlink" title="Pytorch: how and when to use Module, Sequential, ModuleList and ModuleDict"></a>Pytorch: how and when to use Module, Sequential, ModuleList and ModuleDict</h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
