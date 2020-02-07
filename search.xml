@@ -149,6 +149,33 @@
     color: #999;
     padding: 2px;">Macos Architecture</div>
 </center>
+
+
+<h2 id="Quiz"><a href="#Quiz" class="headerlink" title="Quiz"></a>Quiz</h2><h4 id="Quiz-1-Operating-Systems-Components"><a href="#Quiz-1-Operating-Systems-Components" class="headerlink" title="Quiz 1: Operating Systems Components"></a>Quiz 1: Operating Systems Components</h4><p>Which of the following are likely components of an operating system?</p>
+<p>A: </p>
+<p>file system (hides hardware complexity), device driver (makes decisions), scheduler (distributes processes).</p>
+<h4 id="Quiz-2-Operating-Systems-Components"><a href="#Quiz-2-Operating-Systems-Components" class="headerlink" title="Quiz 2: Operating Systems Components"></a>Quiz 2: Operating Systems Components</h4><p>For the following options, indicate if they are examples of abstraction or arbitration.</p>
+<p>A: </p>
+<ul>
+<li>Distributing memory between multiple processes (arbitration)</li>
+<li>Supporting different types of speakers (abstraction)</li>
+<li>Interchangeable access of hard disk or SSD (abstraction)</li>
+</ul>
+<h4 id="Quiz-3-System-Calls"><a href="#Quiz-3-System-Calls" class="headerlink" title="# Quiz 3: System Calls"></a># Quiz 3: System Calls</h4><p>On a 64-bit Linux-based OS, which system call is used to:</p>
+<ul>
+<li>Send a signal to a process?</li>
+<li>Set the group identity of a process?</li>
+<li>Mount a file system?</li>
+<li>Read/write system parameters</li>
+</ul>
+<p>A: </p>
+<p>The answers are respectively,</p>
+<ul>
+<li><code>kill</code></li>
+<li><code>setgid</code></li>
+<li><code>mount</code></li>
+<li><code>sysctl</code></li>
+</ul>
 ]]></content>
       <categories>
         <category>Operating System</category>
