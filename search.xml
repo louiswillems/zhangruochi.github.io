@@ -176,6 +176,9 @@
 <li><code>mount</code></li>
 <li><code>sysctl</code></li>
 </ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://github.com/stevenxchung/Introduction-to-Operating-Systems" target="_blank" rel="noopener">https://github.com/stevenxchung/Introduction-to-Operating-Systems</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>Operating System</category>
