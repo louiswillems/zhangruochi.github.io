@@ -15544,8 +15544,8 @@ N^{\text{soft}}_k = r_{1k} + r_{2k} + \ldots + r_{Nk} = \sum_{i=1}^{N} r_{ik}</s
 ]]></content>
       <categories>
         <category>Artificial Intelligence</category>
-        <category>Deep Learning</category>
         <category>Big Data Architecture</category>
+        <category>Deep Learning</category>
       </categories>
       <tags>
         <tag>Tensorflow</tag>
