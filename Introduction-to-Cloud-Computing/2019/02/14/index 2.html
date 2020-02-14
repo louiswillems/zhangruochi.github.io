@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Map,Reduce,Server,Client,YARN">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Introduction Two categories of cloud   What is a cloud? Four major characteristics   A cloud is a distribyted s">
+<meta name="keywords" content="Map,Reduce,Server,Client,YARN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introduction to Cloud Computing">
+<meta property="og:url" content="https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Introduction Two categories of cloud   What is a cloud? Four major characteristics   A cloud is a distribyted s">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/01.png">
+<meta property="og:image" content="https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/02.png">
+<meta property="og:image" content="https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/03.png">
+<meta property="og:image" content="https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/04.png">
+<meta property="og:image" content="https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/05.png">
+<meta property="og:image" content="https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/06.png">
+<meta property="og:image" content="https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/07.png">
+<meta property="og:image" content="https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/08.png">
+<meta property="og:image" content="https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/09.png">
+<meta property="og:updated_time" content="2019-07-05T09:48:49.831Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Introduction to Cloud Computing">
+<meta name="twitter:description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Introduction Two categories of cloud   What is a cloud? Four major characteristics   A cloud is a distribyted s">
+<meta name="twitter:image" content="https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/">
+
+
+
+
+
+  <title>Introduction to Cloud Computing | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Introduction to Cloud Computing</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-14T21:35:16-05:00">
+                2019-02-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Big-Data-Architecture/" itemprop="url" rel="index">
+                    <span itemprop="name">Big Data Architecture</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Big-Data-Architecture/Distributed-Cloud-Computing/" itemprop="url" rel="index">
+                    <span itemprop="name">Distributed & Cloud Computing</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Introduction-to-Cloud-Computing/2019/02/14/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Introduction-to-Cloud-Computing/2019/02/14/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1><ul>
+<li><a href="#overview">Overview</a><ul>
+<li><a href="#goals-and-objectives">Goals and Objectives</a></li>
+<li><a href="#key-phrasesconcepts">Key Phrases/Concepts</a></li>
+<li><a href="#guiding-questions">Guiding Questions</a></li>
+</ul>
+</li>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#two-categories-of-cloud">Two categories of cloud</a></li>
+</ul>
+</li>
+<li><a href="#what-is-a-cloud">What is a cloud?</a><ul>
+<li><a href="#four-major-characteristics">Four major characteristics</a></li>
+</ul>
+</li>
+<li><a href="#a-cloud-is-a-distribyted-system">A cloud is a distribyted system</a></li>
+<li><a href="#economics-of-clouds">Economics of clouds</a></li>
+<li><a href="#what-is-a-distributed-system">What is a distributed system</a><ul>
+<li><a href="#our-interest-in-distributed-systems-involves">Our interest in distributed systems involves</a></li>
+</ul>
+</li>
+<li><a href="#mapreduce-paradigm">MapReduce paradigm</a><ul>
+<li><a href="#map">Map</a></li>
+<li><a href="#reduce">Reduce</a></li>
+</ul>
+</li>
+<li><a href="#mapreduce-scheduling">MapReduce Scheduling</a><ul>
+<li><a href="#the-yarn-scheduler">The YARN SCHEDULER</a></li>
+<li><a href="#mapreduce-example">MapReduce Example</a></li>
+</ul>
+</li>
+<li><a href="#fault-tolerance">Fault tolerance</a><ul>
+<li><a href="#stragglers">stragglers</a></li>
+<li><a href="#locality">Locality</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>This week you will see what cloud computing is, a bit about its history and economics, and why cloud computing is all about distributed systems topics (which the course focuses on).</p>
+<h3 id="Goals-and-Objectives"><a href="#Goals-and-Objectives" class="headerlink" title="Goals and Objectives"></a>Goals and Objectives</h3><p>After you actively engage in the learning experiences in this module, you should be able to:</p>
+<ul>
+<li>Know the key differences between cloud computing and previous generations of distributed systems.</li>
+<li>Design MapReduce programs for a variety of problems.</li>
+<li>Know how Hadoop schedules jobs.</li>
+</ul>
+<h3 id="Key-Phrases-Concepts"><a href="#Key-Phrases-Concepts" class="headerlink" title="Key Phrases/Concepts"></a>Key Phrases/Concepts</h3><p>Keep your eyes open for the following key terms or phrases as you complete the readings and interact with the lectures. These topics will help you better understand the content in this module.</p>
+<ul>
+<li>Clouds</li>
+<li>MapReduce paradigm</li>
+<li>Hadoop YARN</li>
+</ul>
+<h3 id="Guiding-Questions"><a href="#Guiding-Questions" class="headerlink" title="Guiding Questions"></a>Guiding Questions</h3><p>Develop your answers to the following guiding questions while completing the readings and working on assignments throughout the week.</p>
+<ul>
+<li>Why is cloud computing popular today?</li>
+<li>What is different in cloud computing compared to previous generations of distributed systems?</li>
+<li>How does one program in MapReduce?</li>
+<li>How does the MapReduce system schedule jobs?</li>
+</ul>
+<h2 id="Overview-1"><a href="#Overview-1" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>Why this course is about distributed system comcepts in cloud?<ul>
+<li>clouds are distributed system</li>
+</ul>
+</li>
+<li>Cloud examples<ul>
+<li>MapReduce and Hadoops</li>
+</ul>
+</li>
+</ul>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+<li>Customers save money and time</li>
+</ul>
+<h3 id="Two-categories-of-cloud"><a href="#Two-categories-of-cloud" class="headerlink" title="Two categories of cloud"></a>Two categories of cloud</h3><ol>
+<li>public<ul>
+<li>provide service to any paying customer</li>
+</ul>
+</li>
+<li>private<ul>
+<li>accessbile only to company employees</li>
+</ul>
+</li>
+</ol>
+<h2 id="What-is-a-cloud"><a href="#What-is-a-cloud" class="headerlink" title="What is a cloud?"></a>What is a cloud?</h2><ol>
+<li><p>Informal definition</p>
+<blockquote>
+<p>lots of storage + compute circle nearby</p>
+</blockquote>
+</li>
+<li><p>Components</p>
+<ol>
+<li>a single-site cloud<ul>
+<li>Compute nodes (grouped into racks) (servers)</li>
+<li>Switches, connecting the racks</li>
+<li>A network topology, e.g. hierarchical</li>
+<li>Storage(backend) nodes, connecting to the network</li>
+<li>Front-end for submiting jobs and receiveing client requests</li>
+<li>Software services</li>
+</ul>
+</li>
+<li>a geographically distributed cloud<ul>
+<li>Mutiple such sites</li>
+<li>Each site perhaps with different structures and services</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p><img src="01.png" alt></p>
+<h3 id="Four-major-characteristics"><a href="#Four-major-characteristics" class="headerlink" title="Four major characteristics"></a>Four major characteristics</h3><p>Distinguish today’s clouds from previous generations of distributed computing systems and problems</p>
+<ol>
+<li><strong>Massive scale</strong><br> Massive-scale essentially means that data centers are very large. They contain tens of thousands, sometimes hundreds of thousands of servers and you could run your computation across as many servers as you want and as many servers as your application will scale</li>
+<li><strong>On-demand access</strong><br> Pay-as-you-go, no upfront commitment. Anyone can access it<ul>
+<li>HaaS: Hardware as a Service</li>
+<li>IaaS: Infrastructure as a Service(Ex: Amazon Web Services (AWS: EC2 and S3))</li>
+<li>PaaS: Platform as a Service(You get access to flexible computing and storage infrastructure, coupled with a software platform (often tightly), Ex: Google’s AppEngine (Python, Java, Go))</li>
+<li>SaaS: Software as a Service(You get access to software services, when you need them. Often said to subsume SOA (Service Oriented Architectures), Ex: Google docs, MS Office on demand)</li>
+</ul>
+</li>
+<li><strong>Data-intensive Nature</strong><ul>
+<li>Typically store data at datacenters</li>
+<li>Use compute nodes nearby</li>
+<li>Compute nodes run computation services</li>
+<li>In data-intensive computing, <strong>the focus shifts from computation to the data</strong>: CPU utilization no longer the most important resource metric, instead I/O is (disk and/or network)</li>
+</ul>
+</li>
+<li><strong>New Cloud Programming Paradigms</strong><ul>
+<li>MapReduce/Hadoop, NoSQL/Cassandra/MongoDB and many others.</li>
+<li>Easy to write and run highly parallel programs in new cloud programming paradigms:</li>
+</ul>
+</li>
+</ol>
+<h2 id="A-cloud-is-a-distribyted-system"><a href="#A-cloud-is-a-distribyted-system" class="headerlink" title="A cloud is a distribyted system"></a>A cloud is a distribyted system</h2><ol>
+<li>A cloud consists of<ul>
+<li>Hundreds to thousands of machines in a datacenter (server side)</li>
+<li>Thousands to millions of machines accessing these services (client side)</li>
+</ul>
+</li>
+<li>Servers communicate amongst one another<ul>
+<li>Distributed System</li>
+<li>Essentially a cluster!</li>
+</ul>
+</li>
+<li>Clients communicate with servers<ul>
+<li>Also a distributed system!</li>
+</ul>
+</li>
+<li>Clients also communicate with each other<ul>
+<li>Also a distributed system!</li>
+<li><img src="02.png" alt></li>
+</ul>
+</li>
+<li><strong>Four Features of Clouds = All Distributed Systems Features</strong></li>
+<li><strong>Cloud = A Fancy Word for a Distributed System</strong></li>
+</ol>
+<h2 id="Economics-of-clouds"><a href="#Economics-of-clouds" class="headerlink" title="Economics of clouds"></a>Economics of clouds</h2><p><img src="03.png" alt></p>
+<h2 id="What-is-a-distributed-system"><a href="#What-is-a-distributed-system" class="headerlink" title="What is a distributed system"></a>What is a distributed system</h2><ul>
+<li>A distributed system is a collection of independent computers that appear to the users of the system as a single computer.[Andrew Tanenbaum]</li>
+<li>A distributed system is several computers doing something together. Thus, a distributed system has three primary characteristics: multiple computers, interconnections, and shared state. [Michael Schroeder]</li>
+<li>A distributed system is a collection of entities, each of which is <strong>autonomous</strong>, <strong>programmable</strong>, <strong>asynchronous</strong> and failure- prone, and which communicate through an unreliable communication medium.<ul>
+<li><strong>programmable</strong>,Eliminates “Humans Interacting with each other”</li>
+<li><strong>asynchronous</strong>, Distinguishes distributed systems from parallel systems (e.g., multiprocessor systems)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Our-interest-in-distributed-systems-involves"><a href="#Our-interest-in-distributed-systems-involves" class="headerlink" title="Our interest in distributed systems involves"></a>Our interest in distributed systems involves</h3><ul>
+<li>algorithmics</li>
+<li>design and implementation</li>
+<li>maintenance, </li>
+<li>study</li>
+</ul>
+<h2 id="MapReduce-paradigm"><a href="#MapReduce-paradigm" class="headerlink" title="MapReduce paradigm"></a>MapReduce paradigm</h2><ul>
+<li><p>(map square (1,2,3,4))</p>
+<ul>
+<li>output: (1,4,9,16)<br>process each record sequentially and independently</li>
+</ul>
+</li>
+<li><p>(reduce + (1,4,9,16))</p>
+<ul>
+<li>(+16 (+9 (+4)))</li>
+<li>output: 30<br>process set of all records in batches </li>
+</ul>
+</li>
+</ul>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><ul>
+<li>Map task processes each record <strong>sequentially and independently</strong></li>
+<li><strong>Parallelly</strong> process different map tasks<br>  <img src="04.png" alt></li>
+</ul>
+<h3 id="Reduce"><a href="#Reduce" class="headerlink" title="Reduce"></a>Reduce</h3><ul>
+<li>Reduce process set of all records in batches</li>
+<li>Parallelly process by partitioning records<br>  <img src="05.png" alt></li>
+</ul>
+<h2 id="MapReduce-Scheduling"><a href="#MapReduce-Scheduling" class="headerlink" title="MapReduce Scheduling"></a>MapReduce Scheduling</h2><p>1.Externally, for the user:</p>
+<pre><code>1. write map program, write reduce program
+2. submit job; wait for result
+3. need to know nothing about parallel programming
+</code></pre><ol>
+<li>Internally, for the paradigm and scheduler<ol>
+<li>Parallelize Map<ul>
+<li>each Map task is independent</li>
+<li>all Map output records with teh same key should assign to the same Reducer</li>
+</ul>
+</li>
+<li>Transfer data from Map to Reduce</li>
+<li>Parallelize Reduce<ul>
+<li>each Reduce task is independent </li>
+<li>use partition function</li>
+</ul>
+</li>
+<li>Implement Storage for Map input, Map output, Reduce input, Reduce output<ul>
+<li>Map input: DFS</li>
+<li>Map output: local disk</li>
+<li>Reduce input: remote disk</li>
+<li>Reduce output: DFS</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p><img src="06.png" alt></p>
+<h3 id="The-YARN-SCHEDULER"><a href="#The-YARN-SCHEDULER" class="headerlink" title="The YARN SCHEDULER"></a>The YARN SCHEDULER</h3><ul>
+<li>Used in Hadoop 2.x +</li>
+<li>YARN = Yet Another Resource Negotiator</li>
+<li>Treats each server as a collection of containers<ul>
+<li>Container = some CPU + some memory</li>
+</ul>
+</li>
+<li>Has 3 main components<ul>
+<li>Global Resource Manager (RM)<ul>
+<li>scheduling</li>
+</ul>
+</li>
+<li>Per-server Node Manager (NM)<ul>
+<li>Daemon and server-specific functions</li>
+</ul>
+</li>
+<li>Per-application (job) Application Master (AM)<ul>
+<li>Container negotiation with RM and NMs</li>
+<li>Detecting task failures of that job</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="07.png" alt></p>
+<h3 id="MapReduce-Example"><a href="#MapReduce-Example" class="headerlink" title="MapReduce Example"></a>MapReduce Example</h3><p><img src="08.png" alt></p>
+<h2 id="Fault-tolerance"><a href="#Fault-tolerance" class="headerlink" title="Fault tolerance"></a>Fault tolerance</h2><ul>
+<li>Server failure<ul>
+<li>NM,AM heartbeats to RM</li>
+<li>NM keep track of each task running at its server</li>
+</ul>
+</li>
+<li>RM failure<ul>
+<li>use old checkpoints and bring up secondary RM</li>
+</ul>
+</li>
+</ul>
+<h3 id="stragglers"><a href="#stragglers" class="headerlink" title="stragglers"></a>stragglers</h3><ul>
+<li>the slowest machine slows the entire job</li>
+<li><strong>speculative exection</strong>: backup execction of straggler task</li>
+</ul>
+<h3 id="Locality"><a href="#Locality" class="headerlink" title="Locality"></a>Locality</h3><p><img src="09.png" alt></p>
+<p><strong>Reference from some slides from Coursera course <a href="https://www.coursera.org/learn/cloud-computing" target="_blank" rel="noopener">Cloud Computing</a></strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Course-Note/" rel="tag"># Course Note</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Gossip-Member-Grid/2019/02/14/" rel="next" title="Gossip,Member,Grid">
+                <i class="fa fa-chevron-left"></i> Gossip,Member,Grid
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/The Learning Problems/2019/02/14/" rel="prev" title="The Learning Problems">
+                The Learning Problems <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">186</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Table-of-Contents"><span class="nav-text">Table of Contents</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Goals-and-Objectives"><span class="nav-text">Goals and Objectives</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-Phrases-Concepts"><span class="nav-text">Key Phrases/Concepts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Guiding-Questions"><span class="nav-text">Guiding Questions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview-1"><span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-categories-of-cloud"><span class="nav-text">Two categories of cloud</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-a-cloud"><span class="nav-text">What is a cloud?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Four-major-characteristics"><span class="nav-text">Four major characteristics</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-cloud-is-a-distribyted-system"><span class="nav-text">A cloud is a distribyted system</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Economics-of-clouds"><span class="nav-text">Economics of clouds</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-a-distributed-system"><span class="nav-text">What is a distributed system</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Our-interest-in-distributed-systems-involves"><span class="nav-text">Our interest in distributed systems involves</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MapReduce-paradigm"><span class="nav-text">MapReduce paradigm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-text">Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reduce"><span class="nav-text">Reduce</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MapReduce-Scheduling"><span class="nav-text">MapReduce Scheduling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-YARN-SCHEDULER"><span class="nav-text">The YARN SCHEDULER</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MapReduce-Example"><span class="nav-text">MapReduce Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fault-tolerance"><span class="nav-text">Fault tolerance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stragglers"><span class="nav-text">stragglers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Locality"><span class="nav-text">Locality</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>

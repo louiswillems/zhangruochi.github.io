@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="gRPC,protobuf">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Some important concept about Tensorflow Serving">
+<meta name="keywords" content="gRPC,protobuf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TFserving Introdcution">
+<meta property="og:url" content="https://zhangruochi.com/TFserving-Introdcution/2019/05/13/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="Some important concept about Tensorflow Serving">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/TFserving-Introdcution/2019/05/13/7D22A7732CAFA18CAC17320F8FA0FE1D.png">
+<meta property="og:image" content="https://zhangruochi.com/TFserving-Introdcution/2019/05/13/0E839B6EE8212EBA65B9FA12663C1F51.png">
+<meta property="og:image" content="https://zhangruochi.com/TFserving-Introdcution/2019/05/13/74BF9D5A46B9F999DAE5C1D682CCDA00.png">
+<meta property="og:image" content="https://zhangruochi.com/TFserving-Introdcution/2019/05/13/4D3D10F107C2EF93283F76BAFBA065D9.png">
+<meta property="og:updated_time" content="2019-07-05T10:20:07.460Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TFserving Introdcution">
+<meta name="twitter:description" content="Some important concept about Tensorflow Serving">
+<meta name="twitter:image" content="https://zhangruochi.com/TFserving-Introdcution/2019/05/13/7D22A7732CAFA18CAC17320F8FA0FE1D.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/TFserving-Introdcution/2019/05/13/">
+
+
+
+
+
+  <title>TFserving Introdcution | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/TFserving-Introdcution/2019/05/13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">TFserving Introdcution</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-13T15:23:25-04:00">
+                2019-05-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
+                    <span itemprop="name">Artificial Intelligence</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Big-Data-Architecture/" itemprop="url" rel="index">
+                    <span itemprop="name">Big Data Architecture</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/TFserving-Introdcution/2019/05/13/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/TFserving-Introdcution/2019/05/13/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  Some important concept about Tensorflow Serving
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="TensorFlow-SavedModel"><a href="#TensorFlow-SavedModel" class="headerlink" title="TensorFlow SavedModel"></a>TensorFlow SavedModel</h2><ul>
+<li>SaveModel与语言无关</li>
+<li>Tensorflow Serving server部署模型必须选择SavedModel格式。</li>
+</ul>
+<p>一个比较完整的SavedModel模型包含以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">assets/</span><br><span class="line">assets.extra/</span><br><span class="line">variables/</span><br><span class="line">    variables.data</span><br><span class="line">    variables.index</span><br><span class="line">saved_model.pb</span><br></pre></td></tr></table></figure>
+<p>saved_model.pb是<strong>MetaGraphDef</strong>，它包含图形结构。variables文件夹保存训练所习得的权重。assets文件夹可以添加可能需要的外部文件，assets.extra是一个库可以添加其特定assets的地方。</p>
+<blockquote>
+<p>MetaGraph是一个数据流图，加上其相关的变量、assets和签名。MetaGraphDef是MetaGraph的Protocol Buffer表示。</p>
+</blockquote>
+<h3 id="保存"><a href="#保存" class="headerlink" title="保存"></a>保存</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tf.saved_model.simple_save(sess,</span><br><span class="line">            <span class="string">"./model"</span>,</span><br><span class="line">            inputs=&#123;<span class="string">"myInput"</span>: x&#125;,</span><br><span class="line">            outputs=&#123;<span class="string">"myOutput"</span>: y&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session(graph=tf.Graph()) <span class="keyword">as</span> sess:</span><br><span class="line">  tf.saved_model.loader.load(sess, [<span class="string">"serve"</span>], <span class="string">"./model"</span>)</span><br><span class="line">  graph = tf.get_default_graph()</span><br></pre></td></tr></table></figure>
+<h2 id="Tensorflow-Serving"><a href="#Tensorflow-Serving" class="headerlink" title="Tensorflow Serving"></a>Tensorflow Serving</h2><h3 id="Key-Concepts"><a href="#Key-Concepts" class="headerlink" title="Key Concepts:"></a>Key Concepts:</h3><ul>
+<li><strong>Servables</strong>: the underlying objects that clients use to perform computation.<br>Typical servables include:<ul>
+<li>TensorFlow SavedModelBundle(tensorflow::Session)</li>
+<li>lookup table for embedding/vocabulary lookups.</li>
+</ul>
+</li>
+<li><strong>Loaders</strong>: manage a servable’s life cycle.</li>
+<li><strong>Sources</strong>: plugin modules that originate servables.</li>
+<li><strong>Managers</strong>: Sounds like they basically just work with the 3 previous things. They load, serve, and unload servables.</li>
+<li><strong>Core</strong>: All of the above wrapped into a single object.</li>
+</ul>
+<p><img src="7D22A7732CAFA18CAC17320F8FA0FE1D.png" alt="Screen Shot 2019-05-13 at 10.16.36.png"></p>
+<h4 id="Servables"><a href="#Servables" class="headerlink" title="Servables"></a>Servables</h4><p>Servables 是 TensorFlow Serving 中最核心的抽象，是客户端用于执行计算 (例如：查找或推断) 的底层对象。</p>
+<h4 id="Servables-Streams"><a href="#Servables-Streams" class="headerlink" title="Servables Streams"></a>Servables Streams</h4><p>一个 Servables Stream 是多个版本的 Servable 的序列，其按照版本号的递增排序。</p>
+<h4 id="Loaders"><a href="#Loaders" class="headerlink" title="Loaders"></a>Loaders</h4><p>Loaders 管理一个 Servable 的生命周期。Loader API 提供了一个独立于特定机器学习算法，数据和用户产品用例的通用基础平台。具体说，Loaders 将一个 Servable 的加载和卸载的 API 进行了标准化。</p>
+<h4 id="Sources"><a href="#Sources" class="headerlink" title="Sources"></a>Sources</h4><p>Sources 是用于查找和提供 Servables 的插件模块，每个 Source 提供零个或多个 Servable Streams。对于每个 Servable Stream，一个 Source 为一个 Loader 实例对不同版本的载入提供支持。(一个 Source 通常是由零个或多个 SourceAdapters 链接在一起，其中最后一项将触发 Loaders。)</p>
+<h4 id="Managers"><a href="#Managers" class="headerlink" title="Managers"></a>Managers</h4><p>Managers 维护 Servables 的整个生命周期，包括：</p>
+<ul>
+<li>加载 Servables</li>
+<li>为 Servables 提供服务</li>
+<li>卸载 Servables</li>
+</ul>
+<h4 id="Core"><a href="#Core" class="headerlink" title="Core"></a>Core</h4><p>TensorFlow Serving Core 通过 TensorFlow Serving APIs 管理 Servales 的如下方面：</p>
+<ul>
+<li>生命周期 (lifecycle)</li>
+<li>度量信息 (metrics)</li>
+</ul>
+<p>启动过程主要是创建ServerCore对象, 并启动grpc server和http server.</p>
+<ul>
+<li><p>ServerCore对象可以认为是系统中枢, 模型的维护, 服务请求的处理都是由他完成. ServerCore通过BasicManager管理所有的model(多版本号), 并查处模型已经提供预测、分类、回归请求.</p>
+</li>
+<li><p>ServerCore启动的时候创建AspiredVersionManager, AspiredVersionManager会启动定时任务(线程), 用于处理AspiredVersionRequest消息, 其实就是模型的加载、卸载.</p>
+</li>
+<li><p>启动的时候ServerCore还会根据模型配置创建文件系统扫描任务, 定时扫描模型文件目录并进行相应的处理</p>
+</li>
+<li><p>http rest服务启动后, 会监听http post请求, 通过serverCore查找对应的模型版本, 获取对应的已加载的模型, 进行运算并返回结果. gRPC服务与 http rest服务类似.</p>
+</li>
+</ul>
+<h4 id="example"><a href="#example" class="headerlink" title="example"></a>example</h4><p>例如：一个 Source 请求一个包含最近更新的权重的 TensorFlow 计算图，其权重信息存储在硬盘的一个文件中。</p>
+<ol>
+<li>Source 检测到一个新版本的模型权重，其会创建一个包含指向磁盘中模型数据指针的 Loader。</li>
+<li>Source 通知 Dynamic Manager 此时的 Aspired Version。</li>
+<li>Dynamic Manager 应用 Version Policy 并决定载入新版本。</li>
+<li>Dynamic Manager 通知 Loader 目前有充足的内存，Loader 利用新的权重实例化 Tensorflow 计算图。</li>
+<li>一个客户端请求最新版本的模型，Dynamic Manager 返回一个最新版本 Servable 的处理器。</li>
+</ol>
+<h3 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h3><ol>
+<li>Support distributed TensorFlow models</li>
+<li>Support the general RESTful/HTTP APIs</li>
+<li>Support inference with accelerated GPU</li>
+</ol>
+<p>If you want to use GPU, try with the docker image with GPU tag and put cuda files in /usr/cuda_files/.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> CUDA_SO=<span class="string">"-v /usr/cuda_files/:/usr/cuda_files/"</span></span><br><span class="line"><span class="built_in">export</span> DEVICES=$(\ls /dev/nvidia* | xargs -I&#123;&#125; <span class="built_in">echo</span> <span class="string">'--device &#123;&#125;:&#123;&#125;'</span>)</span><br><span class="line"><span class="built_in">export</span> LIBRARY_ENV=<span class="string">"-e LD_LIBRARY_PATH=/usr/local/cuda/extras/CUPTI/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/cuda_files"</span></span><br><span class="line">docker run -it -p 8500:8500 <span class="variable">$CUDA_SO</span> <span class="variable">$DEVICES</span> <span class="variable">$LIBRARY_ENV</span> tobegit3hub/simple_tensorflow_serving:latest-gpu</span><br></pre></td></tr></table></figure>
+<p>You can set session config and gpu options in command-line parameter or the model config file.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">simple_tensorflow_serving --model_base_path=<span class="string">"./models/tensorflow_template_application_model"</span> --session_config=<span class="string">'&#123;"log_device_placement": true, "allow_soft_placement": ˓→true, "allow_growth": true, "per_process_gpu_memory_fraction": 0.5&#125;'</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="string">"model_config_list"</span>: [</span><br><span class="line">&#123;</span><br><span class="line"><span class="string">"name"</span>: <span class="string">"default"</span>,</span><br><span class="line"><span class="string">"base_path"</span>: <span class="string">"./models/tensorflow_template_application_model/"</span>, <span class="string">"platform"</span>: <span class="string">"tensorflow"</span>,</span><br><span class="line"><span class="string">"session_config"</span>: &#123;</span><br><span class="line"><span class="string">"log_device_placement"</span>: <span class="literal">true</span>, <span class="string">"allow_soft_placement"</span>: <span class="literal">true</span>, <span class="string">"allow_growth"</span>: <span class="literal">true</span>, <span class="string">"per_process_gpu_memory_fraction"</span>: 0.5</span><br><span class="line">&#125; &#125;</span><br><span class="line">] &#125;</span><br></pre></td></tr></table></figure>
+<p>Here is the benchmark of CPU and GPU inference and y-coordinate is the latency(the lower the better).<br><img src="0E839B6EE8212EBA65B9FA12663C1F51.png" alt="Screen Shot 2019-05-13 at 13.05.55.png"></p>
+<ol>
+<li>Support curl and other command-line tools</li>
+<li>Support clients in any programming language</li>
+<li>Support code-gen client by models without coding</li>
+</ol>
+<ul>
+<li><p>You can generate the test json data for the online models.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://localhost:8500/v1/models/default/gen_json</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Or generate clients in different languages(Bash, Python, Golang, JavaScript etc.) for your model without writing any code.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://localhost:8500/v1/models/default/gen_client?language=python &gt; client.py</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li><p>Support inference with raw file for image models</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST -F <span class="string">'image=@./images/mew.jpg'</span> -F <span class="string">"model_version=1"</span> 127.0.0.1:8500</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Support statistical metrics for verbose requests</p>
+</li>
+<li>Support serving multiple models/multiple version at the same time<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">    model_config_list:&#123;</span><br><span class="line">    config:&#123;</span><br><span class="line">      name:&quot;model1&quot;,</span><br><span class="line">      base_path:&quot;/models/multiModel/model1&quot;,</span><br><span class="line">      model_platform:&quot;tensorflow&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    config:&#123;</span><br><span class="line">      name:&quot;model2&quot;,</span><br><span class="line">      base_path:&quot;/models/multiModel/model2&quot;,</span><br><span class="line">      model_platform:&quot;tensorflow&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    config:&#123;</span><br><span class="line">      name:&quot;model3&quot;,</span><br><span class="line">      base_path:&quot;/models/multiModel/model3&quot;,</span><br><span class="line">      model_platform:&quot;tensorflow&quot;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 8501:8501 --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,<span class="built_in">source</span>=/home/jerry/tmp/multiModel/,target=/models/multiModel \</span><br><span class="line"> -t tensorflow/serving --model_config_file=/models/multiModel/models.config</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests </span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line">SERVER_URL = <span class="string">'http://localhost:8501/v1/models/model3:predict'</span>  </span><br><span class="line"><span class="comment">#注意SERVER_URL中的‘model3’是config文件中定义的模型name,不是文件夹名称</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prediction</span><span class="params">()</span>:</span> </span><br><span class="line">    predict_request=<span class="string">'&#123;"instances":%s&#125;'</span> % str([[[<span class="number">10</span>]*<span class="number">7</span>]*<span class="number">7</span>]) </span><br><span class="line">    print(predict_request) </span><br><span class="line">    response = requests.post(SERVER_URL, data=predict_request) </span><br><span class="line">    print(response)</span><br><span class="line">    prediction = response.json()[<span class="string">'predictions'</span>][<span class="number">0</span>] </span><br><span class="line">    print(prediction) </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>: </span><br><span class="line">    prediction()</span><br></pre></td></tr></table></figure>
+<p><strong>请求指定模型版本</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SERVER_URL = &apos;http://localhost:8501/v1/models/model1/versions/100001:predict&apos;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>Support dynamic online and offline(hot plugin) for model versions</li>
+</ol>
+<p>tfserving支持模型的Hot Plug，上述容器运行起来之后，如果在宿主机的 /home/jerry/tmp/multiModel/model1/ 文件夹下新增模型文件如100003/，tfserving会自动加载新模型；同样如果移除现有模型，tfserving也会自动卸载模型。</p>
+<ol>
+<li>Support loading new custom op for TensorFlow models</li>
+</ol>
+<p>If your models rely on new TensorFlow custom op, you can run the server while loading the so files.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">simple_tensorflow_serving --model_base_path=<span class="string">"./model/"</span> --custom_op_paths=<span class="string">"./foo_op/"</span></span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>Support secure authentication with configurable basic auth</li>
+</ol>
+<p>For enterprises, we can enable basic auth for all the APIs and any anonymous request is denied.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./server.py --model_base_path=<span class="string">"./models/tensorflow_template_application_model/"</span> -- enable_auth=True --auth_username=<span class="string">"admin"</span> --auth_password=<span class="string">"admin"</span></span><br></pre></td></tr></table></figure></p>
+<p>If you are using the Web dashboard, just type your certification. If you are using clients, give the username and password within the request.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -u admin:admin -H <span class="string">"Content-Type: application/json"</span> -X POST -d <span class="string">'&#123;"data": &#123;"keys": ˓→[[11.0], [2.0]], "features": [[1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, ˓→1]]&#125;&#125;'</span> http://127.0.0.1:8500</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>Support multiple models of TensorFlow/MXNet/PyTorch/Caffe2/CNTK/ONNX/H2o/Scikit-learn/XGBoost/PMML</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">simple_tensorflow_serving --model_base_path=<span class="string">"./models/tensorflow_template_application_ model"</span> --model_platform=<span class="string">"tensorflow"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">simple_tensorflow_serving --model_base_path=<span class="string">"./models/mxnet_mlp/mx_mlp"</span> --model_ platform=<span class="string">"mxnet"</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>Extra support for image models</li>
+</ol>
+<ul>
+<li>uploading the image files in web browser</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">simple_tensorflow_serving --model_base_path=<span class="string">"./deep_image_model"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>using form-data<br>  accept the base64 strings as input, then decode and resize the tensor for the required model input.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">image_string = base64.urlsafe_b64encode(open(<span class="string">"./test.png"</span>, <span class="string">"rb"</span>).read())</span><br><span class="line">  endpoint = <span class="string">"http://127.0.0.1:8500"</span></span><br><span class="line">  json_data = &#123;<span class="string">"model_name"</span>: <span class="string">"default"</span>, <span class="string">"data"</span>: &#123;<span class="string">"images"</span>: [image_string]&#125; &#125;</span><br><span class="line">  result = requests.post(endpoint, json=json_data)</span><br><span class="line">  print(result.json())</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>: </span><br><span class="line">  main()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>To conclude, its seems that the serialization of Tensorflow Protobuff is less “consistent”, time wise, then the one to plain JSON, though it is more efficient size wise. I would test these on more complex objects, but for now, it seems that if you have simple big inputs then gRPC would be much faster. Having more complex objects as inputs (such as arrays and matrix), up until a certain size, REST with JSON should be faster (as we have seen in the MNIST example tested locally). However, the requests themselves (and probably their processing on the server side) are much faster using gRPC, so bandwidth should be put into the equation as the inputs size grows.</p>
+</blockquote>
+<h3 id="APIs"><a href="#APIs" class="headerlink" title="APIs"></a>APIs</h3><h4 id="gRPC"><a href="#gRPC" class="headerlink" title="gRPC"></a>gRPC</h4><ul>
+<li>gRPC使用ProtoBuf来定义服务，ProtoBuf是由Google开发的一种数据序列化协议，性能出众，得到了广泛的应用;</li>
+<li>支持多种语言;</li>
+<li>基于HTTP/2标准设计。</li>
+</ul>
+<h4 id="RESTful-API"><a href="#RESTful-API" class="headerlink" title="RESTful API"></a>RESTful API</h4><p>TensorFlow ModelServr 除了提供 gRPC APIs 以外，还支持 RESTful APIs 用于 TensorFlow 的分类，回归和预测模型<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST http://host:port/&lt;URI&gt;:&lt;VERB&gt;</span><br><span class="line"></span><br><span class="line">URI: /v1/models/<span class="variable">$&#123;MODEL_NAME&#125;</span>[/versions/<span class="variable">$&#123;MODEL_VERSION&#125;</span>]</span><br><span class="line">VERB: classify|regress|predict</span><br></pre></td></tr></table></figure></p>
+<p>example<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://host:port/v1/models/iris:classify</span><br><span class="line">http://host:port/v1/models/mnist/versions/314:predict</span><br></pre></td></tr></table></figure></p>
+<p>classify 和 regress APIs 的请求内容必须为如下格式的 JSON 对象</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  // Optional: serving signature to use.</span><br><span class="line">  // If unspecifed default serving signature is used.</span><br><span class="line">  <span class="string">"signature_name"</span>: &lt;string&gt;,</span><br><span class="line"></span><br><span class="line">  // Optional: Common context shared by all examples.</span><br><span class="line">  // Features that appear here MUST NOT appear <span class="keyword">in</span> examples (below).</span><br><span class="line">  <span class="string">"context"</span>: &#123;</span><br><span class="line">    <span class="string">"&lt;feature_name3&gt;"</span>: &lt;value&gt;|&lt;list&gt;</span><br><span class="line">    <span class="string">"&lt;feature_name4&gt;"</span>: &lt;value&gt;|&lt;list&gt;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  // List of Example objects</span><br><span class="line">  <span class="string">"examples"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      // Example 1</span><br><span class="line">      <span class="string">"&lt;feature_name1&gt;"</span>: &lt;value&gt;|&lt;list&gt;,</span><br><span class="line">      <span class="string">"&lt;feature_name2&gt;"</span>: &lt;value&gt;|&lt;list&gt;,</span><br><span class="line">      ...</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      // Example 2</span><br><span class="line">      <span class="string">"&lt;feature_name1&gt;"</span>: &lt;value&gt;|&lt;list&gt;,</span><br><span class="line">      <span class="string">"&lt;feature_name2&gt;"</span>: &lt;value&gt;|&lt;list&gt;,</span><br><span class="line">      ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Response format<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"result"</span>: [</span><br><span class="line">    // List of class label/score pairs <span class="keyword">for</span> first Example (<span class="keyword">in</span> request)</span><br><span class="line">    [ [&lt;label1&gt;, &lt;score1&gt;], [&lt;label2&gt;, &lt;score2&gt;], ... ],</span><br><span class="line"></span><br><span class="line">    // List of class label/score pairs <span class="keyword">for</span> next Example (<span class="keyword">in</span> request)</span><br><span class="line">    [ [&lt;label1&gt;, &lt;score1&gt;], [&lt;label2&gt;, &lt;score2&gt;], ... ],</span><br><span class="line">    ...</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Encoding-binary-values"><a href="#Encoding-binary-values" class="headerlink" title="Encoding binary values"></a>Encoding binary values</h4><p>JSON 使用 UTF-8 格式编码。如果输入特征或张量的值为二进制 (例如：图像)，则你需要将数据利用 Base64 进行编码，并将其以 b64 为键封装在 JSON 对象中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;b64&quot;: &lt;base64 encoded string&gt; &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;signature_name&quot;: &quot;classify_objects&quot;,</span><br><span class="line">  &quot;examples&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;image&quot;: &#123; &quot;b64&quot;: &quot;aW1hZ2UgYnl0ZXM=&quot; &#125;,</span><br><span class="line">      &quot;caption&quot;: &quot;seaside&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;image&quot;: &#123; &quot;b64&quot;: &quot;YXdlc29tZSBpbWFnZSBieXRlcw==&quot; &#125;,</span><br><span class="line">      &quot;caption&quot;: &quot;mountains&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一个包含图片 image (二进制数据) 和标题 caption 特征的分类请求示例如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"signature_name"</span>: <span class="string">"classify_objects"</span>,</span><br><span class="line">  <span class="string">"examples"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"image"</span>: &#123; <span class="string">"b64"</span>: <span class="string">"aW1hZ2UgYnl0ZXM="</span> &#125;,</span><br><span class="line">      <span class="string">"caption"</span>: <span class="string">"seaside"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"image"</span>: &#123; <span class="string">"b64"</span>: <span class="string">"YXdlc29tZSBpbWFnZSBieXRlcw=="</span> &#125;,</span><br><span class="line">      <span class="string">"caption"</span>: <span class="string">"mountains"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="TensorFlow-Serving-Benchmark"><a href="#TensorFlow-Serving-Benchmark" class="headerlink" title="TensorFlow Serving Benchmark"></a>TensorFlow Serving Benchmark</h3><h3 id="MNIST-235MB-image"><a href="#MNIST-235MB-image" class="headerlink" title="MNIST (235MB image)"></a>MNIST (235MB image)</h3><p>Running a simple benchmark on my machine (Macbook pro) with 1000 sync requests and a batch size of 100 images in each request had some surprising results. The inference rate was in favor of the REST API, tough, as expected, the payload of requests was twice the size when using REST. I run this test several times and got the same results.</p>
+<ul>
+<li><p>REST<br>Inference rate: 1,729 img/sec<br>Network: 620 MB</p>
+</li>
+<li><p>gRPC<br>Inference rate: 1,239 img/sec<br>Network: 320 MB</p>
+</li>
+</ul>
+<p>Removing the serializations part from the gRPC, and sending the same prepared request over and over again indeed had increased the inference rate dramatically to 25,961 img/sec when using gRPC. Doing the same, and sending the same already serialized REST request (JSON) have increased the inference rate as well, but not as much, to 7,680 img/sec. Giving the advantage to using gRPC by a factor of ~3.5. This suggests that a lot of the overhead is in the transformation of the Numpy array into a tensor Protobuff or JSON. This actually made sense when working locally as the network bandwidth is less of an issue.</p>
+<ul>
+<li><p>REST (serialized once)<br>Inference rate: 7,680 img/sec<br>Network: 620 MB</p>
+</li>
+<li><p>gRPC (serialized once)<br>Inference rate: 25,961 img/sec<br>Network: 320 MB</p>
+</li>
+</ul>
+<p>checking only the preparation of the requests (both gRPC and REST) have shown that when using Numpy arrays as input gRPC is little slower then REST. Using a raw PNG image (basically a string) as input, REST seems to be much slower (X6) then gRPC</p>
+<ul>
+<li><p>REST (preperation only)<br>Image: 2,148 img/sec<br>Numpy array: 1,090 img/sec</p>
+</li>
+<li><p>gRPC (preperation only)<br>Image: 14,490 img/sec<br>Numpy array: 1,249 img/sec</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> grpc.beta <span class="keyword">import</span> implementations</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow_serving.apis <span class="keyword">import</span> predict_pb2</span><br><span class="line"><span class="keyword">from</span> tensorflow_serving.apis <span class="keyword">import</span> prediction_service_pb2</span><br><span class="line"><span class="comment"># returns the network IN traffic size for a given container</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_network_i</span><span class="params">(container_name)</span>:</span></span><br><span class="line">    command = <span class="string">'docker stats --no-stream --format "table &#123;&#123;.NetIO&#125;&#125;" %s'</span> % container_name</span><br><span class="line">    proc = subprocess.Popen([<span class="string">'bash'</span>, <span class="string">'-c'</span>, command], stderr=subprocess.STDOUT, stdout=subprocess.PIPE)</span><br><span class="line">object = proc.communicate()</span><br><span class="line">    output = object[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">return</span> float(re.sub(<span class="string">"[^0-9.]"</span>, <span class="string">""</span>, str.split(str.split(output, <span class="string">"\n"</span>)[<span class="number">1</span>], <span class="string">'/'</span>)[<span class="number">0</span>]))</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prepare_grpc_request</span><span class="params">(model_name, signature_name, data)</span>:</span></span><br><span class="line">    request = predict_pb2.PredictRequest()</span><br><span class="line">    request.model_spec.name = model_name</span><br><span class="line">    request.model_spec.signature_name = signature_name</span><br><span class="line">    request.inputs[input_name].CopyFrom(</span><br><span class="line">        tf.contrib.util.make_tensor_proto(data, dtype=<span class="keyword">None</span>))</span><br><span class="line"><span class="keyword">return</span> request</span><br><span class="line">host = <span class="string">'localhost'</span></span><br><span class="line">grpc_container_name = <span class="string">'tf_serving_mnist1'</span></span><br><span class="line">rest_container_name = <span class="string">'tf_serving_mnist2'</span></span><br><span class="line">grpc_port = <span class="string">'8500'</span></span><br><span class="line">rest_port = <span class="string">'8501'</span></span><br><span class="line">batch_size = <span class="number">100</span></span><br><span class="line">num_of_requests = <span class="number">1000</span></span><br><span class="line">model_name = <span class="string">'model'</span></span><br><span class="line">signature_name = <span class="string">'predict_images'</span></span><br><span class="line">input_name = <span class="string">'images'</span></span><br><span class="line">image_path = <span class="string">"./mnist_image.pkl"</span></span><br><span class="line"><span class="keyword">with</span> open(image_path, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    image = pickle.load(f)</span><br><span class="line">print(<span class="string">"input shape: %s"</span> % str(np.shape(image)))</span><br><span class="line">batch = np.repeat(image, batch_size, axis=<span class="number">0</span>).tolist()</span><br><span class="line">print(<span class="string">"creating batch. Now shape is: %s"</span> % str(np.shape(batch)))</span><br><span class="line">image_cnt = num_of_requests * batch_size</span><br><span class="line">print(<span class="string">"total number of images to be sent: %d"</span> % image_cnt)</span><br><span class="line">channel = implementations.insecure_channel(host, int(grpc_port))</span><br><span class="line">stub = prediction_service_pb2.beta_create_PredictionService_stub(channel)</span><br><span class="line"><span class="comment"># gRPC</span></span><br><span class="line">print(<span class="string">"starting gRPC test..."</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"warming up...."</span>)</span><br><span class="line">request = prepare_grpc_request(model_name, signature_name, batch)</span><br><span class="line">stub.Predict(request, timeout=<span class="number">600</span>)</span><br><span class="line">grpc_start_net = get_network_i(grpc_container_name)</span><br><span class="line">total_start = time.time()</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(num_of_requests):</span><br><span class="line">    request = prepare_grpc_request(model_name, signature_name, batch)</span><br><span class="line">    response = stub.Predict(request, timeout=<span class="number">600</span>)</span><br><span class="line">total_duration = float(time.time() - total_start)</span><br><span class="line">grpc_rate = image_cnt / total_duration</span><br><span class="line">grpc_end_net = get_network_i(grpc_container_name)</span><br><span class="line">grpc_net = grpc_end_net - grpc_start_net</span><br><span class="line">print(<span class="string">"--gRPC--\n"</span></span><br><span class="line"><span class="string">"Duration: %f secs -- requests: %d -- images: %d -- batch size: %d -- rate: %f img/sec -- net: %s"</span></span><br><span class="line">% (total_duration, num_of_requests, image_cnt, batch_size, grpc_rate, grpc_net))</span><br><span class="line"><span class="comment"># REST</span></span><br><span class="line">print(<span class="string">"starting REST test..."</span>)</span><br><span class="line">json = &#123;</span><br><span class="line"><span class="string">"signature_name"</span>: signature_name,</span><br><span class="line"><span class="string">"instances"</span>: batch</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"warming up...."</span>)</span><br><span class="line">req = requests.Request(<span class="string">'post'</span>, <span class="string">"http://%s:%s/v1/models/model:predict"</span> % (host, rest_port), json=json)</span><br><span class="line">rest_start_net = get_network_i(rest_container_name)</span><br><span class="line">total_start = time.time()</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(num_of_requests):</span><br><span class="line">    response = requests.post(<span class="string">"http://%s:%s/v1/models/model:predict"</span> % (host, rest_port), json=json)</span><br><span class="line">total_duration = float(time.time() - total_start)</span><br><span class="line">rest_rate = image_cnt / total_duration</span><br><span class="line">rest_end_net = get_network_i(rest_container_name)</span><br><span class="line">rest_net = rest_end_net - rest_start_net</span><br><span class="line">print(<span class="string">"--REST--\n"</span></span><br><span class="line"><span class="string">"Duration: %f secs -- requests: %d -- images: %d -- batch size: %d -- rate: %f img/sec -- net: %s"</span></span><br><span class="line">% (total_duration, num_of_requests, image_cnt, batch_size, rest_rate, rest_net))</span><br><span class="line">print(<span class="string">"--Summary--\n"</span></span><br><span class="line"><span class="string">"Inference rate ratio (REST/gRPC): %f"</span> % (rest_rate / grpc_rate))</span><br></pre></td></tr></table></figure>
+<p>TFS(Simple TensorFlow Serving) and TFS(TensorFlow Serving) have similar performances for different models. Vertical coordinate is inference latency(microsecond) and the less is better.<br><img src="74BF9D5A46B9F999DAE5C1D682CCDA00.png" alt="Screen Shot 2019-05-13 at 13.21.33.png"></p>
+<p>For simplest model, each request only costs ~1.9 microseconds and one instance of Simple TensorFlow Serving can achieve 5000+ QPS. With larger batch size, it can inference more than 1M instances per second.</p>
+<p><img src="4D3D10F107C2EF93283F76BAFBA065D9.png" alt="Screen Shot 2019-05-13 at 13.24.15.png"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Tensorflow/" rel="tag"># Tensorflow</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Overfittingin-decision-trees/2019/05/11/" rel="next" title="Overfitting in decision trees">
+                <i class="fa fa-chevron-left"></i> Overfitting in decision trees
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/AdaBoost-Summary/2019/05/14/" rel="prev" title="AdaBoost Summary">
+                AdaBoost Summary <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">186</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow-SavedModel"><span class="nav-text">TensorFlow SavedModel</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#保存"><span class="nav-text">保存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载"><span class="nav-text">加载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tensorflow-Serving"><span class="nav-text">Tensorflow Serving</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-Concepts"><span class="nav-text">Key Concepts:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Servables"><span class="nav-text">Servables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Servables-Streams"><span class="nav-text">Servables Streams</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Loaders"><span class="nav-text">Loaders</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sources"><span class="nav-text">Sources</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Managers"><span class="nav-text">Managers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Core"><span class="nav-text">Core</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#example"><span class="nav-text">example</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Functions"><span class="nav-text">Functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#APIs"><span class="nav-text">APIs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#gRPC"><span class="nav-text">gRPC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RESTful-API"><span class="nav-text">RESTful API</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Encoding-binary-values"><span class="nav-text">Encoding binary values</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TensorFlow-Serving-Benchmark"><span class="nav-text">TensorFlow Serving Benchmark</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MNIST-235MB-image"><span class="nav-text">MNIST (235MB image)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>

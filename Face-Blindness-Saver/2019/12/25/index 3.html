@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Project,Computer Vision,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="I want to make a classifier to classify the akita and shiba inu, alaska and husky.">
+<meta name="keywords" content="Project,Computer Vision">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Face Blindness Saver">
+<meta property="og:url" content="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="I want to make a classifier to classify the akita and shiba inu, alaska and husky.">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/output_16_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/output_23_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/output_28_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/output_39_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/output_44_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/output_48_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/output_49_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/output_53_0.png">
+<meta property="og:updated_time" content="2020-01-23T19:01:03.804Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Face Blindness Saver">
+<meta name="twitter:description" content="I want to make a classifier to classify the akita and shiba inu, alaska and husky.">
+<meta name="twitter:image" content="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/output_16_0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/">
+
+
+
+
+
+  <title>Face Blindness Saver | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Face Blindness Saver</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-25T01:20:49-05:00">
+                2019-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
+                    <span itemprop="name">Artificial Intelligence</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Face-Blindness-Saver/2019/12/25/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Face-Blindness-Saver/2019/12/25/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  I want to make a classifier to classify the akita and shiba inu, alaska and husky.
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Creating-your-own-dataset-from-Google-Images"><a href="#Creating-your-own-dataset-from-Google-Images" class="headerlink" title="Creating your own dataset from Google Images"></a>Creating your own dataset from Google Images</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastai.vision <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+<h2 id="Get-a-list-of-URLs"><a href="#Get-a-list-of-URLs" class="headerlink" title="Get a list of URLs"></a>Get a list of URLs</h2><h3 id="Search-and-scroll"><a href="#Search-and-scroll" class="headerlink" title="Search and scroll"></a>Search and scroll</h3><p>Go to <a href="http://images.google.com" target="_blank" rel="noopener">Google Images</a> and search for the images you are interested in. The more specific you are in your Google Search, the better the results and the less manual pruning you will have to do.</p>
+<p>Scroll down until you’ve seen all the images you want to download, or until you see a button that says ‘Show more results’. All the images you scrolled past are now available to download. To get more, click on the button, and continue scrolling. The maximum number of images Google Images shows is 700.</p>
+<p>It is a good idea to put things you want to exclude into the search query, for instance if you are searching for the Eurasian wolf, “canis lupus lupus”, it might be a good idea to exclude other variants:</p>
+<pre><code>&quot;canis lupus lupus&quot; -dog -arctos -familiaris -baileyi -occidentalis
+</code></pre><p>You can also limit your results to show only photos by clicking on Tools and selecting Photos from the Type dropdown.</p>
+<h3 id="Download-into-file"><a href="#Download-into-file" class="headerlink" title="Download into file"></a>Download into file</h3><p>Now you must run some Javascript code in your browser which will save the URLs of all the images you want for you dataset.</p>
+<p>In Google Chrome press <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>j</kbd> on Windows/Linux and <kbd>Cmd</kbd><kbd>Opt</kbd><kbd>j</kbd> on macOS, and a small window the javascript ‘Console’ will appear. In Firefox press <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>k</kbd> on Windows/Linux or <kbd>Cmd</kbd><kbd>Opt</kbd><kbd>k</kbd> on macOS. That is where you will paste the JavaScript commands.</p>
+<p>You will need to get the urls of each of the images. Before running the following commands, you may want to disable ad blocking extensions (uBlock, AdBlockPlus etc.) in Chrome. Otherwise the window.open() command doesn’t work. Then you can run the following commands:</p>
+<h3 id="Create-directory-and-upload-urls-file-into-your-server"><a href="#Create-directory-and-upload-urls-file-into-your-server" class="headerlink" title="Create directory and upload urls file into your server"></a>Create directory and upload urls file into your server</h3><p>Choose an appropriate name for your labeled images. You can run these steps multiple times to create different labels.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(download_images)</span><br></pre></td></tr></table></figure>
+<pre><code>Help on function download_images in module fastai.vision.data:
+
+download_images(urls:Collection[str], dest:Union[pathlib.Path, str], max_pics:int=1000, max_workers:int=8, timeout=4)
+    Download images listed in text file `urls` to path `dest`, at most `max_pics`
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path = Path(<span class="string">'data/dogs'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">folder = <span class="string">'akita'</span></span><br><span class="line">file = <span class="string">'akita.csv'</span></span><br><span class="line">dest = path/folder</span><br><span class="line">dest.mkdir(parents=<span class="keyword">True</span>, exist_ok=<span class="keyword">True</span>)</span><br><span class="line">urls = path/file</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">download_images(urls=urls, dest=dest, max_pics=<span class="number">200</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+
+
+
+
+
+
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">folder = <span class="string">'husky'</span></span><br><span class="line">file = <span class="string">'husky.csv'</span></span><br><span class="line">dest = path/folder</span><br><span class="line">dest.mkdir(parents=<span class="keyword">True</span>, exist_ok=<span class="keyword">True</span>)</span><br><span class="line">urls = path/file</span><br><span class="line">download_images(urls=urls, dest=dest, max_pics=<span class="number">200</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+
+
+
+
+
+
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">folder = <span class="string">'shibaInu'</span></span><br><span class="line">file = <span class="string">'shibaInu.csv'</span></span><br><span class="line">dest = path/folder</span><br><span class="line">dest.mkdir(parents=<span class="keyword">True</span>, exist_ok=<span class="keyword">True</span>)</span><br><span class="line">urls = path/file</span><br><span class="line">download_images(urls=urls, dest=dest, max_pics=<span class="number">200</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+
+
+
+
+
+
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">folder = <span class="string">'alaska'</span></span><br><span class="line">file = <span class="string">'alaska.csv'</span></span><br><span class="line">dest = path/folder</span><br><span class="line">dest.mkdir(parents=<span class="keyword">True</span>, exist_ok=<span class="keyword">True</span>)</span><br><span class="line">urls = path/file</span><br><span class="line">download_images(urls=urls, dest=dest, max_pics=<span class="number">200</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+Error  Invalid URL &#39;&#39;: No schema supplied. Perhaps you meant http://?
+</code></pre><h3 id="View-data"><a href="#View-data" class="headerlink" title="View data"></a>View data</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(DataBunch)</span><br></pre></td></tr></table></figure>
+<pre><code>Help on class DataBunch in module fastai.basic_data:
+
+class DataBunch(builtins.object)
+ |  Bind `train_dl`,`valid_dl` and `test_dl` in a data object.
+ |  
+ |  Methods defined here:
+ |  
+ |  __getattr__(self, k:int) -&gt; Any
+ |  
+ |  __init__(self, train_dl:torch.utils.data.dataloader.DataLoader, valid_dl:torch.utils.data.dataloader.DataLoader, fix_dl:torch.utils.data.dataloader.DataLoader=None, test_dl:Union[torch.utils.data.dataloader.DataLoader, NoneType]=None, device:torch.device=None, dl_tfms:Union[Collection[Callable], NoneType]=None, path:Union[pathlib.Path, str]=&#39;.&#39;, collate_fn:Callable=&lt;function data_collate at 0x7f14501736a8&gt;, no_check:bool=False)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  __repr__(self) -&gt; str
+ |      Return repr(self).
+ |  
+ |  __setstate__(self, data:Any)
+ |  
+ |  add_test(self, items:Iterator, label:Any=None, tfms=None, tfm_y=None) -&gt; None
+ |      Add the `items` as a test set. Pass along `label` otherwise label them with `EmptyLabel`.
+ |  
+ |  add_tfm(self, tfm:Callable) -&gt; None
+ |  
+ |  dl(self, ds_type:fastai.basic_data.DatasetType=&lt;DatasetType.Valid: 2&gt;) -&gt; fastai.basic_data.DeviceDataLoader
+ |      Returns appropriate `Dataset` for validation, training, or test (`ds_type`).
+ |  
+ |  export(self, file:Union[pathlib.Path, str, _io.BufferedWriter, _io.BytesIO]=&#39;export.pkl&#39;)
+ |      Export the minimal state of `self` for inference in `self.path/file`. `file` can be file-like (file or buffer)
+ |  
+ |  one_batch(self, ds_type:fastai.basic_data.DatasetType=&lt;DatasetType.Train: 1&gt;, detach:bool=True, denorm:bool=True, cpu:bool=True) -&gt; Collection[torch.Tensor]
+ |      Get one batch from the data loader of `ds_type`. Optionally `detach` and `denorm`.
+ |  
+ |  one_item(self, item, detach:bool=False, denorm:bool=False, cpu:bool=False)
+ |      Get `item` into a batch. Optionally `detach` and `denorm`.
+ |  
+ |  pre_transform = _db_pre_transform(self, train_tfm:List[Callable], valid_tfm:List[Callable])
+ |      Call `train_tfm` and `valid_tfm` after opening image, before converting from `PIL.Image`
+ |  
+ |  presize = _presize(self, size:int, val_xtra_size:int=32, scale:Tuple[float]=(0.08, 1.0), ratio:Tuple[float]=(0.75, 1.3333333333333333), interpolation:int=2)
+ |      Resize images to `size` using `RandomResizedCrop`, passing along `kwargs` to train transform
+ |  
+ |  remove_tfm(self, tfm:Callable) -&gt; None
+ |  
+ |  sanity_check(self)
+ |      Check the underlying data in the training set can be properly loaded.
+ |  
+ |  save(self, file:Union[pathlib.Path, str, _io.BufferedWriter, _io.BytesIO]=&#39;data_save.pkl&#39;) -&gt; None
+ |      Save the `DataBunch` in `self.path/file`. `file` can be file-like (file or buffer)
+ |  
+ |  show_batch(self, rows:int=5, ds_type:fastai.basic_data.DatasetType=&lt;DatasetType.Train: 1&gt;, reverse:bool=False, **kwargs) -&gt; None
+ |      Show a batch of data in `ds_type` on a few `rows`.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Class methods defined here:
+ |  
+ |  create(train_ds:torch.utils.data.dataset.Dataset, valid_ds:torch.utils.data.dataset.Dataset, test_ds:Union[torch.utils.data.dataset.Dataset, NoneType]=None, path:Union[pathlib.Path, str]=&#39;.&#39;, bs:int=64, val_bs:int=None, num_workers:int=6, dl_tfms:Union[Collection[Callable], NoneType]=None, device:torch.device=None, collate_fn:Callable=&lt;function data_collate at 0x7f14501736a8&gt;, no_check:bool=False, **dl_kwargs) -&gt; &#39;DataBunch&#39; from builtins.type
+ |      Create a `DataBunch` from `train_ds`, `valid_ds` and maybe `test_ds` with a batch size of `bs`. Passes `**dl_kwargs` to `DataLoader()`
+ |  
+ |  load_empty = _databunch_load_empty(path, fname:str=&#39;export.pkl&#39;) from builtins.type
+ |      Load an empty `DataBunch` from the exported file in `path/fname` with optional `tfms`.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+ |  
+ |  batch_size
+ |  
+ |  dls
+ |      Returns a list of all DeviceDataLoaders. If you need a specific DeviceDataLoader, access via the relevant property (`train_dl`, `valid_dl`, etc) as the index of DLs in this list is not guaranteed to remain constant.
+ |  
+ |  empty_val
+ |  
+ |  fix_ds
+ |  
+ |  is_empty
+ |  
+ |  loss_func
+ |  
+ |  single_ds
+ |  
+ |  test_ds
+ |  
+ |  train_ds
+ |  
+ |  valid_ds
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(ImageDataBunch.from_folder)</span><br></pre></td></tr></table></figure>
+<pre><code>Help on method from_folder in module fastai.vision.data:
+
+from_folder(path:Union[pathlib.Path, str], train:Union[pathlib.Path, str]=&#39;train&#39;, valid:Union[pathlib.Path, str]=&#39;valid&#39;, test:Union[pathlib.Path, str, NoneType]=None, valid_pct=None, seed:int=None, classes:Collection=None, **kwargs:Any) -&gt; &#39;ImageDataBunch&#39; method of builtins.type instance
+    Create from imagenet style dataset in `path` with `train`,`valid`,`test` subfolders (or provide `valid_pct`).
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(ImageDataBunch.from_folder)</span><br></pre></td></tr></table></figure>
+<pre><code>Help on method from_folder in module fastai.vision.data:
+
+from_folder(path:Union[pathlib.Path, str], train:Union[pathlib.Path, str]=&#39;train&#39;, valid:Union[pathlib.Path, str]=&#39;valid&#39;, test:Union[pathlib.Path, str, NoneType]=None, valid_pct=None, seed:int=None, classes:Collection=None, **kwargs:Any) -&gt; &#39;ImageDataBunch&#39; method of builtins.type instance
+    Create from imagenet style dataset in `path` with `train`,`valid`,`test` subfolders (or provide `valid_pct`).
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(<span class="number">7</span>)</span><br><span class="line">data = ImageDataBunch.from_folder(path,train = <span class="string">"."</span>, valid_pct = <span class="number">0.2</span>, size = <span class="number">224</span>, ds_tfms=get_transforms()).normalize(imagenet_stats)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.show_batch(rows = <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="output_16_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.classes,data.c, len(data.train_ds), len(data.valid_ds)</span><br></pre></td></tr></table></figure>
+<pre><code>([&#39;akita&#39;, &#39;alaska&#39;, &#39;husky&#39;, &#39;shibaInu&#39;], 4, 512, 128)
+</code></pre><h2 id="Models"><a href="#Models" class="headerlink" title="Models"></a>Models</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn = cnn_learner(data,models.resnet34, metrics = error_rate)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.fit_one_cycle(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>error_rate</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1.609119</td>
+      <td>0.857839</td>
+      <td>0.328125</td>
+      <td>00:05</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1.124259</td>
+      <td>0.611583</td>
+      <td>0.250000</td>
+      <td>00:05</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.894434</td>
+      <td>0.618738</td>
+      <td>0.218750</td>
+      <td>00:05</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.738053</td>
+      <td>0.625707</td>
+      <td>0.242188</td>
+      <td>00:05</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lean.load(<span class="string">"stage-1"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Learner(data=ImageDataBunch;
+
+Train: LabelList (512 items)
+x: ImageList
+Image (3, 224, 224),Image (3, 224, 224),Image (3, 224, 224),Image (3, 224, 224),Image (3, 224, 224)
+y: CategoryList
+shibaInu,shibaInu,shibaInu,shibaInu,shibaInu
+Path: data/dogs;
+
+Valid: LabelList (128 items)
+x: ImageList
+Image (3, 224, 224),Image (3, 224, 224),Image (3, 224, 224),Image (3, 224, 224),Image (3, 224, 224)
+y: CategoryList
+shibaInu,alaska,akita,shibaInu,husky
+Path: data/dogs;
+
+Test: None, model=Sequential(
+  (0): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(inplace)
+    (3): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    (4): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (2): BasicBlock(
+        (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (5): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (2): BasicBlock(
+        (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (3): BasicBlock(
+        (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (6): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (downsample): Sequential(
+          (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (2): BasicBlock(
+        (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (3): BasicBlock(
+        (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (4): BasicBlock(
+        (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (5): BasicBlock(
+        (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (7): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (2): BasicBlock(
+        (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (1): Sequential(
+    (0): AdaptiveConcatPool2d(
+      (ap): AdaptiveAvgPool2d(output_size=1)
+      (mp): AdaptiveMaxPool2d(output_size=1)
+    )
+    (1): Flatten()
+    (2): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (3): Dropout(p=0.25)
+    (4): Linear(in_features=1024, out_features=512, bias=True)
+    (5): ReLU(inplace)
+    (6): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (7): Dropout(p=0.5)
+    (8): Linear(in_features=512, out_features=4, bias=True)
+  )
+), opt_func=functools.partial(&lt;class &#39;torch.optim.adam.Adam&#39;&gt;, betas=(0.9, 0.99)), loss_func=FlattenedLoss of CrossEntropyLoss(), metrics=[&lt;function error_rate at 0x7f144e518e18&gt;], true_wd=True, bn_wd=True, wd=0.01, train_bn=True, path=PosixPath(&#39;data/dogs&#39;), model_dir=&#39;models&#39;, callback_fns=[functools.partial(&lt;class &#39;fastai.basic_train.Recorder&#39;&gt;, add_time=True, silent=False)], callbacks=[], layer_groups=[Sequential(
+  (0): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+  (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (2): ReLU(inplace)
+  (3): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+  (4): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (5): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (6): ReLU(inplace)
+  (7): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (8): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (9): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (10): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (11): ReLU(inplace)
+  (12): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (13): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (14): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (15): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (16): ReLU(inplace)
+  (17): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (18): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (19): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+  (20): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (21): ReLU(inplace)
+  (22): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (23): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (24): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+  (25): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (26): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (27): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (28): ReLU(inplace)
+  (29): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (30): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (31): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (32): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (33): ReLU(inplace)
+  (34): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (35): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (36): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (37): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (38): ReLU(inplace)
+  (39): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (40): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+), Sequential(
+  (0): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+  (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (2): ReLU(inplace)
+  (3): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (5): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+  (6): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (7): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (8): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (9): ReLU(inplace)
+  (10): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (11): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (12): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (13): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (14): ReLU(inplace)
+  (15): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (16): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (17): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (18): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (19): ReLU(inplace)
+  (20): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (21): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (22): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (23): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (24): ReLU(inplace)
+  (25): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (26): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (27): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (28): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (29): ReLU(inplace)
+  (30): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (31): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (32): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+  (33): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (34): ReLU(inplace)
+  (35): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (36): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (37): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+  (38): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (39): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (40): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (41): ReLU(inplace)
+  (42): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (43): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (44): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (45): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (46): ReLU(inplace)
+  (47): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (48): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+), Sequential(
+  (0): AdaptiveAvgPool2d(output_size=1)
+  (1): AdaptiveMaxPool2d(output_size=1)
+  (2): Flatten()
+  (3): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (4): Dropout(p=0.25)
+  (5): Linear(in_features=1024, out_features=512, bias=True)
+  (6): ReLU(inplace)
+  (7): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (8): Dropout(p=0.5)
+  (9): Linear(in_features=512, out_features=4, bias=True)
+)], add_time=True, silent=False)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lean.unfreeze()</span><br><span class="line">lean.lr_find()</span><br></pre></td></tr></table></figure>
+<pre><code>LR Finder is complete, type {learner_name}.recorder.plot() to see the graph.
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lean.recorder.plot()</span><br></pre></td></tr></table></figure>
+<p><img src="output_23_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lean.fit_one_cycle(<span class="number">4</span>,max_lr=slice(<span class="number">1e-4</span>,<span class="number">3e-3</span>))</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>error_rate</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.676978</td>
+      <td>0.840263</td>
+      <td>0.406250</td>
+      <td>00:06</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.629555</td>
+      <td>0.816797</td>
+      <td>0.437500</td>
+      <td>00:06</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.582286</td>
+      <td>0.740251</td>
+      <td>0.335938</td>
+      <td>00:06</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.535621</td>
+      <td>0.722407</td>
+      <td>0.289062</td>
+      <td>00:06</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.save(<span class="string">'stage-2'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Intepretation"><a href="#Intepretation" class="headerlink" title="Intepretation"></a>Intepretation</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">interp = ClassificationInterpretation.from_learner(lean)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">interp.plot_confusion_matrix()</span><br></pre></td></tr></table></figure>
+<p><img src="output_28_0.png" alt="png"></p>
+<h2 id="Cleaning-Up"><a href="#Cleaning-Up" class="headerlink" title="Cleaning Up"></a>Cleaning Up</h2><p>Some of our top losses aren’t due to bad performance by our model. There are images in our data set that shouldn’t be.</p>
+<p>Using the <code>ImageCleaner</code> widget from <code>fastai.widgets</code> we can prune our top losses, removing photos that don’t belong.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastai.widgets <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+<p>First we need to get the file paths from our top_losses. We can do this with <code>.from_toplosses</code>. We then feed the top losses indexes and corresponding dataset to <code>ImageCleaner</code>.</p>
+<p>Notice that the widget will not delete images directly from disk but it will create a new csv file <code>cleaned.csv</code> from where you can create a new ImageDataBunch with the corrected labels to continue training your model.</p>
+<p>In order to clean the entire set of images, we need to create a new dataset without the split. The video lecture demostrated the use of the <code>ds_type</code> param which no longer has any effect. See <a href="https://forums.fast.ai/t/duplicate-widget/30975/10" target="_blank" rel="noopener">the thread</a> for more details.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db = (ImageList.from_folder(path)</span><br><span class="line">                   .split_none()</span><br><span class="line">                   .label_from_folder()</span><br><span class="line">                   .transform(get_transforms(), size=<span class="number">224</span>)</span><br><span class="line">                   .databunch()</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">learn_cln = cnn_learner(db, models.resnet34, metrics=error_rate)</span><br><span class="line">learn_cln.load(<span class="string">'stage-2'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ds, idxs = DatasetFormatter().from_toplosses(learn_cln)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ImageCleaner(ds, idxs, path)</span><br></pre></td></tr></table></figure>
+<pre><code>&#39;No images to show :)&#39;
+</code></pre><p>You can also find duplicates in your dataset and delete them! To do this, you need to run <code>.from_similars</code> to get the potential duplicates’ ids and then run <code>ImageCleaner</code> with <code>duplicates=True</code>. The API works in a similar way as with misclassified images: just choose the ones you want to delete and click ‘Next Batch’ until there are no more images left.</p>
+<p>Make sure to recreate the databunch and <code>learn_cln</code> from the <code>cleaned.csv</code> file. Otherwise the file would be overwritten from scratch, losing all the results from cleaning the data from toplosses.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">doc(ImageDataBunch.from_csv)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data_cleand = ImageDataBunch.from_csv(path,csv_labels = <span class="string">"cleaned.csv"</span>,ds_tfms=get_transforms(),valid_pct = <span class="number">0.2</span>, size = <span class="number">224</span>, bs = <span class="number">32</span>).normalize()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data_cleand.show_batch(rows=<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="output_39_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final_learn = cnn_learner(data_cleand, models.resnet50, metrics = error_rate)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final_learn.fit_one_cycle(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>error_rate</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1.187646</td>
+      <td>0.361647</td>
+      <td>0.114943</td>
+      <td>00:07</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.830483</td>
+      <td>0.527104</td>
+      <td>0.149425</td>
+      <td>00:06</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.620431</td>
+      <td>0.356172</td>
+      <td>0.126437</td>
+      <td>00:06</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.493722</td>
+      <td>0.324358</td>
+      <td>0.114943</td>
+      <td>00:06</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.417320</td>
+      <td>0.308305</td>
+      <td>0.103448</td>
+      <td>00:06</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final_learn.save(<span class="string">"stage-1"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># final_learn.unfreeze()</span></span><br><span class="line">final_learn.lr_find()</span><br></pre></td></tr></table></figure>
+<pre><code>LR Finder is complete, type {learner_name}.recorder.plot() to see the graph.
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final_learn.recorder.plot()</span><br></pre></td></tr></table></figure>
+<p><img src="output_44_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final_learn.fit_one_cycle(<span class="number">1</span>, max_lr=slice(<span class="number">1e-3</span>,<span class="number">3e-3</span>))</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>error_rate</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.218457</td>
+      <td>0.279203</td>
+      <td>0.080460</td>
+      <td>00:06</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final_learn.save(<span class="string">"stage-final"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">interp = ClassificationInterpretation.from_learner(final_learn)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">interp.plot_confusion_matrix()</span><br></pre></td></tr></table></figure>
+<p><img src="output_48_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">interp.plot_top_losses(<span class="number">9</span>, figsize=(<span class="number">15</span>,<span class="number">11</span>))</span><br></pre></td></tr></table></figure>
+<p><img src="output_49_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final_learn.export()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults.device = torch.device(<span class="string">'cpu'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">img = open_image(path/<span class="string">'akita'</span>/<span class="string">'00000100.jpg'</span>)</span><br><span class="line">img</span><br></pre></td></tr></table></figure>
+<p><img src="output_53_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">serving_model = load_learner(path)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pred_class,pred_idx,outputs = learn.predict(img)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pred_class</span><br></pre></td></tr></table></figure>
+<pre><code>Category akita
+</code></pre><h2 id="Model-Serving"><a href="#Model-Serving" class="headerlink" title="Model Serving"></a>Model Serving</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> starlette.applications <span class="keyword">import</span> Starlette</span><br><span class="line"><span class="keyword">from</span> starlette.responses <span class="keyword">import</span> JSONResponse</span><br><span class="line"><span class="comment"># from starlette.routing import Route</span></span><br><span class="line"><span class="keyword">import</span> uvicorn</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> aiohttp</span><br><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"><span class="keyword">import</span> fastai</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> fastai.vision <span class="keyword">import</span> *</span><br><span class="line">defaults.device = torch.device(<span class="string">'cpu'</span>)</span><br><span class="line">learner = load_learner(<span class="string">"."</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app = Starlette(debug=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">get_bytes</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">with</span> aiohttp.ClientSession() <span class="keyword">as</span> session:</span><br><span class="line">        <span class="keyword">async</span> <span class="keyword">with</span> session.get(url) <span class="keyword">as</span> response:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">await</span> response.read()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/", methods=["GET"])</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">homepage</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> JSONResponse(&#123;<span class="string">'hello'</span>: <span class="string">'world'</span>&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/classify-url", methods=["GET"])</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">classify_url</span><span class="params">(request)</span>:</span></span><br><span class="line">    bytes = <span class="keyword">await</span> get_bytes(request.query_params[<span class="string">"url"</span>])</span><br><span class="line">    img = open_image(BytesIO(bytes))</span><br><span class="line">    pred_class,pred_idx,outputs = learner.predict(img)</span><br><span class="line">    <span class="keyword">return</span> JSONResponse(&#123;</span><br><span class="line">        <span class="string">"predictions"</span>:  str(pred_class)&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    uvicorn.run(app, host=<span class="string">"0.0.0.0"</span>, port=<span class="number">8080</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Project/" rel="tag"># Project</a>
+          
+            <a href="/tags/Computer-Vision/" rel="tag"># Computer Vision</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/ELMo-OpenAI-GPT-BERT/2019/12/21/" rel="next" title="ELMo,OpenAI GPT,BERT">
+                <i class="fa fa-chevron-left"></i> ELMo,OpenAI GPT,BERT
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Fastai-Data-Block-API/2019/12/29/" rel="prev" title="Fastai Data Block API">
+                Fastai Data Block API <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">186</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Creating-your-own-dataset-from-Google-Images"><span class="nav-text">Creating your own dataset from Google Images</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-a-list-of-URLs"><span class="nav-text">Get a list of URLs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-and-scroll"><span class="nav-text">Search and scroll</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Download-into-file"><span class="nav-text">Download into file</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-directory-and-upload-urls-file-into-your-server"><span class="nav-text">Create directory and upload urls file into your server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#View-data"><span class="nav-text">View data</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Models"><span class="nav-text">Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Intepretation"><span class="nav-text">Intepretation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cleaning-Up"><span class="nav-text">Cleaning Up</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-Serving"><span class="nav-text">Model Serving</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>

@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Nand2Tetris,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="In this module we assume that the Hack computer and machine language have been built, and write some low-level programs using the Hack machine language. We will then use a supplied CPU Emulator to tes">
+<meta name="keywords" content="Nand2Tetris">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Language">
+<meta property="og:url" content="https://zhangruochi.com/Machine-Language/2019/09/22/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="In this module we assume that the Hack computer and machine language have been built, and write some low-level programs using the Hack machine language. We will then use a supplied CPU Emulator to tes">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/1.png">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/3.png">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/2.png">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/4.png">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/5.png">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/6.png">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/7.png">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/8.png">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/9.png">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/10.png">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/11.png">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/12.png">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/16.png">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/14.png">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/15.png">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/17.png">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/18.png">
+<meta property="og:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/19.png">
+<meta property="og:updated_time" content="2019-09-22T19:38:04.098Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Machine Language">
+<meta name="twitter:description" content="In this module we assume that the Hack computer and machine language have been built, and write some low-level programs using the Hack machine language. We will then use a supplied CPU Emulator to tes">
+<meta name="twitter:image" content="https://zhangruochi.com/Machine-Language/2019/09/22/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/Machine-Language/2019/09/22/">
+
+
+
+
+
+  <title>Machine Language | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Machine-Language/2019/09/22/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Machine Language</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-22T15:36:43-04:00">
+                2019-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hardware-Architecture/" itemprop="url" rel="index">
+                    <span itemprop="name">Hardware Architecture</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Machine-Language/2019/09/22/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Machine-Language/2019/09/22/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  In this module we assume that the Hack computer and machine language have been built, and write some low-level programs using the Hack machine language. We will then use a supplied CPU Emulator to test and execute our programs. This experience will give you a taste of low-level programming, as well as a solid hands-on overview of the Hack computer platform.
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1><ul>
+<li><a href="#table-of-contents">Table of Contents</a><ul>
+<li><a href="#background">Background</a></li>
+<li><a href="#machine-languages">Machine languages</a><ul>
+<li><a href="#mnemonics">Mnemonics</a></li>
+<li><a href="#commands">Commands</a></li>
+<li><a href="#arithmetic-and-logic-operations">Arithmetic and Logic Operations</a></li>
+<li><a href="#memory-access">Memory Access</a></li>
+<li><a href="#compilation">Compilation</a></li>
+</ul>
+</li>
+<li><a href="#the-hack-language-specification">The Hack language specification</a><ul>
+<li><a href="#the-a-instruction">The A-Instruction</a></li>
+<li><a href="#the-c-instruction">The C-Instruction</a><ul>
+<li><a href="#the-computation-specificationcomp">The Computation Specification(comp)</a></li>
+</ul>
+</li>
+<li><a href="#the-destination-specification">The Destination Specification</a></li>
+<li><a href="#the-jump-specification">The Jump Specification</a></li>
+<li><a href="#symbols">Symbols</a></li>
+</ul>
+</li>
+<li><a href="#hack-programs-symbolic-and-binary">Hack programs: symbolic and binary</a></li>
+<li><a href="#input--output">Input / Output</a><ul>
+<li><a href="#screen">Screen</a></li>
+<li><a href="#keyboard">Keyboard</a></li>
+</ul>
+</li>
+<li><a href="#syntax-conventions-and-file-format">Syntax Conventions and File Format</a></li>
+<li><a href="#hack-programming">Hack programming</a><ul>
+<li><a href="#hack-assembly-language-overview">Hack assembly language (overview)</a><ul>
+<li><a href="#registers-and-memory">Registers and memory</a></li>
+<li><a href="#branching-and-labels">Branching and Labels</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#iterative-processing">Iterative processing</a></li>
+<li><a href="#pointers">Pointers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p><strong>Memory</strong> The term memory refers loosely to the collection of hardware devices that store data and instructions in a computer. From the programmer’s standpoint, all memories have the same structure: A continuous array of cells of some fixed width, also called words or locations, each having a <strong>unique address</strong>.</p>
+<p><strong>Processor</strong>  The processor, normally called Central Processing Unit or CPU, is a device capable of performing a fixed set of elementary operations</p>
+<p><strong>Registers</strong>  Memory access is a relatively slow operation, requiring long instruction formats (an address may require 32 bits). For this reason, most processors are equipped with several registers, each capable of holding a single value. Located in the processor’s immediate proximity, the registers serve as a high-speed local memory, allowing the processor to manipulate data and instructions quickly. <strong>This setting enables the programmer to minimize the use of memory access commands, thus speeding up the program’s execution.</strong></p>
+<p><img src="1.png" alt></p>
+<h2 id="Machine-languages"><a href="#Machine-languages" class="headerlink" title="Machine languages"></a>Machine languages</h2><blockquote>
+<p>A machine language can be viewed as an agreed-upon formalism, designed to manipulate a memory using a processor and a set of registers.</p>
+</blockquote>
+<h3 id="Mnemonics"><a href="#Mnemonics" class="headerlink" title="Mnemonics"></a>Mnemonics</h3><p>For example, the language designer can decide that the operation code 1010 will be represented by the mnemonic add and that the registers of the machine will be symbolically referred to using the symbols R0, R1, R2, and so forth. Using these conventions, one can specify machine language instructions either directly, as 1010001100011001, or symbolically, as, say, ADD R3,R1,R9.</p>
+<p><img src="3.png" alt></p>
+<h3 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h3><p>Yet irrespective of this variety, all machine lan- guages support similar sets of generic commands, which we now describe.</p>
+<h3 id="Arithmetic-and-Logic-Operations"><a href="#Arithmetic-and-Logic-Operations" class="headerlink" title="Arithmetic and Logic Operations"></a>Arithmetic and Logic Operations</h3><figure class="highlight arm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ADD </span><span class="built_in">R2</span>,<span class="built_in">R1</span>,<span class="built_in">R3</span>    // <span class="built_in">R2</span>-&lt;--<span class="built_in">R1</span>+<span class="built_in">R3</span> where <span class="built_in">R1</span>,<span class="built_in">R2</span>,<span class="built_in">R3</span> are registers</span><br><span class="line"><span class="keyword">ADD </span><span class="built_in">R2</span>,<span class="built_in">R1</span>,foo   // <span class="built_in">R2</span>-&lt;--<span class="built_in">R1</span>+foo where foo stands for the </span><br><span class="line">                // value of the memory location pointed </span><br><span class="line">                // at <span class="keyword">by </span>the user-defined label foo.</span><br><span class="line"><span class="keyword">AND </span><span class="built_in">R1</span>,<span class="built_in">R1</span>,<span class="built_in">R2</span>    // <span class="built_in">R1</span>-&lt;--<span class="keyword">bit </span>wise <span class="keyword">And </span>of <span class="built_in">R1</span> <span class="keyword">and </span><span class="built_in">R2</span></span><br></pre></td></tr></table></figure>
+<h3 id="Memory-Access"><a href="#Memory-Access" class="headerlink" title="Memory Access"></a>Memory Access</h3><p>Memory access commands fall into <strong>two categories</strong>. </p>
+<ul>
+<li>First, as we have just seen, arithmetic and logical commands are allowed to operate not only on registers, but also on selected memory locations. </li>
+<li>Second, all computers feature explicit load and store commands, designed to move data between registers and memory.</li>
+</ul>
+<p>These memory access commands may use several types of <strong>addressing modes</strong> — ways of specifying the address of the required memory word.</p>
+<ol>
+<li><strong>Direct addressing</strong>  The most common way to address the memory is to express a specific address or use a symbol that refers to a specific address, as follows</li>
+</ol>
+<figure class="highlight arm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">LOAD</span> <span class="built_in">R1</span>,<span class="number">67</span>  // <span class="built_in">R1</span>-&lt;--Memory[<span class="number">67</span>]</span><br><span class="line">            // Or, assuming that <span class="keyword">bar </span>refers to memory <span class="keyword">address </span><span class="number">67</span>:</span><br><span class="line"><span class="symbol">LOAD</span> <span class="built_in">R1</span>,<span class="keyword">bar </span>// <span class="built_in">R1</span>&lt;--Memory[<span class="number">67</span>]</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p><strong>Immediate addressing</strong>  This form of addressing is used to load constants— namely, load values that appear in the instruction code</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LOADI R1,67 // R1&lt;--67</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Indirect addressing</strong>  In this addressing mode the address of the required memory location is not hard-coded into the instruction; instead, the instruction specifies a memory location that holds the required address.</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// Translation of x=foo[j] or x=*(foo+j):</span><br><span class="line">ADD R1, foo, j // R1&lt;--foo+j</span><br><span class="line">LOAD* R2,R1    // R2-&lt;--Memory[R1] </span><br><span class="line">STR R2,x       // x-&lt;--R2</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>Flow of Control</strong>  While programs normally execute in a linear fashion, one com- mand after the other, they also include occasional branches to locations other than the next command. Branching serves several purposes including <strong>repetition</strong> (jump backward to the beginning of a loop), <strong>conditional execution</strong> (if a Boolean condition is false, jump forward to the location after the ‘‘if-then’’ clause), and <strong>subroutine</strong> calling ( jump to the first command of some other code segment).</li>
+</ol>
+<p><strong>Unconditional jump</strong> commands like JMP beginWhile specify only the address of the target location<br><strong>Conditional jump</strong> commands like JNG R1,endWhile must also specify a Boolean condition, expressed in some way.</p>
+<figure class="highlight arm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">load</span> <span class="built_in">R1</span>,<span class="number">0</span></span><br><span class="line"><span class="keyword">add </span><span class="number">1</span>, <span class="built_in">R1</span></span><br><span class="line"><span class="symbol">...</span></span><br><span class="line">// do something with <span class="built_in">R1</span> value ...</span><br><span class="line"><span class="symbol">jmp</span> <span class="number">102</span> // goto <span class="number">102</span></span><br></pre></td></tr></table></figure>
+<h3 id="Compilation"><a href="#Compilation" class="headerlink" title="Compilation"></a>Compilation</h3><p><img src="2.png" alt>                  </p>
+<h2 id="The-Hack-language-specification"><a href="#The-Hack-language-specification" class="headerlink" title="The Hack language specification"></a>The Hack language specification</h2><p><img src="4.png" alt></p>
+<p><strong>Memory Address Spaces</strong> The Hack computer is a von Neumann platform. It is a 16-bit machine, consisting of a CPU, two separate memory modules serving as <strong>instruction memory</strong> and <strong>data memory</strong>, and two memory-mapped I/O devices: a screen and a keyboard.The CPU can only execute programs that reside in the instruction memory.</p>
+<p><strong>Register</strong></p>
+<ol>
+<li>The Hack programmer is aware of two 16-bit registers called <strong>D</strong> and <strong>A</strong>. D is used solely to store data values, While A can be interpreted either as a data value, or as an address in the data memory.</li>
+<li>Since Hack instructions are 16-bit wide, and since addresses are specified using 15 bits, it is impossible to pack both an operation code and an address in one instruction. Thus, the syntax of the Hack language mandates that memory access instructions operate on an implicit memory location labeled <strong>M</strong>.</li>
+<li><p>the A register can be used to facilitate direct access to the data memory: the convention is that <strong>M</strong> always refers to the memory word whose address is the current value of the A register</p>
+<blockquote>
+<p>eg: D = Memory[516] 􏰁- 1, we have to use one instruction to set the A register to 516, and a subsequent instruction to specify D=M-1.</p>
+</blockquote>
+</li>
+<li><p>facilitate direct access to the instruction memory: Hack jump instructions do not specify a particular address. Instead, the convention is that any jump operation always effects a jump to the instruction located in the memory word addressed by A.</p>
+</li>
+<li><strong>@value</strong>, where value is either a number or a symbol representing a number. This command simply stores the specified value in the A register. </li>
+</ol>
+<h3 id="The-A-Instruction"><a href="#The-A-Instruction" class="headerlink" title="The A-Instruction"></a>The A-Instruction</h3><p>The A-instruction is used to set the A register to a 15-bit values<br><strong>@valu</strong><br><img src="5.png" alt></p>
+<p>The A-instruction is used for three different purposes.</p>
+<ul>
+<li>it provides the only way to <strong>enter a constant</strong> into the computer under program control.</li>
+<li>it sets the stage for a subsequent C-instruction designed to manipulate a certain <strong>data memory location</strong>, by first setting A to the address of that location. </li>
+<li>it sets the stage for a subsequent C-instruction that <strong>specifies a jump</strong>, by first loading the address of the jump destination to the A register</li>
+</ul>
+<h3 id="The-C-Instruction"><a href="#The-C-Instruction" class="headerlink" title="The C-Instruction"></a>The C-Instruction</h3><p>The instruction code is a specification that answers three questions: </p>
+<ul>
+<li>what to computer</li>
+<li>where to store the computed value</li>
+<li>what to do next</li>
+</ul>
+<p>The overall semantics of the symbolic instruction dest=comp;jump is as follows. The <strong>comp</strong> field instructs the ALU what to compute. The <strong>dest</strong> field instructs where to store the computed value (ALU output).</p>
+<p><img src="6.png" alt></p>
+<h4 id="The-Computation-Specification-comp"><a href="#The-Computation-Specification-comp" class="headerlink" title="The Computation Specification(comp)"></a>The Computation Specification(comp)</h4><p>The Hack ALU is designed to compute a fixed set of functions on the D, A, and M registers (where M stands for Memory[A]). </p>
+<p>Recall that the format of the C-instruction is 111accccccdd djjj. Suppose we want to have the ALU compute D-1, the current value of the D register minus 1. According to figure blow, this can be done by issuing the instruction 1110001110000000 (the 7-bit operation code is in bold). To compute the value of D|M, we issue the instruction 1111 010101000000. To compute the constant 􏰁1, we issue the instruction 1110111010000000, and so on.</p>
+<p><img src="7.png" alt></p>
+<h3 id="The-Destination-Specification"><a href="#The-Destination-Specification" class="headerlink" title="The Destination Specification"></a>The Destination Specification</h3><p>The value computed by the comp part of the C- instruction can be stored in several destinations, as specified by the instruction’s 3-bit dest part.</p>
+<p>Recall that the format of the C-instruction is 111a cccc ccdd djjj. Suppose we want the computer to increment the value of Memory[7] by 1 and to also store the result in the D register. According to figures 4.3 and 4.4, this can be accomplished by the following instructions:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0000 0000 0000 0111    // @7</span><br><span class="line">1111 1101 1101 1000    // MD=M+1</span><br></pre></td></tr></table></figure>
+<p><img src="8.png" alt></p>
+<h3 id="The-Jump-Specification"><a href="#The-Jump-Specification" class="headerlink" title="The Jump Specification"></a>The Jump Specification</h3><p>The jump field of the C-instruction tells the computer what to do next.</p>
+<figure class="highlight arm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//  <span class="meta">if</span> Memory[<span class="number">3</span>]<span class="number">=5</span> then goto <span class="number">100</span> <span class="meta">else</span> goto <span class="number">200</span></span><br><span class="line"></span><br><span class="line"><span class="comment">@3</span></span><br><span class="line">D<span class="symbol">=M</span>    // D<span class="symbol">=Memory</span>[<span class="number">3</span>]</span><br><span class="line"><span class="comment">@5</span></span><br><span class="line">D<span class="symbol">=D</span>-A  // D<span class="symbol">=D</span>-<span class="number">5</span></span><br><span class="line"><span class="comment">@100</span></span><br><span class="line">D<span class="comment">;JEQ  // If D=0 goto 100</span></span><br><span class="line"><span class="comment">@200</span></span><br><span class="line"><span class="number">0</span><span class="comment">;JMP  // Goto 200</span></span><br></pre></td></tr></table></figure>
+<p><img src="9.png" alt></p>
+<h3 id="Symbols"><a href="#Symbols" class="headerlink" title="Symbols"></a>Symbols</h3><p>Assembly commands can refer to memory locations (addresses) using either constants or symbols. Symbols are introduced into assembly programs in the following three ways:</p>
+<p><strong>Predefined symbols</strong>: A special subset of RAM addresses can be referred to by any assembly program using the following predefined symbols.</p>
+<ul>
+<li>_Virtual registers_: To simplify assembly programming, the symbols R0 to R15 are predefined to refer to RAM addresses 0 to 15, respectively.</li>
+<li>_Predefined pointers_: The symbols SP, LCL, ARG, THIS, and THAT are predefined to refer to RAM addresses 0 to 4, respectively. Note that each of these memory locations has two labels. For example, address 2 can be referred to using either R2 or ARG. This syntactic convention will come to play in the implementation of the virtual machine, discussed in chapters 7 and 8.</li>
+<li>_I/O pointers_: The symbols SCREEN and KBD are predefined to refer to RAM addresses 16384 (0x4000) and 24576 (0x6000), respectively, which are the base addresses of the screen and keyboard memory maps. The use of these I/O devices is explained later.</li>
+</ul>
+<p><strong>Label symbols</strong>: These user-defined symbols, which serve to label destinations of goto commands, are declared by the pseudo-command ‘‘(Xxx)’’. This directive defines the symbol Xxx to refer to the instruction memory location holding the next command in the program. A label can be defined only once and can be used any- where in the assembly program, even before the line in which it is defined.</p>
+<p><strong>Variable symbols</strong>: Any user-defined symbol Xxx appearing in an assembly program that is not predefined and is not defined elsewhere using the ‘‘(Xxx)’’ command is treated as a variable, and is assigned a unique memory address by the assembler, starting at RAM address 16 (0x0010).</p>
+<h2 id="Hack-programs-symbolic-and-binary"><a href="#Hack-programs-symbolic-and-binary" class="headerlink" title="Hack programs: symbolic and binary"></a>Hack programs: symbolic and binary</h2><p><a href="13.png"></a></p>
+<h2 id="Input-Output"><a href="#Input-Output" class="headerlink" title="Input / Output"></a>Input / Output</h2><p>The Hack platform can be connected to two peripheral devices: a screen and a keyboard. Both devices interact with the computer platform through memory maps. <strong>This means that drawing pixels on the screen is achieved by writing binary values into a memory segment associated with the screen</strong>. Likewise, listening to the key- board is done by reading a memory location associated with the keyboard. The physical I/O devices and their memory maps are synchronized via continuous refresh loops.</p>
+<ul>
+<li>A designated memory area, dedicated to manage a display unit</li>
+<li>The physical display is continuously refreshed from the memory map, many times per second</li>
+<li>Output is effected by writing code that manipulates the screen memory map.</li>
+</ul>
+<p><img src="10.png" alt></p>
+<h3 id="Screen"><a href="#Screen" class="headerlink" title="Screen"></a>Screen</h3><p>The Hack computer includes a black-and-white screen organized as 256 rows of 512 pixels per row. The screen’s contents are represented by an 8K memory map that starts at RAM address 16384 (0x4000). Each row in the physical screen, starting at the screen’s top left corner, is represented in the RAM by 32 consecutive 16-bit words. Thus the pixel at row r from the top and column c from the left is mapped on the c%16 bit (counting from LSB to MSB) of the word located at RAM[16384 + r *􏰀 32 + c/16]. To write or read a pixel of the physical screen, one reads or writes the corresponding bit in the RAM-resident memory map (1 1⁄4 black, 0 1⁄4 white). Example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// Draw a single black dot at the screen&apos;s top left corner:</span><br><span class="line">@SCREEN  // Set the A register to point to the memory</span><br><span class="line">         // word that is mapped to the 16 left-most</span><br><span class="line">         // pixels of the top row of the screen.</span><br><span class="line">M=1      // Blacken the left-most pixel.</span><br></pre></td></tr></table></figure>
+<p><img src="11.png" alt></p>
+<p><strong>Task</strong>: draw a filled rectangle at the upper left corner of the screen, 16 pixels wide and RAM[0] pixels long</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// Pseudo code</span><br><span class="line">// for (i=0; i&lt;n; i++) &#123;</span><br><span class="line">//     draw 16 black pixels at the</span><br><span class="line">//     beginning of row i</span><br><span class="line">// &#125;</span><br><span class="line"></span><br><span class="line">addr = SCREEN n = RAM[0] i=0</span><br><span class="line">LOOP:</span><br><span class="line">if i &gt; n goto END</span><br><span class="line">RAM[addr] = -1 // 1111111111111111 // advances to the next row</span><br><span class="line">addr = addr + 32</span><br><span class="line">i=i+1</span><br><span class="line">goto LOOP</span><br><span class="line">END:</span><br><span class="line">goto END</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">@SCREEN</span><br><span class="line">D=A</span><br><span class="line">@addr</span><br><span class="line">M=D  // addr = 16384</span><br><span class="line">    // (screen’s base address)</span><br><span class="line">@0</span><br><span class="line">D=M</span><br><span class="line">@n</span><br><span class="line">M=D  // n = RAM[0]</span><br><span class="line"></span><br><span class="line">@i</span><br><span class="line">M=0 //i=0</span><br><span class="line"></span><br><span class="line">(LOOP) </span><br><span class="line">    @i</span><br><span class="line">    D=M</span><br><span class="line">    @n</span><br><span class="line">    D=D-M</span><br><span class="line">    @END</span><br><span class="line">    D;JGT  // if i&gt;n goto END</span><br><span class="line"></span><br><span class="line">    @addr</span><br><span class="line">    A=M</span><br><span class="line">    M=-1   // RAM[addr]=1111111111111111</span><br><span class="line"></span><br><span class="line">    @i</span><br><span class="line">    M=M+1 //i=i+1</span><br><span class="line">    @32</span><br><span class="line">    D=A</span><br><span class="line">    @addr</span><br><span class="line">    M=D+M // addr = addr + 32 @LOOP</span><br><span class="line">    0;JMP // goto LOOP</span><br><span class="line"></span><br><span class="line">(END)</span><br><span class="line">    @END   // program’s end</span><br><span class="line">    0;JMP</span><br></pre></td></tr></table></figure>
+<h3 id="Keyboard"><a href="#Keyboard" class="headerlink" title="Keyboard"></a>Keyboard</h3><p>The Hack computer interfaces with the physical keyboard via a single-word memory map located in RAM address 24576 (0x6000). Whenever a key is pressed on the physical keyboard, its 16-bit ASCII code appears in RAM[24576]. When no key is pressed, the code 0 appears in this location. In addition to the usual ASCII codes, the Hack keyboard recognizes the keys shown in figure 4.6.</p>
+<p><img src="12.png" alt></p>
+<h2 id="Syntax-Conventions-and-File-Format"><a href="#Syntax-Conventions-and-File-Format" class="headerlink" title="Syntax Conventions and File Format"></a>Syntax Conventions and File Format</h2><p><strong>Binary Code Files</strong>  A binary code file is composed of text lines. Each line is a sequence of sixteen “0” and “1” ASCII characters, coding a single machine language instruction. Taken together, all the lines in the file represent a machine language program. The contract is such that when a machine language program is loaded into the computer’s instruction memory, the binary code represented by the file’s nth line is stored in address n of the instruction memory (the count of both program lines and memory addresses starts at 0). By convention, machine language programs are stored in text files with a “hack” extension, for example, Prog.hack.</p>
+<p><strong>Assembly Language Files</strong> By convention, assembly language programs are stored in text files with an “asm” extension, for example, Prog.asm. An assembly languages file is composed of text lines, each representing either an instruction or a symbol declaration:</p>
+<ul>
+<li>Instruction: an A-instruction or a C-instruction.</li>
+<li>(Symbol): This pseudo-command causes the assembler to assign the label Symbol to the memory location in which the next command of the program will be stored. It is called “pseudo-command” since it generates no machine code.</li>
+</ul>
+<p><strong>Constants and Symbols</strong> Constants must be non-negative and are always written in decimal notation. A user-defined symbol can be any sequence of letters, digits, underscore (_), dot (.), dollar sign ($), and colon (:) that does not begin with a digit.</p>
+<p><strong>Comments Text</strong> beginning with two slashes (//) and ending at the end of the line is considered a comment and is ignored.</p>
+<p><strong>White Space</strong> Space characters are ignored. Empty lines are ignored.</p>
+<p><strong>Case Conventions</strong> All the assembly mnemonics must be written in uppercase. The rest (user-defined labels and variable names) is case sensitive. The convention is to use uppercase for labels and lowercase for variable names.</p>
+<h2 id="Hack-programming"><a href="#Hack-programming" class="headerlink" title="Hack programming"></a>Hack programming</h2><h3 id="Hack-assembly-language-overview"><a href="#Hack-assembly-language-overview" class="headerlink" title="Hack assembly language (overview)"></a>Hack assembly language (overview)</h3><p><img src="16.png" alt><br><img src="14.png" alt></p>
+<h4 id="Registers-and-memory"><a href="#Registers-and-memory" class="headerlink" title="Registers and memory"></a>Registers and memory</h4><ul>
+<li>D: data register</li>
+<li>A: address / data register</li>
+<li>M: the currently selected memory register: M = RAM[A]</li>
+</ul>
+<p><img src="15.png" alt></p>
+<p>Typical operations:</p>
+<figure class="highlight arm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// D = <span class="number">10</span></span><br><span class="line"><span class="comment">@10</span></span><br><span class="line">D<span class="symbol">=A</span></span><br><span class="line"></span><br><span class="line">// D++</span><br><span class="line">D<span class="symbol">=D</span>+<span class="number">1</span></span><br><span class="line"></span><br><span class="line">// D<span class="symbol">=RAM</span>[<span class="number">17</span>]</span><br><span class="line"><span class="comment">@17</span></span><br><span class="line">D<span class="symbol">=M</span></span><br><span class="line"></span><br><span class="line">//RAM[<span class="number">17</span>]<span class="symbol">=D</span></span><br><span class="line"><span class="comment">@17</span></span><br><span class="line">M<span class="symbol">=D</span></span><br><span class="line"></span><br><span class="line">// RAM[<span class="number">17</span>]<span class="number">=10</span></span><br><span class="line"><span class="comment">@10</span></span><br><span class="line">D<span class="symbol">=A</span></span><br><span class="line"><span class="comment">@17</span></span><br><span class="line">M<span class="symbol">=D</span></span><br><span class="line"></span><br><span class="line">// RAM[<span class="number">5</span>] = RAM[<span class="number">3</span>]</span><br><span class="line"><span class="comment">@3 </span></span><br><span class="line">D<span class="symbol">=M</span> </span><br><span class="line"><span class="comment">@5</span></span><br><span class="line">M<span class="symbol">=D</span></span><br></pre></td></tr></table></figure>
+<p><strong>Program example</strong>: add two numbers<br><figure class="highlight arm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// Program: <span class="keyword">Add2.asm</span></span><br><span class="line"><span class="keyword">// </span>Computes: RAM[<span class="number">2</span>] = RAM[<span class="number">0</span>] + RAM[<span class="number">1</span>]</span><br><span class="line">// Usage: put values in RAM[<span class="number">0</span>], RAM[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">@0</span></span><br><span class="line">D<span class="symbol">=A</span></span><br><span class="line"></span><br><span class="line"><span class="comment">@1</span></span><br><span class="line">D<span class="symbol">=D</span>+M</span><br><span class="line"></span><br><span class="line"><span class="comment">@2</span></span><br><span class="line">M<span class="symbol">=D</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Branching-and-Labels"><a href="#Branching-and-Labels" class="headerlink" title="Branching and Labels"></a>Branching and Labels</h4><p><img src="17.png" alt></p>
+<h4 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h4><p><img src="18.png" alt></p>
+<h4 id="Iterative-processing"><a href="#Iterative-processing" class="headerlink" title="Iterative processing"></a>Iterative processing</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// pseudo code</span><br><span class="line">// Computes RAM[1] = 1+2+ ... +RAM[0]</span><br><span class="line">n = R0 </span><br><span class="line">i=1 </span><br><span class="line">sum = 0</span><br><span class="line"></span><br><span class="line">LOOP:</span><br><span class="line">    if i &gt; n goto STOP </span><br><span class="line">    sum = sum + i </span><br><span class="line">    i=i+1</span><br><span class="line">    goto LOOP</span><br><span class="line">STOP:</span><br><span class="line">    R1 = sum</span><br></pre></td></tr></table></figure>
+<figure class="highlight arm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">// Computes RAM[<span class="number">1</span>] = <span class="number">1</span>+<span class="number">2</span>+ ... +n</span><br><span class="line">// Usage: put a number (n) in RAM[<span class="number">0</span>]</span><br><span class="line">      <span class="comment">@R0</span></span><br><span class="line">      D<span class="symbol">=M</span></span><br><span class="line">      <span class="comment">@n</span></span><br><span class="line">      M<span class="symbol">=D</span>   // n = <span class="built_in">R0</span></span><br><span class="line">      <span class="comment">@i</span></span><br><span class="line">      M<span class="number">=1</span>   // i = <span class="number">1</span></span><br><span class="line">      <span class="comment">@sum</span></span><br><span class="line">      M<span class="number">=0</span>   // sum = <span class="number">0</span></span><br><span class="line">(LOOP) <span class="comment">@i</span></span><br><span class="line">      D<span class="symbol">=M</span></span><br><span class="line">      <span class="comment">@n</span></span><br><span class="line">      D<span class="symbol">=D</span>-M</span><br><span class="line">      <span class="comment">@STOP</span></span><br><span class="line">      D<span class="comment">;JGT  // if i &gt; n goto STOP</span></span><br><span class="line">      <span class="comment">@sum</span></span><br><span class="line">      D<span class="symbol">=M</span></span><br><span class="line">      <span class="comment">@i</span></span><br><span class="line">      D<span class="symbol">=D</span>+M</span><br><span class="line">      <span class="comment">@sum</span></span><br><span class="line">      M<span class="symbol">=D</span>    // sum = sum + i</span><br><span class="line">      <span class="comment">@i</span></span><br><span class="line">      M<span class="symbol">=M</span>+<span class="number">1</span>  // i = i + <span class="number">1</span></span><br><span class="line">      <span class="comment">@LOOP</span></span><br><span class="line">      <span class="number">0</span><span class="comment">;JMP</span></span><br><span class="line">(STOP) </span><br><span class="line">      <span class="comment">@sum</span></span><br><span class="line">      D<span class="symbol">=M</span></span><br><span class="line">      <span class="comment">@R1</span></span><br><span class="line">      M<span class="symbol">=D</span>    // RAM[<span class="number">1</span>] = sum</span><br><span class="line">(<span class="meta">END</span>) </span><br><span class="line">      <span class="comment">@END</span></span><br><span class="line">      <span class="number">0</span><span class="comment">;JMP</span></span><br></pre></td></tr></table></figure>
+<h4 id="Pointers"><a href="#Pointers" class="headerlink" title="Pointers"></a>Pointers</h4><p><img src="19.png" alt></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Nand2Tetris/" rel="tag"># Nand2Tetris</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Principal-Component-Analysis/2019/09/20/" rel="next" title="Principal Component Analysis">
+                <i class="fa fa-chevron-left"></i> Principal Component Analysis
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/cs231n-assignment1/2019/10/01/" rel="prev" title="cs231n assignment1">
+                cs231n assignment1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">186</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Table-of-Contents"><span class="nav-text">Table of Contents</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Machine-languages"><span class="nav-text">Machine languages</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mnemonics"><span class="nav-text">Mnemonics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Commands"><span class="nav-text">Commands</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arithmetic-and-Logic-Operations"><span class="nav-text">Arithmetic and Logic Operations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory-Access"><span class="nav-text">Memory Access</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Compilation"><span class="nav-text">Compilation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Hack-language-specification"><span class="nav-text">The Hack language specification</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-A-Instruction"><span class="nav-text">The A-Instruction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-C-Instruction"><span class="nav-text">The C-Instruction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Computation-Specification-comp"><span class="nav-text">The Computation Specification(comp)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Destination-Specification"><span class="nav-text">The Destination Specification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Jump-Specification"><span class="nav-text">The Jump Specification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbols"><span class="nav-text">Symbols</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hack-programs-symbolic-and-binary"><span class="nav-text">Hack programs: symbolic and binary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input-Output"><span class="nav-text">Input / Output</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Screen"><span class="nav-text">Screen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Keyboard"><span class="nav-text">Keyboard</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Syntax-Conventions-and-File-Format"><span class="nav-text">Syntax Conventions and File Format</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hack-programming"><span class="nav-text">Hack programming</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hack-assembly-language-overview"><span class="nav-text">Hack assembly language (overview)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Registers-and-memory"><span class="nav-text">Registers and memory</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Branching-and-Labels"><span class="nav-text">Branching and Labels</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Variables"><span class="nav-text">Variables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Iterative-processing"><span class="nav-text">Iterative processing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pointers"><span class="nav-text">Pointers</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>
