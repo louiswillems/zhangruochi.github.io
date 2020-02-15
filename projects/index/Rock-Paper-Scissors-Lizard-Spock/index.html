@@ -1,0 +1,76 @@
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis"></script>
+<script src="webcam.js"></script>
+<script src="rps-dataset.js"></script>
+	<style>
+    </style>
+</head>
+<body>
+	<h1 style="text-align:center">Rock, Paper, Scissors, Lizard, Spock.</h1>
+	
+	<p>Train a Neural Network to accurately classify Rock, Paper, Scissors, Lizard and Spock. Our Neural Netwrok are based on mobilnet and you just need to train the customized last few layers. So you only need to collect a small number of samples to train a good model.</p>
+	
+	<h2>Steps</h2>
+
+	<ul>
+	  <li>
+	  	<div><p><strong>Collecting Data: </strong>: Collecting between 50 to100 images for each hand gesture should be good enough for most models. However, feel free to experiment and try to train difference model with less or more images. Place a specific gesture in front of the computer's camera and click the corresponding button. You will see how many different categories of photos are currently collected. The relationship between gestures and buttons is shown below. </p>
+		<center>
+		    <img style="border-radius: 0.3125em;
+		    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+		    src="gestures.png" width = "70%" height="30%">
+		</center>
+	  	</div>
+	  </li>
+	  <li><p><strong>Train The Neural Network: </strong> push the Button <b>Train Network</b>, You can see the training process on the right screen. It lasts about 2 minuts according to the amount of training data you collected and the configuration of your computer. There is a alert will be poped when training is finished.</p></li>
+	  <li><p><strong>Start Predicting: </strong> Take a gesture in front of camera and the Neural Network you have trained will give you a guess.</p></li>
+	</ul>
+
+	
+	<br>
+	<br>
+	<div align="center">
+		<div>
+			<p style="text-align:center"> Webcam </p>
+			<video autoplay playsinline muted id="wc" width="224" height="224" ></video>
+			<br>
+			<br>
+			<button type="button" id="0" onclick="handleButton(this)" >Rock</button>
+			<button type="button" id="1" onclick="handleButton(this)" >Paper</button>
+			<button type="button" id="2" onclick="handleButton(this)" >Scissors</button>
+			<button type="button" id="3" onclick="handleButton(this)" >Spock</button>
+			<button type="button" id="4" onclick="handleButton(this)" >Lizard</button>
+		 </div>
+		<br>
+		<br>
+
+		<div class="center">
+			<div id="rocksamples">Rock Samples: 0</div>
+			<div id="papersamples">Paper Samples: 0</div>
+			<div id="scissorssamples">Scissors Samples: 0</div>
+			<div id="spocksamples">Spock Samples: 0</div>
+			<div id="lizardsamples">Lizard Samples: 0</div>
+		</div>
+		
+		<br>
+		<div id="prediction" align="center">Prediction: </div>
+		<br>
+		<button type="button" id="train" onclick="doTraining()" >Train Network</button>
+		<button type="button" id="startPredicting" onclick="startPredicting()" >Start Predicting</button>
+		<button type="button" id="stopPredicting" onclick="stopPredicting()" >Stop Predicting</button>
+    	<button type="button" id="saveModel" onclick="saveModel()" >Download Model</button>
+
+	</div>
+	
+	<br>
+	<br>
+	<br>
+	<div align="center"><p> Reference from:  Coursera course <a href="https://www.coursera.org/specializations/tensorflow-data-and-deployment">TensorFlow: Data and Deployment Specialization</a></p></div>
+	<div align="center"><p>&copy; 2020 zhangruochi.com<p></p>
+
+</body>
+
+<script src="index.js"></script>
+</html>
