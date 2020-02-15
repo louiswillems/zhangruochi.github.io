@@ -14,8 +14,8 @@ function getModel() {
     // many layers, filters, and neurons as you like.  
     // HINT: Take a look at the MNIST example.
     model = tf.sequential();
-    model.add(tf.layers.conv2d({inputShape: [28, 28, 1], kernelSize: 3, filters: 32, activation: 'relu', kernel_initializer: 'he_uniform'}));
-    model.add(tf.layers.conv2d({kernelSize: 3, filters: 32, activation: 'relu', kernel_initializer: 'he_uniform'}));
+    model.add(tf.layers.conv2d({inputShape: [28, 28, 1], kernelSize: 3, filters: 8, activation: 'relu', kernel_initializer: 'he_uniform'}));
+    model.add(tf.layers.conv2d({kernelSize: 3, filters: 8, activation: 'relu', kernel_initializer: 'he_uniform'}));
     model.add(tf.layers.maxPooling2d({poolSize: [2, 2]}));
 
     model.add(tf.layers.flatten());
