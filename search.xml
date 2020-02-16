@@ -290,6 +290,11 @@ INFO:tensorflow:Assets written to: saved_model/1/assets
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Visualize the outputs</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Select index of image to display. Minimum index value is 1 and max index value is 50. </span></span><br><span class="line">index = <span class="number">49</span> </span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">6</span>,<span class="number">3</span>))</span><br><span class="line">plt.subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">plot_image(index, predictions, test_labels, test_images)</span><br><span class="line">plt.subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">plot_value_array(index, predictions, test_labels)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <p><img src="output_41_0.png" alt="png"></p>
 ]]></content>
+      <categories>
+        <category>Artificial Inteligence</category>
+        <category>Deep Learning</category>
+        <category>Development</category>
+      </categories>
   </entry>
   <entry>
     <title>Promise</title>
@@ -1097,6 +1102,10 @@ Sequential(
 <li>Use <code>ModuleDict</code> when you need to parametise some blocks of your model, for example an activation function</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>Artificial Intelligence</category>
+        <category>Deep Learning</category>
+      </categories>
   </entry>
   <entry>
     <title>Minimum Spanning Trees</title>
