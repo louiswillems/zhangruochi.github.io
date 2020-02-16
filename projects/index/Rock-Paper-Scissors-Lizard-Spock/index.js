@@ -26,7 +26,7 @@ async function train() {
   model = tf.sequential({
     layers: [
       tf.layers.conv2d({inputShape: mobilenet.outputs[0].shape.slice(1), kernelSize: 1, filters: 128, activation: 'relu', kernel_initializer: 'he_uniform'}),
-      tf.layers.conv2d({kernelSize: 3, filters: 32, activation: 'relu', kernel_initializer: 'he_uniform'}),
+      tf.layers.conv2d({kernelSize: 1, filters: 32, activation: 'relu', kernel_initializer: 'he_uniform'}),
       tf.layers.maxPooling2d({poolSize: [2, 2]}),
       tf.layers.flatten(),
       // tf.layers.dense({units: 32, activation: "relu"}),
@@ -94,10 +94,7 @@ function handleButton(elem){
       lizardSamples++;
       document.getElementById("lizardsamples").innerText = "Lizard samples: " + lizardSamples;
       break;
-        // Add a case for lizard samples.
-        // HINT: Look at the previous cases.
-            
-        // YOUR CODE HERE
+
     
             
   }
@@ -119,19 +116,19 @@ async function predict() {
     var predictionText = "";
     switch(classId){
     case 0:
-      predictionText = "I see Rock";
+      predictionText = "Prediction: Rock";
       break;
     case 1:
-      predictionText = "I see Paper";
+      predictionText = "Prediction: Paper";
       break;
     case 2:
-      predictionText = "I see Scissors";
+      predictionText = "Prediction: Scissors";
       break;
     case 3:
-      predictionText = "I see Spock";
+      predictionText = "Prediction: Spock";
       break;
     case 4:
-      predictionText = "I see Lizard";
+      predictionText = "Prediction: Lizard";
       break;
             
         // Add a case for lizard samples.

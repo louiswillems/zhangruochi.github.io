@@ -5,6 +5,10 @@
 <script src="webcam.js"></script>
 <script src="rps-dataset.js"></script>
 	<style>
+		#pos {
+  			padding-left: 15%;
+		}
+
     </style>
 </head>
 <body>
@@ -14,9 +18,10 @@
 	
 	<h2>Steps</h2>
 
-	<ul>
+	<ol>
+		<li><strong>Preparing enviroment</strong>: This project is supported by <b>Chrome</b> and you need give the authority for opening your camera. Do not warries, all the data will be only on your own laptop. </li>
 	  <li>
-	  	<div><p><strong>Collecting Data: </strong>: Collecting between 50 to100 images for each hand gesture should be good enough for most models. However, feel free to experiment and try to train difference model with less or more images. Place a specific gesture in front of the computer's camera and click the corresponding button. You will see how many different categories of photos are currently collected. The relationship between gestures and buttons is shown below. </p>
+	  	<div><p><strong>Collecting Data: </strong>: Collecting between 50 to100 images for each hand gesture should be good enough for most models. However, you can experiment and try to train difference model with less or more images. Place a specific gesture in front of the computer's camera and click the corresponding button of your gestures. You will see how many different categories of images are currently collected. The example gestures are shown below. </p>
 		<center>
 		    <img style="border-radius: 0.3125em;
 		    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
@@ -24,16 +29,17 @@
 		</center>
 	  	</div>
 	  </li>
-	  <li><p><strong>Train The Neural Network: </strong> push the Button <b>Train Network</b>, You can see the training process on the right screen. It lasts about 2 minuts according to the amount of training data you collected and the configuration of your computer. There is a alert will be poped when training is finished.</p></li>
+	  <li><p><strong>Training: </strong> Press the Button <b>Train Network</b>, You can see the training process on the right screen. It lasts about 2 minuts according to the amount of training data you collected and the configuration of your computer. There is a alert will be poped when training is finished.</p></li>
 	  <li><p><strong>Start Predicting: </strong> Take a gesture in front of camera and the Neural Network you have trained will give you a guess.</p></li>
-	</ul>
+	</ol>
 
 	
 	<br>
 	<br>
-	<div align="center">
+		<div id="pos">
+		
 		<div>
-			<p style="text-align:center"> Webcam </p>
+			<p> Webcam </p>
 			<video autoplay playsinline muted id="wc" width="224" height="224" ></video>
 			<br>
 			<br>
@@ -55,20 +61,21 @@
 		</div>
 		
 		<br>
-		<div id="prediction" align="center">Prediction: </div>
+		<div><p id="prediction" style="font-family:verdana;font-size:120%;color:red"></p></div>
 		<br>
 		<button type="button" id="train" onclick="doTraining()" >Train Network</button>
 		<button type="button" id="startPredicting" onclick="startPredicting()" >Start Predicting</button>
 		<button type="button" id="stopPredicting" onclick="stopPredicting()" >Stop Predicting</button>
-    	<button type="button" id="saveModel" onclick="saveModel()" >Download Model</button>
-
-	</div>
+    	<!-- <button type="button" id="saveModel" onclick="saveModel()" >Download Model</button>
+ -->	
+	<br>
+	<br>
+	<br>
+	<!-- <div align="center"><p> Reference from:  Coursera course <a href="https://www.coursera.org/specializations/tensorflow-data-and-deployment">TensorFlow: Data and Deployment Specialization</a></p></div> -->
+	<div align="center"><p>&copy; 2020 zhangruochi.com</p></div>
 	
-	<br>
-	<br>
-	<br>
-	<div align="center"><p> Reference from:  Coursera course <a href="https://www.coursera.org/specializations/tensorflow-data-and-deployment">TensorFlow: Data and Deployment Specialization</a></p></div>
-	<div align="center"><p>&copy; 2020 zhangruochi.com<p></p>
+	</div>
+
 
 </body>
 
