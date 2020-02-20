@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangruochi.com/Tensorflow-input-pipeline/2020/02/20/</loc>
+    
+    <lastmod>2020-02-20T07:18:44.369Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Improving-Performance-of-Tensorflow-ETL-pipeline/2020/02/20/</loc>
+    
+    <lastmod>2020-02-20T07:18:12.674Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/TensorFlow-Data-Service/2020/02/17/</loc>
+    
+    <lastmod>2020-02-18T08:52:36.514Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangruochi.com/Use-Tensorflow-Lite-to-do-Inference-on-Raspberry-Pi/2020/02/17/</loc>
     
-    <lastmod>2020-02-18T01:38:04.049Z</lastmod>
+    <lastmod>2020-02-18T04:59:19.744Z</lastmod>
     
   </url>
   

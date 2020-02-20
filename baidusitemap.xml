@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhangruochi.com/Tensorflow-input-pipeline/2020/02/20/</loc>
+    <lastmod>2020-02-20</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Improving-Performance-of-Tensorflow-ETL-pipeline/2020/02/20/</loc>
+    <lastmod>2020-02-20</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/TensorFlow-Data-Service/2020/02/17/</loc>
+    <lastmod>2020-02-18</lastmod>
+  </url>  <url>
     <loc>https://zhangruochi.com/Use-Tensorflow-Lite-to-do-Inference-on-Raspberry-Pi/2020/02/17/</loc>
     <lastmod>2020-02-18</lastmod>
   </url>  <url>
