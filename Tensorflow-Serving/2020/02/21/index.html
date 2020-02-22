@@ -134,15 +134,13 @@
 <meta property="og:site_name" content="RUOCHI.AI">
 <meta property="og:description" content="Train Your Own Model and Serve It With TensorFlow ServingIn this notebook, you will train a neural network to classify images of handwritten digits from the MNIST dataset. You will then save the train">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://www.tensorflow.org/images/colab_logo_32px.png">
-<meta property="og:image" content="https://www.tensorflow.org/images/GitHub-Mark-32px.png">
 <meta property="og:image" content="https://zhangruochi.com/Tensorflow-Serving/2020/02/21/output_14_0.png">
 <meta property="og:image" content="https://zhangruochi.com/Tensorflow-Serving/2020/02/21/output_42_0.png">
-<meta property="og:updated_time" content="2020-02-22T04:38:55.776Z">
+<meta property="og:updated_time" content="2020-02-22T07:48:52.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tensorflow Serving">
 <meta name="twitter:description" content="Train Your Own Model and Serve It With TensorFlow ServingIn this notebook, you will train a neural network to classify images of handwritten digits from the MNIST dataset. You will then save the train">
-<meta name="twitter:image" content="https://www.tensorflow.org/images/colab_logo_32px.png">
+<meta name="twitter:image" content="https://zhangruochi.com/Tensorflow-Serving/2020/02/21/output_14_0.png">
 
 
 
@@ -485,20 +483,6 @@
 
       
         <h1 id="Train-Your-Own-Model-and-Serve-It-With-TensorFlow-Serving"><a href="#Train-Your-Own-Model-and-Serve-It-With-TensorFlow-Serving" class="headerlink" title="Train Your Own Model and Serve It With TensorFlow Serving"></a>Train Your Own Model and Serve It With TensorFlow Serving</h1><p>In this notebook, you will train a neural network to classify images of handwritten digits from the <a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">MNIST</a> dataset. You will then save the trained model, and serve it using <a href="https://www.tensorflow.org/tfx/guide/serving" target="_blank" rel="noopener">TensorFlow Serving</a>.</p>
-<p><strong>Warning: This notebook is designed to be run in a Google Colab only</strong>.  It installs packages on the system and requires root access. If you want to run it in a local Jupyter notebook, please proceed with caution.</p>
-<table class="tfo-notebook-buttons" align="left">
-  <td>
-    <a target="_blank" href="https://colab.research.google.com/github/lmoroney/dlaicourse/blob/master/TensorFlow%20Deployment/Course%204%20-%20TensorFlow%20Serving/Week%201/Exercises/TFServing_Week1_Exercise.ipynb">
-    <img src="https://www.tensorflow.org/images/colab_logo_32px.png">
-    Run in Google Colab</a>
-  </td>
-  <td>
-    <a target="_blank" href="https://github.com/lmoroney/dlaicourse/blob/master/TensorFlow%20Deployment/Course%204%20-%20TensorFlow%20Serving/Week%201/Exercises/TFServing_Week1_Exercise.ipynb">
-    <img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png">
-    View source on GitHub</a>
-  </td>
-</table>
-
 <h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    %tensorflow_version <span class="number">2.</span>x</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> tempfile</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">print(<span class="string">"\u2022 Using TensorFlow Version:"</span>, tf.__version__)</span><br></pre></td></tr></table></figure>
 <pre><code>• Using TensorFlow Version: 2.2.0-dev20200217
@@ -803,6 +787,10 @@ Unable to locate an executable at &quot;/Library/Java/JavaVirtualMachines/jdk1.8
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/Tensorflow-hub/2020/02/22/" rel="prev" title="Tensorflow hub">
+                Tensorflow hub <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -918,7 +906,7 @@ Unable to locate an executable at &quot;/Library/Java/JavaVirtualMachines/jdk1.8
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">192</span>
+                  <span class="site-state-item-count">193</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
