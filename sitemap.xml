@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangruochi.com/Tensorflow-Serving/2020/02/21/</loc>
+    
+    <lastmod>2020-02-22T19:58:20.719Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangruochi.com/TensorBoard/2020/02/22/</loc>
     
-    <lastmod>2020-02-22T18:35:06.644Z</lastmod>
+    <lastmod>2020-02-22T19:54:23.143Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>https://zhangruochi.com/Tensorflow-hub/2020/02/22/</loc>
     
     <lastmod>2020-02-22T07:49:25.075Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Tensorflow-Serving/2020/02/21/</loc>
-    
-    <lastmod>2020-02-22T07:48:52.323Z</lastmod>
     
   </url>
   

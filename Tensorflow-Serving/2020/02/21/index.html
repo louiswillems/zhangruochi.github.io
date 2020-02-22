@@ -136,7 +136,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/Tensorflow-Serving/2020/02/21/output_14_0.png">
 <meta property="og:image" content="https://zhangruochi.com/Tensorflow-Serving/2020/02/21/output_42_0.png">
-<meta property="og:updated_time" content="2020-02-22T07:48:52.323Z">
+<meta property="og:updated_time" content="2020-02-22T19:58:20.719Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tensorflow Serving">
 <meta name="twitter:description" content="Train Your Own Model and Serve It With TensorFlow ServingIn this notebook, you will train a neural network to classify images of handwritten digits from the MNIST dataset. You will then save the train">
@@ -485,8 +485,8 @@
         <h1 id="Train-Your-Own-Model-and-Serve-It-With-TensorFlow-Serving"><a href="#Train-Your-Own-Model-and-Serve-It-With-TensorFlow-Serving" class="headerlink" title="Train Your Own Model and Serve It With TensorFlow Serving"></a>Train Your Own Model and Serve It With TensorFlow Serving</h1><p>In this notebook, you will train a neural network to classify images of handwritten digits from the <a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">MNIST</a> dataset. You will then save the trained model, and serve it using <a href="https://www.tensorflow.org/tfx/guide/serving" target="_blank" rel="noopener">TensorFlow Serving</a>.</p>
 <h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    %tensorflow_version <span class="number">2.</span>x</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> tempfile</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">print(<span class="string">"\u2022 Using TensorFlow Version:"</span>, tf.__version__)</span><br></pre></td></tr></table></figure>
-<pre><code>• Using TensorFlow Version: 2.2.0-dev20200217
-</code></pre><h2 id="Import-the-MNIST-Dataset"><a href="#Import-the-MNIST-Dataset" class="headerlink" title="Import the MNIST Dataset"></a>Import the MNIST Dataset</h2><p>The <a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">MNIST</a> dataset contains 70,000 grayscale images of the digits 0 through 9. The images show individual digits at a low resolution (28 by 28 pixels). </p>
+<p>  Using TensorFlow Version: 2.2.0-dev20200217</p>
+<h2 id="Import-the-MNIST-Dataset"><a href="#Import-the-MNIST-Dataset" class="headerlink" title="Import the MNIST Dataset"></a>Import the MNIST Dataset</h2><p>The <a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">MNIST</a> dataset contains 70,000 grayscale images of the digits 0 through 9. The images show individual digits at a low resolution (28 by 28 pixels). </p>
 <p>Even though these are really images, we will load them as NumPy arrays and not as binary image objects.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mnist = tf.keras.datasets.mnist</span><br><span class="line">(train_images, train_labels), (test_images, test_labels) = mnist.load_data()</span><br></pre></td></tr></table></figure>
 <pre><code>Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
@@ -536,35 +536,7 @@ Epoch 5/5
 loss: 0.0787
 accuracy: 0.976
 </code></pre><h2 id="Save-the-Model"><a href="#Save-the-Model" class="headerlink" title="Save the Model"></a>Save the Model</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">MODEL_DIR = <span class="string">"digits_model"</span></span><br><span class="line"></span><br><span class="line">version = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">export_path = os.path.join(MODEL_DIR, str(version))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> os.path.isdir(export_path):</span><br><span class="line">    print(<span class="string">'\nAlready saved a model, cleaning up\n'</span>)</span><br><span class="line">    !rm -r &#123;export_path&#125;</span><br><span class="line"></span><br><span class="line">model.save(export_path, save_format=<span class="string">"tf"</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'\nexport_path = &#123;&#125;'</span>.format(export_path))</span><br><span class="line">!ls -l &#123;export_path&#125;</span><br></pre></td></tr></table></figure>
-<pre><code>WARNING:tensorflow:AutoGraph could not transform &lt;function canonicalize_signatures.&lt;locals&gt;.signature_wrapper at 0x14b735bf8&gt; and will run it as-is.
-Please report this to the TensorFlow team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output.
-Cause: Bad argument number for Name: 4, expecting 3
-To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
-
-
-WARNING:tensorflow:AutoGraph could not transform &lt;function canonicalize_signatures.&lt;locals&gt;.signature_wrapper at 0x14b735bf8&gt; and will run it as-is.
-Please report this to the TensorFlow team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output.
-Cause: Bad argument number for Name: 4, expecting 3
-To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
-
-
-WARNING: AutoGraph could not transform &lt;function canonicalize_signatures.&lt;locals&gt;.signature_wrapper at 0x14b735bf8&gt; and will run it as-is.
-Please report this to the TensorFlow team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output.
-Cause: Bad argument number for Name: 4, expecting 3
-To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
-INFO:tensorflow:Assets written to: digits_model/1/assets
-
-
-INFO:tensorflow:Assets written to: digits_model/1/assets
-
-
-
-export_path = digits_model/1
-total 152
-drwxr-xr-x  2 ZRC  staff     64 Feb 21 23:32 [1m[36massets[m[m
--rw-r--r--  1 ZRC  staff  74809 Feb 21 23:32 saved_model.pb
-drwxr-xr-x  4 ZRC  staff    128 Feb 21 23:32 [1m[36mvariables[m[m
-</code></pre><h2 id="Examine-Your-Saved-Model"><a href="#Examine-Your-Saved-Model" class="headerlink" title="Examine Your Saved Model"></a>Examine Your Saved Model</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!saved_model_cli show --dir &#123;export_path&#125; --all</span><br></pre></td></tr></table></figure>
+<h2 id="Examine-Your-Saved-Model"><a href="#Examine-Your-Saved-Model" class="headerlink" title="Examine Your Saved Model"></a>Examine Your Saved Model</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!saved_model_cli show --dir &#123;export_path&#125; --all</span><br></pre></td></tr></table></figure>
 <pre><code>MetaGraphDef with tag-set: &#39;serve&#39; contains the following SignatureDefs:
 
 signature_def[&#39;__saved_model_init_op&#39;]:
