@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhangruochi.com/An-overview-of-gradient-descent-optimization-algorithms/2019/02/23/</loc>
+    <lastmod>2020-02-25</lastmod>
+  </url>  <url>
     <loc>https://zhangruochi.com/Tensorflow-Lite-Model-Converter/2020/02/16/</loc>
     <lastmod>2020-02-24</lastmod>
   </url>  <url>
@@ -458,9 +461,6 @@
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Machine-Learning-Yarning-part-one/2019/03/19/</loc>
-    <lastmod>2019-07-05</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/An-overview-of-gradient-descent-optimization-algorithms/2019/02/23/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Coordinate-descent-for-lasso/2019/05/01/</loc>
