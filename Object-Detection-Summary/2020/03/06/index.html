@@ -148,7 +148,7 @@
 <meta property="og:image" content="https://zhangruochi.com/Object-Detection-Summary/2020/03/06/box.png">
 <meta property="og:image" content="https://zhangruochi.com/Object-Detection-Summary/2020/03/06/yolov3.png">
 <meta property="og:image" content="https://zhangruochi.com/Object-Detection-Summary/2020/03/06/10.png">
-<meta property="og:updated_time" content="2020-03-07T02:57:31.055Z">
+<meta property="og:updated_time" content="2020-03-09T16:58:07.340Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Object Detection Summary">
 <meta name="twitter:description" content="基于REGION PROPOSAL的方法R-CNN步骤R-CNN的算法步骤:  采用Selective Search方法从一张图像中提取约2K个候选区域；  首先归一化为统一尺寸，再对每个候选区域，使用深度网络提取特征；  将提取出的特征送入每一类的SVM 分类器，判别是否属于该类；  使用回归器精细修正候选框位置。因为目标检测问题的衡量标准是重叠面积：许多看似准确的检测结果，往往因为候选框不够准">
@@ -667,6 +667,7 @@
 <script type="math/tex; mode=display">d(box, centroid) = 1 - IOU(box, centroid)</script><h4 id="Direct-location-prediction"><a href="#Direct-location-prediction" class="headerlink" title="Direct location prediction"></a>Direct location prediction</h4><p>借鉴于Faster RCNN的先验框方法，在训练的早期阶段，其位置预测容易不稳定。其位置预测公式为：</p>
 <script type="math/tex; mode=display">x = (t_x * w_a) + x_a</script><script type="math/tex; mode=display">y = (t_y * h_a) + y_a</script><p>其中,(x,y)是预测边框的中心，$x_a$, $y_a$是先验框（anchor）的中心点坐标，(w_a,h_a)是先验框（anchor）的宽和高。$t_x$,$t_y$是要学习的尺度变换因子。<br>由于$t_x$,$t_y$没有约束，因此预测边框的中心可能出现在任何位置，训练早期阶段不容易稳定。YOLO调整了预测公式，将预测边框的中心约束在特定gird网格内。</p>
 <script type="math/tex; mode=display">b_x = \sigma(t_x) + c_x</script><script type="math/tex; mode=display">b_y = \sigma(t_y) + c_y</script><script type="math/tex; mode=display">b_w  = p_w e^{t_w}</script><script type="math/tex; mode=display">b_h  = p_h e^{t_h}</script><script type="math/tex; mode=display">Pr(object)\dot IOU(b,object) = \sigma(t_o)</script><p>其中，$b_X,b_y,b_w,b_h$是预测边框的中心和宽高,$Pr(object)\dot IOU(b,object) = \sigma(t_o)$ 是预测边框的置信度，YOLO1是直接预测置信度的值，这里对预测参数$t_o$进行$\sigma$变换后作为置信度的值。$c_x$,$c_y$是当前网格左上角到图像左上角的距离，要先将网格大小归一化，即令一个网格的宽=1，高=1。$p_w,p_h$是先验框的宽和高。</p>
+<p><strong>see explanantion in <a href="https://www.jianshu.com/p/86b8208f634f" target="_blank" rel="noopener">https://www.jianshu.com/p/86b8208f634f</a></strong></p>
 <h4 id="Fine-Grained-Features"><a href="#Fine-Grained-Features" class="headerlink" title="Fine-Grained Features"></a>Fine-Grained Features</h4><p>YOLOv2通过添加一个pass through layer，将前一个卷积块的特征图的信息融合起来；对象检测面临的一个问题是图像中对象会有大有小，输入图像经过多层网络提取特征，最后输出的特征图中（比如YOLO2中输入416<em>416经过卷积网络下采样最后输出是13</em>13），较小的对象可能特征已经不明显甚至被忽略掉了。为了更好的检测出一些比较小的对象，最后输出的特征图需要保留一些更细节的信息。</p>
 <center>
     <img style="border-radius: 0.3125em;
@@ -728,6 +729,7 @@
 <li><a href="https://zhuanlan.zhihu.com/p/31426458" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/31426458</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/47575929" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/47575929</a></li>
 <li><a href="https://blog.csdn.net/leviopku/article/details/82660381" target="_blank" rel="noopener">https://blog.csdn.net/leviopku/article/details/82660381</a></li>
+<li><a href="https://www.jianshu.com/p/86b8208f634f" target="_blank" rel="noopener">https://www.jianshu.com/p/86b8208f634f</a></li>
 </ul>
 
       
