@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhangruochi.com/Maximum-Likelihood-Estimation/2019/05/03/</loc>
+    <lastmod>2020-03-15</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Think-bayesian/2019/07/20/</loc>
+    <lastmod>2020-03-15</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Bayes-Estimation/2019/07/21/</loc>
+    <lastmod>2020-03-15</lastmod>
+  </url>  <url>
     <loc>https://zhangruochi.com/Lifelong-Learning/2020/03/14/</loc>
     <lastmod>2020-03-14</lastmod>
   </url>  <url>
@@ -340,14 +349,8 @@
     <loc>https://zhangruochi.com/Remote-Jupyter-notebook/2019/07/27/</loc>
     <lastmod>2019-08-05</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Bayes-Estimation/2019/07/21/</loc>
-    <lastmod>2019-07-21</lastmod>
-  </url>  <url>
     <loc>https://zhangruochi.com/Collaborate-on-Github/2019/07/20/</loc>
     <lastmod>2019-07-20</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Think-bayesian/2019/07/20/</loc>
-    <lastmod>2019-07-19</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Metrics/2019/07/14/</loc>
     <lastmod>2019-07-17</lastmod>
@@ -422,9 +425,6 @@
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/What-is-P-Value/2019/02/24/</loc>
-    <lastmod>2019-07-05</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Maximum-Likelihood-Estimation/2019/05/03/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Matrix-Algebra-for-Engineers-part-two/2019/03/17/</loc>
