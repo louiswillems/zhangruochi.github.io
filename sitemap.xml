@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangruochi.com/Gaussian-Mixed-Model-Introduction/2020/03/15/</loc>
+    
+    <lastmod>2020-03-15T07:08:58.707Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangruochi.com/Maximum-Likelihood-Estimation/2019/05/03/</loc>
     
     <lastmod>2020-03-15T01:01:42.616Z</lastmod>
@@ -1125,13 +1132,6 @@
     <loc>https://zhangruochi.com/Coordinate-descent-for-lasso/2019/05/01/</loc>
     
     <lastmod>2019-07-05T10:09:33.039Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Gaussian-Mixed-Model-Introduction/2019/05/15/</loc>
-    
-    <lastmod>2019-07-05T10:09:19.104Z</lastmod>
     
   </url>
   
