@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangruochi.com/projects/index.html</loc>
+    
+    <lastmod>2020-03-21T18:45:22.632Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangruochi.com/Gaussian-Mixed-Model-Introduction/2020/03/15/</loc>
     
     <lastmod>2020-03-15T07:08:58.707Z</lastmod>
@@ -138,13 +145,6 @@
     <loc>https://zhangruochi.com/Module-Sequential-ModuleList-ModuleDict/2020/01/28/</loc>
     
     <lastmod>2020-02-16T09:49:45.589Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/projects/index.html</loc>
-    
-    <lastmod>2020-02-16T01:21:02.279Z</lastmod>
     
   </url>
   
