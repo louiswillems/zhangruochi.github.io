@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Course Note,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Why Study Peer-to-Peer Systems? Napster Napster Structure Client Joining a P2P system Problems for Napster   Gn">
+<meta name="keywords" content="Course Note">
+<meta property="og:type" content="article">
+<meta property="og:title" content="P2P System">
+<meta property="og:url" content="https://zhangruochi.com/P2P-System/2019/02/14/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Why Study Peer-to-Peer Systems? Napster Napster Structure Client Joining a P2P system Problems for Napster   Gn">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p01.png">
+<meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p02.png">
+<meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p03.png">
+<meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p04.png">
+<meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p05.png">
+<meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p06.png">
+<meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p07.png">
+<meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p08.png">
+<meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p09.png">
+<meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p10.png">
+<meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p11.png">
+<meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p12.png">
+<meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p13.png">
+<meta property="og:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p14.png">
+<meta property="og:updated_time" content="2019-07-05T09:47:36.780Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="P2P System">
+<meta name="twitter:description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Why Study Peer-to-Peer Systems? Napster Napster Structure Client Joining a P2P system Problems for Napster   Gn">
+<meta name="twitter:image" content="https://zhangruochi.com/P2P-System/2019/02/14/p2p01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/P2P-System/2019/02/14/">
+
+
+
+
+
+  <title>P2P System | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/P2P-System/2019/02/14/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">P2P System</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-14T01:36:24-05:00">
+                2019-02-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Big-Data-Architecture/" itemprop="url" rel="index">
+                    <span itemprop="name">Big Data Architecture</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Big-Data-Architecture/Distributed-Cloud-Computing/" itemprop="url" rel="index">
+                    <span itemprop="name">Distributed & Cloud Computing</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/P2P-System/2019/02/14/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/P2P-System/2019/02/14/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1><ul>
+<li><a href="#overview">Overview</a><ul>
+<li><a href="#goals-and-objectives">Goals and Objectives</a></li>
+<li><a href="#key-phrasesconcepts">Key Phrases/Concepts</a></li>
+<li><a href="#guiding-questions">Guiding Questions</a></li>
+</ul>
+</li>
+<li><a href="#why-study-peer-to-peer-systems">Why Study Peer-to-Peer Systems?</a></li>
+<li><a href="#napster">Napster</a><ul>
+<li><a href="#napster-structure">Napster Structure</a></li>
+<li><a href="#client">Client</a></li>
+<li><a href="#joining-a-p2p-system">Joining a P2P system</a></li>
+<li><a href="#problems-for-napster">Problems for Napster</a></li>
+</ul>
+</li>
+<li><a href="#gnutella">Gnutella</a><ul>
+<li><a href="#gnutella-structure">Gnutella Structure</a></li>
+<li><a href="#how-do-i-search-for-my-beatles-file">How do I search for my Beatles file?</a><ul>
+<li><a href="#payload-format-in-gnutella-query-message">Payload Format in Gnutella Query Message</a></li>
+<li><a href="#payload-format-in-gnutella-queryhit-message">Payload Format in Gnutella QueryHit Message</a></li>
+</ul>
+</li>
+<li><a href="#avoiding-excessive-traffic">Avoiding excessive traffic</a></li>
+<li><a href="#after-receiving-queryhit-messages">After receiving QueryHit messages</a></li>
+<li><a href="#dealing-with-firewalls">Dealing with Firewalls</a></li>
+<li><a href="#ping-pong">Ping-Pong</a></li>
+<li><a href="#gnutella-summary">Gnutella Summary</a></li>
+</ul>
+</li>
+<li><a href="#fasttrack">FastTrack</a><ul>
+<li><a href="#fasttrack-structure">FastTrack Structure</a></li>
+</ul>
+</li>
+<li><a href="#bittorrent">BitTorrent</a><ul>
+<li><a href="#bittorrent-structure">BitTorrent Structure</a></li>
+<li><a href="#bittorrent-原理简述">BitTorrent 原理简述</a></li>
+</ul>
+</li>
+<li><a href="#chord">Chord</a><ul>
+<li><a href="#comparative-performance">Comparative Performance</a></li>
+<li><a href="#chord-structure">Chord Structure</a><ul>
+<li><a href="#successors">successors</a></li>
+<li><a href="#finger-tables">finger tables</a></li>
+</ul>
+</li>
+<li><a href="#files">Files</a></li>
+<li><a href="#search">Search</a></li>
+<li><a href="#dynamic-changes">Dynamic changes</a></li>
+<li><a href="#virtual-nodes">Virtual Nodes</a></li>
+</ul>
+</li>
+<li><a href="#pastry">Pastry</a><ul>
+<li><a href="#pastry-locality">Pastry Locality</a></li>
+<li><a href="#kelips">Kelips</a></li>
+<li><a href="#kelips-structure">Kelips Structure</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>This week we will focus on Peer-to-Peer Systems. This area is important because it is a precursor to today’s cloud computing. The topic is thus a good segue for us to discuss Key-value Stores next week (Week 4).</p>
+<h3 id="Goals-and-Objectives"><a href="#Goals-and-Objectives" class="headerlink" title="Goals and Objectives"></a>Goals and Objectives</h3><p>After you actively engage in the learning experiences in this module, you should be able to:</p>
+<ul>
+<li>Know how Napster, Gnutella, FastTrack, and BitTorrent work.</li>
+<li>Know and analyze how distributed hash tables work (Chord, Pastry, and Kelips).</li>
+</ul>
+<h3 id="Key-Phrases-Concepts"><a href="#Key-Phrases-Concepts" class="headerlink" title="Key Phrases/Concepts"></a>Key Phrases/Concepts</h3><p>Keep your eyes open for the following key terms or phrases as you interact with the lectures. These topics will help you better understand the content in this module.</p>
+<ul>
+<li>Peer-to-peer systems</li>
+<li>Industrial P2P systems: Napster, Gnutella, FastTrack, BitTorrent</li>
+<li>Distributed hash tables: Chord, Pastry, Kelips</li>
+</ul>
+<h3 id="Guiding-Questions"><a href="#Guiding-Questions" class="headerlink" title="Guiding Questions"></a>Guiding Questions</h3><p>Develop your answers to the following guiding questions while completing the readings and working on assignments throughout the week.</p>
+<ul>
+<li>What is the difference between how Napster clients and Gnutella clients search for files?</li>
+<li>What is the difference between Gnutella and FastTrack?</li>
+<li>What is BitTorrent’s tit for tat mechanism?</li>
+<li>What is consistent hashing?</li>
+<li>Why are DHTs efficient in searching?</li>
+<li>How does Chord route queries?</li>
+<li>How does Pastry route queries?</li>
+<li>How does Kelips route queries?</li>
+<li>What is churn in P2P systems?</li>
+<li>How does Chord maintain correct neighbors in spite of failures and churn?</li>
+</ul>
+<h2 id="Why-Study-Peer-to-Peer-Systems"><a href="#Why-Study-Peer-to-Peer-Systems" class="headerlink" title="Why Study Peer-to-Peer Systems?"></a>Why Study Peer-to-Peer Systems?</h2><ul>
+<li>First distributed systems that seriously focused on <strong>scalability</strong> with respect to number of nodes</li>
+<li>P2P techniques abound in cloud computing systems</li>
+</ul>
+<h2 id="Napster"><a href="#Napster" class="headerlink" title="Napster"></a>Napster</h2><p>(创始人Sean Parker, 看Social Network时有讲到，哈哈)</p>
+<h3 id="Napster-Structure"><a href="#Napster-Structure" class="headerlink" title="Napster Structure"></a>Napster Structure</h3><p><img src="p2p01.png" alt="p2p01.png"></p>
+<h3 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h3><ul>
+<li>Connect to a Napster server<ul>
+<li>Upload list of music files that you want to share</li>
+<li>Server maintains list of {filename, ip_address, port_num} tuples. </li>
+<li><strong>Server stores no files</strong>.</li>
+</ul>
+</li>
+<li>Search<ul>
+<li>Send server keywords to search with</li>
+<li>Server searches its list with the keywords</li>
+<li>Server returns a list of hosts – {ip_address, portnum} tuples – to client</li>
+<li>Client pings each host in the list to find transfer rates</li>
+<li>Client fetches file from best host</li>
+</ul>
+</li>
+<li>All communication uses TCP (Transmission Control Protocol)<ul>
+<li>Reliable and ordered networking protocol</li>
+<li><img src="p2p02.png" alt="p2p02.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="Joining-a-P2P-system"><a href="#Joining-a-P2P-system" class="headerlink" title="Joining a P2P system"></a>Joining a P2P system</h3><ul>
+<li>Send an http request to well-known url for that P2P service - <a href="http://www.myp2pservice.com" target="_blank" rel="noopener">http://www.myp2pservice.com</a></li>
+<li>Message routed (after lookup in DNS) to introducer, a well known server that keeps track of some recently joined nodes in p2p system</li>
+<li>Introducer initializes new peers’ neighbor table</li>
+</ul>
+<h3 id="Problems-for-Napster"><a href="#Problems-for-Napster" class="headerlink" title="Problems for Napster"></a>Problems for Napster</h3><ul>
+<li>Centralized server a source of congestion</li>
+<li>Centralized server single point of failure</li>
+<li>No security: plaintext messages and passwds</li>
+<li>Napster.com declared to be responsible for users’ copyright violation<ul>
+<li>“Indirect infringement”</li>
+</ul>
+</li>
+</ul>
+<h2 id="Gnutella"><a href="#Gnutella" class="headerlink" title="Gnutella"></a>Gnutella</h2><ul>
+<li>Eliminate the servers</li>
+<li>Client machines search and retrieve amongst themselves</li>
+<li>Clients act as servers too, called <strong>servents</strong></li>
+<li>Gnutella protocol has 5 main message types<ul>
+<li>Query (search)</li>
+<li>QueryHit (response to query)</li>
+<li>Ping (to probe network for other peers)</li>
+<li>Pong (reply to ping, contains address of another peer)</li>
+<li>Push (used to initiate file transfer)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Gnutella-Structure"><a href="#Gnutella-Structure" class="headerlink" title="Gnutella Structure"></a>Gnutella Structure</h3><p><img src="p2p03.png" alt="p2p03.png"></p>
+<ul>
+<li>Connected in an <strong>overlay graph</strong></li>
+</ul>
+<h3 id="How-do-I-search-for-my-Beatles-file"><a href="#How-do-I-search-for-my-Beatles-file" class="headerlink" title="How do I search for my Beatles file?"></a>How do I search for my Beatles file?</h3><p><img src="p2p04.png" alt="p2p04.png"></p>
+<h4 id="Payload-Format-in-Gnutella-Query-Message"><a href="#Payload-Format-in-Gnutella-Query-Message" class="headerlink" title="Payload Format in Gnutella Query Message"></a>Payload Format in Gnutella Query Message</h4><p><img src="p2p05.png" alt="p2p05.png"></p>
+<h4 id="Payload-Format-in-Gnutella-QueryHit-Message"><a href="#Payload-Format-in-Gnutella-QueryHit-Message" class="headerlink" title="Payload Format in Gnutella QueryHit Message"></a>Payload Format in Gnutella QueryHit Message</h4><p><img src="p2p06.png" alt="p2p06.png"></p>
+<h3 id="Avoiding-excessive-traffic"><a href="#Avoiding-excessive-traffic" class="headerlink" title="Avoiding excessive traffic"></a>Avoiding excessive traffic</h3><ul>
+<li>To avoid duplicate transmissions, each peer maintains a list of recently received messages</li>
+<li>Query forwarded to all neighbors except peer from which received</li>
+<li>Each Query (identified by DescriptorID) forwarded only once</li>
+<li>QueryHit routed back only to peer from which Query received with same DescriptorID</li>
+<li>Duplicates with same DescriptorID and Payload descriptor (msg type) are dropped</li>
+<li>QueryHit with DescriptorID for which Query not seen is dropped</li>
+</ul>
+<h3 id="After-receiving-QueryHit-messages"><a href="#After-receiving-QueryHit-messages" class="headerlink" title="After receiving QueryHit messages"></a>After receiving QueryHit messages</h3><ul>
+<li><p>Requestor chooses “best” QueryHit responder</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET /get/<span class="tag">&lt;<span class="name">File</span> <span class="attr">Index</span>&gt;</span>/<span class="tag">&lt;<span class="name">File</span> <span class="attr">Name</span>&gt;</span>/HTTP/1.0\r\n</span><br><span class="line">Connection: Keep-Alive\r\n </span><br><span class="line">Range: bytes=0-\r\n </span><br><span class="line">User-Agent: Gnutella\r\n \r\n</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Responder then replies with file packets after this message:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HTTP 200 OK\r\n</span><br><span class="line">Server: Gnutella\r\n </span><br><span class="line">Content-type:application/binary\r\n </span><br><span class="line">Content-length: 1024 \r\n</span><br><span class="line">\r\n</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Dealing-with-Firewalls"><a href="#Dealing-with-Firewalls" class="headerlink" title="Dealing with Firewalls"></a>Dealing with Firewalls</h3><ul>
+<li>Requestor sends Push to responder asking for file transfer</li>
+<li><img src="p2p07.png" alt="p2p07.png"></li>
+<li>Responder establishes a TCP connection at ip_address, port specified. </li>
+<li>Requestor then sends GET to responder (as before) and file is transferred as explained earlier</li>
+</ul>
+<h3 id="Ping-Pong"><a href="#Ping-Pong" class="headerlink" title="Ping-Pong"></a>Ping-Pong</h3><ul>
+<li>Peers initiate Ping’s periodically</li>
+<li>Ping’s flooded out like Query’s, Pong’s routed along reverse path like QueryHit’s</li>
+<li>Pong replies used to update set of neighboring peers<ul>
+<li>To keep neighbor lists fresh in spite of peers joining, leaving and failing</li>
+</ul>
+</li>
+</ul>
+<h3 id="Gnutella-Summary"><a href="#Gnutella-Summary" class="headerlink" title="Gnutella Summary"></a>Gnutella Summary</h3><ul>
+<li>No servers</li>
+<li>Peers/servents maintain “neighbors,” this forms an overlay graph</li>
+<li>Peers store their own files</li>
+<li>Queries flooded out, ttl restricted</li>
+<li>QueryHit (replies) reverse path routed</li>
+<li>Supports file transfer through firewalls</li>
+<li>Periodic ping-pong to continuously refresh neighbor lists</li>
+</ul>
+<h2 id="FastTrack"><a href="#FastTrack" class="headerlink" title="FastTrack"></a>FastTrack</h2><ul>
+<li>Hybrid between Gnutella and Napster</li>
+</ul>
+<h3 id="FastTrack-Structure"><a href="#FastTrack-Structure" class="headerlink" title="FastTrack Structure"></a>FastTrack Structure</h3><p><img src="p2p08.png" alt="p2p08.png"></p>
+<ul>
+<li>A supernode stores a directory listing a subset of nearby (filename,peer pointer), similar to Napster servers</li>
+<li>Supernode membership changes over time</li>
+<li>Any peer can become (and stay) a supernode, provided it has earned enough reputation</li>
+<li>A peer searches by contacting a nearby supernode</li>
+</ul>
+<h2 id="BitTorrent"><a href="#BitTorrent" class="headerlink" title="BitTorrent"></a>BitTorrent</h2><h3 id="BitTorrent-Structure"><a href="#BitTorrent-Structure" class="headerlink" title="BitTorrent Structure"></a>BitTorrent Structure</h3><p><img src="p2p09.png" alt="p2p09.png"></p>
+<ul>
+<li>File split into blocks (32 KB – 256 KB)</li>
+<li>Download Local Rarest First block policy: prefer early download of blocks that are least replicated among neighbors</li>
+<li>Tit for tat bandwidth usage: Provide blocks to neighbors that provided it the best download rates</li>
+<li>Choking: Limit number of neighbors to which concurrent uploads &lt;= a number (5), i.e., the “best” neighbors</li>
+</ul>
+<h3 id="BitTorrent-原理简述"><a href="#BitTorrent-原理简述" class="headerlink" title="BitTorrent 原理简述"></a>BitTorrent 原理简述</h3><p><strong>Reference from</strong> <a href="https://jaminzhang.github.io/p2p/BitTorrent-Principle-Introduction/" target="_blank" rel="noopener">https://jaminzhang.github.io/p2p/BitTorrent-Principle-Introduction/</a></p>
+<p>与传统客户端/服务器网络通信模式不同，对等方到对等方（P2P）通信模式在近年来越来越流行起来。<br>在 P2P 模式中，服务和资源分布化，资源不集中存储在某些设备上，而是分散存储在运行 P2P 程序的设备上，<br>每一个对等方都可以为其他对等方提供服务。<br>BitTorrent（中文全称比特流，简称 BT）是一个网络文件传输协议，是能够实现点对点文件分享的技术。<br>在大多数人感觉中与 P2P 成了对等的一组概念，而它也将 P2P 技术发展到了近乎完美的地步。<br>研究 BitTorrent 协议对我们深入把握 P2P 技术，了解 Interent 网络发展的未来走向有很大的意义。</p>
+<p>BitTorrent 协议是架构于 TCP/IP 协议之上的一个 P2P 文件传输协议，处于 TCP/IP 结构的应用层。<br>BitTorrent 协议本身也包含了很多具体的内容协议和扩展协议，并在不断扩充中。<br>如果有多个下载者并发的下载同一个文件，则每个下载者也同时为其它下载者上传文件，<br>这样，文件源可以支持大量的用户进行下载，而只带来适当的负载的增长。</p>
+<p>BitTorrent 协议把提供下载的文件虚拟分成大小相等的块，块大小必须为 2k 的整数次方<br>（由于是虚拟分块，硬盘上并不产生各个块文件），并把每个块的索引信息和 Hash 验证码<br>写入 .torrent 文件（即种子文件，也简称为“种子”）中，作为被下载文件的“索引”。<br>下载者要下载文件内容，需要先得到相应的 .torrent 文件，然后使用 BT 客户端软件进行下载。 </p>
+<p>下载时，BT 客户端首先解析 .torrent 文件得到 Tracker 地址，然后连接 Tracker 服务器。<br>Tracker 服务器回应下载者的请求，提供下载者其他下载者（包括发布者）的 IP。<br>或者，BT客户端也可解析 .torrent 文件得到 nodes 路由表，然后连接路由表中的有效节点，<br>由网络节点提供下载者其他下载者的 IP。</p>
+<p>下载者再连接其他下载者，根据 .torrent 文件，两者分别对方告知自己已经有的块，<br>然后交换对方没有的数据。此时不需要其他服务器参或者其他网络节点的参与，<br>分散了单个线路上的数据流量，因此减轻了服务器负担。<br>下载者每得到一个块，需要算出下载块的 Hash 验证码与 .torrent 文件中的对比，<br>如果一样则说明块正确，不一样则需要重新下载这个块。</p>
+<p>因此，下载的人越多，提供的带宽也越多，种子也会越来越多，下载速度就越快。</p>
+<p>从 BT 客户端角度考虑，下载原理分为以下几步：</p>
+<p>一．根据 BitTorrent 协议，文件发布者会根据要发布的文件生成提供一个 .torrent 文件。<br>客户端可从 Web 服务器上下载种子文件，并从中得到 Tracker 服务器 URL 和 DHT 网络 nodes 等信息。</p>
+<p>二．根据 Tracker URL 与 Tracker 服务器建立连接，并从服务器上得到 Peers 信息。<br>或者根据 nodes 与 DHT 网络中节点通信，并从节点上得到 Peers 信息。</p>
+<p>三．根据 Peers 信息与一个 Peer 建立连接，依据 Peer wire 协议完成握手，<br>并从 Peer 端下载数据文件。同时监听 Peer 的连接，并给 Peer 上传数据文件。</p>
+<p>依据得到 Peers 信息的途径的不同，可分为使用 Tracker 服务器和使用 Trackerless DHT 网络两种方式。</p>
+<p>基于 HTTP 的 Tracker 协议，<br>基于 UDP 的 Trackerless 协议，<br>基于 TCP 的 Peer wire 协议。</p>
+<h2 id="Chord"><a href="#Chord" class="headerlink" title="Chord"></a>Chord</h2><p>Uses Consistent Hashing on node’s (peer’s) address</p>
+<ul>
+<li>SHA-1(ip_address,port) -&gt; 160 bit string</li>
+<li>Truncated to m bits</li>
+<li>Called peer id (number between 0 and 2m −1 )</li>
+<li>Not unique but id conflicts very unlikely</li>
+<li>Can then map peers to one of 2m logical points on a circle</li>
+</ul>
+<h3 id="Comparative-Performance"><a href="#Comparative-Performance" class="headerlink" title="Comparative Performance"></a>Comparative Performance</h3><p><img src="p2p10.png" alt="p2p10.png"></p>
+<h3 id="Chord-Structure"><a href="#Chord-Structure" class="headerlink" title="Chord Structure"></a>Chord Structure</h3><p>Tow pointers</p>
+<h4 id="successors"><a href="#successors" class="headerlink" title="successors"></a>successors</h4><p><img src="p2p11.png" alt="p2p11.png"></p>
+<p>Uses Consistent Hashing on node’s (peer’s) address  </p>
+<ul>
+<li>SHA-1(ip_address,port) -&gt; 160 bit string</li>
+<li>Truncated to m bits</li>
+<li>Called peer id (number between 0 and $2^m-1$)</li>
+<li>Not unique but id conflicts very unlikely</li>
+<li>Can then map peers to one of $2^m$ logical points on a circle</li>
+</ul>
+<h4 id="finger-tables"><a href="#finger-tables" class="headerlink" title="finger tables"></a>finger tables</h4><p><img src="p2p12.png" alt="p2p12.png"></p>
+<h3 id="Files"><a href="#Files" class="headerlink" title="Files"></a>Files</h3><p>Filenames also mapped using same consistent hash function</p>
+<ul>
+<li>SHA-1(filename)-&gt;160 bit string (key)</li>
+<li>File is stored at <strong>first peer with id greater than its key(mod 2^m)</strong></li>
+<li>Consistent Hashing =&gt; with K keys and N peers, each peer stores O(K/N) keys</li>
+</ul>
+<h3 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h3><ul>
+<li>At node n, send query for key k to largest successor/finger entry &lt;= k if none exist, send query to successor(n) </li>
+<li><img src="p2p13.png" alt="p2p13.png"></li>
+<li>Search takes O(log(N)) time</li>
+<li>O(log(N)) search time holds for file insertions too (in general for routing to any key)</li>
+<li>Failure in Chord<ul>
+<li>maintain r multiple successor entries</li>
+<li>replicate file/key at r successors and predecessors</li>
+</ul>
+</li>
+</ul>
+<h3 id="Dynamic-changes"><a href="#Dynamic-changes" class="headerlink" title="Dynamic changes"></a>Dynamic changes</h3><ul>
+<li><p>New peers joining </p>
+<ul>
+<li>Introducer directs N40 to N45 (and N32)</li>
+<li>N32 updates successor to N40</li>
+<li>N40 initializes successor to N45, and inits fingers from it N40 periodically talks to neighbors to update finger table</li>
+<li>N40 may need to copy some files/keys from N45 (files with fileid between 32 and 40)</li>
+<li>A new peer affects O(log(N)) other finger entries in the system, on average</li>
+</ul>
+</li>
+<li><p>Stabilization Protocol<br><strong>Concurrent peer joins, leaves, failures might cause loopiness of pointers and failure of lookups</strong></p>
+<ul>
+<li>Chord peers periodically run a stabilization algorithm that checks and updates pointers and keys</li>
+</ul>
+</li>
+</ul>
+<h3 id="Virtual-Nodes"><a href="#Virtual-Nodes" class="headerlink" title="Virtual Nodes"></a>Virtual Nodes</h3><p><strong>Hash can get non-uniform -&gt; Bad load balancing</strong></p>
+<ul>
+<li>Treat each node as multiple virtual nodes<br>behaving independently</li>
+<li>Each joins the system</li>
+<li>Reduces variance of load imbalance</li>
+</ul>
+<h2 id="Pastry"><a href="#Pastry" class="headerlink" title="Pastry"></a>Pastry</h2><ul>
+<li>Assigns ids to nodes, just like Chord (using a virtual ring)</li>
+<li><strong>Leaf Set</strong> – Each node knows its successor(s) and predecessor(s)</li>
+<li>Routing tables based prefix matching(Routing is thus based on prefix matching and is thus log(N))</li>
+</ul>
+<h3 id="Pastry-Locality"><a href="#Pastry-Locality" class="headerlink" title="Pastry Locality"></a>Pastry Locality</h3><ul>
+<li>For each prefix, say 011, among all potential neighbors with a matching prefix, the neighbor with the shortest round-trip time is selected</li>
+<li>Since shorter prefixes have many more candidates (spread out throughout the Internet), the neighbors for shorter prefixes are likely to be closer than the neighbors for longer prefixes</li>
+<li>Thus, in the prefix routing, early hops are short and later hops are longer</li>
+</ul>
+<h3 id="Kelips"><a href="#Kelips" class="headerlink" title="Kelips"></a>Kelips</h3><p><strong>A 1 hop Lookup DHT</strong></p>
+<h3 id="Kelips-Structure"><a href="#Kelips-Structure" class="headerlink" title="Kelips Structure"></a>Kelips Structure</h3><p><img src="p2p14.png" alt="p2p014.png"></p>
+<ul>
+<li>k “affinity groups” k ~ sqrt(N)</li>
+<li>Each node hashed to a group (hash mod k)</li>
+<li>Node’s neighbors<ul>
+<li>(Almost) all other nodes in its own affinity group</li>
+<li>One contact node per foreign affinity group</li>
+</ul>
+</li>
+<li>File can be stored at any (few) node(s)</li>
+<li>Decouple file replication/location (outside Kelips) from file querying (in Kelips)</li>
+<li>Each filename hashed to a group</li>
+<li>All nodes in the group replicate pointer information, i.e., <filename, file location></filename,></li>
+<li>Affinity group does not store files</li>
+<li>Lookup<ul>
+<li>Find file affinity group</li>
+<li>Go to your contact for the file affinity group</li>
+<li>Failing that try another of your neighbors to find a contact</li>
+</ul>
+</li>
+</ul>
+<p><strong>Reference from some slides from Coursera course <a href="https://www.coursera.org/learn/cloud-computing" target="_blank" rel="noopener">Cloud Computing</a></strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Course-Note/" rel="tag"># Course Note</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Dive-into-blog/2019/02/13/" rel="next" title="Dive into blog">
+                <i class="fa fa-chevron-left"></i> Dive into blog
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Gossip-Member-Grid/2019/02/14/" rel="prev" title="Gossip,Member,Grid">
+                Gossip,Member,Grid <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">202</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Table-of-Contents"><span class="nav-text">Table of Contents</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Goals-and-Objectives"><span class="nav-text">Goals and Objectives</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-Phrases-Concepts"><span class="nav-text">Key Phrases/Concepts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Guiding-Questions"><span class="nav-text">Guiding Questions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-Study-Peer-to-Peer-Systems"><span class="nav-text">Why Study Peer-to-Peer Systems?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Napster"><span class="nav-text">Napster</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Napster-Structure"><span class="nav-text">Napster Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Client"><span class="nav-text">Client</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Joining-a-P2P-system"><span class="nav-text">Joining a P2P system</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Problems-for-Napster"><span class="nav-text">Problems for Napster</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gnutella"><span class="nav-text">Gnutella</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gnutella-Structure"><span class="nav-text">Gnutella Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-do-I-search-for-my-Beatles-file"><span class="nav-text">How do I search for my Beatles file?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Payload-Format-in-Gnutella-Query-Message"><span class="nav-text">Payload Format in Gnutella Query Message</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Payload-Format-in-Gnutella-QueryHit-Message"><span class="nav-text">Payload Format in Gnutella QueryHit Message</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Avoiding-excessive-traffic"><span class="nav-text">Avoiding excessive traffic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#After-receiving-QueryHit-messages"><span class="nav-text">After receiving QueryHit messages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dealing-with-Firewalls"><span class="nav-text">Dealing with Firewalls</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ping-Pong"><span class="nav-text">Ping-Pong</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gnutella-Summary"><span class="nav-text">Gnutella Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FastTrack"><span class="nav-text">FastTrack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FastTrack-Structure"><span class="nav-text">FastTrack Structure</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BitTorrent"><span class="nav-text">BitTorrent</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BitTorrent-Structure"><span class="nav-text">BitTorrent Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BitTorrent-原理简述"><span class="nav-text">BitTorrent 原理简述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chord"><span class="nav-text">Chord</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Comparative-Performance"><span class="nav-text">Comparative Performance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chord-Structure"><span class="nav-text">Chord Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#successors"><span class="nav-text">successors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#finger-tables"><span class="nav-text">finger tables</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Files"><span class="nav-text">Files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search"><span class="nav-text">Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-changes"><span class="nav-text">Dynamic changes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Virtual-Nodes"><span class="nav-text">Virtual Nodes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pastry"><span class="nav-text">Pastry</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pastry-Locality"><span class="nav-text">Pastry Locality</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kelips"><span class="nav-text">Kelips</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kelips-Structure"><span class="nav-text">Kelips Structure</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>

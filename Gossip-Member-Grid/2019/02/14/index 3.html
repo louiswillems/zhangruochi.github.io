@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Protocol,Failure Detection,Dissemination,Grid,Member,Multicat,Suspicion Mechanism">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Gossip what is multicast? What are the requirements for multicast protocol? Centralized Multicast Protocol Tree">
+<meta name="keywords" content="Protocol,Failure Detection,Dissemination,Grid,Member,Multicat,Suspicion Mechanism">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gossip,Member,Grid">
+<meta property="og:url" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Gossip what is multicast? What are the requirements for multicast protocol? Centralized Multicast Protocol Tree">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/10.png">
+<meta property="og:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/gossip_member_grid01.png">
+<meta property="og:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/gossip_member_grid02.png">
+<meta property="og:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/gossip_member_grid03.png">
+<meta property="og:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/11.png">
+<meta property="og:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/gossip_member_grid04.png">
+<meta property="og:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/gossip_member_grid05.png">
+<meta property="og:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/gossip_member_grid06.png">
+<meta property="og:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/12.png">
+<meta property="og:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/gossip_member_grid07.png">
+<meta property="og:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/gossip_member_grid08.png">
+<meta property="og:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/gossip_member_grid09.png">
+<meta property="og:updated_time" content="2019-07-05T09:49:04.456Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gossip,Member,Grid">
+<meta name="twitter:description" content="Table of Contents Overview Goals and Objectives Key Phrases/Concepts Guiding Questions   Gossip what is multicast? What are the requirements for multicast protocol? Centralized Multicast Protocol Tree">
+<meta name="twitter:image" content="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/10.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/">
+
+
+
+
+
+  <title>Gossip,Member,Grid | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Gossip,Member,Grid</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-14T09:16:31-05:00">
+                2019-02-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Big-Data-Architecture/" itemprop="url" rel="index">
+                    <span itemprop="name">Big Data Architecture</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Big-Data-Architecture/Distributed-Cloud-Computing/" itemprop="url" rel="index">
+                    <span itemprop="name">Distributed & Cloud Computing</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Gossip-Member-Grid/2019/02/14/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Gossip-Member-Grid/2019/02/14/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1><ul>
+<li><a href="#overview">Overview</a><ul>
+<li><a href="#goals-and-objectives">Goals and Objectives</a></li>
+<li><a href="#key-phrasesconcepts">Key Phrases/Concepts</a></li>
+<li><a href="#guiding-questions">Guiding Questions</a></li>
+</ul>
+</li>
+<li><a href="#gossip">Gossip</a><ul>
+<li><a href="#what-is-multicast">what is multicast?</a></li>
+<li><a href="#what-are-the-requirements-for-multicast-protocol">What are the requirements for multicast protocol?</a></li>
+<li><a href="#centralized-multicast-protocol">Centralized Multicast Protocol</a></li>
+<li><a href="#tree-based-multicast-protocol">Tree-Based Multicast Protocol</a></li>
+<li><a href="#epidemic-multicast">Epidemic Multicast</a></li>
+<li><a href="#topology-aware-gossip">Topology-Aware Gossip</a></li>
+<li><a href="#gossip-summary">Gossip Summary</a></li>
+</ul>
+</li>
+<li><a href="#member">Member</a><ul>
+<li><a href="#two-sub-protocals">Two sub-protocals</a></li>
+<li><a href="#failure-detection">Failure Detection</a><ul>
+<li><a href="#gossip-style-failure-detection">Gossip Style Failure Detection</a></li>
+<li><a href="#swim-failure-detection">Swim Failure Detection</a></li>
+</ul>
+</li>
+<li><a href="#dissemination">Dissemination</a></li>
+<li><a href="#suspicion-mechanism">Suspicion Mechanism</a></li>
+<li><a href="#member-summary">Member Summary</a></li>
+</ul>
+</li>
+<li><a href="#grid">Grid</a></li>
+</ul>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>This week’s video lectures cover the topics of Grids, Membership, and Gossip. With this, you have all the concepts you need to complete the Programming Assignment in this course.</p>
+<h3 id="Goals-and-Objectives"><a href="#Goals-and-Objectives" class="headerlink" title="Goals and Objectives"></a>Goals and Objectives</h3><p>After you actively engage in the learning experiences in this module, you should be able to:</p>
+<ul>
+<li>Analyze various gossip/epidemic protocols.</li>
+<li>Design and analyze various distributed membership protocols.</li>
+<li>Know what grid computing is.</li>
+</ul>
+<h3 id="Key-Phrases-Concepts"><a href="#Key-Phrases-Concepts" class="headerlink" title="Key Phrases/Concepts"></a>Key Phrases/Concepts</h3><p>Keep your eyes open for the following key terms or phrases as you interact with the lectures. These topics will help you better understand the content in this module.</p>
+<ul>
+<li>Failure detectors</li>
+<li>Membership protocols</li>
+<li>Gossip/epidemic protocols</li>
+<li>Grid computing</li>
+</ul>
+<h3 id="Guiding-Questions"><a href="#Guiding-Questions" class="headerlink" title="Guiding Questions"></a>Guiding Questions</h3><p>Develop your answers to the following guiding questions while completing the activities throughout the week.</p>
+<ul>
+<li>Why are gossip and epidemic protocols fast and reliable?</li>
+<li>What is the most efficient way for cloud computing systems to detect failures of servers?</li>
+<li>How is grid computing related to cloud computing?</li>
+</ul>
+<h2 id="Gossip"><a href="#Gossip" class="headerlink" title="Gossip"></a>Gossip</h2><h3 id="what-is-multicast"><a href="#what-is-multicast" class="headerlink" title="what is multicast?"></a>what is multicast?</h3><p>Suppose you have a group of processes or a group of nodes. Each of these processes or each of these nodes is potentially a process at some host on the Internet or connected to the network. And essentially, all we need is that these processes or nodes need to be able to talk with each other by being able to <strong>send</strong> and <strong>receive</strong> messages.</p>
+<h3 id="What-are-the-requirements-for-multicast-protocol"><a href="#What-are-the-requirements-for-multicast-protocol" class="headerlink" title="What are the requirements for multicast protocol?"></a>What are the requirements for multicast protocol?</h3><ul>
+<li>fault tolerance</li>
+<li>scalability</li>
+</ul>
+<h3 id="Centralized-Multicast-Protocol"><a href="#Centralized-Multicast-Protocol" class="headerlink" title="Centralized Multicast Protocol"></a>Centralized Multicast Protocol</h3><p><img src="10.png" alt></p>
+<ul>
+<li>If the sender fails, no one can received the multicast.</li>
+<li>the overhead on the sender is very high.  O(n)</li>
+</ul>
+<h3 id="Tree-Based-Multicast-Protocol"><a href="#Tree-Based-Multicast-Protocol" class="headerlink" title="Tree-Based Multicast Protocol"></a>Tree-Based Multicast Protocol</h3><ul>
+<li>Build a spanning tree among the processes of the multicast group</li>
+<li>Use spanning tree to disseminate multicasts</li>
+<li>Use either acknowledgments (ACKs) or negative acknowledgements (NAKs) to repair multicasts not received</li>
+<li><strong>SRM</strong> (Scalable Reliable Multicast)<ul>
+<li>Uses NAKs</li>
+<li>But adds random delays, and uses exponential backoff to avoid NAK storms</li>
+</ul>
+</li>
+<li><strong>RMTP</strong> (Reliable Multicast Transport Protocol)<ul>
+<li>Uses ACKs</li>
+<li>But ACKs only sent to designated receivers, which then re-transmit missing multicasts</li>
+</ul>
+</li>
+<li>These protocols still cause an O(N) ACK/NAK overhead</li>
+<li><img src="gossip_member_grid01.png" alt="gossip_member_grid01.png"></li>
+</ul>
+<h3 id="Epidemic-Multicast"><a href="#Epidemic-Multicast" class="headerlink" title="Epidemic Multicast"></a>Epidemic Multicast</h3><p><img src="gossip_member_grid02.png" alt></p>
+<p>the sender periodically picks b nodes as gossip targets and sends them copies of the multicast message using what is known as a gossip message. When b turns from uninfected into infected they starts periodically sending out gossip message.  </p>
+<ul>
+<li><strong>Push</strong> gossip<ul>
+<li>Once you have a multicast message, you start gossiping about it</li>
+<li>Multiple messages? Gossip a random subset of them, or recently-received ones, or higher priority ones</li>
+</ul>
+</li>
+<li><strong>Pull</strong> gossip<ul>
+<li>Periodically poll a few randomly selected processes for new multicast messages that you haven’t received</li>
+<li>Get those messages</li>
+</ul>
+</li>
+<li><strong>Hybrid variant</strong>: Push-Pull<ul>
+<li>As the name suggests</li>
+</ul>
+</li>
+</ul>
+<h3 id="Topology-Aware-Gossip"><a href="#Topology-Aware-Gossip" class="headerlink" title="Topology-Aware Gossip"></a>Topology-Aware Gossip</h3><p><img src="gossip_member_grid03.png" alt></p>
+<ul>
+<li>Network topology is hierachical</li>
+<li>Random gossip target selection =&gt; core routers face O(N) load</li>
+<li>In subnet i, which contains $n_i$ nodes, pick gossip target in your subnet with probability $\frac{1}{n_i}$</li>
+<li>Router $load=O(1)$</li>
+<li>Dissemination $time=O(log(N))$</li>
+</ul>
+<h3 id="Gossip-Summary"><a href="#Gossip-Summary" class="headerlink" title="Gossip Summary"></a>Gossip Summary</h3><ul>
+<li>Multicast is an important problem</li>
+<li>Tree-bases multicast protocols</li>
+<li>When concerns the scalability and fault tolerance, the gossip protocol is a good choice</li>
+<li>Also known as epidemic</li>
+<li>Fast, reliable, Fault-tolerant, scalability, topology-aware</li>
+</ul>
+<h2 id="Member"><a href="#Member" class="headerlink" title="Member"></a>Member</h2><p>The membership list Which maintains the list of most or all of the other processes that are currently in your system and that have not yet failed. That means non-faulty processes. This membership list is accessed by a variety of applications, for instance the application might be a distributed hash table.</p>
+<p><img src="11.png" alt></p>
+<h3 id="Two-sub-protocals"><a href="#Two-sub-protocals" class="headerlink" title="Two sub-protocals"></a>Two sub-protocals</h3><ul>
+<li>Failure Detection</li>
+<li>Dissemination</li>
+</ul>
+<p><img src="gossip_member_grid04.png" alt></p>
+<h3 id="Failure-Detection"><a href="#Failure-Detection" class="headerlink" title="Failure Detection"></a>Failure Detection</h3><p>some process find out the failure process quickly</p>
+<ul>
+<li>Desirable propertities<ul>
+<li>Completeness (most important)</li>
+<li>Accuracy</li>
+<li>Speed</li>
+<li>Scale</li>
+</ul>
+</li>
+</ul>
+<h4 id="Gossip-Style-Failure-Detection"><a href="#Gossip-Style-Failure-Detection" class="headerlink" title="Gossip Style Failure Detection"></a>Gossip Style Failure Detection</h4><p><img src="gossip_member_grid05.png" alt><br><img src="gossip_member_grid06.png" alt></p>
+<ol>
+<li>If the heartbeat has not increased for more than $T_{tail}$ seconds, the member is considered fail.</li>
+<li>After $T_{cleanup}$ seconds, it will delete the member from the list.</li>
+<li>N heartbeats take:<ul>
+<li>O(log(n)) time to propagate if bandwith allowed per node is O(n)</li>
+<li>O(Nlog(n)) time to propagate if bandwith allowed per node is O(1)</li>
+</ul>
+</li>
+<li>Multi-level Gossip<ul>
+<li><img src="12.png" alt></li>
+</ul>
+</li>
+<li>All-to-all and gossip-based heartbeating are in fact suboptimal because they have in fact they are O(Nlog(N)) for the gossip-based heartbeating. The key here is to realize that these two protocols mix up the <strong>failure detection</strong> and the <strong>dissemination components</strong>. Essentially they are trying to have all the processes in the system detect the failure by themselves and not really using dissemination component separately.</li>
+</ol>
+<h4 id="Swim-Failure-Detection"><a href="#Swim-Failure-Detection" class="headerlink" title="Swim Failure Detection"></a>Swim Failure Detection</h4><ul>
+<li>Two choice for the $P_j$(failure process)</li>
+<li>Directed ping to $P_j$ and indirected ping to $P_j$ (Randomly select another process and then send ping to $P_j$)</li>
+<li>Constant time =&gt; $O(1)$</li>
+<li><img src="gossip_member_grid07.png" alt></li>
+</ul>
+<h3 id="Dissemination"><a href="#Dissemination" class="headerlink" title="Dissemination"></a>Dissemination</h3><ul>
+<li>Multicast Dissemination(Hardware/IP)<ul>
+<li>unreliable</li>
+</ul>
+</li>
+<li>Point-to-Point <ul>
+<li>expensive</li>
+</ul>
+</li>
+<li>Infection style Dissemination</li>
+</ul>
+<h3 id="Suspicion-Mechanism"><a href="#Suspicion-Mechanism" class="headerlink" title="Suspicion Mechanism"></a>Suspicion Mechanism</h3><p>Suspect a process before <strong>declaring</strong> it as failed in the group</p>
+<p><img src="gossip_member_grid08.png" alt></p>
+<h3 id="Member-Summary"><a href="#Member-Summary" class="headerlink" title="Member Summary"></a>Member Summary</h3><ul>
+<li>在数据中心中，出错是常态，并不是意外</li>
+<li>每一个分布式系统都会使用错误检测器</li>
+<li>很多分布式系统使用了成员关系服务</li>
+<li>使用环形错误检测的有<br>  – IBM SP2和很多其他相似的集群/机器</li>
+<li>使用流言式的错误检测的有<br>  – 亚马逊Amazon EC2/S3</li>
+</ul>
+<h2 id="Grid"><a href="#Grid" class="headerlink" title="Grid"></a>Grid</h2><blockquote>
+<p>src: <a href="https://www.zhihu.com/question/20773707/answer/16583447" target="_blank" rel="noopener">https://www.zhihu.com/question/20773707/answer/16583447</a><br>网格计算的设计目标是解决对于任何单一的超级计算机来说仍然大得难以解决的问题，并同时保持解决多个较小的问题的灵活性。这样，网格计算就提供了一个多用户环境。它的第二个目标就是：更好的利用可用计算力，迎合大型的计算练习的断断续续的需求。有了网格计算技术，您可以将服务器、存储系统和网络联合在一起，组成一个大的系统，从而为用户提供功能强大的多系统资源来处理特定的任务。对于最终用户或应用程序来说，数据文件、应用程序和系统看起来就像是一个巨大的虚拟计算系统。网格计算与其他所有的分布式计算范例都有所区别：网格计算的本质在于以有效且优化的方式来利用组织中各种异构松耦合资源，来实现复杂的工作负载管理和信息虚拟化功能。</p>
+</blockquote>
+<p><img src="gossip_member_grid09.png" alt="gossip_member_grid09.png"></p>
+<p>two level scheduling infrastructure</p>
+<ul>
+<li>Inter-site protol</li>
+<li>Globus</li>
+<li>No single entity controls the entire infrastructure(federate)</li>
+</ul>
+<p>网格通常使用两级调度基础架构，每个站点都运行一个站内协议，然后不同站点之间有一个协议。有时候，站内和站间协议可以是一种通用的协议。协议会进行任务的分发，决定哪个任务工作在哪个机器上面。计算资源空闲的时候，会运行协议的守护进程，去访问协议的中央服务器，寻求任务，此时协议将会分发一个任务给该计算资源。如果任务完成过程中，计算资源被本地用户使用，此时意味着计算资源不是闲置的了。那么它会停止手头得到的子任务，要么直接杀死子任务的进程，要么将中间结果整理之后返回中央服务器，以便后续的计算资源接手其任务继续运算。但是通常而言，协议的策略都是直接杀死子任务，不再返回中间结果了，因为这样的实现方法要简单一些。</p>
+<p><strong>Reference from some slides from Coursera course <a href="https://www.coursera.org/learn/cloud-computing" target="_blank" rel="noopener">Cloud Computing</a></strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Course-Note/" rel="tag"># Course Note</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/P2P-System/2019/02/14/" rel="next" title="P2P System">
+                <i class="fa fa-chevron-left"></i> P2P System
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Introduction-to-Cloud-Computing/2019/02/14/" rel="prev" title="Introduction to Cloud Computing">
+                Introduction to Cloud Computing <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">202</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Table-of-Contents"><span class="nav-text">Table of Contents</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Goals-and-Objectives"><span class="nav-text">Goals and Objectives</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-Phrases-Concepts"><span class="nav-text">Key Phrases/Concepts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Guiding-Questions"><span class="nav-text">Guiding Questions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gossip"><span class="nav-text">Gossip</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-multicast"><span class="nav-text">what is multicast?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-are-the-requirements-for-multicast-protocol"><span class="nav-text">What are the requirements for multicast protocol?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Centralized-Multicast-Protocol"><span class="nav-text">Centralized Multicast Protocol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tree-Based-Multicast-Protocol"><span class="nav-text">Tree-Based Multicast Protocol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Epidemic-Multicast"><span class="nav-text">Epidemic Multicast</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Topology-Aware-Gossip"><span class="nav-text">Topology-Aware Gossip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gossip-Summary"><span class="nav-text">Gossip Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Member"><span class="nav-text">Member</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-sub-protocals"><span class="nav-text">Two sub-protocals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Failure-Detection"><span class="nav-text">Failure Detection</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Gossip-Style-Failure-Detection"><span class="nav-text">Gossip Style Failure Detection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Swim-Failure-Detection"><span class="nav-text">Swim Failure Detection</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dissemination"><span class="nav-text">Dissemination</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Suspicion-Mechanism"><span class="nav-text">Suspicion Mechanism</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Member-Summary"><span class="nav-text">Member Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grid"><span class="nav-text">Grid</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>
