@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangruochi.com/about/index.html</loc>
+    
+    <lastmod>2020-04-07T15:35:00.466Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangruochi.com/Spark-Fundamental/2020/04/06/</loc>
     
     <lastmod>2020-04-07T03:10:27.224Z</lastmod>
@@ -502,13 +509,6 @@
     <loc>https://zhangruochi.com/Beyond-Hello-World-A-Computer-Vision-Example/2019/05/22/</loc>
     
     <lastmod>2020-01-09T05:31:15.151Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/about/index.html</loc>
-    
-    <lastmod>2020-01-07T23:29:22.665Z</lastmod>
     
   </url>
   
