@@ -1,35 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhangruochi.com/Machine-Learning-Pipeline/2020/04/13/</loc>
+    <lastmod>2020-04-13</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Feedback-loops/2020/04/07/</loc>
+    <lastmod>2020-04-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Tensorflow-Lite-Model-Converter/2020/02/16/</loc>
+    <lastmod>2020-04-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Use-Tensorflow-Lite-to-do-Inference-on-Raspberry-Pi/2020/02/17/</loc>
+    <lastmod>2020-04-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Tensorflow-input-pipeline/2020/02/20/</loc>
+    <lastmod>2020-04-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Improving-Performance-of-Tensorflow-ETL-pipeline/2020/02/20/</loc>
+    <lastmod>2020-04-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Tensorflow-Serving/2020/02/21/</loc>
+    <lastmod>2020-04-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Tensorflow-hub/2020/02/22/</loc>
+    <lastmod>2020-04-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/TensorBoard/2020/02/22/</loc>
+    <lastmod>2020-04-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Deploy-Models-with-TensorFlow-Serving-and-Flask/2020/04/03/</loc>
+    <lastmod>2020-04-07</lastmod>
+  </url>  <url>
     <loc>https://zhangruochi.com/Spark-Fundamental/2020/04/06/</loc>
     <lastmod>2020-04-07</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Stock-Prices-Series-Problems/2020/04/05/</loc>
     <lastmod>2020-04-06</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Deploy-Models-with-TensorFlow-Serving-and-Flask/2020/04/03/</loc>
-    <lastmod>2020-04-04</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Tensorflow-Lite-Model-Converter/2020/02/16/</loc>
-    <lastmod>2020-04-04</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Use-Tensorflow-Lite-to-do-Inference-on-Raspberry-Pi/2020/02/17/</loc>
-    <lastmod>2020-04-04</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Tensorflow-input-pipeline/2020/02/20/</loc>
-    <lastmod>2020-04-04</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Improving-Performance-of-Tensorflow-ETL-pipeline/2020/02/20/</loc>
-    <lastmod>2020-04-04</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Tensorflow-Serving/2020/02/21/</loc>
-    <lastmod>2020-04-04</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Tensorflow-hub/2020/02/22/</loc>
-    <lastmod>2020-04-04</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/TensorBoard/2020/02/22/</loc>
-    <lastmod>2020-04-04</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Programming-Language-New-Types-Pattern-Matching-Tail-Recursion/2020/03/29/</loc>
     <lastmod>2020-04-03</lastmod>

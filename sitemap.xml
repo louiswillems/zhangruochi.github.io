@@ -2,6 +2,76 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangruochi.com/Machine-Learning-Pipeline/2020/04/13/</loc>
+    
+    <lastmod>2020-04-13T23:06:34.871Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Feedback-loops/2020/04/07/</loc>
+    
+    <lastmod>2020-04-07T19:04:27.602Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Tensorflow-Lite-Model-Converter/2020/02/16/</loc>
+    
+    <lastmod>2020-04-07T18:07:01.479Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Use-Tensorflow-Lite-to-do-Inference-on-Raspberry-Pi/2020/02/17/</loc>
+    
+    <lastmod>2020-04-07T18:06:46.109Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Tensorflow-input-pipeline/2020/02/20/</loc>
+    
+    <lastmod>2020-04-07T18:06:27.510Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Improving-Performance-of-Tensorflow-ETL-pipeline/2020/02/20/</loc>
+    
+    <lastmod>2020-04-07T18:06:06.206Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Tensorflow-Serving/2020/02/21/</loc>
+    
+    <lastmod>2020-04-07T18:05:41.993Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Tensorflow-hub/2020/02/22/</loc>
+    
+    <lastmod>2020-04-07T18:05:24.249Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/TensorBoard/2020/02/22/</loc>
+    
+    <lastmod>2020-04-07T18:05:04.658Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Deploy-Models-with-TensorFlow-Serving-and-Flask/2020/04/03/</loc>
+    
+    <lastmod>2020-04-07T18:04:14.788Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangruochi.com/about/index.html</loc>
     
     <lastmod>2020-04-07T15:35:00.466Z</lastmod>
@@ -19,62 +89,6 @@
     <loc>https://zhangruochi.com/Stock-Prices-Series-Problems/2020/04/05/</loc>
     
     <lastmod>2020-04-06T01:09:25.855Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Deploy-Models-with-TensorFlow-Serving-and-Flask/2020/04/03/</loc>
-    
-    <lastmod>2020-04-04T03:53:36.745Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Tensorflow-Lite-Model-Converter/2020/02/16/</loc>
-    
-    <lastmod>2020-04-04T03:22:57.144Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Use-Tensorflow-Lite-to-do-Inference-on-Raspberry-Pi/2020/02/17/</loc>
-    
-    <lastmod>2020-04-04T03:22:36.394Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Tensorflow-input-pipeline/2020/02/20/</loc>
-    
-    <lastmod>2020-04-04T03:22:17.744Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Improving-Performance-of-Tensorflow-ETL-pipeline/2020/02/20/</loc>
-    
-    <lastmod>2020-04-04T03:22:01.056Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Tensorflow-Serving/2020/02/21/</loc>
-    
-    <lastmod>2020-04-04T03:21:45.244Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Tensorflow-hub/2020/02/22/</loc>
-    
-    <lastmod>2020-04-04T03:21:32.821Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/TensorBoard/2020/02/22/</loc>
-    
-    <lastmod>2020-04-04T03:21:17.740Z</lastmod>
     
   </url>
   

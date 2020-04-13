@@ -1,3 +1,3 @@
+https://zhangruochi.com/Machine-Learning-Pipeline/2020/04/13/
+https://zhangruochi.com/Feedback-loops/2020/04/07/
 https://zhangruochi.com/Spark-Fundamental/2020/04/06/
-https://zhangruochi.com/Stock-Prices-Series-Problems/2020/04/05/
-https://zhangruochi.com/Deploy-Models-with-TensorFlow-Serving-and-Flask/2020/04/03/
