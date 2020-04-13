@@ -134,15 +134,10 @@
 <meta property="og:site_name" content="RUOCHI.AI">
 <meta property="og:description" content="TensorBoard with Fashion MNISTIn this week’s exercise you will train a convolutional neural network to classify images of the Fashion MNIST dataset and you will use TensorBoard to explore how it’s con">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://zhangruochi.com/TensorBoard/2020/02/tmp2/tensorboard_01.png">
-<meta property="og:image" content="https://zhangruochi.com/TensorBoard/2020/02/tmp2/tensorboard_02.png">
-<meta property="og:image" content="https://zhangruochi.com/TensorBoard/2020/02/tmp2/tensorboard_03.png">
-<meta property="og:image" content="https://zhangruochi.com/TensorBoard/2020/02/tmp2/tensorboard_04.png">
-<meta property="og:updated_time" content="2020-04-07T18:05:04.658Z">
+<meta property="og:updated_time" content="2020-04-13T23:23:53.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorBoard">
 <meta name="twitter:description" content="TensorBoard with Fashion MNISTIn this week’s exercise you will train a convolutional neural network to classify images of the Fashion MNIST dataset and you will use TensorBoard to explore how it’s con">
-<meta name="twitter:image" content="https://zhangruochi.com/TensorBoard/2020/02/tmp2/tensorboard_01.png">
 
 
 
@@ -410,28 +405,6 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
-                    <span itemprop="name">Artificial Intelligence</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Artificial-Intelligence/Deep-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Deep Learning</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/AI-Workflow/" itemprop="url" rel="index">
                     <span itemprop="name">AI Workflow</span>
                   </a>
@@ -443,8 +416,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI-Workflow/Deployment/" itemprop="url" rel="index">
-                    <span itemprop="name">Deployment</span>
+                  <a href="/categories/AI-Workflow/Visualization/" itemprop="url" rel="index">
+                    <span itemprop="name">Visualization</span>
                   </a>
                 </span>
 
@@ -519,28 +492,6 @@
 <h2 id="Running-TensorBoard"><a href="#Running-TensorBoard" class="headerlink" title="Running TensorBoard"></a>Running TensorBoard</h2><p>The next step will be to run the code shown below to render the TensorBoard. Unfortunately, TensorBoard cannot be rendered within the Coursera environment. Therefore, we won’t run the code below.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Start TensorBoard.</span></span><br><span class="line">%tensorboard --logdir logs/image</span><br><span class="line"></span><br><span class="line"><span class="comment"># Train the classifier.</span></span><br><span class="line">model.fit(train_images,</span><br><span class="line">          train_labels,</span><br><span class="line">          epochs=<span class="number">5</span>,</span><br><span class="line">          verbose=<span class="number">0</span>, <span class="comment"># Suppress chatty output</span></span><br><span class="line">          callbacks=[tensorboard_callback, cm_callback],</span><br><span class="line">          validation_data=(test_images, test_labels))</span><br></pre></td></tr></table></figure>
 <p>However, you are welcome to download the notebook and run the above code locally on your machine or in Google’s Colab to see TensorBoard in action. Below are some example screenshots that you should see when executing the code:</p>
-<table>
-    <tr>
-        <td>
-            <img src="../tmp2/tensorboard_01.png" width="500">
-        </td>
-        <td>
-            <img src="../tmp2/tensorboard_02.png" width="500">
-        </td>
-    </tr>
-</table>
-<br>
-<br>
-<table>
-    <tr>
-        <td>
-            <img src="../tmp2/tensorboard_03.png" width="500">
-        </td>
-        <td>
-            <img src="../tmp2/tensorboard_04.png" width="500">
-        </td>
-    </tr>
-</table>
 
       
     </div>
@@ -709,7 +660,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

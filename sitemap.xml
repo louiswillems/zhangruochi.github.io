@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangruochi.com/TensorBoard/2020/02/22/</loc>
+    
+    <lastmod>2020-04-13T23:23:53.957Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Tensorflow-input-pipeline/2020/02/20/</loc>
+    
+    <lastmod>2020-04-13T23:22:10.615Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Improving-Performance-of-Tensorflow-ETL-pipeline/2020/02/20/</loc>
+    
+    <lastmod>2020-04-13T23:21:39.992Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangruochi.com/Machine-Learning-Pipeline/2020/04/13/</loc>
     
     <lastmod>2020-04-13T23:11:28.964Z</lastmod>
@@ -30,20 +51,6 @@
   </url>
   
   <url>
-    <loc>https://zhangruochi.com/Tensorflow-input-pipeline/2020/02/20/</loc>
-    
-    <lastmod>2020-04-07T18:06:27.510Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Improving-Performance-of-Tensorflow-ETL-pipeline/2020/02/20/</loc>
-    
-    <lastmod>2020-04-07T18:06:06.206Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://zhangruochi.com/Tensorflow-Serving/2020/02/21/</loc>
     
     <lastmod>2020-04-07T18:05:41.993Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>https://zhangruochi.com/Tensorflow-hub/2020/02/22/</loc>
     
     <lastmod>2020-04-07T18:05:24.249Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/TensorBoard/2020/02/22/</loc>
-    
-    <lastmod>2020-04-07T18:05:04.658Z</lastmod>
     
   </url>
   
