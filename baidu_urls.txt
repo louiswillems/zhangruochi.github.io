@@ -1,3 +1,3 @@
+https://zhangruochi.com/PCA-from-scratch/2020/04/14/
 https://zhangruochi.com/DBSCAN-Clustering/2020/04/14/
 https://zhangruochi.com/SparkML-Examples/2020/04/14/
-https://zhangruochi.com/Machine-Learning-Pipeline/2020/04/13/

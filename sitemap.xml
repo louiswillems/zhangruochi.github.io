@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhangruochi.com/DBSCAN-Clustering/2020/04/14/</loc>
+    <loc>https://zhangruochi.com/PCA-from-scratch/2020/04/14/</loc>
     
-    <lastmod>2020-04-14T05:54:17.806Z</lastmod>
+    <lastmod>2020-04-14T17:33:44.799Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/SparkML-Examples/2020/04/14/</loc>
     
-    <lastmod>2020-04-14T05:03:55.817Z</lastmod>
+    <lastmod>2020-04-14T05:59:09.690Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/DBSCAN-Clustering/2020/04/14/</loc>
+    
+    <lastmod>2020-04-14T05:54:17.806Z</lastmod>
     
   </url>
   
