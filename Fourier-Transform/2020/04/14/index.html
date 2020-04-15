@@ -139,7 +139,7 @@
 <meta property="og:image" content="https://zhangruochi.com/Fourier-Transform/2020/04/14/2.png">
 <meta property="og:image" content="https://zhangruochi.com/Fourier-Transform/2020/04/14/output_5_0.png">
 <meta property="og:image" content="https://zhangruochi.com/Fourier-Transform/2020/04/14/output_6_1.png">
-<meta property="og:updated_time" content="2020-04-15T00:25:53.860Z">
+<meta property="og:updated_time" content="2020-04-15T04:55:38.908Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fourier Transform">
 <meta name="twitter:description" content="Fourier TransformThe Fourier transform (FT) decomposes a function (often a function of time, or a signal) into its constituent frequencies. One motivation for the Fourier transform comes from the stud">
@@ -503,7 +503,8 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">(C) 2018 Nikolay Manchev</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">This work is licensed under the Creative Commons Attribution 4.0 International</span></span><br><span class="line"><span class="string">License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> scipy.io <span class="keyword">import</span> wavfile</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> numpy.fft <span class="keyword">import</span> fft</span><br><span class="line"></span><br><span class="line">plt.rcParams[<span class="string">"xtick.labelsize"</span>] = <span class="number">14</span></span><br><span class="line">plt.rcParams[<span class="string">"ytick.labelsize"</span>] = <span class="number">14</span></span><br><span class="line">plt.style.use(<span class="string">"seaborn"</span>)</span><br><span class="line"></span><br><span class="line">threshold = <span class="number">800</span></span><br><span class="line">fs, snd = wavfile.read(<span class="string">"output.wav"</span>)</span><br><span class="line">y = snd[:,<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">20</span>, <span class="number">8</span>))</span><br><span class="line"></span><br><span class="line">n = len(y) </span><br><span class="line">p = fft(y) </span><br><span class="line"></span><br><span class="line">mag = np.sqrt(p.real**<span class="number">2</span> + p.imag**<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">mag = mag * <span class="number">2</span> / n</span><br><span class="line"></span><br><span class="line">mag = mag[<span class="number">0</span>:math.ceil((n)/<span class="number">2.0</span>)]</span><br><span class="line"></span><br><span class="line">freq = np.arange(<span class="number">0</span>, len(mag), <span class="number">1.0</span>) * (fs / n)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> threshold != <span class="number">0</span>:</span><br><span class="line">    print(np.unique(np.rint(freq[np.in1d(mag, mag[mag&gt;threshold])])))</span><br><span class="line">    mag[mag&lt;threshold]=threshold</span><br><span class="line"></span><br><span class="line">plt.plot(freq/<span class="number">1000</span>, mag, color=<span class="string">'b'</span>)</span><br><span class="line">plt.xticks(np.arange(min(freq/<span class="number">1000</span>), max(freq/<span class="number">1000</span>)+<span class="number">1</span>, <span class="number">1.0</span>))</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <pre><code>[329. 330. 415. 555.]
 </code></pre><p><img src="output_6_1.png" alt="png"></p>
-
+<h2 id="Wavelet-transform"><a href="#Wavelet-transform" class="headerlink" title="Wavelet transform"></a>Wavelet transform</h2><p>Wavelets have some slight benefits over Fourier transforms in reducing computations when examining specific frequencies. However, they are rarely more sensitive, and indeed, the common Morlet wavelet is mathematically identical to a short-time Fourier transform using a Gaussian window function. The exception is when searching for signals of a known, non-sinusoidal shape (e.g., heartbeats); in that case, using matched wavelets can outperform standard STFT/Morlet analyses.</p>
+<script type="math/tex; mode=display">X(a,b) = \frac{1}{\sqrt{a}}\int_{-\infty}^{\infty}\overline{\Psi\left(\frac{t - b}{a}\right)} x(t)\, dt</script>
       
     </div>
     
@@ -752,7 +753,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fourier-Transform"><span class="nav-text">Fourier Transform</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Decompose-the-cord"><span class="nav-text">Decompose the cord</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fourier-Transform"><span class="nav-text">Fourier Transform</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Decompose-the-cord"><span class="nav-text">Decompose the cord</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Wavelet-transform"><span class="nav-text">Wavelet transform</span></a></li></ol></div>
             
 
           </div>
@@ -1313,7 +1314,33 @@
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(bp, s);
 })();
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1331,12 +1358,6 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-  
-  
-
-  
   
 
 
