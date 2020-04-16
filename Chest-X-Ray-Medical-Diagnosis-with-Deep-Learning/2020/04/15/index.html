@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Medicine,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="This is the assignment of coursera course Medical Diagnosis from deeplearning.ai   Chest X-Ray Medical Diagnosis with Deep Learning Welcome to the first assignment of course 1!  In this assignment! Y">
+<meta name="keywords" content="Medicine">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chest X-Ray Medical Diagnosis with Deep Learning">
+<meta property="og:url" content="https://zhangruochi.com/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="This is the assignment of coursera course Medical Diagnosis from deeplearning.ai   Chest X-Ray Medical Diagnosis with Deep Learning Welcome to the first assignment of course 1!  In this assignment! Y">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/output_1.png">
+<meta property="og:image" content="https://zhangruochi.com/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/output_28_1.png">
+<meta property="og:image" content="https://zhangruochi.com/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/output_31_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/output_42_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/output_46_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/output_62_0.png">
+<meta property="og:image" content="https://journals.plos.org/plosmedicine/article/figure/image?size=large&id=10.1371/journal.pmed.1002686.t001">
+<meta property="og:image" content="https://zhangruochi.com/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/output_71_1.png">
+<meta property="og:image" content="https://zhangruochi.com/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/output_72_1.png">
+<meta property="og:image" content="https://zhangruochi.com/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/output_73_1.png">
+<meta property="og:image" content="https://zhangruochi.com/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/output_74_1.png">
+<meta property="og:updated_time" content="2020-04-16T01:15:17.312Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chest X-Ray Medical Diagnosis with Deep Learning">
+<meta name="twitter:description" content="This is the assignment of coursera course Medical Diagnosis from deeplearning.ai   Chest X-Ray Medical Diagnosis with Deep Learning Welcome to the first assignment of course 1!  In this assignment! Y">
+<meta name="twitter:image" content="https://zhangruochi.com/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/output_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/">
+
+
+
+
+
+  <title>Chest X-Ray Medical Diagnosis with Deep Learning | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Chest X-Ray Medical Diagnosis with Deep Learning</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-15T21:11:55-04:00">
+                2020-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
+                    <span itemprop="name">Artificial Intelligence</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>This is the assignment of coursera course <a href="https://www.coursera.org/learn/ai-for-medical-diagnosis/" target="_blank" rel="noopener">Medical Diagnosis</a> from deeplearning.ai </li>
+</ul>
+<h1 id="Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning"><a href="#Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning" class="headerlink" title="Chest X-Ray Medical Diagnosis with Deep Learning"></a>Chest X-Ray Medical Diagnosis with Deep Learning</h1><p><img src="output_1.png" style="padding-top: 50px;width: 87%;left: 0px;margin-left: 0px;margin-right: 0px;"></p>
+<p><strong>Welcome to the first assignment of course 1!</strong> </p>
+<p>In this assignment! You will explore medical image diagnosis by building a state-of-the-art chest X-ray classifier using Keras. </p>
+<p>The assignment will walk through some of the steps of building and evaluating this deep learning classifier model. In particular, you will:</p>
+<ul>
+<li>Pre-process and prepare a real-world X-ray dataset</li>
+<li>Use transfer learning to retrain a DenseNet model for X-ray image classification</li>
+<li>Learn a technique to handle class imbalance</li>
+<li>Measure diagnostic performance by computing the AUC (Area Under the Curve) for the ROC (Receiver Operating Characteristic) curve</li>
+<li>Visualize model activity using GradCAMs</li>
+</ul>
+<p>In completing this assignment you will learn about the following topics: </p>
+<ul>
+<li>Data preparation<ul>
+<li>Visualizing data</li>
+<li>Preventing data leakage</li>
+</ul>
+</li>
+<li>Model Development<ul>
+<li>Addressing class imbalance</li>
+<li>Leveraging pre-trained models using transfer learning</li>
+</ul>
+</li>
+<li>Evaluation<ul>
+<li>AUC and ROC curves</li>
+</ul>
+</li>
+</ul>
+<h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><p>Use these links to jump to specific sections of this assignment!</p>
+<ul>
+<li><a href="#1">1. Import Packages and Function</a></li>
+<li><a href="#2">2. Load the Datasets</a><ul>
+<li><a href="#2-1">2.1 Preventing Data Leakage</a><ul>
+<li><a href="#Ex-1">Exercise 1 - Checking Data Leakage</a></li>
+</ul>
+</li>
+<li><a href="#2-2">2.2 Preparing Images</a></li>
+</ul>
+</li>
+<li><a href="#3">3. Model Development</a><ul>
+<li><a href="#3-1">3.1 Addressing Class Imbalance</a><ul>
+<li><a href="#Ex-2">Exercise 2 - Computing Class Frequencies</a></li>
+<li><a href="#Ex-3">Exercise 3 - Weighted Loss</a></li>
+</ul>
+</li>
+<li><a href="#3-3">3.3 DenseNet121</a></li>
+</ul>
+</li>
+<li><a href="#4">4. Training [optional]</a><ul>
+<li><a href="#4-1">4.1 Training on the Larger Dataset</a></li>
+</ul>
+</li>
+<li><a href="#5">5. Prediction and Evaluation</a><ul>
+<li><a href="#5-1">5.1 ROC Curve and AUROC</a></li>
+<li><a href="#5-2">5.2 Visualizing Learning with GradCAM</a></li>
+</ul>
+</li>
+</ul>
+<p><a name="1"></a></p>
+<h2 id="1-Import-Packages-and-Functions¶"><a href="#1-Import-Packages-and-Functions¶" class="headerlink" title="1. Import Packages and Functions¶"></a>1. Import Packages and Functions¶</h2><p>We’ll make use of the following packages:</p>
+<ul>
+<li><code>numpy</code> and <code>pandas</code> is what we’ll use to manipulate our data</li>
+<li><code>matplotlib.pyplot</code> and <code>seaborn</code> will be used to produce plots for visualization</li>
+<li><code>util</code> will provide the locally defined utility functions that have been provided for this assignment</li>
+</ul>
+<p>We will also use several modules from the <code>keras</code> framework for building deep learning models.</p>
+<p>Run the next cell to import all the necessary packages.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> keras.preprocessing.image <span class="keyword">import</span> ImageDataGenerator</span><br><span class="line"><span class="keyword">from</span> keras.applications.densenet <span class="keyword">import</span> DenseNet121</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense, GlobalAveragePooling2D</span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Model</span><br><span class="line"><span class="keyword">from</span> keras <span class="keyword">import</span> backend <span class="keyword">as</span> K</span><br><span class="line"><span class="keyword">import</span> keras</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> load_model</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> util</span><br></pre></td></tr></table></figure>
+<p><a name="2"></a></p>
+<h2 id="2-Load-the-Datasets"><a href="#2-Load-the-Datasets" class="headerlink" title="2 Load the Datasets"></a>2 Load the Datasets</h2><p>For this assignment, we will be using the <a href="https://arxiv.org/abs/1705.02315" target="_blank" rel="noopener">ChestX-ray8 dataset</a> which contains 108,948 frontal-view X-ray images of 32,717 unique patients. </p>
+<ul>
+<li>Each image in the data set contains multiple text-mined labels identifying 14 different pathological conditions. </li>
+<li>These in turn can be used by physicians to diagnose 8 different diseases. </li>
+<li>We will use this data to develop a single model that will provide binary classification predictions for each of the 14 labeled pathologies. </li>
+<li>In other words it will predict ‘positive’ or ‘negative’ for each of the pathologies.</li>
+</ul>
+<p>You can download the entire dataset for free <a href="https://nihcc.app.box.com/v/ChestXray-NIHCC" target="_blank" rel="noopener">here</a>. </p>
+<ul>
+<li>We have provided a ~1000 image subset of the images for you.</li>
+<li>These can be accessed in the folder path stored in the <code>IMAGE_DIR</code> variable.</li>
+</ul>
+<p>The dataset includes a CSV file that provides the labels for each X-ray. </p>
+<p>To make your job a bit easier, we have processed the labels for our small sample and generated three new files to get you started. These three files are:</p>
+<ol>
+<li><code>nih/train-small.csv</code>: 875 images from our dataset to be used for training.</li>
+<li><code>nih/valid-small.csv</code>: 109 images from our dataset to be used for validation.</li>
+<li><code>nih/test.csv</code>: 420 images from our dataset to be used for testing. </li>
+</ol>
+<p>This dataset has been annotated by consensus among four different radiologists for 5 of our 14 pathologies:</p>
+<ul>
+<li><code>Consolidation</code></li>
+<li><code>Edema</code></li>
+<li><code>Effusion</code></li>
+<li><code>Cardiomegaly</code></li>
+<li><code>Atelectasis</code></li>
+</ul>
+<h4 id="Sidebar-on-meaning-of-‘class’"><a href="#Sidebar-on-meaning-of-‘class’" class="headerlink" title="Sidebar on meaning of ‘class’"></a>Sidebar on meaning of ‘class’</h4><p>It is worth noting that the word <strong>‘class’</strong> is used in multiple ways is these discussions. </p>
+<ul>
+<li>We sometimes refer to each of the 14 pathological conditions that are labeled in our dataset as a class. </li>
+<li>But for each of those pathologies we are attempting to predict whether a certain condition is present (i.e. positive result) or absent (i.e. negative result). <ul>
+<li>These two possible labels of ‘positive’ or ‘negative’ (or the numerical equivalent of 1 or 0) are also typically referred to as classes. </li>
+</ul>
+</li>
+<li>Moreover, we also use the term in reference to software code ‘classes’ such as <code>ImageDataGenerator</code>.</li>
+</ul>
+<p>As long as you are aware of all this though, it should not cause you any confusion as the term ‘class’ is usually clear from the context in which it is used.</p>
+<h4 id="Read-in-the-data"><a href="#Read-in-the-data" class="headerlink" title="Read in the data"></a>Read in the data</h4><p>Let’s open these files using the <a href="https://pandas.pydata.org/" target="_blank" rel="noopener">pandas</a> library</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">train_df = pd.read_csv(<span class="string">"nih/train-small.csv"</span>)</span><br><span class="line">valid_df = pd.read_csv(<span class="string">"nih/valid-small.csv"</span>)</span><br><span class="line"></span><br><span class="line">test_df = pd.read_csv(<span class="string">"nih/test.csv"</span>)</span><br><span class="line"></span><br><span class="line">train_df.head()</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Image</th>
+      <th>Atelectasis</th>
+      <th>Cardiomegaly</th>
+      <th>Consolidation</th>
+      <th>Edema</th>
+      <th>Effusion</th>
+      <th>Emphysema</th>
+      <th>Fibrosis</th>
+      <th>Hernia</th>
+      <th>Infiltration</th>
+      <th>Mass</th>
+      <th>Nodule</th>
+      <th>PatientId</th>
+      <th>Pleural_Thickening</th>
+      <th>Pneumonia</th>
+      <th>Pneumothorax</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>00027079_001.png</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>27079</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>00004477_001.png</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4477</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>00018530_002.png</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>18530</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>00026928_001.png</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>26928</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>00016687_000.png</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>16687</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train_df.shape</span><br></pre></td></tr></table></figure>
+<pre><code>(875, 16)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">labels = [<span class="string">'Cardiomegaly'</span>, </span><br><span class="line">          <span class="string">'Emphysema'</span>, </span><br><span class="line">          <span class="string">'Effusion'</span>, </span><br><span class="line">          <span class="string">'Hernia'</span>, </span><br><span class="line">          <span class="string">'Infiltration'</span>, </span><br><span class="line">          <span class="string">'Mass'</span>, </span><br><span class="line">          <span class="string">'Nodule'</span>, </span><br><span class="line">          <span class="string">'Atelectasis'</span>,</span><br><span class="line">          <span class="string">'Pneumothorax'</span>,</span><br><span class="line">          <span class="string">'Pleural_Thickening'</span>, </span><br><span class="line">          <span class="string">'Pneumonia'</span>, </span><br><span class="line">          <span class="string">'Fibrosis'</span>, </span><br><span class="line">          <span class="string">'Edema'</span>, </span><br><span class="line">          <span class="string">'Consolidation'</span>]</span><br></pre></td></tr></table></figure>
+<p><a name="2-1"></a></p>
+<h3 id="2-1-Preventing-Data-Leakage"><a href="#2-1-Preventing-Data-Leakage" class="headerlink" title="2.1 Preventing Data Leakage"></a>2.1 Preventing Data Leakage</h3><p>It is worth noting that our dataset contains multiple images for each patient. This could be the case, for example, when a patient has taken multiple X-ray images at different times during their hospital visits. In our data splitting, we have ensured that the split is done on the patient level so that there is no data “leakage” between the train, validation, and test datasets.</p>
+<p><a name="Ex-1"></a></p>
+<h3 id="Exercise-1-Checking-Data-Leakage"><a href="#Exercise-1-Checking-Data-Leakage" class="headerlink" title="Exercise 1 - Checking Data Leakage"></a>Exercise 1 - Checking Data Leakage</h3><p>In the cell below, write a function to check whether there is leakage between two datasets. We’ll use this to make sure there are no patients in the test set that are also present in either the train or validation sets.</p>
+<p><details>    </details></p>
+<p><summary>
+    <font size="3" color="darkgreen"><b>Hints</b></font>
+</summary></p>
+<p>
+<ul>
+    <li> Make use of python's set.intersection() function. </li>
+    <li> In order to match the automatic grader's expectations, please start the line of code with <code>df1_patients_unique...[continue your code here]</code> </li>
+
+</ul>
+</p>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C1 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_for_leakage</span><span class="params">(df1, df2, patient_col)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Return True if there any patients are in both df1 and df2.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        df1 (dataframe): dataframe describing first dataset</span></span><br><span class="line"><span class="string">        df2 (dataframe): dataframe describing second dataset</span></span><br><span class="line"><span class="string">        patient_col (str): string name of column with patient IDs</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        leakage (bool): True if there is leakage, otherwise False</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">### START CODE HERE (REPLACE INSTANCES OF 'None' with your code) ###</span></span><br><span class="line">    </span><br><span class="line">    df1_patients_unique = set(df1[patient_col].unique().tolist())</span><br><span class="line">    df2_patients_unique = set(df2[patient_col].unique().tolist())</span><br><span class="line">    </span><br><span class="line">    patients_in_both_groups = df1_patients_unique.intersection(df2_patients_unique)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># leakage contains true if there is patient overlap, otherwise false.</span></span><br><span class="line">    leakage = len(patients_in_both_groups) &gt;= <span class="number">1</span> <span class="comment"># boolean (true if there is at least 1 patient in both groups)</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> leakage</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test</span></span><br><span class="line">print(<span class="string">"test case 1"</span>)</span><br><span class="line">df1 = pd.DataFrame(&#123;<span class="string">'patient_id'</span>: [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]&#125;)</span><br><span class="line">df2 = pd.DataFrame(&#123;<span class="string">'patient_id'</span>: [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]&#125;)</span><br><span class="line">print(<span class="string">"df1"</span>)</span><br><span class="line">print(df1)</span><br><span class="line">print(<span class="string">"df2"</span>)</span><br><span class="line">print(df2)</span><br><span class="line">print(<span class="string">f"leakage output: <span class="subst">&#123;check_for_leakage(df1, df2, <span class="string">'patient_id'</span>)&#125;</span>"</span>)</span><br><span class="line">print(<span class="string">"-------------------------------------"</span>)</span><br><span class="line">print(<span class="string">"test case 2"</span>)</span><br><span class="line">df1 = pd.DataFrame(&#123;<span class="string">'patient_id'</span>: [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]&#125;)</span><br><span class="line">df2 = pd.DataFrame(&#123;<span class="string">'patient_id'</span>: [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]&#125;)</span><br><span class="line">print(<span class="string">"df1:"</span>)</span><br><span class="line">print(df1)</span><br><span class="line">print(<span class="string">"df2:"</span>)</span><br><span class="line">print(df2)</span><br><span class="line"></span><br><span class="line">print(<span class="string">f"leakage output: <span class="subst">&#123;check_for_leakage(df1, df2, <span class="string">'patient_id'</span>)&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>test case 1
+df1
+   patient_id
+0           0
+1           1
+2           2
+df2
+   patient_id
+0           2
+1           3
+2           4
+leakage output: True
+-------------------------------------
+test case 2
+df1:
+   patient_id
+0           0
+1           1
+2           2
+df2:
+   patient_id
+0           3
+1           4
+2           5
+leakage output: False
+</code></pre><h5 id="Expected-output"><a href="#Expected-output" class="headerlink" title="Expected output"></a>Expected output</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">test case <span class="number">1</span></span><br><span class="line">df1</span><br><span class="line">   patient_id</span><br><span class="line"><span class="number">0</span>           <span class="number">0</span></span><br><span class="line"><span class="number">1</span>           <span class="number">1</span></span><br><span class="line"><span class="number">2</span>           <span class="number">2</span></span><br><span class="line">df2</span><br><span class="line">   patient_id</span><br><span class="line"><span class="number">0</span>           <span class="number">2</span></span><br><span class="line"><span class="number">1</span>           <span class="number">3</span></span><br><span class="line"><span class="number">2</span>           <span class="number">4</span></span><br><span class="line">leakage output: <span class="keyword">True</span></span><br><span class="line">-------------------------------------</span><br><span class="line">test case <span class="number">2</span></span><br><span class="line">df1:</span><br><span class="line">   patient_id</span><br><span class="line"><span class="number">0</span>           <span class="number">0</span></span><br><span class="line"><span class="number">1</span>           <span class="number">1</span></span><br><span class="line"><span class="number">2</span>           <span class="number">2</span></span><br><span class="line">df2:</span><br><span class="line">   patient_id</span><br><span class="line"><span class="number">0</span>           <span class="number">3</span></span><br><span class="line"><span class="number">1</span>           <span class="number">4</span></span><br><span class="line"><span class="number">2</span>           <span class="number">5</span></span><br><span class="line">leakage output: <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<p>Run the next cell to check if there are patients in both train and test or in both valid and test.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"leakage between train and test: &#123;&#125;"</span>.format(check_for_leakage(train_df, test_df, <span class="string">'PatientId'</span>)))</span><br><span class="line">print(<span class="string">"leakage between valid and test: &#123;&#125;"</span>.format(check_for_leakage(valid_df, test_df, <span class="string">'PatientId'</span>)))</span><br></pre></td></tr></table></figure>
+<pre><code>leakage between train and test: False
+leakage between valid and test: False
+</code></pre><p>If we get <code>False</code> for both, then we’re ready to start preparing the datasets for training. Remember to always check for data leakage!</p>
+<p><a name="2-2"></a></p>
+<h3 id="2-2-Preparing-Images"><a href="#2-2-Preparing-Images" class="headerlink" title="2.2 Preparing Images"></a>2.2 Preparing Images</h3><p>With our dataset splits ready, we can now proceed with setting up our model to consume them. </p>
+<ul>
+<li>For this we will use the off-the-shelf <a href="https://keras.io/preprocessing/image/" target="_blank" rel="noopener">ImageDataGenerator</a> class from the Keras framework, which allows us to build a “generator” for images specified in a dataframe. </li>
+<li>This class also provides support for basic data augmentation such as random horizontal flipping of images.</li>
+<li>We also use the generator to transform the values in each batch so that their mean is $0$ and their standard deviation is 1. <ul>
+<li>This will facilitate model training by standardizing the input distribution. </li>
+</ul>
+</li>
+<li>The generator also converts our single channel X-ray images (gray-scale) to a three-channel format by repeating the values in the image across all channels.<ul>
+<li>We will want this because the pre-trained model that we’ll use requires three-channel inputs.</li>
+</ul>
+</li>
+</ul>
+<p>Since it is mainly a matter of reading and understanding Keras documentation, we have implemented the generator for you. There are a few things to note: </p>
+<ol>
+<li>We normalize the mean and standard deviation of the data</li>
+<li>We shuffle the input after each epoch.</li>
+<li>We set the image size to be 320px by 320px</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_train_generator</span><span class="params">(df, image_dir, x_col, y_cols, shuffle=True, batch_size=<span class="number">8</span>, seed=<span class="number">1</span>, target_w = <span class="number">320</span>, target_h = <span class="number">320</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Return generator for training set, normalizing using batch</span></span><br><span class="line"><span class="string">    statistics.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">      train_df (dataframe): dataframe specifying training data.</span></span><br><span class="line"><span class="string">      image_dir (str): directory where image files are held.</span></span><br><span class="line"><span class="string">      x_col (str): name of column in df that holds filenames.</span></span><br><span class="line"><span class="string">      y_cols (list): list of strings that hold y labels for images.</span></span><br><span class="line"><span class="string">      sample_size (int): size of sample to use for normalization statistics.</span></span><br><span class="line"><span class="string">      batch_size (int): images per batch to be fed into model during training.</span></span><br><span class="line"><span class="string">      seed (int): random seed.</span></span><br><span class="line"><span class="string">      target_w (int): final width of input images.</span></span><br><span class="line"><span class="string">      target_h (int): final height of input images.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        train_generator (DataFrameIterator): iterator over training set</span></span><br><span class="line"><span class="string">    """</span>        </span><br><span class="line">    print(<span class="string">"getting train generator..."</span>) </span><br><span class="line">    <span class="comment"># normalize images</span></span><br><span class="line">    image_generator = ImageDataGenerator(</span><br><span class="line">        samplewise_center=<span class="keyword">True</span>,</span><br><span class="line">        samplewise_std_normalization= <span class="keyword">True</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># flow from directory with specified batch size</span></span><br><span class="line">    <span class="comment"># and target image size</span></span><br><span class="line">    generator = image_generator.flow_from_dataframe(</span><br><span class="line">            dataframe=df,</span><br><span class="line">            directory=image_dir,</span><br><span class="line">            x_col=x_col,</span><br><span class="line">            y_col=y_cols,</span><br><span class="line">            class_mode=<span class="string">"raw"</span>,</span><br><span class="line">            batch_size=batch_size,</span><br><span class="line">            shuffle=shuffle,</span><br><span class="line">            seed=seed,</span><br><span class="line">            target_size=(target_w,target_h))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> generator</span><br></pre></td></tr></table></figure>
+<h4 id="Build-a-separate-generator-for-valid-and-test-sets"><a href="#Build-a-separate-generator-for-valid-and-test-sets" class="headerlink" title="Build a separate generator for valid and test sets"></a>Build a separate generator for valid and test sets</h4><p>Now we need to build a new generator for validation and testing data. </p>
+<p><strong>Why can’t we use the same generator as for the training data?</strong></p>
+<p>Look back at the generator we wrote for the training data. </p>
+<ul>
+<li>It normalizes each image <strong>per batch</strong>, meaning that it uses batch statistics. </li>
+<li>We should not do this with the test and validation data, since in a real life scenario we don’t process incoming images a batch at a time (we process one image at a time). </li>
+<li>Knowing the average per batch of test data would effectively give our model an advantage.  <ul>
+<li>The model should not have any information about the test data.</li>
+</ul>
+</li>
+</ul>
+<p>What we need to do is normalize incoming test data using the statistics <strong>computed from the training set</strong>. </p>
+<ul>
+<li>We implement this in the function below. </li>
+<li>There is one technical note. Ideally, we would want to compute our sample mean and standard deviation using the entire training set. </li>
+<li>However, since this is extremely large, that would be very time consuming. </li>
+<li>In the interest of time, we’ll take a random sample of the dataset and calcualte the sample mean and sample standard deviation.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_test_and_valid_generator</span><span class="params">(valid_df, test_df, train_df, image_dir, x_col, y_cols, sample_size=<span class="number">100</span>, batch_size=<span class="number">8</span>, seed=<span class="number">1</span>, target_w = <span class="number">320</span>, target_h = <span class="number">320</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Return generator for validation set and test test set using </span></span><br><span class="line"><span class="string">    normalization statistics from training set.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">      valid_df (dataframe): dataframe specifying validation data.</span></span><br><span class="line"><span class="string">      test_df (dataframe): dataframe specifying test data.</span></span><br><span class="line"><span class="string">      train_df (dataframe): dataframe specifying training data.</span></span><br><span class="line"><span class="string">      image_dir (str): directory where image files are held.</span></span><br><span class="line"><span class="string">      x_col (str): name of column in df that holds filenames.</span></span><br><span class="line"><span class="string">      y_cols (list): list of strings that hold y labels for images.</span></span><br><span class="line"><span class="string">      sample_size (int): size of sample to use for normalization statistics.</span></span><br><span class="line"><span class="string">      batch_size (int): images per batch to be fed into model during training.</span></span><br><span class="line"><span class="string">      seed (int): random seed.</span></span><br><span class="line"><span class="string">      target_w (int): final width of input images.</span></span><br><span class="line"><span class="string">      target_h (int): final height of input images.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        test_generator (DataFrameIterator) and valid_generator: iterators over test set and validation set respectively</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    print(<span class="string">"getting train and valid generators..."</span>)</span><br><span class="line">    <span class="comment"># get generator to sample dataset</span></span><br><span class="line">    raw_train_generator = ImageDataGenerator().flow_from_dataframe(</span><br><span class="line">        dataframe=train_df, </span><br><span class="line">        directory=IMAGE_DIR, </span><br><span class="line">        x_col=<span class="string">"Image"</span>, </span><br><span class="line">        y_col=labels, </span><br><span class="line">        class_mode=<span class="string">"raw"</span>, </span><br><span class="line">        batch_size=sample_size, </span><br><span class="line">        shuffle=<span class="keyword">True</span>, </span><br><span class="line">        target_size=(target_w, target_h))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># get data sample</span></span><br><span class="line">    batch = raw_train_generator.next()</span><br><span class="line">    data_sample = batch[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># use sample to fit mean and std for test set generator</span></span><br><span class="line">    image_generator = ImageDataGenerator(</span><br><span class="line">        featurewise_center=<span class="keyword">True</span>,</span><br><span class="line">        featurewise_std_normalization= <span class="keyword">True</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># fit generator to sample from training data</span></span><br><span class="line">    image_generator.fit(data_sample)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># get test generator</span></span><br><span class="line">    valid_generator = image_generator.flow_from_dataframe(</span><br><span class="line">            dataframe=valid_df,</span><br><span class="line">            directory=image_dir,</span><br><span class="line">            x_col=x_col,</span><br><span class="line">            y_col=y_cols,</span><br><span class="line">            class_mode=<span class="string">"raw"</span>,</span><br><span class="line">            batch_size=batch_size,</span><br><span class="line">            shuffle=<span class="keyword">False</span>,</span><br><span class="line">            seed=seed,</span><br><span class="line">            target_size=(target_w,target_h))</span><br><span class="line"></span><br><span class="line">    test_generator = image_generator.flow_from_dataframe(</span><br><span class="line">            dataframe=test_df,</span><br><span class="line">            directory=image_dir,</span><br><span class="line">            x_col=x_col,</span><br><span class="line">            y_col=y_cols,</span><br><span class="line">            class_mode=<span class="string">"raw"</span>,</span><br><span class="line">            batch_size=batch_size,</span><br><span class="line">            shuffle=<span class="keyword">False</span>,</span><br><span class="line">            seed=seed,</span><br><span class="line">            target_size=(target_w,target_h))</span><br><span class="line">    <span class="keyword">return</span> valid_generator, test_generator</span><br></pre></td></tr></table></figure>
+<p>With our generator function ready, let’s make one generator for our training data and one each of our test and  validation datasets.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IMAGE_DIR = <span class="string">"nih/images-small/"</span></span><br><span class="line">train_generator = get_train_generator(train_df, IMAGE_DIR, <span class="string">"Image"</span>, labels)</span><br><span class="line">valid_generator, test_generator= get_test_and_valid_generator(valid_df, test_df, train_df, IMAGE_DIR, <span class="string">"Image"</span>, labels)</span><br></pre></td></tr></table></figure>
+<pre><code>getting train generator...
+
+
+/opt/conda/lib/python3.6/site-packages/keras_preprocessing/image/dataframe_iterator.py:273: UserWarning: Found 866 invalid image filename(s) in x_col=&quot;Image&quot;. These filename(s) will be ignored.
+  .format(n_invalid, x_col)
+/opt/conda/lib/python3.6/site-packages/keras_preprocessing/image/dataframe_iterator.py:273: UserWarning: Found 866 invalid image filename(s) in x_col=&quot;Image&quot;. These filename(s) will be ignored.
+  .format(n_invalid, x_col)
+
+
+Found 9 validated image filenames.
+getting train and valid generators...
+Found 9 validated image filenames.
+
+
+/opt/conda/lib/python3.6/site-packages/keras_preprocessing/image/dataframe_iterator.py:273: UserWarning: Found 108 invalid image filename(s) in x_col=&quot;Image&quot;. These filename(s) will be ignored.
+  .format(n_invalid, x_col)
+
+
+Found 1 validated image filenames.
+Found 420 validated image filenames.
+</code></pre><p>Let’s peek into what the generator gives our model during training and validation. We can do this by calling the <code>__get_item__(index)</code> function:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x, y = train_generator.__getitem__(<span class="number">0</span>)</span><br><span class="line">plt.imshow(x[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
+<pre><code>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+</code></pre><p><img src="output_28_1.png" alt="png"></p>
+<p><a name="3"></a></p>
+<h2 id="3-Model-Development"><a href="#3-Model-Development" class="headerlink" title="3 Model Development"></a>3 Model Development</h2><p>Now we’ll move on to model training and development. We have a few practical challenges to deal with before actually training a neural network, though. The first is class imbalance.</p>
+<p><a name="3-1"></a></p>
+<h3 id="3-1-Addressing-Class-Imbalance"><a href="#3-1-Addressing-Class-Imbalance" class="headerlink" title="3.1 Addressing Class Imbalance"></a>3.1 Addressing Class Imbalance</h3><p>One of the challenges with working with medical diagnostic datasets is the large class imbalance present in such datasets. Let’s plot the frequency of each of the labels in our dataset:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plt.xticks(rotation=<span class="number">90</span>)</span><br><span class="line">plt.bar(x=labels, height=np.mean(train_generator.labels, axis=<span class="number">0</span>))</span><br><span class="line">plt.title(<span class="string">"Frequency of Each Class"</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="output_31_0.png" alt="png"></p>
+<p>We can see from this plot that the prevalance of positive cases varies significantly across the different pathologies. (These trends mirror the ones in the full dataset as well.) </p>
+<ul>
+<li>The <code>Hernia</code> pathology has the greatest imbalance with the proportion of positive training cases being about 0.2%. </li>
+<li>But even the <code>Infiltration</code> pathology, which has the least amount of imbalance, has only 17.5% of the training cases labelled positive.</li>
+</ul>
+<p>Ideally, we would train our model using an evenly balanced dataset so that the positive and negative training cases would contribute equally to the loss. </p>
+<p>If we use a normal cross-entropy loss function with a highly unbalanced dataset, as we are seeing here, then the algorithm will be incentivized to prioritize the majority class (i.e negative in our case), since it contributes more to the loss. </p>
+<h4 id="Impact-of-class-imbalance-on-loss-function"><a href="#Impact-of-class-imbalance-on-loss-function" class="headerlink" title="Impact of class imbalance on loss function"></a>Impact of class imbalance on loss function</h4><p>Let’s take a closer look at this. Assume we would have used a normal cross-entropy loss for each pathology. We recall that the cross-entropy loss contribution from the $i^{th}$ training data case is:</p>
+<script type="math/tex; mode=display">\mathcal{L}_{cross-entropy}(x_i) = -(y_i \log(f(x_i)) + (1-y_i) \log(1-f(x_i))),</script><p>where $x_i$ and $y_i$ are the input features and the label, and $f(x_i)$ is the output of the model, i.e. the probability that it is positive. </p>
+<p>Note that for any training case, either $y_i=0$ or else $(1-y_i)=0$, so only one of these terms contributes to the loss (the other term is multiplied by zero, and becomes zero). </p>
+<p>We can rewrite the overall average cross-entropy loss over the entire training set $\mathcal{D}$ of size $N$ as follows: </p>
+<script type="math/tex; mode=display">\mathcal{L}_{cross-entropy}(\mathcal{D}) = - \frac{1}{N}\big( \sum_{\text{positive examples}} \log (f(x_i)) + \sum_{\text{negative examples}} \log(1-f(x_i)) \big).</script><p>Using this formulation, we can see that if there is a large imbalance with very few positive training cases, for example, then the loss will be dominated by the negative class. Summing the contribution over all the training cases for each class (i.e. pathological condition), we see that the contribution of each class (i.e. positive or negative) is: </p>
+<script type="math/tex; mode=display">freq_{p} = \frac{\text{number of positive examples}}{N}</script><script type="math/tex; mode=display">\text{and}</script><script type="math/tex; mode=display">freq_{n} = \frac{\text{number of negative examples}}{N}.</script><p><a name="Ex-2"></a></p>
+<h3 id="Exercise-2-Computing-Class-Frequencies"><a href="#Exercise-2-Computing-Class-Frequencies" class="headerlink" title="Exercise 2 - Computing Class Frequencies"></a>Exercise 2 - Computing Class Frequencies</h3><p>Complete the function below to calculate these frequences for each label in our dataset.</p>
+<p><details>    </details></p>
+<p><summary>
+    <font size="3" color="darkgreen"><b>Hints</b></font>
+</summary></p>
+<p>
+<ul>
+    <li> Use numpy.sum(a, axis=), and choose the axis (0 or 1) </li>
+</ul>
+</p>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C2 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_class_freqs</span><span class="params">(labels)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Compute positive and negative frequences for each class.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        labels (np.array): matrix of labels, size (num_examples, num_classes)</span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        positive_frequencies (np.array): array of positive frequences for each</span></span><br><span class="line"><span class="string">                                         class, size (num_classes)</span></span><br><span class="line"><span class="string">        negative_frequencies (np.array): array of negative frequences for each</span></span><br><span class="line"><span class="string">                                         class, size (num_classes)</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment">### START CODE HERE (REPLACE INSTANCES OF 'None' with your code) ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># total number of patients (rows)</span></span><br><span class="line">    N = labels.shape[<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    positive_frequencies = np.sum(labels, axis=<span class="number">0</span>) / labels.shape[<span class="number">0</span>]</span><br><span class="line">    negative_frequencies = <span class="number">1</span> - positive_frequencies</span><br><span class="line"></span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    <span class="keyword">return</span> positive_frequencies, negative_frequencies</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Test</span></span><br><span class="line">labels_matrix = np.array(</span><br><span class="line">    [[<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">     [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">     [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">     [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">     [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>]]</span><br><span class="line">)</span><br><span class="line">print(<span class="string">"labels:"</span>)</span><br><span class="line">print(labels_matrix)</span><br><span class="line"></span><br><span class="line">test_pos_freqs, test_neg_freqs = compute_class_freqs(labels_matrix)</span><br><span class="line"></span><br><span class="line">print(<span class="string">f"pos freqs: <span class="subst">&#123;test_pos_freqs&#125;</span>"</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">f"neg freqs: <span class="subst">&#123;test_neg_freqs&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>labels:
+[[1 0 0]
+ [0 1 1]
+ [1 0 1]
+ [1 1 1]
+ [1 0 1]]
+pos freqs: [0.8 0.4 0.8]
+neg freqs: [0.2 0.6 0.2]
+</code></pre><h5 id="Expected-output-1"><a href="#Expected-output-1" class="headerlink" title="Expected output"></a>Expected output</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">labels:</span><br><span class="line">[[<span class="number">1</span> <span class="number">0</span> <span class="number">0</span>]</span><br><span class="line"> [<span class="number">0</span> <span class="number">1</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">1</span> <span class="number">0</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">1</span> <span class="number">1</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">1</span> <span class="number">0</span> <span class="number">1</span>]]</span><br><span class="line">pos freqs: [<span class="number">0.8</span> <span class="number">0.4</span> <span class="number">0.8</span>]</span><br><span class="line">neg freqs: [<span class="number">0.2</span> <span class="number">0.6</span> <span class="number">0.2</span>]</span><br></pre></td></tr></table></figure>
+<p>Now we’ll compute frequencies for our training data.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">freq_pos, freq_neg = compute_class_freqs(train_generator.labels)</span><br><span class="line">freq_pos</span><br></pre></td></tr></table></figure>
+<pre><code>array([0.        , 0.11111111, 0.22222222, 0.        , 0.22222222,
+       0.11111111, 0.        , 0.11111111, 0.        , 0.        ,
+       0.        , 0.        , 0.        , 0.        ])
+</code></pre><p>Let’s visualize these two contribution ratios next to each other for each of the pathologies:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data = pd.DataFrame(&#123;<span class="string">"Class"</span>: labels, <span class="string">"Label"</span>: <span class="string">"Positive"</span>, <span class="string">"Value"</span>: freq_pos&#125;)</span><br><span class="line">data = data.append([&#123;<span class="string">"Class"</span>: labels[l], <span class="string">"Label"</span>: <span class="string">"Negative"</span>, <span class="string">"Value"</span>: v&#125; <span class="keyword">for</span> l,v <span class="keyword">in</span> enumerate(freq_neg)], ignore_index=<span class="keyword">True</span>)</span><br><span class="line">plt.xticks(rotation=<span class="number">90</span>)</span><br><span class="line">f = sns.barplot(x=<span class="string">"Class"</span>, y=<span class="string">"Value"</span>, hue=<span class="string">"Label"</span> ,data=data)</span><br></pre></td></tr></table></figure>
+<p><img src="output_42_0.png" alt="png"></p>
+<p>As we see in the above plot, the contributions of positive cases is significantly lower than that of the negative ones. However, we want the contributions to be equal. One way of doing this is by multiplying each example from each class by a class-specific weight factor, $w_{pos}$ and $w_{neg}$, so that the overall contribution of each class is the same. </p>
+<p>To have this, we want </p>
+<script type="math/tex; mode=display">w_{pos} \times freq_{p} = w_{neg} \times freq_{n},</script><p>which we can do simply by taking </p>
+<script type="math/tex; mode=display">w_{pos} = freq_{neg}</script><script type="math/tex; mode=display">w_{neg} = freq_{pos}</script><p>This way, we will be balancing the contribution of positive and negative labels.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pos_weights = freq_neg</span><br><span class="line">neg_weights = freq_pos</span><br><span class="line">pos_contribution = freq_pos * pos_weights </span><br><span class="line">neg_contribution = freq_neg * neg_weights</span><br></pre></td></tr></table></figure>
+<p>Let’s verify this by graphing the two contributions next to each other again:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data = pd.DataFrame(&#123;<span class="string">"Class"</span>: labels, <span class="string">"Label"</span>: <span class="string">"Positive"</span>, <span class="string">"Value"</span>: pos_contribution&#125;)</span><br><span class="line">data = data.append([&#123;<span class="string">"Class"</span>: labels[l], <span class="string">"Label"</span>: <span class="string">"Negative"</span>, <span class="string">"Value"</span>: v&#125; </span><br><span class="line">                        <span class="keyword">for</span> l,v <span class="keyword">in</span> enumerate(neg_contribution)], ignore_index=<span class="keyword">True</span>)</span><br><span class="line">plt.xticks(rotation=<span class="number">90</span>)</span><br><span class="line">sns.barplot(x=<span class="string">"Class"</span>, y=<span class="string">"Value"</span>, hue=<span class="string">"Label"</span> ,data=data);</span><br></pre></td></tr></table></figure>
+<p><img src="output_46_0.png" alt="png"></p>
+<p>As the above figure shows, by applying these weightings the positive and negative labels within each class would have the same aggregate contribution to the loss function. Now let’s implement such a loss function. </p>
+<p>After computing the weights, our final weighted loss for each training case will be </p>
+<script type="math/tex; mode=display">\mathcal{L}_{cross-entropy}^{w}(x) = - (w_{p} y \log(f(x)) + w_{n}(1-y) \log( 1 - f(x) ) ).</script><p><a name="Ex-3"></a></p>
+<h3 id="Exercise-3-Weighted-Loss"><a href="#Exercise-3-Weighted-Loss" class="headerlink" title="Exercise 3 - Weighted Loss"></a>Exercise 3 - Weighted Loss</h3><p>Fill out the <code>weighted_loss</code> function below to return a loss function that calculates the weighted loss for each batch. Recall that for the multi-class loss, we add up the average loss for each individual class. Note that we also want to add a small value, $\epsilon$, to the predicted values before taking their logs. This is simply to avoid a numerical error that would otherwise occur if the predicted value happens to be zero.</p>
+<h5 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h5><p>Please use Keras functions to calculate the mean and the log.</p>
+<ul>
+<li><a href="https://www.tensorflow.org/api_docs/python/tf/keras/backend/mean" target="_blank" rel="noopener">Keras.mean</a></li>
+<li><a href="https://www.tensorflow.org/api_docs/python/tf/keras/backend/log" target="_blank" rel="noopener">Keras.log</a></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C3 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_weighted_loss</span><span class="params">(pos_weights, neg_weights, epsilon=<span class="number">1e-7</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Return weighted loss function given negative weights and positive weights.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">      pos_weights (np.array): array of positive weights for each class, size (num_classes)</span></span><br><span class="line"><span class="string">      neg_weights (np.array): array of negative weights for each class, size (num_classes)</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">      weighted_loss (function): weighted loss function</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">weighted_loss</span><span class="params">(y_true, y_pred)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Return weighted loss value. </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Args:</span></span><br><span class="line"><span class="string">            y_true (Tensor): Tensor of true labels, size is (num_examples, num_classes)</span></span><br><span class="line"><span class="string">            y_pred (Tensor): Tensor of predicted labels, size is (num_examples, num_classes)</span></span><br><span class="line"><span class="string">        Returns:</span></span><br><span class="line"><span class="string">            loss (Tensor): overall scalar loss summed across all classes</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="comment"># initialize loss to zero</span></span><br><span class="line">        loss = <span class="number">0.0</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">### START CODE HERE (REPLACE INSTANCES OF 'None' with your code) ###</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(pos_weights)):</span><br><span class="line">            <span class="comment"># for each class, add average weighted loss for that class </span></span><br><span class="line">            loss += -(K.mean( pos_weights[i] * y_true[:,i] * K.log(y_pred[:,i] + epsilon) + \</span><br><span class="line">                                neg_weights[i] * (<span class="number">1</span> - y_true[:,i]) * K.log(<span class="number">1</span> - y_pred[:,i] + epsilon), axis = <span class="number">0</span>))</span><br><span class="line">        <span class="keyword">return</span> loss</span><br><span class="line">    </span><br><span class="line">        <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    <span class="keyword">return</span> weighted_loss</span><br></pre></td></tr></table></figure>
+<p>Now let’s test our function with some simple cases. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Test</span></span><br><span class="line">sess = K.get_session()</span><br><span class="line"><span class="keyword">with</span> sess.as_default() <span class="keyword">as</span> sess:</span><br><span class="line">    print(<span class="string">"Test example:\n"</span>)</span><br><span class="line">    y_true = K.constant(np.array(</span><br><span class="line">        [[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">         [<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>],</span><br><span class="line">         [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>],</span><br><span class="line">         [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>]]</span><br><span class="line">    ))</span><br><span class="line">    print(<span class="string">"y_true:\n"</span>)</span><br><span class="line">    print(y_true.eval())</span><br><span class="line"></span><br><span class="line">    w_p = np.array([<span class="number">0.25</span>, <span class="number">0.25</span>, <span class="number">0.5</span>])</span><br><span class="line">    w_n = np.array([<span class="number">0.75</span>, <span class="number">0.75</span>, <span class="number">0.5</span>])</span><br><span class="line">    print(<span class="string">"\nw_p:\n"</span>)</span><br><span class="line">    print(w_p)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"\nw_n:\n"</span>)</span><br><span class="line">    print(w_n)</span><br><span class="line"></span><br><span class="line">    y_pred_1 = K.constant(<span class="number">0.7</span>*np.ones(y_true.shape))</span><br><span class="line">    print(<span class="string">"\ny_pred_1:\n"</span>)</span><br><span class="line">    print(y_pred_1.eval())</span><br><span class="line"></span><br><span class="line">    y_pred_2 = K.constant(<span class="number">0.3</span>*np.ones(y_true.shape))</span><br><span class="line">    print(<span class="string">"\ny_pred_2:\n"</span>)</span><br><span class="line">    print(y_pred_2.eval())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># test with a large epsilon in order to catch errors</span></span><br><span class="line">    L = get_weighted_loss(w_p, w_n, epsilon=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"\nIf we weighted them correctly, we expect the two losses to be the same."</span>)</span><br><span class="line">    L1 = L(y_true, y_pred_1).eval()</span><br><span class="line">    L2 = L(y_true, y_pred_2).eval()</span><br><span class="line">    print(<span class="string">f"\nL(y_pred_1)= <span class="subst">&#123;L1:<span class="number">.4</span>f&#125;</span>, L(y_pred_2)= <span class="subst">&#123;L2:<span class="number">.4</span>f&#125;</span>"</span>)</span><br><span class="line">    print(<span class="string">f"Difference is L1 - L2 = <span class="subst">&#123;L1 - L2:<span class="number">.4</span>f&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Test example:
+
+y_true:
+
+[[1. 1. 1.]
+ [1. 1. 0.]
+ [0. 1. 0.]
+ [1. 0. 1.]]
+
+w_p:
+
+[0.25 0.25 0.5 ]
+
+w_n:
+
+[0.75 0.75 0.5 ]
+
+y_pred_1:
+
+[[0.7 0.7 0.7]
+ [0.7 0.7 0.7]
+ [0.7 0.7 0.7]
+ [0.7 0.7 0.7]]
+
+y_pred_2:
+
+[[0.3 0.3 0.3]
+ [0.3 0.3 0.3]
+ [0.3 0.3 0.3]
+ [0.3 0.3 0.3]]
+
+If we weighted them correctly, we expect the two losses to be the same.
+
+L(y_pred_1)= -0.4956, L(y_pred_2)= -0.4956
+Difference is L1 - L2 = 0.0000
+</code></pre><h4 id="Additional-check"><a href="#Additional-check" class="headerlink" title="Additional check"></a>Additional check</h4><p>If you implemented the function correctly, then if the epsilon for the <code>get_weighted_loss</code> is set to <code>1</code>, the weighted losses will be as follows:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">L(y_pred_1)= <span class="number">-0.4956</span>, L(y_pred_2)= <span class="number">-0.4956</span></span><br></pre></td></tr></table></figure></p>
+<p>If you are missing something in your implementation, you will see a different set of losses for L1 and L2 (even though L1 and L2 will be the same).</p>
+<p><a name="3-3"></a></p>
+<h3 id="3-3-DenseNet121"><a href="#3-3-DenseNet121" class="headerlink" title="3.3 DenseNet121"></a>3.3 DenseNet121</h3><p>Next, we will use a pre-trained <a href="https://www.kaggle.com/pytorch/densenet121" target="_blank" rel="noopener">DenseNet121</a> model which we can load directly from Keras and then add two layers on top of it:</p>
+<ol>
+<li>A <code>GlobalAveragePooling2D</code> layer to get the average of the last convolution layers from DenseNet121.</li>
+<li>A <code>Dense</code> layer with <code>sigmoid</code> activation to get the prediction logits for each of our classes.</li>
+</ol>
+<p>We can set our custom loss function for the model by specifying the <code>loss</code> parameter in the <code>compile()</code> function.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># create the base pre-trained model</span></span><br><span class="line">base_model = DenseNet121(weights=<span class="string">'./nih/densenet.hdf5'</span>, include_top=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line">x = base_model.output</span><br><span class="line"></span><br><span class="line"><span class="comment"># add a global spatial average pooling layer</span></span><br><span class="line">x = GlobalAveragePooling2D()(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># and a logistic layer</span></span><br><span class="line">predictions = Dense(len(labels), activation=<span class="string">"sigmoid"</span>)(x)</span><br><span class="line"></span><br><span class="line">model = Model(inputs=base_model.input, outputs=predictions)</span><br><span class="line">model.compile(optimizer=<span class="string">'adam'</span>, loss=get_weighted_loss(pos_weights, neg_weights))</span><br></pre></td></tr></table></figure>
+<pre><code>WARNING:tensorflow:From /opt/conda/lib/python3.6/site-packages/tensorflow_core/python/ops/resource_variable_ops.py:1630: calling BaseResourceVariable.__init__ (from tensorflow.python.ops.resource_variable_ops) with constraint is deprecated and will be removed in a future version.
+Instructions for updating:
+If using Keras pass *_constraint arguments to layers.
+WARNING:tensorflow:From /opt/conda/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:4070: The name tf.nn.max_pool is deprecated. Please use tf.nn.max_pool2d instead.
+
+WARNING:tensorflow:From /opt/conda/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:4074: The name tf.nn.avg_pool is deprecated. Please use tf.nn.avg_pool2d instead.
+</code></pre><p><a name="4"></a></p>
+<h2 id="4-Training-optional"><a href="#4-Training-optional" class="headerlink" title="4 Training [optional]"></a>4 Training [optional]</h2><p>With our model ready for training, we will use the <code>model.fit()</code> function in Keras to train our model. </p>
+<ul>
+<li>We are training on a small subset of the dataset (~1%).  </li>
+<li>So what we care about at this point is to make sure that the loss on the training set is decreasing.</li>
+</ul>
+<p>Since training can take a considerable time, for pedagogical purposes we have chosen not to train the model here but rather to load a set of pre-trained weights in the next section. However, you can use the code shown below to practice training the model locally on your machine or in Colab.</p>
+<p><strong>NOTE:</strong> Do not run the code below on the Coursera platform as it will exceed the platform’s memory limitations.</p>
+<p>Python Code for training the model:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">history = model.fit_generator(train_generator, </span><br><span class="line">                              validation_data=valid_generator,</span><br><span class="line">                              steps_per_epoch=<span class="number">100</span>, </span><br><span class="line">                              validation_steps=<span class="number">25</span>, </span><br><span class="line">                              epochs = <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(history.history[<span class="string">'loss'</span>])</span><br><span class="line">plt.ylabel(<span class="string">"loss"</span>)</span><br><span class="line">plt.xlabel(<span class="string">"epoch"</span>)</span><br><span class="line">plt.title(<span class="string">"Training Loss Curve"</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><a name="4-1"></a></p>
+<h3 id="4-1-Training-on-the-Larger-Dataset"><a href="#4-1-Training-on-the-Larger-Dataset" class="headerlink" title="4.1 Training on the Larger Dataset"></a>4.1 Training on the Larger Dataset</h3><p>Given that the original dataset is 40GB+ in size and the training process on the full dataset takes a few hours, we have trained the model on a GPU-equipped machine for you and provided the weights file from our model (with a batch size of 32 instead) to be used for the rest of this assignment. </p>
+<p>The model architecture for our pre-trained model is exactly the same, but we used a few useful Keras “callbacks” for this training. Do spend time to read about these callbacks at your leisure as they will be very useful for managing long-running training sessions:</p>
+<ol>
+<li>You can use <code>ModelCheckpoint</code> callback to monitor your model’s <code>val_loss</code> metric and keep a snapshot of your model at the point. </li>
+<li>You can use the <code>TensorBoard</code> to use the Tensorflow Tensorboard utility to monitor your runs in real-time. </li>
+<li>You can use the <code>ReduceLROnPlateau</code> to slowly decay the learning rate for your model as it stops getting better on a metric such as <code>val_loss</code> to fine-tune the model in the final steps of training.</li>
+<li>You can use the <code>EarlyStopping</code> callback to stop the training job when your model stops getting better in it’s validation loss. You can set a <code>patience</code> value which is the number of epochs the model does not improve after which the training is terminated. This callback can also conveniently restore the weights for the best metric at the end of training to your model.</li>
+</ol>
+<p>You can read about these callbacks and other useful Keras callbacks <a href="https://keras.io/callbacks/" target="_blank" rel="noopener">here</a>.</p>
+<p>Let’s load our pre-trained weights into the model now:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.load_weights(<span class="string">"./nih/pretrained_model.h5"</span>)</span><br></pre></td></tr></table></figure>
+<p><a name="5"></a></p>
+<h2 id="5-Prediction-and-Evaluation"><a href="#5-Prediction-and-Evaluation" class="headerlink" title="5 Prediction and Evaluation"></a>5 Prediction and Evaluation</h2><p>Now that we have a model, let’s evaluate it using our test set. We can conveniently use the <code>predict_generator</code> function to generate the predictions for the images in our test set.</p>
+<p><strong>Note:</strong> The following cell can take about 4 minutes to run.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">predicted_vals = model.predict_generator(test_generator, steps = len(test_generator))</span><br></pre></td></tr></table></figure>
+<pre><code>WARNING:tensorflow:From /opt/conda/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:422: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
+</code></pre><p><a name="5-1"></a></p>
+<h3 id="5-1-ROC-Curve-and-AUROC"><a href="#5-1-ROC-Curve-and-AUROC" class="headerlink" title="5.1 ROC Curve and AUROC"></a>5.1 ROC Curve and AUROC</h3><p>We’ll cover topic of model evaluation in much more detail in later weeks, but for now we’ll walk through computing a metric called the AUC (Area Under the Curve) from the ROC (<a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic" target="_blank" rel="noopener">Receiver Operating Characteristic</a>) curve. This is also referred to as the AUROC value, but you will see all three terms in reference to the technique, and often used almost interchangeably. </p>
+<p>For now, what you need to know in order to interpret the plot is that a curve that is more to the left and the top has more “area” under it, and indicates that the model is performing better.</p>
+<p>We will use the <code>util.get_roc_curve()</code> function which has been provided for you in <code>util.py</code>. Look through this function and note the use of the <code>sklearn</code> library functions to generate the ROC curves and AUROC values for our model. </p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html" target="_blank" rel="noopener">roc_curve</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html" target="_blank" rel="noopener">roc_auc_score</a></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auc_rocs = util.get_roc_curve(labels, predicted_vals, test_generator)</span><br></pre></td></tr></table></figure>
+<p><img src="output_62_0.png" alt="png"></p>
+<p>You can compare the performance to the AUCs reported in the original ChexNeXt paper in the table below: </p>
+<p>For reference, here’s the AUC figure from the ChexNeXt paper which includes AUC values for their model as well as radiologists on this dataset:</p>
+<p><img src="https://journals.plos.org/plosmedicine/article/figure/image?size=large&id=10.1371/journal.pmed.1002686.t001" width="80%"></p>
+<p>This method does take advantage of a few other tricks such as self-training and ensembling as well, which can give a significant boost to the performance.</p>
+<p>For details about the best performing methods and their performance on this dataset, we encourage you to read the following papers:</p>
+<ul>
+<li><a href="https://arxiv.org/abs/1711.05225" target="_blank" rel="noopener">CheXNet</a></li>
+<li><a href="https://arxiv.org/pdf/1901.07031.pdf" target="_blank" rel="noopener">CheXpert</a></li>
+<li><a href="https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002686" target="_blank" rel="noopener">ChexNeXt</a></li>
+</ul>
+<p><a name="5-2"></a></p>
+<h3 id="5-2-Visualizing-Learning-with-GradCAM"><a href="#5-2-Visualizing-Learning-with-GradCAM" class="headerlink" title="5.2 Visualizing Learning with GradCAM"></a>5.2 Visualizing Learning with GradCAM</h3><p>One of the challenges of using deep learning in medicine is that the complex architecture used for neural networks makes them much harder to interpret compared to traditional machine learning models (e.g. linear models). </p>
+<p>One of the most common approaches aimed at increasing the interpretability of models for computer vision tasks is to use Class Activation Maps (CAM). </p>
+<ul>
+<li>Class activation maps are useful for understanding where the model is “looking” when classifying an image. </li>
+</ul>
+<p>In this section we will use a <a href="https://arxiv.org/abs/1610.02391" target="_blank" rel="noopener">GradCAM’s</a> technique to produce a heatmap highlighting the important regions in the image for predicting the pathological condition. </p>
+<ul>
+<li>This is done by extracting the gradients of each predicted class, flowing into our model’s final convolutional layer. Look at the <code>util.compute_gradcam</code> which has been provided for you in <code>util.py</code> to see how this is done with the Keras framework. </li>
+</ul>
+<p>It is worth mentioning that GradCAM does not provide a full explanation of the reasoning for each classification probability. </p>
+<ul>
+<li>However, it is still a useful tool for “debugging” our model and augmenting our prediction so that an expert could validate that a prediction is indeed due to the model focusing on the right regions of the image.</li>
+</ul>
+<p>First we will load the small training set and setup to look at the 4 classes with the highest performing AUC measures.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">"nih/train-small.csv"</span>)</span><br><span class="line">IMAGE_DIR = <span class="string">"nih/images-small/"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># only show the lables with top 4 AUC</span></span><br><span class="line">labels_to_show = np.take(labels, np.argsort(auc_rocs)[::<span class="number">-1</span>])[:<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+<p>Now let’s look at a few specific images.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">util.compute_gradcam(model, <span class="string">'00008270_015.png'</span>, IMAGE_DIR, df, labels, labels_to_show)</span><br></pre></td></tr></table></figure>
+<pre><code>Loading original image
+Generating gradcam for class Cardiomegaly
+Generating gradcam for class Mass
+Generating gradcam for class Pneumothorax
+Generating gradcam for class Edema
+</code></pre><p><img src="output_71_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">util.compute_gradcam(model, <span class="string">'00011355_002.png'</span>, IMAGE_DIR, df, labels, labels_to_show)</span><br></pre></td></tr></table></figure>
+<pre><code>Loading original image
+Generating gradcam for class Cardiomegaly
+Generating gradcam for class Mass
+Generating gradcam for class Pneumothorax
+Generating gradcam for class Edema
+</code></pre><p><img src="output_72_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">util.compute_gradcam(model, <span class="string">'00029855_001.png'</span>, IMAGE_DIR, df, labels, labels_to_show)</span><br></pre></td></tr></table></figure>
+<pre><code>Loading original image
+Generating gradcam for class Cardiomegaly
+Generating gradcam for class Mass
+Generating gradcam for class Pneumothorax
+Generating gradcam for class Edema
+</code></pre><p><img src="output_73_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">util.compute_gradcam(model, <span class="string">'00005410_000.png'</span>, IMAGE_DIR, df, labels, labels_to_show)</span><br></pre></td></tr></table></figure>
+<pre><code>Loading original image
+Generating gradcam for class Cardiomegaly
+Generating gradcam for class Mass
+Generating gradcam for class Pneumothorax
+Generating gradcam for class Edema
+</code></pre><p><img src="output_74_1.png" alt="png"></p>
+<p>Congratulations, you’ve completed the first assignment of course one! You’ve learned how to preprocess data, check for data leakage, train a pre-trained model, and evaluate using the AUC. Great work!</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Medicine/" rel="tag"># Medicine</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Deploy-a-keras-model-on-IBM-cloud/2020/04/15/" rel="next" title="Deploy a keras model on IBM cloud">
+                <i class="fa fa-chevron-left"></i> Deploy a keras model on IBM cloud
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">212</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning"><span class="nav-text">Chest X-Ray Medical Diagnosis with Deep Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Outline"><span class="nav-text">Outline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Import-Packages-and-Functions¶"><span class="nav-text">1. Import Packages and Functions¶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Load-the-Datasets"><span class="nav-text">2 Load the Datasets</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sidebar-on-meaning-of-‘class’"><span class="nav-text">Sidebar on meaning of ‘class’</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Read-in-the-data"><span class="nav-text">Read in the data</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Preventing-Data-Leakage"><span class="nav-text">2.1 Preventing Data Leakage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-1-Checking-Data-Leakage"><span class="nav-text">Exercise 1 - Checking Data Leakage</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Expected-output"><span class="nav-text">Expected output</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Preparing-Images"><span class="nav-text">2.2 Preparing Images</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Build-a-separate-generator-for-valid-and-test-sets"><span class="nav-text">Build a separate generator for valid and test sets</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Model-Development"><span class="nav-text">3 Model Development</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Addressing-Class-Imbalance"><span class="nav-text">3.1 Addressing Class Imbalance</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Impact-of-class-imbalance-on-loss-function"><span class="nav-text">Impact of class imbalance on loss function</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-2-Computing-Class-Frequencies"><span class="nav-text">Exercise 2 - Computing Class Frequencies</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Expected-output-1"><span class="nav-text">Expected output</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-3-Weighted-Loss"><span class="nav-text">Exercise 3 - Weighted Loss</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Note"><span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Additional-check"><span class="nav-text">Additional check</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-DenseNet121"><span class="nav-text">3.3 DenseNet121</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Training-optional"><span class="nav-text">4 Training [optional]</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-Training-on-the-Larger-Dataset"><span class="nav-text">4.1 Training on the Larger Dataset</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Prediction-and-Evaluation"><span class="nav-text">5 Prediction and Evaluation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-ROC-Curve-and-AUROC"><span class="nav-text">5.1 ROC Curve and AUROC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-Visualizing-Learning-with-GradCAM"><span class="nav-text">5.2 Visualizing Learning with GradCAM</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>
