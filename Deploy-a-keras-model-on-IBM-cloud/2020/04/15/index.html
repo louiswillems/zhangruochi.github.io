@@ -133,7 +133,7 @@
 <meta property="og:site_name" content="RUOCHI.AI">
 <meta property="og:description" content="Zero to Singularity: Create, Tune, Deploy and Scale a Deep Neural Network in 90 MinutesThis notebook is part of a masterclass held at IBM Think on 13th of February 2019 in San FransiscoIn this exercis">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-04-15T23:11:59.751Z">
+<meta property="og:updated_time" content="2020-04-16T01:54:09.803Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deploy a keras model on IBM cloud">
 <meta name="twitter:description" content="Zero to Singularity: Create, Tune, Deploy and Scale a Deep Neural Network in 90 MinutesThis notebook is part of a masterclass held at IBM Think on 13th of February 2019 in San FransiscoIn this exercis">
@@ -486,81 +486,8 @@ Expected:    2.2.5
 <pre><code>Current:     1.13.1
 Expected:    1.15.0
 </code></pre><h1 id="IMPORTANT"><a href="#IMPORTANT" class="headerlink" title="IMPORTANT !!!"></a>IMPORTANT !!!</h1><p>If you ran the two lines below please restart your kernel (Kernel-&gt;Restart &amp; Clear Output)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!pip install keras==<span class="number">2.2</span><span class="number">.5</span></span><br></pre></td></tr></table></figure>
-<pre><code>Collecting keras==2.2.5
-[?25l  Downloading https://files.pythonhosted.org/packages/f8/ba/2d058dcf1b85b9c212cc58264c98a4a7dd92c989b798823cc5690d062bb2/Keras-2.2.5-py2.py3-none-any.whl (336kB)
-[K     |████████████████████████████████| 337kB 17.9MB/s eta 0:00:01
-[?25hRequirement already satisfied: scipy&gt;=0.14 in /opt/conda/envs/Python36/lib/python3.6/site-packages (from keras==2.2.5) (1.2.0)
-Collecting keras-preprocessing&gt;=1.1.0 (from keras==2.2.5)
-[?25l  Downloading https://files.pythonhosted.org/packages/28/6a/8c1f62c37212d9fc441a7e26736df51ce6f0e38455816445471f10da4f0a/Keras_Preprocessing-1.1.0-py2.py3-none-any.whl (41kB)
-[K     |████████████████████████████████| 51kB 24.5MB/s eta 0:00:01
-[?25hRequirement already satisfied: six&gt;=1.9.0 in /opt/conda/envs/Python36/lib/python3.6/site-packages (from keras==2.2.5) (1.12.0)
-Requirement already satisfied: pyyaml in /opt/conda/envs/Python36/lib/python3.6/site-packages (from keras==2.2.5) (3.13)
-Collecting keras-applications&gt;=1.0.8 (from keras==2.2.5)
-[?25l  Downloading https://files.pythonhosted.org/packages/71/e3/19762fdfc62877ae9102edf6342d71b28fbfd9dea3d2f96a882ce099b03f/Keras_Applications-1.0.8-py3-none-any.whl (50kB)
-[K     |████████████████████████████████| 51kB 23.0MB/s eta 0:00:01
-[?25hRequirement already satisfied: numpy&gt;=1.9.1 in /opt/conda/envs/Python36/lib/python3.6/site-packages (from keras==2.2.5) (1.15.4)
-Requirement already satisfied: h5py in /opt/conda/envs/Python36/lib/python3.6/site-packages (from keras==2.2.5) (2.9.0)
-[31mERROR: tensorflow 1.13.1 requires tensorboard&lt;1.14.0,&gt;=1.13.0, which is not installed.[0m
-Installing collected packages: keras-preprocessing, keras-applications, keras
-  Found existing installation: Keras-Preprocessing 1.0.5
-    Uninstalling Keras-Preprocessing-1.0.5:
-      Successfully uninstalled Keras-Preprocessing-1.0.5
-  Found existing installation: Keras-Applications 1.0.6
-    Uninstalling Keras-Applications-1.0.6:
-      Successfully uninstalled Keras-Applications-1.0.6
-  Found existing installation: Keras 2.2.4
-    Uninstalling Keras-2.2.4:
-      Successfully uninstalled Keras-2.2.4
-Successfully installed keras-2.2.5 keras-applications-1.0.8 keras-preprocessing-1.1.0
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!pip install tensorflow==<span class="number">1.15</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
-<pre><code>Collecting tensorflow==1.15.0
-[?25l  Downloading https://files.pythonhosted.org/packages/3f/98/5a99af92fb911d7a88a0005ad55005f35b4c1ba8d75fba02df726cd936e6/tensorflow-1.15.0-cp36-cp36m-manylinux2010_x86_64.whl (412.3MB)
-[K     |████████████████████████████████| 412.3MB 70kB/s s eta 0:00:0110.2MB/s eta 0:00:35 |██████                          | 76.1MB 10.2MB/s eta 0:00:33239     |██████████▊                     | 138.6MB 7.3MB/s eta 0:00:38                 | 140.7MB 7.3MB/s eta 0:00:38███                   | 166.4MB 16.8MB/s eta 0:00:15�██████████▋                | 201.3MB 16.7MB/s eta 0:00:13/s eta 0:00:13��█▊              | 227.7MB 16.7MB/s eta 0:00:12��█████████             | 244.4MB 9.9MB/s eta 0:00:17:00:12     |███████████████████████▌        | 302.8MB 10.0MB/s eta 0:00:11
-[?25hRequirement already satisfied: keras-applications&gt;=1.0.8 in /opt/conda/envs/Python36/lib/python3.6/site-packages (from tensorflow==1.15.0) (1.0.8)
-Requirement already satisfied: absl-py&gt;=0.7.0 in /opt/conda/envs/Python36/lib/python3.6/site-packages (from tensorflow==1.15.0) (0.7.0)
-Requirement already satisfied: termcolor&gt;=1.1.0 in /opt/conda/envs/Python36/lib/python3.6/site-packages (from tensorflow==1.15.0) (1.1.0)
-Collecting opt-einsum&gt;=2.3.2 (from tensorflow==1.15.0)
-[?25l  Downloading https://files.pythonhosted.org/packages/63/a5/e6c07b08b934831ccb8c98ee335e66b7761c5754ee3cabfe4c11d0b1af28/opt_einsum-3.2.1-py3-none-any.whl (63kB)
-[K     |████████████████████████████████| 71kB 10.6MB/s eta 0:00:01
-[?25hRequirement already satisfied: protobuf&gt;=3.6.1 in /opt/conda/envs/Python36/lib/python3.6/site-packages (from tensorflow==1.15.0) (3.6.1)
-Collecting tensorflow-estimator==1.15.1 (from tensorflow==1.15.0)
-[?25l  Downloading https://files.pythonhosted.org/packages/de/62/2ee9cd74c9fa2fa450877847ba560b260f5d0fb70ee0595203082dafcc9d/tensorflow_estimator-1.15.1-py2.py3-none-any.whl (503kB)
-[K     |████████████████████████████████| 512kB 41.4MB/s eta 0:00:01
-[?25hRequirement already satisfied: grpcio&gt;=1.8.6 in /opt/conda/envs/Python36/lib/python3.6/site-packages (from tensorflow==1.15.0) (1.16.1)
-Requirement already satisfied: keras-preprocessing&gt;=1.0.5 in /opt/conda/envs/Python36/lib/python3.6/site-packages (from tensorflow==1.15.0) (1.1.0)
-Requirement already satisfied: wheel&gt;=0.26 in /opt/conda/envs/Python36/lib/python3.6/site-packages (from tensorflow==1.15.0) (0.32.3)
-Requirement already satisfied: wrapt&gt;=1.11.1 in /opt/conda/envs/Python36/lib/python3.6/site-packages (from tensorflow==1.15.0) (1.11.1)
-Collecting numpy&lt;2.0,&gt;=1.16.0 (from tensorflow==1.15.0)
-[?25l  Downloading https://files.pythonhosted.org/packages/07/08/a549ba8b061005bb629b76adc000f3caaaf881028b963c2e18f811c6edc1/numpy-1.18.2-cp36-cp36m-manylinux1_x86_64.whl (20.2MB)
-[K     |████████████████████████████████| 20.2MB 44.9MB/s eta 0:00:01s eta 0:00:01��█████▌                    | 7.2MB 44.9MB/s eta 0:00:01
-[?25hRequirement already satisfied: astor&gt;=0.6.0 in /opt/conda/envs/Python36/lib/python3.6/site-packages (from tensorflow==1.15.0) (0.7.1)
-Requirement already satisfied: gast==0.2.2 in /opt/conda/envs/Python36/lib/python3.6/site-packages (from tensorflow==1.15.0) (0.2.2)
-Requirement already satisfied: six&gt;=1.10.0 in /opt/conda/envs/Python36/lib/python3.6/site-packages (from tensorflow==1.15.0) (1.12.0)
-Collecting tensorboard&lt;1.16.0,&gt;=1.15.0 (from tensorflow==1.15.0)
-[?25l  Downloading https://files.pythonhosted.org/packages/1e/e9/d3d747a97f7188f48aa5eda486907f3b345cd409f0a0850468ba867db246/tensorboard-1.15.0-py3-none-any.whl (3.8MB)
-[K     |████████████████████████████████| 3.8MB 40.8MB/s eta 0:00:01
-[?25hCollecting google-pasta&gt;=0.1.6 (from tensorflow==1.15.0)
-[?25l  Downloading https://files.pythonhosted.org/packages/a3/de/c648ef6835192e6e2cc03f40b19eeda4382c49b5bafb43d88b931c4c74ac/google_pasta-0.2.0-py3-none-any.whl (57kB)
-[K     |████████████████████████████████| 61kB 26.1MB/s eta 0:00:01
-[?25hRequirement already satisfied: h5py in /opt/conda/envs/Python36/lib/python3.6/site-packages (from keras-applications&gt;=1.0.8-&gt;tensorflow==1.15.0) (2.9.0)
-Requirement already satisfied: setuptools in /opt/conda/envs/Python36/lib/python3.6/site-packages (from protobuf&gt;=3.6.1-&gt;tensorflow==1.15.0) (40.8.0)
-Requirement already satisfied: markdown&gt;=2.6.8 in /opt/conda/envs/Python36/lib/python3.6/site-packages (from tensorboard&lt;1.16.0,&gt;=1.15.0-&gt;tensorflow==1.15.0) (3.0.1)
-Requirement already satisfied: werkzeug&gt;=0.11.15 in /opt/conda/envs/Python36/lib/python3.6/site-packages (from tensorboard&lt;1.16.0,&gt;=1.15.0-&gt;tensorflow==1.15.0) (0.14.1)
-[31mERROR: autoai-libs 1.10.5 has requirement pandas&gt;=0.24.2, but you&#39;ll have pandas 0.24.1 which is incompatible.[0m
-[31mERROR: tensorboard 1.15.0 has requirement setuptools&gt;=41.0.0, but you&#39;ll have setuptools 40.8.0 which is incompatible.[0m
-Installing collected packages: numpy, opt-einsum, tensorflow-estimator, tensorboard, google-pasta, tensorflow
-  Found existing installation: numpy 1.15.4
-    Uninstalling numpy-1.15.4:
-      Successfully uninstalled numpy-1.15.4
-  Found existing installation: tensorflow-estimator 1.13.0
-    Uninstalling tensorflow-estimator-1.13.0:
-      Successfully uninstalled tensorflow-estimator-1.13.0
-  Found existing installation: tensorflow 1.13.1
-    Uninstalling tensorflow-1.13.1:
-      Successfully uninstalled tensorflow-1.13.1
-Successfully installed google-pasta-0.2.0 numpy-1.18.2 opt-einsum-3.2.1 tensorboard-1.15.0 tensorflow-1.15.0 tensorflow-estimator-1.15.1
-</code></pre><h1 id="1-0-Train-a-MNIST-digits-recognition-model"><a href="#1-0-Train-a-MNIST-digits-recognition-model" class="headerlink" title="1.0 Train a MNIST digits recognition model"></a>1.0 Train a MNIST digits recognition model</h1><p>We start with some global parameters and imports</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">!pip install keras==<span class="number">2.2</span><span class="number">.5</span> </span><br><span class="line">!pip install tensorflow==<span class="number">1.15</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
+<h1 id="1-0-Train-a-MNIST-digits-recognition-model"><a href="#1-0-Train-a-MNIST-digits-recognition-model" class="headerlink" title="1.0 Train a MNIST digits recognition model"></a>1.0 Train a MNIST digits recognition model</h1><p>We start with some global parameters and imports</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#some learners constantly reported 502 errors in Watson Studio. </span></span><br><span class="line"><span class="comment">#This is due to the limited resources in the free tier and the heavy resource consumption of Keras.</span></span><br><span class="line"><span class="comment">#This is a workaround to limit resource consumption</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> keras <span class="keyword">import</span> backend <span class="keyword">as</span> K</span><br><span class="line"></span><br><span class="line">K.set_session(K.tf.Session(config=K.tf.ConfigProto(intra_op_parallelism_threads=<span class="number">1</span>, inter_op_parallelism_threads=<span class="number">1</span>)))</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Model</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Input, Dense</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense, Dropout, Flatten</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Conv2D, MaxPooling2D</span><br><span class="line"><span class="keyword">from</span> keras.datasets <span class="keyword">import</span> mnist</span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential, load_model</span><br><span class="line"><span class="keyword">from</span> keras.optimizers <span class="keyword">import</span> RMSprop</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> LeakyReLU</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> keras <span class="keyword">import</span> backend <span class="keyword">as</span> K</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">batch_size = <span class="number">128</span></span><br><span class="line">num_classes = <span class="number">10</span></span><br><span class="line">epochs = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># the data, split between train and test sets</span></span><br><span class="line">(x_train, y_train), (x_test, y_test) = mnist.load_data()</span><br><span class="line"></span><br><span class="line">x_train = x_train.reshape(<span class="number">60000</span>, <span class="number">784</span>)</span><br><span class="line">x_test = x_test.reshape(<span class="number">10000</span>, <span class="number">784</span>)</span><br><span class="line">x_train = x_train.astype(<span class="string">'float32'</span>)</span><br><span class="line">x_test = x_test.astype(<span class="string">'float32'</span>)</span><br><span class="line">x_train /= <span class="number">255</span></span><br><span class="line">x_test /= <span class="number">255</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># convert class vectors to binary class matrices</span></span><br><span class="line">y_train = keras.utils.to_categorical(y_train, num_classes)</span><br><span class="line">y_test = keras.utils.to_categorical(y_test, num_classes)</span><br></pre></td></tr></table></figure>
