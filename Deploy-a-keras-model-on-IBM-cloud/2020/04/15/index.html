@@ -133,7 +133,7 @@
 <meta property="og:site_name" content="RUOCHI.AI">
 <meta property="og:description" content="Zero to Singularity: Create, Tune, Deploy and Scale a Deep Neural Network in 90 MinutesThis notebook is part of a masterclass held at IBM Think on 13th of February 2019 in San FransiscoIn this exercis">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-04-16T01:54:09.803Z">
+<meta property="og:updated_time" content="2020-04-18T02:58:47.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deploy a keras model on IBM cloud">
 <meta name="twitter:description" content="Zero to Singularity: Create, Tune, Deploy and Scale a Deep Neural Network in 90 MinutesThis notebook is part of a masterclass held at IBM Think on 13th of February 2019 in San FransiscoIn this exercis">
@@ -467,7 +467,7 @@
       
 
       
-        <h1 id="Zero-to-Singularity-Create-Tune-Deploy-and-Scale-a-Deep-Neural-Network-in-90-Minutes"><a href="#Zero-to-Singularity-Create-Tune-Deploy-and-Scale-a-Deep-Neural-Network-in-90-Minutes" class="headerlink" title="Zero to Singularity: Create, Tune, Deploy and Scale a Deep Neural Network in 90 Minutes"></a>Zero to Singularity: Create, Tune, Deploy and Scale a Deep Neural Network in 90 Minutes</h1><p>This notebook is part of a masterclass held at IBM Think on 13th of February 2019 in San Fransisco<br>In this exercise you will train a Keras DeepLearning model running on top of TensorFlow. </p>
+        <h1 id="Zero-to-Singularity-Create-Tune-Deploy-and-Scale-a-Deep-Neural-Network-in-90-Minutes"><a href="#Zero-to-Singularity-Create-Tune-Deploy-and-Scale-a-Deep-Neural-Network-in-90-Minutes" class="headerlink" title="Zero to Singularity: Create, Tune, Deploy and Scale a Deep Neural Network in 90 Minutes"></a>Zero to Singularity: Create, Tune, Deploy and Scale a Deep Neural Network in 90 Minutes</h1><p>This notebook is part of a masterclass held at IBM Think on 13th of February 2019 in San Fransisco<br>In this exercise you will train a Keras DeepLearning model running on top of TensorFlow.</p>
 <p>Note: For sake of bringing the training runtime down we’ve done two things</p>
 <p>1) Used a softmax regression model over a Convolutional Neural Network </p>
 <p>2) Trained only for one epoch instead of 20</p>
@@ -563,7 +563,7 @@ total 0
 
 mkdir :
 total 4
-drwxr-x--- 3 dsxuser dsxuser 4096 Apr 15 22:30 [0m[01;34mhome[0m/
+drwxr-x--- 3 dsxuser dsxuser 4096 Apr 15 22:30
 </code></pre><p>Now it’s time to create a tarball out of your favorite model, please replace the name of your favorite model H5 file with “please-put-me-here”</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!tar -zcvf my_best_model.tgz ker_func_mnist_model_2.relu.rmsprop<span class="number">.0</span><span class="number">.9625</span>.h5</span><br></pre></td></tr></table></figure>
 <pre><code>ker_func_mnist_model_2.relu.rmsprop.0.9625.h5
@@ -607,8 +607,7 @@ Successfully finished deployment creation, deployment_uid=&#39;e69bb10d-67ea-4fa
 <pre><code>The answer should be:  5
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">predictions = client.deployments.score(scoring_endpoint, scoring_payload)</span><br><span class="line">print(<span class="string">'And the answer is!... '</span>,predictions[<span class="string">'values'</span>][<span class="number">0</span>][<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
 <pre><code>And the answer is!...  5
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+</code></pre>
       
     </div>
     
