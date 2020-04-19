@@ -2,30 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhangruochi.com/Survival-Estimates-that-Vary-with-Time/2020/04/18/</loc>
+    <loc>https://zhangruochi.com/Cox-Proportional-Hazards-and-Random-Survival-Forests/2020/04/19/</loc>
     
-    <lastmod>2020-04-19T03:55:24.608Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Risk-Models-Using-Tree-based-Models/2020/04/18/</loc>
-    
-    <lastmod>2020-04-19T03:54:17.658Z</lastmod>
+    <lastmod>2020-04-19T17:54:52.554Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/</loc>
+    <loc>https://zhangruochi.com/Evaluation-of-Diagnostic-Models/2020/04/17/</loc>
     
-    <lastmod>2020-04-19T03:51:38.577Z</lastmod>
+    <lastmod>2020-04-19T15:10:09.341Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Brain-Tumor-Auto-Segmentation-for-Magnetic-Resonance-Imaging-MRI/2020/04/17/</loc>
     
-    <lastmod>2020-04-18T03:11:43.295Z</lastmod>
+    <lastmod>2020-04-19T15:10:02.269Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/</loc>
+    
+    <lastmod>2020-04-19T15:09:57.386Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Risk-Models-Using-Tree-based-Models/2020/04/18/</loc>
+    
+    <lastmod>2020-04-19T15:09:51.850Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Survival-Estimates-that-Vary-with-Time/2020/04/18/</loc>
+    
+    <lastmod>2020-04-19T15:09:46.620Z</lastmod>
     
   </url>
   
@@ -40,13 +54,6 @@
     <loc>https://zhangruochi.com/Deploy-a-keras-model-on-IBM-cloud/2020/04/15/</loc>
     
     <lastmod>2020-04-18T02:58:47.642Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Evaluation-of-Diagnostic-Models/2020/04/17/</loc>
-    
-    <lastmod>2020-04-17T22:55:06.578Z</lastmod>
     
   </url>
   

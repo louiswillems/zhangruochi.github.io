@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zhangruochi.com/Survival-Estimates-that-Vary-with-Time/2020/04/18/</loc>
+    <loc>https://zhangruochi.com/Cox-Proportional-Hazards-and-Random-Survival-Forests/2020/04/19/</loc>
     <lastmod>2020-04-19</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Risk-Models-Using-Tree-based-Models/2020/04/18/</loc>
+    <loc>https://zhangruochi.com/Evaluation-of-Diagnostic-Models/2020/04/17/</loc>
+    <lastmod>2020-04-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Brain-Tumor-Auto-Segmentation-for-Magnetic-Resonance-Imaging-MRI/2020/04/17/</loc>
     <lastmod>2020-04-19</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/</loc>
     <lastmod>2020-04-19</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Brain-Tumor-Auto-Segmentation-for-Magnetic-Resonance-Imaging-MRI/2020/04/17/</loc>
-    <lastmod>2020-04-18</lastmod>
+    <loc>https://zhangruochi.com/Risk-Models-Using-Tree-based-Models/2020/04/18/</loc>
+    <lastmod>2020-04-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Survival-Estimates-that-Vary-with-Time/2020/04/18/</loc>
+    <lastmod>2020-04-19</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/TensorFlow-js-Converter/2020/04/17/</loc>
     <lastmod>2020-04-18</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Deploy-a-keras-model-on-IBM-cloud/2020/04/15/</loc>
     <lastmod>2020-04-18</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Evaluation-of-Diagnostic-Models/2020/04/17/</loc>
-    <lastmod>2020-04-17</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/</loc>
     <lastmod>2020-04-16</lastmod>
