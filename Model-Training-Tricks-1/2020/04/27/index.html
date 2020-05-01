@@ -134,7 +134,7 @@
 <meta property="og:description" content="Normalization12345678def get_dls(bs, size):    dblock = DataBlock(blocks=(ImageBlock, CategoryBlock),                   get_items=get_image_files,                   get_y=parent_label,">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/Model-Training-Tricks-1/2020/04/27/1.png">
-<meta property="og:updated_time" content="2020-04-27T20:36:34.823Z">
+<meta property="og:updated_time" content="2020-04-28T08:04:35.236Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Model Training Tricks (1)">
 <meta name="twitter:description" content="Normalization12345678def get_dls(bs, size):    dblock = DataBlock(blocks=(ImageBlock, CategoryBlock),                   get_items=get_image_files,                   get_y=parent_label,">
@@ -494,7 +494,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">image2,target2 = dataset[randint(<span class="number">0</span>,len(dataset)]</span><br><span class="line">t = random_float(<span class="number">0.5</span>,<span class="number">1.0</span>)</span><br><span class="line">new_image = t * image1 + (<span class="number">1</span>-t) * image2</span><br><span class="line">new_target = t * target1 + (<span class="number">1</span>-t) * target2</span><br></pre></td></tr></table></figure>
 <center>
     <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="1.png" width="50%" height="50%">
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="1.png" width="80%" height="80%">
 </center>
 
 <p>The third image is built by adding 0.3 times the first one and 0.7 times the second. In this example, should the model predict church? gas station? The right answer is 30% church and 70% gas station since that’s what we’ll get if we take the linear combination of the one-hot encoded targets. For instance, if church has for index 2 and gas station as for index 7, the one-hot-encoded representations are</p>
@@ -541,6 +541,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Model-Training-Tricks-2/2020/04/28/" rel="prev" title="Model Training Tricks (2)">
+                Model Training Tricks (2) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -657,7 +661,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">223</span>
+                  <span class="site-state-item-count">225</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -668,7 +672,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
