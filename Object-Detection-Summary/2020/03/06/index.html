@@ -148,7 +148,7 @@
 <meta property="og:image" content="https://zhangruochi.com/Object-Detection-Summary/2020/03/06/box.png">
 <meta property="og:image" content="https://zhangruochi.com/Object-Detection-Summary/2020/03/06/yolov3.png">
 <meta property="og:image" content="https://zhangruochi.com/Object-Detection-Summary/2020/03/06/10.png">
-<meta property="og:updated_time" content="2020-03-09T16:58:07.340Z">
+<meta property="og:updated_time" content="2020-05-04T03:58:53.761Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Object Detection Summary">
 <meta name="twitter:description" content="基于REGION PROPOSAL的方法R-CNN步骤R-CNN的算法步骤:  采用Selective Search方法从一张图像中提取约2K个候选区域；  首先归一化为统一尺寸，再对每个候选区域，使用深度网络提取特征；  将提取出的特征送入每一类的SVM 分类器，判别是否属于该类；  使用回归器精细修正候选框位置。因为目标检测问题的衡量标准是重叠面积：许多看似准确的检测结果，往往因为候选框不够准">
@@ -537,6 +537,9 @@
 
 
 <h3 id="FASTER-R-CNN"><a href="#FASTER-R-CNN" class="headerlink" title="FASTER R-CNN"></a>FASTER R-CNN</h3><p>由于Fast R-CNN仍然是基于Selective Search方法提取region proposal，而Selective Search方法提取region proposal的计算是无法用GPU进行的，无法借助GPU的高度并行运算能力，所以效率极低。而且选取2000个候选区域，也加重了后面深度学习的处理压力。Faster-RCNN = RPN（区域生成网络）+ Fast-RCNN，用RPN网络代替Fast-RCNN中的Selective Search是Faster-RCNN的核心思想。</p>
+<blockquote>
+<p>RPN 原理 <a href="https://zhuanlan.zhihu.com/p/24916624" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/24916624</a></p>
+</blockquote>
 <p>FASTER R-CNN 的算法步骤:</p>
 <ol>
 <li>输入测试图像； </li>
