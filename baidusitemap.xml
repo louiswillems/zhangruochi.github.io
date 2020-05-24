@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhangruochi.com/ML-Interview-Part1/2020/05/24/</loc>
+    <lastmod>2020-05-24</lastmod>
+  </url>  <url>
     <loc>https://zhangruochi.com/Time-and-Ordering/2020/05/09/</loc>
     <lastmod>2020-05-09</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Key-Value-Stores-Time-and-Ordering/2019/07/04/</loc>
     <lastmod>2020-05-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/</loc>
+    <lastmod>2020-05-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Object-Detection-Summary/2020/03/06/</loc>
     <lastmod>2020-05-04</lastmod>
@@ -571,7 +577,7 @@
     <loc>https://zhangruochi.com/Machine-Learning-Andraw-Ng/2019/02/15/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
-    <loc>https://zhangruochi.com/Machine-Learning-Yarning-part-one/2019/03/19/</loc>
+    <loc>https://zhangruochi.com/Machine-Learning-Yarning-part-one/2019/03/20/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Coordinate-descent-for-lasso/2019/05/01/</loc>
@@ -632,9 +638,6 @@
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/</loc>
-    <lastmod>2019-07-05</lastmod>
-  </url>  <url>
-    <loc>https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Message-Passing/2019/06/24/</loc>

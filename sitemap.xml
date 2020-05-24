@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangruochi.com/ML-Interview-Part1/2020/05/24/</loc>
+    
+    <lastmod>2020-05-24T22:45:45.143Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangruochi.com/Time-and-Ordering/2020/05/09/</loc>
     
     <lastmod>2020-05-09T05:36:27.341Z</lastmod>
@@ -12,6 +19,13 @@
     <loc>https://zhangruochi.com/Key-Value-Stores-Time-and-Ordering/2019/07/04/</loc>
     
     <lastmod>2020-05-09T03:36:12.011Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/</loc>
+    
+    <lastmod>2020-05-05T04:04:39.683Z</lastmod>
     
   </url>
   
@@ -1346,7 +1360,7 @@
   </url>
   
   <url>
-    <loc>https://zhangruochi.com/Machine-Learning-Yarning-part-one/2019/03/19/</loc>
+    <loc>https://zhangruochi.com/Machine-Learning-Yarning-part-one/2019/03/20/</loc>
     
     <lastmod>2019-07-05T10:10:50.757Z</lastmod>
     
@@ -1489,13 +1503,6 @@
     <loc>https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/</loc>
     
     <lastmod>2019-07-05T09:49:04.456Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/</loc>
-    
-    <lastmod>2019-07-05T09:48:49.831Z</lastmod>
     
   </url>
   
