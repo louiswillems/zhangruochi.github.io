@@ -134,7 +134,7 @@
 <meta property="og:description" content="SVM, Logistic Regression, Decision Tree">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/ML-Interview-Part2/2020/05/25/1.png">
-<meta property="og:updated_time" content="2020-05-25T22:51:37.196Z">
+<meta property="og:updated_time" content="2020-05-26T09:16:29.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ML-Interview-Part2">
 <meta name="twitter:description" content="SVM, Logistic Regression, Decision Tree">
@@ -555,6 +555,30 @@
 </blockquote>
 </li>
 </ol>
+<h3 id="Naive-Bayes"><a href="#Naive-Bayes" class="headerlink" title="Naive Bayes"></a>Naive Bayes</h3><ol>
+<li><p>简述朴素贝叶斯的原理。</p>
+<blockquote>
+<p>朴素贝叶斯采用<code>属性条件独立性</code>的假设，对于给定的待分类观测数据X, 计算在X出现的条件下，各个目标类出现的概率（即后验概率）， 将该后验概率最大的类作为X所属的类。方法是根据已有样本进行贝叶斯估计学习出先验概率$P(Y)$和条件概率$P(X|Y)$，进而求出联合分布概率P(XY),最后利用贝叶斯定理求解后验概率P(Y|X).</p>
+</blockquote>
+</li>
+<li><p>朴素贝叶斯“朴素”在哪里？</p>
+<blockquote>
+<p>利用贝叶斯定理求解联合概率P(XY)时，需要计算条件概率P(X|Y)。在计算P(X|Y)时，朴素贝叶斯做了一个很强的条件独立假设（当Y确定时，X的各个分量取值之间相互独立），即</p>
+<script type="math/tex; mode=display">P(X_1=x_1,X_2=x_2,\cdots,X_j=x_j|Y=y_k) = P(X_1=x_1|Y=y_k)\*P(X_2=x_2|Y=y_k),\cdots,P(X_j=x_j|Y=y_k)</script></blockquote>
+</li>
+</ol>
+<ol>
+<li>什么是拉普拉斯平滑法?<blockquote>
+<p>拉普拉斯平滑法是朴素贝叶斯中处理零概率问题的一种修正方式。在进行分类的时候，可能会出现某个属性在训练集中没有与某个类同时出现过的情况，如果直接基于朴素贝叶斯分类器的表达式进行计算的话就会出现零概率现象。为了避免其他属性所携带的信息被训练集中未出现过的属性值“抹去”，所以才使用拉普拉斯估计器进行修正。具体的方法是：在分子上加1,对于先验概率，在分母上加上训练集中可能的类别数；对于条件概率，则在分母上加上第i个属性可能的取值数</p>
+</blockquote>
+</li>
+</ol>
+<ol>
+<li>朴素贝叶斯中有哪些不同的模型？<blockquote>
+<p>朴素贝叶斯含有3种模型，分别是<strong>高斯模型</strong>，对连续型数据进行处理；<strong>多项式模型</strong>，对离散型数据进行处理，计算数据的条件概率(使用拉普拉斯估计器进行平滑的一个模型)；<strong>伯努利模型</strong>，伯努利模型的取值特征是布尔型，即出现为ture,不出现为false,在进行文档分类时，就是一个单词有没有在一个文档中出现过。</p>
+</blockquote>
+</li>
+</ol>
 
       
     </div>
@@ -577,8 +601,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ML-Interview-Part1/2020/05/24/" rel="next" title="ML Interview Part1">
-                <i class="fa fa-chevron-left"></i> ML Interview Part1
+              <a href="/ML-Interview-Part1/2020/05/24/" rel="next" title="ML-Interview-Part1">
+                <i class="fa fa-chevron-left"></i> ML-Interview-Part1
               </a>
             
           </div>
@@ -706,7 +730,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">228</span>
+                  <span class="site-state-item-count">229</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -802,7 +826,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#经典算法"><span class="nav-text">经典算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVM"><span class="nav-text">SVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑回归"><span class="nav-text">逻辑回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#决策树"><span class="nav-text">决策树</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#经典算法"><span class="nav-text">经典算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVM"><span class="nav-text">SVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑回归"><span class="nav-text">逻辑回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#决策树"><span class="nav-text">决策树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Naive-Bayes"><span class="nav-text">Naive Bayes</span></a></li></ol></li></ol></div>
             
 
           </div>
