@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://zhangruochi.com/ML-Interview-Part4/2020/05/26/</loc>
+    <lastmod>2020-05-26</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/ML-Interview-Part1/2020/05/24/</loc>
+    <lastmod>2020-05-26</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/ML-Interview-Part3/2020/05/26/</loc>
+    <lastmod>2020-05-26</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/ML-Interview-Part2/2020/05/25/</loc>
+    <lastmod>2020-05-25</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Time-and-Ordering/2020/05/09/</loc>
+    <lastmod>2020-05-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Key-Value-Stores-Time-and-Ordering/2019/07/04/</loc>
+    <lastmod>2020-05-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Introduction-to-Cloud-Computing/2019/02/14/</loc>
+    <lastmod>2020-05-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Object-Detection-Summary/2020/03/06/</loc>
+    <lastmod>2020-05-04</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Programming-Language-New-Types-Pattern-Matching-Tail-Recursion/2020/05/03/</loc>
+    <lastmod>2020-05-03</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/EDA-Summary/2020/04/30/</loc>
+    <lastmod>2020-05-01</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Model-Training-Tricks-2/2020/04/28/</loc>
+    <lastmod>2020-04-28</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Model-Training-Tricks-1/2020/04/27/</loc>
+    <lastmod>2020-04-28</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Remote-Jupyter-notebook/2019/07/27/</loc>
+    <lastmod>2020-04-23</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Empathize-Stage/2020/04/21/</loc>
+    <lastmod>2020-04-22</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Decision-Thinking-and-Data-Science-Process/2020/04/21/</loc>
+    <lastmod>2020-04-21</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Develop-a-blockchain-application-from-scratch-in-Python/2020/04/21/</loc>
+    <lastmod>2020-04-21</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Dive-into-blog/2019/02/13/</loc>
+    <lastmod>2020-04-21</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Debris-20190509/2019/05/09/</loc>
+    <lastmod>2020-04-21</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Debris-20190529/2019/05/29/</loc>
+    <lastmod>2020-04-21</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Debris-20190530/2019/05/30/</loc>
+    <lastmod>2020-04-21</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Flee-from-famine/2019/11/19/</loc>
+    <lastmod>2020-04-21</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Cox-Proportional-Hazards-and-Random-Survival-Forests/2020/04/19/</loc>
+    <lastmod>2020-04-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Evaluation-of-Diagnostic-Models/2020/04/17/</loc>
+    <lastmod>2020-04-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Brain-Tumor-Auto-Segmentation-for-Magnetic-Resonance-Imaging-MRI/2020/04/17/</loc>
+    <lastmod>2020-04-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/</loc>
+    <lastmod>2020-04-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Risk-Models-Using-Tree-based-Models/2020/04/18/</loc>
+    <lastmod>2020-04-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Survival-Estimates-that-Vary-with-Time/2020/04/18/</loc>
+    <lastmod>2020-04-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/TensorFlow-js-Converter/2020/04/17/</loc>
+    <lastmod>2020-04-18</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Deploy-a-keras-model-on-IBM-cloud/2020/04/15/</loc>
+    <lastmod>2020-04-18</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Chest-X-Ray-Medical-Diagnosis-with-Deep-Learning/2020/04/15/</loc>
+    <lastmod>2020-04-16</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Fourier-Transform/2020/04/14/</loc>
+    <lastmod>2020-04-15</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/PCA-from-scratch/2020/04/14/</loc>
+    <lastmod>2020-04-14</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/SparkML-Examples/2020/04/14/</loc>
+    <lastmod>2020-04-14</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/DBSCAN-Clustering/2020/04/14/</loc>
+    <lastmod>2020-04-14</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/TensorBoard/2020/02/22/</loc>
+    <lastmod>2020-04-13</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Tensorflow-input-pipeline/2020/02/20/</loc>
+    <lastmod>2020-04-13</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Improving-Performance-of-Tensorflow-ETL-pipeline/2020/02/20/</loc>
+    <lastmod>2020-04-13</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Machine-Learning-Pipeline/2020/04/13/</loc>
+    <lastmod>2020-04-13</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Feedback-loops/2020/04/07/</loc>
+    <lastmod>2020-04-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Tensorflow-Lite-Model-Converter/2020/02/16/</loc>
+    <lastmod>2020-04-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Use-Tensorflow-Lite-to-do-Inference-on-Raspberry-Pi/2020/02/17/</loc>
+    <lastmod>2020-04-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Tensorflow-Serving/2020/02/21/</loc>
+    <lastmod>2020-04-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Tensorflow-hub/2020/02/22/</loc>
+    <lastmod>2020-04-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Deploy-Models-with-TensorFlow-Serving-and-Flask/2020/04/03/</loc>
+    <lastmod>2020-04-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Spark-Fundamental/2020/04/06/</loc>
+    <lastmod>2020-04-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Stock-Prices-Series-Problems/2020/04/05/</loc>
+    <lastmod>2020-04-06</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Bayesian-networks/2020/03/23/</loc>
+    <lastmod>2020-03-23</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Fucking-distributions/2020/03/22/</loc>
+    <lastmod>2020-03-22</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Gaussian-Mixed-Model-Introduction/2020/03/15/</loc>
+    <lastmod>2020-03-15</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Maximum-Likelihood-Estimation/2019/05/03/</loc>
+    <lastmod>2020-03-15</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Think-bayesian/2019/07/20/</loc>
+    <lastmod>2020-03-15</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Bayes-Estimation/2019/07/21/</loc>
+    <lastmod>2020-03-15</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Lifelong-Learning/2020/03/14/</loc>
+    <lastmod>2020-03-14</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/AI-Search-II/2020/03/05/</loc>
+    <lastmod>2020-03-06</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/AI-Search/2020/02/06/</loc>
+    <lastmod>2020-03-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Programming-Language-Summary/2020/02/27/</loc>
+    <lastmod>2020-02-27</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Ensemble-Methods/2019/07/17/</loc>
+    <lastmod>2020-02-26</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/An-overview-of-gradient-descent-optimization-algorithms/2019/02/23/</loc>
+    <lastmod>2020-02-25</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/TensorFlow-Data-Service/2020/02/17/</loc>
+    <lastmod>2020-02-24</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Module-Sequential-ModuleList-ModuleDict/2020/01/28/</loc>
+    <lastmod>2020-02-16</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Promise/2020/02/13/</loc>
+    <lastmod>2020-02-13</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Introduction-to-Operating-Systems/2020/02/07/</loc>
+    <lastmod>2020-02-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/AI-Overview/2020/02/05/</loc>
+    <lastmod>2020-02-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Autoencoders-Project/2019/07/11/</loc>
+    <lastmod>2020-01-31</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Minimum-Spanning-Trees/2020/01/25/</loc>
+    <lastmod>2020-01-26</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Unordered-Data-Structure/2020/01/24/</loc>
+    <lastmod>2020-01-25</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Union-Find/2019/11/19/</loc>
+    <lastmod>2020-01-25</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Ordered-Data-Structures/2020/01/22/</loc>
+    <lastmod>2020-01-24</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/ELMo-OpenAI-GPT-BERT/2019/12/21/</loc>
+    <lastmod>2020-01-23</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Face-Blindness-Saver/2019/12/25/</loc>
+    <lastmod>2020-01-23</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/C-Plus-Plus-Reference/2020/01/23/</loc>
+    <lastmod>2020-01-23</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/C-Plus-Plus-Review/2020/01/21/</loc>
+    <lastmod>2020-01-22</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Java-Review/2019/06/07/</loc>
+    <lastmod>2020-01-21</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Feasibility-of-Learning/2019/02/15/</loc>
+    <lastmod>2020-01-20</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Types-of-Learning/2019/02/15/</loc>
+    <lastmod>2020-01-20</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Linear-models-Optimization/2019/02/22/</loc>
+    <lastmod>2020-01-20</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Stacking/2019/07/17/</loc>
+    <lastmod>2020-01-20</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Neural-Machine-Translation-with-Attention/2019/03/29/</loc>
+    <lastmod>2020-01-20</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Trigger-word-detection/2019/03/29/</loc>
+    <lastmod>2020-01-20</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/RNN-Implementation/2019/03/28/</loc>
+    <lastmod>2020-01-20</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/rails-tutorials-sessions/2020/01/20/</loc>
+    <lastmod>2020-01-20</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/rails-tutorials-ActionPack/2020/01/19/</loc>
+    <lastmod>2020-01-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/rails-tutorials-Association/2020/01/18/</loc>
+    <lastmod>2020-01-18</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/rails-tutorials-Active-Record-CURD/2020/01/18/</loc>
+    <lastmod>2020-01-18</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Metaprogramming-in-Ruby/2020/01/17/</loc>
+    <lastmod>2020-01-18</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/The%20Learning%20Problems/2019/02/14/</loc>
+    <lastmod>2020-01-18</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/rails-tutorils-signup/2020/01/17/</loc>
+    <lastmod>2020-01-17</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/rails-tutorials-data-model/2020/01/17/</loc>
+    <lastmod>2020-01-17</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/rails-tutorials-toy-app/2020/01/11/</loc>
+    <lastmod>2020-01-17</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/rails-tutorials-static-page-and-automated-testing/2020/01/11/</loc>
+    <lastmod>2020-01-11</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Single-Variable-Calculus-Functions/2019/10/15/</loc>
+    <lastmod>2020-01-11</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Transfer-Learning/2019/05/31/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Variational-Auto-Encoder/2019/10/10/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Orthogonal-Projections/2019/09/20/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Image-Captioning-Project/2019/07/11/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Mean-Encodings/2019/07/15/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Style-Transfer/2019/08/14/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Exploring-how-Convolutions-and-Pooling-work/2019/05/23/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Using-more-sophisticated-images-with-Convolutional-Neural-Networks/2019/05/30/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Horses-or-Humans-with-Validation/2019/05/23/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Improving-Computer-Vision-Accuracy-using-Convolutions/2019/05/23/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Data-Augmentation/2019/05/31/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Generative-Adversarial-Network-Project/2019/07/11/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Beyond-Hello-World-A-Computer-Vision-Example/2019/05/22/</loc>
+    <lastmod>2020-01-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Fastai-Data-Block-API/2019/12/29/</loc>
+    <lastmod>2019-12-29</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Transformer/2019/12/20/</loc>
+    <lastmod>2019-12-21</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Subword-Models/2019/12/19/</loc>
+    <lastmod>2019-12-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Word-Vectors/2019/12/04/</loc>
+    <lastmod>2019-12-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Attention/2019/12/16/</loc>
+    <lastmod>2019-12-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/CS224n-Assignment-2/2019/12/07/</loc>
+    <lastmod>2019-12-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Computational-Graph/2019/12/06/</loc>
+    <lastmod>2019-12-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Dependency-Parsing-and-Assignment3-of-CS224n/2019/12/10/</loc>
+    <lastmod>2019-12-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Gated-RNN-Units/2019/12/15/</loc>
+    <lastmod>2019-12-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Human-Factor/2019/12/12/</loc>
+    <lastmod>2019-12-12</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Object-Oriented-Design/2019/11/27/</loc>
+    <lastmod>2019-12-02</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Composition/2019/12/01/</loc>
+    <lastmod>2019-12-02</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Role/2019/12/01/</loc>
+    <lastmod>2019-12-02</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Inheritance/2019/12/01/</loc>
+    <lastmod>2019-12-01</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Interface-Segmentation-Principle/2019/12/01/</loc>
+    <lastmod>2019-12-01</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Dependency-Management-Principle/2019/11/28/</loc>
+    <lastmod>2019-11-28</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Single-Responsibility-Principle/2019/11/27/</loc>
+    <lastmod>2019-11-27</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Basic-Calculator/2019/11/26/</loc>
+    <lastmod>2019-11-26</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Longest-common-subsequence-subarray-substring/2019/11/26/</loc>
+    <lastmod>2019-11-26</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Ruby-Hightlights/2019/11/24/</loc>
+    <lastmod>2019-11-25</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Matrix-Algebra-for-Engineers-part-one/2019/03/17/</loc>
+    <lastmod>2019-11-23</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Hyperparameters-tuning/2019/07/16/</loc>
+    <lastmod>2019-11-23</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Topological-Sorting/2019/11/20/</loc>
+    <lastmod>2019-11-20</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Greedy-Algorithm/2019/11/19/</loc>
+    <lastmod>2019-11-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Dynamic-Programming/2019/11/16/</loc>
+    <lastmod>2019-11-17</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Knapsack-problem/2019/11/16/</loc>
+    <lastmod>2019-11-16</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/%E7%86%B5%E4%B8%8E%E4%BA%92%E4%BF%A1%E6%81%AF/2019/11/12/</loc>
+    <lastmod>2019-11-13</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/BFS-and-DFS/2019/10/17/</loc>
+    <lastmod>2019-10-19</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/BackPropagation-through-time/2019/10/12/</loc>
+    <lastmod>2019-10-13</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/LSTM-Mxnet-Implementation/2019/04/13/</loc>
+    <lastmod>2019-10-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Neural-Network-Training/2019/10/05/</loc>
+    <lastmod>2019-10-06</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/cs231n-assignment1/2019/10/01/</loc>
+    <lastmod>2019-10-04</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Consistent-Hashing-Algorithm/2019/07/04/</loc>
+    <lastmod>2019-10-03</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Naive-Bayes/2019/10/02/</loc>
+    <lastmod>2019-10-02</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Machine-Language/2019/09/22/</loc>
+    <lastmod>2019-09-22</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Sequential-Logic/2019/05/27/</loc>
+    <lastmod>2019-09-22</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Boolean-Arithmetic/2019/05/21/</loc>
+    <lastmod>2019-09-22</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Principal-Component-Analysis/2019/09/20/</loc>
+    <lastmod>2019-09-20</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Vector-and-Space/2019/09/19/</loc>
+    <lastmod>2019-09-20</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Tree-traverse/2019/09/10/</loc>
+    <lastmod>2019-09-16</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/AVL-Tree/2019/09/15/</loc>
+    <lastmod>2019-09-15</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Top-down-and-Bottom-up/2019/09/12/</loc>
+    <lastmod>2019-09-13</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Binary-Search-Tree/2019/09/10/</loc>
+    <lastmod>2019-09-10</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Recursion/2019/09/10/</loc>
+    <lastmod>2019-09-10</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Sort/2019/09/08/</loc>
+    <lastmod>2019-09-10</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Binary-Search/2019/08/26/</loc>
+    <lastmod>2019-08-26</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Hash-Table/2019/08/23/</loc>
+    <lastmod>2019-08-23</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Monotone-Stack/2019/08/16/</loc>
+    <lastmod>2019-08-23</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Some-applications-about-stack/2019/08/15/</loc>
+    <lastmod>2019-08-15</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/2019/08/05/</loc>
+    <lastmod>2019-08-14</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Reverse-LinkedList/2019/08/08/</loc>
+    <lastmod>2019-08-14</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Collaborate-on-Github/2019/07/20/</loc>
+    <lastmod>2019-07-20</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Metrics/2019/07/14/</loc>
+    <lastmod>2019-07-17</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Advanced-features/2019/07/16/</loc>
+    <lastmod>2019-07-16</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Feature-Engineering-Introduction/2019/07/13/</loc>
+    <lastmod>2019-07-16</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Exploratory-data-analysis/2019/07/13/</loc>
+    <lastmod>2019-07-16</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Pipeline-for-data-science-project/2019/07/17/</loc>
+    <lastmod>2019-07-16</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Practical-Guide-for-Kaggle-Competition/2019/07/16/</loc>
+    <lastmod>2019-07-16</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Decision-Boundry/2019/07/13/</loc>
+    <lastmod>2019-07-12</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/AdaBoost-Summary/2019/05/14/</loc>
+    <lastmod>2019-07-11</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Activation-Function/2019/07/09/</loc>
+    <lastmod>2019-07-10</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Docker-Command-Cheatsheet/2019/07/11/</loc>
+    <lastmod>2019-07-10</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Why-is-the-negative-gradient-direction-the-fastest-direction-the-function-value-descend/2019/07/09/</loc>
+    <lastmod>2019-07-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Hello-Blog/2019/02/12/</loc>
+    <lastmod>2019-07-06</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/AI-for-Everyone/2019/02/28/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Character-level-language-model/2019/03/28/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Convolutional-Neural-Networks/2019/03/27/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/GRU-MXNET-Implemetation/2019/04/13/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Improvise-a-Jazz-Solo-with-an-LSTM-Network/2019/03/28/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Operations-on-word-vectors-Debiasing/2019/03/28/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/RNN-MXNET-Implementation/2019/04/12/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Sequence-Models/2019/03/27/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/the-functions-of-Pooling/2019/06/04/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/TFserving-Introdcution/2019/05/13/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Client-Server-Programming/2019/06/23/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/What-is-P-Value/2019/02/24/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Matrix-Algebra-for-Engineers-part-two/2019/03/17/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/%E6%B1%82%E5%AF%BC%E6%B3%95%E5%88%99/2019/07/05/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Tutorial-of-Java-s-concurrent-packages/2019/06/09/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Task-Parallelism/2019/06/08/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Threads-and-Locks/2019/06/20/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Python-Multiprocessing/2019/05/30/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Parallel-Loops/2019/06/13/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Optimistic-Concurrency/2019/06/22/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Functional-Parallelism/2019/06/12/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Data-Flow-Synchronization-and-Pipelining/2019/06/13/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Critical-Sections-and-Isolation/2019/06/21/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Bigtable-A-Distributed-Storage-System-for-Structured-Data/2019/02/28/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Actors/2019/06/22/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Learning-to-answer-Yes-or-No/2019/02/15/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Machine-Learning-Andraw-Ng/2019/02/15/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Machine-Learning-Yarning-part-one/2019/03/20/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Coordinate-descent-for-lasso/2019/05/01/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/INFSCI-2160-DATA-MINING-PART-ONE/2019/02/18/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/INFSCI-2595-Machine-Learning-part-one/2019/02/23/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Kernel-method/2019/05/02/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/KMeans-Improving/2019/05/15/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/KNN-with-KDtree/2019/05/14/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Logistic-Regression-and-Maximum-likelihood-estimation/2019/05/03/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Overfittingin-decision-trees/2019/05/11/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/The-difference-between-Lasso-and-Ridge-regularization/2019/05/01/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Understanding-Logistic-Regression/2019/02/24/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/3-sources-of-error/2019/04/20/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Introduction-to-Big-Data/2019/07/02/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Structuring-Machine-Learning-Projects/2019/03/29/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Neural-Networks-and-Deep-Learning/2019/03/29/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Machine-Learning-Yarning-part-two/2019/03/20/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Improving-Deep-Neural-Networks/2019/03/29/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Emojify/2019/03/28/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Introduction-to-Redis/2019/07/02/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Distributed-Map-Reduce/2019/06/23/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Gossip-Member-Grid/2019/02/14/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Message-Passing/2019/06/24/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/P2P-System/2019/02/14/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/RDD-Programming-Guide/2019/06/23/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/%E5%88%86%E5%B8%83%E5%BC%8F%E5%93%88%E5%B8%8C-DHT-%E7%9A%84%E5%8E%9F%E7%90%86/2019/07/04/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Combining-Distribution-and-Multithreading/2019/06/24/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Fluent-Python/2019/03/05/</loc>
+    <lastmod>2019-06-07</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Assembler-Project/2019/06/05/</loc>
+    <lastmod>2019-06-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Assembler/2019/06/05/</loc>
+    <lastmod>2019-06-05</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Computer-Architecture/2019/06/03/</loc>
+    <lastmod>2019-06-04</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Low-Level-Programming-Taste-Project/2019/06/04/</loc>
+    <lastmod>2019-06-04</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Boolean-Logic-Project/2019/05/21/</loc>
+    <lastmod>2019-05-21</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Boolean-Functions-and-Gate-Logic/2019/05/20/</loc>
+    <lastmod>2019-05-21</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Domain-Driven-Design-Introduction/2019/05/16/</loc>
+    <lastmod>2019-05-16</lastmod>
+  </url>
+</urlset>

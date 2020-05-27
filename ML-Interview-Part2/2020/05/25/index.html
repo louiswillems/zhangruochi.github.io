@@ -134,7 +134,7 @@
 <meta property="og:description" content="SVM, Logistic Regression, Decision Tree">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/ML-Interview-Part2/2020/05/25/1.png">
-<meta property="og:updated_time" content="2020-05-26T09:16:29.898Z">
+<meta property="og:updated_time" content="2020-05-27T07:33:28.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ML-Interview-Part2">
 <meta name="twitter:description" content="SVM, Logistic Regression, Decision Tree">
@@ -473,8 +473,11 @@
       
 
       
-        <h2 id="经典算法"><a href="#经典算法" class="headerlink" title="经典算法"></a>经典算法</h2><h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h3><p>SVM的基本型：</p>
-<script type="math/tex; mode=display">min_{w,b} = \frac{1}{2} ||w||^{2}</script><script type="math/tex; mode=display">s.t y_i(w^T x_i + b) \leq 1, i=1,2,3...m</script><ol>
+        <h2 id="经典算法"><a href="#经典算法" class="headerlink" title="经典算法"></a>经典算法</h2><h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h3><blockquote>
+<p>参考 <a href="https://zhuanlan.zhihu.com/p/35755150" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/35755150</a></p>
+</blockquote>
+<p>SVM的基本型：</p>
+<script type="math/tex; mode=display">min_{w,b} = \frac{1}{2} ||w||^{2}</script><script type="math/tex; mode=display">s.t. \quad y_i(w^T x_i + b) \leq 1, i=1,2,3...m</script><ol>
 <li><p>空间上线性可分的两点，分别向svm的超平面做投影，投影的点在超平面上依然线性可分吗？</p>
 <blockquote>
 <p>一定线性不可分</p>
@@ -492,7 +495,12 @@
 </li>
 <li><p>拉格朗日乘子法是什么？</p>
 <blockquote>
-<p>拉格朗日乘数法是一种优化算法，主要运用于解决优化问题，它的基本思想就是用过拉格朗日乘子来把含有m个变量和l个约束条件的约束优化问题转换成含有（m+l）个变量的无约束优化问题。</p>
+<p>拉格朗日乘数法是一种优化算法，主要运用于解决优化问题，它的基本思想就是用拉格朗日乘子构造一个新的优化函数将原本的约束优化问题转换成等价的无约束优化问题。</p>
+</blockquote>
+</li>
+<li><p>什么是对偶问题?</p>
+<blockquote>
+<p>常一个优化问题可以从两个角度来考虑，即主问题(primal problem)和对偶问题(dual problem)。在约束最优化问题中，常常利用拉格朗日对偶性将原始问题（主问题）转换成对偶问题，通过解对偶问题来得到原始问题的解。这样做是因为对偶问题的复杂度往往低于主问题。SVM求解的对偶问题是</p>
 </blockquote>
 </li>
 <li><p>什么是 kernel trick?</p>
@@ -730,7 +738,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">229</span>
+                  <span class="site-state-item-count">230</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

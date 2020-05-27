@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Medicine,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Build and Evaluate a Linear Risk modelWelcome to the first assignment in Course 2! Outline 1. Import Packages 2. Load Data 3. Explore the Dataset 4. Mean-Normalize the Data Exercise 1   5. Build the M">
+<meta name="keywords" content="Medicine">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Build and Evaluate a Linear Risk model">
+<meta property="og:url" content="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="Build and Evaluate a Linear Risk modelWelcome to the first assignment in Course 2! Outline 1. Import Packages 2. Load Data 3. Explore the Dataset 4. Mean-Normalize the Data Exercise 1   5. Build the M">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/output_18_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/output_18_1.png">
+<meta property="og:image" content="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/output_18_2.png">
+<meta property="og:image" content="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/output_18_3.png">
+<meta property="og:image" content="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/output_20_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/output_22_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/output_22_1.png">
+<meta property="og:image" content="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/output_22_2.png">
+<meta property="og:image" content="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/output_22_3.png">
+<meta property="og:image" content="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/output_35_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/output_35_1.png">
+<meta property="og:image" content="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/output_35_2.png">
+<meta property="og:image" content="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/output_35_3.png">
+<meta property="og:image" content="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/output_56_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/output_71_0.png">
+<meta property="og:updated_time" content="2020-04-19T15:09:57.386Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Build and Evaluate a Linear Risk model">
+<meta name="twitter:description" content="Build and Evaluate a Linear Risk modelWelcome to the first assignment in Course 2! Outline 1. Import Packages 2. Load Data 3. Explore the Dataset 4. Mean-Normalize the Data Exercise 1   5. Build the M">
+<meta name="twitter:image" content="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/output_18_0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/">
+
+
+
+
+
+  <title>Build and Evaluate a Linear Risk model | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Build and Evaluate a Linear Risk model</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-18T23:50:08+08:00">
+                2020-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
+                    <span itemprop="name">Artificial Intelligence</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Build-and-Evaluate-a-Linear-Risk-model/2020/04/18/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Build-and-Evaluate-a-Linear-Risk-model"><a href="#Build-and-Evaluate-a-Linear-Risk-model" class="headerlink" title="Build and Evaluate a Linear Risk model"></a>Build and Evaluate a Linear Risk model</h1><p>Welcome to the first assignment in Course 2!</p>
+<h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><ul>
+<li><a href="#1">1. Import Packages</a></li>
+<li><a href="#2">2. Load Data</a></li>
+<li><a href="#3">3. Explore the Dataset</a></li>
+<li><a href="#4">4. Mean-Normalize the Data</a><ul>
+<li><a href="#Ex-1">Exercise 1</a></li>
+</ul>
+</li>
+<li><a href="#Ex-2">5. Build the Model</a><ul>
+<li><a href="#Ex-2">Exercise 2</a></li>
+</ul>
+</li>
+<li><a href="#6">6. Evaluate the Model Using the C-Index</a><ul>
+<li><a href="#Ex-3">Exercise 3</a></li>
+</ul>
+</li>
+<li><a href="#7">7. Evaluate the Model on the Test Set</a></li>
+<li><a href="#8">8. Improve the Model</a><ul>
+<li><a href="#Ex-4">Exercise 4</a></li>
+</ul>
+</li>
+<li><a href="#9">9. Evalute the Improved Model</a></li>
+</ul>
+<h2 id="Overview-of-the-Assignment"><a href="#Overview-of-the-Assignment" class="headerlink" title="Overview of the Assignment"></a>Overview of the Assignment</h2><p>In this assignment, you’ll build a risk score model for retinopathy in diabetes patients using logistic regression.</p>
+<p>As we develop the model, we will learn about the following topics:</p>
+<ul>
+<li>Data preprocessing<ul>
+<li>Log transformations</li>
+<li>Standardization</li>
+</ul>
+</li>
+<li>Basic Risk Models<ul>
+<li>Logistic Regression</li>
+<li>C-index</li>
+<li>Interactions Terms</li>
+</ul>
+</li>
+</ul>
+<h3 id="Diabetic-Retinopathy"><a href="#Diabetic-Retinopathy" class="headerlink" title="Diabetic Retinopathy"></a>Diabetic Retinopathy</h3><p>Retinopathy is an eye condition that causes changes to the blood vessels in the part of the eye called the retina.<br>This often leads to vision changes or blindness.<br>Diabetic patients are known to be at high risk for retinopathy. </p>
+<h3 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h3><p>Logistic regression is an appropriate analysis to use for predicting the probability of a binary outcome. In our case, this would be the probability of having or not having diabetic retinopathy.<br>Logistic Regression is one of the most commonly used algorithms for binary classification. It is used to find the best fitting model to describe the relationship between a set of features (also referred to as input, independent, predictor, or explanatory variables) and a binary outcome label (also referred to as an output, dependent, or response variable). Logistic regression has the property that the output prediction is always in the range $[0,1]$. Sometimes this output is used to represent a probability from 0%-100%, but for straight binary classification, the output is converted to either $0$ or $1$ depending on whether it is below or above a certain threshold, usually $0.5$.</p>
+<p>It may be  confusing that the term regression appears in the name even though logistic regression is actually a classification algorithm, but that’s just a name it was given for historical reasons.</p>
+<p><a name="1"></a></p>
+<h2 id="1-Import-Packages"><a href="#1-Import-Packages" class="headerlink" title="1.  Import Packages"></a>1.  Import Packages</h2><p>We’ll first import all the packages that we need for this assignment. </p>
+<ul>
+<li><code>numpy</code> is the fundamental package for scientific computing in python.</li>
+<li><code>pandas</code> is what we’ll use to manipulate our data.</li>
+<li><code>matplotlib</code> is a plotting library.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+<p><a name="2"></a></p>
+<h2 id="2-Load-Data"><a href="#2-Load-Data" class="headerlink" title="2. Load Data"></a>2. Load Data</h2><p>First we will load in the dataset that we will use for training and testing our model.</p>
+<ul>
+<li>Run the next cell to load the data using a function imported from our local utils module.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> utils <span class="keyword">import</span> load_data</span><br><span class="line"></span><br><span class="line"><span class="comment"># This function creates randomly generated data</span></span><br><span class="line"><span class="comment"># X, y = load_data(6000)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># For stability, load data from files that were generated using the load_data</span></span><br><span class="line">X = pd.read_csv(<span class="string">'X_data.csv'</span>,index_col=<span class="number">0</span>)</span><br><span class="line">y_df = pd.read_csv(<span class="string">'y_data.csv'</span>,index_col=<span class="number">0</span>)</span><br><span class="line">y = y_df[<span class="string">'y'</span>]</span><br></pre></td></tr></table></figure>
+<p><code>X</code> and <code>y</code> are Pandas DataFrames that hold the data for 6,000 diabetic patients. </p>
+<p><a name="3"></a></p>
+<h2 id="3-Explore-the-Dataset"><a href="#3-Explore-the-Dataset" class="headerlink" title="3. Explore the Dataset"></a>3. Explore the Dataset</h2><p>The features (<code>X</code>) include the following fields:</p>
+<ul>
+<li>Age: (years)</li>
+<li>Systolic_BP: Systolic blood pressure (mmHg)</li>
+<li>Diastolic_BP: Diastolic blood pressure (mmHg)</li>
+<li>Cholesterol: (mg/DL)</li>
+</ul>
+<p>We can use the <code>head()</code> method to display the first few records of each.    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X.head()</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>Systolic_BP</th>
+      <th>Diastolic_BP</th>
+      <th>Cholesterol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>77.196340</td>
+      <td>85.288742</td>
+      <td>80.021878</td>
+      <td>79.957109</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>63.529850</td>
+      <td>99.379736</td>
+      <td>84.852361</td>
+      <td>110.382411</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>69.003986</td>
+      <td>111.349455</td>
+      <td>109.850616</td>
+      <td>100.828246</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>82.638210</td>
+      <td>95.056128</td>
+      <td>79.666851</td>
+      <td>87.066303</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>78.346286</td>
+      <td>109.154591</td>
+      <td>90.713220</td>
+      <td>92.511770</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X.shape</span><br></pre></td></tr></table></figure>
+<pre><code>(6000, 4)
+</code></pre><p>The target (<code>y</code>) is an indicator of whether or not the patient developed retinopathy.</p>
+<ul>
+<li>y = 1 : patient has retinopathy.</li>
+<li>y = 0 : patient does not have retinopathy.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y.head()</span><br></pre></td></tr></table></figure>
+<pre><code>0    1.0
+1    1.0
+2    1.0
+3    1.0
+4    1.0
+Name: y, dtype: float64
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y.shape</span><br></pre></td></tr></table></figure>
+<pre><code>(6000,)
+</code></pre><p>Before we build a model, let’s take a closer look at the distribution of our training data. To do this, we will split the data into train and test sets using a 75/25 split.</p>
+<p>For this, we can use the built in function provided by sklearn library.  See the documentation for <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html" target="_blank" rel="noopener">sklearn.model_selection.train_test_split</a>. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X_train_raw, X_test_raw, y_train, y_test = train_test_split(X, y, train_size=<span class="number">0.75</span>, random_state=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>Plot the histograms of each column of <code>X_train</code> below: </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> X.columns:</span><br><span class="line">    X_train_raw.loc[:, col].hist()</span><br><span class="line">    plt.title(col)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="output_18_0.png" alt="png"></p>
+<p><img src="output_18_1.png" alt="png"></p>
+<p><img src="output_18_2.png" alt="png"></p>
+<p><img src="output_18_3.png" alt="png"></p>
+<p>As we can see, the distributions have a generally bell shaped distribution, but with slight rightward skew.</p>
+<p>Many statistical models assume that the data is normally distributed, forming a symmetric Gaussian bell shape (with no skew) more like the example below.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> norm</span><br><span class="line">data = np.random.normal(<span class="number">50</span>,<span class="number">12</span>, <span class="number">5000</span>)</span><br><span class="line">fitting_params = norm.fit(data)</span><br><span class="line">norm_dist_fitted = norm(*fitting_params)</span><br><span class="line">t = np.linspace(<span class="number">0</span>,<span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line">plt.hist(data, bins=<span class="number">60</span>, density=<span class="keyword">True</span>)</span><br><span class="line">plt.plot(t, norm_dist_fitted.pdf(t))</span><br><span class="line">plt.title(<span class="string">'Example of Normally Distributed Data'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="output_20_0.png" alt="png"></p>
+<p>We can transform our data to be closer to a normal distribution by removing the skew. One way to remove the skew is by applying the log function to the data.</p>
+<p>Let’s plot the log of the feature variables to see that it produces the desired effect.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> X_train_raw.columns:</span><br><span class="line">    np.log(X_train_raw.loc[:, col]).hist()</span><br><span class="line">    plt.title(col)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="output_22_0.png" alt="png"></p>
+<p><img src="output_22_1.png" alt="png"></p>
+<p><img src="output_22_2.png" alt="png"></p>
+<p><img src="output_22_3.png" alt="png"></p>
+<p>We can see that the data is more symmetric after taking the log.</p>
+<p><a name="4"></a></p>
+<h2 id="4-Mean-Normalize-the-Data"><a href="#4-Mean-Normalize-the-Data" class="headerlink" title="4. Mean-Normalize the Data"></a>4. Mean-Normalize the Data</h2><p>Let’s now transform our data so that the distributions are closer to standard normal distributions.</p>
+<p>First we will remove some of the skew from the distribution by using the log transformation.<br>Then we will “standardize” the distribution so that it has a mean of zero and standard deviation of 1. Recall that a standard normal distribution has mean of zero and standard deviation of 1. </p>
+<p><a name="Ex-1"></a></p>
+<h3 id="Exercise-1"><a href="#Exercise-1" class="headerlink" title="Exercise 1"></a>Exercise 1</h3><ul>
+<li>Write a function that first removes some of the skew in the data, and then standardizes the distribution so that for each data point $x$,<script type="math/tex; mode=display">\overline{x} = \frac{x - mean(x)}{std(x)}</script></li>
+<li>Keep in mind that we want to pretend that the test data is “unseen” data. <ul>
+<li>This implies that it is unavailable to us for the purpose of preparing our data, and so we do not want to consider it when evaluating the mean and standard deviation that we use in the above equation. Instead we want to calculate these values using the training data alone, but then use them for standardizing both the training and the test data.</li>
+<li>For a further discussion on the topic, see this article <a href="https://sebastianraschka.com/faq/docs/scale-training-test.html" target="_blank" rel="noopener">“Why do we need to re-use training parameters to transform test data”</a>. </li>
+</ul>
+</li>
+</ul>
+<h4 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h4><ul>
+<li>For the sample standard deviation, please calculate the unbiased estimator:<script type="math/tex; mode=display">s = \sqrt{\frac{\sum_{i=1}^n(x_{i} - \bar{x})^2}{n-1}}</script></li>
+<li>In other words, if you numpy, set the degrees of freedom <code>ddof</code> to 1.</li>
+<li>For pandas, the default <code>ddof</code> is already set to 1.</li>
+</ul>
+<details>    
+<summary>
+    <font size="3" color="darkgreen"><b>Hints</b></font>
+</summary>
+<p>
+    <ul>
+        <li> When working with Pandas DataFrames, you can use the aggregation functions <code>mean</code> and <code>std</code> functions. Note that in order to apply an aggregation function separately for each row or each column, you'll set the axis parameter to either <code>0</code> or <code>1</code>. One produces the aggregation along columns and the other along rows, but it is easy to get them confused. So experiment with each option below to see which one you should use to get an average for each column in the dataframe.
+<code>
+avg = df.mean(axis=0)
+avg = df.mean(axis=1) 
+</code>
+        </li>
+        <br><br>
+    <li>Remember to use <b>training</b> data statistics when standardizing both the training and the test data.</li>
+    </ul>
+</p>
+</details> 
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C1 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_standard_normal</span><span class="params">(df_train, df_test)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    In order to make the data closer to a normal distribution, take log</span></span><br><span class="line"><span class="string">    transforms to reduce the skew.</span></span><br><span class="line"><span class="string">    Then standardize the distribution with a mean of zero and standard deviation of 1. </span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">      df_train (dataframe): unnormalized training data.</span></span><br><span class="line"><span class="string">      df_test (dataframe): unnormalized test data.</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">      df_train_normalized (dateframe): normalized training data.</span></span><br><span class="line"><span class="string">      df_test_normalized (dataframe): normalized test data.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE (REPLACE INSTANCES OF 'None' with your code) ###  </span></span><br><span class="line">    <span class="comment"># Remove skew by applying the log function to the train set, and to the test set</span></span><br><span class="line">    df_train_unskewed = np.log(df_train)</span><br><span class="line">    df_test_unskewed = np.log(df_test)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#calculate the mean and standard deviation of the training set</span></span><br><span class="line">    mean = df_train_unskewed.mean(axis = <span class="number">0</span>)</span><br><span class="line">    stdev = df_train_unskewed.std(axis = <span class="number">0</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># standardize the training set</span></span><br><span class="line">    df_train_standardized = (df_train_unskewed - mean)/ stdev</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># standardize the test set (see instructions and hints above)</span></span><br><span class="line">    df_test_standardized = (df_test_unskewed - mean) / stdev</span><br><span class="line">    </span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    <span class="keyword">return</span> df_train_standardized, df_test_standardized</span><br></pre></td></tr></table></figure>
+<h4 id="Test-Your-Work"><a href="#Test-Your-Work" class="headerlink" title="Test Your Work"></a>Test Your Work</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test</span></span><br><span class="line">tmp_train = pd.DataFrame(&#123;<span class="string">'field1'</span>: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">10</span>], <span class="string">'field2'</span>: [<span class="number">4</span>,<span class="number">5</span>,<span class="number">11</span>]&#125;)</span><br><span class="line">tmp_test = pd.DataFrame(&#123;<span class="string">'field1'</span>: [<span class="number">1</span>,<span class="number">3</span>,<span class="number">10</span>], <span class="string">'field2'</span>: [<span class="number">4</span>,<span class="number">6</span>,<span class="number">11</span>]&#125;)</span><br><span class="line">tmp_train_transformed, tmp_test_transformed = make_standard_normal(tmp_train,tmp_test)</span><br><span class="line"></span><br><span class="line">print(<span class="string">f"Training set transformed field1 has mean <span class="subst">&#123;tmp_train_transformed[<span class="string">'field1'</span>].mean(axis=<span class="number">0</span>):<span class="number">.4</span>f&#125;</span> and standard deviation <span class="subst">&#123;tmp_train_transformed[<span class="string">'field1'</span>].std(axis=<span class="number">0</span>):<span class="number">.4</span>f&#125;</span> "</span>)</span><br><span class="line">print(<span class="string">f"Test set transformed, field1 has mean <span class="subst">&#123;tmp_test_transformed[<span class="string">'field1'</span>].mean(axis=<span class="number">0</span>):<span class="number">.4</span>f&#125;</span> and standard deviation <span class="subst">&#123;tmp_test_transformed[<span class="string">'field1'</span>].std(axis=<span class="number">0</span>):<span class="number">.4</span>f&#125;</span>"</span>)</span><br><span class="line">print(<span class="string">f"Skew of training set field1 before transformation: <span class="subst">&#123;tmp_train[<span class="string">'field1'</span>].skew(axis=<span class="number">0</span>):<span class="number">.4</span>f&#125;</span>"</span>)</span><br><span class="line">print(<span class="string">f"Skew of training set field1 after transformation: <span class="subst">&#123;tmp_train_transformed[<span class="string">'field1'</span>].skew(axis=<span class="number">0</span>):<span class="number">.4</span>f&#125;</span>"</span>)</span><br><span class="line">print(<span class="string">f"Skew of test set field1 before transformation: <span class="subst">&#123;tmp_test[<span class="string">'field1'</span>].skew(axis=<span class="number">0</span>):<span class="number">.4</span>f&#125;</span>"</span>)</span><br><span class="line">print(<span class="string">f"Skew of test set field1 after transformation: <span class="subst">&#123;tmp_test_transformed[<span class="string">'field1'</span>].skew(axis=<span class="number">0</span>):<span class="number">.4</span>f&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Training set transformed field1 has mean -0.0000 and standard deviation 1.0000 
+Test set transformed, field1 has mean 0.1144 and standard deviation 0.9749
+Skew of training set field1 before transformation: 1.6523
+Skew of training set field1 after transformation: 1.0857
+Skew of test set field1 before transformation: 1.3896
+Skew of test set field1 after transformation: 0.1371
+</code></pre><h4 id="Expected-Output"><a href="#Expected-Output" class="headerlink" title="Expected Output:"></a>Expected Output:</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Training <span class="built_in">set</span> transformed field1 has mean <span class="number">-0.0000</span> <span class="keyword">and</span> standard deviation <span class="number">1.0000</span> </span><br><span class="line">Test <span class="built_in">set</span> transformed, field1 has mean <span class="number">0.1144</span> <span class="keyword">and</span> standard deviation <span class="number">0.9749</span></span><br><span class="line">Skew of training <span class="built_in">set</span> field1 before transformation: <span class="number">1.6523</span></span><br><span class="line">Skew of training <span class="built_in">set</span> field1 after transformation: <span class="number">1.0857</span></span><br><span class="line">Skew of test <span class="built_in">set</span> field1 before transformation: <span class="number">1.3896</span></span><br><span class="line">Skew of test <span class="built_in">set</span> field1 after transformation: <span class="number">0.1371</span></span><br></pre></td></tr></table></figure>
+<h4 id="Transform-training-and-test-data"><a href="#Transform-training-and-test-data" class="headerlink" title="Transform training and test data"></a>Transform training and test data</h4><p>Use the function that you just implemented to make the data distribution closer to a standard normal distribution.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X_train, X_test = make_standard_normal(X_train_raw, X_test_raw)</span><br></pre></td></tr></table></figure>
+<p>After transforming the training and test sets, we’ll expect the training set to be centered at zero with a standard deviation of $1$.</p>
+<p>We will avoid observing the test set during model training in order to avoid biasing the model training process, but let’s have a look at the distributions of the transformed training data.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> X_train.columns:</span><br><span class="line">    X_train[col].hist()</span><br><span class="line">    plt.title(col)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="output_35_0.png" alt="png"></p>
+<p><img src="output_35_1.png" alt="png"></p>
+<p><img src="output_35_2.png" alt="png"></p>
+<p><img src="output_35_3.png" alt="png"></p>
+<p><a name="5"></a></p>
+<h2 id="5-Build-the-Model"><a href="#5-Build-the-Model" class="headerlink" title="5. Build the Model"></a>5. Build the Model</h2><p>Now we are ready to build the risk model by training logistic regression with our data.</p>
+<p><a name="Ex-2"></a></p>
+<h3 id="Exercise-2"><a href="#Exercise-2" class="headerlink" title="Exercise 2"></a>Exercise 2</h3><ul>
+<li>Implement the <code>lr_model</code> function to build a model using logistic regression with the <code>LogisticRegression</code> class from <code>sklearn</code>. </li>
+<li>See the documentation for <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression.fit" target="_blank" rel="noopener">sklearn.linear_model.LogisticRegression</a>.</li>
+</ul>
+<details>    
+<summary>
+    <font size="3" color="darkgreen"><b>Hints</b></font>
+</summary>
+<p>
+    <ul>
+        <li>You can leave all the parameters to their default values when constructing an instance of the <code>sklearn.linear_model.LogisticRegression</code> class. If you get a warning message regarding the <code>solver</code> parameter, however, you may want to specify that particular one explicitly with <code>solver='lbfgs'</code>. 
+        </li>
+        <br><br>
+    </ul>
+</p>
+</details> 
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C2 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lr_model</span><span class="params">(X_train, y_train)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE (REPLACE INSTANCES OF 'None' with your code) ###</span></span><br><span class="line">    <span class="comment"># import the LogisticRegression class</span></span><br><span class="line">    <span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># create the model object</span></span><br><span class="line">    model = LogisticRegression(solver=<span class="string">'lbfgs'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># fit the model to the training data</span></span><br><span class="line">    model.fit(X_train, y_train)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    <span class="comment">#return the fitted model</span></span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
+<h4 id="Test-Your-Work-1"><a href="#Test-Your-Work-1" class="headerlink" title="Test Your Work"></a>Test Your Work</h4><p>Note: the <code>predict</code> method returns the model prediction <em>after</em> converting it from a value in the $[0,1]$ range to a $0$ or $1$ depending on whether it is below or above $0.5$.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Test</span></span><br><span class="line">tmp_model = lr_model(X_train[<span class="number">0</span>:<span class="number">3</span>], y_train[<span class="number">0</span>:<span class="number">3</span>] )</span><br><span class="line">print(tmp_model.predict(X_train[<span class="number">4</span>:<span class="number">5</span>]))</span><br><span class="line">print(tmp_model.predict(X_train[<span class="number">5</span>:<span class="number">6</span>]))</span><br></pre></td></tr></table></figure>
+<pre><code>[1.]
+[1.]
+</code></pre><h4 id="Expected-Output-1"><a href="#Expected-Output-1" class="headerlink" title="Expected Output:"></a>Expected Output:</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1.</span>]</span><br><span class="line">[<span class="number">0.</span>]</span><br></pre></td></tr></table></figure>
+<p>Now that we’ve tested our model, we can go ahead and build it. Note that the <code>lr_model</code> function also fits  the model to the training data.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model_X = lr_model(X_train, y_train)</span><br></pre></td></tr></table></figure>
+<p><a name="6"></a></p>
+<h2 id="6-Evaluate-the-Model-Using-the-C-index"><a href="#6-Evaluate-the-Model-Using-the-C-index" class="headerlink" title="6. Evaluate the Model Using the C-index"></a>6. Evaluate the Model Using the C-index</h2><p>Now that we have a model, we need to evaluate it. We’ll do this using the c-index. </p>
+<ul>
+<li>The c-index measures the discriminatory power of a risk score. </li>
+<li>Intuitively, a higher c-index indicates that the model’s prediction is in agreement with the actual outcomes of a pair of patients.</li>
+<li>The formula for the c-index is</li>
+</ul>
+<script type="math/tex; mode=display">\mbox{cindex} = \frac{\mbox{concordant} + 0.5 \times \mbox{ties}}{\mbox{permissible}}</script><ul>
+<li>A permissible pair is a pair of patients who have different outcomes.</li>
+<li>A concordant pair is a permissible pair in which the patient with the higher risk score also has the worse outcome.</li>
+<li>A tie is a permissible pair where the patients have the same risk score.</li>
+</ul>
+<p><a name="Ex-3"></a></p>
+<h3 id="Exercise-3"><a href="#Exercise-3" class="headerlink" title="Exercise 3"></a>Exercise 3</h3><ul>
+<li>Implement the <code>cindex</code> function to compute c-index.</li>
+<li><code>y_true</code> is the array of actual patient outcomes, 0 if the patient does not eventually get the disease, and 1 if the patient eventually gets the disease.</li>
+<li><code>scores</code> is the risk score of each patient.  These provide relative measures of risk, so they can be any real numbers. By convention, they are always non-negative.</li>
+<li><p>Here is an example of input data and how to interpret it:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y_true = [<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line">scores = [<span class="number">0.45</span>, <span class="number">1.25</span>]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>There are two patients. Index 0 of each array is associated with patient 0.  Index 1 is associated with patient 1.</li>
+<li>Patient 0 does not have the disease in the future (<code>y_true</code> is 0), and based on past information, has a risk score of 0.45.</li>
+<li>Patient 1 has the disease at some point in the future (<code>y_true</code> is 1), and based on past information, has a risk score of 1.25.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C3 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cindex</span><span class="params">(y_true, scores)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Input:</span></span><br><span class="line"><span class="string">    y_true (np.array): a 1-D array of true binary outcomes (values of zero or one)</span></span><br><span class="line"><span class="string">        0: patient does not get the disease</span></span><br><span class="line"><span class="string">        1: patient does get the disease</span></span><br><span class="line"><span class="string">    scores (np.array): a 1-D array of corresponding risk scores output by the model</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Output:</span></span><br><span class="line"><span class="string">    c_index (float): (concordant pairs + 0.5*ties) / number of permissible pairs</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    n = len(y_true)</span><br><span class="line">    <span class="keyword">assert</span> len(scores) == n</span><br><span class="line"></span><br><span class="line">    concordant = <span class="number">0</span></span><br><span class="line">    permissible = <span class="number">0</span></span><br><span class="line">    ties = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE (REPLACE INSTANCES OF 'None' with your code) ###</span></span><br><span class="line">    <span class="comment"># use two nested for loops to go through all unique pairs of patients</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>, n): <span class="comment">#choose the range of j so that j&gt;i</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># Check if the pair is permissible (the patient outcomes are different)</span></span><br><span class="line">            <span class="keyword">if</span> y_true[i] != y_true[j]:</span><br><span class="line">                <span class="comment"># Count the pair if it's permissible</span></span><br><span class="line">                permissible += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># For permissible pairs, check if they are concordant or are ties</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># check for ties in the score</span></span><br><span class="line">                <span class="keyword">if</span> scores[i] == scores[j]:</span><br><span class="line">                    <span class="comment"># count the tie</span></span><br><span class="line">                    ties += <span class="number">1</span></span><br><span class="line">                    <span class="comment"># if it's a tie, we don't need to check patient outcomes, continue to the top of the for loop.</span></span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># case 1: patient i doesn't get the disease, patient j does</span></span><br><span class="line">                <span class="keyword">if</span> y_true[i] == <span class="number">0</span> <span class="keyword">and</span> y_true[j] == <span class="number">1</span>:</span><br><span class="line">                    <span class="comment"># Check if patient i has a lower risk score than patient j</span></span><br><span class="line">                    <span class="keyword">if</span> scores[i] &lt; scores[j]:</span><br><span class="line">                        <span class="comment"># count the concordant pair</span></span><br><span class="line">                        concordant += <span class="number">1</span></span><br><span class="line">                    <span class="comment"># Otherwise if patient i has a higher risk score, it's not a concordant pair.</span></span><br><span class="line">                    <span class="comment"># Already checked for ties earlier</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># case 2: patient i gets the disease, patient j does not</span></span><br><span class="line">                <span class="keyword">if</span> y_true[i] == <span class="number">1</span> <span class="keyword">and</span> y_true[j] == <span class="number">0</span>:</span><br><span class="line">                    <span class="comment"># Check if patient i has a higher risk score than patient j</span></span><br><span class="line">                    <span class="keyword">if</span> scores[i] &gt; scores[j]:</span><br><span class="line">                        <span class="comment">#count the concordant pair</span></span><br><span class="line">                        concordant += <span class="number">1</span></span><br><span class="line">                    <span class="comment"># Otherwise if patient i has a lower risk score, it's not a concordant pair.</span></span><br><span class="line">                    <span class="comment"># We already checked for ties earlier</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># calculate the c-index using the count of permissible pairs, concordant pairs, and tied pairs.</span></span><br><span class="line">    c_index = (concordant + <span class="number">0.5</span> * ties) / permissible</span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> c_index</span><br></pre></td></tr></table></figure>
+<h4 id="Test-Your-Work-2"><a href="#Test-Your-Work-2" class="headerlink" title="Test Your Work"></a>Test Your Work</h4><p>You can use the following test cases to make sure your implementation is correct.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test</span></span><br><span class="line">y_true = np.array([<span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">1.0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Case 1</span></span><br><span class="line">scores = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">print(<span class="string">'Case 1 Output: &#123;&#125;'</span>.format(cindex(y_true, scores)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Case 2</span></span><br><span class="line">scores = np.array([<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line">print(<span class="string">'Case 2 Output: &#123;&#125;'</span>.format(cindex(y_true, scores)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Case 3</span></span><br><span class="line">scores = np.array([<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.0</span>, <span class="number">1.0</span>])</span><br><span class="line">print(<span class="string">'Case 3 Output: &#123;&#125;'</span>.format(cindex(y_true, scores)))</span><br><span class="line">cindex(y_true, scores)</span><br></pre></td></tr></table></figure>
+<pre><code>Case 1 Output: 0.0
+Case 2 Output: 1.0
+Case 3 Output: 0.875
+
+
+
+
+
+0.875
+</code></pre><h4 id="Expected-Output-2"><a href="#Expected-Output-2" class="headerlink" title="Expected Output:"></a>Expected Output:</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Case <span class="number">1</span> Output: <span class="number">0.0</span></span><br><span class="line">Case <span class="number">2</span> Output: <span class="number">1.0</span></span><br><span class="line">Case <span class="number">3</span> Output: <span class="number">0.875</span></span><br></pre></td></tr></table></figure>
+<h4 id="Note-1"><a href="#Note-1" class="headerlink" title="Note"></a>Note</h4><p>Please check your implementation of the for loops. </p>
+<ul>
+<li>There is way to make a mistake on the for loops that cannot be caught with unit tests.</li>
+<li>Bonus: Can you think of what this error could be, and why it can’t be caught by unit tests?</li>
+</ul>
+<p><a name="7"></a></p>
+<h2 id="7-Evaluate-the-Model-on-the-Test-Set"><a href="#7-Evaluate-the-Model-on-the-Test-Set" class="headerlink" title="7. Evaluate the Model on the Test Set"></a>7. Evaluate the Model on the Test Set</h2><p>Now, you can evaluate your trained model on the test set.  </p>
+<p>To get the predicted probabilities, we use the <code>predict_proba</code> method. This method will return the result from the model <em>before</em> it is converted to a binary 0 or 1. For each input case, it returns an array of two values which represent the probabilities for both the negative case (patient does not get the disease) and positive case (patient the gets the disease). </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scores = model_X.predict_proba(X_test)[:, <span class="number">1</span>]</span><br><span class="line">c_index_X_test = cindex(y_test.values, scores)</span><br><span class="line">print(<span class="string">f"c-index on test set is <span class="subst">&#123;c_index_X_test:<span class="number">.4</span>f&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>c-index on test set is 0.8182
+</code></pre><h4 id="Expected-output"><a href="#Expected-output" class="headerlink" title="Expected output:"></a>Expected output:</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c-index on test <span class="built_in">set</span> is <span class="number">0.8336</span></span><br></pre></td></tr></table></figure>
+<p>Let’s plot the coefficients to see which variables (patient features) are having the most effect. You can access the model coefficients by using <code>model.coef_</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">coeffs = pd.DataFrame(data = model_X.coef_, columns = X_train.columns)</span><br><span class="line">coeffs.T.plot.bar(legend=<span class="keyword">None</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="output_56_0.png" alt="png"></p>
+<h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><blockquote>
+<p><strong>Which three variables have the largest impact on the model’s predictions?</strong></p>
+</blockquote>
+<p><a name="8"></a></p>
+<h2 id="8-Improve-the-Model"><a href="#8-Improve-the-Model" class="headerlink" title="8. Improve the Model"></a>8. Improve the Model</h2><p>You can try to improve your model by including interaction terms. </p>
+<ul>
+<li>An interaction term is the product of two variables. <ul>
+<li>For example, if we have data <script type="math/tex; mode=display">x = [x_1, x_2]</script></li>
+<li>We could add the product so that:<script type="math/tex; mode=display">\hat{x} = [x_1, x_2, x_1*x_2]</script></li>
+</ul>
+</li>
+</ul>
+<p><a name="Ex-4"></a></p>
+<h3 id="Exercise-4"><a href="#Exercise-4" class="headerlink" title="Exercise 4"></a>Exercise 4</h3><p>Write code below to add all interactions between every pair of variables to the training and test datasets. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C4 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_interactions</span><span class="params">(X)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Add interaction terms between columns to dataframe.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">    X (dataframe): Original data</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">    X_int (dataframe): Original data with interaction terms appended. </span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    features = X.columns</span><br><span class="line">    m = len(features)</span><br><span class="line">    X_int = X.copy(deep=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">### START CODE HERE (REPLACE INSTANCES OF 'None' with your code) ###</span></span><br><span class="line">    <span class="comment"># 'i' loops through all features in the original dataframe X</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(m<span class="number">-1</span>):</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># get the name of feature 'i'</span></span><br><span class="line">        feature_i_name = features[i]</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># get the data for feature 'i'</span></span><br><span class="line">        feature_i_data = X[feature_i_name]</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># choose the index of column 'j' to be greater than column i</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>, m):</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># get the name of feature 'j'</span></span><br><span class="line">            feature_j_name = features[j]</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># get the data for feature j'</span></span><br><span class="line">            feature_j_data = X[feature_j_name]</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># create the name of the interaction feature by combining both names</span></span><br><span class="line">            <span class="comment"># example: "apple" and "orange" are combined to be "apple_x_orange"</span></span><br><span class="line">            feature_i_j_name = feature_i_name + <span class="string">"_x_"</span> + feature_j_name</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># Multiply the data for feature 'i' and feature 'j'</span></span><br><span class="line">            <span class="comment"># store the result as a column in dataframe X_int</span></span><br><span class="line">            X_int[feature_i_j_name] = feature_i_data * feature_j_data</span><br><span class="line">        </span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> X_int</span><br></pre></td></tr></table></figure>
+<h4 id="Test-Your-Work-3"><a href="#Test-Your-Work-3" class="headerlink" title="Test Your Work"></a>Test Your Work</h4><p>Run the cell below to check your implementation. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Original Data"</span>)</span><br><span class="line">print(X_train.loc[:, [<span class="string">'Age'</span>, <span class="string">'Systolic_BP'</span>]].head())</span><br><span class="line">print(<span class="string">"Data w/ Interactions"</span>)</span><br><span class="line">print(add_interactions(X_train.loc[:, [<span class="string">'Age'</span>, <span class="string">'Systolic_BP'</span>]].head()))</span><br></pre></td></tr></table></figure>
+<pre><code>Original Data
+           Age  Systolic_BP
+1824 -0.912451    -0.068019
+253  -0.302039     1.719538
+1114  2.576274     0.155962
+3220  1.163621    -2.033931
+2108 -0.446238    -0.054554
+Data w/ Interactions
+           Age  Systolic_BP  Age_x_Systolic_BP
+1824 -0.912451    -0.068019           0.062064
+253  -0.302039     1.719538          -0.519367
+1114  2.576274     0.155962           0.401800
+3220  1.163621    -2.033931          -2.366725
+2108 -0.446238    -0.054554           0.024344
+</code></pre><h4 id="Expected-Output-3"><a href="#Expected-Output-3" class="headerlink" title="Expected Output:"></a>Expected Output:</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Original Data</span><br><span class="line">           Age  Systolic_BP</span><br><span class="line"><span class="number">2472</span> <span class="number">-2.340711</span>     <span class="number">0.077089</span></span><br><span class="line"><span class="number">4496</span>  <span class="number">0.009916</span>    <span class="number">-1.324053</span></span><br><span class="line"><span class="number">2243</span>  <span class="number">0.927302</span>    <span class="number">-0.424337</span></span><br><span class="line"><span class="number">4311</span> <span class="number">-0.087282</span>     <span class="number">0.399865</span></span><br><span class="line"><span class="number">843</span>   <span class="number">2.204586</span>     <span class="number">0.025521</span></span><br><span class="line">Data w/ Interactions</span><br><span class="line">           Age  Systolic_BP  Age_x_Systolic_BP</span><br><span class="line"><span class="number">2472</span> <span class="number">-2.340711</span>     <span class="number">0.077089</span>          <span class="number">-0.180444</span></span><br><span class="line"><span class="number">4496</span>  <span class="number">0.009916</span>    <span class="number">-1.324053</span>          <span class="number">-0.013129</span></span><br><span class="line"><span class="number">2243</span>  <span class="number">0.927302</span>    <span class="number">-0.424337</span>          <span class="number">-0.393489</span></span><br><span class="line"><span class="number">4311</span> <span class="number">-0.087282</span>     <span class="number">0.399865</span>          <span class="number">-0.034901</span></span><br><span class="line"><span class="number">843</span>   <span class="number">2.204586</span>     <span class="number">0.025521</span>           <span class="number">0.056264</span></span><br></pre></td></tr></table></figure>
+<p>Once you have correctly implemented <code>add_interactions</code>, use it to make transformed version of <code>X_train</code> and <code>X_test</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X_train_int = add_interactions(X_train)</span><br><span class="line">X_test_int = add_interactions(X_test)</span><br></pre></td></tr></table></figure>
+<p><a name="9"></a></p>
+<h2 id="9-Evaluate-the-Improved-Model"><a href="#9-Evaluate-the-Improved-Model" class="headerlink" title="9. Evaluate the Improved Model"></a>9. Evaluate the Improved Model</h2><p>Now we can train the new and improved version of the model.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model_X_int = lr_model(X_train_int, y_train)</span><br></pre></td></tr></table></figure>
+<p>Let’s evaluate our new model on the test set.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scores_X = model_X.predict_proba(X_test)[:, <span class="number">1</span>]</span><br><span class="line">c_index_X_int_test = cindex(y_test.values, scores_X)</span><br><span class="line"></span><br><span class="line">scores_X_int = model_X_int.predict_proba(X_test_int)[:, <span class="number">1</span>]</span><br><span class="line">c_index_X_int_test = cindex(y_test.values, scores_X_int)</span><br><span class="line"></span><br><span class="line">print(<span class="string">f"c-index on test set without interactions is <span class="subst">&#123;c_index_X_test:<span class="number">.4</span>f&#125;</span>"</span>)</span><br><span class="line">print(<span class="string">f"c-index on test set with interactions is <span class="subst">&#123;c_index_X_int_test:<span class="number">.4</span>f&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>c-index on test set without interactions is 0.8182
+c-index on test set with interactions is 0.8281
+</code></pre><p>You should see that the model with interaction terms performs a bit better than the model without interactions.</p>
+<p>Now let’s take another look at the model coefficients to try and see which variables made a difference. Plot the coefficients and report which features seem to be the most important.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int_coeffs = pd.DataFrame(data = model_X_int.coef_, columns = X_train_int.columns)</span><br><span class="line">int_coeffs.T.plot.bar();</span><br></pre></td></tr></table></figure>
+<p><img src="output_71_0.png" alt="png"></p>
+<h3 id="Questions"><a href="#Questions" class="headerlink" title="Questions:"></a>Questions:</h3><blockquote>
+<p><strong>Which variables are most important to the model?</strong><br><br><strong>Have the relevant variables changed?</strong><br><br><strong>What does it mean when the coefficients are positive or negative?</strong><br></p>
+</blockquote>
+<p>You may notice that Age, Systolic_BP, and Cholesterol have a positive coefficient. This means that a higher value in these three features leads to a higher prediction probability for the disease. You also may notice that the interaction of Age x Cholesterol has a negative coefficient. This means that a higher value for the Age x Cholesterol product reduces the prediction probability for the disease.</p>
+<p>To understand the effect of interaction terms, let’s compare the output of the model we’ve trained on sample cases with and without the interaction. Run the cell below to choose an index and look at the features corresponding to that case in the training set. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">index = index = <span class="number">3432</span></span><br><span class="line">case = X_train_int.iloc[index, :]</span><br><span class="line">print(case)</span><br></pre></td></tr></table></figure>
+<pre><code>Age                           2.502061
+Systolic_BP                   1.713547
+Diastolic_BP                  0.268265
+Cholesterol                   2.146349
+Age_x_Systolic_BP             4.287400
+Age_x_Diastolic_BP            0.671216
+Age_x_Cholesterol             5.370296
+Systolic_BP_x_Diastolic_BP    0.459685
+Systolic_BP_x_Cholesterol     3.677871
+Diastolic_BP_x_Cholesterol    0.575791
+Name: 5970, dtype: float64
+</code></pre><p>We can see that they have above average Age and Cholesterol. We can now see what our original model would have output by zero-ing out the value for Cholesterol and Age.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new_case = case.copy(deep=<span class="keyword">True</span>)</span><br><span class="line">new_case.loc[<span class="string">"Age_x_Cholesterol"</span>] = <span class="number">0</span></span><br><span class="line">new_case</span><br></pre></td></tr></table></figure>
+<pre><code>Age                           2.502061
+Systolic_BP                   1.713547
+Diastolic_BP                  0.268265
+Cholesterol                   2.146349
+Age_x_Systolic_BP             4.287400
+Age_x_Diastolic_BP            0.671216
+Age_x_Cholesterol             0.000000
+Systolic_BP_x_Diastolic_BP    0.459685
+Systolic_BP_x_Cholesterol     3.677871
+Diastolic_BP_x_Cholesterol    0.575791
+Name: 5970, dtype: float64
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">f"Output with interaction: \t<span class="subst">&#123;model_X_int.predict_proba([case.values])[:, <span class="number">1</span>][<span class="number">0</span>]:<span class="number">.4</span>f&#125;</span>"</span>)</span><br><span class="line">print(<span class="string">f"Output without interaction: \t<span class="subst">&#123;model_X_int.predict_proba([new_case.values])[:, <span class="number">1</span>][<span class="number">0</span>]:<span class="number">.4</span>f&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Output with interaction:    0.9448
+Output without interaction:     0.9965
+</code></pre><h4 id="Expected-output-1"><a href="#Expected-output-1" class="headerlink" title="Expected output"></a>Expected output</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Output with interaction: <span class="number">0.9448</span></span><br><span class="line">Output without interaction: <span class="number">0.9965</span></span><br></pre></td></tr></table></figure>
+<p>We see that the model is less confident in its prediction with the interaction term than without (the prediction value is lower when including the interaction term). With the interaction term, the model has adjusted for the fact that the effect of high cholesterol becomes less important for older patients compared to younger patients.</p>
+<h1 id="Congratulations"><a href="#Congratulations" class="headerlink" title="Congratulations!"></a>Congratulations!</h1><p>You have finished the first assignment of Course 2. </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Medicine/" rel="tag"># Medicine</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Brain-Tumor-Auto-Segmentation-for-Magnetic-Resonance-Imaging-MRI/2020/04/17/" rel="next" title="Brain Tumor Auto-Segmentation for Magnetic Resonance Imaging (MRI)">
+                <i class="fa fa-chevron-left"></i> Brain Tumor Auto-Segmentation for Magnetic Resonance Imaging (MRI)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Risk-Models-Using-Tree-based-Models/2020/04/18/" rel="prev" title="Risk Models Using Tree-based Models">
+                Risk Models Using Tree-based Models <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">228</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Build-and-Evaluate-a-Linear-Risk-model"><span class="nav-text">Build and Evaluate a Linear Risk model</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Outline"><span class="nav-text">Outline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview-of-the-Assignment"><span class="nav-text">Overview of the Assignment</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Diabetic-Retinopathy"><span class="nav-text">Diabetic Retinopathy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logistic-Regression"><span class="nav-text">Logistic Regression</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Import-Packages"><span class="nav-text">1.  Import Packages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Load-Data"><span class="nav-text">2. Load Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Explore-the-Dataset"><span class="nav-text">3. Explore the Dataset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Mean-Normalize-the-Data"><span class="nav-text">4. Mean-Normalize the Data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-1"><span class="nav-text">Exercise 1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Note"><span class="nav-text">Note</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-Your-Work"><span class="nav-text">Test Your Work</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-Output"><span class="nav-text">Expected Output:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Transform-training-and-test-data"><span class="nav-text">Transform training and test data</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Build-the-Model"><span class="nav-text">5. Build the Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-2"><span class="nav-text">Exercise 2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-Your-Work-1"><span class="nav-text">Test Your Work</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-Output-1"><span class="nav-text">Expected Output:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Evaluate-the-Model-Using-the-C-index"><span class="nav-text">6. Evaluate the Model Using the C-index</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-3"><span class="nav-text">Exercise 3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-Your-Work-2"><span class="nav-text">Test Your Work</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-Output-2"><span class="nav-text">Expected Output:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-1"><span class="nav-text">Note</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Evaluate-the-Model-on-the-Test-Set"><span class="nav-text">7. Evaluate the Model on the Test Set</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-output"><span class="nav-text">Expected output:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Question"><span class="nav-text">Question:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Improve-the-Model"><span class="nav-text">8. Improve the Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-4"><span class="nav-text">Exercise 4</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-Your-Work-3"><span class="nav-text">Test Your Work</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-Output-3"><span class="nav-text">Expected Output:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-Evaluate-the-Improved-Model"><span class="nav-text">9. Evaluate the Improved Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Questions"><span class="nav-text">Questions:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-output-1"><span class="nav-text">Expected output</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Congratulations"><span class="nav-text">Congratulations!</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>
