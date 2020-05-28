@@ -126,23 +126,20 @@
 
 
 
-<meta name="description" content="MLP, 神经网络训练技巧, CNN, RNN, Seq2Seq">
+<meta name="description" content="集成学习,Bagging,Boosting, Bias,Variance">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ML-Interview-Part6">
-<meta property="og:url" content="https://zhangruochi.com/ML-Interview-Part6/2020/05/27/index.html">
+<meta property="og:title" content="ML-Interview-Ensemble">
+<meta property="og:url" content="https://zhangruochi.com/ML-Interview-Ensemble/2020/05/28/index.html">
 <meta property="og:site_name" content="RUOCHI.AI">
-<meta property="og:description" content="MLP, 神经网络训练技巧, CNN, RNN, Seq2Seq">
+<meta property="og:description" content="集成学习,Bagging,Boosting, Bias,Variance">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Part6/2020/05/27/1.png">
-<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Part6/2020/05/27/2.png">
-<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Part6/2020/05/27/3.png">
-<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Part6/2020/05/27/4.png">
-<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Part6/2020/05/27/5.png">
-<meta property="og:updated_time" content="2020-05-28T02:05:41.918Z">
+<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Ensemble/2020/05/28/1.png">
+<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Ensemble/2020/05/28/2.png">
+<meta property="og:updated_time" content="2020-05-28T22:45:39.171Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ML-Interview-Part6">
-<meta name="twitter:description" content="MLP, 神经网络训练技巧, CNN, RNN, Seq2Seq">
-<meta name="twitter:image" content="https://zhangruochi.com/ML-Interview-Part6/2020/05/27/1.png">
+<meta name="twitter:title" content="ML-Interview-Ensemble">
+<meta name="twitter:description" content="集成学习,Bagging,Boosting, Bias,Variance">
+<meta name="twitter:image" content="https://zhangruochi.com/ML-Interview-Ensemble/2020/05/28/1.png">
 
 
 
@@ -172,13 +169,13 @@
 
 
 
-  <link rel="canonical" href="https://zhangruochi.com/ML-Interview-Part6/2020/05/27/">
+  <link rel="canonical" href="https://zhangruochi.com/ML-Interview-Ensemble/2020/05/28/">
 
 
 
 
 
-  <title>ML-Interview-Part6 | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>ML-Interview-Ensemble | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -355,7 +352,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/ML-Interview-Part6/2020/05/27/">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/ML-Interview-Ensemble/2020/05/28/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
@@ -372,7 +369,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">ML-Interview-Part6</h2>
+          <h2 class="post-title" itemprop="name headline">ML-Interview-Ensemble</h2>
         
 
         <div class="post-meta">
@@ -387,8 +384,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-27T17:46:36+08:00">
-                2020-05-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-28T10:07:46+08:00">
+                2020-05-28
               </time>
             
 
@@ -439,8 +436,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/ML-Interview-Part6/2020/05/27/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/ML-Interview-Part6/2020/05/27/" itemprop="commentCount"></span>
+                <a href="/ML-Interview-Ensemble/2020/05/28/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/ML-Interview-Ensemble/2020/05/28/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -460,7 +457,7 @@
 
           
               <div class="post-description">
-                  MLP, 神经网络训练技巧, CNN, RNN, Seq2Seq
+                  集成学习,Bagging,Boosting, Bias,Variance
               </div>
           
 
@@ -477,181 +474,120 @@
       
 
       
-        <h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><ol>
-<li><p>写出常用激活函数及其导数</p>
+        <h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><ol>
+<li><p>集成学习分哪几种，他们有何异同？</p>
 <blockquote>
-<p>Sigmod </p>
-<script type="math/tex; mode=display">f(z) = \frac{1}{1+exp(-z)}</script><script type="math/tex; mode=display">f\prime(z) = f(z)(1 - f(z))</script><p>Tanh</p>
-<script type="math/tex; mode=display">f(z) = tanh(z) = frac{e^z - e^{-z}}{ e^z + e^{-z}}</script><script type="math/tex; mode=display">f\prime(z) = 1 - (f(z))^2</script><p>Relu</p>
-<script type="math/tex; mode=display">f(z) = max(0,z)</script><script type="math/tex; mode=display">f\prime(z) = \left\{
-\begin{aligned}
-& 1, z > 0 \\
-& 0, z \leq 0
+<ol>
+<li>Boosting: 采用串行的方式，各个基础分类器之间有依赖。它的基本思路是将基分类器层层叠加，每一层在训练的时候，对前一层基分类器分错的样本，给予更高的权重。测试时，根据各层分类器的结果的加权得到最终的结果。</li>
+<li>Bagging: 采用并行的方式，各个基分类器之间无依赖。其中比较著名的算法之一是基于决策树的随机森林。为了让及分类器之间互相独立，将训练集分成若干子集（当训练样本较少时，子集之间有重叠）。在最终的决策阶段，每个个体单独做出判断，然后通过投票的方式做出最后的集体决策。</li>
+</ol>
+</blockquote>
+</li>
+<li><p>集成学习是如何提高基分类器的性能的？</p>
+<blockquote>
+<p>基分类器的误差，是方差和偏差两种错误之和。偏差源于underfitting，方差源于overfitting. Boosting 方法通过逐步聚焦于基分类器分错的样本，减少集成分类器的偏差。Bagging通过对训练样本进行多次采样，分别训练多个不同的模型，然后做综合，来减少分类器的方差。</p>
+</blockquote>
+</li>
+<li><p>集成学习的有哪些基本步骤？请以 Adaboosting 来举例。</p>
+<blockquote>
+<ol>
+<li>initialize equal weights for all samples<script type="math/tex; mode=display">\alpha_{i} = \frac{1}{N}</script></li>
+<li>Repeat t = 1,…,T<ul>
+<li>learn $f_{t}(x)$ with data weights $\alpha_{i}$</li>
+<li>compute weighted error<script type="math/tex; mode=display">weighted_{error_{t}} = \sum_{i=1}^{m}\alpha_{i}I(y_{i} \neq f_{t}(x_{i}))</script></li>
+<li>compute coefficient <script type="math/tex; mode=display">\hat{w_{t}} = \frac{1}{2}\ln(\frac{1 - weighted_{error_{t}} }{weighted_{error_{t}}})</script><ul>
+<li>$\hat{w_{t}}$ is higher when weighted_error is larger</li>
+</ul>
+</li>
+<li>recomputed weights $\alpha_{i}$<script type="math/tex; mode=display">\alpha_{i} =  
+    \begin{equation}
+    \left\{ 
+    \begin{array}{lr}
+      \alpha_{i}e^{-\hat{w_{t}}} \quad if \ f_t(x_i) = y_i & \\ 
+      \alpha_{i}e^{\hat{w_{t}}}  \quad if \ f_t(x_i) \neq y_i  &
+     \end{array}
+     \right.
+     \end{equation}</script></li>
+<li>Normalize weights $\alpha_{i}$<ul>
+<li>if $x_{i}$ often mistake, weight $\alpha_{i}$ gets very large</li>
+<li>if $x_{i}$ often correct, weight $\alpha_{i}$ gets very small<script type="math/tex; mode=display">\alpha_{i} = \frac{\alpha_{i}}{\sum_{i}^{m}\alpha_{i}}</script></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In the testing time, the final prediction is:<script type="math/tex; mode=display">\hat{y_{t}} = sign( \sum_1^T \hat{w_{t}} f_t(x) )</script></li>
+</ol>
+</blockquote>
+</li>
+<li><p>常用的基分类器是什么？</p>
+<blockquote>
+<p>常用决策树作为基分类器，主要有以下几方面的原因</p>
+<ol>
+<li>决策树的表达能力和泛化能力，可以通过调节树的层数来方便实现。</li>
+<li>数据样本的扰动对于决策树的影响较大，因此不同子样本集合生成的决策树随机性较大，这样”不稳定的学习器”更适合作为基分类器。</li>
+<li>决策树在节点分裂时，随机地选择一个特征子集，从中找出最优分裂特征，很好地引入了随机性。<br>神经网络模型也适合作为基分类器，因为神经网络也是比较”不稳定的”。还可以通过调整神经元的数量，连接方式，网络层数，初始权重引入随机性。</li>
+</ol>
+</blockquote>
+</li>
+<li><p>在随机森林中，可否使用线性分类器或者K-近邻作为基分类器？</p>
+<blockquote>
+<p>随机森林是属于 Bagging类的集成学习。Bagging的主要好处是集成后的分类器的方差，比基分类器的反差小。Bagging 所采用的基分类器，最好是本身不稳定的分类器，这样才能获得更优的性能。线性分类器或者K-近邻都是较为稳定的分类器，本身反差就不大，所以不适合。</p>
+</blockquote>
+</li>
+<li><p>随机森林的随机性体现在哪里？</p>
+<blockquote>
+<ol>
+<li>每棵树的样本是随机抽样得到的</li>
+<li>每课数生长时分裂的属性集合不同</li>
+</ol>
+</blockquote>
+</li>
+<li><p>什么是bias 什么是 variance?</p>
+<blockquote>
+<p>Bias 是 underfitting 造成的。Bias是指由所有采样得到的大小为m的训练数据训练出的所有模型的输出的平均值和真实模型输出之间的偏差。<br>Variance 是 overfitting 造成的。Variance是之由所有采样得到的大小为m的训练数据集训练出的所有模型的输出方差。</p>
+<center>
+ <img style="border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="1.png" width="50%" height="50%">
+</center>
+</blockquote>
+</li>
+<li><p>GBDT的基本原理是什么？</p>
+<blockquote>
+<p>Gradient Boosting 是 Boosting 中的一大类算法，其基本思想是根据当前模型损失函数的负梯度信息来训练新加入的弱分类器，然后将训练好的的弱分类器以累加的形式结合到现有模型中。</p>
+</blockquote>
+</li>
+<li><p>GBDT 和 Adatboost 的关系和区别是什么？</p>
+<blockquote>
+<p>和AdaBoost一样，Gradient Boosting也是重复选择一个表现一般的模型并且每次基于先前模型的表现进行调整。不同的是，AdaBoost是通过提升错分数据点的权重来定位模型的不足而Gradient Boosting是通过算梯度（gradient）来定位模型的不足。因此相比AdaBoost, Gradient Boosting可以使用更多种类的目标函数,而当目标函数是均方误差时，计算损失函数的负梯度值在当前模型的值即为残差。当目标函数不是 square loss 时残差并不一定等于负梯度。Adaboost 是 GBDT 的一个特例，GBDT 是 Adaboost的推广。</p>
+<script type="math/tex; mode=display">\left\{ \begin{aligned}
+& L(y_i, F(x_i)) = \frac{1}{2} * (y_i - F(x_i))^2 \\
+& - \frac{\partial(y_i, F(x_i))}{\partial F(x_i)} = (y_i - F(x_i))
 \end{aligned}\right.</script></blockquote>
 </li>
-<li><p>为什么 Sigmoid 和 Tanh 激活函数会导致梯度消失现象？</p>
+<li><p>GBDT 为什么要拟合上一次模型的负梯度？</p>
 <blockquote>
-<p>Sigmoid 函数将输入映射到区间(0,1)，当 z 较大和较小时，f(z) 趋近于 1. 此时的梯度趋近于0. Tanh 实际相当于 Sigmoid 的平移。</p>
+<p>我们要拟合损失函数的负梯度，可以看做拟合一个方向为负梯度方向，步长为单位长度的值，所以拟合的过程相当于我们沿着负梯度方向走了一个步长，具体走多少步（多少步可以理解为训练多少个决策树来拟合该分类器，使得损失函数最低）达到终止的条件，即走到最优点的附近。</p>
+</blockquote>
+</li>
+<li><p>梯度提升和梯度下降的区别和联系？</p>
+<blockquote>
+<p>两者都是在每一轮迭代中，利用损失函数相对于模型的负梯度方向信息来对当前模型进行更新。在梯度下降中，模型是以参数化形式表示，从而模型的更新等价于参数的更新。在梯度提升中，模型并不需要进行参数化表示，而是直接定义在函数空间中。</p>
 <center>
- <img style="border-radius: 0.3125em;
- box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="1.png" width="70%" height="70%">
-</center>
-</blockquote>
-</li>
-<li><p>ReLU 系列的激活函数相对于Sigmoid 和 Tanh 激活函数的优点是什么？局限性是什么？</p>
-<blockquote>
-<p>优点: 1. 计算简便 2. 有效地解决梯度消失的问题 3. ReLU 单侧抑制提供了网络的稀疏表达能力<br>局限性: 神经元死亡的问题。因为$f(z) = max(0,z)$ 导致负梯度在经过该 ReLU单元时被置为 0，且之后也不被任何数据激活。实际训练时，如果 learning rate 过大，会导致一定比例的 neuron 不可逆死亡，使得整个训练过程失败。Leaky ReLU 可以有效地解决该问题。</p>
-<script type="math/tex; mode=display">f(z) = \left\{
-\begin{aligned} 
-& z, z > 0 \\
-& az, z \leq 0
-\end{aligned}
-\right.</script></blockquote>
-</li>
-<li><p>平方误差损失函数和交叉熵损失函数分别适用什么场景？</p>
-<blockquote>
-<p>一般来说，平方损失函数适合于连续输出，并且最后一层不含 Sigmoid 或者 Softmax 激活函数的神经网络。交叉熵损失则更适合二分类和多分类场景。</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="神经网络训练技巧"><a href="#神经网络训练技巧" class="headerlink" title="神经网络训练技巧"></a>神经网络训练技巧</h2><ol>
-<li><p>神经网路训练时是否可以将全部参数初始化为0.</p>
-<blockquote>
-<p>同一层的神经元都是同构的，他们拥有相同的输入，如果将参数全部初始化为相同的值，那么无论 forward 还是 backward 都会拥有完全相同的值。因此，我们需要随机地初始化神经网络的参数，以打破这种对称性。</p>
-</blockquote>
-</li>
-<li><p>为什么 Dropout 可以抑制过拟合，它的工作原理是什么？</p>
-<blockquote>
-<p>Dropout作用与每份小批量训练数据，由于其随机丢弃神经元的机制，相当于每次迭代都在训练不同结构的神经网络。类比于Bagging方法，Dropout可被认为是一种实用的大规模神经网络的模型继承算法。对于包含 N 个神经元结点的网络，在 Dropout 的作用下可看做为$2^N$个模型的集成。这$2^N$个模型可认为是原始网络的子网络。应用Dropout包括训练和预测两个阶段，在训练阶段，每个神经元需要增加一个概率系数.</p>
-<script type="math/tex; mode=display">\left\{ \begin{aligned} 
-& r_j^{(l)} \sim Bernoulli(p) \\
-& \tilde{y}^{(l)} = r^{(l)} * y^{(l)}
-\end{aligned}\right.</script><p>测试阶段是前向传播过程，每个神经元的参数要预先乘以概率系数p，以恢复在训练时该神经元只有p的概率被用于整个神经网络的前向传播计算</p>
-</blockquote>
-</li>
-<li><p>BatchNorm 的基本动机与原理是什么？ 在卷积网络中如何使用?</p>
-<blockquote>
-<ol>
-<li>神经网络训练的本质是学习数据分布，因此我们常假设训练数据与测试数据是独立同分布的。如果分布不同将大大降低网络的泛化能力，因此我们需要在训练开始前对所有数据进行归一化处理。随着网络训练的进行，每个hidden layer的参数变化使得后一层的输入发生变化，从而每一批训练数据的分布也随之发生变化，使得网络在每次迭代中都需要拟合不同的数据分布，增大训练的复杂度以及过拟合风险。</li>
-<li>BatchNorm 是针对每一批数据，在网络的每一层输入之前增加归一化处理，将所有batch数据强制统一在统一的数据分布下。<script type="math/tex; mode=display">\hat{x}^{k} = \frac{x^{(k) - E[x^{(k)}]}}{\sqrt{Var[x^{(k)}]}}</script>其中x^{(k)}为该层第 K 个神经元的原始输入数据，$E[x^{(k)}]$为这一个batch在第k个神经元的均值，$\sqrt{Var[x^{(k)}]}$为这一批数据在第k个神经元的标准差。</li>
-<li>但是均值为 0，方差为1 这个限制太严格了，降低了神经网络的拟合能力。因此加入了两个可学习参数 $\beta$ 和 $\eta$<script type="math/tex; mode=display">y_i = \eta \hat{x}^{k} + \beta</script>在测试阶段，没有batch mean 和 var. 我们使用训练阶段的 running average.</li>
-<li>BatchNorm usually inserted after Fully Connected or Convolutional layers, and before nonlinearity.</li>
-</ol>
-</blockquote>
-</li>
-</ol>
-<h2 id="Convolutional-Neural-Network"><a href="#Convolutional-Neural-Network" class="headerlink" title="Convolutional Neural Network"></a>Convolutional Neural Network</h2><ol>
-<li><p>说说卷及操作的本质。</p>
-<blockquote>
-<ol>
-<li>Sparse Interaction（稀疏交互）： 卷积操作中，每个输出神经元仅仅与前一层特定局部区域的神经元存在连接权重。时间复杂度得到优化，过拟合的情况也得到改善。<center>
 <img style="border-radius: 0.3125em;
-box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="2.png" width="70%" height="70%">
-</center></li>
-<li>Hierarchical feature representation   ：通常来说，图像，文本，语音等现实世界中的数据都是具有局部的特征结构，我们可以先学习局部的特征，再将局部特征组合起来形成更加复杂的和抽象的特征。这与人类视觉感知物体的共通的。</li>
-<li>Parameter Sharing （参数共享）：给定一个 feature map, 我们使用一个 filter 去扫这个 feature map. filter 里面的参数叫权重，这张图里每个位置都是被同样的 filter 扫描的，所以权重是相同的。参数共享的物理意义是使得卷积层具有平移不变性。例如，在猫的图片上先进行 convolution，再平移l 像素输出，与现将图片平移l 像素再进行卷积操作的输出结果是相等的。</li>
-</ol>
-</blockquote>
-</li>
-<li><p>常用的池化操作有哪些？池化的作用是什么？</p>
-<blockquote>
-<p>Mean Pooling 和 Max pooling. 池化操作除了能显著降低参数数量，还能够保持对平移、伸缩、旋转操作的不变性。Mean Pooling 对背景的保留效果较好，Max pooling 对纹理的提取效果更好。<br>特殊的池化方式有，Global Average Pooling，Spatial Pyramid Pooling(空间金字塔池化). Global Average Pooling 可以将 feature map 转换到特定的维度。SPP 主要考虑多尺度信息，例如计算1x1、2x2、4x4的池化并将结果拼接在一起作为下一层的输入。还可以使得我们构建的网络能够输入任意大小的图片，而不需要提前经过裁剪缩放等预处理操作</p>
-</blockquote>
-</li>
-<li><p>CNN 如何用于文本分类任务？</p>
-<blockquote>
-<p>对于文本来说，局部特征就是由若干单词组成的滑动窗口，类似于 N-Gram. CNN 的作用就是能够自动地对 N-gram 特征进行组合和筛选，获得不同抽象层次的语义信息。常用的应用如 char-based model, 把每个char 的 vector concat 在一起，然后使用 conv1d提取特殊的pattern 和 semantic.</p>
-</blockquote>
-</li>
-<li><p>ResNet 的核心理论是什么？</p>
-<blockquote>
-<p>ResNet提出的背景是缓解深层的神经网络中梯度消失的问题。直观来讲，一个 L+1 层的网络不会比 L 层的网络效果差，因为我们简单地设最后一层为一个恒等映射即可。然而实际上深层网络反而会有更大的训练误差，这很大程度上归结于深度神经网络中的梯度消失问题。<br>如下图所示，输入$x$经过两个神经网络变换得到$F(x)$,同时 $x$ 短接到两层之后，最后这个包含两层的神经网络的输出为 $H(x) = F(x) + x$. 这样一来，$F(x)$被设计为只需要拟合x与目标输出H(x)的残差 $H(x) - x$. 如果某一层的效果足够好，那么多加层不会使得模型变差，因为该层的输出短接到了后面的层。</p>
-<center>
- <img style="border-radius: 0.3125em;
- box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="3.png" width="70%" height="70%">
+box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="2.png" width="50%" height="50%">
 </center>
 </blockquote>
 </li>
-<li><p>DenseNet 的核心理论是什么？</p>
+<li><p>GBDT和局限性有哪些？</p>
 <blockquote>
-<p>既将 $x_0$ 到 $l_1$ 层的所有输出feature map 通过 Channel concat在一起.由于在DenseNet中需要对不同层的feature map进行cat操作,所以需要不同层的feature map保持相同的feature size,这就限制了网络中Down sampling的实现.为了使用Down sampling,作者将DenseNet分为多个Denseblock. 在同一个Denseblock中要求feature size保持相同大小,在不同Denseblock之间设置transition layers实现Down sampling, 在作者的实验中transition layer由BN + Conv(1×1) ＋2×2 average-pooling组成.</p>
+<p>GBDT 在高纬度稀疏数据集上，表现不如支持向量机或者神经网络。<br>训练过程需要串行训练。</p>
 </blockquote>
 </li>
-</ol>
-<h2 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h2><ol>
-<li><p>处理文本数据时，循环神经网络与前馈神经网络相比有什么特点？</p>
-<blockquote>
-<p>一个长度为T的序列用RNN建模，展开之后可以看作是一个 T 层的前馈神经网络。其中，第$t$层的隐含状态$h_t$ 编码了序列前$t$个输入信息，可以通过当前的输入$x_t$ 和上一层神经网络的状态$h_{t-1}$计算得到. $h_t$和y的计算公式为:</p>
-<script type="math/tex; mode=display">\left\{ \begin{aligned}
-& net_t = Ux_t + Wh_{t-1} \\
-& h_t = f(net_t) \\
-& y = g(Vh_t)
-\end{aligned}
-\right.</script><p>其中，$f$ 和 $g$ 为激活函数，U 为输入层到隐藏层的权重矩阵，W 为隐藏层从上一时刻到一下时刻状态转移的权重矩阵。在文本分类中，$f$可以选取Tanh函数或者ReLU函数，$g$可以采用 softmax 函数。相比于CNN, RNN 由于具备对序列信息的刻画能力，往往能够得到更准确的结果。</p>
-</blockquote>
-</li>
-<li><p>循环神经网络为什么会出现梯度消失和梯度爆炸？有哪些改进方案？</p>
-<blockquote>
-<p>RNN 求解采用 BPTT(back propagation through time) 算法实现，实际上是 back propagation 算法的变种。使用 BPTT算法学习的RNN 并不能捕捉长距离的依赖关系，这种现象主要源于神经网络中的梯度消失。因为RNN 的梯度可以写成连乘的形式。详细可参考 <a href="https://zhangruochi.com/BackPropagation-through-time/2019/10/12/">https://zhangruochi.com/BackPropagation-through-time/2019/10/12/</a><br>梯度爆照可以通过梯度裁剪来环节，当梯度大于某个给定值时，对梯度进行收缩。梯度消失可通过 LSTM， GRU 等模型加入门控机制来弥补。</p>
-</blockquote>
-</li>
-<li><p>LSTM 是如何实现长短期记忆功能的？</p>
-<blockquote>
-<p><a href="https://zhangruochi.com/LSTM-Mxnet-Implementation/2019/04/13/">https://zhangruochi.com/LSTM-Mxnet-Implementation/2019/04/13/</a><br>经典的 LSTM，第 t 步的更新公式为：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\boldsymbol{I}_t &= \sigma(\boldsymbol{X}_t \boldsymbol{W}_{xi} + \boldsymbol{H}_{t-1} \boldsymbol{W}_{hi} + \boldsymbol{b}_i),\\
-\boldsymbol{F}_t &= \sigma(\boldsymbol{X}_t \boldsymbol{W}_{xf} + \boldsymbol{H}_{t-1} \boldsymbol{W}_{hf} + \boldsymbol{b}_f),\\
-\boldsymbol{O}_t &= \sigma(\boldsymbol{X}_t \boldsymbol{W}_{xo} + \boldsymbol{H}_{t-1} \boldsymbol{W}_{ho} + \boldsymbol{b}_o),\\
-\tilde{\boldsymbol{C}}_t &= \text{tanh}(\boldsymbol{X}_t \boldsymbol{W}_{xc} + \boldsymbol{H}_{t-1} \boldsymbol{W}_{hc} + \boldsymbol{b}_c),\\
-\boldsymbol{C}_t &= \boldsymbol{F}_t \odot \boldsymbol{C}_{t-1} + \boldsymbol{I}_t \odot \tilde{\boldsymbol{C}}_t.
-\end{aligned}</script><p>  与传统的 RNN 相比，LSTM 依然是基于$x_t$和$h_{t-1}$ 来计算$h_t$，只不过对内部的结构进行了更加精心的设计，加入了 input gate $i_t$, forget gate $f_t$, output gate $o_t$. input gate控制当前计算的新状态多大程度更新到当前momery cell 中，forget cell控制前一步的memory cell中的信息有多大程度被遗忘掉，输出门控制当前输出有多程度取决与当前的 memory cell.<br>  当输入的序列中没有重要信息时，LSTM 的遗忘门的值接近于 1，输入门接近于0. 此时过去的记忆会被保留下来，从而实现长期记忆功能。当输入的序列中有重要信息时，LSTM 应当把其存记忆中，此时输入门的值会接近于 1，而遗忘门的值接近于0。经过这样的设计，整个网络更容易学习到序列之间的长期依赖。</p>
-</blockquote>
-</li>
-<li><p>LSTM 里各模块分别适用什么激活函数，可以使用别的激活函数激活吗？</p>
-<blockquote>
-<p>三个门控单元使用Sigmoid作为激活函数,生成候选记忆时，使用tanh作为激活函数。Sigmoid函数的输出在(0, 1)之间，符合门控的物理定义。使用 Tanh函数，是因为其输出在(-1,1)之间，这与大多数场景下特征分布是 0 中心的吻合，此外，Tanh函数在输入为0附近相比Sigmoid函数有更大的梯度，收敛更快。</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="Seq2Seq-模型"><a href="#Seq2Seq-模型" class="headerlink" title="Seq2Seq 模型"></a>Seq2Seq 模型</h2><blockquote>
-<p><a href="https://zhangruochi.com/Attention/2019/12/16/">https://zhangruochi.com/Attention/2019/12/16/</a></p>
-</blockquote>
-<ol>
-<li><p>什么是 Seq2Seq 模型，Seq2Seq 模型有哪些优点？</p>
-<blockquote>
-<p>Seq2Seq模型的核心思想是，通过深度神经网络将输入序列映射为输出序列，这一过程由encoder 与 decoder 两个环节组成。在经典实现中，encoder 和 decoder 都是sequence model. encoder将序列编码成 context vector，decoder 将 context vector 解码成序列。</p>
-<center>
- <img style="border-radius: 0.3125em;
- box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="4.png" width="70%" height="70%">
-</center>
-</blockquote>
-</li>
-<li><p>Seq2Seq 模型在解码时，有哪些常用的办法？</p>
-<blockquote>
-<p>Seq2Seq 最基础的解码方法是贪心法，即选取一种度量标准后，每次都在当前状态下选择最佳的一个结果，知道遇到结束符。但是贪心算法往往只能得到局部最优解。<br><strong>Beam search</strong> 是贪心算法的改进。改方法会保存beam size 个当前较好的选择，然后解码时每一步根据保存的选择进行下一步的扩展和排序，接着选择前b个进行保存，循环迭代，知道结束后选择最佳的一个座位解码结果。</p>
-<center>
- <img style="border-radius: 0.3125em;
- box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="5.png" width="70%" height="70%">
-</center>
-</blockquote>
-</li>
-<li><p>Seq2Seq 引入注意力机制是为了解决什么问题？为什么选用了双向循环神经网络模型？</p>
+<li><p>XGBoost 与 GBDT 的联系和区别？</p>
 <blockquote>
 <ol>
-<li>随着输入序列的增长，Seq2Seq的性能发生显著性下降。这是因为编码时输入序列的全部信息压缩到一个 context vector。随着输入序列的增长，句子越前面的词丢失就越严重。Attention机制的引入就是为了解决这个问题。</li>
-<li>An attention function can be described as mapping a query and a set of key-value pairs to an output, where the query, keys, values, and output are all vectors. The output is computed as a weighted sum of the values, where the weight assigned to each value is computed by a compatibility function of the query with the corresponding key.</li>
-<li>机器翻译中，使用双向RNN是因为当前词的状态不仅决定于这个词之前的词，还决定于这个词之后的词。比如 I was a student two years ago.</li>
-</ol>
-</blockquote>
-</li>
-<li><p>如何计算attention score.</p>
-<blockquote>
-<ol>
-<li>利用RNN结构得到encoder中的hidden state $(h_1,h_2,\cdots, h_n)$</li>
-<li>假设当前decoder的hidden state 是$s_{t-1}$, 我们可以计算每一个输入位置j的 hidden state 与当前输出位置的关联性，$e_{ij} = a(s_{t-1}, h_j)$，其中 [公式] 是一种相关性的算符，例如常见的有dot product. 输出位置与所有的输入位置的关联性写成向量形式有 $\vec{e_t} = a(s_{t-1}, h_i), \cdots, a(s_{t-1}, h_T)$</li>
-<li>对$\vec{e_t}$进行softmax操作，然后将其normalize得到attenion score分布$\alpha_{tj}$</li>
-<li>利用 attention score 得到加权的context vector. $\vec{c_t} =\sum_{j=1}^{T}\alpha_{tj} h_j$<br>将加权的context vector 与 decoder 的 $h_t^{dec}$ 拼接在一起。</li>
+<li>原始的 GBDT 算法基于损失函数的负梯度来构造信贷决策树，只是在决策树构建完成构造新的决策树，只是在决策树构建完成后进行剪枝。而 XGBoost在决策树构建阶段就加入了正则项。</li>
+<li>不同的决策树算法采用不同的准则来进行树的构建，比如 IC3 采用信息增益，C4.5 为了克服特征中取值较多的特征而采用信息增益比， CART 采用基尼系数和平方误差。XGBoost 将预测值带入到损失函数中求得损失函数的当前最小值，然后计算出分裂前后损失函数的差值，利用最大化这个差值来作为准则完成树的构建。<br>总的来说，两者的区别和联系可以总结为:<br>a. GBDT是机器学习算法，XGBoost 是其工程实现。<br>b. 在使用 CART 作为基分类器时，XGBoost 显式加入正则项来控制模型的复杂度，有利于防止过拟合。<br>c. GBDT在模型训练时只使用了代价函数的一阶导数信息，XGBoost对代价函数进行二阶泰勒展开，可以同时使用一阶和二阶导数。<br>d. 传统的 GBDT 采用 CART 作为基分类器，XGBoost 支持多种基分类器。<br>e. 传统的 GBDT 在每轮迭代时使用全部的数据，XGBoost 则采用了与随机森林相似的策略，支持对数据进行采样。<br>f. XGBoost能够自动学习出缺失值的处理策略</li>
 </ol>
 </blockquote>
 </li>
@@ -678,8 +614,8 @@ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ML-Interview-Part5/2020/05/27/" rel="next" title="ML-Interview-Part5">
-                <i class="fa fa-chevron-left"></i> ML-Interview-Part5
+              <a href="/ML-Interview-Deep-Learning/2020/05/27/" rel="next" title="ML-Interview-Deep-Learning">
+                <i class="fa fa-chevron-left"></i> ML-Interview-Deep-Learning
               </a>
             
           </div>
@@ -688,8 +624,8 @@ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ML-Interview-Part7/2020/05/28/" rel="prev" title="ML-Interview-Part7">
-                ML-Interview-Part7 <i class="fa fa-chevron-right"></i>
+              <a href="/ML-Interview-Natural-Language-Processing/2020/05/28/" rel="prev" title="ML-Interview-Natural-Language-Processing">
+                ML-Interview-Natural-Language-Processing <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -807,7 +743,7 @@ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">233</span>
+                  <span class="site-state-item-count">234</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -903,7 +839,7 @@ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#激活函数"><span class="nav-text">激活函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络训练技巧"><span class="nav-text">神经网络训练技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Convolutional-Neural-Network"><span class="nav-text">Convolutional Neural Network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环神经网络"><span class="nav-text">循环神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Seq2Seq-模型"><span class="nav-text">Seq2Seq 模型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#集成学习"><span class="nav-text">集成学习</span></a></li></ol></div>
             
 
           </div>

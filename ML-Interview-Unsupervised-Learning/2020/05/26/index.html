@@ -126,20 +126,20 @@
 
 
 
-<meta name="description" content="集成学习,Bagging,Boosting, Bias,Variance">
+<meta name="description" content="无监督学习，K-Means，DBSCANS，Birch，GMM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ML-Interview-Part7">
-<meta property="og:url" content="https://zhangruochi.com/ML-Interview-Part7/2020/05/28/index.html">
+<meta property="og:title" content="ML-Interview-Unsupervised-Learning">
+<meta property="og:url" content="https://zhangruochi.com/ML-Interview-Unsupervised-Learning/2020/05/26/index.html">
 <meta property="og:site_name" content="RUOCHI.AI">
-<meta property="og:description" content="集成学习,Bagging,Boosting, Bias,Variance">
+<meta property="og:description" content="无监督学习，K-Means，DBSCANS，Birch，GMM">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Part7/2020/05/28/1.png">
-<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Part7/2020/05/28/2.png">
-<meta property="og:updated_time" content="2020-05-28T06:20:29.114Z">
+<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Unsupervised-Learning/2020/05/26/1.png">
+<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Unsupervised-Learning/2020/05/26/2.png">
+<meta property="og:updated_time" content="2020-05-28T22:49:19.611Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ML-Interview-Part7">
-<meta name="twitter:description" content="集成学习,Bagging,Boosting, Bias,Variance">
-<meta name="twitter:image" content="https://zhangruochi.com/ML-Interview-Part7/2020/05/28/1.png">
+<meta name="twitter:title" content="ML-Interview-Unsupervised-Learning">
+<meta name="twitter:description" content="无监督学习，K-Means，DBSCANS，Birch，GMM">
+<meta name="twitter:image" content="https://zhangruochi.com/ML-Interview-Unsupervised-Learning/2020/05/26/1.png">
 
 
 
@@ -169,13 +169,13 @@
 
 
 
-  <link rel="canonical" href="https://zhangruochi.com/ML-Interview-Part7/2020/05/28/">
+  <link rel="canonical" href="https://zhangruochi.com/ML-Interview-Unsupervised-Learning/2020/05/26/">
 
 
 
 
 
-  <title>ML-Interview-Part7 | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>ML-Interview-Unsupervised-Learning | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -352,7 +352,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/ML-Interview-Part7/2020/05/28/">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/ML-Interview-Unsupervised-Learning/2020/05/26/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
@@ -369,7 +369,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">ML-Interview-Part7</h2>
+          <h2 class="post-title" itemprop="name headline">ML-Interview-Unsupervised-Learning</h2>
         
 
         <div class="post-meta">
@@ -384,8 +384,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-28T10:07:46+08:00">
-                2020-05-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-26T09:14:23+08:00">
+                2020-05-26
               </time>
             
 
@@ -436,8 +436,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/ML-Interview-Part7/2020/05/28/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/ML-Interview-Part7/2020/05/28/" itemprop="commentCount"></span>
+                <a href="/ML-Interview-Unsupervised-Learning/2020/05/26/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/ML-Interview-Unsupervised-Learning/2020/05/26/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -457,7 +457,7 @@
 
           
               <div class="post-description">
-                  集成学习,Bagging,Boosting, Bias,Variance
+                  无监督学习，K-Means，DBSCANS，Birch，GMM
               </div>
           
 
@@ -474,112 +474,96 @@
       
 
       
-        <h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><ol>
-<li><p>集成学习分哪几种，他们有何异同？</p>
+        <h2 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h2><center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="1.png" width="100%" height="100%">
+</center>
+
+<h3 id="K-Means"><a href="#K-Means" class="headerlink" title="K-Means"></a>K-Means</h3><ol>
+<li><p>简述 K-Means算法的具体步骤<br>输入是样本集$D=\{x_1,x_2,…x_m\}$,聚类的簇树k,最大迭代次数N。输出是簇划分$C=\{C_1,C_2,…C_k\}$</p>
 <blockquote>
 <ol>
-<li>Boosting: 采用串行的方式，各个基础分类器之间有依赖。它的基本思路是将基分类器层层叠加，每一层在训练的时候，对前一层基分类器分错的样本，给予更高的权重。测试时，根据各层分类器的结果的加权得到最终的结果。</li>
-<li>Bagging: 采用并行的方式，各个基分类器之间无依赖。其中比较著名的算法之一是基于决策树的随机森林。为了让及分类器之间互相独立，将训练集分成若干子集（当训练样本较少时，子集之间有重叠）。在最终的决策阶段，每个个体单独做出判断，然后通过投票的方式做出最后的集体决策。</li>
+<li>数据预处理,如归一化、离群点处理等<br>2.从数据集D中随机选择k个样本作为初始的k个质心向量：$\{\mu_1,\mu_2,…,\mu_k\}$</li>
+<li>对于n=1,2,…,N<ul>
+<li>将簇划分C初始化为 $C_t = \varnothing \;\; t =1,2…k$</li>
+<li>计算样本$x_i$和各个质心向量$\mu_j(j=1,2,…k)$的距离: $d_{ij} = ||x_i - \mu_j||_2^2$，将$x_i$标记最小的为$d_{ij}$所对应的类别$\lambda_i$, 此时更新 $C_{\lambda_i} = C_{\lambda_i} \cup \{x_i\}$</li>
+<li>对于j=1,2,…,k,对 $C_j$中所有的样本点重新计算新的质心$\mu_j = \frac{1}{|C_j|}\sum\limits_{x \in C_j}x$</li>
+<li>如果所有的k个质心向量都没有发生变化，则转到步骤3）</li>
+</ul>
+</li>
+<li>输出簇划分$C=\{C_1,C_2,…C_k\}$</li>
 </ol>
 </blockquote>
 </li>
-<li><p>集成学习是如何提高基分类器的性能的？</p>
+<li><p>简述K-Means++与 K-Means的区别</p>
 <blockquote>
-<p>基分类器的误差，是方差和偏差两种错误之和。偏差源于underfitting，方差源于overfitting. Boosting 方法通过逐步聚焦于基分类器分错的样本，减少集成分类器的偏差。Bagging通过对训练样本进行多次采样，分别训练多个不同的模型，然后做综合，来减少分类器的方差。</p>
-</blockquote>
-</li>
-<li><p>集成学习的有哪些基本步骤？请以 Adaboosting 来举例。</p>
-<blockquote>
+<p>K-Means中k个初始化的质心的位置选择对最后的聚类结果和运行时间都有很大的影响，因此需要选择合适的k个质心。如果仅仅是完全随机的选择，有可能导致算法收敛很慢。K-Means++算法就是对K-Means随机初始化质心的方法的优化。K-Means++的对于初始化质心的优化策略也很简单，如下：</p>
 <ol>
-<li>initialize equal weights for all samples<script type="math/tex; mode=display">\alpha_{i} = \frac{1}{N}</script></li>
-<li>Repeat t = 1,…,T<ul>
-<li>learn $f_{t}(x)$ with data weights $\alpha_{i}$</li>
-<li>compute weighted error<script type="math/tex; mode=display">weighted_{error_{t}} = \sum_{i=1}^{m}\alpha_{i}I(y_{i} \neq f_{t}(x_{i}))</script></li>
-<li>compute coefficient <script type="math/tex; mode=display">\hat{w_{t}} = \frac{1}{2}\ln(\frac{1 - weighted_{error_{t}} }{weighted_{error_{t}}})</script><ul>
-<li>$\hat{w_{t}}$ is higher when weighted_error is larger</li>
-</ul>
-</li>
-<li>recomputed weights $\alpha_{i}$<script type="math/tex; mode=display">\alpha_{i} =  
-    \begin{equation}
-    \left\{ 
-    \begin{array}{lr}
-      \alpha_{i}e^{-\hat{w_{t}}} \quad if \ f_t(x_i) = y_i & \\ 
-      \alpha_{i}e^{\hat{w_{t}}}  \quad if \ f_t(x_i) \neq y_i  &
-     \end{array}
-     \right.
-     \end{equation}</script></li>
-<li>Normalize weights $\alpha_{i}$<ul>
-<li>if $x_{i}$ often mistake, weight $\alpha_{i}$ gets very large</li>
-<li>if $x_{i}$ often correct, weight $\alpha_{i}$ gets very small<script type="math/tex; mode=display">\alpha_{i} = \frac{\alpha_{i}}{\sum_{i}^{m}\alpha_{i}}</script></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>In the testing time, the final prediction is:<script type="math/tex; mode=display">\hat{y_{t}} = sign( \sum_1^T \hat{w_{t}} f_t(x) )</script></li>
+<li>从输入的数据点集合中随机选择一个点作为第一个聚类中心$u_1$</li>
+<li>对于数据集中的每一个点$x_i$,计算它与已选择的聚类中心中最近聚类中心的距离<script type="math/tex; mode=display">D(x_i) = arg\;min||x_i- \mu_r||_2^2\;\;r=1,2,...k_{selected}</script></li>
+<li>选择一个新的数据点作为新的聚类中心，选择的原则是：$D(x)$较大的点，被选取作为聚类中心的概率较大.</li>
+<li>重复b和c直到选择出k个聚类质心</li>
+<li>利用这k个质心来作为初始化质心去运行标准的K-Means算法</li>
 </ol>
 </blockquote>
 </li>
-<li><p>常用的基分类器是什么？</p>
+<li><p>K-Means均值算法的缺点是什么？</p>
 <blockquote>
-<p>常用决策树作为基分类器，主要有以下几方面的原因</p>
 <ol>
-<li>决策树的表达能力和泛化能力，可以通过调节树的层数来方便实现。</li>
-<li>数据样本的扰动对于决策树的影响较大，因此不同子样本集合生成的决策树随机性较大，这样”不稳定的学习器”更适合作为基分类器。</li>
-<li>决策树在节点分裂时，随机地选择一个特征子集，从中找出最优分裂特征，很好地引入了随机性。<br>神经网络模型也适合作为基分类器，因为神经网络也是比较”不稳定的”。还可以通过调整神经元的数量，连接方式，网络层数，初始权重引入随机性。</li>
+<li>K值的选取不好把握</li>
+<li>对于不是凸的或者球形的数据集比较难收敛</li>
+<li>如果各隐含类别的数据不平衡，比如各隐含类别的数据量严重失衡，或者各隐含类别的方差不同，则聚类效果不佳。</li>
+<li>采用迭代方法，得到的结果只是局部最优。</li>
+<li>对噪音和异常点比较的敏感。</li>
 </ol>
 </blockquote>
 </li>
-<li><p>在随机森林中，可否使用线性分类器或者K-近邻作为基分类器？</p>
+<li><p>如何选取 K-Means 的 K 值？</p>
 <blockquote>
-<p>随机森林是属于 Bagging类的集成学习。Bagging的主要好处是集成后的分类器的方差，比基分类器的反差小。Bagging 所采用的基分类器，最好是本身不稳定的分类器，这样才能获得更优的性能。线性分类器或者K-近邻都是较为稳定的分类器，本身反差就不大，所以不适合。</p>
+<p>K 值的选择一般基于经验和多次试验结果。比如可以采用手肘法，我们可以尝试不同的 K 值，并将不同的 K 值所对应的损失函数画成折线。拐点就是 K 的最佳值。</p>
 </blockquote>
 </li>
-<li><p>什么是bias 什么是 variance?</p>
+<li><p>什么是 Kernel K- Means ?</p>
 <blockquote>
-<p>Bias 是 underfitting 造成的。Bias是指由所有采样得到的大小为m的训练数据训练出的所有模型的输出的平均值和真实模型输出之间的偏差。<br>Variance 是 overfitting 造成的。Variance是之由所有采样得到的大小为m的训练数据集训练出的所有模型的输出方差。</p>
-<center>
+<p>还童的欧式距离度量方式，使得 K 均值算法本质上假设了各个数据簇的数据呈现球形或者高维球形，这种分布在实际生活中不常见。面对非凸的数据分布时，引入核函数来进行非线性映射，将输入空间中的数据点映射到高维的特征空间，并在新的特征中空间进行聚类。非线性映射增加了数据点线性可分的概率。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="DBSCANS-（密度聚类）"><a href="#DBSCANS-（密度聚类）" class="headerlink" title="DBSCANS （密度聚类）"></a>DBSCANS （密度聚类）</h3><blockquote>
+<p><a href="https://zhangruochi.com/DBSCAN-Clustering/2020/04/14/">https://zhangruochi.com/DBSCAN-Clustering/2020/04/14/</a></p>
+</blockquote>
+<h3 id="Birch-层次聚类"><a href="#Birch-层次聚类" class="headerlink" title="Birch (层次聚类)"></a>Birch (层次聚类)</h3><ol>
+<li>什么是层次聚类? 层次聚类的步骤是什么？<blockquote>
+<p>层次聚类不指定具体的簇数，而只关注簇之间的远近，最终会形成一个树形图。<br><center>
  <img style="border-radius: 0.3125em;
- box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="1.png" width="50%" height="50%">
-</center>
-</blockquote>
-</li>
-<li><p>GBDT的基本原理是什么？</p>
-<blockquote>
-<p>Gradient Boosting 是 Boosting 中的一大类算法，其基本思想是根据当前模型损失函数的负梯度信息来训练新加入的弱分类器，然后将训练好的的弱分类器以累加的形式结合到现有模型中。</p>
-</blockquote>
-</li>
-<li><p>GBDT 和 Adatboost 的关系和区别是什么？</p>
-<blockquote>
-<p>和AdaBoost一样，Gradient Boosting也是重复选择一个表现一般的模型并且每次基于先前模型的表现进行调整。不同的是，AdaBoost是通过提升错分数据点的权重来定位模型的不足而Gradient Boosting是通过算梯度（gradient）来定位模型的不足。因此相比AdaBoost, Gradient Boosting可以使用更多种类的目标函数,而当目标函数是均方误差时，计算损失函数的负梯度值在当前模型的值即为残差。当目标函数不是 square loss 时残差并不一定等于负梯度。Adaboost 是 GBDT 的一个特例，GBDT 是 Adaboost的推广。</p>
-<script type="math/tex; mode=display">\left\{ \begin{aligned}
-& L(y_i, F(x_i)) = \frac{1}{2} * (y_i - F(x_i))^2 \\
-& - \frac{\partial(y_i, F(x_i))}{\partial F(x_i)} = (y_i - F(x_i))
-\end{aligned}\right.</script></blockquote>
-</li>
-<li><p>GBDT 为什么要拟合上一次模型的负梯度？</p>
-<blockquote>
-<p>我们要拟合损失函数的负梯度，可以看做拟合一个方向为负梯度方向，步长为单位长度的值，所以拟合的过程相当于我们沿着负梯度方向走了一个步长，具体走多少步（多少步可以理解为训练多少个决策树来拟合该分类器，使得损失函数最低）达到终止的条件，即走到最优点的附近。</p>
-</blockquote>
-</li>
-<li><p>梯度提升和梯度下降的区别和联系？</p>
-<blockquote>
-<p>两者都是在每一轮迭代中，利用损失函数相对于模型的负梯度方向信息来对当前模型进行更新。在梯度下降中，模型是以参数化形式表示，从而模型的更新等价于参数的更新。在梯度提升中，模型并不需要进行参数化表示，而是直接定义在函数空间中。</p>
-<center>
-<img style="border-radius: 0.3125em;
-box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="2.png" width="50%" height="50%">
-</center>
-</blockquote>
-</li>
-<li><p>GBDT和局限性有哪些？</p>
-<blockquote>
-<p>GBDT 在高纬度稀疏数据集上，表现不如支持向量机或者神经网络。<br>训练过程需要串行训练。</p>
-</blockquote>
-</li>
-<li><p>XGBoost 与 GBDT 的联系和区别？</p>
-<blockquote>
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="2.png" width="100%" height="100%">
+</center><br>根据聚类簇之间距离的计算方法的不同，层次聚类算法可以大致分为：单链接（Single-link）算法，全链接算法（complete-link）或均链接算法（average-link）。单链接算法用两个聚类簇中最近的样本距离作为两个簇之间的距离；而全链接使用计算两个聚类簇中最远的样本距离；均链接算法中两个聚类之间的距离由两个簇中所有的样本共同决定。</p>
 <ol>
-<li>原始的 GBDT 算法基于损失函数的负梯度来构造信贷决策树，只是在决策树构建完成构造新的决策树，只是在决策树构建完成后进行剪枝。而 XGBoost在决策树构建阶段就加入了正则项。</li>
-<li>不同的决策树算法采用不同的准则来进行树的构建，比如 IC3 采用信息增益，C4.5 为了克服特征中取值较多的特征而采用信息增益比， CART 采用基尼系数和平方误差。XGBoost 将预测值带入到损失函数中求得损失函数的当前最小值，然后计算出分裂前后损失函数的差值，利用最大化这个差值来作为准则完成树的构建。<br>总的来说，两者的区别和联系可以总结为:<br>a. GBDT是机器学习算法，XGBoost 是其工程实现。<br>b. 在使用 CART 作为基分类器时，XGBoost 显式加入正则项来控制模型的复杂度，有利于防止过拟合。<br>c. GBDT在模型训练时只使用了代价函数的一阶导数信息，XGBoost对代价函数进行二阶泰勒展开，可以同时使用一阶和二阶导数。<br>d. 传统的 GBDT 采用 CART 作为基分类器，XGBoost 支持多种基分类器。<br>e. 传统的 GBDT 在每轮迭代时使用全部的数据，XGBoost 则采用了与随机森林相似的策略，支持对数据进行采样。<br>f. XGBoost能够自动学习出缺失值的处理策略</li>
+<li>每一个样本点视为一个簇；</li>
+<li>计算各个簇之间的距离，最近的两个簇聚合成一个新簇；</li>
+<li>重复以上过程直至最后只有一簇。</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<h3 id="Gaussian-Mixed-Model-概率聚类"><a href="#Gaussian-Mixed-Model-概率聚类" class="headerlink" title="Gaussian Mixed Model (概率聚类)"></a>Gaussian Mixed Model (概率聚类)</h3><blockquote>
+<p><a href="https://zhangruochi.com/Gaussian-Mixed-Model-Introduction/2020/03/15/">https://zhangruochi.com/Gaussian-Mixed-Model-Introduction/2020/03/15/</a></p>
+</blockquote>
+<ol>
+<li>高斯混合模型的核心思想是什么？它是如何迭代计算的？<blockquote>
+<p>高斯混合模型假设数据可以看作是从多个高斯分布中生成出来的。求解步骤如下:</p>
+<ol>
+<li>E step: 根据当前参数，计算每个点属于各个高斯分布的概率</li>
+<li>M step: 使用上述 E step 求得的概率，计算每个高斯分布的加权平均参数。</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<h3 id="聚类算法的评估"><a href="#聚类算法的评估" class="headerlink" title="聚类算法的评估"></a>聚类算法的评估</h3><ol>
+<li>以聚类算法为例，假设没有外部标签数据，如何评估两个聚类算法的优劣？<blockquote>
+<p>在无监督的情况下，我们可通过考察簇的分离情况和簇的紧凑情况来评估聚类的效果。</p>
+<ol>
+<li>轮廓系数：给定一个点p，改点的轮廓系数定义为<script type="math/tex; mode=display">s(p) = \frac{b(p) - a(p)}{max{a(p), b(p)}}</script>其中，$a(p)$是点$p$与同一簇中其他点$p\prime$之间的平均距离；$b(p)$是点$p$与另一不同簇中的点之间的最小平均距离（如果有n个簇，则只计算和点p最接近的一簇中的点与该点的平均距离). $a(p)$反应的是$p$所属的簇中数据的紧密程度，$b(p)$反应的是该簇与其他临近簇的分离程度。显然，$b(p)$越大，$a(p)$越小，对应的聚类的质量越好。</li>
 </ol>
 </blockquote>
 </li>
@@ -606,8 +590,8 @@ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ML-Interview-Part6/2020/05/27/" rel="next" title="ML-Interview-Part6">
-                <i class="fa fa-chevron-left"></i> ML-Interview-Part6
+              <a href="/ML-Interview-Decomposition/2020/05/26/" rel="next" title="ML-Interview-Decomposition">
+                <i class="fa fa-chevron-left"></i> ML-Interview-Decomposition
               </a>
             
           </div>
@@ -616,8 +600,8 @@ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ML-Interview-Part8/2020/05/28/" rel="prev" title="ML-Interview-Part8">
-                ML-Interview-Part8 <i class="fa fa-chevron-right"></i>
+              <a href="/ML-Interview-Optimization/2020/05/27/" rel="prev" title="ML-Interview-Optimization">
+                ML-Interview-Optimization <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -735,7 +719,7 @@ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">233</span>
+                  <span class="site-state-item-count">234</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -831,7 +815,7 @@ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#集成学习"><span class="nav-text">集成学习</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#无监督学习"><span class="nav-text">无监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#K-Means"><span class="nav-text">K-Means</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DBSCANS-（密度聚类）"><span class="nav-text">DBSCANS （密度聚类）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Birch-层次聚类"><span class="nav-text">Birch (层次聚类)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gaussian-Mixed-Model-概率聚类"><span class="nav-text">Gaussian Mixed Model (概率聚类)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚类算法的评估"><span class="nav-text">聚类算法的评估</span></a></li></ol></li></ol></div>
             
 
           </div>

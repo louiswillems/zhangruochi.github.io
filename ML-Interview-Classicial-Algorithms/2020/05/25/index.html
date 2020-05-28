@@ -126,20 +126,19 @@
 
 
 
-<meta name="description" content="无监督学习，K-Means，DBSCANS，Birch，GMM">
+<meta name="description" content="SVM, Logistic Regression, Decision Tree">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ML-Interview-Part4">
-<meta property="og:url" content="https://zhangruochi.com/ML-Interview-Part4/2020/05/26/index.html">
+<meta property="og:title" content="ML-Interview-Classicial-Algorithms">
+<meta property="og:url" content="https://zhangruochi.com/ML-Interview-Classicial-Algorithms/2020/05/25/index.html">
 <meta property="og:site_name" content="RUOCHI.AI">
-<meta property="og:description" content="无监督学习，K-Means，DBSCANS，Birch，GMM">
+<meta property="og:description" content="SVM, Logistic Regression, Decision Tree">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Part4/2020/05/26/1.png">
-<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Part4/2020/05/26/2.png">
-<meta property="og:updated_time" content="2020-05-26T23:04:50.211Z">
+<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Classicial-Algorithms/2020/05/25/1.png">
+<meta property="og:updated_time" content="2020-05-28T22:48:42.711Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ML-Interview-Part4">
-<meta name="twitter:description" content="无监督学习，K-Means，DBSCANS，Birch，GMM">
-<meta name="twitter:image" content="https://zhangruochi.com/ML-Interview-Part4/2020/05/26/1.png">
+<meta name="twitter:title" content="ML-Interview-Classicial-Algorithms">
+<meta name="twitter:description" content="SVM, Logistic Regression, Decision Tree">
+<meta name="twitter:image" content="https://zhangruochi.com/ML-Interview-Classicial-Algorithms/2020/05/25/1.png">
 
 
 
@@ -169,13 +168,13 @@
 
 
 
-  <link rel="canonical" href="https://zhangruochi.com/ML-Interview-Part4/2020/05/26/">
+  <link rel="canonical" href="https://zhangruochi.com/ML-Interview-Classicial-Algorithms/2020/05/25/">
 
 
 
 
 
-  <title>ML-Interview-Part4 | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>ML-Interview-Classicial-Algorithms | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -352,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/ML-Interview-Part4/2020/05/26/">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/ML-Interview-Classicial-Algorithms/2020/05/25/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ruochi Zhang">
@@ -369,7 +368,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">ML-Interview-Part4</h2>
+          <h2 class="post-title" itemprop="name headline">ML-Interview-Classicial-Algorithms</h2>
         
 
         <div class="post-meta">
@@ -384,8 +383,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-26T09:14:23+08:00">
-                2020-05-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-25T08:28:33+08:00">
+                2020-05-25
               </time>
             
 
@@ -436,8 +435,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/ML-Interview-Part4/2020/05/26/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/ML-Interview-Part4/2020/05/26/" itemprop="commentCount"></span>
+                <a href="/ML-Interview-Classicial-Algorithms/2020/05/25/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/ML-Interview-Classicial-Algorithms/2020/05/25/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -457,7 +456,7 @@
 
           
               <div class="post-description">
-                  无监督学习，K-Means，DBSCANS，Birch，GMM
+                  SVM, Logistic Regression, Decision Tree
               </div>
           
 
@@ -474,97 +473,113 @@
       
 
       
-        <h2 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h2><center>
+        <h2 id="经典算法"><a href="#经典算法" class="headerlink" title="经典算法"></a>经典算法</h2><h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h3><blockquote>
+<p>参考 <a href="https://zhuanlan.zhihu.com/p/35755150" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/35755150</a></p>
+</blockquote>
+<p>SVM的基本型：</p>
+<script type="math/tex; mode=display">min_{w,b} = \frac{1}{2} ||w||^{2}</script><script type="math/tex; mode=display">s.t. \quad y_i(w^T x_i + b) \leq 1, i=1,2,3...m</script><ol>
+<li><p>空间上线性可分的两点，分别向svm的超平面做投影，投影的点在超平面上依然线性可分吗？</p>
+<blockquote>
+<p>一定线性不可分</p>
+</blockquote>
+</li>
+<li><p>硬间隔和软间隔是指什么？</p>
+<blockquote>
+<p>SVM的基本形态是一个硬间隔分类器，它要求所有样本都满足硬间隔约束(即函数间隔要大于1)，所以当数据集有噪声点时，SVM为了把噪声点也划分正确，超平面就会向另外一个类的样本靠拢，这就使得划分超平面的几何间距变小，降低模型的泛化性能。除此之外，当噪声点混入另外一个类时，对于硬间隔分类器而言，这就变成了一个线性不可分的问题，于是就使用核技巧，通过将样本映射到高维特征空间使得样本线性可分，这样得到一个复杂模型，并由此导致过拟合（原样本空间得到的划分超平面会是弯弯曲曲的，它确实可以把所有样本都划分正确，但得到的模型只对训练集有效）。<br>为了解决上述问题，SVM通过引入松弛变量构造了软间隔分类器，它允许分类器对一些样本犯错，允许一些样本不满足硬间隔约束条件，这样做可以避免SVM分类器过拟合，于是也就避免了模型过于复杂，降低了模型对噪声点的敏感性，提升了模型的泛化性能。<br>因为松弛变量是非负的，因此样本的函数间隔可以比1小。函数间隔比1小的样本被叫做离群点，我们放弃了对离群点的精确分类，这对我们的分类器来说是种损失。但是放弃这些点也带来了好处，那就是超平面不必向这些点的方向移动，因而可以得到更大的几何间隔（在低维空间看来，分类边界也更平滑）。显然我们必须权衡这种损失和好处。</p>
+</blockquote>
+</li>
+<li><p>松弛变量和惩罚因子是什么？</p>
+<blockquote>
+<p>松弛变量：松弛变量表示样本离群的程度，松弛变量越大，离群越远，松弛变量为零，则样本没有离群。<br>惩罚因子：惩罚因子表示我们有多重视离群点带来的损失，当C取无穷大时，会迫使超平面将所有的样本都划分正确，这就退化成了硬间隔分类器。</p>
+</blockquote>
+</li>
+<li><p>拉格朗日乘子法是什么？</p>
+<blockquote>
+<p>拉格朗日乘数法是一种优化算法，主要运用于解决优化问题，它的基本思想就是用拉格朗日乘子构造一个新的优化函数将原本的约束优化问题转换成等价的无约束优化问题。</p>
+</blockquote>
+</li>
+<li><p>什么是对偶问题?</p>
+<blockquote>
+<p>常一个优化问题可以从两个角度来考虑，即主问题(primal problem)和对偶问题(dual problem)。在约束最优化问题中，常常利用拉格朗日对偶性将原始问题（主问题）转换成对偶问题，通过解对偶问题来得到原始问题的解。这样做是因为对偶问题的复杂度往往低于主问题。</p>
+</blockquote>
+</li>
+<li><p>什么是 kernel trick?</p>
+<blockquote>
+<p>$x_i$ 和 $x_j$ 在特征空间的內积等于它们在原始的样本空间通过 $k(x_i,x_j)$ 计算的结果。有了这样的函数，我们不必去计算高维甚至无穷维特征空间中的內积。 d<br>SVM 基本式的对偶问题为: </p>
+<script type="math/tex; mode=display">max_{\alpha} \sum_{i=1}^{m}\alpha_{i} - \frac{1}{2}\sum_{i=1}^{m}\sum_{j=1}^{m}\alpha_{i}\alpha_{j}y_i y_j \Phi{x_i}^{T}\Phi_{x_j}</script><script type="math/tex; mode=display">s.t. \sum_{i=1}^{m}\alpha_i y_i = 0</script><script type="math/tex; mode=display">\alpha_i \geq 0, i = 1,2,...,m.</script></blockquote>
+</li>
+</ol>
+<center>
     <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="1.png" width="100%" height="100%">
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="1.png" width="70%" height="70%">
 </center>
 
-<h3 id="K-Means"><a href="#K-Means" class="headerlink" title="K-Means"></a>K-Means</h3><ol>
-<li><p>简述 K-Means算法的具体步骤<br>输入是样本集$D=\{x_1,x_2,…x_m\}$,聚类的簇树k,最大迭代次数N。输出是簇划分$C=\{C_1,C_2,…C_k\}$</p>
+
+<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><ol>
+<li><p>什么是逻辑回归？</p>
+<blockquote>
+<p>对数几率回归。对逻辑回归的公式进行整理，得到:</p>
+<script type="math/tex; mode=display">log\frac{p}{1-p} = \theta^{T}x</script><script type="math/tex; mode=display">p = P(y=1 | x)</script><p>逻辑回归通过极大似然来得到最佳参数</p>
+<script type="math/tex; mode=display">L(\theta) = \prod_{i:y_{i}=1}p(x_{i})\prod_{i^{\prime}:y_{i^{\prime}}=0}(1-p(x_{i^{\prime}}))</script></blockquote>
+</li>
+<li><p>使用逻辑回归处理多标签的分类问题时，有哪些常用做法？</p>
 <blockquote>
 <ol>
-<li>数据预处理,如归一化、离群点处理等<br>2.从数据集D中随机选择k个样本作为初始的k个质心向量：$\{\mu_1,\mu_2,…,\mu_k\}$</li>
-<li>对于n=1,2,…,N<ul>
-<li>将簇划分C初始化为 $C_t = \varnothing \;\; t =1,2…k$</li>
-<li>计算样本$x_i$和各个质心向量$\mu_j(j=1,2,…k)$的距离: $d_{ij} = ||x_i - \mu_j||_2^2$，将$x_i$标记最小的为$d_{ij}$所对应的类别$\lambda_i$, 此时更新 $C_{\lambda_i} = C_{\lambda_i} \cup \{x_i\}$</li>
-<li>对于j=1,2,…,k,对 $C_j$中所有的样本点重新计算新的质心$\mu_j = \frac{1}{|C_j|}\sum\limits_{x \in C_j}x$</li>
-<li>如果所有的k个质心向量都没有发生变化，则转到步骤3）</li>
-</ul>
-</li>
-<li>输出簇划分$C=\{C_1,C_2,…C_k\}$</li>
+<li>如果一个样本只对应一个标签，那么可以使用 sofmax regression</li>
+<li>当存在样本属于多个标签的情况，可以训练$i$个分类器，第$i$个分类器用以区分每个样本是否可以归为第i类。可以训练 softmax regression. 设定一个 threshold，判断每个类别的概率是否高于 threshold.</li>
 </ol>
 </blockquote>
 </li>
-<li><p>简述K-Means++与 K-Means的区别</p>
+</ol>
+<h3 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h3><ol>
+<li><p>决策树有哪些启发函数？</p>
 <blockquote>
-<p>K-Means中k个初始化的质心的位置选择对最后的聚类结果和运行时间都有很大的影响，因此需要选择合适的k个质心。如果仅仅是完全随机的选择，有可能导致算法收敛很慢。K-Means++算法就是对K-Means随机初始化质心的方法的优化。K-Means++的对于初始化质心的优化策略也很简单，如下：</p>
-<ol>
-<li>从输入的数据点集合中随机选择一个点作为第一个聚类中心$u_1$</li>
-<li>对于数据集中的每一个点$x_i$,计算它与已选择的聚类中心中最近聚类中心的距离<script type="math/tex; mode=display">D(x_i) = arg\;min||x_i- \mu_r||_2^2\;\;r=1,2,...k_{selected}</script></li>
-<li>选择一个新的数据点作为新的聚类中心，选择的原则是：$D(x)$较大的点，被选取作为聚类中心的概率较大.</li>
-<li>重复b和c直到选择出k个聚类质心</li>
-<li>利用这k个质心来作为初始化质心去运行标准的K-Means算法</li>
-</ol>
+<p>ID3（最大信息增益） 计算每个特征的信息增益，然后选择信息增益最大的特征来划分样本，完成决策树的增长。<br>C4.5（最大信息增益比）。<br>CART(最大基尼指数)</p>
 </blockquote>
 </li>
-<li><p>K-Means均值算法的缺点是什么？</p>
+<li><p>信息熵、信息增益、信息增益比、最大基尼系数是什么？</p>
 <blockquote>
 <ol>
-<li>K值的选取不好把握</li>
-<li>对于不是凸的或者球形的数据集比较难收敛</li>
-<li>如果各隐含类别的数据不平衡，比如各隐含类别的数据量严重失衡，或者各隐含类别的方差不同，则聚类效果不佳。</li>
-<li>采用迭代方法，得到的结果只是局部最优。</li>
-<li>对噪音和异常点比较的敏感。</li>
+<li><strong>信息熵</strong> 是度量样本集合不确定度（纯度）的最常用的指标。<br>当前样本集合 D 中第 k 类样本所占的比例为 pk ，则 D 的信息熵定义为<script type="math/tex; mode=display">Ent(D) = - \sum_{K=1}^{|y|}p_k log_2^{p_k}</script></li>
+<li><strong>信息增益</strong> 表示得知属性 a 的信息而使得样本集合不确定度减少的程度<br>假设离散属性 a 有 V 个可能的取值 {a1,a2,…,aV}；样本集合中，属性 a 上取值为 av 的样本集合，记为 Dv。<script type="math/tex; mode=display">Gain(D,a) = Ent(D) - \sum_{v=1}^{V}\frac{D^v}{D}Ent(D^v)</script>信息增益率 = 信息增益/IV(a),说明信息增益率是信息增益除了一个属性a的固有值得来的。<script type="math/tex; mode=display">IV(a) = -sum_{v=1}^{v}\frac{D^v}{D}log_2\frac{D^v}{D}</script><strong>Gini</strong>描述的是数据的纯度<script type="math/tex; mode=display">Gini(D) = 1 - sum_{k=1}^{n}(\frac{|C_k|}{|D|})^2</script>特征 A 的 Gini指数定义为:<script type="math/tex; mode=display">Gini(D|A) = \sum_{i=1}^{n}\frac{|D_i|}{|D|}Gini(D_i)</script></li>
 </ol>
 </blockquote>
 </li>
-<li><p>如何选取 K-Means 的 K 值？</p>
+<li><p>ID3,C4.5,CART 各自的优缺点是什么？</p>
 <blockquote>
-<p>K 值的选择一般基于经验和多次试验结果。比如可以采用手肘法，我们可以尝试不同的 K 值，并将不同的 K 值所对应的损失函数画成折线。拐点就是 K 的最佳值。</p>
+<p>ID3倾向于取值较多的特征,因为信息增益放映的是给定条件以后不确定性减少的程度，特征取值越多就意味着确定性越高，也就是条件熵越小、信息增益越大。<br>C4.5实际上是对 ID3 进行优化，通过引入信息增益比，一定程度上对取值较多的特征进行惩罚、避免 ID3 出现过拟合。<br>CART 与 ID3,C4.5不同，它是一颗二叉树，采用二元分割法，每一步将数据按照特征 A 的取值切成两份，分别进入左右子树。</p>
 </blockquote>
 </li>
-<li><p>什么是 Kernel K- Means ?</p>
+<li><p>Cart 在做 regression 和 classification 的区别是？</p>
 <blockquote>
-<p>还童的欧式距离度量方式，使得 K 均值算法本质上假设了各个数据簇的数据呈现球形或者高维球形，这种分布在实际生活中不常见。面对非凸的数据分布时，引入核函数来进行非线性映射，将输入空间中的数据点映射到高维的特征空间，并在新的特征中空间进行聚类。非线性映射增加了数据点线性可分的概率。</p>
+<p> 在分类问题中，CART 使用基尼指数（Gini index）作为选择特征（feature）和划分（split）的依据；在回归问题中，CART 使用 mse（mean square error）或者 mae（mean absolute error）作为选择 feature 和 split 的 criteria。<br>在分类问题中，CART的每一片叶子都代表的是一个class；在回归问题中，CART 的每一片叶子表示的是一个预测值，取值是连续的。预测值一般是该片叶子所含训练集元素输出的均值。</p>
+</blockquote>
+</li>
+<li><p>决策树如何进行剪枝？</p>
+<blockquote>
+<p>预剪枝：1. 当树到达一定深度时，停止树的生长；2.当到达当前节点的样本数量小于某个阈值时，停止树的生长；3. 计算每次分裂时测试集的准确度提升，当小于某个阈值时不再继续扩展。<br>后剪枝：后剪枝的方法有很多，比如代价复杂度剪枝、悲观剪枝、最小误差剪枝等。</p>
 </blockquote>
 </li>
 </ol>
-<h3 id="DBSCANS-（密度聚类）"><a href="#DBSCANS-（密度聚类）" class="headerlink" title="DBSCANS （密度聚类）"></a>DBSCANS （密度聚类）</h3><blockquote>
-<p><a href="https://zhangruochi.com/DBSCAN-Clustering/2020/04/14/">https://zhangruochi.com/DBSCAN-Clustering/2020/04/14/</a></p>
-</blockquote>
-<h3 id="Birch-层次聚类"><a href="#Birch-层次聚类" class="headerlink" title="Birch (层次聚类)"></a>Birch (层次聚类)</h3><ol>
-<li>什么是层次聚类? 层次聚类的步骤是什么？<blockquote>
-<p>层次聚类不指定具体的簇数，而只关注簇之间的远近，最终会形成一个树形图。<br><center>
- <img style="border-radius: 0.3125em;
- box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="2.png" width="100%" height="100%">
-</center><br>根据聚类簇之间距离的计算方法的不同，层次聚类算法可以大致分为：单链接（Single-link）算法，全链接算法（complete-link）或均链接算法（average-link）。单链接算法用两个聚类簇中最近的样本距离作为两个簇之间的距离；而全链接使用计算两个聚类簇中最远的样本距离；均链接算法中两个聚类之间的距离由两个簇中所有的样本共同决定。</p>
-<ol>
-<li>每一个样本点视为一个簇；</li>
-<li>计算各个簇之间的距离，最近的两个簇聚合成一个新簇；</li>
-<li>重复以上过程直至最后只有一簇。</li>
-</ol>
+<h3 id="Naive-Bayes"><a href="#Naive-Bayes" class="headerlink" title="Naive Bayes"></a>Naive Bayes</h3><ol>
+<li><p>简述朴素贝叶斯的原理。</p>
+<blockquote>
+<p>朴素贝叶斯采用<code>属性条件独立性</code>的假设，对于给定的待分类观测数据X, 计算在X出现的条件下，各个目标类出现的概率（即后验概率）， 将该后验概率最大的类作为X所属的类。方法是根据已有样本进行贝叶斯估计学习出先验概率$P(Y)$和条件概率$P(X|Y)$，进而求出联合分布概率P(XY),最后利用贝叶斯定理求解后验概率P(Y|X).</p>
 </blockquote>
 </li>
-</ol>
-<h3 id="Gaussian-Mixed-Model-概率聚类"><a href="#Gaussian-Mixed-Model-概率聚类" class="headerlink" title="Gaussian Mixed Model (概率聚类)"></a>Gaussian Mixed Model (概率聚类)</h3><blockquote>
-<p><a href="https://zhangruochi.com/Gaussian-Mixed-Model-Introduction/2020/03/15/">https://zhangruochi.com/Gaussian-Mixed-Model-Introduction/2020/03/15/</a></p>
-</blockquote>
-<ol>
-<li>高斯混合模型的核心思想是什么？它是如何迭代计算的？<blockquote>
-<p>高斯混合模型假设数据可以看作是从多个高斯分布中生成出来的。求解步骤如下:</p>
-<ol>
-<li>E step: 根据当前参数，计算每个点属于各个高斯分布的概率</li>
-<li>M step: 使用上述 E step 求得的概率，计算每个高斯分布的加权平均参数。</li>
-</ol>
+<li><p>朴素贝叶斯“朴素”在哪里？</p>
+<blockquote>
+<p>利用贝叶斯定理求解联合概率P(XY)时，需要计算条件概率P(X|Y)。在计算P(X|Y)时，朴素贝叶斯做了一个很强的条件独立假设（当Y确定时，X的各个分量取值之间相互独立），即</p>
+<script type="math/tex; mode=display">P(X_1=x_1,X_2=x_2,\cdots,X_j=x_j|Y=y_k) = P(X_1=x_1|Y=y_k) * P(X_2=x_2|Y=y_k),\cdots,P(X_j=x_j|Y=y_k)</script></blockquote>
+</li>
+<li><p>什么是拉普拉斯平滑法?</p>
+<blockquote>
+<p>拉普拉斯平滑法是朴素贝叶斯中处理零概率问题的一种修正方式。在进行分类的时候，可能会出现某个属性在训练集中没有与某个类同时出现过的情况，如果直接基于朴素贝叶斯分类器的表达式进行计算的话就会出现零概率现象。为了避免其他属性所携带的信息被训练集中未出现过的属性值“抹去”，所以才使用拉普拉斯估计器进行修正。具体的方法是：在分子上加1,对于先验概率，在分母上加上训练集中可能的类别数；对于条件概率，则在分母上加上第i个属性可能的取值数</p>
 </blockquote>
 </li>
-</ol>
-<h3 id="聚类算法的评估"><a href="#聚类算法的评估" class="headerlink" title="聚类算法的评估"></a>聚类算法的评估</h3><ol>
-<li>以聚类算法为例，假设没有外部标签数据，如何评估两个聚类算法的优劣？<blockquote>
-<p>在无监督的情况下，我们可通过考察簇的分离情况和簇的紧凑情况来评估聚类的效果。</p>
-<ol>
-<li>轮廓系数：给定一个点p，改点的轮廓系数定义为<script type="math/tex; mode=display">s(p) = \frac{b(p) - a(p)}{max{a(p), b(p)}}</script>其中，$a(p)$是点$p$与同一簇中其他点$p\prime$之间的平均距离；$b(p)$是点$p$与另一不同簇中的点之间的最小平均距离（如果有n个簇，则只计算和点p最接近的一簇中的点与该点的平均距离). $a(p)$反应的是$p$所属的簇中数据的紧密程度，$b(p)$反应的是该簇与其他临近簇的分离程度。显然，$b(p)$越大，$a(p)$越小，对应的聚类的质量越好。</li>
-</ol>
+<li><p>朴素贝叶斯中有哪些不同的模型？</p>
+<blockquote>
+<p>朴素贝叶斯含有3种模型，分别是<strong>高斯模型</strong>，对连续型数据进行处理；<strong>多项式模型</strong>，对离散型数据进行处理，计算数据的条件概率(使用拉普拉斯估计器进行平滑的一个模型)；<strong>伯努利模型</strong>，伯努利模型的取值特征是布尔型，即出现为ture,不出现为false,在进行文档分类时，就是一个单词有没有在一个文档中出现过。</p>
 </blockquote>
 </li>
 </ol>
@@ -590,8 +605,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ML-Interview-Part3/2020/05/26/" rel="next" title="ML-Interview-Part3">
-                <i class="fa fa-chevron-left"></i> ML-Interview-Part3
+              <a href="/ML-Interview-Part1/2020/05/24/" rel="next" title="ML-Interview-Part1">
+                <i class="fa fa-chevron-left"></i> ML-Interview-Part1
               </a>
             
           </div>
@@ -600,8 +615,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ML-Interview-Part5/2020/05/27/" rel="prev" title="ML-Interview-Part5">
-                ML-Interview-Part5 <i class="fa fa-chevron-right"></i>
+              <a href="/ML-Interview-Decomposition/2020/05/26/" rel="prev" title="ML-Interview-Decomposition">
+                ML-Interview-Decomposition <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -719,7 +734,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">233</span>
+                  <span class="site-state-item-count">234</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -815,7 +830,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#无监督学习"><span class="nav-text">无监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#K-Means"><span class="nav-text">K-Means</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DBSCANS-（密度聚类）"><span class="nav-text">DBSCANS （密度聚类）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Birch-层次聚类"><span class="nav-text">Birch (层次聚类)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gaussian-Mixed-Model-概率聚类"><span class="nav-text">Gaussian Mixed Model (概率聚类)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚类算法的评估"><span class="nav-text">聚类算法的评估</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#经典算法"><span class="nav-text">经典算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVM"><span class="nav-text">SVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑回归"><span class="nav-text">逻辑回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#决策树"><span class="nav-text">决策树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Naive-Bayes"><span class="nav-text">Naive Bayes</span></a></li></ol></li></ol></div>
             
 
           </div>
