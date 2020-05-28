@@ -139,7 +139,7 @@
 <meta property="og:image" content="https://zhangruochi.com/ML-Interview-Part8/2020/05/28/4.png">
 <meta property="og:image" content="https://zhangruochi.com/ML-Interview-Part8/2020/05/28/5.png">
 <meta property="og:image" content="https://zhangruochi.com/ML-Interview-Part8/2020/05/28/6.png">
-<meta property="og:updated_time" content="2020-05-28T09:45:26.520Z">
+<meta property="og:updated_time" content="2020-05-28T10:25:20.573Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ML-Interview-Part8">
 <meta name="twitter:description" content="Natural language processing">
@@ -579,7 +579,15 @@ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src
 </ul>
 </blockquote>
 </li>
-<li><p>在数据中随机选择 15% 的标记，其中80%被换位[mask]，10%不变、10%随机替换其他单词，这样做的原因是什么？<br>&gt;</p>
+<li><p>在数据中随机mask15%的token，其中80%被换位[mask]，10%不变、10%随机替换其他单词，这样做的原因是什么？</p>
+<blockquote>
+<p>Bert随机mask语料中15%的token，然后预测masked token，那么masked token 位置输出的final hidden vectors喂给softmax网络即可得到maskedtoken的预测结果。这样操作存在一个问题，fine-tuning的时候没有[MASK]token，因此存在pre-training和fine-tuning之间的mismatch，为了解决这个问题，采用了下面的策略：</p>
+<ol>
+<li>80%的时间中：将选中的词用[MASK]token来代替，例如<br>my dog is hairy → my dog is [MASK]</li>
+<li>10%的时间中：将选中的词用任意的词来进行代替，例如<br>my dog is hairy → my dog is apple</li>
+<li>10%的时间中：选中的词不发生变化，例如<br>my dog is hairy → my dog is hairy</li>
+</ol>
+</blockquote>
 </li>
 <li><p>为什么BERT有3个嵌入层，它们都是如何实现的？</p>
 <blockquote>
