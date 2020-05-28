@@ -138,7 +138,7 @@
 <meta property="og:image" content="https://zhangruochi.com/ML-Interview-Part1/2020/05/24/3.png">
 <meta property="og:image" content="https://zhangruochi.com/ML-Interview-Part1/2020/05/24/4.png">
 <meta property="og:image" content="https://zhangruochi.com/ML-Interview-Part1/2020/05/24/5.png">
-<meta property="og:updated_time" content="2020-05-26T01:15:40.006Z">
+<meta property="og:updated_time" content="2020-05-28T06:49:41.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ML-Interview-Part1">
 <meta name="twitter:description" content="特征工程,模型评估相关问题">
@@ -494,21 +494,22 @@
 </li>
 <li><p>什么是特征组合，如何处理高维组合特征？</p>
 <blockquote>
-<p><x1, x2> 等形成组合特征<br>特征选择，矩阵分解，PCA</x1,></p>
+<p>两个或多个特征组合在一起$(x1,\cdots, xn)$ 等形成组合特征.<br>特征选择，矩阵分解，PCA.</p>
 </blockquote>
 </li>
 <li><p>怎样有效地找到组合特征</p>
 <blockquote>
-<p>决策树从根节点到叶子结点的路径可以看成一种特征组合的方式</p>
-<center>
- <img style="border-radius: 0.3125em;
- box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="2.png" width="70%" height="70%">
-</center>
+<ol>
+<li>决策树从根节点到叶子结点的路径可以看成一种特征组合的方式<br><center>
+<img style="border-radius: 0.3125em;
+box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="2.png" width="70%" height="70%">
+</center><br>Filter, wrapper, embedding 等方法进行特征选择，形成组合特征。</li>
+</ol>
 </blockquote>
 </li>
 <li><p>有哪些文本表示模型，它们各自的优缺点是什么？</p>
 <blockquote>
-<p>Word bag, 常用 TF-IDF表示词的权重（term frequency and inverse document frequency）。<br>N-gram. 提取词组.<br>因为相同的词可能有多种表示，经常会做词干提取word stemming<br>主题模型（得到每个主题上词的分布特征）<br>Word embedding<br>Contextual word embeddings</p>
+<p>Bag of Word, 常用 TF-IDF表示词的权重（term frequency and inverse document frequency）; N-gram. 提取词组; 因为相同的词可能有多种表示，经常会做词干提取word stemming; 主题模型（得到每个主题上词的分布特征）; Word embedding ; Contextual word embeddings</p>
 </blockquote>
 </li>
 <li><p>word2vec是如何工作的</p>
@@ -544,11 +545,13 @@
 </center>
 </blockquote>
 </li>
-<li><p>RMSE 的局限是什么？</p>
+<li><p>RMSE 的局限是什么？怎样解决？</p>
 <blockquote>
 <p>如果存在个别偏离程度大的异常值，RMSE的效果会很差。</p>
 <ol>
-<li>数据预处理清理outlier； 2. 建模考虑异常机制，如异常点检测；3. 使用更合适的指标如 MAPE</li>
+<li>数据预处理清理 outlier； </li>
+<li>建模考虑异常机制，如异常点检测；</li>
+<li>使用更合适的指标如 MAPE</li>
 </ol>
 </blockquote>
 </li>
@@ -568,7 +571,7 @@
 </li>
 <li><p>ROC 曲线相比 P-R 曲线有什么特点</p>
 <blockquote>
-<p>当正负样本的分别发生明显变化时，ROC曲线基本不变。因此 ROC 适用的场景更多。如下图是将负样本的数量增加 10 倍之后的结果。</p>
+<p>当正负样本的分布发生明显变化时，ROC曲线基本不变。因此 ROC 适用的场景更多。如下图是将负样本的数量增加 10 倍之后的结果。</p>
 <center>
  <img style="border-radius: 0.3125em;
  box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="5.png" width="70%" height="70%">
@@ -588,7 +591,9 @@
 <li><p>为什么在进行了离线评估后还要进行线上评估？</p>
 <blockquote>
 <ol>
-<li>离线评估无法完全消除过拟合的影响。2. 离线评估无法完全还原线上的工程环境。3. 线上系统的某些商业指标无法在离线环境中还原，如用户点击率，留存时长等。</li>
+<li>离线评估无法完全消除过拟合的影响。</li>
+<li>离线评估无法完全还原线上的工程环境。</li>
+<li>线上系统的某些商业指标无法在离线环境中还原，如用户点击率，留存时长等。</li>
 </ol>
 </blockquote>
 </li>
@@ -604,7 +609,11 @@
 </li>
 <li><p>超参数有哪些调优方法？</p>
 <blockquote>
-<p>Grid Search。 十分消耗计算资源和时间，一般先使用较广的搜索范围和较大的步长，或者先确定对模型影响最大的参数。<br>随机搜索。 业界公认的Random search效果会比Grid search好。 例如前面的场景A有2种选择、B有3种、C有5种、连续值随机采样，那么每次分别在A、B、C中随机取值组合成新的超参数组合来训练。虽然有随机因素，但随机搜索可能出现效果特别差、也可能出现效果特别好，在尝试次数和Grid search相同的情况下一般最值会更大，当然variance也更大但这不影响最终结果。<br>贝叶斯优化算法. 是基于数据使用贝叶斯定理估计目标函数的后验分布，然后再根据分布选择下一个采样的超参数组合。它充分利用了前一个采样点的信息，其优化的工作方式是通过对目标函数形状的学习，并找到使结果向全局最大提升的参数</p>
+<ol>
+<li>Grid Search。 十分消耗计算资源和时间，一般先使用较广的搜索范围和较大的步长，或者先确定对模型影响最大的参数。</li>
+<li>随机搜索。 业界公认的Random search效果会比Grid search好。 例如前面的场景A有2种选择、B有3种、C有5种、连续值随机采样，那么每次分别在A、B、C中随机取值组合成新的超参数组合来训练。虽然有随机因素，但随机搜索可能出现效果特别差、也可能出现效果特别好，在尝试次数和Grid search相同的情况下一般最值会更大，当然variance也更大但这不影响最终结果。</li>
+<li>贝叶斯优化算法. 是基于数据使用贝叶斯定理估计目标函数的后验分布，然后再根据分布选择下一个采样的超参数组合。它充分利用了前一个采样点的信息，其优化的工作方式是通过对目标函数形状的学习，并找到使结果向全局最大提升的参数</li>
+</ol>
 </blockquote>
 </li>
 <li><p>过拟合、欠拟合具体是指什么现象？</p>
@@ -769,7 +778,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">232</span>
+                  <span class="site-state-item-count">233</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
