@@ -138,7 +138,7 @@
 <meta property="og:image" content="https://zhangruochi.com/ML-Interview-Feature-Engineering-and-Evaluation/2020/05/24/3.png">
 <meta property="og:image" content="https://zhangruochi.com/ML-Interview-Feature-Engineering-and-Evaluation/2020/05/24/4.png">
 <meta property="og:image" content="https://zhangruochi.com/ML-Interview-Feature-Engineering-and-Evaluation/2020/05/24/5.png">
-<meta property="og:updated_time" content="2020-05-28T22:46:54.466Z">
+<meta property="og:updated_time" content="2020-05-29T00:18:35.014Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ML-Interview-Feature-Engineering-and-Evaluation">
 <meta name="twitter:description" content="特征工程,模型评估相关问题">
@@ -514,7 +514,42 @@ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src
 </li>
 <li><p>word2vec是如何工作的</p>
 <blockquote>
-<p>CBOW 根据上下文来预测中心词，Skip-gram根据中心词来预测上下文。 CBOW 和 Skip-gram 都是由三层的神经网络组成。输入层为N维 one-hot encoding，隐藏层为 K 维。则输入层和隐藏层的 weight matrix （N*K）就是 embedding vector. word vector 可以由one-hot encoding 与 weight matrix 相乘得到。隐藏层到输出层的weightg matrix 为 （K*N）.输出也是一个N维向量，则可以根据softmax来求每个词的概率，然后应用梯度下降。<br>由于softmax需要对所有词进行遍历，计算量大。此时可以使用negtive sampling 或者 hierarchical softmax.</p>
+<p>参考 <a href="https://zhangruochi.com/Word-Vectors/2019/12/04/">https://zhangruochi.com/Word-Vectors/2019/12/04/</a><br>CBOW 根据上下文来预测中心词，Skip-gram根据中心词来预测上下文。 CBOW 和 Skip-gram 都是由三层的神经网络组成。输入层为N维 one-hot encoding，隐藏层为 K 维。则输入层和隐藏层的 weight matrix （N*K）就是 embedding vector. word vector 可以由one-hot encoding 与 weight matrix 相乘得到。隐藏层到输出层的weightg matrix 为 （K*N）.输出也是一个N维向量，则可以根据softmax来求每个词的概率，然后应用梯度下降。<br>由于softmax需要对所有词进行遍历，计算量大。此时可以使用negtive sampling 或者 hierarchical softmax.</p>
+</blockquote>
+</li>
+<li><p>LSA（Latent Semantic Analysis） 算法是怎样工作的？</p>
+<blockquote>
+<p>LSA 算法先统计 term-document矩阵（矩阵的每个元素为tf-idf）进行奇异值分解，从而得到term的向量表示和document的向量表示. 其算法的基本流程是：</p>
+<ol>
+<li>分析文档集合，建立词汇-文本矩阵A</li>
+<li>对词汇-文本矩阵进行奇异值分解</li>
+<li>对SVD分解后的矩阵进行降维</li>
+<li>使用降维后的矩阵构建潜在语义空间</li>
+</ol>
+</blockquote>
+</li>
+<li><p>Glove 是怎样工作的？</p>
+<blockquote>
+<ol>
+<li>Construct co-occurrence Matrix</li>
+<li>Construct relationships between word vectors and co-occurrence Matrix<ul>
+<li>Let X denote the word-word co-occurrence matrix, where $X_{ij}$ indicates the number of times word j occur in the context of word i</li>
+<li>$w_{i}$,$\tilde{w_{j}}$ is the word vector</li>
+<li>$b_i,b_j$ is the bias term<script type="math/tex; mode=display">w_{i}^{T}\tilde{w_{j}} + b_i + \tilde{b_j} = \log(X_{ij}) \tag{1}</script></li>
+</ul>
+</li>
+<li>Construct loss function: Mean Square Loss<script type="math/tex; mode=display">J = \sum_{i,j=1}^{V} f(X_{ij})(w_{i}^{T}\tilde{w_{j}} + b_i + \tilde{b_j} – \log(X_{ij}) )^2</script><script type="math/tex; mode=display">f(x)=\begin{equation} 
+\begin{cases} 
+(x/x_{max})^{\alpha}  & \text{if} \ x < x_{max} \\ 
+1 & \text{otherwise} 
+\end{cases} 
+\end{equation}</script></li>
+</ol>
+</blockquote>
+</li>
+<li><p>LSA, word2vec, 以及 Glove 的区别于联系？</p>
+<blockquote>
+<p>LSA和word2vec作为两大类方法的代表，一个是利用了全局特征的矩阵分解方法，一个是利用局部上下文的方法。GloVe模型就是将这两中特征合并到一起的，即使用了语料库的全局统计（overall statistics）特征，也使用了局部的上下文特征（即滑动窗口）。</p>
 </blockquote>
 </li>
 <li><p>图像分类时，训练数据不足如何处理。</p>
@@ -778,7 +813,7 @@ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">233</span>
+                  <span class="site-state-item-count">234</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
