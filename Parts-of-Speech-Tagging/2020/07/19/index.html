@@ -134,16 +134,16 @@
 <meta property="og:site_name" content="RUOCHI.AI">
 <meta property="og:description" content="Assignment 2: Parts-of-Speech Tagging (POS)Welcome to the second assignment of Course 2 in the Natural Language Processing specialization. This assignment will develop skills in part-of-speech (POS) t">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://zhangruochi.com/Parts-of-Speech-Tagging/2020/07/19/DataSources1.PNG">
+<meta property="og:image" content="https://zhangruochi.com/Parts-of-Speech-Tagging/2020/07/19/DataSources1.png">
 <meta property="og:image" content="https://zhangruochi.com/Parts-of-Speech-Tagging/2020/07/19/pos.png">
-<meta property="og:image" content="https://zhangruochi.com/Parts-of-Speech-Tagging/2020/07/19/Initialize4.PNG">
-<meta property="og:image" content="https://zhangruochi.com/Parts-of-Speech-Tagging/2020/07/19/Forward4.PNG">
-<meta property="og:image" content="https://zhangruochi.com/Parts-of-Speech-Tagging/2020/07/19/Backwards5.PNG">
-<meta property="og:updated_time" content="2020-07-18T17:42:08.653Z">
+<meta property="og:image" content="https://zhangruochi.com/Parts-of-Speech-Tagging/2020/07/19/Initialize4.png">
+<meta property="og:image" content="https://zhangruochi.com/Parts-of-Speech-Tagging/2020/07/19/Forward4.png">
+<meta property="og:image" content="https://zhangruochi.com/Parts-of-Speech-Tagging/2020/07/19/Backwards5.png">
+<meta property="og:updated_time" content="2020-07-18T17:50:42.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Parts-of-Speech Tagging">
 <meta name="twitter:description" content="Assignment 2: Parts-of-Speech Tagging (POS)Welcome to the second assignment of Course 2 in the Natural Language Processing specialization. This assignment will develop skills in part-of-speech (POS) t">
-<meta name="twitter:image" content="https://zhangruochi.com/Parts-of-Speech-Tagging/2020/07/19/DataSources1.PNG">
+<meta name="twitter:image" content="https://zhangruochi.com/Parts-of-Speech-Tagging/2020/07/19/DataSources1.png">
 
 
 
@@ -556,7 +556,7 @@
 <li>For example, the suffix ‘ize’ is a hint that the word is a verb, as in ‘final-ize’ or ‘character-ize’. </li>
 <li>A set of unknown-tokens, such as ‘—unk-verb—‘ or ‘—unk-noun—‘ will replace the unknown words in both the training and test corpus and will appear in the emission, transmission and tag data structures.</li>
 </ul>
-<p><img src="DataSources1.PNG"></p>
+<p><img src="DataSources1.png"></p>
 <p>Implementation note: </p>
 <ul>
 <li>For python 3.6 and beyond, dictionaries retain the insertion order. </li>
@@ -1003,7 +1003,7 @@ RP   3.723317e-07  3.723317e-07  3.723317e-07  3.723317e-07  3.723317e-07
 <p>$ if A[s_{idx}, i] == 0 : best_probs[i,0] = float(‘-inf’)$</p>
 <p>Please use <a href="https://docs.python.org/3/library/math.html" target="_blank" rel="noopener">math.log</a> to compute the natural logarithm.</p>
 <p>The example below shows the initialization assuming the corpus starts with the phrase “Loss tracks upward”.</p>
-<p><img src="Initialize4.PNG"></p>
+<p><img src="Initialize4.png"></p>
 <p>Represent infinity and negative infinity like this:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">float('inf')</span><br><span class="line">float('-inf')</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C5 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="comment"># GRADED FUNCTION: initialize</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initialize</span><span class="params">(states, tag_counts, A, B, corpus, vocab)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    Input: </span></span><br><span class="line"><span class="string">        states: a list of all possible parts-of-speech</span></span><br><span class="line"><span class="string">        tag_counts: a dictionary mapping each tag to its respective count</span></span><br><span class="line"><span class="string">        A: Transition Matrix of dimension (num_tags, num_tags)</span></span><br><span class="line"><span class="string">        B: Emission Matrix of dimension (num_tags, len(vocab))</span></span><br><span class="line"><span class="string">        corpus: a sequence of words whose POS is to be identified in a list </span></span><br><span class="line"><span class="string">        vocab: a dictionary where keys are words in vocabulary and value is an index</span></span><br><span class="line"><span class="string">    Output:</span></span><br><span class="line"><span class="string">        best_probs: matrix of dimension (num_tags, len(corpus)) of floats</span></span><br><span class="line"><span class="string">        best_paths: matrix of dimension (num_tags, len(corpus)) of integers</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="comment"># Get the total number of unique POS tags</span></span><br><span class="line">    num_tags = len(tag_counts)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Initialize best_probs matrix </span></span><br><span class="line">    <span class="comment"># POS tags in the rows, number of words in the corpus as the columns</span></span><br><span class="line">    best_probs = np.zeros((num_tags, len(corpus)))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Initialize best_paths matrix</span></span><br><span class="line">    <span class="comment"># POS tags in the rows, number of words in the corpus as columns</span></span><br><span class="line">    best_paths = np.zeros((num_tags, len(corpus)), dtype=int)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Define the start token</span></span><br><span class="line">    s_idx = states.index(<span class="string">"--s--"</span>)</span><br><span class="line">    <span class="comment">### START CODE HERE (Replace instances of 'None' with your code) ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Go through each of the POS tags</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_tags) : <span class="comment"># complete this line</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Handle the special case when the transition from start token to POS tag i is zero</span></span><br><span class="line">        <span class="keyword">if</span> A[<span class="number">0</span>,i] == <span class="number">0</span>: <span class="comment"># complete this line</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># Initialize best_probs at POS tag 'i', column 0, to negative infinity</span></span><br><span class="line">            best_probs[i,<span class="number">0</span>] = float(<span class="string">"-inf"</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># For all other cases when transition from start token to POS tag i is non-zero:</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># Initialize best_probs at POS tag 'i', column 0</span></span><br><span class="line">            <span class="comment"># Check the formula in the instructions above</span></span><br><span class="line">            best_probs[i,<span class="number">0</span>] = math.log(A[s_idx,i])  +  math.log(B[i,vocab[corpus[<span class="number">0</span>]]])</span><br><span class="line">            </span><br><span class="line">                         </span><br><span class="line">    <span class="comment">### END CODE HERE ### </span></span><br><span class="line">    <span class="keyword">return</span> best_probs, best_paths</span><br></pre></td></tr></table></figure>
@@ -1057,7 +1057,7 @@ best_paths[2,3]: 0.0000
 
         set best_paths to the index &#39;k&#39;, representing the POS tag of the previous word which produced the highest probability `
 </code></pre><p>Please use <a href="https://docs.python.org/3/library/math.html" target="_blank" rel="noopener">math.log</a> to compute the natural logarithm.</p>
-<p><img src="Forward4.PNG"></p>
+<p><img src="Forward4.png"></p>
 <h2 id><a href="#" class="headerlink" title></a><details></details></h2><p><summary>
     <font size="3" color="darkgreen"><b>Hints</b></font>
 </summary></p>
@@ -1108,7 +1108,7 @@ best_probs[0,4]: -49.5601
 <li>In <code>best_paths</code> at column 1, the unique ID stored at row 40 is 20.  20 is the unique ID for POS tag <code>NN</code>.</li>
 <li>In array <code>z</code> at position 0, store 20.  In array <code>pred</code> at position 0, store <code>NN</code>.</li>
 </ul>
-<p><img src="Backwards5.PNG"></p>
+<p><img src="Backwards5.png"></p>
 <p><a name="ex-07"></a></p>
 <h3 id="Exercise-07"><a href="#Exercise-07" class="headerlink" title="Exercise 07"></a>Exercise 07</h3><p>Implement the <code>viterbi_backward</code> algorithm, which returns a list of predicted POS tags for each word in the corpus.</p>
 <ul>
