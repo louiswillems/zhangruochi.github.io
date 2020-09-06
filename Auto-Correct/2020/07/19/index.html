@@ -135,14 +135,14 @@
 <meta property="og:description" content="Assignment 1: Auto CorrectWelcome to the first assignment of Course 2. This assignment will give you a chance to brush up on your python and probability skills. In doing so, you will implement an auto">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/auto-correct.png">
-<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/GenericListComp3.PNG">
-<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/Splits1.PNG">
-<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/ListComp2.PNG">
-<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/Switches1.PNG">
-<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/EditDistInit4.PNG">
-<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/EditDistFill2.PNG">
-<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/EditDistExample1.PNG">
-<meta property="og:updated_time" content="2020-07-19T08:27:50.154Z">
+<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/GenericListComp3.png">
+<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/Splits1.png">
+<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/ListComp2.png">
+<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/Switches1.png">
+<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/EditDistInit4.png">
+<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/EditDistFill2.png">
+<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/EditDistExample1.png">
+<meta property="og:updated_time" content="2020-09-06T15:30:56.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Auto Correct">
 <meta name="twitter:description" content="Assignment 1: Auto CorrectWelcome to the first assignment of Course 2. This assignment will give you a chance to brush up on your python and probability skills. In doing so, you will implement an auto">
@@ -718,18 +718,18 @@ P(&#39;thee&#39;) is 0.0045
 </ul>
 <h4 id="List-comprehensions"><a href="#List-comprehensions" class="headerlink" title="List comprehensions"></a>List comprehensions</h4><p>String and list manipulation in python will often make use of a python feature called  <a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions" target="_blank" rel="noopener">list comprehensions</a>. The routines below will be described as using list comprehensions, but if you would rather implement them in another way, you are free to do so as long as the result is the same. Further, the following section will provide detailed instructions on how to use list comprehensions and how to implement the desired functions. If you are a python expert, feel free to skip the python hints and move to implementing the routines directly.</p>
 <p>Python List Comprehensions embed a looping structure inside of a list declaration, collapsing many lines of code into a single line. If you are not familiar with them, they seem slightly out of order relative to for loops. </p>
-<div style="width:image width px; font-size:100%; text-align:center;"><img src="GenericListComp3.PNG" alt="alternate text" width="width" height="height" style="width:800px;height:400px;"> Figure 2 </div>
+<div style="width:image width px; font-size:100%; text-align:center;"><img src="GenericListComp3.png" alt="alternate text" width="width" height="height" style="width:800px;height:400px;"> Figure 2 </div>
 
 <p>The diagram above shows that the components of a list comprehension are the same components you would find in a typical for loop that appends to a list, but in a different order. With that in mind, we’ll continue the specifics of this assignment. We will be very descriptive for the first function, <code>deletes()</code>, and less so in later functions as you become familiar with list comprehensions.</p>
 <p><a name="ex-4"></a></p>
 <h3 id="Exercise-4"><a href="#Exercise-4" class="headerlink" title="Exercise 4"></a>Exercise 4</h3><p><strong>Instructions for delete_letter():</strong> Implement a <code>delete_letter()</code> function that, given a word, returns a list of strings with one character deleted. </p>
 <p>For example, given the word <strong>nice</strong>, it would return the set: {‘ice’, ‘nce’, ‘nic’, ‘nie’}. </p>
 <p><strong>Step 1:</strong> Create a list of ‘splits’. This is all the ways you can split a word into Left and Right: For example,<br>‘nice is split into : <code>[(&#39;&#39;, &#39;nice&#39;), (&#39;n&#39;, &#39;ice&#39;), (&#39;ni&#39;, &#39;ce&#39;), (&#39;nic&#39;, &#39;e&#39;), (&#39;nice&#39;, &#39;&#39;)]</code><br>This is common to all four functions (delete, replace, switch, insert).</p>
-<div style="width:image width px; font-size:100%; text-align:center;"><img src="Splits1.PNG" alt="alternate text" width="width" height="height" style="width:650px;height:200px;"> Figure 3 </div>
+<div style="width:image width px; font-size:100%; text-align:center;"><img src="Splits1.png" alt="alternate text" width="width" height="height" style="width:650px;height:200px;"> Figure 3 </div>
 
 <p><strong>Step 2:</strong> This is specific to <code>delete_letter</code>. Here, we are generating all words that result from deleting one character.<br>This can be done in a single line with a list comprehension. You can makes use of this type of syntax:<br><code>[f(a,b) for a, b in splits if condition]</code>  </p>
 <p>For our ‘nice’ example you get:<br>[‘ice’, ‘nce’, ‘nie’, ‘nic’]</p>
-<div style="width:image width px; font-size:100%; text-align:center;"><img src="ListComp2.PNG" alt="alternate text" width="width" height="height" style="width:550px;height:300px;"> Figure 4 </div>
+<div style="width:image width px; font-size:100%; text-align:center;"><img src="ListComp2.png" alt="alternate text" width="width" height="height" style="width:550px;height:300px;"> Figure 4 </div>
 
 <h4 id="Levels-of-assistance"><a href="#Levels-of-assistance" class="headerlink" title="Levels of assistance"></a>Levels of assistance</h4><p>Try this exercise with these levels of assistance.  </p>
 <ul>
@@ -801,7 +801,7 @@ delete_l = [&#39;ans&#39;, &#39;cns&#39;, &#39;cas&#39;, &#39;can&#39;]
 <li>For example, given the word ‘eta’, it returns {‘eat’, ‘tea’}, but does not return ‘ate’.</li>
 </ul>
 <p><strong>Step 1:</strong> is the same as in delete_letter()<br><strong>Step 2:</strong> A list comprehension or for loop which forms strings by swapping adjacent letters. This is of the form:<br><code>[f(L,R) for L, R in splits if condition]</code>  where ‘condition’ will test the length of R in a given iteration. See below.</p>
-<div style="width:image width px; font-size:100%; text-align:center;"><img src="Switches1.PNG" alt="alternate text" width="width" height="height" style="width:600px;height:200px;"> Figure 5 </div>      
+<div style="width:image width px; font-size:100%; text-align:center;"><img src="Switches1.png" alt="alternate text" width="width" height="height" style="width:600px;height:200px;"> Figure 5 </div>      
 
 <h4 id="Levels-of-difficulty"><a href="#Levels-of-difficulty" class="headerlink" title="Levels of difficulty"></a>Levels of difficulty</h4><p>Try this exercise with these levels of difficulty.  </p>
 <ul>
@@ -1100,16 +1100,16 @@ data type of corrections &lt;class &#39;list&#39;&gt;
 
 <p>The operations used in this algorithm are ‘insert’, ‘delete’, and ‘replace’. These correspond to the functions that you defined earlier: insert_letter(), delete_letter() and replace_letter(). switch_letter() is not used here.</p>
 <p>The diagram below describes how to initialize the table. Each entry in D[i,j] represents the minimum cost of converting string source[0:i] to string target[0:j]. The first column is initialized to represent the cumulative cost of deleting the source characters to convert string “EER” to “”. The first row is initialized to represent the cumulative cost of inserting the target characters to convert from “” to “NEAR”.</p>
-<div style="width:image width px; font-size:100%; text-align:center;"><img src="EditDistInit4.PNG" alt="alternate text" width="width" height="height" style="width:1000px;height:400px;"> Figure 6 Initializing Distance Matrix</div>     
+<div style="width:image width px; font-size:100%; text-align:center;"><img src="EditDistInit4.png" alt="alternate text" width="width" height="height" style="width:1000px;height:400px;"> Figure 6 Initializing Distance Matrix</div>     
 
 <p>Filling in the remainder of the table utilizes the ‘Per Cell Operations’ in the equation (5) above. Note, the diagram below includes in the table some of the 3 sub-calculations shown in light grey. Only ‘min’ of those operations is stored in the table in the <code>min_edit_distance()</code> function.</p>
-<div style="width:image width px; font-size:100%; text-align:center;"><img src="EditDistFill2.PNG" alt="alternate text" width="width" height="height" style="width:800px;height:400px;"> Figure 7 Filling Distance Matrix</div>     
+<div style="width:image width px; font-size:100%; text-align:center;"><img src="EditDistFill2.png" alt="alternate text" width="width" height="height" style="width:800px;height:400px;"> Figure 7 Filling Distance Matrix</div>     
 
 <p>Note that the formula for $D[i,j]$ shown in the image is equivalent to:</p>
 <p>\begin{align}<br> \\<br>D[i,j] =min<br>\begin{cases}<br>D[i-1,j] + del_cost\\<br>D[i,j-1] + ins_cost\\<br>D[i-1,j-1] + \left\{\begin{matrix}<br>rep_cost; &amp; if src[i]\neq tar[j]\\<br>0 ; &amp; if src[i]=tar[j]<br>\end{matrix}\right.<br>\end{cases}<br>\tag{5}<br>\end{align}</p>
 <p>The variable <code>sub_cost</code> (for substitution cost) is the same as <code>rep_cost</code>; replacement cost.  We will stick with the term “replace” whenever possible.</p>
 <p>Below are some examples of cells where replacement is used. This also shows the minimum path from the lower right final position where “EER” has been replaced by “NEAR” back to the start. This provides a starting point for the optional ‘backtrace’ algorithm below.</p>
-<div style="width:image width px; font-size:100%; text-align:center;"><img src="EditDistExample1.PNG" alt="alternate text" width="width" height="height" style="width:1200px;height:400px;"> Figure 8 Examples Distance Matrix</div>    
+<div style="width:image width px; font-size:100%; text-align:center;"><img src="EditDistExample1.png" alt="alternate text" width="width" height="height" style="width:1200px;height:400px;"> Figure 8 Examples Distance Matrix</div>    
 
 <p><a name="ex-11"></a></p>
 <h3 id="Exercise-11"><a href="#Exercise-11" class="headerlink" title="Exercise 11"></a>Exercise 11</h3><p>Again, the word “substitution” appears in the figure, but think of this as “replacement”.</p>
@@ -1322,7 +1322,7 @@ r  3  4  3  4  3
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">246</span>
+                  <span class="site-state-item-count">247</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
