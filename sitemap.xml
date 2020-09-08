@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhangruochi.com/Auto-Correct/2020/07/19/</loc>
-    
-    <lastmod>2020-09-06T15:30:56.645Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://zhangruochi.com/Markov-Decision-Processes-II/2020/09/06/</loc>
     
-    <lastmod>2020-09-06T13:32:46.527Z</lastmod>
+    <lastmod>2020-09-08T10:08:41.368Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhangruochi.com/Markov-Decision-Processes/2020/09/04/</loc>
     
-    <lastmod>2020-09-06T11:36:40.410Z</lastmod>
+    <lastmod>2020-09-07T05:55:54.870Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/ML-Interview-Feature-Engineering-and-Evaluation/2020/05/24/</loc>
+    
+    <lastmod>2020-09-06T15:39:16.021Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Auto-Correct/2020/07/19/</loc>
+    
+    <lastmod>2020-09-06T15:30:56.645Z</lastmod>
     
   </url>
   
@@ -110,13 +117,6 @@
     <loc>https://zhangruochi.com/ML-Interview-Computer-Vision/2020/05/29/</loc>
     
     <lastmod>2020-05-29T04:43:09.902Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/ML-Interview-Feature-Engineering-and-Evaluation/2020/05/24/</loc>
-    
-    <lastmod>2020-05-29T00:18:35.014Z</lastmod>
     
   </url>
   
