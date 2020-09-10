@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhangruochi.com/"/>
-  <updated>2020-09-10T06:18:14.325Z</updated>
+  <updated>2020-09-10T07:20:31.481Z</updated>
   <id>https://zhangruochi.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Generalized Policy Iteration</title>
+    <link href="https://zhangruochi.com/Generalized-Policy-Iteration/2020/09/10/"/>
+    <id>https://zhangruochi.com/Generalized-Policy-Iteration/2020/09/10/</id>
+    <published>2020-09-10T06:26:25.000Z</published>
+    <updated>2020-09-10T07:20:31.481Z</updated>
+    
+    <content type="html"><![CDATA[<p>The key idea of DP, and of reinforcement learning generally, is the use of value functions to organize and structure the search for good policies.  As discussed there, we can easily obtain optimal policies once we have found the optimal value functions, $v_{\star}$ or $q_{\star}$, which satisfy the Bellman optimality equations:</p><script type="math/tex; mode=display">V_{\star} = max_a \sum_{s\prime,r} p(s\prime,r | s, a)[ r + \gamma v_{\star} (s\prime)]</script><script type="math/tex; mode=display">q_{\star}(s,a) = \sum_{s\prime,r} p(s\prime,r | s,a)[ r + \gamma max_{a\prime} q_{\star}(s\prime,a\prime)]</script><h2 id="Policy-Evaluation"><a href="#Policy-Evaluation" class="headerlink" title="Policy Evaluation"></a>Policy Evaluation</h2><p>We consider how to compute the state-value function $V_{\pi}$ for an arbitrary policy $\pi$. This is called policy evaluation in the DP literature. </p><script type="math/tex; mode=display">V_{\pi}(s) = \sum_a \pi(a | s) \sum_{s\prime,r} p(s\prime, r | s, a) [ r + \gamma v_{\pi} (s\prime)]</script><p>Consider a sequence of approximate value functions $v_0,v_1, \cdots $,  each mapping $S+$ to $\mathbb{R}$ (the real numbers). The initial approximation, $v_0$, is chosen arbitrarily, and each successive approximation is obtained by using the Bellman equation for $V_{\pi}$ as an update rule:</p><script type="math/tex; mode=display">V_{k+1}(s) = \sum_a \pi(a | s) \sum_{s\prime,r} p(s\prime, r | s, a) [ r + \gamma v_{k} (s\prime)]</script><center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="1.png" width="80%" height="80%"></center><h2 id="Policy-Improvement"><a href="#Policy-Improvement" class="headerlink" title="Policy Improvement"></a>Policy Improvement</h2><p>Our reason for computing the value function for a policy is to help find better policies. </p><p>Consider selecting a in s and thereafter following the existing policy, $\pi$,  The value of this way of behaving is</p><script type="math/tex; mode=display">q_{\pi}(s,a) = \sum_{s\prime,r}p(s\prime,r | s, a) [ r + \gamma  v_{\pi}(s\prime)]</script><p>The key criterion is whether this is greater than or less than $V_{\pi}(s)$.  If it is greater—that is, if it is better to select a once in s and thereafter follow ⇡ than it would be to follow $\pi$ all the time—then one would expect it to be better still to select a every time s is encountered, and that the new policy would in fact be a better one overall. </p><p>That this is true is a special case of a general result called the <strong>policy improvement theorem</strong>. Let $\pi$ and $\pi\prime$ be any pair of deterministic policies such that, for all $s\in S$, </p><script type="math/tex; mode=display">q_{\pi}(s, \pi\prime(s)) \geq v_{\pi}(s)</script><p>Then the policy $\pi\prime$ must be as good as, or better than, $\pi$. That is, it must obtain greater or equal expected return from all states $s\in S$:</p><script type="math/tex; mode=display">V_{\pi\prime}(s) \geq V_{\pi}(s)</script><h2 id="Policy-Iteration"><a href="#Policy-Iteration" class="headerlink" title="Policy Iteration"></a>Policy Iteration</h2><p>Once a policy, $\pi$, has been improved using $v_{\pi}$ to yield a better policy, $\pi\prime$, we can then compute $\pi\prime$ and  improve it again to yield an even better $\pi\prime\prime$. We can thus obtain a sequence of monotonically improving policies and value functions:</p><center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="2.png" width="80%" height="80%"></center><p>This way of finding an optimal policy is called policy iteration. A complete algorithm is given in the box below.</p><center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="3.png" width="80%" height="80%"></center><h2 id="Value-Iteration"><a href="#Value-Iteration" class="headerlink" title="Value Iteration"></a>Value Iteration</h2><script type="math/tex; mode=display">V_{k+1}(s) = max_a \sum_{s\prime,r} p(s\prime,r | s, a)[ r + \gamma v_k (s\prime)]</script><center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="4.png" width="80%" height="80%"></center><h2 id="Generalized-Policy-Iteration"><a href="#Generalized-Policy-Iteration" class="headerlink" title="Generalized Policy Iteration"></a>Generalized Policy Iteration</h2><p>Policy iteration consists of two simultaneous, interacting processes, one making the value function consistent with the current policy (policy evaluation), and the other making the policy greedy with respect to the current value function (policy improvement). In policy iteration, these two processes alternate, each completing before the other begins, but this is not really necessary. In value iteration, for example, only a single iteration of policy evaluation is performed in between each policy improvement. In asynchronous DP methods, the evaluation and improvement processes are interleaved at an even finer grain. In some cases a single state is updated in one process before returning to the other. As long as both processes continue to update all states, the ultimate result is typically the same—convergence to the optimal value function and an optimal policy.</p><p>We use the term generalized policy iteration (GPI) to refer to the general idea of letting policy-evaluation and policy improvement processes interact, independent of the granularity and other details of the two processes. Almost all reinforcement learning methods are well described as GPI. That is, all have identifiable policies and value functions, with the policy always being improved with respect to the value function and the value function always being driven toward the value function for the policy, as suggested by the diagram to the right. If both the evaluation process and the improvement process stabilize, that is, no longer produce changes, then the value function and policy must be optimal. The value function stabilizes only when it is consistent with the current policy, and the policy stabilizes only when it is greedy with respect to the current value function. Thus, both processes stabilize only when a policy has been found that is greedy with respect to its own evaluation function. This implies that the Bellman optimality equation holds, and thus that the policy and the value function are optimal.</p><center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="5.png" width="50%" height="50%"></center>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;The key idea of DP, and of reinforcement learning generally, is the use of value functions to organize and structure the search for good 
+      
+    
+    </summary>
+    
+    
+      <category term="Artificial Intelligence" scheme="https://zhangruochi.com/categories/Artificial-Intelligence/"/>
+    
+      <category term="Reinforcement Learning" scheme="https://zhangruochi.com/categories/Artificial-Intelligence/Reinforcement-Learning/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Optimal Policies with Dynamic Programming</title>
@@ -502,29 +528,6 @@
     <summary type="html">
     
       损失函数，优化算法
-    
-    </summary>
-    
-    
-      <category term="Interview" scheme="https://zhangruochi.com/categories/Interview/"/>
-    
-      <category term="Machine Learning" scheme="https://zhangruochi.com/categories/Interview/Machine-Learning/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>ML-Interview-Unsupervised-Learning</title>
-    <link href="https://zhangruochi.com/ML-Interview-Unsupervised-Learning/2020/05/26/"/>
-    <id>https://zhangruochi.com/ML-Interview-Unsupervised-Learning/2020/05/26/</id>
-    <published>2020-05-26T01:14:23.000Z</published>
-    <updated>2020-05-28T22:49:19.611Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h2><center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="1.png" width="100%" height="100%"></center><h3 id="K-Means"><a href="#K-Means" class="headerlink" title="K-Means"></a>K-Means</h3><ol><li><p>简述 K-Means算法的具体步骤<br>输入是样本集$D=\{x_1,x_2,…x_m\}$,聚类的簇树k,最大迭代次数N。输出是簇划分$C=\{C_1,C_2,…C_k\}$</p><blockquote><ol><li>数据预处理,如归一化、离群点处理等<br>2.从数据集D中随机选择k个样本作为初始的k个质心向量：$\{\mu_1,\mu_2,…,\mu_k\}$</li><li>对于n=1,2,…,N<ul><li>将簇划分C初始化为 $C_t = \varnothing \;\; t =1,2…k$</li><li>计算样本$x_i$和各个质心向量$\mu_j(j=1,2,…k)$的距离: $d_{ij} = ||x_i - \mu_j||_2^2$，将$x_i$标记最小的为$d_{ij}$所对应的类别$\lambda_i$, 此时更新 $C_{\lambda_i} = C_{\lambda_i} \cup \{x_i\}$</li><li>对于j=1,2,…,k,对 $C_j$中所有的样本点重新计算新的质心$\mu_j = \frac{1}{|C_j|}\sum\limits_{x \in C_j}x$</li><li>如果所有的k个质心向量都没有发生变化，则转到步骤3）</li></ul></li><li>输出簇划分$C=\{C_1,C_2,…C_k\}$</li></ol></blockquote></li><li><p>简述K-Means++与 K-Means的区别</p><blockquote><p>K-Means中k个初始化的质心的位置选择对最后的聚类结果和运行时间都有很大的影响，因此需要选择合适的k个质心。如果仅仅是完全随机的选择，有可能导致算法收敛很慢。K-Means++算法就是对K-Means随机初始化质心的方法的优化。K-Means++的对于初始化质心的优化策略也很简单，如下：</p><ol><li>从输入的数据点集合中随机选择一个点作为第一个聚类中心$u_1$</li><li>对于数据集中的每一个点$x_i$,计算它与已选择的聚类中心中最近聚类中心的距离<script type="math/tex; mode=display">D(x_i) = arg\;min||x_i- \mu_r||_2^2\;\;r=1,2,...k_{selected}</script></li><li>选择一个新的数据点作为新的聚类中心，选择的原则是：$D(x)$较大的点，被选取作为聚类中心的概率较大.</li><li>重复b和c直到选择出k个聚类质心</li><li>利用这k个质心来作为初始化质心去运行标准的K-Means算法</li></ol></blockquote></li><li><p>K-Means均值算法的缺点是什么？</p><blockquote><ol><li>K值的选取不好把握</li><li>对于不是凸的或者球形的数据集比较难收敛</li><li>如果各隐含类别的数据不平衡，比如各隐含类别的数据量严重失衡，或者各隐含类别的方差不同，则聚类效果不佳。</li><li>采用迭代方法，得到的结果只是局部最优。</li><li>对噪音和异常点比较的敏感。</li></ol></blockquote></li><li><p>如何选取 K-Means 的 K 值？</p><blockquote><p>K 值的选择一般基于经验和多次试验结果。比如可以采用手肘法，我们可以尝试不同的 K 值，并将不同的 K 值所对应的损失函数画成折线。拐点就是 K 的最佳值。</p></blockquote></li><li><p>什么是 Kernel K- Means ?</p><blockquote><p>还童的欧式距离度量方式，使得 K 均值算法本质上假设了各个数据簇的数据呈现球形或者高维球形，这种分布在实际生活中不常见。面对非凸的数据分布时，引入核函数来进行非线性映射，将输入空间中的数据点映射到高维的特征空间，并在新的特征中空间进行聚类。非线性映射增加了数据点线性可分的概率。</p></blockquote></li></ol><h3 id="DBSCANS-（密度聚类）"><a href="#DBSCANS-（密度聚类）" class="headerlink" title="DBSCANS （密度聚类）"></a>DBSCANS （密度聚类）</h3><blockquote><p><a href="https://zhangruochi.com/DBSCAN-Clustering/2020/04/14/">https://zhangruochi.com/DBSCAN-Clustering/2020/04/14/</a></p></blockquote><h3 id="Birch-层次聚类"><a href="#Birch-层次聚类" class="headerlink" title="Birch (层次聚类)"></a>Birch (层次聚类)</h3><ol><li>什么是层次聚类? 层次聚类的步骤是什么？<blockquote><p>层次聚类不指定具体的簇数，而只关注簇之间的远近，最终会形成一个树形图。<br><center> <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="2.png" width="100%" height="100%"></center><br>根据聚类簇之间距离的计算方法的不同，层次聚类算法可以大致分为：单链接（Single-link）算法，全链接算法（complete-link）或均链接算法（average-link）。单链接算法用两个聚类簇中最近的样本距离作为两个簇之间的距离；而全链接使用计算两个聚类簇中最远的样本距离；均链接算法中两个聚类之间的距离由两个簇中所有的样本共同决定。</p><ol><li>每一个样本点视为一个簇；</li><li>计算各个簇之间的距离，最近的两个簇聚合成一个新簇；</li><li>重复以上过程直至最后只有一簇。</li></ol></blockquote></li></ol><h3 id="Gaussian-Mixed-Model-概率聚类"><a href="#Gaussian-Mixed-Model-概率聚类" class="headerlink" title="Gaussian Mixed Model (概率聚类)"></a>Gaussian Mixed Model (概率聚类)</h3><blockquote><p><a href="https://zhangruochi.com/Gaussian-Mixed-Model-Introduction/2020/03/15/">https://zhangruochi.com/Gaussian-Mixed-Model-Introduction/2020/03/15/</a></p></blockquote><ol><li>高斯混合模型的核心思想是什么？它是如何迭代计算的？<blockquote><p>高斯混合模型假设数据可以看作是从多个高斯分布中生成出来的。求解步骤如下:</p><ol><li>E step: 根据当前参数，计算每个点属于各个高斯分布的概率</li><li>M step: 使用上述 E step 求得的概率，计算每个高斯分布的加权平均参数。</li></ol></blockquote></li></ol><h3 id="聚类算法的评估"><a href="#聚类算法的评估" class="headerlink" title="聚类算法的评估"></a>聚类算法的评估</h3><ol><li>以聚类算法为例，假设没有外部标签数据，如何评估两个聚类算法的优劣？<blockquote><p>在无监督的情况下，我们可通过考察簇的分离情况和簇的紧凑情况来评估聚类的效果。</p><ol><li>轮廓系数：给定一个点p，改点的轮廓系数定义为<script type="math/tex; mode=display">s(p) = \frac{b(p) - a(p)}{max{a(p), b(p)}}</script>其中，$a(p)$是点$p$与同一簇中其他点$p\prime$之间的平均距离；$b(p)$是点$p$与另一不同簇中的点之间的最小平均距离（如果有n个簇，则只计算和点p最接近的一簇中的点与该点的平均距离). $a(p)$反应的是$p$所属的簇中数据的紧密程度，$b(p)$反应的是该簇与其他临近簇的分离程度。显然，$b(p)$越大，$a(p)$越小，对应的聚类的质量越好。</li></ol></blockquote></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      无监督学习，K-Means，DBSCANS，Birch，GMM
     
     </summary>
     
