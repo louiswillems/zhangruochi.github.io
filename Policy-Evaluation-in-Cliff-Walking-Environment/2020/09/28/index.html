@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="BLOG">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Assignment: Policy Evaluation in Cliff Walking EnvironmentWelcome to the Course 2 Module 2 Programming Assignment! In this assignment, you will implement one of the fundamental sample and bootstrappin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Policy Evaluation in Cliff Walking Environment">
+<meta property="og:url" content="https://zhangruochi.com/Policy-Evaluation-in-Cliff-Walking-Environment/2020/09/28/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="Assignment: Policy Evaluation in Cliff Walking EnvironmentWelcome to the Course 2 Module 2 Programming Assignment! In this assignment, you will implement one of the fundamental sample and bootstrappin">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/Policy-Evaluation-in-Cliff-Walking-Environment/2020/09/28/cliffwalk.png">
+<meta property="og:image" content="https://zhangruochi.com/Policy-Evaluation-in-Cliff-Walking-Environment/2020/09/28/cliffwalk-annotated.png">
+<meta property="og:updated_time" content="2020-09-28T08:06:19.087Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Policy Evaluation in Cliff Walking Environment">
+<meta name="twitter:description" content="Assignment: Policy Evaluation in Cliff Walking EnvironmentWelcome to the Course 2 Module 2 Programming Assignment! In this assignment, you will implement one of the fundamental sample and bootstrappin">
+<meta name="twitter:image" content="https://zhangruochi.com/Policy-Evaluation-in-Cliff-Walking-Environment/2020/09/28/cliffwalk.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/Policy-Evaluation-in-Cliff-Walking-Environment/2020/09/28/">
+
+
+
+
+
+  <title>Policy Evaluation in Cliff Walking Environment | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Policy-Evaluation-in-Cliff-Walking-Environment/2020/09/28/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Policy Evaluation in Cliff Walking Environment</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-28T16:04:11+08:00">
+                2020-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
+                    <span itemprop="name">Artificial Intelligence</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/Reinforcement-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Reinforcement Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Policy-Evaluation-in-Cliff-Walking-Environment/2020/09/28/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Policy-Evaluation-in-Cliff-Walking-Environment/2020/09/28/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Assignment-Policy-Evaluation-in-Cliff-Walking-Environment"><a href="#Assignment-Policy-Evaluation-in-Cliff-Walking-Environment" class="headerlink" title="Assignment: Policy Evaluation in Cliff Walking Environment"></a>Assignment: Policy Evaluation in Cliff Walking Environment</h1><p>Welcome to the Course 2 Module 2 Programming Assignment! In this assignment, you will implement one of the fundamental sample and bootstrapping based model free reinforcement learning agents for prediction. This is namely one that uses one-step temporal difference learning, also known as TD(0). The task is to design an agent for policy evaluation in the Cliff Walking environment. Recall that policy evaluation is the prediction problem where the goal is to accurately estimate the values of states given some policy.</p>
+<h3 id="Learning-Objectives"><a href="#Learning-Objectives" class="headerlink" title="Learning Objectives"></a>Learning Objectives</h3><ul>
+<li>Implement parts of the Cliff Walking environment, to get experience specifying MDPs [Section 1].</li>
+<li>Implement an agent that uses bootstrapping and, particularly, TD(0) [Section 2].</li>
+<li>Apply TD(0) to estimate value functions for different policies, i.e., run policy evaluation experiments [Section 3].</li>
+</ul>
+<h2 id="The-Cliff-Walking-Environment"><a href="#The-Cliff-Walking-Environment" class="headerlink" title="The Cliff Walking Environment"></a>The Cliff Walking Environment</h2><p>The Cliff Walking environment is a gridworld with a discrete state space and discrete action space. The agent starts at grid cell S. The agent can move (deterministically) to the four neighboring cells by taking actions Up, Down, Left or Right. Trying to move out of the boundary results in staying in the same location. So, for example, trying to move left when at a cell on the leftmost column results in no movement at all and the agent remains in the same location. The agent receives -1 reward per step in most states, and -100 reward when falling off of the cliff. This is an episodic task; termination occurs when the agent reaches the goal grid cell G. Falling off of the cliff results in resetting to the start state, without termination.</p>
+<p>The diagram below showcases the description above and also illustrates two of the policies we will be evaluating.</p>
+<p><img src="cliffwalk.png" style="height:400px"></p>
+<h2 id="Packages"><a href="#Packages" class="headerlink" title="Packages."></a>Packages.</h2><p>We import the following libraries that are required for this assignment. We shall be using the following libraries:</p>
+<ol>
+<li>jdc: Jupyter magic that allows defining classes over multiple jupyter notebook cells.</li>
+<li>numpy: the fundamental package for scientific computing with Python.</li>
+<li>matplotlib: the library for plotting graphs in Python.</li>
+<li>RL-Glue: the library for reinforcement learning experiments.</li>
+<li>BaseEnvironment, BaseAgent: the base classes from which we will inherit when creating the environment and agent classes in order for them to support the RL-Glue framework.</li>
+<li>Manager: the file allowing for visualization and testing.</li>
+<li>itertools.product: the function that can be used easily to compute permutations.</li>
+<li>tqdm.tqdm: Provides progress bars for visualizing the status of loops.</li>
+</ol>
+<p><strong>Please do not import other libraries</strong> — this will break the autograder.</p>
+<p><strong>NOTE: For this notebook, there is no need to make any calls to methods of random number generators. Spurious or missing calls to random number generators may affect your results.</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Do not modify this cell!</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> jdc</span><br><span class="line"><span class="comment"># --</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># --</span></span><br><span class="line"><span class="keyword">from</span> rl_glue <span class="keyword">import</span> RLGlue</span><br><span class="line"><span class="comment"># --</span></span><br><span class="line"><span class="keyword">from</span> Agent <span class="keyword">import</span> BaseAgent </span><br><span class="line"><span class="keyword">from</span> Environment <span class="keyword">import</span> BaseEnvironment  </span><br><span class="line"><span class="comment"># --</span></span><br><span class="line"><span class="keyword">from</span> manager <span class="keyword">import</span> Manager</span><br><span class="line"><span class="comment"># --</span></span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br><span class="line"><span class="comment"># --</span></span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br></pre></td></tr></table></figure>
+<h2 id="Section-1-Environment"><a href="#Section-1-Environment" class="headerlink" title="Section 1. Environment"></a>Section 1. Environment</h2><p>In the first part of this assignment, you will get to see how the Cliff Walking environment is implemented. You will also get to implement parts of it to aid your understanding of the environment and more generally how MDPs are specified. In particular, you will implement the logic for:</p>
+<ol>
+<li>Converting 2-dimensional coordinates to a single index for the state,</li>
+<li>One of the actions (action up), and,</li>
+<li>Reward and termination.</li>
+</ol>
+<p>Given below is an annotated diagram of the environment with more details that may help in completing the tasks of this part of the assignment. Note that we will be creating a more general environment where the height and width positions can be variable but the start, goal and cliff grid cells have the same relative positions (bottom left, bottom right and the cells between the start and goal grid cells respectively).</p>
+<p><img src="cliffwalk-annotated.png" style="height:400px"></p>
+<p>Once you have gone through the code and begun implementing solutions, it may be a good idea to come back here and see if you can convince yourself that the diagram above is an accurate representation of the code given and the code you have written.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Do not modify this cell!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create empty CliffWalkEnvironment class.</span></span><br><span class="line"><span class="comment"># These methods will be filled in later cells.</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CliffWalkEnvironment</span><span class="params">(BaseEnvironment)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">env_init</span><span class="params">(self, agent_info=&#123;&#125;)</span>:</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">env_start</span><span class="params">(self, state)</span>:</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">env_step</span><span class="params">(self, reward, state)</span>:</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">env_end</span><span class="params">(self, reward)</span>:</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">env_cleanup</span><span class="params">(self, reward)</span>:</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># helper method</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">state</span><span class="params">(self, loc)</span>:</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br></pre></td></tr></table></figure>
+<h2 id="env-init"><a href="#env-init" class="headerlink" title="env_init()"></a>env_init()</h2><p>The first function we add to the environment is the initialization function which is called once when an environment object is created. In this function, the grid dimensions and special locations (start and goal locations and the cliff locations) are stored for easy use later.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">%%add_to CliffWalkEnvironment</span><br><span class="line"></span><br><span class="line"><span class="comment"># Do not modify this cell!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Work Required: No.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">env_init</span><span class="params">(self, env_info=&#123;&#125;)</span>:</span></span><br><span class="line">        <span class="string">"""Setup for the environment called when the experiment first starts.</span></span><br><span class="line"><span class="string">        Note:</span></span><br><span class="line"><span class="string">            Initialize a tuple with the reward, first state, boolean</span></span><br><span class="line"><span class="string">            indicating if it's terminal.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Note, we can setup the following variables later, in env_start() as it is equivalent. </span></span><br><span class="line">        <span class="comment"># Code is left here to adhere to the note above, but these variables are initialized once more</span></span><br><span class="line">        <span class="comment"># in env_start() [See the env_start() function below.]</span></span><br><span class="line">        </span><br><span class="line">        reward = <span class="keyword">None</span></span><br><span class="line">        state = <span class="keyword">None</span> <span class="comment"># See Aside</span></span><br><span class="line">        termination = <span class="keyword">None</span></span><br><span class="line">        self.reward_state_term = (reward, state, termination)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># AN ASIDE: Observation is a general term used in the RL-Glue files that can be interachangeably </span></span><br><span class="line">        <span class="comment"># used with the term "state" for our purposes and for this assignment in particular. </span></span><br><span class="line">        <span class="comment"># A difference arises in the use of the terms when we have what is called Partial Observability where </span></span><br><span class="line">        <span class="comment"># the environment may return states that may not fully represent all the information needed to </span></span><br><span class="line">        <span class="comment"># predict values or make decisions (i.e., the environment is non-Markovian.)</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Set the default height to 4 and width to 12 (as in the diagram given above)</span></span><br><span class="line">        self.grid_h = env_info.get(<span class="string">"grid_height"</span>, <span class="number">4</span>) </span><br><span class="line">        self.grid_w = env_info.get(<span class="string">"grid_width"</span>, <span class="number">12</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Now, we can define a frame of reference. Let positive x be towards the direction down and </span></span><br><span class="line">        <span class="comment"># positive y be towards the direction right (following the row-major NumPy convention.)</span></span><br><span class="line">        <span class="comment"># Then, keeping with the usual convention that arrays are 0-indexed, max x is then grid_h - 1 </span></span><br><span class="line">        <span class="comment"># and max y is then grid_w - 1. So, we have:</span></span><br><span class="line">        <span class="comment"># Starting location of agent is the bottom-left corner, (max x, min y). </span></span><br><span class="line">        self.start_loc = (self.grid_h - <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">        <span class="comment"># Goal location is the bottom-right corner. (max x, max y).</span></span><br><span class="line">        self.goal_loc = (self.grid_h - <span class="number">1</span>, self.grid_w - <span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># The cliff will contain all the cells between the start_loc and goal_loc.</span></span><br><span class="line">        self.cliff = [(self.grid_h - <span class="number">1</span>, i) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, (self.grid_w - <span class="number">1</span>))]</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Take a look at the annotated environment diagram given in the above Jupyter Notebook cell to </span></span><br><span class="line">        <span class="comment"># verify that your understanding of the above code is correct for the default case, i.e., where </span></span><br><span class="line">        <span class="comment"># height = 4 and width = 12.</span></span><br></pre></td></tr></table></figure>
+<h2 id="Implement-state"><a href="#Implement-state" class="headerlink" title="Implement state()"></a><em>Implement</em> state()</h2><p>The agent location can be described as a two-tuple or coordinate (x, y) describing the agent’s position.<br>However, we can convert the (x, y) tuple into a single index and provide agents with just this integer.<br>One reason for this choice is that the spatial aspect of the problem is secondary and there is no need<br>for the agent to know about the exact dimensions of the environment.<br>From the agent’s viewpoint, it is just perceiving some states, accessing their corresponding values<br>in a table, and updating them. Both the coordinate (x, y) state representation and the converted coordinate representation are thus equivalent in this sense.</p>
+<p>Given a grid cell location, the state() function should return the state; a single index corresponding to the location in the grid.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Example: Suppose grid_h is 2 and grid_w is 2. Then, we can write the grid cell two-tuple or coordinate</span><br><span class="line">states as follows (following the usual 0-index convention):</span><br><span class="line">|(0, 0) (0, 1)| |0 1|</span><br><span class="line">|(1, 0) (1, 1)| |2 3|</span><br><span class="line">Assuming row-major order as NumPy does,  we can flatten the latter to get a vector [0 1 2 3].</span><br><span class="line">So, if loc = (0, 0) we return 0. While, for loc = (1, 1) we return 3.</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">%%add_to CliffWalkEnvironment</span><br><span class="line"><span class="comment">#GRADED FUNCTION: [state]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Work Required: Yes. Modify the return statement of this function to return a correct single index as </span></span><br><span class="line"><span class="comment"># the state (see the logic for this in the previous cell.)</span></span><br><span class="line"><span class="comment"># Lines: 1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">state</span><span class="params">(self, loc)</span>:</span></span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line">    <span class="keyword">return</span> loc[<span class="number">0</span>] * <span class="number">12</span> + loc[<span class="number">1</span>]</span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### AUTOGRADER TESTS FOR STATE (5 POINTS)</span></span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> The test below corresponds to the annotated diagram for the environment</span></span><br><span class="line"><span class="comment">#       given previously and is limited in scope. Hidden tests are used in the autograder.</span></span><br><span class="line"><span class="comment">#       You may wish to run other tests to check your implementation.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_state</span><span class="params">()</span>:</span></span><br><span class="line">    env = CliffWalkEnvironment()</span><br><span class="line">    env.env_init(&#123;<span class="string">"grid_height"</span>: <span class="number">4</span>, <span class="string">"grid_width"</span>: <span class="number">12</span>&#125;)</span><br><span class="line">    coords_to_test = [(<span class="number">0</span>, <span class="number">0</span>), (<span class="number">0</span>, <span class="number">11</span>), (<span class="number">1</span>, <span class="number">5</span>), (<span class="number">3</span>, <span class="number">0</span>), (<span class="number">3</span>, <span class="number">9</span>), (<span class="number">3</span>, <span class="number">11</span>)]</span><br><span class="line">    true_states = [<span class="number">0</span>, <span class="number">11</span>, <span class="number">17</span>, <span class="number">36</span>, <span class="number">45</span>, <span class="number">47</span>]</span><br><span class="line">    output_states = [env.state(coords) <span class="keyword">for</span> coords <span class="keyword">in</span> coords_to_test]</span><br><span class="line">    <span class="keyword">assert</span>(output_states == true_states)</span><br><span class="line">test_state()</span><br></pre></td></tr></table></figure>
+<h2 id="env-start"><a href="#env-start" class="headerlink" title="env_start()"></a>env_start()</h2><p>In env_start(), we initialize the agent location to be the start location and return the state corresponding to it as the first state for the agent to act upon. Additionally, we also set the reward and termination terms to be 0 and False respectively as they are consistent with the notion that there is no reward nor termination before the first action is even taken.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">%%add_to CliffWalkEnvironment</span><br><span class="line"></span><br><span class="line"><span class="comment"># Do not modify this cell!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Work Required: No.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">env_start</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="string">"""The first method called when the episode starts, called before the</span></span><br><span class="line"><span class="string">    agent starts.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        The first state from the environment.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    reward = <span class="number">0</span></span><br><span class="line">    <span class="comment"># agent_loc will hold the current location of the agent</span></span><br><span class="line">    self.agent_loc = self.start_loc</span><br><span class="line">    <span class="comment"># state is the one dimensional state representation of the agent location.</span></span><br><span class="line">    state = self.state(self.agent_loc)</span><br><span class="line">    termination = <span class="keyword">False</span></span><br><span class="line">    self.reward_state_term = (reward, state, termination)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> self.reward_state_term[<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="Implement-env-step"><a href="#Implement-env-step" class="headerlink" title="Implement env_step()"></a><em>Implement</em> env_step()</h2><p>Once an action is taken by the agent, the environment must provide a new state, reward and termination signal. </p>
+<p>In the Cliff Walking environment, agents move around using a 4-cell neighborhood called the Von Neumann neighborhood (<a href="https://en.wikipedia.org/wiki/Von_Neumann_neighborhood" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Von_Neumann_neighborhood</a>). Thus, the agent has 4 available actions at each state. Three of the actions have been implemented for you and your first task is to implement the logic for the fourth action (Action UP).</p>
+<p>Your second task for this function is to implement the reward logic. Look over the environment description given earlier in this notebook if you need a refresher for how the reward signal is defined.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">%%add_to CliffWalkEnvironment</span><br><span class="line"><span class="comment">#GRADED FUNCTION: [env_step]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Work Required: Yes. Fill in the code for action UP and implement the logic for reward and termination.</span></span><br><span class="line"><span class="comment"># Lines: ~7.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">env_step</span><span class="params">(self, action)</span>:</span></span><br><span class="line">    <span class="string">"""A step taken by the environment.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        action: The action taken by the agent</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        (float, state, Boolean): a tuple of the reward, state,</span></span><br><span class="line"><span class="string">            and boolean indicating if it's terminal.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> action == <span class="number">0</span>: <span class="comment"># UP (Task 1)</span></span><br><span class="line">        <span class="comment">### START CODE HERE ###</span></span><br><span class="line">        <span class="comment"># Hint: Look at the code given for the other actions and think about the logic in them.</span></span><br><span class="line">        possible_next_loc = (self.agent_loc[<span class="number">0</span>] - <span class="number">1</span>, self.agent_loc[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">if</span> possible_next_loc[<span class="number">0</span>] &gt;= <span class="number">0</span>:</span><br><span class="line">            self.agent_loc = possible_next_loc</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    <span class="keyword">elif</span> action == <span class="number">1</span>: <span class="comment"># LEFT</span></span><br><span class="line">        possible_next_loc = (self.agent_loc[<span class="number">0</span>], self.agent_loc[<span class="number">1</span>] - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> possible_next_loc[<span class="number">1</span>] &gt;= <span class="number">0</span>: <span class="comment"># Within Bounds?</span></span><br><span class="line">            self.agent_loc = possible_next_loc</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">pass</span> <span class="comment"># Stay.</span></span><br><span class="line">    <span class="keyword">elif</span> action == <span class="number">2</span>: <span class="comment"># DOWN</span></span><br><span class="line">        possible_next_loc = (self.agent_loc[<span class="number">0</span>] + <span class="number">1</span>, self.agent_loc[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">if</span> possible_next_loc[<span class="number">0</span>] &lt; self.grid_h: <span class="comment"># Within Bounds?</span></span><br><span class="line">            self.agent_loc = possible_next_loc</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">pass</span> <span class="comment"># Stay.</span></span><br><span class="line">    <span class="keyword">elif</span> action == <span class="number">3</span>: <span class="comment"># RIGHT</span></span><br><span class="line">        possible_next_loc = (self.agent_loc[<span class="number">0</span>], self.agent_loc[<span class="number">1</span>] + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> possible_next_loc[<span class="number">1</span>] &lt; self.grid_w: <span class="comment"># Within Bounds?</span></span><br><span class="line">            self.agent_loc = possible_next_loc</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">pass</span> <span class="comment"># Stay.</span></span><br><span class="line">    <span class="keyword">else</span>: </span><br><span class="line">        <span class="keyword">raise</span> Exception(str(action) + <span class="string">" not in recognized actions [0: Up, 1: Left, 2: Down, 3: Right]!"</span>)</span><br><span class="line"></span><br><span class="line">    reward = <span class="number">-1</span></span><br><span class="line">    terminal = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line">    <span class="comment"># Hint: Consider the initialization of reward and terminal variables above. Then, note the </span></span><br><span class="line">    <span class="comment"># conditional statements and comments given below and carefully ensure to set the variables reward </span></span><br><span class="line">    <span class="comment"># and terminal correctly for each case.</span></span><br><span class="line">    <span class="keyword">if</span> self.agent_loc == self.goal_loc: <span class="comment"># Reached Goal!</span></span><br><span class="line">        terminal = <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">elif</span> self.agent_loc <span class="keyword">in</span> self.cliff: <span class="comment"># Fell into the cliff!</span></span><br><span class="line">        reward = <span class="number">-100</span></span><br><span class="line">        self.agent_loc = self.start_loc</span><br><span class="line">    <span class="keyword">else</span>: </span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line"></span><br><span class="line">    self.reward_state_term = (reward, self.state(self.agent_loc), terminal)</span><br><span class="line">    <span class="keyword">return</span> self.reward_state_term</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### AUTOGRADER TESTS FOR ACTION UP (5 POINTS)</span></span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> The test below is again limited in scope. Hidden tests are used in the autograder.</span></span><br><span class="line"><span class="comment">#       You may wish to run other tests to check your implementation.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_action_up</span><span class="params">()</span>:</span></span><br><span class="line">    env = CliffWalkEnvironment()</span><br><span class="line">    env.env_init(&#123;<span class="string">"grid_height"</span>: <span class="number">4</span>, <span class="string">"grid_width"</span>: <span class="number">12</span>&#125;)</span><br><span class="line">    env.agent_loc = (<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">    env.env_step(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">assert</span>(env.agent_loc == (<span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">    </span><br><span class="line">    env.agent_loc = (<span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">    env.env_step(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">assert</span>(env.agent_loc == (<span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">test_action_up()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### AUTOGRADER TESTS FOR REWARD &amp; TERMINATION (10 POINTS)</span></span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> The test below is limited in scope. Hidden tests are used in the autograder.</span></span><br><span class="line"><span class="comment">#       You may wish to run other tests to check your implementation.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_reward</span><span class="params">()</span>:</span></span><br><span class="line">    env = CliffWalkEnvironment()</span><br><span class="line">    env.env_init(&#123;<span class="string">"grid_height"</span>: <span class="number">4</span>, <span class="string">"grid_width"</span>: <span class="number">12</span>&#125;)</span><br><span class="line">    env.agent_loc = (<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">    reward_state_term = env.env_step(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">assert</span>(reward_state_term[<span class="number">0</span>] == <span class="number">-1</span> <span class="keyword">and</span> reward_state_term[<span class="number">1</span>] == env.state((<span class="number">0</span>, <span class="number">0</span>)) <span class="keyword">and</span></span><br><span class="line">           reward_state_term[<span class="number">2</span>] == <span class="keyword">False</span>)</span><br><span class="line">    </span><br><span class="line">    env.agent_loc = (<span class="number">3</span>, <span class="number">1</span>)</span><br><span class="line">    reward_state_term = env.env_step(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">assert</span>(reward_state_term[<span class="number">0</span>] == <span class="number">-100</span> <span class="keyword">and</span> reward_state_term[<span class="number">1</span>] == env.state((<span class="number">3</span>, <span class="number">0</span>)) <span class="keyword">and</span></span><br><span class="line">           reward_state_term[<span class="number">2</span>] == <span class="keyword">False</span>)</span><br><span class="line">    </span><br><span class="line">    env.agent_loc = (<span class="number">2</span>, <span class="number">11</span>)</span><br><span class="line">    reward_state_term = env.env_step(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">assert</span>(reward_state_term[<span class="number">0</span>] == <span class="number">-1</span> <span class="keyword">and</span> reward_state_term[<span class="number">1</span>] == env.state((<span class="number">3</span>, <span class="number">11</span>)) <span class="keyword">and</span></span><br><span class="line">           reward_state_term[<span class="number">2</span>] == <span class="keyword">True</span>)</span><br><span class="line">test_reward()</span><br></pre></td></tr></table></figure>
+<h2 id="env-cleanup"><a href="#env-cleanup" class="headerlink" title="env_cleanup()"></a>env_cleanup()</h2><p>There is not much cleanup to do for the Cliff Walking environment. Here, we simply reset the agent location to be the start location in this function.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">%%add_to CliffWalkEnvironment</span><br><span class="line"></span><br><span class="line"><span class="comment"># Do not modify this cell!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Work Required: No.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">env_cleanup</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="string">"""Cleanup done after the environment ends"""</span></span><br><span class="line">    self.agent_loc = self.start_loc</span><br></pre></td></tr></table></figure>
+<h2 id="Section-2-Agent"><a href="#Section-2-Agent" class="headerlink" title="Section 2. Agent"></a>Section 2. Agent</h2><p>In this second part of the assignment, you will be implementing the key updates for Temporal Difference Learning. There are two cases to consider depending on whether an action leads to a terminal state or not.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Do not modify this cell!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create empty TDAgent class.</span></span><br><span class="line"><span class="comment"># These methods will be filled in later cells.</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TDAgent</span><span class="params">(BaseAgent)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">agent_init</span><span class="params">(self, agent_info=&#123;&#125;)</span>:</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">agent_start</span><span class="params">(self, state)</span>:</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">agent_step</span><span class="params">(self, reward, state)</span>:</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">agent_end</span><span class="params">(self, reward)</span>:</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">agent_cleanup</span><span class="params">(self)</span>:</span>        </span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">agent_message</span><span class="params">(self, message)</span>:</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError</span><br></pre></td></tr></table></figure>
+<h2 id="agent-init"><a href="#agent-init" class="headerlink" title="agent_init()"></a>agent_init()</h2><p>As we did with the environment, we first initialize the agent once when a TDAgent object is created. In this function, we create a random number generator, seeded with the seed provided in the agent_info dictionary to get reproducible results. We also set the policy, discount and step size based on the agent_info dictionary. Finally, with a convention that the policy is always specified as a mapping from states to actions and so is an array of size (# States, # Actions), we initialize a values array of shape (# States,) to zeros.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">%%add_to TDAgent</span><br><span class="line"></span><br><span class="line"><span class="comment"># Do not modify this cell!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Work Required: No.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">agent_init</span><span class="params">(self, agent_info=&#123;&#125;)</span>:</span></span><br><span class="line">    <span class="string">"""Setup for the agent called when the experiment first starts."""</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Create a random number generator with the provided seed to seed the agent for reproducibility.</span></span><br><span class="line">    self.rand_generator = np.random.RandomState(agent_info.get(<span class="string">"seed"</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Policy will be given, recall that the goal is to accurately estimate its corresponding value function. </span></span><br><span class="line">    self.policy = agent_info.get(<span class="string">"policy"</span>)</span><br><span class="line">    <span class="comment"># Discount factor (gamma) to use in the updates.</span></span><br><span class="line">    self.discount = agent_info.get(<span class="string">"discount"</span>)</span><br><span class="line">    <span class="comment"># The learning rate or step size parameter (alpha) to use in updates.</span></span><br><span class="line">    self.step_size = agent_info.get(<span class="string">"step_size"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Initialize an array of zeros that will hold the values.</span></span><br><span class="line">    <span class="comment"># Recall that the policy can be represented as a (# States, # Actions) array. With the </span></span><br><span class="line">    <span class="comment"># assumption that this is the case, we can use the first dimension of the policy to</span></span><br><span class="line">    <span class="comment"># initialize the array for values.</span></span><br><span class="line">    self.values = np.zeros((self.policy.shape[<span class="number">0</span>],))</span><br></pre></td></tr></table></figure>
+<h1 id="agent-start"><a href="#agent-start" class="headerlink" title="agent_start()"></a>agent_start()</h1><p>In agent_start(), we choose an action based on the initial state and policy we are evaluating. We also cache the state so that we can later update its value when we perform a Temporal Difference update. Finally, we return the action chosen so that the RL loop can continue and the environment can execute this action.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">%%add_to TDAgent</span><br><span class="line"></span><br><span class="line"><span class="comment"># Do not modify this cell!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Work Required: No.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">agent_start</span><span class="params">(self, state)</span>:</span></span><br><span class="line">    <span class="string">"""The first method called when the episode starts, called after</span></span><br><span class="line"><span class="string">    the environment starts.</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        state (Numpy array): the state from the environment's env_start function.</span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        The first action the agent takes.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># The policy can be represented as a (# States, # Actions) array. So, we can use </span></span><br><span class="line">    <span class="comment"># the second dimension here when choosing an action.</span></span><br><span class="line">    action = self.rand_generator.choice(range(self.policy.shape[<span class="number">1</span>]), p=self.policy[state])</span><br><span class="line">    self.last_state = state</span><br><span class="line">    <span class="keyword">return</span> action</span><br></pre></td></tr></table></figure>
+<h2 id="Implement-agent-step"><a href="#Implement-agent-step" class="headerlink" title="Implement agent_step()"></a><em>Implement</em> agent_step()</h2><p>In agent_step(), the agent must:</p>
+<ul>
+<li>Perform an update to improve the value estimate of the previously visited state, and</li>
+<li>Act based on the state provided by the environment.</li>
+</ul>
+<p>The latter of the two steps above has been implemented for you. Implement the former. Note that, unlike later in agent_end(), the episode has not yet ended in agent_step(). in other words, the previously observed state was not a terminal state.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">%%add_to TDAgent</span><br><span class="line"></span><br><span class="line"><span class="comment">#[GRADED] FUNCTION: [agent_step]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Work Required: Yes. Fill in the TD-target and update.</span></span><br><span class="line"><span class="comment"># Lines: ~2.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">agent_step</span><span class="params">(self, reward, state)</span>:</span></span><br><span class="line">    <span class="string">"""A step taken by the agent.</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        reward (float): the reward received for taking the last action taken</span></span><br><span class="line"><span class="string">        state (Numpy array): the state from the</span></span><br><span class="line"><span class="string">            environment's step after the last action, i.e., where the agent ended up after the</span></span><br><span class="line"><span class="string">            last action</span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        The action the agent is taking.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line">    <span class="comment"># Hint: We should perform an update with the last state given that we now have the reward and</span></span><br><span class="line">    <span class="comment"># next state. We break this into two steps. Recall for example that the Monte-Carlo update </span></span><br><span class="line">    <span class="comment"># had the form: V[S_t] = V[S_t] + alpha * (target - V[S_t]), where the target was the return, G_t.</span></span><br><span class="line">    target = reward + self.discount * self.values[state]</span><br><span class="line">    self.values[self.last_state] = self.values[self.last_state] + self.step_size * (target - self.values[self.last_state])</span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Having updated the value for the last state, we now act based on the current </span></span><br><span class="line">    <span class="comment"># state, and set the last state to be current one as we will next be making an </span></span><br><span class="line">    <span class="comment"># update with it when agent_step is called next once the action we return from this function </span></span><br><span class="line">    <span class="comment"># is executed in the environment.</span></span><br><span class="line"></span><br><span class="line">    action = self.rand_generator.choice(range(self.policy.shape[<span class="number">1</span>]), p=self.policy[state])</span><br><span class="line">    self.last_state = state</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> action</span><br></pre></td></tr></table></figure>
+<h2 id="Implement-agent-end"><a href="#Implement-agent-end" class="headerlink" title="Implement agent_end()"></a><em>Implement</em> agent_end()</h2><p>Implement the TD update for the case where an action leads to a terminal state.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">%%add_to TDAgent</span><br><span class="line"></span><br><span class="line"><span class="comment">#[GRADED] FUNCTION: [agent_end]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Work Required: Yes. Fill in the TD-target and update.</span></span><br><span class="line"><span class="comment"># Lines: ~2.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">agent_end</span><span class="params">(self, reward)</span>:</span></span><br><span class="line">    <span class="string">"""Run when the agent terminates.</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        reward (float): the reward the agent received for entering the terminal state.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line">    <span class="comment"># Hint: Here too, we should perform an update with the last state given that we now have the </span></span><br><span class="line">    <span class="comment"># reward. Note that in this case, the action led to termination. Once more, we break this into </span></span><br><span class="line">    <span class="comment"># two steps, computing the target and the update itself that uses the target and the </span></span><br><span class="line">    <span class="comment"># current value estimate for the state whose value we are updating.</span></span><br><span class="line">    target = reward</span><br><span class="line">    self.values[self.last_state] = self.values[self.last_state] + self.step_size * (target - self.values[self.last_state])</span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br></pre></td></tr></table></figure>
+<h2 id="agent-cleanup"><a href="#agent-cleanup" class="headerlink" title="agent_cleanup()"></a>agent_cleanup()</h2><p>In cleanup, we simply reset the last state to be None to ensure that we are not storing any states past an episode.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">%%add_to TDAgent</span><br><span class="line"></span><br><span class="line"><span class="comment"># Do not modify this cell!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Work Required: No.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">agent_cleanup</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="string">"""Cleanup done after the agent ends."""</span></span><br><span class="line">    self.last_state = <span class="keyword">None</span></span><br></pre></td></tr></table></figure>
+<h2 id="agent-message"><a href="#agent-message" class="headerlink" title="agent_message()"></a>agent_message()</h2><p>agent_message() can generally be used to get different kinds of information about an RLGlue agent in the interaction loop of RLGlue. Here, we conditonally check for a message matching “get_values” and use it to retrieve the values table the agent has been updating over time.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">%%add_to TDAgent</span><br><span class="line"></span><br><span class="line"><span class="comment"># Do not modify this cell!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Work Required: No.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">agent_message</span><span class="params">(self, message)</span>:</span></span><br><span class="line">    <span class="string">"""A function used to pass information from the agent to the experiment.</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        message: The message passed to the agent.</span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        The response (or answer) to the message.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">if</span> message == <span class="string">"get_values"</span>:</span><br><span class="line">        <span class="keyword">return</span> self.values</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">raise</span> Exception(<span class="string">"TDAgent.agent_message(): Message not understood!"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### AUTOGRADER TESTS FOR TD-UPDATES (20 POINTS)</span></span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> The test belows serve as a good check in debugging your code for the TD updates. However, </span></span><br><span class="line"><span class="comment">#       as with the other tests, it is limited in scope. Hidden tests are used in the autograder.</span></span><br><span class="line"><span class="comment">#       You may wish to run other tests to check your implementation.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_td_updates</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># The following test checks that the TD check works for a case where the transition </span></span><br><span class="line">    <span class="comment"># garners reward -1 and does not lead to a terminal state. This is in a simple two state setting </span></span><br><span class="line">    <span class="comment"># where there is only one action. The first state's current value estimate is 0 while the second is 1.</span></span><br><span class="line">    <span class="comment"># Note the discount and step size if you are debugging this test.</span></span><br><span class="line">    agent = TDAgent()</span><br><span class="line">    policy_list = np.array([[<span class="number">1.</span>], [<span class="number">1.</span>]])</span><br><span class="line">    agent.agent_init(&#123;<span class="string">"policy"</span>: np.array(policy_list), <span class="string">"discount"</span>: <span class="number">0.99</span>, <span class="string">"step_size"</span>: <span class="number">0.1</span>&#125;)</span><br><span class="line">    agent.values = np.array([<span class="number">0.</span>, <span class="number">1.</span>])</span><br><span class="line">    agent.agent_start(<span class="number">0</span>)</span><br><span class="line">    reward = <span class="number">-1</span></span><br><span class="line">    next_state = <span class="number">1</span></span><br><span class="line">    agent.agent_step(reward, next_state)</span><br><span class="line">    <span class="keyword">assert</span>(np.isclose(agent.values[<span class="number">0</span>], <span class="number">-0.001</span>) <span class="keyword">and</span> np.isclose(agent.values[<span class="number">1</span>], <span class="number">1.</span>))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The following test checks that the TD check works for a case where the transition </span></span><br><span class="line">    <span class="comment"># garners reward -100 and lead to a terminal state. This is in a simple one state setting </span></span><br><span class="line">    <span class="comment"># where there is only one action. The state's current value estimate is 0.</span></span><br><span class="line">    <span class="comment"># Note the discount and step size if you are debugging this test.</span></span><br><span class="line">    agent = TDAgent()</span><br><span class="line">    policy_list = np.array([[<span class="number">1.</span>]])</span><br><span class="line">    agent.agent_init(&#123;<span class="string">"policy"</span>: np.array(policy_list), <span class="string">"discount"</span>: <span class="number">0.99</span>, <span class="string">"step_size"</span>: <span class="number">0.1</span>&#125;)</span><br><span class="line">    agent.values = np.array([<span class="number">0.</span>])</span><br><span class="line">    agent.agent_start(<span class="number">0</span>)</span><br><span class="line">    reward = <span class="number">-100</span></span><br><span class="line">    next_state = <span class="number">0</span></span><br><span class="line">    agent.agent_end(reward)</span><br><span class="line">    <span class="keyword">assert</span>(np.isclose(agent.values[<span class="number">0</span>], <span class="number">-10</span>))</span><br><span class="line">    </span><br><span class="line">test_td_updates()</span><br></pre></td></tr></table></figure>
+<h2 id="Section-3-Policy-Evaluation-Experiments"><a href="#Section-3-Policy-Evaluation-Experiments" class="headerlink" title="Section 3. Policy Evaluation Experiments"></a>Section 3. Policy Evaluation Experiments</h2><p>Finally, in this last part of the assignment, you will get to see the TD policy evaluation algorithm in action by looking at the estimated values, the per state value error and after the experiment is complete, the Mean Squared Value Error curve vs. episode number, summarizing how the value error changed over time.</p>
+<p>The code below runs one run of an experiment given env_info and agent_info dictionaries. A “manager” object is created for visualizations and is used in part for the autograder. By default, the run will be for 5000 episodes. The true_values_file is specified to compare the learned value function with the values stored in the true_values_file. Plotting of the learned value  function occurs by default after every 100 episodes. In addition, when true_values_file is specified, the value error per state and the root mean square value error will also be plotted.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib notebook</span><br><span class="line"></span><br><span class="line"><span class="comment"># Work Required: No. </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_experiment</span><span class="params">(env_info, agent_info, </span></span></span><br><span class="line"><span class="function"><span class="params">                   num_episodes=<span class="number">5000</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                   experiment_name=None,</span></span></span><br><span class="line"><span class="function"><span class="params">                   plot_freq=<span class="number">100</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                   true_values_file=None,</span></span></span><br><span class="line"><span class="function"><span class="params">                   value_error_threshold=<span class="number">1e-8</span>)</span>:</span></span><br><span class="line">    env = CliffWalkEnvironment</span><br><span class="line">    agent = TDAgent</span><br><span class="line">    rl_glue = RLGlue(env, agent)</span><br><span class="line"></span><br><span class="line">    rl_glue.rl_init(agent_info, env_info)</span><br><span class="line"></span><br><span class="line">    manager = Manager(env_info, agent_info, true_values_file=true_values_file, experiment_name=experiment_name)</span><br><span class="line">    <span class="keyword">for</span> episode <span class="keyword">in</span> range(<span class="number">1</span>, num_episodes + <span class="number">1</span>):</span><br><span class="line">        rl_glue.rl_episode(<span class="number">0</span>) <span class="comment"># no step limit</span></span><br><span class="line">        <span class="keyword">if</span> episode % plot_freq == <span class="number">0</span>:</span><br><span class="line">            values = rl_glue.agent.agent_message(<span class="string">"get_values"</span>)</span><br><span class="line">            manager.visualize(values, episode)</span><br><span class="line"></span><br><span class="line">    values = rl_glue.agent.agent_message(<span class="string">"get_values"</span>)</span><br><span class="line">    <span class="keyword">if</span> true_values_file <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">        <span class="comment"># Grading: The Manager will check that the values computed using your TD agent match </span></span><br><span class="line">        <span class="comment"># the true values (within some small allowance) across the states. In addition, it also</span></span><br><span class="line">        <span class="comment"># checks whether the root mean squared value error is close to 0.</span></span><br><span class="line">        manager.run_tests(values, value_error_threshold)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> values</span><br></pre></td></tr></table></figure>
+<p>The cell below just runs a policy evaluation experiment with the determinstic optimal policy that strides just above the cliff. You should observe that the per state value error and RMSVE curve asymptotically go towards 0. The arrows in the four directions denote the probabilities of taking each action. This experiment is ungraded but should serve as a good test for the later experiments. The true values file provided for this experiment may help with debugging as well.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Do not modify this cell!</span></span><br><span class="line"></span><br><span class="line">env_info = &#123;<span class="string">"grid_height"</span>: <span class="number">4</span>, <span class="string">"grid_width"</span>: <span class="number">12</span>, <span class="string">"seed"</span>: <span class="number">0</span>&#125;</span><br><span class="line">agent_info = &#123;<span class="string">"discount"</span>: <span class="number">1</span>, <span class="string">"step_size"</span>: <span class="number">0.01</span>, <span class="string">"seed"</span>: <span class="number">0</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># The Optimal Policy that strides just along the cliff</span></span><br><span class="line">policy = np.ones(shape=(env_info[<span class="string">'grid_width'</span>] * env_info[<span class="string">'grid_height'</span>], <span class="number">4</span>)) * <span class="number">0.25</span></span><br><span class="line">policy[<span class="number">36</span>] = [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">24</span>, <span class="number">35</span>):</span><br><span class="line">    policy[i] = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">policy[<span class="number">35</span>] = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">agent_info.update(&#123;<span class="string">"policy"</span>: policy&#125;)</span><br><span class="line"></span><br><span class="line">true_values_file = <span class="string">"optimal_policy_value_fn.npy"</span></span><br><span class="line">_ = run_experiment(env_info, agent_info, num_episodes=<span class="number">5000</span>, experiment_name=<span class="string">"Policy Evaluation on Optimal Policy"</span>,</span><br><span class="line">                   plot_freq=<span class="number">500</span>, true_values_file=true_values_file)</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;IPython.core.display.Javascript object&gt;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The Safe Policy</span></span><br><span class="line"><span class="comment"># Hint: Fill in the array below (as done in the previous cell) based on the safe policy illustration </span></span><br><span class="line"><span class="comment"># in the environment diagram. This is the policy that strides as far as possible away from the cliff. </span></span><br><span class="line"><span class="comment"># We call it a "safe" policy because if the environment has any stochasticity, this policy would do a good job in </span></span><br><span class="line"><span class="comment"># keeping the agent from falling into the cliff (in contrast to the optimal policy shown before). </span></span><br><span class="line"><span class="comment"># BOILERPLATE:</span></span><br><span class="line">policy = np.ones(shape=(env_info[<span class="string">'grid_width'</span>] * env_info[<span class="string">'grid_height'</span>], <span class="number">4</span>)) * <span class="number">0.25</span></span><br><span class="line"><span class="comment">### START CODE HERE ###</span></span><br><span class="line">policy[<span class="number">36</span>] = [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">policy[<span class="number">24</span>] = [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">policy[<span class="number">12</span>] = [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">11</span>):</span><br><span class="line">    policy[i] = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">policy[<span class="number">11</span>] = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">policy[<span class="number">23</span>] = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">policy[<span class="number">35</span>] = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line"><span class="comment">### END CODE HERE ###</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### AUTO-GRADER TESTS FOR POLICY EVALUATION WITH SAFE POLICY</span></span><br><span class="line">agent_info.update(&#123;<span class="string">"policy"</span>: policy&#125;)</span><br><span class="line">v = run_experiment(env_info, agent_info,</span><br><span class="line">               experiment_name=<span class="string">"Policy Evaluation On Safe Policy"</span>,</span><br><span class="line">               num_episodes=<span class="number">5000</span>, plot_freq=<span class="number">500</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Do not modify this cell!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># A Near Optimal Stochastic Policy</span></span><br><span class="line"><span class="comment"># Now, we try a stochastic policy that deviates a little from the optimal policy seen above. </span></span><br><span class="line"><span class="comment"># This means we can get different results due to randomness.</span></span><br><span class="line"><span class="comment"># We will thus average the value function estimates we get over multiple runs. </span></span><br><span class="line"><span class="comment"># This can take some time, upto about 5 minutes from previous testing. </span></span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> The autograder will compare . Re-run this cell upon making any changes.</span></span><br><span class="line"></span><br><span class="line">env_info = &#123;<span class="string">"grid_height"</span>: <span class="number">4</span>, <span class="string">"grid_width"</span>: <span class="number">12</span>&#125;</span><br><span class="line">agent_info = &#123;<span class="string">"discount"</span>: <span class="number">1</span>, <span class="string">"step_size"</span>: <span class="number">0.01</span>&#125;</span><br><span class="line"></span><br><span class="line">policy = np.ones(shape=(env_info[<span class="string">'grid_width'</span>] * env_info[<span class="string">'grid_height'</span>], <span class="number">4</span>)) * <span class="number">0.25</span></span><br><span class="line">policy[<span class="number">36</span>] = [<span class="number">0.9</span>, <span class="number">0.1</span>/<span class="number">3.</span>, <span class="number">0.1</span>/<span class="number">3.</span>, <span class="number">0.1</span>/<span class="number">3.</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">24</span>, <span class="number">35</span>):</span><br><span class="line">    policy[i] = [<span class="number">0.1</span>/<span class="number">3.</span>, <span class="number">0.1</span>/<span class="number">3.</span>, <span class="number">0.1</span>/<span class="number">3.</span>, <span class="number">0.9</span>]</span><br><span class="line">policy[<span class="number">35</span>] = [<span class="number">0.1</span>/<span class="number">3.</span>, <span class="number">0.1</span>/<span class="number">3.</span>, <span class="number">0.9</span>, <span class="number">0.1</span>/<span class="number">3.</span>]</span><br><span class="line">agent_info.update(&#123;<span class="string">"policy"</span>: policy&#125;)</span><br><span class="line">agent_info.update(&#123;<span class="string">"step_size"</span>: <span class="number">0.01</span>&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### AUTO-GRADER TESTS FOR POLICY EVALUATION WITH NEAR OPTIMAL STOCHASTIC POLICY (40 POINTS)</span></span><br><span class="line">arr = []</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> tqdm(range(<span class="number">30</span>)):</span><br><span class="line">    env_info[<span class="string">'seed'</span>] = i</span><br><span class="line">    agent_info[<span class="string">'seed'</span>] = i</span><br><span class="line">    v = run_experiment(env_info, agent_info,</span><br><span class="line">                   experiment_name=<span class="string">"Policy Evaluation On Optimal Policy"</span>,</span><br><span class="line">                   num_episodes=<span class="number">5000</span>, plot_freq=<span class="number">10000</span>)</span><br><span class="line">    arr.append(v)</span><br><span class="line">average_v = np.array(arr).mean(axis=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Wrapping-Up"><a href="#Wrapping-Up" class="headerlink" title="Wrapping Up"></a>Wrapping Up</h2><p>Congratulations, you have completed assignment 2! In this assignment, we investigated a very useful concept for sample-based online learning: temporal difference. We particularly looked at the prediction problem where the goal is to find the value function corresponding to a given policy. In the next assignment, by learning the action-value function instead of the state-value function, you will get to see how temporal difference learning can be used in control as well.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Assignment-4-Chatbot/2020/09/28/" rel="next" title="Assignment 4: Chatbot">
+                <i class="fa fa-chevron-left"></i> Assignment 4: Chatbot
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">254</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/cherish_CX/" title="Chunxia" target="_blank" rel="external nofollow">Chunxia</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Assignment-Policy-Evaluation-in-Cliff-Walking-Environment"><span class="nav-text">Assignment: Policy Evaluation in Cliff Walking Environment</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Learning-Objectives"><span class="nav-text">Learning Objectives</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Cliff-Walking-Environment"><span class="nav-text">The Cliff Walking Environment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Packages"><span class="nav-text">Packages.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Section-1-Environment"><span class="nav-text">Section 1. Environment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#env-init"><span class="nav-text">env_init()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Implement-state"><span class="nav-text">Implement state()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#env-start"><span class="nav-text">env_start()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Implement-env-step"><span class="nav-text">Implement env_step()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#env-cleanup"><span class="nav-text">env_cleanup()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Section-2-Agent"><span class="nav-text">Section 2. Agent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#agent-init"><span class="nav-text">agent_init()</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#agent-start"><span class="nav-text">agent_start()</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Implement-agent-step"><span class="nav-text">Implement agent_step()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Implement-agent-end"><span class="nav-text">Implement agent_end()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#agent-cleanup"><span class="nav-text">agent_cleanup()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#agent-message"><span class="nav-text">agent_message()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Section-3-Policy-Evaluation-Experiments"><span class="nav-text">Section 3. Policy Evaluation Experiments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Wrapping-Up"><span class="nav-text">Wrapping Up</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>
