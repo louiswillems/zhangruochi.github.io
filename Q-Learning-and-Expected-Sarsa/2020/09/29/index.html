@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="NLP,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Assignment 2 - Q-Learning and Expected SarsaWelcome to Course 2 Programming Assignment 2. In this notebook, you will:  Implement Q-Learning with $\epsilon$-greedy action selection Implement Expected S">
+<meta name="keywords" content="NLP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Q-Learning and Expected Sarsa ">
+<meta property="og:url" content="https://zhangruochi.com/Q-Learning-and-Expected-Sarsa/2020/09/29/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="Assignment 2 - Q-Learning and Expected SarsaWelcome to Course 2 Programming Assignment 2. In this notebook, you will:  Implement Q-Learning with $\epsilon$-greedy action selection Implement Expected S">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/Q-Learning-and-Expected-Sarsa/2020/09/29/cliffworld.png">
+<meta property="og:image" content="https://zhangruochi.com/Q-Learning-and-Expected-Sarsa/2020/09/29/output_26_1.png">
+<meta property="og:image" content="https://zhangruochi.com/Q-Learning-and-Expected-Sarsa/2020/09/29/output_28_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Q-Learning-and-Expected-Sarsa/2020/09/29/output_30_1.png">
+<meta property="og:updated_time" content="2020-09-29T08:10:50.768Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Q-Learning and Expected Sarsa ">
+<meta name="twitter:description" content="Assignment 2 - Q-Learning and Expected SarsaWelcome to Course 2 Programming Assignment 2. In this notebook, you will:  Implement Q-Learning with $\epsilon$-greedy action selection Implement Expected S">
+<meta name="twitter:image" content="https://zhangruochi.com/Q-Learning-and-Expected-Sarsa/2020/09/29/cliffworld.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/Q-Learning-and-Expected-Sarsa/2020/09/29/">
+
+
+
+
+
+  <title>Q-Learning and Expected Sarsa  | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Q-Learning-and-Expected-Sarsa/2020/09/29/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Q-Learning and Expected Sarsa </h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-29T10:52:00+08:00">
+                2020-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
+                    <span itemprop="name">Artificial Intelligence</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/Reinforcement-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Reinforcement Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Q-Learning-and-Expected-Sarsa/2020/09/29/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Q-Learning-and-Expected-Sarsa/2020/09/29/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Assignment-2-Q-Learning-and-Expected-Sarsa"><a href="#Assignment-2-Q-Learning-and-Expected-Sarsa" class="headerlink" title="Assignment 2 - Q-Learning and Expected Sarsa"></a>Assignment 2 - Q-Learning and Expected Sarsa</h1><p>Welcome to Course 2 Programming Assignment 2. In this notebook, you will:</p>
+<ol>
+<li>Implement Q-Learning with $\epsilon$-greedy action selection</li>
+<li>Implement Expected Sarsa with $\epsilon$-greedy action selection</li>
+<li>Investigate how these two algorithms behave on Cliff World (described on page 132 of the textbook)</li>
+</ol>
+<p>We will provide you with the environment and infrastructure to run an experiment (called the experiment program in RL-Glue). This notebook will provide all the code you need to run your experiment and visualise learning performance.</p>
+<p>This assignment will be graded automatically by comparing the behavior of your agent to our implementations of Expected Sarsa and Q-learning. The random seed will be set to avoid different behavior due to randomness. We will highlight the functions you have to use for generating random samples and the number of times these functions should be called. </p>
+<h2 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h2><p>You will need the following libraries for this assignment. We are using:</p>
+<ol>
+<li>numpy: the fundamental package for scientific computing with Python.</li>
+<li>scipy: a Python library for scientific and technical computing.</li>
+<li>matplotlib: library for plotting graphs in Python.</li>
+<li>RL-Glue: library for reinforcement learning experiments.</li>
+</ol>
+<p>DO NOT IMPORT OTHER LIBRARIES - This will break the autograder.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> sem</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> rl_glue <span class="keyword">import</span> RLGlue</span><br><span class="line"><span class="keyword">from</span> agent <span class="keyword">import</span> BaseAgent</span><br><span class="line"><span class="keyword">import</span> cliffworld_env</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.rcParams.update(&#123;<span class="string">'font.size'</span>: <span class="number">15</span>&#125;)</span><br><span class="line">plt.rcParams.update(&#123;<span class="string">'figure.figsize'</span>: [<span class="number">10</span>,<span class="number">5</span>]&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="Q-Learning"><a href="#Q-Learning" class="headerlink" title="Q-Learning"></a>Q-Learning</h2><p>In this section you will implement and test a Q-Learning agent with $\epsilon$-greedy action selection (Section 6.5 in the textbook). </p>
+<h3 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h3><p>Your job is to implement the updates in the methods agent_step and agent_end. We provide detailed comments in each method describing what your code should do.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Graded Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QLearningAgent</span><span class="params">(BaseAgent)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">agent_init</span><span class="params">(self, agent_init_info)</span>:</span></span><br><span class="line">        <span class="string">"""Setup for the agent called when the experiment first starts.</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">        Args:</span></span><br><span class="line"><span class="string">        agent_init_info (dict), the parameters used to initialize the agent. The dictionary contains:</span></span><br><span class="line"><span class="string">        &#123;</span></span><br><span class="line"><span class="string">            num_states (int): The number of states,</span></span><br><span class="line"><span class="string">            num_actions (int): The number of actions,</span></span><br><span class="line"><span class="string">            epsilon (float): The epsilon parameter for exploration,</span></span><br><span class="line"><span class="string">            step_size (float): The step-size,</span></span><br><span class="line"><span class="string">            discount (float): The discount factor,</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="comment"># Store the parameters provided in agent_init_info.</span></span><br><span class="line">        self.num_actions = agent_init_info[<span class="string">"num_actions"</span>]</span><br><span class="line">        self.num_states = agent_init_info[<span class="string">"num_states"</span>]</span><br><span class="line">        self.epsilon = agent_init_info[<span class="string">"epsilon"</span>]</span><br><span class="line">        self.step_size = agent_init_info[<span class="string">"step_size"</span>]</span><br><span class="line">        self.discount = agent_init_info[<span class="string">"discount"</span>]</span><br><span class="line">        self.rand_generator = np.random.RandomState(agent_info[<span class="string">"seed"</span>])</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Create an array for action-value estimates and initialize it to zero.</span></span><br><span class="line">        self.q = np.zeros((self.num_states, self.num_actions)) <span class="comment"># The array of action-value estimates.</span></span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">agent_start</span><span class="params">(self, observation)</span>:</span></span><br><span class="line">        <span class="string">"""The first method called when the episode starts, called after</span></span><br><span class="line"><span class="string">        the environment starts.</span></span><br><span class="line"><span class="string">        Args:</span></span><br><span class="line"><span class="string">            observation (int): the state observation from the</span></span><br><span class="line"><span class="string">                environment's evn_start function.</span></span><br><span class="line"><span class="string">        Returns:</span></span><br><span class="line"><span class="string">            action (int): the first action the agent takes.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Choose action using epsilon greedy.</span></span><br><span class="line">        state = observation</span><br><span class="line">        current_q = self.q[state,:]</span><br><span class="line">        <span class="keyword">if</span> self.rand_generator.rand() &lt; self.epsilon:</span><br><span class="line">            action = self.rand_generator.randint(self.num_actions)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            action = self.argmax(current_q)</span><br><span class="line">        self.prev_state = state</span><br><span class="line">        self.prev_action = action</span><br><span class="line">        <span class="keyword">return</span> action</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">agent_step</span><span class="params">(self, reward, observation)</span>:</span></span><br><span class="line">        <span class="string">"""A step taken by the agent.</span></span><br><span class="line"><span class="string">        Args:</span></span><br><span class="line"><span class="string">            reward (float): the reward received for taking the last action taken</span></span><br><span class="line"><span class="string">            observation (int): the state observation from the</span></span><br><span class="line"><span class="string">                environment's step based on where the agent ended up after the</span></span><br><span class="line"><span class="string">                last step.</span></span><br><span class="line"><span class="string">        Returns:</span></span><br><span class="line"><span class="string">            action (int): the action the agent is taking.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Choose action using epsilon greedy.</span></span><br><span class="line">        state = observation</span><br><span class="line">        current_q = self.q[state, :]</span><br><span class="line">        <span class="keyword">if</span> self.rand_generator.rand() &lt; self.epsilon:</span><br><span class="line">            action = self.rand_generator.randint(self.num_actions)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            action = self.argmax(current_q)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Perform an update</span></span><br><span class="line">        <span class="comment"># --------------------------</span></span><br><span class="line">        <span class="comment"># your code here</span></span><br><span class="line">        self.q[self.prev_state][self.prev_action]  += self.step_size * (reward + self.discount * np.max(current_q) - \</span><br><span class="line">                                                                        self.q[self.prev_state][self.prev_action] )</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># --------------------------</span></span><br><span class="line">        </span><br><span class="line">        self.prev_state = state</span><br><span class="line">        self.prev_action = action</span><br><span class="line">        <span class="keyword">return</span> action</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">agent_end</span><span class="params">(self, reward)</span>:</span></span><br><span class="line">        <span class="string">"""Run when the agent terminates.</span></span><br><span class="line"><span class="string">        Args:</span></span><br><span class="line"><span class="string">            reward (float): the reward the agent received for entering the</span></span><br><span class="line"><span class="string">                terminal state.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="comment"># Perform the last update in the episode</span></span><br><span class="line">        <span class="comment"># --------------------------</span></span><br><span class="line">        <span class="comment"># your code here</span></span><br><span class="line">        self.q[self.prev_state][self.prev_action] += self.step_size * (reward - self.q[self.prev_state][self.prev_action])</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># --------------------------</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">argmax</span><span class="params">(self, q_values)</span>:</span></span><br><span class="line">        <span class="string">"""argmax with random tie-breaking</span></span><br><span class="line"><span class="string">        Args:</span></span><br><span class="line"><span class="string">            q_values (Numpy array): the array of action-values</span></span><br><span class="line"><span class="string">        Returns:</span></span><br><span class="line"><span class="string">            action (int): an action with the highest value</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        top = float(<span class="string">"-inf"</span>)</span><br><span class="line">        ties = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(q_values)):</span><br><span class="line">            <span class="keyword">if</span> q_values[i] &gt; top:</span><br><span class="line">                top = q_values[i]</span><br><span class="line">                ties = []</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> q_values[i] == top:</span><br><span class="line">                ties.append(i)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self.rand_generator.choice(ties)</span><br></pre></td></tr></table></figure>
+<h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><p>Run the cells below to test the implemented methods. The output of each cell should match the expected output.</p>
+<p>Note that passing this test does not guarantee correct behavior on the Cliff World.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Tested Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># The contents of the cell will be tested by the autograder.</span></span><br><span class="line"><span class="comment"># If they do not pass here, they will not pass there.</span></span><br><span class="line"></span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">agent_info = &#123;<span class="string">"num_actions"</span>: <span class="number">4</span>, <span class="string">"num_states"</span>: <span class="number">3</span>, <span class="string">"epsilon"</span>: <span class="number">0.1</span>, <span class="string">"step_size"</span>: <span class="number">0.1</span>, <span class="string">"discount"</span>: <span class="number">1.0</span>, <span class="string">"seed"</span>: <span class="number">0</span>&#125;</span><br><span class="line">agent = QLearningAgent()</span><br><span class="line">agent.agent_init(agent_info)</span><br><span class="line">action = agent.agent_start(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">expected_values = np.array([</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> np.all(agent.q == expected_values)</span><br><span class="line"><span class="keyword">assert</span> action == <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># reset the agent</span></span><br><span class="line">agent.agent_init(agent_info)</span><br><span class="line"></span><br><span class="line">action = agent.agent_start(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">assert</span> action == <span class="number">1</span></span><br><span class="line"></span><br><span class="line">action = agent.agent_step(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"><span class="keyword">assert</span> action == <span class="number">3</span></span><br><span class="line"></span><br><span class="line">action = agent.agent_step(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">assert</span> action == <span class="number">1</span></span><br><span class="line"></span><br><span class="line">expected_values = np.array([</span><br><span class="line">    [<span class="number">0.</span>,  <span class="number">0.2</span>,  <span class="number">0.</span>,  <span class="number">0.</span>  ],</span><br><span class="line">    [<span class="number">0.</span>,  <span class="number">0.</span>,   <span class="number">0.</span>,  <span class="number">0.02</span>],</span><br><span class="line">    [<span class="number">0.</span>,  <span class="number">0.</span>,   <span class="number">0.</span>,  <span class="number">0.</span>  ],</span><br><span class="line">])</span><br><span class="line"><span class="keyword">assert</span> np.all(np.isclose(agent.q, expected_values))</span><br><span class="line"></span><br><span class="line"><span class="comment"># reset the agent</span></span><br><span class="line">agent.agent_init(agent_info)</span><br><span class="line"></span><br><span class="line">action = agent.agent_start(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">assert</span> action == <span class="number">1</span></span><br><span class="line"></span><br><span class="line">action = agent.agent_step(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"><span class="keyword">assert</span> action == <span class="number">3</span></span><br><span class="line"></span><br><span class="line">agent.agent_end(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">expected_values = np.array([</span><br><span class="line">    [<span class="number">0.</span>,  <span class="number">0.2</span>, <span class="number">0.</span>,  <span class="number">0.</span> ],</span><br><span class="line">    [<span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.1</span>],</span><br><span class="line">    [<span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span> ],</span><br><span class="line">])</span><br><span class="line"><span class="keyword">assert</span> np.all(np.isclose(agent.q, expected_values))</span><br></pre></td></tr></table></figure>
+<h1 id="Expected-Sarsa"><a href="#Expected-Sarsa" class="headerlink" title="Expected Sarsa"></a>Expected Sarsa</h1><p>In this section you will implement an Expected Sarsa agent with $\epsilon$-greedy action selection (Section 6.6 in the textbook). </p>
+<h3 id="Implementation-1"><a href="#Implementation-1" class="headerlink" title="Implementation"></a>Implementation</h3><p>Your job is to implement the updates in the methods agent_step and agent_end. We provide detailed comments in each method describing what your code should do.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Graded Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExpectedSarsaAgent</span><span class="params">(BaseAgent)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">agent_init</span><span class="params">(self, agent_init_info)</span>:</span></span><br><span class="line">        <span class="string">"""Setup for the agent called when the experiment first starts.</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">        Args:</span></span><br><span class="line"><span class="string">        agent_init_info (dict), the parameters used to initialize the agent. The dictionary contains:</span></span><br><span class="line"><span class="string">        &#123;</span></span><br><span class="line"><span class="string">            num_states (int): The number of states,</span></span><br><span class="line"><span class="string">            num_actions (int): The number of actions,</span></span><br><span class="line"><span class="string">            epsilon (float): The epsilon parameter for exploration,</span></span><br><span class="line"><span class="string">            step_size (float): The step-size,</span></span><br><span class="line"><span class="string">            discount (float): The discount factor,</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="comment"># Store the parameters provided in agent_init_info.</span></span><br><span class="line">        self.num_actions = agent_init_info[<span class="string">"num_actions"</span>]</span><br><span class="line">        self.num_states = agent_init_info[<span class="string">"num_states"</span>]</span><br><span class="line">        self.epsilon = agent_init_info[<span class="string">"epsilon"</span>]</span><br><span class="line">        self.step_size = agent_init_info[<span class="string">"step_size"</span>]</span><br><span class="line">        self.discount = agent_init_info[<span class="string">"discount"</span>]</span><br><span class="line">        self.rand_generator = np.random.RandomState(agent_info[<span class="string">"seed"</span>])</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Create an array for action-value estimates and initialize it to zero.</span></span><br><span class="line">        self.q = np.zeros((self.num_states, self.num_actions)) <span class="comment"># The array of action-value estimates.</span></span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">agent_start</span><span class="params">(self, observation)</span>:</span></span><br><span class="line">        <span class="string">"""The first method called when the episode starts, called after</span></span><br><span class="line"><span class="string">        the environment starts.</span></span><br><span class="line"><span class="string">        Args:</span></span><br><span class="line"><span class="string">            observation (int): the state observation from the</span></span><br><span class="line"><span class="string">                environment's evn_start function.</span></span><br><span class="line"><span class="string">        Returns:</span></span><br><span class="line"><span class="string">            action (int): the first action the agent takes.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Choose action using epsilon greedy.</span></span><br><span class="line">        state = observation</span><br><span class="line">        current_q = self.q[state, :]</span><br><span class="line">        <span class="keyword">if</span> self.rand_generator.rand() &lt; self.epsilon:</span><br><span class="line">            action = self.rand_generator.randint(self.num_actions)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            action = self.argmax(current_q)</span><br><span class="line">        self.prev_state = state</span><br><span class="line">        self.prev_action = action</span><br><span class="line">        <span class="keyword">return</span> action</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">agent_step</span><span class="params">(self, reward, observation)</span>:</span></span><br><span class="line">        <span class="string">"""A step taken by the agent.</span></span><br><span class="line"><span class="string">        Args:</span></span><br><span class="line"><span class="string">            reward (float): the reward received for taking the last action taken</span></span><br><span class="line"><span class="string">            observation (int): the state observation from the</span></span><br><span class="line"><span class="string">                environment's step based on where the agent ended up after the</span></span><br><span class="line"><span class="string">                last step.</span></span><br><span class="line"><span class="string">        Returns:</span></span><br><span class="line"><span class="string">            action (int): the action the agent is taking.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Choose action using epsilon greedy.</span></span><br><span class="line">        state = observation</span><br><span class="line">        current_q = self.q[state,:]</span><br><span class="line">        <span class="keyword">if</span> self.rand_generator.rand() &lt; self.epsilon:</span><br><span class="line">            action = self.rand_generator.randint(self.num_actions)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            action = self.argmax(current_q)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Perform an update</span></span><br><span class="line">        <span class="comment"># --------------------------</span></span><br><span class="line">        <span class="comment"># your code here</span></span><br><span class="line">        </span><br><span class="line">        expect = (<span class="number">1</span> - self.epsilon) * np.max(current_q) + self.epsilon * np.average(current_q)</span><br><span class="line">        self.q[self.prev_state][self.prev_action] += self.step_size * (reward + self.discount * expect - self.q[self.prev_state][self.prev_action])</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># --------------------------</span></span><br><span class="line">        </span><br><span class="line">        self.prev_state = state</span><br><span class="line">        self.prev_action = action</span><br><span class="line">        <span class="keyword">return</span> action</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">agent_end</span><span class="params">(self, reward)</span>:</span></span><br><span class="line">        <span class="string">"""Run when the agent terminates.</span></span><br><span class="line"><span class="string">        Args:</span></span><br><span class="line"><span class="string">            reward (float): the reward the agent received for entering the</span></span><br><span class="line"><span class="string">                terminal state.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="comment"># Perform the last update in the episode</span></span><br><span class="line">        <span class="comment"># --------------------------</span></span><br><span class="line">        <span class="comment"># your code here</span></span><br><span class="line">        self.q[self.prev_state][self.prev_action] += self.step_size * (reward - self.q[self.prev_state][self.prev_action])</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># --------------------------</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">argmax</span><span class="params">(self, q_values)</span>:</span></span><br><span class="line">        <span class="string">"""argmax with random tie-breaking</span></span><br><span class="line"><span class="string">        Args:</span></span><br><span class="line"><span class="string">            q_values (Numpy array): the array of action-values</span></span><br><span class="line"><span class="string">        Returns:</span></span><br><span class="line"><span class="string">            action (int): an action with the highest value</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        top = float(<span class="string">"-inf"</span>)</span><br><span class="line">        ties = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(q_values)):</span><br><span class="line">            <span class="keyword">if</span> q_values[i] &gt; top:</span><br><span class="line">                top = q_values[i]</span><br><span class="line">                ties = []</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> q_values[i] == top:</span><br><span class="line">                ties.append(i)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self.rand_generator.choice(ties)</span><br></pre></td></tr></table></figure>
+<h3 id="Test-1"><a href="#Test-1" class="headerlink" title="Test"></a>Test</h3><p>Run the cells below to test the implemented methods. The output of each cell should match the expected output.</p>
+<p>Note that passing this test does not guarantee correct behavior on the Cliff World.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Tested Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># The contents of the cell will be tested by the autograder.</span></span><br><span class="line"><span class="comment"># If they do not pass here, they will not pass there.</span></span><br><span class="line"></span><br><span class="line">agent_info = &#123;<span class="string">"num_actions"</span>: <span class="number">4</span>, <span class="string">"num_states"</span>: <span class="number">3</span>, <span class="string">"epsilon"</span>: <span class="number">0.1</span>, <span class="string">"step_size"</span>: <span class="number">0.1</span>, <span class="string">"discount"</span>: <span class="number">1.0</span>, <span class="string">"seed"</span>: <span class="number">0</span>&#125;</span><br><span class="line">agent = ExpectedSarsaAgent()</span><br><span class="line">agent.agent_init(agent_info)</span><br><span class="line"></span><br><span class="line">action = agent.agent_start(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">assert</span> action == <span class="number">1</span></span><br><span class="line"></span><br><span class="line">expected_values = np.array([</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">])</span><br><span class="line"><span class="keyword">assert</span> np.all(agent.q == expected_values)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------</span></span><br><span class="line"><span class="comment"># test agent step</span></span><br><span class="line"><span class="comment"># ---------------</span></span><br><span class="line"></span><br><span class="line">action = agent.agent_step(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"><span class="keyword">assert</span> action == <span class="number">3</span></span><br><span class="line"></span><br><span class="line">action = agent.agent_step(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">assert</span> action == <span class="number">1</span></span><br><span class="line"></span><br><span class="line">expected_values = np.array([</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0.2</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.0185</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">])</span><br><span class="line"><span class="keyword">assert</span> np.all(np.isclose(agent.q, expected_values))</span><br><span class="line"></span><br><span class="line"><span class="comment"># --------------</span></span><br><span class="line"><span class="comment"># test agent end</span></span><br><span class="line"><span class="comment"># --------------</span></span><br><span class="line"></span><br><span class="line">agent.agent_end(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">expected_values = np.array([</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0.28</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.0185</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">])</span><br><span class="line"><span class="keyword">assert</span> np.all(np.isclose(agent.q, expected_values))</span><br></pre></td></tr></table></figure>
+<h1 id="Solving-the-Cliff-World"><a href="#Solving-the-Cliff-World" class="headerlink" title="Solving the Cliff World"></a>Solving the Cliff World</h1><p>We described the Cliff World environment in the video “Expected Sarsa in the Cliff World” in Lesson 3. This is an undiscounted episodic task and thus we set $\gamma$=1. The agent starts in the bottom left corner of the gridworld below and takes actions that move it in the four directions. Actions that would move the agent off of the cliff incur a reward of -100 and send the agent back to the start state. The reward for all other transitions is -1. An episode terminates when the agent reaches the bottom right corner. </p>
+<p><img src="cliffworld.png" alt="Drawing" style="width: 600px;"></p>
+<p>Using the experiment program in the cell below we now compare the agents on the Cliff World environment and plot the sum of rewards during each episode for the two agents.</p>
+<p>The result of this cell will be graded. If you make any changes to your algorithms, you have to run this cell again before submitting the assignment.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ---------------</span></span><br><span class="line"><span class="comment"># Discussion Cell</span></span><br><span class="line"><span class="comment"># ---------------</span></span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">agents = &#123;</span><br><span class="line">    <span class="string">"Q-learning"</span>: QLearningAgent,</span><br><span class="line">    <span class="string">"Expected Sarsa"</span>: ExpectedSarsaAgent</span><br><span class="line">&#125;</span><br><span class="line">env = cliffworld_env.Environment</span><br><span class="line">all_reward_sums = &#123;&#125; <span class="comment"># Contains sum of rewards during episode</span></span><br><span class="line">all_state_visits = &#123;&#125; <span class="comment"># Contains state visit counts during the last 10 episodes</span></span><br><span class="line">agent_info = &#123;<span class="string">"num_actions"</span>: <span class="number">4</span>, <span class="string">"num_states"</span>: <span class="number">48</span>, <span class="string">"epsilon"</span>: <span class="number">0.1</span>, <span class="string">"step_size"</span>: <span class="number">0.5</span>, <span class="string">"discount"</span>: <span class="number">1.0</span>&#125;</span><br><span class="line">env_info = &#123;&#125;</span><br><span class="line">num_runs = <span class="number">100</span> <span class="comment"># The number of runs</span></span><br><span class="line">num_episodes = <span class="number">100</span> <span class="comment"># The number of episodes in each run</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> algorithm <span class="keyword">in</span> [<span class="string">"Q-learning"</span>, <span class="string">"Expected Sarsa"</span>]:</span><br><span class="line">    all_reward_sums[algorithm] = []</span><br><span class="line">    all_state_visits[algorithm] = []</span><br><span class="line">    <span class="keyword">for</span> run <span class="keyword">in</span> tqdm(range(num_runs)):</span><br><span class="line">        agent_info[<span class="string">"seed"</span>] = run</span><br><span class="line">        rl_glue = RLGlue(env, agents[algorithm])</span><br><span class="line">        rl_glue.rl_init(agent_info, env_info)</span><br><span class="line"></span><br><span class="line">        reward_sums = []</span><br><span class="line">        state_visits = np.zeros(<span class="number">48</span>)</span><br><span class="line">        last_episode_total_reward = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> episode <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">            <span class="keyword">if</span> episode &lt; num_episodes - <span class="number">10</span>:</span><br><span class="line">                <span class="comment"># Runs an episode</span></span><br><span class="line">                rl_glue.rl_episode(<span class="number">10000</span>) </span><br><span class="line">            <span class="keyword">else</span>: </span><br><span class="line">                <span class="comment"># Runs an episode while keeping track of visited states</span></span><br><span class="line">                state, action = rl_glue.rl_start()</span><br><span class="line">                state_visits[state] += <span class="number">1</span></span><br><span class="line">                is_terminal = <span class="keyword">False</span></span><br><span class="line">                <span class="keyword">while</span> <span class="keyword">not</span> is_terminal:</span><br><span class="line">                    reward, state, action, is_terminal = rl_glue.rl_step()</span><br><span class="line">                    state_visits[state] += <span class="number">1</span></span><br><span class="line">                </span><br><span class="line">            reward_sums.append(rl_glue.rl_return() - last_episode_total_reward)</span><br><span class="line">            last_episode_total_reward = rl_glue.rl_return()</span><br><span class="line">            </span><br><span class="line">        all_reward_sums[algorithm].append(reward_sums)</span><br><span class="line">        all_state_visits[algorithm].append(state_visits)</span><br><span class="line"></span><br><span class="line"><span class="comment"># plot results</span></span><br><span class="line"><span class="keyword">for</span> algorithm <span class="keyword">in</span> [<span class="string">"Q-learning"</span>, <span class="string">"Expected Sarsa"</span>]:</span><br><span class="line">    plt.plot(np.mean(all_reward_sums[algorithm], axis=<span class="number">0</span>), label=algorithm)</span><br><span class="line">plt.xlabel(<span class="string">"Episodes"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"Sum of\n rewards\n during\n episode"</span>,rotation=<span class="number">0</span>, labelpad=<span class="number">40</span>)</span><br><span class="line">plt.xlim(<span class="number">0</span>,<span class="number">100</span>)</span><br><span class="line">plt.ylim(<span class="number">-30</span>,<span class="number">0</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code>100%|██████████| 100/100 [00:12&lt;00:00,  8.12it/s]
+100%|██████████| 100/100 [00:16&lt;00:00,  6.15it/s]
+</code></pre><p><img src="output_26_1.png" alt="png"></p>
+<p>To see why these two agents behave differently, let’s inspect the states they visit most. Run the cell below to generate plots showing the number of timesteps that the agents spent in each state over the last 10 episodes.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ---------------</span></span><br><span class="line"><span class="comment"># Discussion Cell</span></span><br><span class="line"><span class="comment"># ---------------</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> algorithm, position <span class="keyword">in</span> [(<span class="string">"Q-learning"</span>, <span class="number">211</span>), (<span class="string">"Expected Sarsa"</span>, <span class="number">212</span>)]:</span><br><span class="line">    plt.subplot(position)</span><br><span class="line">    average_state_visits = np.array(all_state_visits[algorithm]).mean(axis=<span class="number">0</span>)</span><br><span class="line">    grid_state_visits = average_state_visits.reshape((<span class="number">4</span>,<span class="number">12</span>))</span><br><span class="line">    grid_state_visits[<span class="number">0</span>,<span class="number">1</span>:<span class="number">-1</span>] = np.nan</span><br><span class="line">    plt.pcolormesh(grid_state_visits, edgecolors=<span class="string">'gray'</span>, linewidth=<span class="number">2</span>)</span><br><span class="line">    plt.title(algorithm)</span><br><span class="line">    plt.axis(<span class="string">'off'</span>)</span><br><span class="line">    cm = plt.get_cmap()</span><br><span class="line">    cm.set_bad(<span class="string">'gray'</span>)</span><br><span class="line"></span><br><span class="line">    plt.subplots_adjust(bottom=<span class="number">0.0</span>, right=<span class="number">0.7</span>, top=<span class="number">1.0</span>)</span><br><span class="line">    cax = plt.axes([<span class="number">0.85</span>, <span class="number">0.0</span>, <span class="number">0.075</span>, <span class="number">1.</span>])</span><br><span class="line">    </span><br><span class="line">cbar = plt.colorbar(cax=cax)</span><br><span class="line">cbar.ax.set_ylabel(<span class="string">"Visits during\n the last 10\n episodes"</span>, rotation=<span class="number">0</span>, labelpad=<span class="number">70</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="output_28_0.png" alt="png"></p>
+<p>The Q-learning agent learns the optimal policy, one that moves along the cliff and reaches the goal in as few steps as possible. However, since the agent does not follow the optimal policy and uses $\epsilon$-greedy exploration, it occasionally falls off the cliff. The Expected Sarsa agent takes exploration into account and follows a safer path.</p>
+<p>Previously we used a fixed step-size of 0.5 for the agents. What happens with other step-sizes? Does this difference in performance persist?</p>
+<p>In the next experiment we will try 10 different step-sizes from 0.1 to 1.0 and compare the sum of rewards per episode averaged over the first 100 episodes (similar to the interim performance curves in Figure 6.3 of the textbook). Shaded regions show standard errors.</p>
+<p>This cell takes around 10 minutes to run. The result of this cell will be graded. If you make any changes to your algorithms, you have to run this cell again before submitting the assignment.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ---------------</span></span><br><span class="line"><span class="comment"># Discussion Cell</span></span><br><span class="line"><span class="comment"># ---------------</span></span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br><span class="line"></span><br><span class="line">agents = &#123;</span><br><span class="line">    <span class="string">"Q-learning"</span>: QLearningAgent,</span><br><span class="line">    <span class="string">"Expected Sarsa"</span>: ExpectedSarsaAgent</span><br><span class="line">&#125;</span><br><span class="line">env = cliffworld_env.Environment</span><br><span class="line">all_reward_sums = &#123;&#125;</span><br><span class="line">step_sizes = np.linspace(<span class="number">0.1</span>,<span class="number">1.0</span>,<span class="number">10</span>)</span><br><span class="line">agent_info = &#123;<span class="string">"num_actions"</span>: <span class="number">4</span>, <span class="string">"num_states"</span>: <span class="number">48</span>, <span class="string">"epsilon"</span>: <span class="number">0.1</span>, <span class="string">"discount"</span>: <span class="number">1.0</span>&#125;</span><br><span class="line">env_info = &#123;&#125;</span><br><span class="line">num_runs = <span class="number">30</span></span><br><span class="line">num_episodes = <span class="number">100</span></span><br><span class="line">all_reward_sums = &#123;&#125;</span><br><span class="line"></span><br><span class="line">algorithms = [<span class="string">"Q-learning"</span>, <span class="string">"Expected Sarsa"</span>]</span><br><span class="line">cross_product = list(product(algorithms, step_sizes, range(num_runs)))</span><br><span class="line"><span class="keyword">for</span> algorithm, step_size, run <span class="keyword">in</span> tqdm(cross_product):</span><br><span class="line">    <span class="keyword">if</span> (algorithm, step_size) <span class="keyword">not</span> <span class="keyword">in</span> all_reward_sums:</span><br><span class="line">        all_reward_sums[(algorithm, step_size)] = []</span><br><span class="line"></span><br><span class="line">    agent_info[<span class="string">"step_size"</span>] = step_size</span><br><span class="line">    agent_info[<span class="string">"seed"</span>] = run</span><br><span class="line">    rl_glue = RLGlue(env, agents[algorithm])</span><br><span class="line">    rl_glue.rl_init(agent_info, env_info)</span><br><span class="line"></span><br><span class="line">    last_episode_total_reward = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> episode <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        rl_glue.rl_episode(<span class="number">0</span>)</span><br><span class="line">    all_reward_sums[(algorithm, step_size)].append(rl_glue.rl_return()/num_episodes)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> algorithm <span class="keyword">in</span> [<span class="string">"Q-learning"</span>, <span class="string">"Expected Sarsa"</span>]:</span><br><span class="line">    algorithm_means = np.array([np.mean(all_reward_sums[(algorithm, step_size)]) <span class="keyword">for</span> step_size <span class="keyword">in</span> step_sizes])</span><br><span class="line">    algorithm_stds = np.array([sem(all_reward_sums[(algorithm, step_size)]) <span class="keyword">for</span> step_size <span class="keyword">in</span> step_sizes])</span><br><span class="line">    plt.plot(step_sizes, algorithm_means, marker=<span class="string">'o'</span>, linestyle=<span class="string">'solid'</span>, label=algorithm)</span><br><span class="line">    plt.fill_between(step_sizes, algorithm_means + algorithm_stds, algorithm_means - algorithm_stds, alpha=<span class="number">0.2</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.xlabel(<span class="string">"Step-size"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"Sum of\n rewards\n per episode"</span>,rotation=<span class="number">0</span>, labelpad=<span class="number">50</span>)</span><br><span class="line">plt.xticks(step_sizes)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code>100%|██████████| 600/600 [01:38&lt;00:00,  6.08it/s]
+</code></pre><p><img src="output_30_1.png" alt="png"></p>
+<p>Expected Sarsa shows an advantage over Q-learning in this problem across a wide range of step-sizes.</p>
+<p>Congratulations! Now you have:</p>
+<ul>
+<li>implemented Q-Learning with $\epsilon$-greedy action selection</li>
+<li>implemented Expected Sarsa with $\epsilon$-greedy action selection</li>
+<li>investigated the behavior of these two algorithms on Cliff World</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Policy-Evaluation-in-Cliff-Walking-Environment/2020/09/28/" rel="next" title="Policy Evaluation in Cliff Walking Environment">
+                <i class="fa fa-chevron-left"></i> Policy Evaluation in Cliff Walking Environment
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Planning-and-learning-with-Tabular-Methods/2020/09/29/" rel="prev" title="Planning and learning with Tabular Methods">
+                Planning and learning with Tabular Methods <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">257</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/cherish_CX/" title="Chunxia" target="_blank" rel="external nofollow">Chunxia</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Assignment-2-Q-Learning-and-Expected-Sarsa"><span class="nav-text">Assignment 2 - Q-Learning and Expected Sarsa</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Packages"><span class="nav-text">Packages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Q-Learning"><span class="nav-text">Q-Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Implementation"><span class="nav-text">Implementation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test"><span class="nav-text">Test</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Expected-Sarsa"><span class="nav-text">Expected Sarsa</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Implementation-1"><span class="nav-text">Implementation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-1"><span class="nav-text">Test</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Solving-the-Cliff-World"><span class="nav-text">Solving the Cliff World</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>
