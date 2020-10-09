@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zhangruochi.com/Wasserstein-GAN-with-Gradient-Penalty-WGAN-GP/2020/10/09/</loc>
+    <loc>https://zhangruochi.com/Build-a-Conditional-GAN/2020/10/09/</loc>
     <lastmod>2020-10-09</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Deep-Convolutional-GAN-DCGAN/2020/10/09/</loc>
+    <lastmod>2020-10-09</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/Wasserstein-GAN-with-Gradient-Penalty-WGAN-GP/2020/10/09/</loc>
     <lastmod>2020-10-09</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Your-First-GAN/2020/10/09/</loc>
