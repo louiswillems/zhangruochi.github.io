@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangruochi.com/TD-with-State-Aggregation/2020/10/13/</loc>
+    
+    <lastmod>2020-10-13T08:07:45.508Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangruochi.com/Q-Learning-and-Expected-Sarsa/2020/09/29/</loc>
+    
+    <lastmod>2020-10-13T03:21:34.591Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangruochi.com/Wasserstein-GAN-with-Gradient-Penalty-WGAN-GP/2020/10/09/</loc>
     
     <lastmod>2020-10-13T03:21:24.983Z</lastmod>
@@ -54,13 +68,6 @@
     <loc>https://zhangruochi.com/Planning-and-learning-with-Tabular-Methods/2020/09/29/</loc>
     
     <lastmod>2020-09-29T08:19:02.711Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/Q-Learning-and-Expected-Sarsa/2020/09/29/</loc>
-    
-    <lastmod>2020-09-29T08:10:50.768Z</lastmod>
     
   </url>
   
