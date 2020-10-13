@@ -1,3 +1,3 @@
+https://zhangruochi.com/Components-of-StyleGAN/2020/10/13/
 https://zhangruochi.com/Evaluating-GANs/2020/10/10/
 https://zhangruochi.com/Build-a-Conditional-GAN/2020/10/09/
-https://zhangruochi.com/Wasserstein-GAN-with-Gradient-Penalty-WGAN-GP/2020/10/09/
