@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zhangruochi.com/TD-with-State-Aggregation/2020/10/13/</loc>
-    <lastmod>2020-10-13</lastmod>
-  </url>  <url>
     <loc>https://zhangruochi.com/Q-Learning-and-Expected-Sarsa/2020/09/29/</loc>
+    <lastmod>2020-10-14</lastmod>
+  </url>  <url>
+    <loc>https://zhangruochi.com/TD-with-State-Aggregation/2020/10/13/</loc>
     <lastmod>2020-10-13</lastmod>
   </url>  <url>
     <loc>https://zhangruochi.com/Wasserstein-GAN-with-Gradient-Penalty-WGAN-GP/2020/10/09/</loc>
