@@ -1,3 +1,3 @@
 https://zhangruochi.com/Function-Approximation-and-Control/2020/10/15/
+https://zhangruochi.com/Semi-gradient-TD-with-a-Neural-Network/2020/10/14/
 https://zhangruochi.com/TD-with-State-Aggregation/2020/10/13/
-https://zhangruochi.com/Components-of-StyleGAN/2020/10/13/

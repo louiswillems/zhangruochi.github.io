@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="BLOG">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Assignment 2 - Semi-gradient TD with a Neural NetworkWelcome to Course 3 Programming Assignment 2. In the previous assignment, you implemented semi-gradient TD with State Aggregation for solving a pol">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Semi Gradient TD with a Neural Network">
+<meta property="og:url" content="https://zhangruochi.com/Semi-gradient-TD-with-a-Neural-Network/2020/10/14/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="Assignment 2 - Semi-gradient TD with a Neural NetworkWelcome to Course 3 Programming Assignment 2. In the previous assignment, you implemented semi-gradient TD with State Aggregation for solving a pol">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/Semi-gradient-TD-with-a-Neural-Network/2020/10/14/nn_structure.png">
+<meta property="og:updated_time" content="2020-10-16T06:09:20.893Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Semi Gradient TD with a Neural Network">
+<meta name="twitter:description" content="Assignment 2 - Semi-gradient TD with a Neural NetworkWelcome to Course 3 Programming Assignment 2. In the previous assignment, you implemented semi-gradient TD with State Aggregation for solving a pol">
+<meta name="twitter:image" content="https://zhangruochi.com/Semi-gradient-TD-with-a-Neural-Network/2020/10/14/nn_structure.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/Semi-gradient-TD-with-a-Neural-Network/2020/10/14/">
+
+
+
+
+
+  <title>Semi Gradient TD with a Neural Network | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Semi-gradient-TD-with-a-Neural-Network/2020/10/14/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Semi Gradient TD with a Neural Network</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-14T17:18:55+08:00">
+                2020-10-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
+                    <span itemprop="name">Artificial Intelligence</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/Reinforcement-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Reinforcement Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Semi-gradient-TD-with-a-Neural-Network/2020/10/14/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Semi-gradient-TD-with-a-Neural-Network/2020/10/14/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Assignment-2-Semi-gradient-TD-with-a-Neural-Network"><a href="#Assignment-2-Semi-gradient-TD-with-a-Neural-Network" class="headerlink" title="Assignment 2 - Semi-gradient TD with a Neural Network"></a>Assignment 2 - Semi-gradient TD with a Neural Network</h1><p>Welcome to Course 3 Programming Assignment 2. In the previous assignment, you implemented semi-gradient TD with State Aggregation for solving a <strong>policy evaluation task</strong>. In this assignment, you will implement <strong>semi-gradient TD with a simple Neural Network</strong> and use it for the same policy evaluation problem. </p>
+<p>You will implement an agent to evaluate a fixed policy on the 500-State Randomwalk. As you may remember from the previous assignment, the 500-state Randomwalk includes 500 states. Each episode begins with the agent at the center and terminates when the agent goes far left beyond state 1 or far right beyond state 500. At each time step, the agent selects to move either left or right with equal probability. The environment determines how much the agent moves in the selected direction.</p>
+<p><strong>In this assignment, you will:</strong></p>
+<ul>
+<li>Implement stochastic gradient descent method for state-value prediction.</li>
+<li>Implement semi-gradient TD with a neural network as the function approximator and Adam algorithm.</li>
+<li>Compare performance of semi-gradient TD with a neural network and semi-gradient TD with tile-coding.</li>
+</ul>
+<h2 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h2><p>We import the following libraries that are required for this assignment:</p>
+<ul>
+<li><a href="www.numpy.org">numpy</a> : Fundamental package for scientific computing with Python.</li>
+<li><a href="http://matplotlib.org" target="_blank" rel="noopener">matplotlib</a> : Library for plotting graphs in Python.</li>
+<li><a href="http://www.jmlr.org/papers/v10/tanner09a.html" target="_blank" rel="noopener">RL-Glue</a> : Library for reinforcement learning experiments.</li>
+<li><a href="https://tqdm.github.io/" target="_blank" rel="noopener">tqdm</a> : A package to display progress bar when running experiments.</li>
+<li>BaseOptimizer : An abstract class that specifies the optimizer API for Agent.</li>
+<li>plot_script : Custom script to plot results.</li>
+<li>RandomWalkEnvironment : The Randomwalk environment script from Course 3 Assignment 1.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Do not modify this cell!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Import necessary libraries</span></span><br><span class="line"><span class="comment"># DO NOT IMPORT OTHER LIBRARIES - This will break the autograder.</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os, shutil</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> rl_glue <span class="keyword">import</span> RLGlue</span><br><span class="line"><span class="keyword">from</span> environment <span class="keyword">import</span> BaseEnvironment</span><br><span class="line"><span class="keyword">from</span> agent <span class="keyword">import</span> BaseAgent</span><br><span class="line"><span class="keyword">from</span> optimizer <span class="keyword">import</span> BaseOptimizer</span><br><span class="line"><span class="keyword">import</span> plot_script</span><br><span class="line"><span class="keyword">from</span> randomwalk_environment <span class="keyword">import</span> RandomWalkEnvironment</span><br></pre></td></tr></table></figure>
+<h2 id="Section-1-Create-semi-gradient-TD-with-a-Neural-Network"><a href="#Section-1-Create-semi-gradient-TD-with-a-Neural-Network" class="headerlink" title="Section 1: Create semi-gradient TD with a Neural Network"></a>Section 1: Create semi-gradient TD with a Neural Network</h2><p>In this section, you will implement an Agent that learns with semi-gradient TD with a neural network. You will use a neural network with one hidden layer. The input of the neural network is the one-hot encoding of the state number. We use the one-hot encoding of the state number instead of the state number itself because we do not want to build the prior knowledge that integer number inputs close to each other have similar values. The hidden layer contains 100 rectifier linear units (ReLUs) which pass their input if it is bigger than one and return 0 otherwise. ReLU gates are commonly used in neural networks due to their nice properties such as the sparsity of the activation and having non-vanishing gradients. The output of the neural network is the estimated state value. It is a linear function of the hidden units as is commonly the case when estimating the value of a continuous target using neural networks.</p>
+<p>The neural network looks like this:<br><img src="nn_structure.png" alt></p>
+<p>For a given input, $s$, value of $s$ is computed by:</p>
+<script type="math/tex; mode=display">
+\begin{align} 
+\psi &= sW^{[0]} + b^{[0]} \\
+x &= \textit{max}(0, \psi) \\
+v &= xW^{[1]} + b^{[1]}
+\end{align}</script><p>where $W^{[0]}$, $b^{[0]}$, $W^{[1]}$, $b^{[1]}$  are the parameters of the network and will be learned when training the agent.</p>
+<h2 id="1-1-Implement-helper-methods"><a href="#1-1-Implement-helper-methods" class="headerlink" title="1-1: Implement helper methods"></a>1-1: Implement helper methods</h2><p>Before implementing the agent, you first implement some helper functions which you will later use in agent’s main methods. </p>
+<h3 id="Implement-get-value"><a href="#Implement-get-value" class="headerlink" title="Implement get_value()"></a>Implement <code>get_value()</code></h3><p>First, you will implement get_value() method which feeds an input $s$ into the neural network and returns the output of the network $v$ according to the equations above. To implement get_value(), take into account the following notes:</p>
+<ul>
+<li><code>get_value()</code> gets the one-hot encoded state number denoted by s as an input. </li>
+<li><p><code>get_value()</code> receives the weights of the neural network as input, denoted by weights and structured as an array of dictionaries. Each dictionary corresponds to weights from one layer of the neural network to the next. Each dictionary includes $W$ and $b$. The shape of the elements in weights are as follows:</p>
+<ul>
+<li>weights[0][“W”]: num_states $\times$ num_hidden_units</li>
+<li>weights[0][“b”]: 1 $\times$ num_hidden_units</li>
+<li>weights[1][“W”]: num_hidden_units $\times$ 1</li>
+<li>weights[1][“b”]: 1 $\times$ 1</li>
+</ul>
+</li>
+<li><p>The input of the neural network is a sparse vector. To make computation faster, we take advantage of input sparsity. To do so, we provided a helper method <code>my_matmul()</code>. <strong>Make sure that you use <code>my_matmul()</code> for all matrix multiplications except for element-wise multiplications in this notebook.</strong></p>
+</li>
+<li>The max operator used for computing $x$ is element-wise. </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_matmul</span><span class="params">(x1, x2)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Given matrices x1 and x2, return the multiplication of them</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    result = np.zeros((x1.shape[<span class="number">0</span>], x2.shape[<span class="number">1</span>]))</span><br><span class="line">    x1_non_zero_indices = x1.nonzero()</span><br><span class="line">    <span class="keyword">if</span> x1.shape[<span class="number">0</span>] == <span class="number">1</span> <span class="keyword">and</span> len(x1_non_zero_indices[<span class="number">1</span>]) == <span class="number">1</span>:</span><br><span class="line">        result = x2[x1_non_zero_indices[<span class="number">1</span>], :]</span><br><span class="line">    <span class="keyword">elif</span> x1.shape[<span class="number">1</span>] == <span class="number">1</span> <span class="keyword">and</span> len(x1_non_zero_indices[<span class="number">0</span>]) == <span class="number">1</span>:</span><br><span class="line">        result[x1_non_zero_indices[<span class="number">0</span>], :] = x2 * x1[x1_non_zero_indices[<span class="number">0</span>], <span class="number">0</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        result = np.matmul(x1, x2)</span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Graded Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_value</span><span class="params">(s, weights)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Compute value of input s given the weights of a neural network</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment">### Compute the ouput of the neural network, v, for input s</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># ----------------</span></span><br><span class="line">    <span class="comment"># your code here</span></span><br><span class="line">    hidden = my_matmul(s, weights[<span class="number">0</span>][<span class="string">"W"</span>]) + weights[<span class="number">0</span>][<span class="string">"b"</span>]</span><br><span class="line">    x = np.maximum(hidden, np.zeros_like(hidden))</span><br><span class="line">    v = my_matmul(x, weights[<span class="number">1</span>][<span class="string">"W"</span>]) + weights[<span class="number">1</span>][<span class="string">"b"</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># ----------------</span></span><br><span class="line">    <span class="keyword">return</span> v</span><br></pre></td></tr></table></figure>
+<p>Run the following code to test your implementation of the <code>get_value()</code> function:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Tested Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># The contents of the cell will be tested by the autograder.</span></span><br><span class="line"><span class="comment"># If they do not pass here, they will not pass there.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Suppose num_states = 5, num_hidden_layer = 1, and num_hidden_units = 10 </span></span><br><span class="line">num_hidden_layer = <span class="number">1</span></span><br><span class="line">s = np.array([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]])</span><br><span class="line"></span><br><span class="line">weights_data = np.load(<span class="string">"asserts/get_value_weights.npz"</span>)</span><br><span class="line">weights = [dict() <span class="keyword">for</span> i <span class="keyword">in</span> range(num_hidden_layer+<span class="number">1</span>)]</span><br><span class="line">weights[<span class="number">0</span>][<span class="string">"W"</span>] = weights_data[<span class="string">"W0"</span>]</span><br><span class="line">weights[<span class="number">0</span>][<span class="string">"b"</span>] = weights_data[<span class="string">"b0"</span>]</span><br><span class="line">weights[<span class="number">1</span>][<span class="string">"W"</span>] = weights_data[<span class="string">"W1"</span>]</span><br><span class="line">weights[<span class="number">1</span>][<span class="string">"b"</span>] = weights_data[<span class="string">"b1"</span>]</span><br><span class="line"></span><br><span class="line">estimated_value = get_value(s, weights)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Estimated value: &#123;&#125;"</span>.format(estimated_value))</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span>(np.allclose(estimated_value, [[<span class="number">-0.21915705</span>]]))</span><br></pre></td></tr></table></figure>
+<pre><code>Estimated value: [[-0.21915705]]
+</code></pre><p><strong>Expected output</strong>:</p>
+<pre><code>Estimated value: [[-0.21915705]]
+</code></pre><h3 id="Implement-get-gradient"><a href="#Implement-get-gradient" class="headerlink" title="Implement get_gradient()"></a>Implement <code>get_gradient()</code></h3><p>You will also implement <code>get_gradient()</code> method which computes the gradient of the value function for a given input, using backpropagation. You will later use this function to update the value function. </p>
+<p>As you know, we compute the value of a state $s$ according to: </p>
+<script type="math/tex; mode=display">
+\begin{align} 
+\psi &= sW^{[0]} + b^{[0]} \\
+x &= \textit{max}(0, \psi) \\
+v &= xW^{[1]} + b^{[1]}
+\end{align}</script><p>To update the weights of the neural network ($W^{[0]}$, $b^{[0]}$, $W^{[1]}$, $b^{[1]}$), we compute the gradient of $v$ with respect to the weights according to:</p>
+<script type="math/tex; mode=display">
+\begin{align} 
+\frac{\partial v}{\partial W^{[0]}} &= s^T(W^{[1]T} \odot I_{x>0}) \\
+\frac{\partial v}{\partial b^{[0]}} &= W^{[1]T} \odot I_{x>0} \\
+\frac{\partial v}{\partial W^{[1]}} &= x^T \\
+\frac{\partial v}{\partial b^{[1]}} &= 1
+\end{align}</script><p>where $\odot$ denotes element-wise matrix multiplication and $I_{x&gt;0}$ is the gradient of the ReLU activation function which is an indicator whose $i$th element is 1 if $x[i]&gt;0$ and 0 otherwise.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Graded Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_gradient</span><span class="params">(s, weights)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Given inputs s and weights, return the gradient of v with respect to the weights</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">### Compute the gradient of the value function with respect to W0, b0, W1, b1 for input s</span></span><br><span class="line">    <span class="comment"># grads[0]["W"] = ?</span></span><br><span class="line">    <span class="comment"># grads[0]["b"] = ?</span></span><br><span class="line">    <span class="comment"># grads[1]["W"] = ?</span></span><br><span class="line">    <span class="comment"># grads[1]["b"] = ?</span></span><br><span class="line">    <span class="comment"># Note that grads[0]["W"], grads[0]["b"], grads[1]["W"], and grads[1]["b"] should have the same shape as </span></span><br><span class="line">    <span class="comment"># weights[0]["W"], weights[0]["b"], weights[1]["W"], and weights[1]["b"] respectively</span></span><br><span class="line">    <span class="comment"># Note that to compute the gradients, you need to compute the activation of the hidden layer (x)</span></span><br><span class="line"></span><br><span class="line">    grads = [dict() <span class="keyword">for</span> i <span class="keyword">in</span> range(len(weights))]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ----------------</span></span><br><span class="line">    <span class="comment"># your code here</span></span><br><span class="line">    hidden = my_matmul(s, weights[<span class="number">0</span>][<span class="string">"W"</span>]) + weights[<span class="number">0</span>][<span class="string">"b"</span>]</span><br><span class="line">    x = np.maximum(hidden, np.zeros_like(hidden))</span><br><span class="line">    </span><br><span class="line">    grads[<span class="number">0</span>][<span class="string">"W"</span>] = my_matmul(np.transpose(s),np.maximum(np.transpose(weights[<span class="number">1</span>][<span class="string">"W"</span>]),<span class="number">0</span>))</span><br><span class="line">    grads[<span class="number">0</span>][<span class="string">"b"</span>] = np.maximum(np.transpose(weights[<span class="number">1</span>][<span class="string">"W"</span>]),<span class="number">0</span>)</span><br><span class="line">    grads[<span class="number">1</span>][<span class="string">"W"</span>] = np.transpose(x)</span><br><span class="line">    grads[<span class="number">1</span>][<span class="string">"b"</span>] = <span class="number">1</span></span><br><span class="line">    <span class="comment"># ----------------</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> grads</span><br></pre></td></tr></table></figure>
+<p>Run the following code to test your implementation of the <code>get_gradient()</code> function:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Tested Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># The contents of the cell will be tested by the autograder.</span></span><br><span class="line"><span class="comment"># If they do not pass here, they will not pass there.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Suppose num_states = 5, num_hidden_layer = 1, and num_hidden_units = 2 </span></span><br><span class="line">num_hidden_layer = <span class="number">1</span></span><br><span class="line">s = np.array([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]])</span><br><span class="line"></span><br><span class="line">weights_data = np.load(<span class="string">"asserts/get_gradient_weights.npz"</span>)</span><br><span class="line">weights = [dict() <span class="keyword">for</span> i <span class="keyword">in</span> range(num_hidden_layer+<span class="number">1</span>)]</span><br><span class="line">weights[<span class="number">0</span>][<span class="string">"W"</span>] = weights_data[<span class="string">"W0"</span>]</span><br><span class="line">weights[<span class="number">0</span>][<span class="string">"b"</span>] = weights_data[<span class="string">"b0"</span>]</span><br><span class="line">weights[<span class="number">1</span>][<span class="string">"W"</span>] = weights_data[<span class="string">"W1"</span>]</span><br><span class="line">weights[<span class="number">1</span>][<span class="string">"b"</span>] = weights_data[<span class="string">"b1"</span>]</span><br><span class="line"></span><br><span class="line">grads = get_gradient(s, weights)</span><br><span class="line"></span><br><span class="line">grads_answer = np.load(<span class="string">"asserts/get_gradient_grads.npz"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span>(np.allclose(grads[<span class="number">0</span>][<span class="string">"W"</span>], grads_answer[<span class="string">"W0"</span>]))</span><br><span class="line"><span class="keyword">assert</span>(np.allclose(grads[<span class="number">0</span>][<span class="string">"b"</span>], grads_answer[<span class="string">"b0"</span>]))</span><br><span class="line"><span class="keyword">assert</span>(np.allclose(grads[<span class="number">1</span>][<span class="string">"W"</span>], grads_answer[<span class="string">"W1"</span>]))</span><br><span class="line"><span class="keyword">assert</span>(np.allclose(grads[<span class="number">1</span>][<span class="string">"b"</span>], grads_answer[<span class="string">"b1"</span>]))</span><br></pre></td></tr></table></figure>
+<p><strong>Expected output</strong>:</p>
+<pre><code>grads[0][&quot;W&quot;]
+ [[0.         0.        ]
+ [0.         0.        ]
+ [0.         0.        ]
+ [0.76103773 0.12167502]
+ [0.         0.        ]] 
+
+grads[0][&quot;b&quot;]
+ [[0.76103773 0.12167502]] 
+
+grads[1][&quot;W&quot;]
+ [[0.69198983]
+ [0.82403662]] 
+
+grads[1][&quot;b&quot;]
+ [[1.]] 
+</code></pre><h3 id="Implement-stochastic-gradient-descent-method-for-state-value-prediction"><a href="#Implement-stochastic-gradient-descent-method-for-state-value-prediction" class="headerlink" title="Implement stochastic gradient descent method for state-value prediction"></a>Implement stochastic gradient descent method for state-value prediction</h3><p>In this section, you will implement stochastic gradient descent (SGD) method for state_value prediction. Here is the basic SGD update for state-value prediction with TD:</p>
+<script type="math/tex; mode=display">\mathbf{w_{t+1}} = \mathbf{w_{t}} + \alpha \delta_t \nabla \hat{v}(S_t,\mathbf{w_{t}})</script><p>At each time step, we update the weights in the direction  $g_t = \delta_t \nabla \hat{v}(S_t,\mathbf{w_t})$ using a fixed step-size $\alpha$. $\delta_t = R_{t+1} + \gamma \hat{v}(S_{t+1},\mathbf{w_{t}}) - \hat{v}(S_t,\mathbf{w_t})$ is the TD-error. $\nabla \hat{v}(S_t,\mathbf{w_{t}})$ is the gradient of the value function with respect to the weights.</p>
+<p>The following cell includes the SGD class. You will complete the <code>update_weight()</code> method of SGD assuming that the weights and update g are provided.</p>
+<p><strong>As you know, in this assignment, we structured the weights as an array of dictionaries. Note that the updates $g_t$, in the case of TD, is $\delta_t \nabla \hat{v}(S_t,\mathbf{w_t})$. As a result, $g_t$ has the same structure as $\nabla \hat{v}(S_t,\mathbf{w_t})$ which is also an array of dictionaries.</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Graded Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SGD</span><span class="params">(BaseOptimizer)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">optimizer_init</span><span class="params">(self, optimizer_info)</span>:</span></span><br><span class="line">        <span class="string">"""Setup for the optimizer.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Set parameters needed to setup the stochastic gradient descent method.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Assume optimizer_info dict contains:</span></span><br><span class="line"><span class="string">        &#123;</span></span><br><span class="line"><span class="string">            step_size: float</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.step_size = optimizer_info.get(<span class="string">"step_size"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update_weights</span><span class="params">(self, weights, g)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Given weights and update g, return updated weights</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(weights)):</span><br><span class="line">            <span class="keyword">for</span> param <span class="keyword">in</span> weights[i].keys():</span><br><span class="line">                </span><br><span class="line">                <span class="comment">### update weights</span></span><br><span class="line">                <span class="comment"># weights[i][param] = None</span></span><br><span class="line">                </span><br><span class="line">                <span class="comment"># ----------------</span></span><br><span class="line">                <span class="comment"># your code here</span></span><br><span class="line">                weights[i][param] += self.step_size * g[i][param]</span><br><span class="line">                </span><br><span class="line">                <span class="comment"># ----------------</span></span><br><span class="line">                </span><br><span class="line">        <span class="keyword">return</span> weights</span><br></pre></td></tr></table></figure>
+<p>Run the following code to test your implementation of the <code>update_weights()</code> function:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Tested Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># The contents of the cell will be tested by the autograder.</span></span><br><span class="line"><span class="comment"># If they do not pass here, they will not pass there.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Suppose num_states = 5, num_hidden_layer = 1, and num_hidden_units = 2 </span></span><br><span class="line">num_hidden_layer = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">weights_data = np.load(<span class="string">"asserts/update_weights_weights.npz"</span>)</span><br><span class="line">weights = [dict() <span class="keyword">for</span> i <span class="keyword">in</span> range(num_hidden_layer+<span class="number">1</span>)]</span><br><span class="line">weights[<span class="number">0</span>][<span class="string">"W"</span>] = weights_data[<span class="string">"W0"</span>]</span><br><span class="line">weights[<span class="number">0</span>][<span class="string">"b"</span>] = weights_data[<span class="string">"b0"</span>]</span><br><span class="line">weights[<span class="number">1</span>][<span class="string">"W"</span>] = weights_data[<span class="string">"W1"</span>]</span><br><span class="line">weights[<span class="number">1</span>][<span class="string">"b"</span>] = weights_data[<span class="string">"b1"</span>]</span><br><span class="line"></span><br><span class="line">g_data = np.load(<span class="string">"asserts/update_weights_g.npz"</span>)</span><br><span class="line">g = [dict() <span class="keyword">for</span> i <span class="keyword">in</span> range(num_hidden_layer+<span class="number">1</span>)]</span><br><span class="line">g[<span class="number">0</span>][<span class="string">"W"</span>] = g_data[<span class="string">"W0"</span>]</span><br><span class="line">g[<span class="number">0</span>][<span class="string">"b"</span>] = g_data[<span class="string">"b0"</span>]</span><br><span class="line">g[<span class="number">1</span>][<span class="string">"W"</span>] = g_data[<span class="string">"W1"</span>]</span><br><span class="line">g[<span class="number">1</span>][<span class="string">"b"</span>] = g_data[<span class="string">"b1"</span>]</span><br><span class="line"></span><br><span class="line">test_sgd = SGD()</span><br><span class="line">optimizer_info = &#123;<span class="string">"step_size"</span>: <span class="number">0.3</span>&#125;</span><br><span class="line">test_sgd.optimizer_init(optimizer_info)</span><br><span class="line">updated_weights = test_sgd.update_weights(weights, g)</span><br><span class="line"></span><br><span class="line"><span class="comment"># updated weights asserts</span></span><br><span class="line">updated_weights_answer = np.load(<span class="string">"asserts/update_weights_updated_weights.npz"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span>(np.allclose(updated_weights[<span class="number">0</span>][<span class="string">"W"</span>], updated_weights_answer[<span class="string">"W0"</span>]))</span><br><span class="line"><span class="keyword">assert</span>(np.allclose(updated_weights[<span class="number">0</span>][<span class="string">"b"</span>], updated_weights_answer[<span class="string">"b0"</span>]))</span><br><span class="line"><span class="keyword">assert</span>(np.allclose(updated_weights[<span class="number">1</span>][<span class="string">"W"</span>], updated_weights_answer[<span class="string">"W1"</span>]))</span><br><span class="line"><span class="keyword">assert</span>(np.allclose(updated_weights[<span class="number">1</span>][<span class="string">"b"</span>], updated_weights_answer[<span class="string">"b1"</span>]))</span><br></pre></td></tr></table></figure>
+<p><strong>Expected output</strong>:</p>
+<pre><code>updated_weights[0][&quot;W&quot;]
+ [[ 1.17899492  0.53656321]
+ [ 0.58008221  1.47666572]
+ [ 1.01909411 -1.10248056]
+ [ 0.72490408  0.06828853]
+ [-0.20609725  0.69034095]] 
+
+updated_weights[0][&quot;b&quot;]
+ [[-0.18484533  0.92844539]] 
+
+updated_weights[1][&quot;W&quot;]
+ [[0.70488257]
+ [0.58150878]] 
+
+updated_weights[1][&quot;b&quot;]
+ [[0.88467086]] 
+</code></pre><h3 id="Adam-Algorithm"><a href="#Adam-Algorithm" class="headerlink" title="Adam Algorithm"></a>Adam Algorithm</h3><p>In this assignment, instead of using SGD for updating the weights, we use a more advanced algorithm called Adam. The Adam algorithm improves the SGD update with two concepts: adaptive vector step-sizes and momentum. It keeps estimates of the mean and second moment of the updates, denoted by $\mathbf{m}$ and $\mathbf{v}$ respectively:</p>
+<script type="math/tex; mode=display">\mathbf{m_t} = \beta_m \mathbf{m_{t-1}} + (1 - \beta_m)g_t \\
+\mathbf{v_t} = \beta_v \mathbf{v_{t-1}} + (1 - \beta_v)g^2_t</script><p>Given that $\mathbf{m}$ and $\mathbf{v}$ are initialized to zero, they are biased toward zero. To get unbiased estimates of the mean and second moment, Adam defines $\mathbf{\hat{m}}$ and $\mathbf{\hat{v}}$ as:</p>
+<script type="math/tex; mode=display">\mathbf{\hat{m_t}} = \frac{\mathbf{m_t}}{1 - \beta_m^t} \\
+\mathbf{\hat{v_t}} = \frac{\mathbf{v_t}}{1 - \beta_v^t}</script><p>The weights are then updated as follows:</p>
+<script type="math/tex; mode=display">\mathbf{w_t} = \mathbf{w_{t-1}} + \frac{\alpha}{\sqrt{\mathbf{\hat{v_t}}}+\epsilon} \mathbf{\hat{m_t}}</script><p>When implementing the agent you will use the Adam algorithm instead of SGD because it is more efficient. We have already provided you the implementation of the Adam algorithm in the cell below. You will use it when implementing your agent. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ---------------</span></span><br><span class="line"><span class="comment"># Discussion Cell</span></span><br><span class="line"><span class="comment"># ---------------</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Adam</span><span class="params">(BaseOptimizer)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">optimizer_init</span><span class="params">(self, optimizer_info)</span>:</span></span><br><span class="line">        <span class="string">"""Setup for the optimizer.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Set parameters needed to setup the Adam algorithm.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Assume optimizer_info dict contains:</span></span><br><span class="line"><span class="string">        &#123;</span></span><br><span class="line"><span class="string">            num_states: integer,</span></span><br><span class="line"><span class="string">            num_hidden_layer: integer,</span></span><br><span class="line"><span class="string">            num_hidden_units: integer,</span></span><br><span class="line"><span class="string">            step_size: float, </span></span><br><span class="line"><span class="string">            self.beta_m: float</span></span><br><span class="line"><span class="string">            self.beta_v: float</span></span><br><span class="line"><span class="string">            self.epsilon: float</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        </span><br><span class="line">        self.num_states = optimizer_info.get(<span class="string">"num_states"</span>)</span><br><span class="line">        self.num_hidden_layer = optimizer_info.get(<span class="string">"num_hidden_layer"</span>)</span><br><span class="line">        self.num_hidden_units = optimizer_info.get(<span class="string">"num_hidden_units"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Specify Adam algorithm's hyper parameters</span></span><br><span class="line">        self.step_size = optimizer_info.get(<span class="string">"step_size"</span>)</span><br><span class="line">        self.beta_m = optimizer_info.get(<span class="string">"beta_m"</span>)</span><br><span class="line">        self.beta_v = optimizer_info.get(<span class="string">"beta_v"</span>)</span><br><span class="line">        self.epsilon = optimizer_info.get(<span class="string">"epsilon"</span>)</span><br><span class="line"></span><br><span class="line">        self.layer_size = np.array([self.num_states, self.num_hidden_units, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Initialize Adam algorithm's m and v</span></span><br><span class="line">        self.m = [dict() <span class="keyword">for</span> i <span class="keyword">in</span> range(self.num_hidden_layer+<span class="number">1</span>)]</span><br><span class="line">        self.v = [dict() <span class="keyword">for</span> i <span class="keyword">in</span> range(self.num_hidden_layer+<span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.num_hidden_layer+<span class="number">1</span>):</span><br><span class="line"></span><br><span class="line">            <span class="comment"># Initialize self.m[i]["W"], self.m[i]["b"], self.v[i]["W"], self.v[i]["b"] to zero</span></span><br><span class="line">            self.m[i][<span class="string">"W"</span>] = np.zeros((self.layer_size[i], self.layer_size[i+<span class="number">1</span>]))</span><br><span class="line">            self.m[i][<span class="string">"b"</span>] = np.zeros((<span class="number">1</span>, self.layer_size[i+<span class="number">1</span>]))</span><br><span class="line">            self.v[i][<span class="string">"W"</span>] = np.zeros((self.layer_size[i], self.layer_size[i+<span class="number">1</span>]))</span><br><span class="line">            self.v[i][<span class="string">"b"</span>] = np.zeros((<span class="number">1</span>, self.layer_size[i+<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Initialize beta_m_product and beta_v_product to be later used for computing m_hat and v_hat</span></span><br><span class="line">        self.beta_m_product = self.beta_m</span><br><span class="line">        self.beta_v_product = self.beta_v</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update_weights</span><span class="params">(self, weights, g)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Given weights and update g, return updated weights</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(weights)):</span><br><span class="line">            <span class="keyword">for</span> param <span class="keyword">in</span> weights[i].keys():</span><br><span class="line"></span><br><span class="line">                <span class="comment">### update self.m and self.v</span></span><br><span class="line">                self.m[i][param] = self.beta_m * self.m[i][param] + (<span class="number">1</span> - self.beta_m) * g[i][param]</span><br><span class="line">                self.v[i][param] = self.beta_v * self.v[i][param] + (<span class="number">1</span> - self.beta_v) * (g[i][param] * g[i][param])</span><br><span class="line"></span><br><span class="line">                <span class="comment">### compute m_hat and v_hat</span></span><br><span class="line">                m_hat = self.m[i][param] / (<span class="number">1</span> - self.beta_m_product)</span><br><span class="line">                v_hat = self.v[i][param] / (<span class="number">1</span> - self.beta_v_product)</span><br><span class="line"></span><br><span class="line">                <span class="comment">### update weights</span></span><br><span class="line">                weights[i][param] += self.step_size * m_hat / (np.sqrt(v_hat) + self.epsilon)</span><br><span class="line">                </span><br><span class="line">        <span class="comment">### update self.beta_m_product and self.beta_v_product</span></span><br><span class="line">        self.beta_m_product *= self.beta_m</span><br><span class="line">        self.beta_v_product *= self.beta_v</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> weights</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-Implement-Agent-Methods"><a href="#1-2-Implement-Agent-Methods" class="headerlink" title="1-2: Implement Agent Methods"></a>1-2: Implement Agent Methods</h2><p>In this section, you will implement <code>agent_init()</code>, <code>agent_start()</code>, <code>agent_step()</code>, and <code>agent_end()</code>.</p>
+<p>In <code>agent_init()</code>, you will:</p>
+<ul>
+<li>specify the neural network structure by filling self.layer_size with the size of the input layer, hidden layer, and output layer.</li>
+<li>initialize the network’s parameters. We show the parameters as an array of dictionaries, self.weights, where each dictionary corresponds to weights from one layer to the next. Each dictionary includes $W$ and $b$. </li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/TD-with-State-Aggregation/2020/10/13/" rel="next" title="TD with State Aggregation ">
+                <i class="fa fa-chevron-left"></i> TD with State Aggregation 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Function-Approximation-and-Control/2020/10/15/" rel="prev" title="Function Approximation and Control">
+                Function Approximation and Control <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">266</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/cherish_CX/" title="Chunxia" target="_blank" rel="external nofollow">Chunxia</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Assignment-2-Semi-gradient-TD-with-a-Neural-Network"><span class="nav-text">Assignment 2 - Semi-gradient TD with a Neural Network</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Packages"><span class="nav-text">Packages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Section-1-Create-semi-gradient-TD-with-a-Neural-Network"><span class="nav-text">Section 1: Create semi-gradient TD with a Neural Network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Implement-helper-methods"><span class="nav-text">1-1: Implement helper methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Implement-get-value"><span class="nav-text">Implement get_value()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Implement-get-gradient"><span class="nav-text">Implement get_gradient()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Implement-stochastic-gradient-descent-method-for-state-value-prediction"><span class="nav-text">Implement stochastic gradient descent method for state-value prediction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adam-Algorithm"><span class="nav-text">Adam Algorithm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Implement-Agent-Methods"><span class="nav-text">1-2: Implement Agent Methods</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>
