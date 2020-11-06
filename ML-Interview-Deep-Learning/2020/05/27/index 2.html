@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="BLOG">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="MLP, 神经网络训练技巧, CNN, RNN, Seq2Seq">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ML-Interview-Deep-Learning">
+<meta property="og:url" content="https://zhangruochi.com/ML-Interview-Deep-Learning/2020/05/27/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="MLP, 神经网络训练技巧, CNN, RNN, Seq2Seq">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Deep-Learning/2020/05/27/1.png">
+<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Deep-Learning/2020/05/27/2.png">
+<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Deep-Learning/2020/05/27/3.png">
+<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Deep-Learning/2020/05/27/4.png">
+<meta property="og:image" content="https://zhangruochi.com/ML-Interview-Deep-Learning/2020/05/27/5.png">
+<meta property="og:updated_time" content="2020-05-28T23:09:19.497Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ML-Interview-Deep-Learning">
+<meta name="twitter:description" content="MLP, 神经网络训练技巧, CNN, RNN, Seq2Seq">
+<meta name="twitter:image" content="https://zhangruochi.com/ML-Interview-Deep-Learning/2020/05/27/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/ML-Interview-Deep-Learning/2020/05/27/">
+
+
+
+
+
+  <title>ML-Interview-Deep-Learning | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/ML-Interview-Deep-Learning/2020/05/27/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">ML-Interview-Deep-Learning</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-27T17:46:36+08:00">
+                2020-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Interview/" itemprop="url" rel="index">
+                    <span itemprop="name">Interview</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Interview/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/ML-Interview-Deep-Learning/2020/05/27/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/ML-Interview-Deep-Learning/2020/05/27/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  MLP, 神经网络训练技巧, CNN, RNN, Seq2Seq
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><ol>
+<li><p>写出常用激活函数及其导数</p>
+<blockquote>
+<p>Sigmod </p>
+<script type="math/tex; mode=display">f(z) = \frac{1}{1+exp(-z)}</script><script type="math/tex; mode=display">f\prime(z) = f(z)(1 - f(z))</script><p>Tanh</p>
+<script type="math/tex; mode=display">f(z) = tanh(z) = \frac{e^z - e^{-z}}{ e^z + e^{-z}}</script><script type="math/tex; mode=display">f\prime(z) = 1 - (f(z))^2</script><p>Relu</p>
+<script type="math/tex; mode=display">f(z) = max(0,z)</script><script type="math/tex; mode=display">f\prime(z) = \left\{
+\begin{aligned}
+& 1, z > 0 \\
+& 0, z \leq 0
+\end{aligned}\right.</script></blockquote>
+</li>
+<li><p>为什么 Sigmoid 和 Tanh 激活函数会导致梯度消失现象？</p>
+<blockquote>
+<p>Sigmoid 函数将输入映射到区间(0,1)，当 z 较大和较小时，f(z) 趋近于 1. 此时的梯度趋近于0. Tanh 实际相当于 Sigmoid 的平移。</p>
+<center>
+ <img style="border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="1.png" width="70%" height="70%">
+</center>
+</blockquote>
+</li>
+<li><p>ReLU 系列的激活函数相对于Sigmoid 和 Tanh 激活函数的优点是什么？局限性是什么？</p>
+<blockquote>
+<p>优点: 1. 计算简便 2. 有效地解决梯度消失的问题 3. ReLU 单侧抑制提供了网络的稀疏表达能力<br>局限性: 神经元死亡的问题。因为$f(z) = max(0,z)$ 导致负梯度在经过该 ReLU单元时被置为 0，且之后也不被任何数据激活。实际训练时，如果 learning rate 过大，会导致一定比例的 neuron 不可逆死亡，使得整个训练过程失败。Leaky ReLU 可以有效地解决该问题。</p>
+<script type="math/tex; mode=display">f(z) = \left\{
+\begin{aligned} 
+& z, z > 0 \\
+& az, z \leq 0
+\end{aligned}
+\right.</script></blockquote>
+</li>
+<li><p>平方误差损失函数和交叉熵损失函数分别适用什么场景？</p>
+<blockquote>
+<p>一般来说，平方损失函数适合于连续输出，并且最后一层不含 Sigmoid 或者 Softmax 激活函数的神经网络。交叉熵损失则更适合二分类和多分类场景。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="神经网络训练技巧"><a href="#神经网络训练技巧" class="headerlink" title="神经网络训练技巧"></a>神经网络训练技巧</h2><ol>
+<li><p>神经网路训练时是否可以将全部参数初始化为0.</p>
+<blockquote>
+<p>同一层的神经元都是同构的，他们拥有相同的输入，如果将参数全部初始化为相同的值，那么无论 forward 还是 backward 都会拥有完全相同的值。因此，我们需要随机地初始化神经网络的参数，以打破这种对称性。</p>
+</blockquote>
+</li>
+<li><p>为什么 Dropout 可以抑制过拟合，它的工作原理是什么？</p>
+<blockquote>
+<p>Dropout作用与每份小批量训练数据，由于其随机丢弃神经元的机制，相当于每次迭代都在训练不同结构的神经网络。类比于Bagging方法，Dropout可被认为是一种实用的大规模神经网络的模型继承算法。对于包含 N 个神经元结点的网络，在 Dropout 的作用下可看做为$2^N$个模型的集成。这$2^N$个模型可认为是原始网络的子网络。应用Dropout包括训练和预测两个阶段，在训练阶段，每个神经元需要增加一个概率系数.</p>
+<script type="math/tex; mode=display">\left\{ \begin{aligned} 
+& r_j^{(l)} \sim Bernoulli(p) \\
+& \tilde{y}^{(l)} = r^{(l)} * y^{(l)}
+\end{aligned}\right.</script><p>测试阶段是前向传播过程，每个神经元的参数要预先乘以概率系数p，以恢复在训练时该神经元只有p的概率被用于整个神经网络的前向传播计算</p>
+</blockquote>
+</li>
+<li><p>BatchNorm 的基本动机与原理是什么？ 在卷积网络中如何使用?</p>
+<blockquote>
+<ol>
+<li>神经网络训练的本质是学习数据分布，因此我们常假设训练数据与测试数据是独立同分布的。如果分布不同将大大降低网络的泛化能力，因此我们需要在训练开始前对所有数据进行归一化处理。随着网络训练的进行，每个hidden layer的参数变化使得后一层的输入发生变化，从而每一批训练数据的分布也随之发生变化，使得网络在每次迭代中都需要拟合不同的数据分布，增大训练的复杂度以及过拟合风险。</li>
+<li>BatchNorm 是针对每一批数据，在网络的每一层输入之前增加归一化处理，将所有batch数据强制统一在统一的数据分布下。<script type="math/tex; mode=display">\hat{x}^{k} = \frac{x^{(k) - E[x^{(k)}]}}{\sqrt{Var[x^{(k)}]}}</script>其中x^{(k)}为该层第 K 个神经元的原始输入数据，$E[x^{(k)}]$为这一个batch在第k个神经元的均值，$\sqrt{Var[x^{(k)}]}$为这一批数据在第k个神经元的标准差。</li>
+<li>但是均值为 0，方差为1 这个限制太严格了，降低了神经网络的拟合能力。因此加入了两个可学习参数 $\beta$ 和 $\eta$<script type="math/tex; mode=display">y_i = \eta \hat{x}^{k} + \beta</script>在测试阶段，没有batch mean 和 var. 我们使用训练阶段的 running average.</li>
+<li>BatchNorm usually inserted after Fully Connected or Convolutional layers, and before nonlinearity.</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<h2 id="Convolutional-Neural-Network"><a href="#Convolutional-Neural-Network" class="headerlink" title="Convolutional Neural Network"></a>Convolutional Neural Network</h2><ol>
+<li><p>说说卷及操作的本质。</p>
+<blockquote>
+<ol>
+<li>Sparse Interaction（稀疏交互）： 卷积操作中，每个输出神经元仅仅与前一层特定局部区域的神经元存在连接权重。时间复杂度得到优化，过拟合的情况也得到改善。<center>
+<img style="border-radius: 0.3125em;
+box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="2.png" width="70%" height="70%">
+</center></li>
+<li>Hierarchical feature representation   ：通常来说，图像，文本，语音等现实世界中的数据都是具有局部的特征结构，我们可以先学习局部的特征，再将局部特征组合起来形成更加复杂的和抽象的特征。这与人类视觉感知物体的共通的。</li>
+<li>Parameter Sharing （参数共享）：给定一个 feature map, 我们使用一个 filter 去扫这个 feature map. filter 里面的参数叫权重，这张图里每个位置都是被同样的 filter 扫描的，所以权重是相同的。参数共享的物理意义是使得卷积层具有平移不变性。例如，在猫的图片上先进行 convolution，再平移l 像素输出，与现将图片平移l 像素再进行卷积操作的输出结果是相等的。</li>
+</ol>
+</blockquote>
+</li>
+<li><p>常用的池化操作有哪些？池化的作用是什么？</p>
+<blockquote>
+<p>Mean Pooling 和 Max pooling. 池化操作除了能显著降低参数数量，还能够保持对平移、伸缩、旋转操作的不变性。Mean Pooling 对背景的保留效果较好，Max pooling 对纹理的提取效果更好。<br>特殊的池化方式有，Global Average Pooling，Spatial Pyramid Pooling(空间金字塔池化). Global Average Pooling 可以将 feature map 转换到特定的维度。SPP 主要考虑多尺度信息，例如计算1x1、2x2、4x4的池化并将结果拼接在一起作为下一层的输入。还可以使得我们构建的网络能够输入任意大小的图片，而不需要提前经过裁剪缩放等预处理操作</p>
+</blockquote>
+</li>
+<li><p>CNN 如何用于文本分类任务？</p>
+<blockquote>
+<p>对于文本来说，局部特征就是由若干单词组成的滑动窗口，类似于 N-Gram. CNN 的作用就是能够自动地对 N-gram 特征进行组合和筛选，获得不同抽象层次的语义信息。常用的应用如 char-based model, 把每个char 的 vector concat 在一起，然后使用 conv1d提取特殊的pattern 和 semantic.</p>
+</blockquote>
+</li>
+<li><p>ResNet 的核心理论是什么？</p>
+<blockquote>
+<p>ResNet提出的背景是缓解深层的神经网络中梯度消失的问题。直观来讲，一个 L+1 层的网络不会比 L 层的网络效果差，因为我们简单地设最后一层为一个恒等映射即可。然而实际上深层网络反而会有更大的训练误差，这很大程度上归结于深度神经网络中的梯度消失问题。<br>如下图所示，输入$x$经过两个神经网络变换得到$F(x)$,同时 $x$ 短接到两层之后，最后这个包含两层的神经网络的输出为 $H(x) = F(x) + x$. 这样一来，$F(x)$被设计为只需要拟合x与目标输出H(x)的残差 $H(x) - x$. 如果某一层的效果足够好，那么多加层不会使得模型变差，因为该层的输出短接到了后面的层。</p>
+<center>
+ <img style="border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="3.png" width="70%" height="70%">
+</center>
+</blockquote>
+</li>
+<li><p>DenseNet 的核心理论是什么？</p>
+<blockquote>
+<p>既将 $x_0$ 到 $l_1$ 层的所有输出feature map 通过 Channel concat在一起.由于在DenseNet中需要对不同层的feature map进行cat操作,所以需要不同层的feature map保持相同的feature size,这就限制了网络中Down sampling的实现.为了使用Down sampling,作者将DenseNet分为多个Denseblock. 在同一个Denseblock中要求feature size保持相同大小,在不同Denseblock之间设置transition layers实现Down sampling, 在作者的实验中transition layer由BN + Conv(1×1) ＋2×2 average-pooling组成.</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h2><ol>
+<li><p>处理文本数据时，循环神经网络与前馈神经网络相比有什么特点？</p>
+<blockquote>
+<p>一个长度为T的序列用RNN建模，展开之后可以看作是一个 T 层的前馈神经网络。其中，第$t$层的隐含状态$h_t$ 编码了序列前$t$个输入信息，可以通过当前的输入$x_t$ 和上一层神经网络的状态$h_{t-1}$计算得到. $h_t$和y的计算公式为:</p>
+<script type="math/tex; mode=display">\left\{ \begin{aligned}
+& net_t = Ux_t + Wh_{t-1} \\
+& h_t = f(net_t) \\
+& y = g(Vh_t)
+\end{aligned}
+\right.</script><p>其中，$f$ 和 $g$ 为激活函数，U 为输入层到隐藏层的权重矩阵，W 为隐藏层从上一时刻到一下时刻状态转移的权重矩阵。在文本分类中，$f$可以选取Tanh函数或者ReLU函数，$g$可以采用 softmax 函数。相比于CNN, RNN 由于具备对序列信息的刻画能力，往往能够得到更准确的结果。</p>
+</blockquote>
+</li>
+<li><p>循环神经网络为什么会出现梯度消失和梯度爆炸？有哪些改进方案？</p>
+<blockquote>
+<p>RNN 求解采用 BPTT(back propagation through time) 算法实现，实际上是 back propagation 算法的变种。使用 BPTT算法学习的RNN 并不能捕捉长距离的依赖关系，这种现象主要源于神经网络中的梯度消失。因为RNN 的梯度可以写成连乘的形式。详细可参考 <a href="https://zhangruochi.com/BackPropagation-through-time/2019/10/12/">https://zhangruochi.com/BackPropagation-through-time/2019/10/12/</a><br>梯度爆照可以通过梯度裁剪来环节，当梯度大于某个给定值时，对梯度进行收缩。梯度消失可通过 LSTM， GRU 等模型加入门控机制来弥补。</p>
+</blockquote>
+</li>
+<li><p>LSTM 是如何实现长短期记忆功能的？</p>
+<blockquote>
+<p><a href="https://zhangruochi.com/LSTM-Mxnet-Implementation/2019/04/13/">https://zhangruochi.com/LSTM-Mxnet-Implementation/2019/04/13/</a><br>经典的 LSTM，第 t 步的更新公式为：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\boldsymbol{I}_t &= \sigma(\boldsymbol{X}_t \boldsymbol{W}_{xi} + \boldsymbol{H}_{t-1} \boldsymbol{W}_{hi} + \boldsymbol{b}_i),\\
+\boldsymbol{F}_t &= \sigma(\boldsymbol{X}_t \boldsymbol{W}_{xf} + \boldsymbol{H}_{t-1} \boldsymbol{W}_{hf} + \boldsymbol{b}_f),\\
+\boldsymbol{O}_t &= \sigma(\boldsymbol{X}_t \boldsymbol{W}_{xo} + \boldsymbol{H}_{t-1} \boldsymbol{W}_{ho} + \boldsymbol{b}_o),\\
+\tilde{\boldsymbol{C}}_t &= \text{tanh}(\boldsymbol{X}_t \boldsymbol{W}_{xc} + \boldsymbol{H}_{t-1} \boldsymbol{W}_{hc} + \boldsymbol{b}_c),\\
+\boldsymbol{C}_t &= \boldsymbol{F}_t \odot \boldsymbol{C}_{t-1} + \boldsymbol{I}_t \odot \tilde{\boldsymbol{C}}_t.
+\end{aligned}</script><p>  与传统的 RNN 相比，LSTM 依然是基于$x_t$和$h_{t-1}$ 来计算$h_t$，只不过对内部的结构进行了更加精心的设计，加入了 input gate $i_t$, forget gate $f_t$, output gate $o_t$. input gate控制当前计算的新状态多大程度更新到当前momery cell 中，forget cell控制前一步的memory cell中的信息有多大程度被遗忘掉，输出门控制当前输出有多程度取决与当前的 memory cell.<br>  当输入的序列中没有重要信息时，LSTM 的遗忘门的值接近于 1，输入门接近于0. 此时过去的记忆会被保留下来，从而实现长期记忆功能。当输入的序列中有重要信息时，LSTM 应当把其存记忆中，此时输入门的值会接近于 1，而遗忘门的值接近于0。经过这样的设计，整个网络更容易学习到序列之间的长期依赖。</p>
+</blockquote>
+</li>
+<li><p>LSTM 里各模块分别适用什么激活函数，可以使用别的激活函数激活吗？</p>
+<blockquote>
+<p>三个门控单元使用Sigmoid作为激活函数,生成候选记忆时，使用tanh作为激活函数。Sigmoid函数的输出在(0, 1)之间，符合门控的物理定义。使用 Tanh函数，是因为其输出在(-1,1)之间，这与大多数场景下特征分布是 0 中心的吻合，此外，Tanh函数在输入为0附近相比Sigmoid函数有更大的梯度，收敛更快。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="Seq2Seq-模型"><a href="#Seq2Seq-模型" class="headerlink" title="Seq2Seq 模型"></a>Seq2Seq 模型</h2><blockquote>
+<p><a href="https://zhangruochi.com/Attention/2019/12/16/">https://zhangruochi.com/Attention/2019/12/16/</a></p>
+</blockquote>
+<ol>
+<li><p>什么是 Seq2Seq 模型，Seq2Seq 模型有哪些优点？</p>
+<blockquote>
+<p>Seq2Seq模型的核心思想是，通过深度神经网络将输入序列映射为输出序列，这一过程由encoder 与 decoder 两个环节组成。在经典实现中，encoder 和 decoder 都是sequence model. encoder将序列编码成 context vector，decoder 将 context vector 解码成序列。</p>
+<center>
+ <img style="border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="4.png" width="70%" height="70%">
+</center>
+</blockquote>
+</li>
+<li><p>Seq2Seq 模型在解码时，有哪些常用的办法？</p>
+<blockquote>
+<p>Seq2Seq 最基础的解码方法是贪心法，即选取一种度量标准后，每次都在当前状态下选择最佳的一个结果，知道遇到结束符。但是贪心算法往往只能得到局部最优解。<br><strong>Beam search</strong> 是贪心算法的改进。改方法会保存beam size 个当前较好的选择，然后解码时每一步根据保存的选择进行下一步的扩展和排序，接着选择前b个进行保存，循环迭代，知道结束后选择最佳的一个座位解码结果。</p>
+<center>
+ <img style="border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="5.png" width="70%" height="70%">
+</center>
+</blockquote>
+</li>
+<li><p>Seq2Seq 引入注意力机制是为了解决什么问题？为什么选用了双向循环神经网络模型？</p>
+<blockquote>
+<ol>
+<li>随着输入序列的增长，Seq2Seq的性能发生显著性下降。这是因为编码时输入序列的全部信息压缩到一个 context vector。随着输入序列的增长，句子越前面的词丢失就越严重。Attention机制的引入就是为了解决这个问题。</li>
+<li>An attention function can be described as mapping a query and a set of key-value pairs to an output, where the query, keys, values, and output are all vectors. The output is computed as a weighted sum of the values, where the weight assigned to each value is computed by a compatibility function of the query with the corresponding key.</li>
+<li>机器翻译中，使用双向RNN是因为当前词的状态不仅决定于这个词之前的词，还决定于这个词之后的词。比如 I was a student two years ago.</li>
+</ol>
+</blockquote>
+</li>
+<li><p>如何计算attention score.</p>
+<blockquote>
+<ol>
+<li>利用RNN结构得到encoder中的hidden state $(h_1,h_2,\cdots, h_n)$</li>
+<li>假设当前decoder的hidden state 是$s_{t-1}$, 我们可以计算每一个输入位置j的 hidden state 与当前输出位置的关联性，$e_{ij} = a(s_{t-1}, h_j)$，其中 [公式] 是一种相关性的算符，例如常见的有dot product. 输出位置与所有的输入位置的关联性写成向量形式有 $\vec{e_t} = a(s_{t-1}, h_i), \cdots, a(s_{t-1}, h_T)$</li>
+<li>对$\vec{e_t}$进行softmax操作，然后将其normalize得到attenion score分布$\alpha_{tj}$</li>
+<li>利用 attention score 得到加权的context vector. $\vec{c_t} =\sum_{j=1}^{T}\alpha_{tj} h_j$<br>将加权的context vector 与 decoder 的 $h_t^{dec}$ 拼接在一起。</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/ML-Interview-Optimization/2020/05/27/" rel="next" title="ML-Interview-Optimization">
+                <i class="fa fa-chevron-left"></i> ML-Interview-Optimization
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/ML-Interview-Ensemble/2020/05/28/" rel="prev" title="ML-Interview-Ensemble">
+                ML-Interview-Ensemble <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">267</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/cherish_CX/" title="Chunxia" target="_blank" rel="external nofollow">Chunxia</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#激活函数"><span class="nav-text">激活函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络训练技巧"><span class="nav-text">神经网络训练技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Convolutional-Neural-Network"><span class="nav-text">Convolutional Neural Network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环神经网络"><span class="nav-text">循环神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Seq2Seq-模型"><span class="nav-text">Seq2Seq 模型</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>

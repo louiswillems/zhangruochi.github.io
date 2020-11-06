@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="BLOG">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Assignment 3: Function Approximation and ControlWelcome to Assignment 3. In this notebook you will learn how to:  Use function approximation in the control setting Implement the Sarsa algorithm using">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Function Approximation and Control">
+<meta property="og:url" content="https://zhangruochi.com/Function-Approximation-and-Control/2020/10/15/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="Assignment 3: Function Approximation and ControlWelcome to Assignment 3. In this notebook you will learn how to:  Use function approximation in the control setting Implement the Sarsa algorithm using">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/Function-Approximation-and-Control/2020/10/15/mountaincar.png">
+<meta property="og:image" content="https://zhangruochi.com/Function-Approximation-and-Control/2020/10/15/tilecoding.png">
+<meta property="og:image" content="https://zhangruochi.com/Function-Approximation-and-Control/2020/10/15/output_15_1.png">
+<meta property="og:image" content="https://zhangruochi.com/Function-Approximation-and-Control/2020/10/15/sarsa_agent_initial.png">
+<meta property="og:image" content="https://zhangruochi.com/Function-Approximation-and-Control/2020/10/15/output_18_2.png">
+<meta property="og:updated_time" content="2020-10-15T04:01:26.316Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Function Approximation and Control">
+<meta name="twitter:description" content="Assignment 3: Function Approximation and ControlWelcome to Assignment 3. In this notebook you will learn how to:  Use function approximation in the control setting Implement the Sarsa algorithm using">
+<meta name="twitter:image" content="https://zhangruochi.com/Function-Approximation-and-Control/2020/10/15/mountaincar.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/Function-Approximation-and-Control/2020/10/15/">
+
+
+
+
+
+  <title>Function Approximation and Control | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Function-Approximation-and-Control/2020/10/15/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Function Approximation and Control</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-15T12:00:24+08:00">
+                2020-10-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
+                    <span itemprop="name">Artificial Intelligence</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/Reinforcement-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Reinforcement Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Function-Approximation-and-Control/2020/10/15/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Function-Approximation-and-Control/2020/10/15/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Assignment-3-Function-Approximation-and-Control"><a href="#Assignment-3-Function-Approximation-and-Control" class="headerlink" title="Assignment 3: Function Approximation and Control"></a>Assignment 3: Function Approximation and Control</h1><p>Welcome to Assignment 3. In this notebook you will learn how to:</p>
+<ul>
+<li>Use function approximation in the control setting</li>
+<li>Implement the Sarsa algorithm using tile coding</li>
+<li>Compare three settings for tile coding to see their effect on our agent</li>
+</ul>
+<p>As with the rest of the notebooks do not import additional libraries or adjust grading cells as this will break the grader.</p>
+<p>MAKE SURE TO RUN ALL OF THE CELLS SO THE GRADER GETS THE OUTPUT IT NEEDS</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Import Necessary Libraries</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> tiles3 <span class="keyword">as</span> tc</span><br><span class="line"><span class="keyword">from</span> rl_glue <span class="keyword">import</span> RLGlue</span><br><span class="line"><span class="keyword">from</span> agent <span class="keyword">import</span> BaseAgent</span><br><span class="line"><span class="keyword">from</span> utils <span class="keyword">import</span> argmax</span><br><span class="line"><span class="keyword">import</span> mountaincar_env</span><br><span class="line"><span class="keyword">import</span> time</span><br></pre></td></tr></table></figure>
+<p>In the above cell, we import the libraries we need for this assignment. You may have noticed that we import mountaincar_env. This is the <strong>Mountain Car Task</strong> introduced in <a href="http://www.incompleteideas.net/book/RLbook2018.pdf#page=267" target="_blank" rel="noopener">Section 10.1 of the textbook</a>. The task is for an under powered car to make it to the top of a hill:<br><img src="mountaincar.png" alt="Mountain Car" title="Mountain Car"><br>The car is under-powered so the agent needs to learn to rock back and forth to get enough momentum to reach the goal. At each time step the agent receives from the environment its current velocity (a float between -0.07 and 0.07), and it’s current position (a float between -1.2 and 0.5). Because our state is continuous there are a potentially infinite number of states that our agent could be in. We need a function approximation method to help the agent deal with this. In this notebook we will use tile coding. We provide a tile coding implementation for you to use, imported above with tiles3.</p>
+<h2 id="Section-0-Tile-Coding-Helper-Function"><a href="#Section-0-Tile-Coding-Helper-Function" class="headerlink" title="Section 0: Tile Coding Helper Function"></a>Section 0: Tile Coding Helper Function</h2><p>To begin we are going to build a tile coding class for our Sarsa agent that will make it easier to make calls to our tile coder.</p>
+<h3 id="Tile-Coding-Function"><a href="#Tile-Coding-Function" class="headerlink" title="Tile Coding Function"></a>Tile Coding Function</h3><p>Tile coding is introduced in <a href="http://www.incompleteideas.net/book/RLbook2018.pdf#page=239" target="_blank" rel="noopener">Section 9.5.4 of the textbook</a> of the textbook as a way to create features that can both provide good generalization and discrimination. It consists of multiple overlapping tilings, where each tiling is a partitioning of the space into tiles.<br><img src="tilecoding.png" alt="Tile Coding" title="Tile Coding"></p>
+<p>To help keep our agent code clean we are going to make a function specific for tile coding for our Mountain Car environment. To help we are going to use the Tiles3 library. This is a Python 3 implementation of the tile coder. To start take a look at the documentation: <a href="http://incompleteideas.net/tiles/tiles3.html" target="_blank" rel="noopener">Tiles3 documentation</a><br>To get the tile coder working we need to implement a few pieces:</p>
+<ul>
+<li>First: create an index hash table - this is done for you in the init function using tc.IHT.</li>
+<li>Second is to scale the inputs for the tile coder based on the number of tiles and the range of values each input could take. The tile coder needs to take in a number in range [0, 1], or scaled to be [0, 1] * num_tiles. For more on this refer to the <a href="http://incompleteideas.net/tiles/tiles3.html" target="_blank" rel="noopener">Tiles3 documentation</a>.</li>
+<li>Finally we call tc.tiles to get the active tiles back.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Graded Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MountainCarTileCoder</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, iht_size=<span class="number">4096</span>, num_tilings=<span class="number">8</span>, num_tiles=<span class="number">8</span>)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Initializes the MountainCar Tile Coder</span></span><br><span class="line"><span class="string">        Initializers:</span></span><br><span class="line"><span class="string">        iht_size -- int, the size of the index hash table, typically a power of 2</span></span><br><span class="line"><span class="string">        num_tilings -- int, the number of tilings</span></span><br><span class="line"><span class="string">        num_tiles -- int, the number of tiles. Here both the width and height of the</span></span><br><span class="line"><span class="string">                     tile coder are the same</span></span><br><span class="line"><span class="string">        Class Variables:</span></span><br><span class="line"><span class="string">        self.iht -- tc.IHT, the index hash table that the tile coder will use</span></span><br><span class="line"><span class="string">        self.num_tilings -- int, the number of tilings the tile coder will use</span></span><br><span class="line"><span class="string">        self.num_tiles -- int, the number of tiles the tile coder will use</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.iht = tc.IHT(iht_size)</span><br><span class="line">        self.num_tilings = num_tilings</span><br><span class="line">        self.num_tiles = num_tiles</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_tiles</span><span class="params">(self, position, velocity)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Takes in a position and velocity from the mountaincar environment</span></span><br><span class="line"><span class="string">        and returns a numpy array of active tiles.</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">        Arguments:</span></span><br><span class="line"><span class="string">        position -- float, the position of the agent between -1.2 and 0.5</span></span><br><span class="line"><span class="string">        velocity -- float, the velocity of the agent between -0.07 and 0.07</span></span><br><span class="line"><span class="string">        returns:</span></span><br><span class="line"><span class="string">        tiles - np.array, active tiles</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="comment"># Use the ranges above and self.num_tiles to scale position and velocity to the range [0, 1]</span></span><br><span class="line">        <span class="comment"># then multiply that range with self.num_tiles so it scales from [0, num_tiles]</span></span><br><span class="line">        </span><br><span class="line">        position_scaled = <span class="number">0</span></span><br><span class="line">        velocity_scaled = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># ----------------</span></span><br><span class="line">        <span class="comment"># your code here</span></span><br><span class="line">        position_scaled = ( position + <span class="number">1.2</span> ) / (<span class="number">0.5</span> + <span class="number">1.2</span>) * self.num_tiles</span><br><span class="line">        velocity_scaled = ( velocity + <span class="number">0.07</span> ) / ( <span class="number">0.07</span> + <span class="number">0.07</span> ) * self.num_tiles</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># ----------------</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># get the tiles using tc.tiles, with self.iht, self.num_tilings and [scaled position, scaled velocity]</span></span><br><span class="line">        <span class="comment"># nothing to implment here</span></span><br><span class="line">        tiles = tc.tiles(self.iht, self.num_tilings, [position_scaled, velocity_scaled])</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> np.array(tiles)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Tested Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># The contents of the cell will be tested by the autograder.</span></span><br><span class="line"><span class="comment"># If they do not pass here, they will not pass there.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># create a range of positions and velocities to test</span></span><br><span class="line"><span class="comment"># then test every element in the cross-product between these lists</span></span><br><span class="line">pos_tests = np.linspace(<span class="number">-1.2</span>, <span class="number">0.5</span>, num=<span class="number">5</span>)</span><br><span class="line">vel_tests = np.linspace(<span class="number">-0.07</span>, <span class="number">0.07</span>, num=<span class="number">5</span>)</span><br><span class="line">tests = list(itertools.product(pos_tests, vel_tests))</span><br><span class="line"></span><br><span class="line">mctc = MountainCarTileCoder(iht_size=<span class="number">1024</span>, num_tilings=<span class="number">8</span>, num_tiles=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">t = []</span><br><span class="line"><span class="keyword">for</span> test <span class="keyword">in</span> tests:</span><br><span class="line">    position, velocity = test</span><br><span class="line">    tiles = mctc.get_tiles(position=position, velocity=velocity)</span><br><span class="line">    t.append(tiles)</span><br><span class="line"></span><br><span class="line">expected = [</span><br><span class="line">    [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">1</span>, <span class="number">8</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">6</span>, <span class="number">11</span>],</span><br><span class="line">    [<span class="number">12</span>, <span class="number">13</span>, <span class="number">8</span>, <span class="number">14</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">15</span>, <span class="number">11</span>],</span><br><span class="line">    [<span class="number">12</span>, <span class="number">13</span>, <span class="number">16</span>, <span class="number">14</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">15</span>, <span class="number">19</span>],</span><br><span class="line">    [<span class="number">20</span>, <span class="number">21</span>, <span class="number">16</span>, <span class="number">22</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">23</span>, <span class="number">19</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">24</span>, <span class="number">25</span>, <span class="number">26</span>, <span class="number">27</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">1</span>, <span class="number">8</span>, <span class="number">3</span>, <span class="number">28</span>, <span class="number">29</span>, <span class="number">26</span>, <span class="number">30</span>],</span><br><span class="line">    [<span class="number">12</span>, <span class="number">13</span>, <span class="number">8</span>, <span class="number">14</span>, <span class="number">28</span>, <span class="number">29</span>, <span class="number">31</span>, <span class="number">30</span>],</span><br><span class="line">    [<span class="number">12</span>, <span class="number">13</span>, <span class="number">16</span>, <span class="number">14</span>, <span class="number">32</span>, <span class="number">33</span>, <span class="number">31</span>, <span class="number">34</span>],</span><br><span class="line">    [<span class="number">20</span>, <span class="number">21</span>, <span class="number">16</span>, <span class="number">22</span>, <span class="number">32</span>, <span class="number">33</span>, <span class="number">35</span>, <span class="number">34</span>],</span><br><span class="line">    [<span class="number">36</span>, <span class="number">37</span>, <span class="number">38</span>, <span class="number">39</span>, <span class="number">24</span>, <span class="number">25</span>, <span class="number">26</span>, <span class="number">27</span>],</span><br><span class="line">    [<span class="number">36</span>, <span class="number">37</span>, <span class="number">40</span>, <span class="number">39</span>, <span class="number">28</span>, <span class="number">29</span>, <span class="number">26</span>, <span class="number">30</span>],</span><br><span class="line">    [<span class="number">41</span>, <span class="number">42</span>, <span class="number">40</span>, <span class="number">43</span>, <span class="number">28</span>, <span class="number">29</span>, <span class="number">31</span>, <span class="number">30</span>],</span><br><span class="line">    [<span class="number">41</span>, <span class="number">42</span>, <span class="number">44</span>, <span class="number">43</span>, <span class="number">32</span>, <span class="number">33</span>, <span class="number">31</span>, <span class="number">34</span>],</span><br><span class="line">    [<span class="number">45</span>, <span class="number">46</span>, <span class="number">44</span>, <span class="number">47</span>, <span class="number">32</span>, <span class="number">33</span>, <span class="number">35</span>, <span class="number">34</span>],</span><br><span class="line">    [<span class="number">36</span>, <span class="number">37</span>, <span class="number">38</span>, <span class="number">39</span>, <span class="number">48</span>, <span class="number">49</span>, <span class="number">50</span>, <span class="number">51</span>],</span><br><span class="line">    [<span class="number">36</span>, <span class="number">37</span>, <span class="number">40</span>, <span class="number">39</span>, <span class="number">52</span>, <span class="number">53</span>, <span class="number">50</span>, <span class="number">54</span>],</span><br><span class="line">    [<span class="number">41</span>, <span class="number">42</span>, <span class="number">40</span>, <span class="number">43</span>, <span class="number">52</span>, <span class="number">53</span>, <span class="number">55</span>, <span class="number">54</span>],</span><br><span class="line">    [<span class="number">41</span>, <span class="number">42</span>, <span class="number">44</span>, <span class="number">43</span>, <span class="number">56</span>, <span class="number">57</span>, <span class="number">55</span>, <span class="number">58</span>],</span><br><span class="line">    [<span class="number">45</span>, <span class="number">46</span>, <span class="number">44</span>, <span class="number">47</span>, <span class="number">56</span>, <span class="number">57</span>, <span class="number">59</span>, <span class="number">58</span>],</span><br><span class="line">    [<span class="number">60</span>, <span class="number">61</span>, <span class="number">62</span>, <span class="number">63</span>, <span class="number">48</span>, <span class="number">49</span>, <span class="number">50</span>, <span class="number">51</span>],</span><br><span class="line">    [<span class="number">60</span>, <span class="number">61</span>, <span class="number">64</span>, <span class="number">63</span>, <span class="number">52</span>, <span class="number">53</span>, <span class="number">50</span>, <span class="number">54</span>],</span><br><span class="line">    [<span class="number">65</span>, <span class="number">66</span>, <span class="number">64</span>, <span class="number">67</span>, <span class="number">52</span>, <span class="number">53</span>, <span class="number">55</span>, <span class="number">54</span>],</span><br><span class="line">    [<span class="number">65</span>, <span class="number">66</span>, <span class="number">68</span>, <span class="number">67</span>, <span class="number">56</span>, <span class="number">57</span>, <span class="number">55</span>, <span class="number">58</span>],</span><br><span class="line">    [<span class="number">69</span>, <span class="number">70</span>, <span class="number">68</span>, <span class="number">71</span>, <span class="number">56</span>, <span class="number">57</span>, <span class="number">59</span>, <span class="number">58</span>],</span><br><span class="line">]</span><br><span class="line"><span class="keyword">assert</span> np.all(expected == np.array(t))</span><br></pre></td></tr></table></figure>
+<h2 id="Section-1-Sarsa-Agent"><a href="#Section-1-Sarsa-Agent" class="headerlink" title="Section 1: Sarsa Agent"></a>Section 1: Sarsa Agent</h2><p>We are now going to use the functions that we just created to implement the Sarsa algorithm. Recall from class that Sarsa stands for State, Action, Reward, State, Action.</p>
+<p>For this case we have given you an argmax function similar to what you wrote back in Course 1 Assignment 1. Recall, this is different than the argmax function that is used by numpy, which returns the first index of a maximum value. We want our argmax function to arbitrarily break ties, which is what the imported argmax function does. The given argmax function takes in an array of values and returns an int of the chosen action:<br>argmax(action values)</p>
+<p>There are multiple ways that we can deal with actions for the tile coder. Here we are going to use one simple method - make the size of the weight vector equal to (iht_size, num_actions). This will give us one weight vector for each action and one weight for each tile.</p>
+<p>Use the above function to help fill in select_action, agent_start, agent_step, and agent_end.</p>
+<p>Hints:</p>
+<p>1) The tile coder returns a list of active indexes (e.g. [1, 12, 22]). You can index a numpy array using an array of values - this will return an array of the values at each of those indices. So in order to get the value of a state we can index our weight vector using the action and the array of tiles that the tile coder returns:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">This will give us an array of values, one for each active tile, and we sum the result to get the value of that state-action pair.</span><br><span class="line"></span><br><span class="line">2) In the case of a binary feature vector (such as the tile coder), the derivative is 1 at each of the active tiles, and zero otherwise.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"># -----------</span><br><span class="line"># Graded Cell</span><br><span class="line"># -----------</span><br><span class="line">class SarsaAgent(BaseAgent):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Initialization of Sarsa Agent. All values are set to None so they can</span><br><span class="line">    be initialized in the agent_init method.</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.last_action = None</span><br><span class="line">        self.last_state = None</span><br><span class="line">        self.epsilon = None</span><br><span class="line">        self.gamma = None</span><br><span class="line">        self.iht_size = None</span><br><span class="line">        self.w = None</span><br><span class="line">        self.alpha = None</span><br><span class="line">        self.num_tilings = None</span><br><span class="line">        self.num_tiles = None</span><br><span class="line">        self.mctc = None</span><br><span class="line">        self.initial_weights = None</span><br><span class="line">        self.num_actions = None</span><br><span class="line">        self.previous_tiles = None</span><br><span class="line"></span><br><span class="line">    def agent_init(self, agent_info=&#123;&#125;):</span><br><span class="line">        &quot;&quot;&quot;Setup for the agent called when the experiment first starts.&quot;&quot;&quot;</span><br><span class="line">        self.num_tilings = agent_info.get(&quot;num_tilings&quot;, 8)</span><br><span class="line">        self.num_tiles = agent_info.get(&quot;num_tiles&quot;, 8)</span><br><span class="line">        self.iht_size = agent_info.get(&quot;iht_size&quot;, 4096)</span><br><span class="line">        self.epsilon = agent_info.get(&quot;epsilon&quot;, 0.0)</span><br><span class="line">        self.gamma = agent_info.get(&quot;gamma&quot;, 1.0)</span><br><span class="line">        self.alpha = agent_info.get(&quot;alpha&quot;, 0.5) / self.num_tilings</span><br><span class="line">        self.initial_weights = agent_info.get(&quot;initial_weights&quot;, 0.0)</span><br><span class="line">        self.num_actions = agent_info.get(&quot;num_actions&quot;, 3)</span><br><span class="line">        </span><br><span class="line">        # We initialize self.w to three times the iht_size. Recall this is because</span><br><span class="line">        # we need to have one set of weights for each action.</span><br><span class="line">        self.w = np.ones((self.num_actions, self.iht_size)) * self.initial_weights</span><br><span class="line">        </span><br><span class="line">        # We initialize self.mctc to the mountaincar verions of the </span><br><span class="line">        # tile coder that we created</span><br><span class="line">        self.tc = MountainCarTileCoder(iht_size=self.iht_size, </span><br><span class="line">                                         num_tilings=self.num_tilings, </span><br><span class="line">                                         num_tiles=self.num_tiles)</span><br><span class="line"></span><br><span class="line">    def select_action(self, tiles):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Selects an action using epsilon greedy</span><br><span class="line">        Args:</span><br><span class="line">        tiles - np.array, an array of active tiles</span><br><span class="line">        Returns:</span><br><span class="line">        (chosen_action, action_value) - (int, float), tuple of the chosen action</span><br><span class="line">                                        and it&apos;s value</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        action_values = []</span><br><span class="line">        chosen_action = None</span><br><span class="line">        </span><br><span class="line">        # First loop through the weights of each action and populate action_values</span><br><span class="line">        # with the action value for each action and tiles instance</span><br><span class="line">        </span><br><span class="line">        # Use np.random.random to decide if an exploritory action should be taken</span><br><span class="line">        # and set chosen_action to a random action if it is</span><br><span class="line">        # Otherwise choose the greedy action using the given argmax </span><br><span class="line">        # function and the action values (don&apos;t use numpy&apos;s armax)</span><br><span class="line">        </span><br><span class="line">        # ----------------</span><br><span class="line">        # your code here</span><br><span class="line">        </span><br><span class="line">        for i in range(self.num_actions):</span><br><span class="line">            action_values.append(self.w[i][tiles].sum())</span><br><span class="line"></span><br><span class="line">        if np.random.random() &lt; self.epsilon:</span><br><span class="line">            chosen_action = np.random.choice(self.num_actions)</span><br><span class="line">        else:</span><br><span class="line">            chosen_action = argmax(action_values)</span><br><span class="line">        </span><br><span class="line">        # ----------------</span><br><span class="line"></span><br><span class="line">        return chosen_action, action_values[chosen_action]</span><br><span class="line">    </span><br><span class="line">    def agent_start(self, state):</span><br><span class="line">        &quot;&quot;&quot;The first method called when the experiment starts, called after</span><br><span class="line">        the environment starts.</span><br><span class="line">        Args:</span><br><span class="line">            state (Numpy array): the state observation from the</span><br><span class="line">                environment&apos;s evn_start function.</span><br><span class="line">        Returns:</span><br><span class="line">            The first action the agent takes.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        position, velocity = state</span><br><span class="line">        </span><br><span class="line">        # Use self.tc to set active_tiles using position and velocity</span><br><span class="line">        # set current_action to the epsilon greedy chosen action using</span><br><span class="line">        # the select_action function above with the active tiles</span><br><span class="line">        </span><br><span class="line">        # ----------------</span><br><span class="line">        # your code here</span><br><span class="line">        active_tiles = self.tc.get_tiles(position, velocity)</span><br><span class="line">        current_action, _ = self.select_action(active_tiles)</span><br><span class="line">        ### END CODE HERE ###</span><br><span class="line">        </span><br><span class="line">        self.last_action = current_action</span><br><span class="line">        self.previous_tiles = np.copy(active_tiles)</span><br><span class="line">        </span><br><span class="line">        return self.last_action</span><br><span class="line"></span><br><span class="line">    def agent_step(self, reward, state):</span><br><span class="line">        &quot;&quot;&quot;A step taken by the agent.</span><br><span class="line">        Args:</span><br><span class="line">            reward (float): the reward received for taking the last action taken</span><br><span class="line">            state (Numpy array): the state observation from the</span><br><span class="line">                environment&apos;s step based, where the agent ended up after the</span><br><span class="line">                last step</span><br><span class="line">        Returns:</span><br><span class="line">            The action the agent is taking.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        # choose the action here</span><br><span class="line">        position, velocity = state</span><br><span class="line">        </span><br><span class="line">        # Use self.tc to set active_tiles using position and velocity</span><br><span class="line">        # set current_action and action_value to the epsilon greedy chosen action using</span><br><span class="line">        # the select_action function above with the active tiles</span><br><span class="line">        </span><br><span class="line">        # Update self.w at self.previous_tiles and self.previous action</span><br><span class="line">        # using the reward, action_value, self.gamma, self.w,</span><br><span class="line">        # self.alpha, and the Sarsa update from the textbook</span><br><span class="line">        </span><br><span class="line">        # ----------------</span><br><span class="line">        # your code here</span><br><span class="line">        active_tiles = self.tc.get_tiles(position, velocity)</span><br><span class="line">        current_action, action_value = self.select_action(active_tiles)</span><br><span class="line">        last_action_value = self.w[self.last_action][self.previous_tiles].sum()</span><br><span class="line">        delta = reward + self.gamma * action_value - last_action_value</span><br><span class="line">        grad = np.zeros_like(self.w)</span><br><span class="line">        grad[self.last_action][self.previous_tiles] = 1</span><br><span class="line">        self.w += self.alpha * delta * grad</span><br><span class="line">        </span><br><span class="line">        # ----------------</span><br><span class="line">        </span><br><span class="line">        self.last_action = current_action</span><br><span class="line">        self.previous_tiles = np.copy(active_tiles)</span><br><span class="line">        return self.last_action</span><br><span class="line"></span><br><span class="line">    def agent_end(self, reward):</span><br><span class="line">        &quot;&quot;&quot;Run when the agent terminates.</span><br><span class="line">        Args:</span><br><span class="line">            reward (float): the reward the agent received for entering the</span><br><span class="line">                terminal state.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        # Update self.w at self.previous_tiles and self.previous action</span><br><span class="line">        # using the reward, self.gamma, self.w,</span><br><span class="line">        # self.alpha, and the Sarsa update from the textbook</span><br><span class="line">        # Hint - there is no action_value used here because this is the end</span><br><span class="line">        # of the episode.</span><br><span class="line">        </span><br><span class="line">        # ----------------</span><br><span class="line">        # your code here</span><br><span class="line">        last_action_value = self.w[self.last_action][self.previous_tiles].sum()</span><br><span class="line">        </span><br><span class="line">        grad = np.zeros_like(self.w)</span><br><span class="line">        grad[self.last_action][self.previous_tiles] = 1</span><br><span class="line">        </span><br><span class="line">        self.w += self.alpha * (reward - last_action_value) * grad</span><br><span class="line">        </span><br><span class="line">        # ----------------</span><br><span class="line">        </span><br><span class="line">    def agent_cleanup(self):</span><br><span class="line">        &quot;&quot;&quot;Cleanup done after the agent ends.&quot;&quot;&quot;</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def agent_message(self, message):</span><br><span class="line">        &quot;&quot;&quot;A function used to pass information from the agent to the experiment.</span><br><span class="line">        Args:</span><br><span class="line">            message: The message passed to the agent.</span><br><span class="line">        Returns:</span><br><span class="line">            The response (or answer) to the message.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        pass</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Tested Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># The contents of the cell will be tested by the autograder.</span></span><br><span class="line"><span class="comment"># If they do not pass here, they will not pass there.</span></span><br><span class="line"></span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">agent = SarsaAgent()</span><br><span class="line">agent.agent_init(&#123;<span class="string">"epsilon"</span>: <span class="number">0.1</span>&#125;)</span><br><span class="line">agent.w = np.array([np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]), np.array([<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]), np.array([<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>])])</span><br><span class="line"></span><br><span class="line">action_distribution = np.zeros(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">    chosen_action, action_value = agent.select_action(np.array([<span class="number">0</span>,<span class="number">1</span>]))</span><br><span class="line">    action_distribution[chosen_action] += <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">print(<span class="string">"action distribution:"</span>, action_distribution)</span><br><span class="line"><span class="comment"># notice that the two non-greedy actions are roughly uniformly distributed</span></span><br><span class="line"><span class="keyword">assert</span> np.all(action_distribution == [<span class="number">29</span>, <span class="number">35</span>, <span class="number">936</span>])</span><br><span class="line"></span><br><span class="line">agent = SarsaAgent()</span><br><span class="line">agent.agent_init(&#123;<span class="string">"epsilon"</span>: <span class="number">0.0</span>&#125;)</span><br><span class="line">agent.w = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</span><br><span class="line"></span><br><span class="line">chosen_action, action_value = agent.select_action([<span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line"><span class="keyword">assert</span> chosen_action == <span class="number">2</span></span><br><span class="line"><span class="keyword">assert</span> action_value == <span class="number">15</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># test update</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line">agent = SarsaAgent()</span><br><span class="line">agent.agent_init(&#123;<span class="string">"epsilon"</span>: <span class="number">0.1</span>&#125;)</span><br><span class="line"></span><br><span class="line">agent.agent_start((<span class="number">0.1</span>, <span class="number">0.3</span>))</span><br><span class="line">agent.agent_step(<span class="number">1</span>, (<span class="number">0.02</span>, <span class="number">0.1</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> np.all(agent.w[<span class="number">0</span>,<span class="number">0</span>:<span class="number">8</span>] == <span class="number">0.0625</span>)</span><br><span class="line"><span class="keyword">assert</span> np.all(agent.w[<span class="number">1</span>:] == <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>action distribution: [ 29.  35. 936.]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Tested Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># The contents of the cell will be tested by the autograder.</span></span><br><span class="line"><span class="comment"># If they do not pass here, they will not pass there.</span></span><br><span class="line"></span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">num_runs = <span class="number">10</span></span><br><span class="line">num_episodes = <span class="number">50</span></span><br><span class="line">env_info = &#123;<span class="string">"num_tiles"</span>: <span class="number">8</span>, <span class="string">"num_tilings"</span>: <span class="number">8</span>&#125;</span><br><span class="line">agent_info = &#123;&#125;</span><br><span class="line">all_steps = []</span><br><span class="line"></span><br><span class="line">agent = SarsaAgent</span><br><span class="line">env = mountaincar_env.Environment</span><br><span class="line">start = time.time()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> run <span class="keyword">in</span> range(num_runs):</span><br><span class="line">    <span class="keyword">if</span> run % <span class="number">5</span> == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">"RUN: &#123;&#125;"</span>.format(run))</span><br><span class="line"></span><br><span class="line">    rl_glue = RLGlue(env, agent)</span><br><span class="line">    rl_glue.rl_init(agent_info, env_info)</span><br><span class="line">    steps_per_episode = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> episode <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        rl_glue.rl_episode(<span class="number">15000</span>)</span><br><span class="line">        steps_per_episode.append(rl_glue.num_steps)</span><br><span class="line"></span><br><span class="line">    all_steps.append(np.array(steps_per_episode))</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Run time: &#123;&#125;"</span>.format(time.time() - start))</span><br><span class="line"></span><br><span class="line">mean = np.mean(all_steps, axis=<span class="number">0</span>)</span><br><span class="line">plt.plot(mean)</span><br><span class="line"></span><br><span class="line"><span class="comment"># because we set the random seed, these values should be *exactly* the same</span></span><br><span class="line"><span class="keyword">assert</span> np.allclose(mean, [<span class="number">1432.5</span>, <span class="number">837.9</span>, <span class="number">694.4</span>, <span class="number">571.4</span>, <span class="number">515.2</span>, <span class="number">380.6</span>, <span class="number">379.4</span>, <span class="number">369.6</span>, <span class="number">357.2</span>, <span class="number">316.5</span>, <span class="number">291.1</span>, <span class="number">305.3</span>, <span class="number">250.1</span>, <span class="number">264.9</span>, <span class="number">235.4</span>, <span class="number">242.1</span>, <span class="number">244.4</span>, <span class="number">245.</span>, <span class="number">221.2</span>, <span class="number">229.</span>, <span class="number">238.3</span>, <span class="number">211.2</span>, <span class="number">201.1</span>, <span class="number">208.3</span>, <span class="number">185.3</span>, <span class="number">207.1</span>, <span class="number">191.6</span>, <span class="number">204.</span>, <span class="number">214.5</span>, <span class="number">207.9</span>, <span class="number">195.9</span>, <span class="number">206.4</span>, <span class="number">194.9</span>, <span class="number">191.1</span>, <span class="number">195.</span>, <span class="number">186.6</span>, <span class="number">171.</span>, <span class="number">177.8</span>, <span class="number">171.1</span>, <span class="number">174.</span>, <span class="number">177.1</span>, <span class="number">174.5</span>, <span class="number">156.9</span>, <span class="number">174.3</span>, <span class="number">164.1</span>, <span class="number">179.3</span>, <span class="number">167.4</span>, <span class="number">156.1</span>, <span class="number">158.4</span>, <span class="number">154.4</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>RUN: 0
+RUN: 5
+Run time: 13.416615009307861
+</code></pre><p><img src="output_15_1.png" alt="png"></p>
+<p>The learning rate of your agent should look similar to ours, though it will not look exactly the same.If there are some spikey points that is okay. Due to stochasticity,  a few episodes may have taken much longer, causing some spikes in the plot. The trend of the line should be similar, though, generally decreasing to about 200 steps per run.<br><img src="sarsa_agent_initial.png" alt="alt text" title="Logo Title Text 1"></p>
+<p>This result was using 8 tilings with 8x8 tiles on each. Let’s see if we can do better, and what different tilings look like. We will also text 2 tilings of 16x16 and 4 tilings of 32x32. These three choices produce the same number of features (512), but distributed quite differently. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ---------------</span></span><br><span class="line"><span class="comment"># Discussion Cell</span></span><br><span class="line"><span class="comment"># ---------------</span></span><br><span class="line"></span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Compare the three</span></span><br><span class="line">num_runs = <span class="number">20</span></span><br><span class="line">num_episodes = <span class="number">100</span></span><br><span class="line">env_info = &#123;&#125;</span><br><span class="line"></span><br><span class="line">agent_runs = []</span><br><span class="line"><span class="comment"># alphas = [0.2, 0.4, 0.5, 1.0]</span></span><br><span class="line">alphas = [<span class="number">0.5</span>]</span><br><span class="line">agent_info_options = [&#123;<span class="string">"num_tiles"</span>: <span class="number">16</span>, <span class="string">"num_tilings"</span>: <span class="number">2</span>, <span class="string">"alpha"</span>: <span class="number">0.5</span>&#125;,</span><br><span class="line">                      &#123;<span class="string">"num_tiles"</span>: <span class="number">4</span>, <span class="string">"num_tilings"</span>: <span class="number">32</span>, <span class="string">"alpha"</span>: <span class="number">0.5</span>&#125;,</span><br><span class="line">                      &#123;<span class="string">"num_tiles"</span>: <span class="number">8</span>, <span class="string">"num_tilings"</span>: <span class="number">8</span>, <span class="string">"alpha"</span>: <span class="number">0.5</span>&#125;]</span><br><span class="line">agent_info_options = [&#123;<span class="string">"num_tiles"</span> : agent[<span class="string">"num_tiles"</span>], </span><br><span class="line">                       <span class="string">"num_tilings"</span>: agent[<span class="string">"num_tilings"</span>],</span><br><span class="line">                       <span class="string">"alpha"</span> : alpha&#125; <span class="keyword">for</span> agent <span class="keyword">in</span> agent_info_options <span class="keyword">for</span> alpha <span class="keyword">in</span> alphas]</span><br><span class="line"></span><br><span class="line">agent = SarsaAgent</span><br><span class="line">env = mountaincar_env.Environment</span><br><span class="line"><span class="keyword">for</span> agent_info <span class="keyword">in</span> agent_info_options:</span><br><span class="line">    all_steps = []</span><br><span class="line">    start = time.time()</span><br><span class="line">    <span class="keyword">for</span> run <span class="keyword">in</span> range(num_runs):</span><br><span class="line">        <span class="keyword">if</span> run % <span class="number">5</span> == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"RUN: &#123;&#125;"</span>.format(run))</span><br><span class="line">        env = mountaincar_env.Environment</span><br><span class="line">        </span><br><span class="line">        rl_glue = RLGlue(env, agent)</span><br><span class="line">        rl_glue.rl_init(agent_info, env_info)</span><br><span class="line">        steps_per_episode = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> episode <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">            rl_glue.rl_episode(<span class="number">15000</span>)</span><br><span class="line">            steps_per_episode.append(rl_glue.num_steps)</span><br><span class="line">        all_steps.append(np.array(steps_per_episode))</span><br><span class="line">    </span><br><span class="line">    agent_runs.append(np.mean(np.array(all_steps), axis=<span class="number">0</span>))</span><br><span class="line">    print(<span class="string">"stepsize:"</span>, rl_glue.agent.alpha)</span><br><span class="line">    print(<span class="string">"Run Time: &#123;&#125;"</span>.format(time.time() - start))</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">15</span>, <span class="number">10</span>), dpi= <span class="number">80</span>, facecolor=<span class="string">'w'</span>, edgecolor=<span class="string">'k'</span>)</span><br><span class="line">plt.plot(np.array(agent_runs).T)</span><br><span class="line">plt.xlabel(<span class="string">"Episode"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"Steps Per Episode"</span>)</span><br><span class="line">plt.yscale(<span class="string">"linear"</span>)</span><br><span class="line">plt.ylim(<span class="number">0</span>, <span class="number">1000</span>)</span><br><span class="line">plt.legend([<span class="string">"num_tiles: &#123;&#125;, num_tilings: &#123;&#125;, alpha: &#123;&#125;"</span>.format(agent_info[<span class="string">"num_tiles"</span>], </span><br><span class="line">                                                               agent_info[<span class="string">"num_tilings"</span>],</span><br><span class="line">                                                               agent_info[<span class="string">"alpha"</span>])</span><br><span class="line">            <span class="keyword">for</span> agent_info <span class="keyword">in</span> agent_info_options])</span><br></pre></td></tr></table></figure>
+<pre><code>RUN: 0
+RUN: 5
+RUN: 10
+RUN: 15
+stepsize: 0.25
+Run Time: 71.2762451171875
+RUN: 0
+RUN: 5
+RUN: 10
+RUN: 15
+stepsize: 0.015625
+Run Time: 38.23225665092468
+RUN: 0
+RUN: 5
+RUN: 10
+RUN: 15
+stepsize: 0.0625
+Run Time: 42.84800481796265
+
+
+
+
+
+&lt;matplotlib.legend.Legend at 0x7fbda7e76910&gt;
+</code></pre><p><img src="output_18_2.png" alt="png"></p>
+<p>Here we can see that using 32 tilings and 4 x 4 tiles does a little better than 8 tilings with 8x8 tiles. Both seem to do much better than using 2 tilings, with 16 x 16 tiles.</p>
+<h2 id="Section-3-Conclusion"><a href="#Section-3-Conclusion" class="headerlink" title="Section 3: Conclusion"></a>Section 3: Conclusion</h2><p>Congratulations! You have learned how to implement a control agent using function approximation. In this notebook you learned how to:</p>
+<ul>
+<li>Use function approximation in the control setting</li>
+<li>Implement the Sarsa algorithm using tile coding</li>
+<li>Compare three settings for tile coding to see their effect on our agent</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Semi-gradient-TD-with-a-Neural-Network/2020/10/14/" rel="next" title="Semi Gradient TD with a Neural Network">
+                <i class="fa fa-chevron-left"></i> Semi Gradient TD with a Neural Network
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Average-Reward-Softmax-Actor-Critic/2020/10/16/" rel="prev" title="Average Reward Softmax Actor-Critic">
+                Average Reward Softmax Actor-Critic <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">267</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/cherish_CX/" title="Chunxia" target="_blank" rel="external nofollow">Chunxia</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Assignment-3-Function-Approximation-and-Control"><span class="nav-text">Assignment 3: Function Approximation and Control</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Section-0-Tile-Coding-Helper-Function"><span class="nav-text">Section 0: Tile Coding Helper Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tile-Coding-Function"><span class="nav-text">Tile Coding Function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Section-1-Sarsa-Agent"><span class="nav-text">Section 1: Sarsa Agent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Section-3-Conclusion"><span class="nav-text">Section 3: Conclusion</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>

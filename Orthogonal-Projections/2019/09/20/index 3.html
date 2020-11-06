@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="BLOG">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="orthogonal projections implementation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Orthogonal Projections">
+<meta property="og:url" content="https://zhangruochi.com/Orthogonal-Projections/2019/09/20/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="orthogonal projections implementation">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/Orthogonal-Projections/2019/09/20/output_22_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Orthogonal-Projections/2019/09/20/output_27_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Orthogonal-Projections/2019/09/20/output_34_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Orthogonal-Projections/2019/09/20/output_37_1.png">
+<meta property="og:image" content="https://zhangruochi.com/Orthogonal-Projections/2019/09/20/output_39_0.png">
+<meta property="og:updated_time" content="2020-01-09T08:58:25.648Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Orthogonal Projections">
+<meta name="twitter:description" content="orthogonal projections implementation">
+<meta name="twitter:image" content="https://zhangruochi.com/Orthogonal-Projections/2019/09/20/output_22_0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/Orthogonal-Projections/2019/09/20/">
+
+
+
+
+
+  <title>Orthogonal Projections | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Orthogonal-Projections/2019/09/20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Orthogonal Projections</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-20T00:28:57+08:00">
+                2019-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Math/" itemprop="url" rel="index">
+                    <span itemprop="name">Math</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Math/Linear-Algebra/" itemprop="url" rel="index">
+                    <span itemprop="name">Linear Algebra</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Orthogonal-Projections/2019/09/20/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Orthogonal-Projections/2019/09/20/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  orthogonal projections implementation
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Orthogonal-Projections"><a href="#Orthogonal-Projections" class="headerlink" title="Orthogonal Projections"></a>Orthogonal Projections</h1><p>We will write functions that will implement orthogonal projections.</p>
+<h2 id="Learning-objectives"><a href="#Learning-objectives" class="headerlink" title="Learning objectives"></a>Learning objectives</h2><ol>
+<li>Write code that projects data onto lower-dimensional subspaces.</li>
+<li>Understand the real world applications of projections.</li>
+</ol>
+<p>As always, we will first import the packages that we need for this assignment.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># PACKAGE: DO NOT EDIT THIS CELL</span></span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line">matplotlib.use(<span class="string">'Agg'</span>)</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.style.use(<span class="string">'fivethirtyeight'</span>)</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<p>Next, we will retrieve the Olivetti faces dataset.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> fetch_olivetti_faces, fetch_lfw_people</span><br><span class="line"><span class="keyword">from</span> ipywidgets <span class="keyword">import</span> interact</span><br><span class="line">%matplotlib inline</span><br><span class="line">image_shape = (<span class="number">64</span>, <span class="number">64</span>)</span><br><span class="line"><span class="comment"># Load faces data</span></span><br><span class="line">dataset = fetch_olivetti_faces(<span class="string">'./'</span>)</span><br><span class="line">faces = dataset.data</span><br></pre></td></tr></table></figure>
+<h3 id="Advice-for-testing-numerical-algorithms"><a href="#Advice-for-testing-numerical-algorithms" class="headerlink" title="Advice for testing numerical algorithms"></a>Advice for testing numerical algorithms</h3><p>Before we begin this week’s assignment, there are some advice that we would like to give for writing functions that work with numerical data. They are useful for finding bugs in your implementation.</p>
+<p>Testing machine learning algorithms (or numerical algorithms in general)<br>is sometimes really hard as it depends on the dataset<br>to produce an answer, and you will never be able to test your algorithm on all the datasets<br>we have in the world. Nevertheless, we have some tips for you to help you identify bugs in<br>your implementations.</p>
+<h4 id="1-Test-on-small-dataset"><a href="#1-Test-on-small-dataset" class="headerlink" title="1. Test on small dataset"></a>1. Test on small dataset</h4><p>Test your algorithms on small dataset: datasets of size 1 or 2 sometimes will suffice. This<br>is useful because you can (if necessary) compute the answers by hand and compare them with<br>the answers produced by the computer program you wrote. In fact, these small datasets can even have special numbers,<br>which will allow you to compute the answers by hand easily.</p>
+<h4 id="2-Find-invariants"><a href="#2-Find-invariants" class="headerlink" title="2. Find invariants"></a>2. Find invariants</h4><p>Invariants refer to properties of your algorithm and functions that are maintained regardless<br>of the input. We will highlight this point later in this notebook where you will see functions,<br>which will check invariants for some of the answers you produce.</p>
+<p>Invariants you may want to look for:</p>
+<ol>
+<li>Does your algorithm always produce a positive/negative answer, or a positive definite matrix?</li>
+<li>If the algorithm is iterative, do the intermediate results increase/decrease monotonically?</li>
+<li>Does your solution relate with your input in some interesting way, e.g. orthogonality? </li>
+</ol>
+<p>Finding invariants is hard, and sometimes there simply isn’t any invariant. However, DO take advantage of them if you can find them. They are the most powerful checks when you have them.</p>
+<p>We can find some invariants for projections. In the cell below, we have written two functions which check for invariants of projections. See the docstrings which explain what each of them does. You should use these functions to test your code.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy.testing <span class="keyword">as</span> np_test</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_property_projection_matrix</span><span class="params">(P)</span>:</span></span><br><span class="line">    <span class="string">"""Test if the projection matrix satisfies certain properties.</span></span><br><span class="line"><span class="string">    In particular, we should have P @ P = P, and P = P^T</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    np_test.assert_almost_equal(P, P @ P)</span><br><span class="line">    np_test.assert_almost_equal(P, P.T)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_property_projection</span><span class="params">(x, p)</span>:</span></span><br><span class="line">    <span class="string">"""Test orthogonality of x and its projection p."""</span></span><br><span class="line">    np_test.assert_almost_equal(p.T @ (p-x), <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="1-Orthogonal-Projections"><a href="#1-Orthogonal-Projections" class="headerlink" title="1. Orthogonal Projections"></a>1. Orthogonal Projections</h2><p>Recall that for projection of a vector $\boldsymbol x$ onto a 1-dimensional subspace $U$ with basis vector $\boldsymbol b$ we have</p>
+<script type="math/tex; mode=display">{\pi_U}(\boldsymbol x) = \frac{\boldsymbol b\boldsymbol b^T}{ {\lVert\boldsymbol  b \rVert}^2}\boldsymbol x</script><p>And for the general projection onto an M-dimensional subspace $U$ with basis vectors $\boldsymbol b_1,\dotsc, \boldsymbol b_M$ we have</p>
+<script type="math/tex; mode=display">{\pi_U}(\boldsymbol x) = \boldsymbol B(\boldsymbol B^T\boldsymbol B)^{-1}\boldsymbol B^T\boldsymbol x</script><p>where </p>
+<p>Your task is to implement orthogonal projections. We can split this into two steps</p>
+<ol>
+<li>Find the projection matrix $\boldsymbol P$ that projects any $\boldsymbol x$ onto $U$.</li>
+<li>The projected vector $\pi_U(\boldsymbol x)$ of $\boldsymbol x$ can then be written as $\pi_U(\boldsymbol x) = \boldsymbol P\boldsymbol x$.</li>
+</ol>
+<p>To perform step 1, you need to complete the function <code>projection_matrix_1d</code> and <code>projection_matrix_general</code>. To perform step 2, complete <code>project_1d</code> and <code>project_general</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GRADED FUNCTION: DO NOT EDIT THIS LINE</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Projection 1d</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ===YOU SHOULD EDIT THIS FUNCTION===</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">projection_matrix_1d</span><span class="params">(b)</span>:</span></span><br><span class="line">    <span class="string">"""Compute the projection matrix onto the space spanned by `b`</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        b: ndarray of dimension (D, 1), the basis for the subspace</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        P: the projection matrix</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    D, _ = b.shape</span><br><span class="line">    <span class="comment">### Edit the code below to compute a projection matrix of shape (D,D)</span></span><br><span class="line">    P = (b @ b.T) / np.dot(b.T,b)</span><br><span class="line">    <span class="keyword">return</span> P</span><br><span class="line">    <span class="comment">###</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ===YOU SHOULD EDIT THIS FUNCTION===</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">project_1d</span><span class="params">(x, b)</span>:</span></span><br><span class="line">    <span class="string">"""Compute the projection matrix onto the space spanned by `b`</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        x: the vector to be projected</span></span><br><span class="line"><span class="string">        b: ndarray of dimension (D, 1), the basis for the subspace</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        y: ndarray of shape (D, 1) projection of x in space spanned by b</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    p = projection_matrix_1d(b) @ x<span class="comment"># EDIT THIS</span></span><br><span class="line">    <span class="keyword">return</span> p</span><br><span class="line"></span><br><span class="line"><span class="comment"># Projection onto a general (higher-dimensional) subspace</span></span><br><span class="line"><span class="comment"># ===YOU SHOULD EDIT THIS FUNCTION===</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">projection_matrix_general</span><span class="params">(B)</span>:</span></span><br><span class="line">    <span class="string">"""Compute the projection matrix onto the space spanned by the columns of `B`</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        B: ndarray of dimension (D, M), the basis for the subspace</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        P: the projection matrix</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    P = B @ np.linalg.inv(B.T @ B) @ B.T</span><br><span class="line">    <span class="keyword">return</span> P</span><br><span class="line"></span><br><span class="line"><span class="comment"># ===YOU SHOULD EDIT THIS FUNCTION===</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">project_general</span><span class="params">(x, B)</span>:</span></span><br><span class="line">    <span class="string">"""Compute the projection matrix onto the space spanned by the columns of `B`</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        x: ndarray of dimension (D, 1), the vector to be projected</span></span><br><span class="line"><span class="string">        B: ndarray of dimension (D, M), the basis for the subspace</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        p: projection of x onto the subspac spanned by the columns of B; size (D, 1)</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    p = projection_matrix_general(B) @ x</span><br><span class="line">    <span class="keyword">return</span> p</span><br></pre></td></tr></table></figure>
+<p>We have included some unittest for you to test your implementation.</p>
+<script type="math/tex; mode=display">\boldsymbol B = [\boldsymbol b_1,...,\boldsymbol b_M]</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Orthogonal projection in 2d</span></span><br><span class="line"><span class="comment"># define basis vector for subspace</span></span><br><span class="line">b = np.array([<span class="number">2</span>,<span class="number">1</span>]).reshape(<span class="number">-1</span>, <span class="number">1</span>)</span><br><span class="line"><span class="comment"># point to be projected later</span></span><br><span class="line">x = np.array([<span class="number">1</span>,<span class="number">2</span>]).reshape(<span class="number">-1</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>Remember our discussion earlier about invariants? In the next cell, we will check that these invariants hold for the functions that you have implemented earlier.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Test 1D</span></span><br><span class="line"><span class="comment"># Test that we computed the correct projection matrix</span></span><br><span class="line">np_test.assert_almost_equal(projection_matrix_1d(np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>]).reshape(<span class="number">-1</span>,<span class="number">1</span>)), </span><br><span class="line">                            np.array([[<span class="number">1</span>,  <span class="number">2</span>,  <span class="number">2</span>],</span><br><span class="line">                                      [<span class="number">2</span>,  <span class="number">4</span>,  <span class="number">4</span>],</span><br><span class="line">                                      [<span class="number">2</span>,  <span class="number">4</span>,  <span class="number">4</span>]]) / <span class="number">9</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Test that we project x on to the 1d subspace correctly</span></span><br><span class="line">np_test.assert_almost_equal(project_1d(np.ones((<span class="number">3</span>,<span class="number">1</span>)),</span><br><span class="line">                                       np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>]).reshape(<span class="number">-1</span>,<span class="number">1</span>)),</span><br><span class="line">                            np.array([<span class="number">5</span>, <span class="number">10</span>, <span class="number">10</span>]).reshape(<span class="number">-1</span>,<span class="number">1</span>) / <span class="number">9</span>)</span><br><span class="line"></span><br><span class="line">B = np.array([[<span class="number">1</span>, <span class="number">0</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">2</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Test 2D</span></span><br><span class="line"><span class="comment"># Test that we computed the correct projection matrix</span></span><br><span class="line">np_test.assert_almost_equal(projection_matrix_general(B), </span><br><span class="line">                            np.array([[<span class="number">5</span>,  <span class="number">2</span>, <span class="number">-1</span>],</span><br><span class="line">                                      [<span class="number">2</span>,  <span class="number">2</span>,  <span class="number">2</span>],</span><br><span class="line">                                      [<span class="number">-1</span>, <span class="number">2</span>,  <span class="number">5</span>]]) / <span class="number">6</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Test that we project x on to the 2d subspace correctly</span></span><br><span class="line">np_test.assert_almost_equal(project_general(np.array([<span class="number">6</span>, <span class="number">0</span>, <span class="number">0</span>]).reshape(<span class="number">-1</span>,<span class="number">1</span>), B), </span><br><span class="line">                            np.array([<span class="number">5</span>, <span class="number">2</span>, <span class="number">-1</span>]).reshape(<span class="number">-1</span>,<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<p>It is always good practice to create your own test cases. Create some test<br>cases of your own below!</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Write your own test cases here, use random inputs, utilize the invariants we have!</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-Eigenfaces-optional"><a href="#2-Eigenfaces-optional" class="headerlink" title="2. Eigenfaces  (optional)"></a>2. Eigenfaces  (optional)</h2><p>Next, we will take a look at what happens if we project some dataset consisting of human faces onto some basis we call<br>the “eigenfaces”. You do not need to know what <code>eigenfaces</code> are for now but you will know what they are towards the end of the course!</p>
+<p>As always, let’s import the packages that we need.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> fetch_olivetti_faces, fetch_lfw_people</span><br><span class="line"><span class="keyword">from</span> ipywidgets <span class="keyword">import</span> interact</span><br><span class="line">%matplotlib inline</span><br><span class="line">image_shape = (<span class="number">64</span>, <span class="number">64</span>)</span><br><span class="line"><span class="comment"># Load faces data</span></span><br><span class="line">dataset = fetch_olivetti_faces(<span class="string">'./'</span>)</span><br><span class="line">faces = dataset.data</span><br></pre></td></tr></table></figure>
+<p>Let’s visualize some faces in the dataset.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">10</span>,<span class="number">10</span>))</span><br><span class="line">plt.imshow(np.hstack(faces[:<span class="number">5</span>].reshape(<span class="number">5</span>,<span class="number">64</span>,<span class="number">64</span>)), cmap=<span class="string">'gray'</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="output_22_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># for numerical reasons we normalize the dataset</span></span><br><span class="line">mean = faces.mean(axis=<span class="number">0</span>)</span><br><span class="line">std = faces.std(axis=<span class="number">0</span>)</span><br><span class="line">faces_normalized = (faces - mean) / std</span><br></pre></td></tr></table></figure>
+<p>The data for the basis has been saved in a file named <code>eigenfaces.npy</code>, first we load it into the variable B.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">B = np.load(<span class="string">'eigenfaces.npy'</span>)[:<span class="number">50</span>] <span class="comment"># we use the first 50 basis vectors --- you should play around with this.</span></span><br><span class="line">print(<span class="string">"the eigenfaces have shape &#123;&#125;"</span>.format(B.shape))</span><br></pre></td></tr></table></figure>
+<p>the eigenfaces have shape (50, 64, 64)</p>
+<p>Each instance in $\boldsymbol B$ is a ‘64x64’ image, an “eigenface”, which we determined using an algorithm called Principal Component Analysis. Let’s visualize<br>a few of those “eigenfaces”.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">10</span>,<span class="number">10</span>))</span><br><span class="line">plt.imshow(np.hstack(B[:<span class="number">5</span>].reshape(<span class="number">-1</span>, <span class="number">64</span>, <span class="number">64</span>)), cmap=<span class="string">'gray'</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="output_27_0.png" alt="png"></p>
+<p>Take a look at what happens if we project our faces onto the basis $\boldsymbol B$ spanned by these 50 “eigenfaces”. In order to do this, we need to reshape $\boldsymbol B$ from above, which is of size (50, 64, 64), into the same shape as the matrix representing the basis as we have done earlier, which is of size (4096, 50). Here 4096 is the dimensionality of the data and 50 is the number of data points. </p>
+<p>Then we can reuse the functions we implemented earlier to compute the projection matrix and the projection. Complete the code below to visualize the reconstructed faces that lie on the subspace spanned by the “eigenfaces”.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># EDIT THIS FUNCTION</span></span><br><span class="line"><span class="meta">@interact(i=(0, 10))</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_face_face_reconstruction</span><span class="params">(i)</span>:</span></span><br><span class="line">    original_face = faces_normalized[i].reshape(<span class="number">64</span>, <span class="number">64</span>)</span><br><span class="line">    <span class="comment"># reshape the data we loaded in variable `B` </span></span><br><span class="line">    <span class="comment"># so that we have a matrix representing the basis.</span></span><br><span class="line">    B_basis = np.random.normal(size=(<span class="number">4096</span>,<span class="number">50</span>)) <span class="comment"># &lt;-- EDIT THIS</span></span><br><span class="line">    face_reconstruction = project_general(faces_normalized[i], B_basis).reshape(<span class="number">64</span>, <span class="number">64</span>)</span><br><span class="line">    plt.figure()</span><br><span class="line">    plt.imshow(np.hstack([original_face, face_reconstruction]), cmap=<span class="string">'gray'</span>)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<p>What would happen to the reconstruction as we increase the dimension of our basis? </p>
+<p>Modify the code above to visualize it.</p>
+<h2 id="3-Least-squares-regression-optional"><a href="#3-Least-squares-regression-optional" class="headerlink" title="3. Least squares regression (optional)"></a>3. Least squares regression (optional)</h2><p>Consider the case where we have a linear model for predicting housing prices. We are predicting the housing prices based on features in the<br>housing dataset. If we denote the features as $\boldsymbol x_0, \dotsc, \boldsymbol x_n$ and collect them into a vector $\boldsymbol {x}$, and the price of the houses as $y$. Assuming that we have<br>a prediction model in the way such that $\hat{y}_i =  f(\boldsymbol {x}_i) = \boldsymbol \theta^T\boldsymbol {x}_{i}$.</p>
+<p>If we collect the dataset into a $(N,D)$ data matrix $\boldsymbol X$, we can write down our model like this:</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} 
+\boldsymbol{x}_1^T \\
+\vdots \\ 
+\boldsymbol{x}_N^T 
+\end{bmatrix} \boldsymbol{\theta} = \begin{bmatrix} 
+y_{1} \\
+\vdots \\ 
+y_{2} 
+\end{bmatrix},</script><p>i.e.,</p>
+<script type="math/tex; mode=display">
+\boldsymbol X\boldsymbol{\theta} = \boldsymbol{y}.</script><p>Note that the data points are the <em>rows</em> of the data matrix, i.e., every column is a dimension of the data. </p>
+<p>Our goal is to find the best $\boldsymbol\theta$ such that we minimize the following objective (least square).</p>
+<script type="math/tex; mode=display">
+\begin{eqnarray} 
+& \sum^n_{i=1}{\lVert \bar{y_i} - y_i \rVert^2} \\
+&= \sum^n_{i=1}{\lVert \boldsymbol \theta^T\boldsymbol{x}_{i} - y_{i} \rVert^2} \\
+&= (\boldsymbol X\boldsymbol {\theta} - \boldsymbol y)^T(\boldsymbol X\boldsymbol {\theta} - \boldsymbol y).
+\end{eqnarray}</script><p>If we set the gradient of the above objective to $\boldsymbol  0$, we have</p>
+<script type="math/tex; mode=display">
+\begin{eqnarray} 
+\nabla_\theta(\boldsymbol X\boldsymbol {\theta} - \boldsymbol y)^T(\boldsymbol X\boldsymbol {\theta} - \boldsymbol y) &=& \boldsymbol 0 \\
+\nabla_\theta(\boldsymbol {\theta}^T\boldsymbol X^T - \boldsymbol y^T)(\boldsymbol X\boldsymbol {\theta} - \boldsymbol y) &=& \boldsymbol 0 \\
+\nabla_\theta(\boldsymbol {\theta}^T\boldsymbol X^T\boldsymbol X\boldsymbol {\theta} - \boldsymbol y^T\boldsymbol X\boldsymbol \theta - \boldsymbol \theta^T\boldsymbol X^T\boldsymbol y + \boldsymbol y^T\boldsymbol y ) &=& \boldsymbol 0 \\
+2\boldsymbol X^T\boldsymbol X\theta - 2\boldsymbol X^T\boldsymbol y &=& \boldsymbol 0 \\
+\boldsymbol X^T\boldsymbol X\boldsymbol \theta        &=& \boldsymbol X^T\boldsymbol y.
+\end{eqnarray}</script><p>The solution that gives zero gradient solves (which we call the maximum likelihood estimator) the following equation:</p>
+<script type="math/tex; mode=display">\boldsymbol X^T\boldsymbol X\boldsymbol \theta = \boldsymbol X^T\boldsymbol y.</script><p>_This is exactly the same as the normal equation we have for projections_.</p>
+<p>This means that if we solve for $\boldsymbol X^T\boldsymbol X\boldsymbol \theta = \boldsymbol X^T\boldsymbol y.$ we would find the best $\boldsymbol \theta = (\boldsymbol X^T\boldsymbol X)^{-1}\boldsymbol X^T\boldsymbol y$, i.e. the $\boldsymbol \theta$ which minimizes our objective.</p>
+<p>Let’s put things into perspective. Consider that we want to predict the true coefficient $\boldsymbol \theta$<br>of the line $\boldsymbol y = \boldsymbol \theta^T \boldsymbol x$ given only $\boldsymbol X$ and $\boldsymbol y$. We do not know the true value of $\boldsymbol \theta$.</p>
+<p>Note: In this particular example, $\boldsymbol \theta$ is a number. Still, we can represent it as an $\mathbb{R}^1$ vector.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, num=<span class="number">50</span>)</span><br><span class="line">theta = <span class="number">2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span>    </span><br><span class="line">    random = np.random.RandomState(<span class="number">42</span>) <span class="comment"># we use the same random seed so we get deterministic output</span></span><br><span class="line">    <span class="keyword">return</span> theta * x + random.normal(scale=<span class="number">1.0</span>, size=len(x)) <span class="comment"># our observations are corrupted by some noise, so that we do not get (x,y) on a line</span></span><br><span class="line"></span><br><span class="line">y = f(x)</span><br><span class="line">plt.scatter(x, y);</span><br><span class="line">plt.xlabel(<span class="string">'x'</span>);</span><br><span class="line">plt.ylabel(<span class="string">'y'</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="output_34_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">X = x.reshape(<span class="number">-1</span>,<span class="number">1</span>) <span class="comment"># size N x 1</span></span><br><span class="line">Y = y.reshape(<span class="number">-1</span>,<span class="number">1</span>) <span class="comment"># size N x 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># maximum likelihood estimator</span></span><br><span class="line">theta_hat = np.linalg.solve(X.T @ X, X.T @ Y)</span><br></pre></td></tr></table></figure>
+<p>We can show how our $\hat{\boldsymbol  \theta}$ fits the line.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax.scatter(x, y);</span><br><span class="line">xx = [<span class="number">0</span>, <span class="number">10</span>]</span><br><span class="line">yy = [<span class="number">0</span>, <span class="number">10</span> * theta_hat[<span class="number">0</span>,<span class="number">0</span>]]</span><br><span class="line">ax.plot(xx, yy, <span class="string">'red'</span>, alpha=<span class="number">.5</span>);</span><br><span class="line">ax.set(xlabel=<span class="string">'x'</span>, ylabel=<span class="string">'y'</span>);</span><br><span class="line">print(<span class="string">"theta = %f"</span> % theta)</span><br><span class="line">print(<span class="string">"theta_hat = %f"</span> % theta_hat)</span><br></pre></td></tr></table></figure>
+<pre><code>theta = 2.000000
+theta_hat = 1.951585
+</code></pre><p><img src="output_37_1.png" alt="png"></p>
+<p>What would happend to $\lVert \hat{\boldsymbol  \theta} - \boldsymbol \theta \rVert$ if we increase the number of datapoints?</p>
+<p>Make your hypothesis, and write a small program to confirm it!</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">N = np.arange(<span class="number">2</span>, <span class="number">10000</span>, step=<span class="number">10</span>)</span><br><span class="line"><span class="comment"># Your code comes here, which calculates \hat&#123;\theta&#125; for different dataset sizes.</span></span><br><span class="line"></span><br><span class="line">theta_error = np.zeros(N.shape)</span><br><span class="line"></span><br><span class="line">theta_error = np.ones(N.shape) <span class="comment"># &lt;-- EDIT THIS</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.plot(theta_error)</span><br><span class="line">plt.xlabel(<span class="string">"dataset size"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"parameter error"</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="output_39_0.png" alt="png"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Vector-and-Space/2019/09/19/" rel="next" title="Vector and Space">
+                <i class="fa fa-chevron-left"></i> Vector and Space
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Principal-Component-Analysis/2019/09/20/" rel="prev" title="Principal Component Analysis">
+                Principal Component Analysis <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">267</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/cherish_CX/" title="Chunxia" target="_blank" rel="external nofollow">Chunxia</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Orthogonal-Projections"><span class="nav-text">Orthogonal Projections</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Learning-objectives"><span class="nav-text">Learning objectives</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Advice-for-testing-numerical-algorithms"><span class="nav-text">Advice for testing numerical algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Test-on-small-dataset"><span class="nav-text">1. Test on small dataset</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Find-invariants"><span class="nav-text">2. Find invariants</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Orthogonal-Projections"><span class="nav-text">1. Orthogonal Projections</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Eigenfaces-optional"><span class="nav-text">2. Eigenfaces  (optional)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Least-squares-regression-optional"><span class="nav-text">3. Least squares regression (optional)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>

@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="BLOG">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Assignment 2: Optimal Policies with Dynamic ProgrammingWelcome to Assignment 2. This notebook will help you understand:  Policy Evaluation and Policy Improvement. Value and Policy Iteration. Bellman E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Optimal Policies with Dynamic Programming">
+<meta property="og:url" content="https://zhangruochi.com/Optimal-Policies-with-Dynamic-Programming/2020/09/10/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="Assignment 2: Optimal Policies with Dynamic ProgrammingWelcome to Assignment 2. This notebook will help you understand:  Policy Evaluation and Policy Improvement. Value and Policy Iteration. Bellman E">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/Optimal-Policies-with-Dynamic-Programming/2020/09/10/output_11_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Optimal-Policies-with-Dynamic-Programming/2020/09/10/output_26_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Optimal-Policies-with-Dynamic-Programming/2020/09/10/output_36_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Optimal-Policies-with-Dynamic-Programming/2020/09/10/output_46_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Optimal-Policies-with-Dynamic-Programming/2020/09/10/output_51_0.png">
+<meta property="og:updated_time" content="2020-09-10T06:18:14.325Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Optimal Policies with Dynamic Programming">
+<meta name="twitter:description" content="Assignment 2: Optimal Policies with Dynamic ProgrammingWelcome to Assignment 2. This notebook will help you understand:  Policy Evaluation and Policy Improvement. Value and Policy Iteration. Bellman E">
+<meta name="twitter:image" content="https://zhangruochi.com/Optimal-Policies-with-Dynamic-Programming/2020/09/10/output_11_0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/Optimal-Policies-with-Dynamic-Programming/2020/09/10/">
+
+
+
+
+
+  <title>Optimal Policies with Dynamic Programming | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Optimal-Policies-with-Dynamic-Programming/2020/09/10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Optimal Policies with Dynamic Programming</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-10T14:17:39+08:00">
+                2020-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
+                    <span itemprop="name">Artificial Intelligence</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/Reinforcement-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Reinforcement Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Optimal-Policies-with-Dynamic-Programming/2020/09/10/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Optimal-Policies-with-Dynamic-Programming/2020/09/10/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Assignment-2-Optimal-Policies-with-Dynamic-Programming"><a href="#Assignment-2-Optimal-Policies-with-Dynamic-Programming" class="headerlink" title="Assignment 2: Optimal Policies with Dynamic Programming"></a>Assignment 2: Optimal Policies with Dynamic Programming</h1><p>Welcome to Assignment 2. This notebook will help you understand:</p>
+<ul>
+<li>Policy Evaluation and Policy Improvement.</li>
+<li>Value and Policy Iteration.</li>
+<li>Bellman Equations.</li>
+</ul>
+<h2 id="Gridworld-City"><a href="#Gridworld-City" class="headerlink" title="Gridworld City"></a>Gridworld City</h2><p>Gridworld City, a thriving metropolis with a booming technology industry, has recently experienced an influx of grid-loving software engineers. Unfortunately, the city’s street parking system, which charges a fixed rate, is struggling to keep up with the increased demand. To address this, the city council has decided to modify the pricing scheme to better promote social welfare. In general, the city considers social welfare higher when more parking is being used, the exception being that the city prefers that at least one spot is left unoccupied (so that it is available in case someone really needs it). The city council has created a Markov decision process (MDP) to model the demand for parking with a reward function that reflects its preferences. Now the city has hired you &mdash; an expert in dynamic programming &mdash; to help determine an optimal policy.</p>
+<h2 id="Preliminaries"><a href="#Preliminaries" class="headerlink" title="Preliminaries"></a>Preliminaries</h2><p>You’ll need two imports to complete this assigment:</p>
+<ul>
+<li>numpy: The fundamental package for scientific computing with Python.</li>
+<li>tools: A module containing an environment and a plotting function.</li>
+</ul>
+<p>There are also some other lines in the cell below that are used for grading and plotting &mdash; you needn’t worry about them.</p>
+<p>In this notebook, all cells are locked except those that you are explicitly asked to modify. It is up to you to decide how to implement your solution in these cells, <strong>but please do not import other libraries</strong> &mdash; doing so will break the autograder.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> tools</span><br><span class="line"><span class="keyword">import</span> grader</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;Figure size 432x288 with 0 Axes&gt;
+</code></pre><p>In the city council’s parking MDP, states are nonnegative integers indicating how many parking spaces are occupied, actions are nonnegative integers designating the price of street parking, the reward is a real value describing the city’s preference for the situation, and time is discretized by hour. As might be expected, charging a high price is likely to decrease occupancy over the hour, while charging a low price is likely to increase it.</p>
+<p>For now, let’s consider an environment with three parking spaces and three price points. Note that an environment with three parking spaces actually has four states &mdash; zero, one, two, or three spaces could be occupied.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ---------------</span></span><br><span class="line"><span class="comment"># Discussion Cell</span></span><br><span class="line"><span class="comment"># ---------------</span></span><br><span class="line">num_spaces = <span class="number">3</span></span><br><span class="line">num_prices = <span class="number">3</span></span><br><span class="line">env = tools.ParkingWorld(num_spaces, num_prices)</span><br><span class="line">V = np.zeros(num_spaces + <span class="number">1</span>)</span><br><span class="line">pi = np.ones((num_spaces + <span class="number">1</span>, num_prices)) / num_prices</span><br></pre></td></tr></table></figure>
+<p>The value function is a one-dimensional array where the $i$-th entry gives the value of $i$ spaces being occupied.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">V</span><br></pre></td></tr></table></figure>
+<pre><code>array([0., 0., 0., 0.])
+</code></pre><p>We can represent the policy as a two-dimensional array where the $(i, j)$-th entry gives the probability of taking action $j$ in state $i$.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pi</span><br></pre></td></tr></table></figure>
+<pre><code>array([[0.33333333, 0.33333333, 0.33333333],
+       [0.33333333, 0.33333333, 0.33333333],
+       [0.33333333, 0.33333333, 0.33333333],
+       [0.33333333, 0.33333333, 0.33333333]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pi[<span class="number">0</span>] = [<span class="number">0.75</span>, <span class="number">0.11</span>, <span class="number">0.14</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> s, pi_s <span class="keyword">in</span> enumerate(pi):</span><br><span class="line">    <span class="keyword">for</span> a, p <span class="keyword">in</span> enumerate(pi_s):</span><br><span class="line">        print(<span class="string">f'pi(A=<span class="subst">&#123;a&#125;</span>|S=<span class="subst">&#123;s&#125;</span>) = <span class="subst">&#123;p.round(<span class="number">2</span>)&#125;</span>    '</span>, end=<span class="string">''</span>)</span><br><span class="line">    print()</span><br></pre></td></tr></table></figure>
+<pre><code>pi(A=0|S=0) = 0.75    pi(A=1|S=0) = 0.11    pi(A=2|S=0) = 0.14    
+pi(A=0|S=1) = 0.33    pi(A=1|S=1) = 0.33    pi(A=2|S=1) = 0.33    
+pi(A=0|S=2) = 0.33    pi(A=1|S=2) = 0.33    pi(A=2|S=2) = 0.33    
+pi(A=0|S=3) = 0.33    pi(A=1|S=3) = 0.33    pi(A=2|S=3) = 0.33    
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">V[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">tools.plot(V, pi)</span><br></pre></td></tr></table></figure>
+<p><img src="output_11_0.png" alt="png"></p>
+<p>We can visualize a value function and policy with the <code>plot</code> function in the <code>tools</code> module. On the left, the value function is displayed as a barplot. State zero has an expected return of ten, while the other states have an expected return of zero. On the right, the policy is displayed on a two-dimensional grid. Each vertical strip gives the policy at the labeled state. In state zero, action zero is the darkest because the agent’s policy makes this choice with the highest probability. In the other states the agent has the equiprobable policy, so the vertical strips are colored uniformly.</p>
+<p>You can access the state space and the action set as attributes of the environment.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">env.S</span><br></pre></td></tr></table></figure>
+<pre><code>[0, 1, 2, 3]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">env.A</span><br></pre></td></tr></table></figure>
+<pre><code>[0, 1, 2]
+</code></pre><p>You will need to use the environment’s <code>transitions</code> method to complete this assignment. The method takes a state and an action and returns a 2-dimensional array, where the entry at $(i, 0)$ is the reward for transitioning to state $i$ from the current state and the entry at $(i, 1)$ is the conditional probability of transitioning to state $i$ given the current state and action.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">state = <span class="number">3</span></span><br><span class="line">action = <span class="number">1</span></span><br><span class="line">transitions = env.transitions(state, action)</span><br><span class="line">transitions</span><br></pre></td></tr></table></figure>
+<pre><code>array([[1.        , 0.12390437],
+       [2.        , 0.15133714],
+       [3.        , 0.1848436 ],
+       [2.        , 0.53991488]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> sp, (r, p) <span class="keyword">in</span> enumerate(transitions):</span><br><span class="line">    print(<span class="string">f'p(S\'=<span class="subst">&#123;sp&#125;</span>, R=<span class="subst">&#123;r&#125;</span> | S=<span class="subst">&#123;state&#125;</span>, A=<span class="subst">&#123;action&#125;</span>) = <span class="subst">&#123;p.round(<span class="number">2</span>)&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>p(S&#39;=0, R=1.0 | S=3, A=1) = 0.12
+p(S&#39;=1, R=2.0 | S=3, A=1) = 0.15
+p(S&#39;=2, R=3.0 | S=3, A=1) = 0.18
+p(S&#39;=3, R=2.0 | S=3, A=1) = 0.54
+</code></pre><h2 id="Section-1-Policy-Evaluation"><a href="#Section-1-Policy-Evaluation" class="headerlink" title="Section 1: Policy Evaluation"></a>Section 1: Policy Evaluation</h2><p>You’re now ready to begin the assignment! First, the city council would like you to evaluate the quality of the existing pricing scheme. Policy evaluation works by iteratively applying the Bellman equation for $v_{\pi}$ to a working value function, as an update rule, as shown below.</p>
+<script type="math/tex; mode=display">\large v(s) \leftarrow \sum_a \pi(a | s) \sum_{s', r} p(s', r | s, a)[r + \gamma v(s')]</script><p>This update can either occur “in-place” (i.e. the update rule is sequentially applied to each state) or with “two-arrays” (i.e. the update rule is simultaneously applied to each state). Both versions converge to $v_{\pi}$ but the in-place version usually converges faster. <strong>In this assignment, we will be implementing all update rules in-place</strong>, as is done in the pseudocode of chapter 4 of the textbook. </p>
+<p>We have written an outline of the policy evaluation algorithm described in chapter 4.1 of the textbook. It is left to you to fill in the <code>bellman_update</code> function to complete the algorithm.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># lock</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">evaluate_policy</span><span class="params">(env, V, pi, gamma, theta)</span>:</span></span><br><span class="line">    delta = float(<span class="string">'inf'</span>)</span><br><span class="line">    <span class="keyword">while</span> delta &gt; theta:</span><br><span class="line">        delta = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> s <span class="keyword">in</span> env.S:</span><br><span class="line">            v = V[s]</span><br><span class="line">            bellman_update(env, V, pi, s, gamma)</span><br><span class="line">            delta = max(delta, abs(v - V[s]))</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Graded Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bellman_update</span><span class="params">(env, V, pi, s, gamma)</span>:</span></span><br><span class="line">    <span class="string">"""Mutate ``V`` according to the Bellman update equation."""</span></span><br><span class="line">    <span class="comment"># YOUR CODE HERE</span></span><br><span class="line">    actions = pi[s]</span><br><span class="line">    G = [<span class="number">0</span>] * len(actions)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> action <span class="keyword">in</span> env.A:</span><br><span class="line">        transitions = env.transitions(s, action)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> s_, (r,p) <span class="keyword">in</span> enumerate(transitions):</span><br><span class="line">            G[action] += p * (r + gamma * V[s_])</span><br><span class="line">            </span><br><span class="line">    V[s] = np.sum(G * actions)</span><br></pre></td></tr></table></figure>
+<p>The cell below uses the policy evaluation algorithm to evaluate the city’s policy, which charges a constant price of one.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># --------------</span></span><br><span class="line"><span class="comment"># Debugging Cell</span></span><br><span class="line"><span class="comment"># --------------</span></span><br><span class="line"><span class="comment"># Feel free to make any changes to this cell to debug your code</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># set up test environment</span></span><br><span class="line">num_spaces = <span class="number">10</span></span><br><span class="line">num_prices = <span class="number">4</span></span><br><span class="line">env = tools.ParkingWorld(num_spaces, num_prices)</span><br><span class="line"></span><br><span class="line"><span class="comment"># build test policy</span></span><br><span class="line">city_policy = np.zeros((num_spaces + <span class="number">1</span>, num_prices))</span><br><span class="line">city_policy[:, <span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">gamma = <span class="number">0.9</span></span><br><span class="line">theta = <span class="number">0.1</span></span><br><span class="line"></span><br><span class="line">V = np.zeros(num_spaces + <span class="number">1</span>)</span><br><span class="line">V = evaluate_policy(env, V, city_policy, gamma, theta)</span><br><span class="line"></span><br><span class="line">print(V)</span><br></pre></td></tr></table></figure>
+<pre><code>[80.04173399 81.65532303 83.37394007 85.12975566 86.87174913 88.55589131
+ 90.14020422 91.58180605 92.81929841 93.78915889 87.77792991]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Tested Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># The contents of the cell will be tested by the autograder.</span></span><br><span class="line"><span class="comment"># If they do not pass here, they will not pass there.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># set up test environment</span></span><br><span class="line">num_spaces = <span class="number">10</span></span><br><span class="line">num_prices = <span class="number">4</span></span><br><span class="line">env = tools.ParkingWorld(num_spaces, num_prices)</span><br><span class="line"></span><br><span class="line"><span class="comment"># build test policy</span></span><br><span class="line">city_policy = np.zeros((num_spaces + <span class="number">1</span>, num_prices))</span><br><span class="line">city_policy[:, <span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">gamma = <span class="number">0.9</span></span><br><span class="line">theta = <span class="number">0.1</span></span><br><span class="line"></span><br><span class="line">V = np.zeros(num_spaces + <span class="number">1</span>)</span><br><span class="line">V = evaluate_policy(env, V, city_policy, gamma, theta)</span><br><span class="line"></span><br><span class="line"><span class="comment"># test the value function</span></span><br><span class="line">answer = [<span class="number">80.04</span>, <span class="number">81.65</span>, <span class="number">83.37</span>, <span class="number">85.12</span>, <span class="number">86.87</span>, <span class="number">88.55</span>, <span class="number">90.14</span>, <span class="number">91.58</span>, <span class="number">92.81</span>, <span class="number">93.78</span>, <span class="number">87.77</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># make sure the value function is within 2 decimal places of the correct answer</span></span><br><span class="line"><span class="keyword">assert</span> grader.near(V, answer, <span class="number">1e-2</span>)</span><br></pre></td></tr></table></figure>
+<p>You can use the <code>plot</code> function to visualize the final value function and policy.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># lock</span></span><br><span class="line">tools.plot(V, city_policy)</span><br></pre></td></tr></table></figure>
+<p><img src="output_26_0.png" alt="png"></p>
+<p>Observe that the value function qualitatively resembles the city council’s preferences &mdash; it monotonically increases as more parking is used, until there is no parking left, in which case the value is lower. Because of the relatively simple reward function (more reward is accrued when many but not all parking spots are taken and less reward is accrued when few or all parking spots are taken) and the highly stochastic dynamics function (each state has positive probability of being reached each time step) the value functions of most policies will qualitatively resemble this graph. However, depending on the intelligence of the policy, the scale of the graph will differ. In other words, better policies will increase the expected return at every state rather than changing the relative desirability of the states. Intuitively, the value of a less desirable state can be increased by making it less likely to remain in a less desirable state. Similarly, the value of a more desirable state can be increased by making it more likely to remain in a more desirable state. That is to say, good policies are policies that spend more time in desirable states and less time in undesirable states. As we will see in this assignment, such a steady state distribution is achieved by setting the price to be low in low occupancy states (so that the occupancy will increase) and setting the price high when occupancy is high (so that full occupancy will be avoided).</p>
+<h2 id="Section-2-Policy-Iteration"><a href="#Section-2-Policy-Iteration" class="headerlink" title="Section 2: Policy Iteration"></a>Section 2: Policy Iteration</h2><p>Now the city council would like you to compute a more efficient policy using policy iteration. Policy iteration works by alternating between evaluating the existing policy and making the policy greedy with respect to the existing value function. We have written an outline of the policy iteration algorithm described in chapter 4.3 of the textbook. We will make use of the policy evaluation algorithm you completed in section 1. It is left to you to fill in the <code>q_greedify_policy</code> function, such that it modifies the policy at $s$ to be greedy with respect to the q-values at $s$, to complete the policy improvement algorithm.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">improve_policy</span><span class="params">(env, V, pi, gamma)</span>:</span></span><br><span class="line">    policy_stable = <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> env.S:</span><br><span class="line">        old = pi[s].copy()</span><br><span class="line">        q_greedify_policy(env, V, pi, s, gamma)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> np.array_equal(pi[s], old):</span><br><span class="line">            policy_stable = <span class="keyword">False</span></span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> pi, policy_stable</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">policy_iteration</span><span class="params">(env, gamma, theta)</span>:</span></span><br><span class="line">    V = np.zeros(len(env.S))</span><br><span class="line">    pi = np.ones((len(env.S), len(env.A))) / len(env.A)</span><br><span class="line">    policy_stable = <span class="keyword">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> policy_stable:</span><br><span class="line">        V = evaluate_policy(env, V, pi, gamma, theta)</span><br><span class="line">        pi, policy_stable = improve_policy(env, V, pi, gamma)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> V, pi</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Graded Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">q_greedify_policy</span><span class="params">(env, V, pi, s, gamma)</span>:</span></span><br><span class="line">    <span class="string">"""Mutate ``pi`` to be greedy with respect to the q-values induced by ``V``."""</span></span><br><span class="line">    <span class="comment"># YOUR CODE HERE</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    G = [<span class="number">0</span>] * len(env.A)</span><br><span class="line">    <span class="keyword">for</span> action <span class="keyword">in</span> env.A:</span><br><span class="line">        transitions = env.transitions(s, action)</span><br><span class="line">        <span class="keyword">for</span> s_, (r,p) <span class="keyword">in</span> enumerate(transitions):</span><br><span class="line">            G[action] += p * (r + gamma * V[s_])</span><br><span class="line">            </span><br><span class="line">    best_a = np.argmax(G)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i,_ <span class="keyword">in</span> enumerate(pi[s]):</span><br><span class="line">        <span class="keyword">if</span> i == best_a:</span><br><span class="line">            pi[s][i] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            pi[s][i] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># --------------</span></span><br><span class="line"><span class="comment"># Debugging Cell</span></span><br><span class="line"><span class="comment"># --------------</span></span><br><span class="line"><span class="comment"># Feel free to make any changes to this cell to debug your code</span></span><br><span class="line"></span><br><span class="line">gamma = <span class="number">0.9</span></span><br><span class="line">theta = <span class="number">0.1</span></span><br><span class="line">env = tools.ParkingWorld(num_spaces=<span class="number">6</span>, num_prices=<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">V = np.array([<span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>])</span><br><span class="line">pi = np.ones((<span class="number">7</span>, <span class="number">4</span>)) / <span class="number">4</span></span><br><span class="line"></span><br><span class="line">new_pi, stable = improve_policy(env, V, pi, gamma)</span><br><span class="line"></span><br><span class="line"><span class="comment"># expect first call to greedify policy</span></span><br><span class="line">expected_pi = np.array([</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">])</span><br><span class="line"><span class="keyword">assert</span> np.all(new_pi == expected_pi)</span><br><span class="line"><span class="keyword">assert</span> stable == <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># the value function has not changed, so the greedy policy should not change</span></span><br><span class="line">new_pi, stable = improve_policy(env, V, new_pi, gamma)</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> np.all(new_pi == expected_pi)</span><br><span class="line"><span class="keyword">assert</span> stable == <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Tested Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># The contents of the cell will be tested by the autograder.</span></span><br><span class="line"><span class="comment"># If they do not pass here, they will not pass there.</span></span><br><span class="line">gamma = <span class="number">0.9</span></span><br><span class="line">theta = <span class="number">0.1</span></span><br><span class="line">env = tools.ParkingWorld(num_spaces=<span class="number">10</span>, num_prices=<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">V, pi = policy_iteration(env, gamma, theta)</span><br><span class="line"></span><br><span class="line">V_answer = [<span class="number">81.60</span>, <span class="number">83.28</span>, <span class="number">85.03</span>, <span class="number">86.79</span>, <span class="number">88.51</span>, <span class="number">90.16</span>, <span class="number">91.70</span>, <span class="number">93.08</span>, <span class="number">94.25</span>, <span class="number">95.25</span>, <span class="number">89.45</span>]</span><br><span class="line">pi_answer = [</span><br><span class="line">    [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">    [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">    [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">    [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">    [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">    [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">    [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">    [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">    [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># make sure value function is within 2 decimal places of answer</span></span><br><span class="line"><span class="keyword">assert</span> grader.near(V, V_answer, <span class="number">1e-2</span>)</span><br><span class="line"><span class="comment"># make sure policy is exactly correct</span></span><br><span class="line"><span class="keyword">assert</span> np.all(pi == pi_answer)</span><br></pre></td></tr></table></figure>
+<p>When you are ready to test the policy iteration algorithm, run the cell below.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">env = tools.ParkingWorld(num_spaces=<span class="number">10</span>, num_prices=<span class="number">4</span>)</span><br><span class="line">gamma = <span class="number">0.9</span></span><br><span class="line">theta = <span class="number">0.1</span></span><br><span class="line">V, pi = policy_iteration(env, gamma, theta)</span><br></pre></td></tr></table></figure>
+<p>You can use the <code>plot</code> function to visualize the final value function and policy.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tools.plot(V, pi)</span><br></pre></td></tr></table></figure>
+<p><img src="output_36_0.png" alt="png"></p>
+<p>You can check the value function (rounded to one decimal place) and policy against the answer below:<br><br>State $\quad\quad$    Value $\quad\quad$ Action<br><br>0 $\quad\quad\quad\;$        81.6 $\quad\quad\;$ 0<br><br>1 $\quad\quad\quad\;$        83.3 $\quad\quad\;$ 0<br><br>2 $\quad\quad\quad\;$        85.0 $\quad\quad\;$ 0<br><br>3 $\quad\quad\quad\;$        86.8 $\quad\quad\;$ 0<br><br>4 $\quad\quad\quad\;$        88.5 $\quad\quad\;$ 0<br><br>5 $\quad\quad\quad\;$        90.2 $\quad\quad\;$ 0<br><br>6 $\quad\quad\quad\;$        91.7 $\quad\quad\;$ 0<br><br>7 $\quad\quad\quad\;$        93.1 $\quad\quad\;$ 0<br><br>8 $\quad\quad\quad\;$        94.3 $\quad\quad\;$ 0<br><br>9 $\quad\quad\quad\;$        95.3 $\quad\quad\;$ 3<br><br>10 $\quad\quad\;\;\,\,$      89.5 $\quad\quad\;$ 3<br></p>
+<h2 id="Section-3-Value-Iteration"><a href="#Section-3-Value-Iteration" class="headerlink" title="Section 3: Value Iteration"></a>Section 3: Value Iteration</h2><p>The city has also heard about value iteration and would like you to implement it. Value iteration works by iteratively applying the Bellman optimality equation for $v_{\ast}$ to a working value function, as an update rule, as shown below.</p>
+<script type="math/tex; mode=display">\large v(s) \leftarrow \max_a \sum_{s', r} p(s', r | s, a)[r + \gamma v(s')]</script><p>We have written an outline of the value iteration algorithm described in chapter 4.4 of the textbook. It is left to you to fill in the <code>bellman_optimality_update</code> function to complete the value iteration algorithm.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">value_iteration</span><span class="params">(env, gamma, theta)</span>:</span></span><br><span class="line">    V = np.zeros(len(env.S))</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        delta = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> s <span class="keyword">in</span> env.S:</span><br><span class="line">            v = V[s]</span><br><span class="line">            bellman_optimality_update(env, V, s, gamma)</span><br><span class="line">            delta = max(delta, abs(v - V[s]))</span><br><span class="line">        <span class="keyword">if</span> delta &lt; theta:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    pi = np.ones((len(env.S), len(env.A))) / len(env.A)</span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> env.S:</span><br><span class="line">        q_greedify_policy(env, V, pi, s, gamma)</span><br><span class="line">    <span class="keyword">return</span> V, pi</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Graded Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bellman_optimality_update</span><span class="params">(env, V, s, gamma)</span>:</span></span><br><span class="line">    <span class="string">"""Mutate ``V`` according to the Bellman optimality update equation."""</span></span><br><span class="line">    <span class="comment"># YOUR CODE HERE</span></span><br><span class="line">    G = np.zeros(len(env.A))    </span><br><span class="line">    <span class="keyword">for</span> a <span class="keyword">in</span> env.A:</span><br><span class="line">        transitions = env.transitions(s, a)</span><br><span class="line">        <span class="keyword">for</span> s_, (r, p) <span class="keyword">in</span> enumerate(transitions):</span><br><span class="line">            G[a] += p*(r + gamma*V[s_])</span><br><span class="line">    V[s] = np.max(G)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># --------------</span></span><br><span class="line"><span class="comment"># Debugging Cell</span></span><br><span class="line"><span class="comment"># --------------</span></span><br><span class="line"><span class="comment"># Feel free to make any changes to this cell to debug your code</span></span><br><span class="line"></span><br><span class="line">gamma = <span class="number">0.9</span></span><br><span class="line">env = tools.ParkingWorld(num_spaces=<span class="number">6</span>, num_prices=<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">V = np.array([<span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># only state 0 updated</span></span><br><span class="line">bellman_optimality_update(env, V, <span class="number">0</span>, gamma)</span><br><span class="line"><span class="keyword">assert</span> list(V) == [<span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># only state 2 updated</span></span><br><span class="line">bellman_optimality_update(env, V, <span class="number">2</span>, gamma)</span><br><span class="line"><span class="keyword">assert</span> list(V) == [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># Tested Cell</span></span><br><span class="line"><span class="comment"># -----------</span></span><br><span class="line"><span class="comment"># The contents of the cell will be tested by the autograder.</span></span><br><span class="line"><span class="comment"># If they do not pass here, they will not pass there.</span></span><br><span class="line">gamma = <span class="number">0.9</span></span><br><span class="line">env = tools.ParkingWorld(num_spaces=<span class="number">10</span>, num_prices=<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">V = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> env.S:</span><br><span class="line">        bellman_optimality_update(env, V, s, gamma)</span><br><span class="line"></span><br><span class="line"><span class="comment"># make sure value function is exactly correct</span></span><br><span class="line">answer = [<span class="number">61</span>, <span class="number">63</span>, <span class="number">65</span>, <span class="number">67</span>, <span class="number">69</span>, <span class="number">71</span>, <span class="number">72</span>, <span class="number">74</span>, <span class="number">75</span>, <span class="number">76</span>, <span class="number">71</span>]</span><br><span class="line"><span class="keyword">assert</span> np.all(V == answer)</span><br></pre></td></tr></table></figure>
+<p>When you are ready to test the value iteration algorithm, run the cell below.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">env = tools.ParkingWorld(num_spaces=<span class="number">10</span>, num_prices=<span class="number">4</span>)</span><br><span class="line">gamma = <span class="number">0.9</span></span><br><span class="line">theta = <span class="number">0.1</span></span><br><span class="line">V, pi = value_iteration(env, gamma, theta)</span><br></pre></td></tr></table></figure>
+<p>You can use the <code>plot</code> function to visualize the final value function and policy.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tools.plot(V, pi)</span><br></pre></td></tr></table></figure>
+<p><img src="output_46_0.png" alt="png"></p>
+<p>You can check your value function (rounded to one decimal place) and policy against the answer below:<br><br>State $\quad\quad$    Value $\quad\quad$ Action<br><br>0 $\quad\quad\quad\;$        81.6 $\quad\quad\;$ 0<br><br>1 $\quad\quad\quad\;$        83.3 $\quad\quad\;$ 0<br><br>2 $\quad\quad\quad\;$        85.0 $\quad\quad\;$ 0<br><br>3 $\quad\quad\quad\;$        86.8 $\quad\quad\;$ 0<br><br>4 $\quad\quad\quad\;$        88.5 $\quad\quad\;$ 0<br><br>5 $\quad\quad\quad\;$        90.2 $\quad\quad\;$ 0<br><br>6 $\quad\quad\quad\;$        91.7 $\quad\quad\;$ 0<br><br>7 $\quad\quad\quad\;$        93.1 $\quad\quad\;$ 0<br><br>8 $\quad\quad\quad\;$        94.3 $\quad\quad\;$ 0<br><br>9 $\quad\quad\quad\;$        95.3 $\quad\quad\;$ 3<br><br>10 $\quad\quad\;\;\,\,$      89.5 $\quad\quad\;$ 3<br></p>
+<p>In the value iteration algorithm above, a policy is not explicitly maintained until the value function has converged. Below, we have written an identically behaving value iteration algorithm that maintains an updated policy. Writing value iteration in this form makes its relationship to policy iteration more evident. Policy iteration alternates between doing complete greedifications and complete evaluations. On the other hand, value iteration alternates between doing local greedifications and local evaluations. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">value_iteration2</span><span class="params">(env, gamma, theta)</span>:</span></span><br><span class="line">    V = np.zeros(len(env.S))</span><br><span class="line">    pi = np.ones((len(env.S), len(env.A))) / len(env.A)</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        delta = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> s <span class="keyword">in</span> env.S:</span><br><span class="line">            v = V[s]</span><br><span class="line">            q_greedify_policy(env, V, pi, s, gamma)</span><br><span class="line">            bellman_update(env, V, pi, s, gamma)</span><br><span class="line">            delta = max(delta, abs(v - V[s]))</span><br><span class="line">        <span class="keyword">if</span> delta &lt; theta:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> V, pi</span><br></pre></td></tr></table></figure>
+<p>You can try the second value iteration algorithm by running the cell below.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">env = tools.ParkingWorld(num_spaces=<span class="number">10</span>, num_prices=<span class="number">4</span>)</span><br><span class="line">gamma = <span class="number">0.9</span></span><br><span class="line">theta = <span class="number">0.1</span></span><br><span class="line">V, pi = value_iteration2(env, gamma, theta)</span><br><span class="line">tools.plot(V, pi)</span><br></pre></td></tr></table></figure>
+<p><img src="output_51_0.png" alt="png"></p>
+<h2 id="Wrapping-Up"><a href="#Wrapping-Up" class="headerlink" title="Wrapping Up"></a>Wrapping Up</h2><p>Congratulations, you’ve completed assignment 2! In this assignment, we investigated policy evaluation and policy improvement, policy iteration and value iteration, and Bellman updates. Gridworld City thanks you for your service!</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Markov-Decision-Processes-II/2020/09/06/" rel="next" title="Markov Decision Processes II">
+                <i class="fa fa-chevron-left"></i> Markov Decision Processes II
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Generalized-Policy-Iteration/2020/09/10/" rel="prev" title="Generalized Policy Iteration">
+                Generalized Policy Iteration <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">267</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/cherish_CX/" title="Chunxia" target="_blank" rel="external nofollow">Chunxia</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Assignment-2-Optimal-Policies-with-Dynamic-Programming"><span class="nav-text">Assignment 2: Optimal Policies with Dynamic Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gridworld-City"><span class="nav-text">Gridworld City</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Preliminaries"><span class="nav-text">Preliminaries</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Section-1-Policy-Evaluation"><span class="nav-text">Section 1: Policy Evaluation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Section-2-Policy-Iteration"><span class="nav-text">Section 2: Policy Iteration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Section-3-Value-Iteration"><span class="nav-text">Section 3: Value Iteration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Wrapping-Up"><span class="nav-text">Wrapping Up</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>

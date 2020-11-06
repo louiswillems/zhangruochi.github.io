@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangruochi.com/about/index.html</loc>
+    
+    <lastmod>2020-11-06T02:07:01.420Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangruochi.com/Implement-your-agent/2020/10/19/</loc>
     
     <lastmod>2020-10-19T08:46:39.371Z</lastmod>
@@ -194,13 +201,6 @@
     <loc>https://zhangruochi.com/Sentiment-with-Deep-Neural-Networks/2020/08/22/</loc>
     
     <lastmod>2020-09-02T03:16:46.955Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhangruochi.com/about/index.html</loc>
-    
-    <lastmod>2020-08-28T03:30:19.633Z</lastmod>
     
   </url>
   

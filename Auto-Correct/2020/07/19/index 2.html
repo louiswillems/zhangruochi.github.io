@@ -1,0 +1,2039 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="NLP,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Assignment 1: Auto CorrectWelcome to the first assignment of Course 2. This assignment will give you a chance to brush up on your python and probability skills. In doing so, you will implement an auto">
+<meta name="keywords" content="NLP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Auto Correct">
+<meta property="og:url" content="https://zhangruochi.com/Auto-Correct/2020/07/19/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="Assignment 1: Auto CorrectWelcome to the first assignment of Course 2. This assignment will give you a chance to brush up on your python and probability skills. In doing so, you will implement an auto">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/auto-correct.png">
+<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/GenericListComp3.png">
+<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/Splits1.png">
+<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/ListComp2.png">
+<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/Switches1.png">
+<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/EditDistInit4.png">
+<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/EditDistFill2.png">
+<meta property="og:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/EditDistExample1.png">
+<meta property="og:updated_time" content="2020-09-06T15:32:06.443Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Auto Correct">
+<meta name="twitter:description" content="Assignment 1: Auto CorrectWelcome to the first assignment of Course 2. This assignment will give you a chance to brush up on your python and probability skills. In doing so, you will implement an auto">
+<meta name="twitter:image" content="https://zhangruochi.com/Auto-Correct/2020/07/19/auto-correct.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/Auto-Correct/2020/07/19/">
+
+
+
+
+
+  <title>Auto Correct | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Auto-Correct/2020/07/19/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Auto Correct</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-19T16:27:04+08:00">
+                2020-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
+                    <span itemprop="name">Artificial Intelligence</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Auto-Correct/2020/07/19/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Auto-Correct/2020/07/19/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Assignment-1-Auto-Correct"><a href="#Assignment-1-Auto-Correct" class="headerlink" title="Assignment 1: Auto Correct"></a>Assignment 1: Auto Correct</h1><p>Welcome to the first assignment of Course 2. This assignment will give you a chance to brush up on your python and probability skills. In doing so, you will implement an auto-correct system that is very effective and useful.</p>
+<h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><ul>
+<li><a href="#0">0. Overview</a><ul>
+<li><a href="#0-1">0.1 Edit Distance</a></li>
+</ul>
+</li>
+<li><a href="#1">1. Data Preprocessing</a><ul>
+<li><a href="#ex-1">1.1 Exercise 1</a></li>
+<li><a href="#ex-2">1.2 Exercise 2</a></li>
+<li><a href="#ex-3">1.3 Exercise 3</a></li>
+</ul>
+</li>
+<li><a href="#2">2. String Manipulation</a><ul>
+<li><a href="#ex-4">2.1 Exercise 4</a></li>
+<li><a href="#ex-5">2.2 Exercise 5</a></li>
+<li><a href="#ex-6">2.3 Exercise 6</a></li>
+<li><a href="#ex-7">2.4 Exercise 7</a></li>
+</ul>
+</li>
+<li><a href="#3">3. Combining the edits</a><ul>
+<li><a href="#ex-8">3.1 Exercise 8</a></li>
+<li><a href="#ex-9">3.2 Exercise 9</a></li>
+<li><a href="#ex-10">3.3 Exercise 10</a></li>
+</ul>
+</li>
+<li><a href="#4">4. Minimum Edit Distance</a><ul>
+<li><a href="#ex-11">4.1 Exercise 11</a></li>
+</ul>
+</li>
+<li><a href="#5">5. Backtrace (Optional)</a></li>
+</ul>
+<p><a name="0"></a></p>
+<h2 id="0-Overview"><a href="#0-Overview" class="headerlink" title="0. Overview"></a>0. Overview</h2><p>You use autocorrect every day on your cell phone and computer. In this assignment, you will explore what really goes on behind the scenes. Of course, the model you are about to implement is not identical to the one used in your phone, but it is still quite good. </p>
+<p>By completing this assignment you will learn how to: </p>
+<ul>
+<li>Get a word count given a corpus</li>
+<li>Get a word probability in the corpus </li>
+<li>Manipulate strings </li>
+<li>Filter strings </li>
+<li>Implement Minimum edit distance to compare strings and to help find the optimal path for the edits. </li>
+<li>Understand how dynamic programming works</li>
+</ul>
+<p>Similar systems are used everywhere. </p>
+<ul>
+<li>For example, if you type in the word <strong>“I am lerningg”</strong>, chances are very high that you meant to write <strong>“learning”</strong>, as shown in <strong>Figure 1</strong>. </li>
+</ul>
+<div style="width:image width px; font-size:100%; text-align:center;"><img src="auto-correct.png" alt="alternate text" width="width" height="height" style="width:300px;height:250px;"> Figure 1 </div>
+
+<p><a name="0-1"></a></p>
+<h4 id="0-1-Edit-Distance"><a href="#0-1-Edit-Distance" class="headerlink" title="0.1 Edit Distance"></a>0.1 Edit Distance</h4><p>In this assignment, you will implement models that correct words that are 1 and 2 edit distances away. </p>
+<ul>
+<li>We say two words are n edit distance away from each other when we need n edits to change one word into another. </li>
+</ul>
+<p>An edit could consist of one of the following options: </p>
+<ul>
+<li>Delete (remove a letter): ‘hat’ =&gt; ‘at, ha, ht’</li>
+<li>Switch (swap 2 adjacent letters): ‘eta’ =&gt; ‘eat, tea,…’</li>
+<li>Replace (change 1 letter to another): ‘jat’ =&gt; ‘hat, rat, cat, mat, …’</li>
+<li>Insert (add a letter): ‘te’ =&gt; ‘the, ten, ate, …’</li>
+</ul>
+<p>You will be using the four methods above to implement an Auto-correct. </p>
+<ul>
+<li>To do so, you will need to compute probabilities that a certain word is correct given an input. </li>
+</ul>
+<p>This auto-correct you are about to implement was first created by <a href="https://en.wikipedia.org/wiki/Peter_Norvig" target="_blank" rel="noopener">Peter Norvig</a> in 2007. </p>
+<ul>
+<li>His <a href="https://norvig.com/spell-correct.html" target="_blank" rel="noopener">original article</a> may be a useful reference for this assignment.</li>
+</ul>
+<p>The goal of our spell check model is to compute the following probability:</p>
+<script type="math/tex; mode=display">P(c|w) = \frac{P(w|c)\times P(c)}{P(w)} \tag{Eqn-1}</script><p>The equation above is <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem" target="_blank" rel="noopener">Bayes Rule</a>. </p>
+<ul>
+<li>Equation 1 says that the probability of a word being correct $P(c|w) $is equal to the probability of having a certain word $w$, given that it is correct $P(w|c)$, multiplied by the probability of being correct in general $P(C)$ divided by the probability of that word $w$ appearing $P(w)$ in general.</li>
+<li>To compute equation 1, you will first import a data set and then create all the probabilities that you need using that data set. </li>
+</ul>
+<p><a name="1"></a></p>
+<h1 id="Part-1-Data-Preprocessing"><a href="#Part-1-Data-Preprocessing" class="headerlink" title="Part 1: Data Preprocessing"></a>Part 1: Data Preprocessing</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+<p>As in any other machine learning task, the first thing you have to do is process your data set. </p>
+<ul>
+<li>Many courses load in pre-processed data for you. </li>
+<li>However, in the real world, when you build these NLP systems, you load the datasets and process them.</li>
+<li>So let’s get some real world practice in pre-processing the data!</li>
+</ul>
+<p>Your first task is to read in a file called <strong>‘shakespeare.txt’</strong> which is found in your file directory. To look at this file you can go to <code>File ==&gt; Open</code>. </p>
+<p><a name="ex-1"></a></p>
+<h3 id="Exercise-1"><a href="#Exercise-1" class="headerlink" title="Exercise 1"></a>Exercise 1</h3><p>Implement the function <code>process_data</code> which </p>
+<p>1) Reads in a corpus (text file)</p>
+<p>2) Changes everything to lowercase</p>
+<p>3) Returns a list of words. </p>
+<h4 id="Options-and-Hints"><a href="#Options-and-Hints" class="headerlink" title="Options and Hints"></a>Options and Hints</h4><ul>
+<li>If you would like more of a real-life practice, don’t open the ‘Hints’ below (yet) and try searching the web to derive your answer.</li>
+<li>If you want a little help, click on the green “General Hints” section by clicking on it with your mouse.</li>
+<li>If you get stuck or are not getting the expected results, click on the green ‘Detailed Hints’ section to get hints for each step that you’ll take to complete this function.</li>
+</ul>
+<p><details>    </details></p>
+<p><summary>
+    <font size="3" color="darkgreen"><b>General Hints</b></font>
+</summary></p>
+<p>
+
+General Hints to get started
+<ul>
+    <li>Python <a href="https://docs.python.org/3/tutorial/inputoutput.html" target="_blank" rel="noopener">input and output<a></a></a></li>
+    <li>Python <a href="https://docs.python.org/3/library/re.html" target="_blank" rel="noopener">'re' documentation </a> </li>
+</ul>
+</p>
+
+
+<p><details>    </details></p>
+<p><summary>
+    <font size="3" color="darkgreen"><b>Detailed Hints</b></font>
+</summary></p>
+<p>     
+Detailed hints if you're stuck
+<ul>
+    <li>Use 'with' syntax to read a file</li>
+    <li>Decide whether to use 'read()' or 'readline().  What's the difference?</li>
+    <li>Choose whether to use either str.lower() or str.lowercase().  What is the difference?</li>
+    <li>Use re.findall(pattern, string)</li>
+    <li>Look for the "Raw String Notation" section in the Python 're' documentation to understand the difference between r'\W', r'\W' and '\\W'. </li>
+    <li>For the pattern, decide between using '\s', '\w', '\s+' or '\w+'.  What do you think are the differences?</li>
+</ul>
+</p>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C1 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="comment"># GRADED FUNCTION: process_data</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_data</span><span class="params">(file_name)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Input: </span></span><br><span class="line"><span class="string">        A file_name which is found in your current directory. You just have to read it in. </span></span><br><span class="line"><span class="string">    Output: </span></span><br><span class="line"><span class="string">        words: a list containing all the words in the corpus (text file you read) in lower case. </span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    words = [] <span class="comment"># return this variable correctly</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">### START CODE HERE ### </span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">with</span> open(file_name, <span class="string">"r"</span>) <span class="keyword">as</span> f:</span><br><span class="line">        content = f.read().lower()</span><br><span class="line">    </span><br><span class="line">    words = re.findall(<span class="string">'\w+'</span>,content)</span><br><span class="line"></span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> words</span><br></pre></td></tr></table></figure>
+<p>Note, in the following cell, ‘words’ is converted to a python <code>set</code>. This eliminates any duplicate entries.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#DO NOT MODIFY THIS CELL</span></span><br><span class="line">word_l = process_data(<span class="string">'shakespeare.txt'</span>)</span><br><span class="line">vocab = set(word_l)  <span class="comment"># this will be your new vocabulary</span></span><br><span class="line">print(<span class="string">f"The first ten words in the text are: \n<span class="subst">&#123;word_l[<span class="number">0</span>:<span class="number">10</span>]&#125;</span>"</span>)</span><br><span class="line">print(<span class="string">f"There are <span class="subst">&#123;len(vocab)&#125;</span> unique words in the vocabulary."</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>The first ten words in the text are: 
+[&#39;o&#39;, &#39;for&#39;, &#39;a&#39;, &#39;muse&#39;, &#39;of&#39;, &#39;fire&#39;, &#39;that&#39;, &#39;would&#39;, &#39;ascend&#39;, &#39;the&#39;]
+There are 6116 unique words in the vocabulary.
+</code></pre><h4 id="Expected-Output"><a href="#Expected-Output" class="headerlink" title="Expected Output"></a>Expected Output</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The first ten words <span class="keyword">in</span> the text are: </span><br><span class="line">[<span class="string">'o'</span>, <span class="string">'for'</span>, <span class="string">'a'</span>, <span class="string">'muse'</span>, <span class="string">'of'</span>, <span class="string">'fire'</span>, <span class="string">'that'</span>, <span class="string">'would'</span>, <span class="string">'ascend'</span>, <span class="string">'the'</span>]</span><br><span class="line">There are <span class="number">6116</span> unique words <span class="keyword">in</span> the vocabulary.</span><br></pre></td></tr></table></figure>
+<p><a name="ex-2"></a></p>
+<h3 id="Exercise-2"><a href="#Exercise-2" class="headerlink" title="Exercise 2"></a>Exercise 2</h3><p>Implement a <code>get_count</code> function that returns a dictionary</p>
+<ul>
+<li>The dictionary’s keys are words</li>
+<li>The value for each word is the number of times that word appears in the corpus. </li>
+</ul>
+<p>For example, given the following sentence: <strong>“I am happy because I am learning”</strong>, your dictionary should return the following: </p>
+<table style="width:20%">
+
+  <tr>
+    <td> <b>Key </b>  </td>
+    <td> <b>Value </b> </td> 
+
+
+  </tr>
+  <tr>
+    <td> I  </td>
+    <td> 2</td> 
+
+  </tr>
+
+  <tr>
+    <td>am</td>
+    <td>2</td> 
+  </tr>
+
+  <tr>
+    <td>happy</td>
+    <td>1</td> 
+  </tr>
+
+   <tr>
+    <td>because</td>
+    <td>1</td> 
+  </tr>
+
+   <tr>
+    <td>learning</td>
+    <td>1</td> 
+  </tr>
+</table>
+
+
+<p><strong>Instructions</strong>:<br>Implement a <code>get_count</code> which returns a dictionary where the key is a word and the value is the number of times the word appears in the list.  </p>
+<p><details>    </details></p>
+<p><summary>
+    <font size="3" color="darkgreen"><b>Hints</b></font>
+</summary></p>
+<p>
+<ul>
+    <li>Try implementing this using a for loop and a regular dictionary. This may be good practice for similar coding interview questions</li>
+    <li>You can also use defaultdict instead of a regualr dictionary, along with the for loop</li>
+    <li>Otherwise, to skip using a for loop, you can use Python's <a href="https://docs.python.org/3.7/library/collections.html#collections.Counter" target="_blank" rel="noopener"> Counter class</a> </li>
+</ul>
+</p>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C2 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="comment"># UNIT TEST COMMENT: Candidate for Table Driven Tests</span></span><br><span class="line"><span class="comment"># GRADED FUNCTION: get_count</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_count</span><span class="params">(word_l)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    Input:</span></span><br><span class="line"><span class="string">        word_l: a set of words representing the corpus. </span></span><br><span class="line"><span class="string">    Output:</span></span><br><span class="line"><span class="string">        word_count_dict: The wordcount dictionary where key is the word and value is its frequency.</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    </span><br><span class="line">    word_count_dict = &#123;&#125;  <span class="comment"># fill this with word counts</span></span><br><span class="line">    <span class="comment">### START CODE HERE </span></span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> word_l:</span><br><span class="line">        <span class="keyword">if</span> word <span class="keyword">not</span> <span class="keyword">in</span> word_count_dict:</span><br><span class="line">            word_count_dict[word] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            word_count_dict[word] += <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### END CODE HERE ### </span></span><br><span class="line">    <span class="keyword">return</span> word_count_dict</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#DO NOT MODIFY THIS CELL</span></span><br><span class="line">word_count_dict = get_count(word_l)</span><br><span class="line">print(<span class="string">f"There are <span class="subst">&#123;len(word_count_dict)&#125;</span> key values pairs"</span>)</span><br><span class="line">print(<span class="string">f"The count for the word 'thee' is <span class="subst">&#123;word_count_dict.get(<span class="string">'thee'</span>,<span class="number">0</span>)&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>There are 6116 key values pairs
+The count for the word &#39;thee&#39; is 240
+</code></pre><h4 id="Expected-Output-1"><a href="#Expected-Output-1" class="headerlink" title="Expected Output"></a>Expected Output</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">There are <span class="number">6116</span> key values pairs</span><br><span class="line">The count <span class="keyword">for</span> the word <span class="string">'thee'</span> <span class="keyword">is</span> <span class="number">240</span></span><br></pre></td></tr></table></figure>
+<p><a name="ex-3"></a></p>
+<h3 id="Exercise-3"><a href="#Exercise-3" class="headerlink" title="Exercise 3"></a>Exercise 3</h3><p>Given the dictionary of word counts, compute the probability that each word will appear if randomly selected from the corpus of words.</p>
+<script type="math/tex; mode=display">P(w_i) = \frac{C(w_i)}{M} \tag{Eqn-2}</script><p>where </p>
+<p>$C(w_i)$ is the total number of times $w_i$ appears in the corpus.</p>
+<p>$M$ is the total number of words in the corpus.</p>
+<p>For example, the probability of the word ‘am’ in the sentence <strong>‘I am happy because I am learning’</strong> is:</p>
+<script type="math/tex; mode=display">P(am) = \frac{C(w_i)}{M} = \frac {2}{7} \tag{Eqn-3}.</script><p><strong>Instructions:</strong> Implement <code>get_probs</code> function which gives you the probability<br>that a word occurs in a sample. This returns a dictionary where the keys are words, and the value for each word is its probability in the corpus of words.</p>
+<p><details>    </details></p>
+<p><summary>
+    <font size="3" color="darkgreen"><b>Hints</b></font>
+</summary></p>
+<p>
+General advice
+<ul>
+    <li> Use dictionary.values() </li>
+    <li> Use sum() </li>
+    <li> The cardinality (number of words in the corpus should be equal to len(word_l).  You will calculate this same number, but using the word count dictionary.</li>
+</ul>
+
+If you're using a for loop:
+<ul>
+    <li> Use dictionary.keys() </li>
+</ul>
+
+If you're using a dictionary comprehension:
+<ul>
+    <li>Use dictionary.items() </li>
+</ul>
+</p>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C3 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="comment"># GRADED FUNCTION: get_probs</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_probs</span><span class="params">(word_count_dict)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    Input:</span></span><br><span class="line"><span class="string">        word_count_dict: The wordcount dictionary where key is the word and value is its frequency.</span></span><br><span class="line"><span class="string">    Output:</span></span><br><span class="line"><span class="string">        probs: A dictionary where keys are the words and the values are the probability that a word will occur. </span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    probs = &#123;&#125;  <span class="comment"># return this variable correctly</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line">    M = np.sum(list(word_count_dict.values()))</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> word, C <span class="keyword">in</span> word_count_dict.items():</span><br><span class="line">        probs[word] =  float(C) / M</span><br><span class="line">        </span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    <span class="keyword">return</span> probs</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#DO NOT MODIFY THIS CELL</span></span><br><span class="line">probs = get_probs(word_count_dict)</span><br><span class="line">print(<span class="string">f"Length of probs is <span class="subst">&#123;len(probs)&#125;</span>"</span>)</span><br><span class="line">print(<span class="string">f"P('thee') is <span class="subst">&#123;probs[<span class="string">'thee'</span>]:<span class="number">.4</span>f&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Length of probs is 6116
+P(&#39;thee&#39;) is 0.0045
+</code></pre><h4 id="Expected-Output-2"><a href="#Expected-Output-2" class="headerlink" title="Expected Output"></a>Expected Output</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Length of probs <span class="keyword">is</span> <span class="number">6116</span></span><br><span class="line">P(<span class="string">'thee'</span>) <span class="keyword">is</span> <span class="number">0.0045</span></span><br></pre></td></tr></table></figure>
+<p><a name="2"></a></p>
+<h1 id="Part-2-String-Manipulations"><a href="#Part-2-String-Manipulations" class="headerlink" title="Part 2: String Manipulations"></a>Part 2: String Manipulations</h1><p>Now, that you have computed $P(w_i)$ for all the words in the corpus, you will write a few functions to manipulate strings so that you can edit the erroneous strings and return the right spellings of the words. In this section, you will implement four functions: </p>
+<ul>
+<li><code>delete_letter</code>: given a word, it returns all the possible strings that have <strong>one character removed</strong>. </li>
+<li><code>switch_letter</code>: given a word, it returns all the possible strings that have <strong>two adjacent letters switched</strong>.</li>
+<li><code>replace_letter</code>: given a word, it returns all the possible strings that have <strong>one character replaced by another different letter</strong>.</li>
+<li><code>insert_letter</code>: given a word, it returns all the possible strings that have an <strong>additional character inserted</strong>. </li>
+</ul>
+<h4 id="List-comprehensions"><a href="#List-comprehensions" class="headerlink" title="List comprehensions"></a>List comprehensions</h4><p>String and list manipulation in python will often make use of a python feature called  <a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions" target="_blank" rel="noopener">list comprehensions</a>. The routines below will be described as using list comprehensions, but if you would rather implement them in another way, you are free to do so as long as the result is the same. Further, the following section will provide detailed instructions on how to use list comprehensions and how to implement the desired functions. If you are a python expert, feel free to skip the python hints and move to implementing the routines directly.</p>
+<p>Python List Comprehensions embed a looping structure inside of a list declaration, collapsing many lines of code into a single line. If you are not familiar with them, they seem slightly out of order relative to for loops. </p>
+<div style="width:image width px; font-size:100%; text-align:center;"><img src="GenericListComp3.png" alt="alternate text" width="width" height="height" style="width:800px;height:400px;"> Figure 2 </div>
+
+<p>The diagram above shows that the components of a list comprehension are the same components you would find in a typical for loop that appends to a list, but in a different order. With that in mind, we’ll continue the specifics of this assignment. We will be very descriptive for the first function, <code>deletes()</code>, and less so in later functions as you become familiar with list comprehensions.</p>
+<p><a name="ex-4"></a></p>
+<h3 id="Exercise-4"><a href="#Exercise-4" class="headerlink" title="Exercise 4"></a>Exercise 4</h3><p><strong>Instructions for delete_letter():</strong> Implement a <code>delete_letter()</code> function that, given a word, returns a list of strings with one character deleted. </p>
+<p>For example, given the word <strong>nice</strong>, it would return the set: {‘ice’, ‘nce’, ‘nic’, ‘nie’}. </p>
+<p><strong>Step 1:</strong> Create a list of ‘splits’. This is all the ways you can split a word into Left and Right: For example,<br>‘nice is split into : <code>[(&#39;&#39;, &#39;nice&#39;), (&#39;n&#39;, &#39;ice&#39;), (&#39;ni&#39;, &#39;ce&#39;), (&#39;nic&#39;, &#39;e&#39;), (&#39;nice&#39;, &#39;&#39;)]</code><br>This is common to all four functions (delete, replace, switch, insert).</p>
+<div style="width:image width px; font-size:100%; text-align:center;"><img src="Splits1.png" alt="alternate text" width="width" height="height" style="width:650px;height:200px;"> Figure 3 </div>
+
+<p><strong>Step 2:</strong> This is specific to <code>delete_letter</code>. Here, we are generating all words that result from deleting one character.<br>This can be done in a single line with a list comprehension. You can makes use of this type of syntax:<br><code>[f(a,b) for a, b in splits if condition]</code>  </p>
+<p>For our ‘nice’ example you get:<br>[‘ice’, ‘nce’, ‘nie’, ‘nic’]</p>
+<div style="width:image width px; font-size:100%; text-align:center;"><img src="ListComp2.png" alt="alternate text" width="width" height="height" style="width:550px;height:300px;"> Figure 4 </div>
+
+<h4 id="Levels-of-assistance"><a href="#Levels-of-assistance" class="headerlink" title="Levels of assistance"></a>Levels of assistance</h4><p>Try this exercise with these levels of assistance.  </p>
+<ul>
+<li>We hope that this will make it both a meaningful experience but also not a frustrating experience. </li>
+<li><p>Start with level 1, then move onto level 2, and 3 as needed.</p>
+<ul>
+<li>Level 1. Try to think this through and implement this yourself.</li>
+<li>Level 2. Click on the “Level 2 Hints” section for some hints to get started.</li>
+<li>Level 3. If you would prefer more guidance, please click on the “Level 3 Hints” cell for step by step instructions.</li>
+</ul>
+</li>
+<li><p>If you are still stuck, look at the images in the “list comprehensions” section above.</p>
+</li>
+</ul>
+<p><details>    </details></p>
+<p><summary>
+    <font size="3" color="darkgreen"><b>Level 2 Hints</b></font>
+</summary></p>
+<p>
+<ul>
+    <li><a href> Use array slicing like my_string[0:2] </a> </li>
+    <li><a href> Use list comprehensions or for loops </a> </li>
+</ul>
+</p>
+
+
+<p><details>    </details></p>
+<p><summary>
+    <font size="3" color="darkgreen"><b>Level 3 Hints</b></font>
+</summary></p>
+<p>
+<ul>
+    <li>splits: Use array slicing, like my_str[0:2], to separate a string into two pieces.</li>
+    <li>Do this in a loop or list comprehension, so that you have a list of tuples.
+    </li><li> For example, "cake" can get split into "ca" and "ke". They're stored in a tuple ("ca","ke"), and the tuple is appended to a list.  We'll refer to these as L and R, so the tuple is (L,R)</li>
+    <li>When choosing the range for your loop, if you input the word "cans" and generate the tuple  ('cans',''), make sure to include an if statement to check the length of that right-side string (R) in the tuple (L,R) </li>
+    <li>deletes: Go through the list of tuples and combine the two strings together. You can use the + operator to combine two strings</li>
+    <li>When combining the tuples, make sure that you leave out a middle character.</li>
+    <li>Use array slicing to leave out the first character of the right substring.</li>
+</ul>
+</p>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C4 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="comment"># UNIT TEST COMMENT: Candidate for Table Driven Tests</span></span><br><span class="line"><span class="comment"># GRADED FUNCTION: deletes</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delete_letter</span><span class="params">(word, verbose=False)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    Input:</span></span><br><span class="line"><span class="string">        word: the string/word for which you will generate all possible words </span></span><br><span class="line"><span class="string">                in the vocabulary which have 1 missing character</span></span><br><span class="line"><span class="string">    Output:</span></span><br><span class="line"><span class="string">        delete_l: a list of all possible strings obtained by deleting 1 character from word</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    </span><br><span class="line">    delete_l = []</span><br><span class="line">    split_l = []</span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line">    split_l = [(word[:i],word[i:]) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(word) + <span class="number">1</span>)]</span><br><span class="line">    delete_l = [L + R[<span class="number">1</span>:] <span class="keyword">for</span> L,R <span class="keyword">in</span> split_l <span class="keyword">if</span> R]</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> verbose: print(<span class="string">f"input word <span class="subst">&#123;word&#125;</span>, \nsplit_l = <span class="subst">&#123;split_l&#125;</span>, \ndelete_l = <span class="subst">&#123;delete_l&#125;</span>"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> delete_l</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">delete_word_l = delete_letter(word=<span class="string">"cans"</span>,</span><br><span class="line">                        verbose=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>input word cans, 
+split_l = [(&#39;&#39;, &#39;cans&#39;), (&#39;c&#39;, &#39;ans&#39;), (&#39;ca&#39;, &#39;ns&#39;), (&#39;can&#39;, &#39;s&#39;), (&#39;cans&#39;, &#39;&#39;)], 
+delete_l = [&#39;ans&#39;, &#39;cns&#39;, &#39;cas&#39;, &#39;can&#39;]
+</code></pre><h4 id="Expected-Output-3"><a href="#Expected-Output-3" class="headerlink" title="Expected Output"></a>Expected Output</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">input word cans, </span><br><span class="line">split_l = [(<span class="string">''</span>, <span class="string">'cans'</span>), (<span class="string">'c'</span>, <span class="string">'ans'</span>), (<span class="string">'ca'</span>, <span class="string">'ns'</span>), (<span class="string">'can'</span>, <span class="string">'s'</span>)], </span><br><span class="line">delete_l = [<span class="string">'ans'</span>, <span class="string">'cns'</span>, <span class="string">'cas'</span>, <span class="string">'can'</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="Note-1"><a href="#Note-1" class="headerlink" title="Note 1"></a>Note 1</h4><p>You might get a slightly different result with split_l.  </p>
+<ul>
+<li>Notice how it has the extra tuple <code>(&#39;cans&#39;, &#39;&#39;)</code>.</li>
+<li>This will be fine as long as you have checked the size of the right-side substring in tuple (L,R).</li>
+<li>Can you explain why this will give you the same result for the list of deletion strings (delete_l)?</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">input word cans, </span><br><span class="line">split_l = [(<span class="string">''</span>, <span class="string">'cans'</span>), (<span class="string">'c'</span>, <span class="string">'ans'</span>), (<span class="string">'ca'</span>, <span class="string">'ns'</span>), (<span class="string">'can'</span>, <span class="string">'s'</span>), (<span class="string">'cans'</span>, <span class="string">''</span>)], </span><br><span class="line">delete_l = [<span class="string">'ans'</span>, <span class="string">'cns'</span>, <span class="string">'cas'</span>, <span class="string">'can'</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="Note-2"><a href="#Note-2" class="headerlink" title="Note 2"></a>Note 2</h4><p>If you end up getting the same word as your input word, like this:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">input word cans, </span><br><span class="line">split_l = [(<span class="string">''</span>, <span class="string">'cans'</span>), (<span class="string">'c'</span>, <span class="string">'ans'</span>), (<span class="string">'ca'</span>, <span class="string">'ns'</span>), (<span class="string">'can'</span>, <span class="string">'s'</span>), (<span class="string">'cans'</span>, <span class="string">''</span>)], </span><br><span class="line">delete_l = [<span class="string">'ans'</span>, <span class="string">'cns'</span>, <span class="string">'cas'</span>, <span class="string">'can'</span>, <span class="string">'cans'</span>]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Check how you set the <code>range</code>.</li>
+<li>See if you check the length of the string on the right-side of the split.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test # 2</span></span><br><span class="line">print(<span class="string">f"Number of outputs of delete_letter('at') is <span class="subst">&#123;len(delete_letter(<span class="string">'at'</span>))&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Number of outputs of delete_letter(&#39;at&#39;) is 2
+</code></pre><h4 id="Expected-output"><a href="#Expected-output" class="headerlink" title="Expected output"></a>Expected output</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number of outputs of delete_letter('at') is 2</span><br></pre></td></tr></table></figure>
+<p><a name="ex-5"></a></p>
+<h3 id="Exercise-5"><a href="#Exercise-5" class="headerlink" title="Exercise 5"></a>Exercise 5</h3><p><strong>Instructions for switch_letter()</strong>: Now implement a function that switches two letters in a word. It takes in a word and returns a list of all the possible switches of two letters <strong>that are adjacent to each other</strong>. </p>
+<ul>
+<li>For example, given the word ‘eta’, it returns {‘eat’, ‘tea’}, but does not return ‘ate’.</li>
+</ul>
+<p><strong>Step 1:</strong> is the same as in delete_letter()<br><strong>Step 2:</strong> A list comprehension or for loop which forms strings by swapping adjacent letters. This is of the form:<br><code>[f(L,R) for L, R in splits if condition]</code>  where ‘condition’ will test the length of R in a given iteration. See below.</p>
+<div style="width:image width px; font-size:100%; text-align:center;"><img src="Switches1.png" alt="alternate text" width="width" height="height" style="width:600px;height:200px;"> Figure 5 </div>      
+
+<h4 id="Levels-of-difficulty"><a href="#Levels-of-difficulty" class="headerlink" title="Levels of difficulty"></a>Levels of difficulty</h4><p>Try this exercise with these levels of difficulty.  </p>
+<ul>
+<li>Level 1. Try to think this through and implement this yourself.</li>
+<li>Level 2. Click on the “Level 2 Hints” section for some hints to get started.</li>
+<li>Level 3. If you would prefer more guidance, please click on the “Level 3 Hints” cell for step by step instructions.</li>
+</ul>
+<p><details>    </details></p>
+<p><summary>
+    <font size="3" color="darkgreen"><b>Level 2 Hints</b></font>
+</summary></p>
+<p>
+<ul>
+    <li><a href> Use array slicing like my_string[0:2] </a> </li>
+    <li><a href> Use list comprehensions or for loops </a> </li>
+    <li>To do a switch, think of the whole word as divided into 4 distinct parts.  Write out 'cupcakes' on a piece of paper and see how you can split it into ('cupc', 'k', 'a', 'es')</li>
+</ul>
+</p>
+
+
+<p><details>    </details></p>
+<p><summary>
+    <font size="3" color="darkgreen"><b>Level 3 Hints</b></font>
+</summary></p>
+<p>
+<ul>
+    <li>splits: Use array slicing, like my_str[0:2], to separate a string into two pieces.</li>
+    <li>Splitting is the same as for delete_letter</li>
+    <li>To perform the switch, go through the list of tuples and combine four strings together. You can use the + operator to combine strings</li>
+    <li>The four strings will be the left substring from the split tuple, followed by the first (index 1) character of the right substring, then the zero-th character (index 0) of the right substring, and then the remaining part of the right substring.</li>
+    <li>Unlike delete_letter, you will want to check that your right substring is at least a minimum length.  To see why, review the previous hint bullet point (directly before this one).</li>
+</ul>
+</p>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C5 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="comment"># UNIT TEST COMMENT: Candidate for Table Driven Tests</span></span><br><span class="line"><span class="comment"># GRADED FUNCTION: switches</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">switch_letter</span><span class="params">(word, verbose=False)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    Input:</span></span><br><span class="line"><span class="string">        word: input string</span></span><br><span class="line"><span class="string">     Output:</span></span><br><span class="line"><span class="string">        switches: a list of all possible strings with one adjacent charater switched</span></span><br><span class="line"><span class="string">    '''</span> </span><br><span class="line">    </span><br><span class="line">    switch_l = []</span><br><span class="line">    split_l = []</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(L,R)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> L[:<span class="number">-1</span>] + R[<span class="number">0</span>] + L[<span class="number">-1</span>] + R[<span class="number">1</span>:]</span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line">    split_l = [(word[:i],word[i:]) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(word) + <span class="number">1</span>)]</span><br><span class="line">    switch_l = [f(L,R) <span class="keyword">for</span> L,R <span class="keyword">in</span> split_l <span class="keyword">if</span> L <span class="keyword">and</span> R]</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> verbose: print(<span class="string">f"Input word = <span class="subst">&#123;word&#125;</span> \nsplit_l = <span class="subst">&#123;split_l&#125;</span> \nswitch_l = <span class="subst">&#123;switch_l&#125;</span>"</span>) </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> switch_l</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">switch_word_l = switch_letter(word=<span class="string">"eta"</span>,</span><br><span class="line">                         verbose=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Input word = eta 
+split_l = [(&#39;&#39;, &#39;eta&#39;), (&#39;e&#39;, &#39;ta&#39;), (&#39;et&#39;, &#39;a&#39;), (&#39;eta&#39;, &#39;&#39;)] 
+switch_l = [&#39;tea&#39;, &#39;eat&#39;]
+</code></pre><h4 id="Expected-output-1"><a href="#Expected-output-1" class="headerlink" title="Expected output"></a>Expected output</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input word = eta </span><br><span class="line">split_l = [(<span class="string">''</span>, <span class="string">'eta'</span>), (<span class="string">'e'</span>, <span class="string">'ta'</span>), (<span class="string">'et'</span>, <span class="string">'a'</span>)] </span><br><span class="line">switch_l = [<span class="string">'tea'</span>, <span class="string">'eat'</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="Note-1-1"><a href="#Note-1-1" class="headerlink" title="Note 1"></a>Note 1</h4><p>You may get this:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input word = eta </span><br><span class="line">split_l = [(<span class="string">''</span>, <span class="string">'eta'</span>), (<span class="string">'e'</span>, <span class="string">'ta'</span>), (<span class="string">'et'</span>, <span class="string">'a'</span>), (<span class="string">'eta'</span>, <span class="string">''</span>)] </span><br><span class="line">switch_l = [<span class="string">'tea'</span>, <span class="string">'eat'</span>]</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>Notice how it has the extra tuple <code>(&#39;eta&#39;, &#39;&#39;)</code>.</li>
+<li>This is also correct.</li>
+<li>Can you think of why this is the case?</li>
+</ul>
+<h4 id="Note-2-1"><a href="#Note-2-1" class="headerlink" title="Note 2"></a>Note 2</h4><p>If you get an error<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IndexError: string index out of range</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>Please see if you have checked the length of the strings when switching characters.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test # 2</span></span><br><span class="line">print(<span class="string">f"Number of outputs of switch_letter('at') is <span class="subst">&#123;len(switch_letter(<span class="string">'at'</span>))&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Number of outputs of switch_letter(&#39;at&#39;) is 1
+</code></pre><h4 id="Expected-output-2"><a href="#Expected-output-2" class="headerlink" title="Expected output"></a>Expected output</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number of outputs of switch_letter('at') is 1</span><br></pre></td></tr></table></figure>
+<p><a name="ex-6"></a></p>
+<h3 id="Exercise-6"><a href="#Exercise-6" class="headerlink" title="Exercise 6"></a>Exercise 6</h3><p><strong>Instructions for replace_letter()</strong>: Now implement a function that takes in a word and returns a list of strings with one <strong>replaced letter</strong> from the original word. </p>
+<p><strong>Step 1:</strong> is the same as in <code>delete_letter()</code></p>
+<p><strong>Step 2:</strong> A list comprehension or for loop which form strings by replacing letters.  This can be of the form:<br><code>[f(a,b,c) for a, b in splits if condition for c in string]</code>   Note the use of the second for loop.<br>It is expected in this routine that one or more of the replacements will include the original word. For example, replacing the first letter of ‘ear’ with ‘e’ will return ‘ear’.</p>
+<p><strong>Step 3:</strong> Remove the original input letter from the output.</p>
+<p><details>    </details></p>
+<p><summary>
+    <font size="3" color="darkgreen"><b>Hints</b></font>
+</summary></p>
+<p>
+<ul>
+    <li>To remove a word from a list, first store its contents inside a set()</li>
+    <li>Use set.discard('the_word') to remove a word in a set (if the word does not exist in the set, then it will not throw a KeyError.  Using set.remove('the_word') throws a KeyError if the word does not exist in the set. </li>
+</ul>
+</p>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C6 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="comment"># UNIT TEST COMMENT: Candidate for Table Driven Tests</span></span><br><span class="line"><span class="comment"># GRADED FUNCTION: replaces</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">replace_letter</span><span class="params">(word, verbose=False)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    Input:</span></span><br><span class="line"><span class="string">        word: the input string/word </span></span><br><span class="line"><span class="string">    Output:</span></span><br><span class="line"><span class="string">        replaces: a list of all possible strings where we replaced one letter from the original word. </span></span><br><span class="line"><span class="string">    '''</span> </span><br><span class="line">    </span><br><span class="line">    letters = <span class="string">'abcdefghijklmnopqrstuvwxyz'</span></span><br><span class="line">    replace_l = []</span><br><span class="line">    split_l = []</span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line">    split_l = [(word[:i],word[i:]) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(word) + <span class="number">1</span>)]</span><br><span class="line">    replace_set = [L + C + R[<span class="number">1</span>:] <span class="keyword">for</span> L,R <span class="keyword">in</span> split_l <span class="keyword">if</span> R <span class="keyword">for</span> C <span class="keyword">in</span> letters <span class="keyword">if</span> C <span class="keyword">is</span> <span class="keyword">not</span> R[<span class="number">0</span>]]</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># turn the set back into a list and sort it, for easier viewing</span></span><br><span class="line">    replace_l = sorted(list(replace_set))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> verbose: print(<span class="string">f"Input word = <span class="subst">&#123;word&#125;</span> \nsplit_l = <span class="subst">&#123;split_l&#125;</span> \nreplace_l <span class="subst">&#123;replace_l&#125;</span>"</span>)   </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> replace_l</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">replace_l = replace_letter(word=<span class="string">'can'</span>,</span><br><span class="line">                              verbose=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Input word = can 
+split_l = [(&#39;&#39;, &#39;can&#39;), (&#39;c&#39;, &#39;an&#39;), (&#39;ca&#39;, &#39;n&#39;), (&#39;can&#39;, &#39;&#39;)] 
+replace_l [&#39;aan&#39;, &#39;ban&#39;, &#39;caa&#39;, &#39;cab&#39;, &#39;cac&#39;, &#39;cad&#39;, &#39;cae&#39;, &#39;caf&#39;, &#39;cag&#39;, &#39;cah&#39;, &#39;cai&#39;, &#39;caj&#39;, &#39;cak&#39;, &#39;cal&#39;, &#39;cam&#39;, &#39;cao&#39;, &#39;cap&#39;, &#39;caq&#39;, &#39;car&#39;, &#39;cas&#39;, &#39;cat&#39;, &#39;cau&#39;, &#39;cav&#39;, &#39;caw&#39;, &#39;cax&#39;, &#39;cay&#39;, &#39;caz&#39;, &#39;cbn&#39;, &#39;ccn&#39;, &#39;cdn&#39;, &#39;cen&#39;, &#39;cfn&#39;, &#39;cgn&#39;, &#39;chn&#39;, &#39;cin&#39;, &#39;cjn&#39;, &#39;ckn&#39;, &#39;cln&#39;, &#39;cmn&#39;, &#39;cnn&#39;, &#39;con&#39;, &#39;cpn&#39;, &#39;cqn&#39;, &#39;crn&#39;, &#39;csn&#39;, &#39;ctn&#39;, &#39;cun&#39;, &#39;cvn&#39;, &#39;cwn&#39;, &#39;cxn&#39;, &#39;cyn&#39;, &#39;czn&#39;, &#39;dan&#39;, &#39;ean&#39;, &#39;fan&#39;, &#39;gan&#39;, &#39;han&#39;, &#39;ian&#39;, &#39;jan&#39;, &#39;kan&#39;, &#39;lan&#39;, &#39;man&#39;, &#39;nan&#39;, &#39;oan&#39;, &#39;pan&#39;, &#39;qan&#39;, &#39;ran&#39;, &#39;san&#39;, &#39;tan&#39;, &#39;uan&#39;, &#39;van&#39;, &#39;wan&#39;, &#39;xan&#39;, &#39;yan&#39;, &#39;zan&#39;]
+</code></pre><h4 id="Expected-Output-4"><a href="#Expected-Output-4" class="headerlink" title="Expected Output**:"></a>Expected Output**:</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input word = can </span><br><span class="line">split_l = [(<span class="string">''</span>, <span class="string">'can'</span>), (<span class="string">'c'</span>, <span class="string">'an'</span>), (<span class="string">'ca'</span>, <span class="string">'n'</span>)] </span><br><span class="line">replace_l [<span class="string">'aan'</span>, <span class="string">'ban'</span>, <span class="string">'caa'</span>, <span class="string">'cab'</span>, <span class="string">'cac'</span>, <span class="string">'cad'</span>, <span class="string">'cae'</span>, <span class="string">'caf'</span>, <span class="string">'cag'</span>, <span class="string">'cah'</span>, <span class="string">'cai'</span>, <span class="string">'caj'</span>, <span class="string">'cak'</span>, <span class="string">'cal'</span>, <span class="string">'cam'</span>, <span class="string">'cao'</span>, <span class="string">'cap'</span>, <span class="string">'caq'</span>, <span class="string">'car'</span>, <span class="string">'cas'</span>, <span class="string">'cat'</span>, <span class="string">'cau'</span>, <span class="string">'cav'</span>, <span class="string">'caw'</span>, <span class="string">'cax'</span>, <span class="string">'cay'</span>, <span class="string">'caz'</span>, <span class="string">'cbn'</span>, <span class="string">'ccn'</span>, <span class="string">'cdn'</span>, <span class="string">'cen'</span>, <span class="string">'cfn'</span>, <span class="string">'cgn'</span>, <span class="string">'chn'</span>, <span class="string">'cin'</span>, <span class="string">'cjn'</span>, <span class="string">'ckn'</span>, <span class="string">'cln'</span>, <span class="string">'cmn'</span>, <span class="string">'cnn'</span>, <span class="string">'con'</span>, <span class="string">'cpn'</span>, <span class="string">'cqn'</span>, <span class="string">'crn'</span>, <span class="string">'csn'</span>, <span class="string">'ctn'</span>, <span class="string">'cun'</span>, <span class="string">'cvn'</span>, <span class="string">'cwn'</span>, <span class="string">'cxn'</span>, <span class="string">'cyn'</span>, <span class="string">'czn'</span>, <span class="string">'dan'</span>, <span class="string">'ean'</span>, <span class="string">'fan'</span>, <span class="string">'gan'</span>, <span class="string">'han'</span>, <span class="string">'ian'</span>, <span class="string">'jan'</span>, <span class="string">'kan'</span>, <span class="string">'lan'</span>, <span class="string">'man'</span>, <span class="string">'nan'</span>, <span class="string">'oan'</span>, <span class="string">'pan'</span>, <span class="string">'qan'</span>, <span class="string">'ran'</span>, <span class="string">'san'</span>, <span class="string">'tan'</span>, <span class="string">'uan'</span>, <span class="string">'van'</span>, <span class="string">'wan'</span>, <span class="string">'xan'</span>, <span class="string">'yan'</span>, <span class="string">'zan'</span>]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Note how the input word ‘can’ should not be one of the output words.</li>
+</ul>
+<h4 id="Note-1-2"><a href="#Note-1-2" class="headerlink" title="Note 1"></a>Note 1</h4><p>If you get something like this:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input word = can </span><br><span class="line">split_l = [(<span class="string">''</span>, <span class="string">'can'</span>), (<span class="string">'c'</span>, <span class="string">'an'</span>), (<span class="string">'ca'</span>, <span class="string">'n'</span>), (<span class="string">'can'</span>, <span class="string">''</span>)] </span><br><span class="line">replace_l [<span class="string">'aan'</span>, <span class="string">'ban'</span>, <span class="string">'caa'</span>, <span class="string">'cab'</span>, <span class="string">'cac'</span>, <span class="string">'cad'</span>, <span class="string">'cae'</span>, <span class="string">'caf'</span>, <span class="string">'cag'</span>, <span class="string">'cah'</span>, <span class="string">'cai'</span>, <span class="string">'caj'</span>, <span class="string">'cak'</span>, <span class="string">'cal'</span>, <span class="string">'cam'</span>, <span class="string">'cao'</span>, <span class="string">'cap'</span>, <span class="string">'caq'</span>, <span class="string">'car'</span>, <span class="string">'cas'</span>, <span class="string">'cat'</span>, <span class="string">'cau'</span>, <span class="string">'cav'</span>, <span class="string">'caw'</span>, <span class="string">'cax'</span>, <span class="string">'cay'</span>, <span class="string">'caz'</span>, <span class="string">'cbn'</span>, <span class="string">'ccn'</span>, <span class="string">'cdn'</span>, <span class="string">'cen'</span>, <span class="string">'cfn'</span>, <span class="string">'cgn'</span>, <span class="string">'chn'</span>, <span class="string">'cin'</span>, <span class="string">'cjn'</span>, <span class="string">'ckn'</span>, <span class="string">'cln'</span>, <span class="string">'cmn'</span>, <span class="string">'cnn'</span>, <span class="string">'con'</span>, <span class="string">'cpn'</span>, <span class="string">'cqn'</span>, <span class="string">'crn'</span>, <span class="string">'csn'</span>, <span class="string">'ctn'</span>, <span class="string">'cun'</span>, <span class="string">'cvn'</span>, <span class="string">'cwn'</span>, <span class="string">'cxn'</span>, <span class="string">'cyn'</span>, <span class="string">'czn'</span>, <span class="string">'dan'</span>, <span class="string">'ean'</span>, <span class="string">'fan'</span>, <span class="string">'gan'</span>, <span class="string">'han'</span>, <span class="string">'ian'</span>, <span class="string">'jan'</span>, <span class="string">'kan'</span>, <span class="string">'lan'</span>, <span class="string">'man'</span>, <span class="string">'nan'</span>, <span class="string">'oan'</span>, <span class="string">'pan'</span>, <span class="string">'qan'</span>, <span class="string">'ran'</span>, <span class="string">'san'</span>, <span class="string">'tan'</span>, <span class="string">'uan'</span>, <span class="string">'van'</span>, <span class="string">'wan'</span>, <span class="string">'xan'</span>, <span class="string">'yan'</span>, <span class="string">'zan'</span>]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Notice how split_l has an extra tuple <code>(&#39;can&#39;, &#39;&#39;)</code>, but the output is still the same, so this is okay.</li>
+</ul>
+<h4 id="Note-2-2"><a href="#Note-2-2" class="headerlink" title="Note 2"></a>Note 2</h4><p>If you get something like this:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input word = can </span><br><span class="line">split_l = [(<span class="string">''</span>, <span class="string">'can'</span>), (<span class="string">'c'</span>, <span class="string">'an'</span>), (<span class="string">'ca'</span>, <span class="string">'n'</span>), (<span class="string">'can'</span>, <span class="string">''</span>)] </span><br><span class="line">replace_l [<span class="string">'aan'</span>, <span class="string">'ban'</span>, <span class="string">'caa'</span>, <span class="string">'cab'</span>, <span class="string">'cac'</span>, <span class="string">'cad'</span>, <span class="string">'cae'</span>, <span class="string">'caf'</span>, <span class="string">'cag'</span>, <span class="string">'cah'</span>, <span class="string">'cai'</span>, <span class="string">'caj'</span>, <span class="string">'cak'</span>, <span class="string">'cal'</span>, <span class="string">'cam'</span>, <span class="string">'cana'</span>, <span class="string">'canb'</span>, <span class="string">'canc'</span>, <span class="string">'cand'</span>, <span class="string">'cane'</span>, <span class="string">'canf'</span>, <span class="string">'cang'</span>, <span class="string">'canh'</span>, <span class="string">'cani'</span>, <span class="string">'canj'</span>, <span class="string">'cank'</span>, <span class="string">'canl'</span>, <span class="string">'canm'</span>, <span class="string">'cann'</span>, <span class="string">'cano'</span>, <span class="string">'canp'</span>, <span class="string">'canq'</span>, <span class="string">'canr'</span>, <span class="string">'cans'</span>, <span class="string">'cant'</span>, <span class="string">'canu'</span>, <span class="string">'canv'</span>, <span class="string">'canw'</span>, <span class="string">'canx'</span>, <span class="string">'cany'</span>, <span class="string">'canz'</span>, <span class="string">'cao'</span>, <span class="string">'cap'</span>, <span class="string">'caq'</span>, <span class="string">'car'</span>, <span class="string">'cas'</span>, <span class="string">'cat'</span>, <span class="string">'cau'</span>, <span class="string">'cav'</span>, <span class="string">'caw'</span>, <span class="string">'cax'</span>, <span class="string">'cay'</span>, <span class="string">'caz'</span>, <span class="string">'cbn'</span>, <span class="string">'ccn'</span>, <span class="string">'cdn'</span>, <span class="string">'cen'</span>, <span class="string">'cfn'</span>, <span class="string">'cgn'</span>, <span class="string">'chn'</span>, <span class="string">'cin'</span>, <span class="string">'cjn'</span>, <span class="string">'ckn'</span>, <span class="string">'cln'</span>, <span class="string">'cmn'</span>, <span class="string">'cnn'</span>, <span class="string">'con'</span>, <span class="string">'cpn'</span>, <span class="string">'cqn'</span>, <span class="string">'crn'</span>, <span class="string">'csn'</span>, <span class="string">'ctn'</span>, <span class="string">'cun'</span>, <span class="string">'cvn'</span>, <span class="string">'cwn'</span>, <span class="string">'cxn'</span>, <span class="string">'cyn'</span>, <span class="string">'czn'</span>, <span class="string">'dan'</span>, <span class="string">'ean'</span>, <span class="string">'fan'</span>, <span class="string">'gan'</span>, <span class="string">'han'</span>, <span class="string">'ian'</span>, <span class="string">'jan'</span>, <span class="string">'kan'</span>, <span class="string">'lan'</span>, <span class="string">'man'</span>, <span class="string">'nan'</span>, <span class="string">'oan'</span>, <span class="string">'pan'</span>, <span class="string">'qan'</span>, <span class="string">'ran'</span>, <span class="string">'san'</span>, <span class="string">'tan'</span>, <span class="string">'uan'</span>, <span class="string">'van'</span>, <span class="string">'wan'</span>, <span class="string">'xan'</span>, <span class="string">'yan'</span>, <span class="string">'zan'</span>]</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>Notice how there are strings that are 1 letter longer than the original word, such as <code>cana</code>.</li>
+<li>Please check for the case when there is an empty string <code>&#39;&#39;</code>, and if so, do not use that empty string when setting replace_l.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test # 2</span></span><br><span class="line">print(<span class="string">f"Number of outputs of switch_letter('at') is <span class="subst">&#123;len(switch_letter(<span class="string">'at'</span>))&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Number of outputs of switch_letter(&#39;at&#39;) is 1
+</code></pre><h4 id="Expected-output-3"><a href="#Expected-output-3" class="headerlink" title="Expected output"></a>Expected output</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number of outputs of switch_letter('at') is 1</span><br></pre></td></tr></table></figure>
+<p><a name="ex-7"></a></p>
+<h3 id="Exercise-7"><a href="#Exercise-7" class="headerlink" title="Exercise 7"></a>Exercise 7</h3><p><strong>Instructions for insert_letter()</strong>: Now implement a function that takes in a word and returns a list with a letter inserted at every offset.</p>
+<p><strong>Step 1:</strong> is the same as in <code>delete_letter()</code></p>
+<p><strong>Step 2:</strong> This can be a list comprehension of the form:<br><code>[f(a,b,c) for a, b in splits if condition for c in string]</code>   </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C7 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="comment"># UNIT TEST COMMENT: Candidate for Table Driven Tests</span></span><br><span class="line"><span class="comment"># GRADED FUNCTION: inserts</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_letter</span><span class="params">(word, verbose=False)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    Input:</span></span><br><span class="line"><span class="string">        word: the input string/word </span></span><br><span class="line"><span class="string">    Output:</span></span><br><span class="line"><span class="string">        inserts: a set of all possible strings with one new letter inserted at every offset</span></span><br><span class="line"><span class="string">    '''</span> </span><br><span class="line">    letters = <span class="string">'abcdefghijklmnopqrstuvwxyz'</span></span><br><span class="line">    insert_l = []</span><br><span class="line">    split_l = []</span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line">    split_l = [(word[:i],word[i:]) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(word) + <span class="number">1</span>)]</span><br><span class="line">    insert_l = [L + C + R <span class="keyword">for</span> L, R <span class="keyword">in</span> split_l <span class="keyword">for</span> C <span class="keyword">in</span> letters]</span><br><span class="line"></span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> verbose: print(<span class="string">f"Input word <span class="subst">&#123;word&#125;</span> \nsplit_l = <span class="subst">&#123;split_l&#125;</span> \ninsert_l = <span class="subst">&#123;insert_l&#125;</span>"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> insert_l</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">insert_l = insert_letter(<span class="string">'at'</span>, <span class="keyword">True</span>)</span><br><span class="line">print(<span class="string">f"Number of strings output by insert_letter('at') is <span class="subst">&#123;len(insert_l)&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Input word at 
+split_l = [(&#39;&#39;, &#39;at&#39;), (&#39;a&#39;, &#39;t&#39;), (&#39;at&#39;, &#39;&#39;)] 
+insert_l = [&#39;aat&#39;, &#39;bat&#39;, &#39;cat&#39;, &#39;dat&#39;, &#39;eat&#39;, &#39;fat&#39;, &#39;gat&#39;, &#39;hat&#39;, &#39;iat&#39;, &#39;jat&#39;, &#39;kat&#39;, &#39;lat&#39;, &#39;mat&#39;, &#39;nat&#39;, &#39;oat&#39;, &#39;pat&#39;, &#39;qat&#39;, &#39;rat&#39;, &#39;sat&#39;, &#39;tat&#39;, &#39;uat&#39;, &#39;vat&#39;, &#39;wat&#39;, &#39;xat&#39;, &#39;yat&#39;, &#39;zat&#39;, &#39;aat&#39;, &#39;abt&#39;, &#39;act&#39;, &#39;adt&#39;, &#39;aet&#39;, &#39;aft&#39;, &#39;agt&#39;, &#39;aht&#39;, &#39;ait&#39;, &#39;ajt&#39;, &#39;akt&#39;, &#39;alt&#39;, &#39;amt&#39;, &#39;ant&#39;, &#39;aot&#39;, &#39;apt&#39;, &#39;aqt&#39;, &#39;art&#39;, &#39;ast&#39;, &#39;att&#39;, &#39;aut&#39;, &#39;avt&#39;, &#39;awt&#39;, &#39;axt&#39;, &#39;ayt&#39;, &#39;azt&#39;, &#39;ata&#39;, &#39;atb&#39;, &#39;atc&#39;, &#39;atd&#39;, &#39;ate&#39;, &#39;atf&#39;, &#39;atg&#39;, &#39;ath&#39;, &#39;ati&#39;, &#39;atj&#39;, &#39;atk&#39;, &#39;atl&#39;, &#39;atm&#39;, &#39;atn&#39;, &#39;ato&#39;, &#39;atp&#39;, &#39;atq&#39;, &#39;atr&#39;, &#39;ats&#39;, &#39;att&#39;, &#39;atu&#39;, &#39;atv&#39;, &#39;atw&#39;, &#39;atx&#39;, &#39;aty&#39;, &#39;atz&#39;]
+Number of strings output by insert_letter(&#39;at&#39;) is 78
+</code></pre><h4 id="Expected-output-4"><a href="#Expected-output-4" class="headerlink" title="Expected output"></a>Expected output</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input word at </span><br><span class="line">split_l = [(<span class="string">''</span>, <span class="string">'at'</span>), (<span class="string">'a'</span>, <span class="string">'t'</span>), (<span class="string">'at'</span>, <span class="string">''</span>)] </span><br><span class="line">insert_l = [<span class="string">'aat'</span>, <span class="string">'bat'</span>, <span class="string">'cat'</span>, <span class="string">'dat'</span>, <span class="string">'eat'</span>, <span class="string">'fat'</span>, <span class="string">'gat'</span>, <span class="string">'hat'</span>, <span class="string">'iat'</span>, <span class="string">'jat'</span>, <span class="string">'kat'</span>, <span class="string">'lat'</span>, <span class="string">'mat'</span>, <span class="string">'nat'</span>, <span class="string">'oat'</span>, <span class="string">'pat'</span>, <span class="string">'qat'</span>, <span class="string">'rat'</span>, <span class="string">'sat'</span>, <span class="string">'tat'</span>, <span class="string">'uat'</span>, <span class="string">'vat'</span>, <span class="string">'wat'</span>, <span class="string">'xat'</span>, <span class="string">'yat'</span>, <span class="string">'zat'</span>, <span class="string">'aat'</span>, <span class="string">'abt'</span>, <span class="string">'act'</span>, <span class="string">'adt'</span>, <span class="string">'aet'</span>, <span class="string">'aft'</span>, <span class="string">'agt'</span>, <span class="string">'aht'</span>, <span class="string">'ait'</span>, <span class="string">'ajt'</span>, <span class="string">'akt'</span>, <span class="string">'alt'</span>, <span class="string">'amt'</span>, <span class="string">'ant'</span>, <span class="string">'aot'</span>, <span class="string">'apt'</span>, <span class="string">'aqt'</span>, <span class="string">'art'</span>, <span class="string">'ast'</span>, <span class="string">'att'</span>, <span class="string">'aut'</span>, <span class="string">'avt'</span>, <span class="string">'awt'</span>, <span class="string">'axt'</span>, <span class="string">'ayt'</span>, <span class="string">'azt'</span>, <span class="string">'ata'</span>, <span class="string">'atb'</span>, <span class="string">'atc'</span>, <span class="string">'atd'</span>, <span class="string">'ate'</span>, <span class="string">'atf'</span>, <span class="string">'atg'</span>, <span class="string">'ath'</span>, <span class="string">'ati'</span>, <span class="string">'atj'</span>, <span class="string">'atk'</span>, <span class="string">'atl'</span>, <span class="string">'atm'</span>, <span class="string">'atn'</span>, <span class="string">'ato'</span>, <span class="string">'atp'</span>, <span class="string">'atq'</span>, <span class="string">'atr'</span>, <span class="string">'ats'</span>, <span class="string">'att'</span>, <span class="string">'atu'</span>, <span class="string">'atv'</span>, <span class="string">'atw'</span>, <span class="string">'atx'</span>, <span class="string">'aty'</span>, <span class="string">'atz'</span>]</span><br><span class="line">Number of strings output by insert_letter(<span class="string">'at'</span>) <span class="keyword">is</span> <span class="number">78</span></span><br></pre></td></tr></table></figure>
+<h4 id="Note-1-3"><a href="#Note-1-3" class="headerlink" title="Note 1"></a>Note 1</h4><p>If you get a split_l like this:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input word at </span><br><span class="line">split_l = [(<span class="string">''</span>, <span class="string">'at'</span>), (<span class="string">'a'</span>, <span class="string">'t'</span>)] </span><br><span class="line">insert_l = [<span class="string">'aat'</span>, <span class="string">'bat'</span>, <span class="string">'cat'</span>, <span class="string">'dat'</span>, <span class="string">'eat'</span>, <span class="string">'fat'</span>, <span class="string">'gat'</span>, <span class="string">'hat'</span>, <span class="string">'iat'</span>, <span class="string">'jat'</span>, <span class="string">'kat'</span>, <span class="string">'lat'</span>, <span class="string">'mat'</span>, <span class="string">'nat'</span>, <span class="string">'oat'</span>, <span class="string">'pat'</span>, <span class="string">'qat'</span>, <span class="string">'rat'</span>, <span class="string">'sat'</span>, <span class="string">'tat'</span>, <span class="string">'uat'</span>, <span class="string">'vat'</span>, <span class="string">'wat'</span>, <span class="string">'xat'</span>, <span class="string">'yat'</span>, <span class="string">'zat'</span>, <span class="string">'aat'</span>, <span class="string">'abt'</span>, <span class="string">'act'</span>, <span class="string">'adt'</span>, <span class="string">'aet'</span>, <span class="string">'aft'</span>, <span class="string">'agt'</span>, <span class="string">'aht'</span>, <span class="string">'ait'</span>, <span class="string">'ajt'</span>, <span class="string">'akt'</span>, <span class="string">'alt'</span>, <span class="string">'amt'</span>, <span class="string">'ant'</span>, <span class="string">'aot'</span>, <span class="string">'apt'</span>, <span class="string">'aqt'</span>, <span class="string">'art'</span>, <span class="string">'ast'</span>, <span class="string">'att'</span>, <span class="string">'aut'</span>, <span class="string">'avt'</span>, <span class="string">'awt'</span>, <span class="string">'axt'</span>, <span class="string">'ayt'</span>, <span class="string">'azt'</span>]</span><br><span class="line">Number of strings output by insert_letter(<span class="string">'at'</span>) <span class="keyword">is</span> <span class="number">52</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>Notice that split_l is missing the extra tuple (‘at’, ‘’).  For insertion, we actually <strong>WANT</strong> this tuple.</li>
+<li>The function is not creating all the desired output strings.</li>
+<li>Check the range that you use for the for loop.</li>
+</ul>
+<h4 id="Note-2-3"><a href="#Note-2-3" class="headerlink" title="Note 2"></a>Note 2</h4><p>If you see this:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input word at </span><br><span class="line">split_l = [(<span class="string">''</span>, <span class="string">'at'</span>), (<span class="string">'a'</span>, <span class="string">'t'</span>), (<span class="string">'at'</span>, <span class="string">''</span>)] </span><br><span class="line">insert_l = [<span class="string">'aat'</span>, <span class="string">'bat'</span>, <span class="string">'cat'</span>, <span class="string">'dat'</span>, <span class="string">'eat'</span>, <span class="string">'fat'</span>, <span class="string">'gat'</span>, <span class="string">'hat'</span>, <span class="string">'iat'</span>, <span class="string">'jat'</span>, <span class="string">'kat'</span>, <span class="string">'lat'</span>, <span class="string">'mat'</span>, <span class="string">'nat'</span>, <span class="string">'oat'</span>, <span class="string">'pat'</span>, <span class="string">'qat'</span>, <span class="string">'rat'</span>, <span class="string">'sat'</span>, <span class="string">'tat'</span>, <span class="string">'uat'</span>, <span class="string">'vat'</span>, <span class="string">'wat'</span>, <span class="string">'xat'</span>, <span class="string">'yat'</span>, <span class="string">'zat'</span>, <span class="string">'aat'</span>, <span class="string">'abt'</span>, <span class="string">'act'</span>, <span class="string">'adt'</span>, <span class="string">'aet'</span>, <span class="string">'aft'</span>, <span class="string">'agt'</span>, <span class="string">'aht'</span>, <span class="string">'ait'</span>, <span class="string">'ajt'</span>, <span class="string">'akt'</span>, <span class="string">'alt'</span>, <span class="string">'amt'</span>, <span class="string">'ant'</span>, <span class="string">'aot'</span>, <span class="string">'apt'</span>, <span class="string">'aqt'</span>, <span class="string">'art'</span>, <span class="string">'ast'</span>, <span class="string">'att'</span>, <span class="string">'aut'</span>, <span class="string">'avt'</span>, <span class="string">'awt'</span>, <span class="string">'axt'</span>, <span class="string">'ayt'</span>, <span class="string">'azt'</span>]</span><br><span class="line">Number of strings output by insert_letter(<span class="string">'at'</span>) <span class="keyword">is</span> <span class="number">52</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>Even though you may have fixed the split_l so that it contains the tuple <code>(&#39;at&#39;, &#39;&#39;)</code>, notice that you’re still missing some output strings.<ul>
+<li>Notice that it’s missing strings such as ‘ata’, ‘atb’, ‘atc’ all the way to ‘atz’.</li>
+</ul>
+</li>
+<li>To fix this, make sure that when you set insert_l, you allow the use of the empty string <code>&#39;&#39;</code>.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test # 2</span></span><br><span class="line">print(<span class="string">f"Number of outputs of insert_letter('at') is <span class="subst">&#123;len(insert_letter(<span class="string">'at'</span>))&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Number of outputs of insert_letter(&#39;at&#39;) is 78
+</code></pre><h4 id="Expected-output-5"><a href="#Expected-output-5" class="headerlink" title="Expected output"></a>Expected output</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number of outputs of insert_letter('at') is 78</span><br></pre></td></tr></table></figure>
+<p><a name="3"></a></p>
+<h1 id="Part-3-Combining-the-edits"><a href="#Part-3-Combining-the-edits" class="headerlink" title="Part 3: Combining the edits"></a>Part 3: Combining the edits</h1><p>Now that you have implemented the string manipulations, you will create two functions that, given a string, will return all the possible single and double edits on that string. These will be <code>edit_one_letter()</code> and <code>edit_two_letters()</code>.</p>
+<p><a name="3-1"></a></p>
+<h2 id="3-1-Edit-one-letter"><a href="#3-1-Edit-one-letter" class="headerlink" title="3.1 Edit one letter"></a>3.1 Edit one letter</h2><p><a name="ex-8"></a></p>
+<h3 id="Exercise-8"><a href="#Exercise-8" class="headerlink" title="Exercise 8"></a>Exercise 8</h3><p><strong>Instructions</strong>: Implement the <code>edit_one_letter</code> function to get all the possible edits that are one edit away from a word. The edits  consist of the replace, insert, delete, and optionally the switch operation. You should use the previous functions you have already implemented to complete this function. The ‘switch’ function  is a less common edit function, so its use will be selected by an “allow_switches” input argument.</p>
+<p>Note that those functions return <em>lists</em> while this function should return a <em>python set</em>. Utilizing a set eliminates any duplicate entries.</p>
+<p><details>    </details></p>
+<p><summary>
+    <font size="3" color="darkgreen"><b>Hints</b></font>
+</summary></p>
+<p>
+<ul>
+    <li> Each of the functions returns a list.  You can combine lists using the `+` operator. </li>
+    <li> To get unique strings (avoid duplicates), you can use the set() function. </li>
+</ul>
+</p>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C8 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="comment"># UNIT TEST COMMENT: Candidate for Table Driven Tests</span></span><br><span class="line"><span class="comment"># GRADED FUNCTION: edit_one_letter</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">edit_one_letter</span><span class="params">(word, allow_switches = True)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Input:</span></span><br><span class="line"><span class="string">        word: the string/word for which we will generate all possible wordsthat are one edit away.</span></span><br><span class="line"><span class="string">    Output:</span></span><br><span class="line"><span class="string">        edit_one_set: a set of words with one possible edit. Please return a set. and not a list.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    edit_one_set = set()</span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line"></span><br><span class="line">    edit_one_set = edit_one_set | set(delete_letter(word)) | set(insert_letter(word)) | set(replace_letter(word))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> allow_switches:</span><br><span class="line">        edit_one_set |= set(switch_letter(word))</span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> edit_one_set</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tmp_word = <span class="string">"at"</span></span><br><span class="line">tmp_edit_one_set = edit_one_letter(tmp_word)</span><br><span class="line"><span class="comment"># turn this into a list to sort it, in order to view it</span></span><br><span class="line">tmp_edit_one_l = sorted(list(tmp_edit_one_set))</span><br><span class="line"></span><br><span class="line">print(<span class="string">f"input word <span class="subst">&#123;tmp_word&#125;</span> \nedit_one_l \n<span class="subst">&#123;tmp_edit_one_l&#125;</span>\n"</span>)</span><br><span class="line">print(<span class="string">f"The type of the returned object should be a set <span class="subst">&#123;type(tmp_edit_one_set)&#125;</span>"</span>)</span><br><span class="line">print(<span class="string">f"Number of outputs from edit_one_letter('at') is <span class="subst">&#123;len(edit_one_letter(<span class="string">'at'</span>))&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>input word at 
+edit_one_l 
+[&#39;a&#39;, &#39;aa&#39;, &#39;aat&#39;, &#39;ab&#39;, &#39;abt&#39;, &#39;ac&#39;, &#39;act&#39;, &#39;ad&#39;, &#39;adt&#39;, &#39;ae&#39;, &#39;aet&#39;, &#39;af&#39;, &#39;aft&#39;, &#39;ag&#39;, &#39;agt&#39;, &#39;ah&#39;, &#39;aht&#39;, &#39;ai&#39;, &#39;ait&#39;, &#39;aj&#39;, &#39;ajt&#39;, &#39;ak&#39;, &#39;akt&#39;, &#39;al&#39;, &#39;alt&#39;, &#39;am&#39;, &#39;amt&#39;, &#39;an&#39;, &#39;ant&#39;, &#39;ao&#39;, &#39;aot&#39;, &#39;ap&#39;, &#39;apt&#39;, &#39;aq&#39;, &#39;aqt&#39;, &#39;ar&#39;, &#39;art&#39;, &#39;as&#39;, &#39;ast&#39;, &#39;ata&#39;, &#39;atb&#39;, &#39;atc&#39;, &#39;atd&#39;, &#39;ate&#39;, &#39;atf&#39;, &#39;atg&#39;, &#39;ath&#39;, &#39;ati&#39;, &#39;atj&#39;, &#39;atk&#39;, &#39;atl&#39;, &#39;atm&#39;, &#39;atn&#39;, &#39;ato&#39;, &#39;atp&#39;, &#39;atq&#39;, &#39;atr&#39;, &#39;ats&#39;, &#39;att&#39;, &#39;atu&#39;, &#39;atv&#39;, &#39;atw&#39;, &#39;atx&#39;, &#39;aty&#39;, &#39;atz&#39;, &#39;au&#39;, &#39;aut&#39;, &#39;av&#39;, &#39;avt&#39;, &#39;aw&#39;, &#39;awt&#39;, &#39;ax&#39;, &#39;axt&#39;, &#39;ay&#39;, &#39;ayt&#39;, &#39;az&#39;, &#39;azt&#39;, &#39;bat&#39;, &#39;bt&#39;, &#39;cat&#39;, &#39;ct&#39;, &#39;dat&#39;, &#39;dt&#39;, &#39;eat&#39;, &#39;et&#39;, &#39;fat&#39;, &#39;ft&#39;, &#39;gat&#39;, &#39;gt&#39;, &#39;hat&#39;, &#39;ht&#39;, &#39;iat&#39;, &#39;it&#39;, &#39;jat&#39;, &#39;jt&#39;, &#39;kat&#39;, &#39;kt&#39;, &#39;lat&#39;, &#39;lt&#39;, &#39;mat&#39;, &#39;mt&#39;, &#39;nat&#39;, &#39;nt&#39;, &#39;oat&#39;, &#39;ot&#39;, &#39;pat&#39;, &#39;pt&#39;, &#39;qat&#39;, &#39;qt&#39;, &#39;rat&#39;, &#39;rt&#39;, &#39;sat&#39;, &#39;st&#39;, &#39;t&#39;, &#39;ta&#39;, &#39;tat&#39;, &#39;tt&#39;, &#39;uat&#39;, &#39;ut&#39;, &#39;vat&#39;, &#39;vt&#39;, &#39;wat&#39;, &#39;wt&#39;, &#39;xat&#39;, &#39;xt&#39;, &#39;yat&#39;, &#39;yt&#39;, &#39;zat&#39;, &#39;zt&#39;]
+
+The type of the returned object should be a set &lt;class &#39;set&#39;&gt;
+Number of outputs from edit_one_letter(&#39;at&#39;) is 129
+</code></pre><h4 id="Expected-Output-5"><a href="#Expected-Output-5" class="headerlink" title="Expected Output"></a>Expected Output</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">input word at </span><br><span class="line">edit_one_l </span><br><span class="line">['a', 'aa', 'aat', 'ab', 'abt', 'ac', 'act', 'ad', 'adt', 'ae', 'aet', 'af', 'aft', 'ag', 'agt', 'ah', 'aht', 'ai', 'ait', 'aj', 'ajt', 'ak', 'akt', 'al', 'alt', 'am', 'amt', 'an', 'ant', 'ao', 'aot', 'ap', 'apt', 'aq', 'aqt', 'ar', 'art', 'as', 'ast', 'ata', 'atb', 'atc', 'atd', 'ate', 'atf', 'atg', 'ath', 'ati', 'atj', 'atk', 'atl', 'atm', 'atn', 'ato', 'atp', 'atq', 'atr', 'ats', 'att', 'atu', 'atv', 'atw', 'atx', 'aty', 'atz', 'au', 'aut', 'av', 'avt', 'aw', 'awt', 'ax', 'axt', 'ay', 'ayt', 'az', 'azt', 'bat', 'bt', 'cat', 'ct', 'dat', 'dt', 'eat', 'et', 'fat', 'ft', 'gat', 'gt', 'hat', 'ht', 'iat', 'it', 'jat', 'jt', 'kat', 'kt', 'lat', 'lt', 'mat', 'mt', 'nat', 'nt', 'oat', 'ot', 'pat', 'pt', 'qat', 'qt', 'rat', 'rt', 'sat', 'st', 't', 'ta', 'tat', 'tt', 'uat', 'ut', 'vat', 'vt', 'wat', 'wt', 'xat', 'xt', 'yat', 'yt', 'zat', 'zt']</span><br><span class="line"></span><br><span class="line">The type of the returned object should be a <span class="built_in">set</span> &lt;class '<span class="built_in">set</span>'&gt;</span><br><span class="line">Number of outputs from edit_one_letter('at') is 129</span><br></pre></td></tr></table></figure>
+<p><a name="3-2"></a></p>
+<h2 id="Part-3-2-Edit-two-letters"><a href="#Part-3-2-Edit-two-letters" class="headerlink" title="Part 3.2 Edit two letters"></a>Part 3.2 Edit two letters</h2><p><a name="ex-9"></a></p>
+<h3 id="Exercise-9"><a href="#Exercise-9" class="headerlink" title="Exercise 9"></a>Exercise 9</h3><p>Now you can generalize this to implement to get two edits on a word. To do so, you would have to get all the possible edits on a single word and then for each modified word, you would have to modify it again. </p>
+<p><strong>Instructions</strong>: Implement the <code>edit_two_letters</code> function that returns a set of words that are two edits away. Note that creating additional edits based on the <code>edit_one_letter</code> function may ‘restore’ some one_edits to zero or one edits. That is allowed here. This accounted for in get_corrections.</p>
+<p><details>    </details></p>
+<p><summary>
+    <font size="3" color="darkgreen"><b>Hints</b></font>
+</summary></p>
+<p>
+<ul>
+    <li>You will likely want to take the union of two sets.</li>
+    <li>You can either use set.union() or use the '|' (or operator) to union two sets</li>
+    <li>See the documentation <a href="https://docs.python.org/2/library/sets.html" target="_blank" rel="noopener"> Python sets </a> for examples of using operators or functions of the Python set.</li>
+</ul>
+</p>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C9 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="comment"># UNIT TEST COMMENT: Candidate for Table Driven Tests</span></span><br><span class="line"><span class="comment"># GRADED FUNCTION: edit_two_letters</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">edit_two_letters</span><span class="params">(word, allow_switches = True)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    Input:</span></span><br><span class="line"><span class="string">        word: the input string/word </span></span><br><span class="line"><span class="string">    Output:</span></span><br><span class="line"><span class="string">        edit_two_set: a set of strings with all possible two edits</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    </span><br><span class="line">    edit_two_set = set()</span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    one_letter =  edit_one_letter(word,allow_switches)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> one_letter:</span><br><span class="line">        edit_two_set |= edit_one_letter(word,allow_switches)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> edit_two_set</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tmp_edit_two_set = edit_two_letters(<span class="string">"a"</span>)</span><br><span class="line">tmp_edit_two_l = sorted(list(tmp_edit_two_set))</span><br><span class="line">print(<span class="string">f"Number of strings with edit distance of two: <span class="subst">&#123;len(tmp_edit_two_l)&#125;</span>"</span>)</span><br><span class="line">print(<span class="string">f"First 10 strings <span class="subst">&#123;tmp_edit_two_l[:<span class="number">10</span>]&#125;</span>"</span>)</span><br><span class="line">print(<span class="string">f"Last 10 strings <span class="subst">&#123;tmp_edit_two_l[<span class="number">-10</span>:]&#125;</span>"</span>)</span><br><span class="line">print(<span class="string">f"The data type of the returned object should be a set <span class="subst">&#123;type(tmp_edit_two_set)&#125;</span>"</span>)</span><br><span class="line">print(<span class="string">f"Number of strings that are 2 edit distances from 'at' is <span class="subst">&#123;len(edit_two_letters(<span class="string">'at'</span>))&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Number of strings with edit distance of two: 2654
+First 10 strings [&#39;&#39;, &#39;a&#39;, &#39;aa&#39;, &#39;aaa&#39;, &#39;aab&#39;, &#39;aac&#39;, &#39;aad&#39;, &#39;aae&#39;, &#39;aaf&#39;, &#39;aag&#39;]
+Last 10 strings [&#39;zv&#39;, &#39;zva&#39;, &#39;zw&#39;, &#39;zwa&#39;, &#39;zx&#39;, &#39;zxa&#39;, &#39;zy&#39;, &#39;zya&#39;, &#39;zz&#39;, &#39;zza&#39;]
+The data type of the returned object should be a set &lt;class &#39;set&#39;&gt;
+Number of strings that are 2 edit distances from &#39;at&#39; is 7154
+</code></pre><h4 id="Expected-Output-6"><a href="#Expected-Output-6" class="headerlink" title="Expected Output"></a>Expected Output</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Number of strings with edit distance of two: <span class="number">2654</span></span><br><span class="line">First 10 strings ['', 'a', 'aa', 'aaa', 'aab', 'aac', 'aad', 'aae', 'aaf', 'aag']</span><br><span class="line">Last 10 strings ['zv', 'zva', 'zw', 'zwa', 'zx', 'zxa', 'zy', 'zya', 'zz', 'zza']</span><br><span class="line">The data type of the returned object should be a <span class="built_in">set</span> &lt;class '<span class="built_in">set</span>'&gt;</span><br><span class="line">Number of strings that are 2 edit distances from 'at' is 7154</span><br></pre></td></tr></table></figure>
+<p><a name="3-3"></a></p>
+<h2 id="Part-3-3-suggest-spelling-suggestions"><a href="#Part-3-3-suggest-spelling-suggestions" class="headerlink" title="Part 3-3: suggest spelling suggestions"></a>Part 3-3: suggest spelling suggestions</h2><p>Now you will use your <code>edit_two_letters</code> function to get a set of all the possible 2 edits on your word. You will then use those strings to get the most probable word you meant to type aka your typing suggestion.</p>
+<p><a name="ex-10"></a></p>
+<h3 id="Exercise-10"><a href="#Exercise-10" class="headerlink" title="Exercise 10"></a>Exercise 10</h3><p><strong>Instructions</strong>: Implement <code>get_corrections</code>, which returns a list of zero to n possible suggestion tuples of the form (word, probability_of_word). </p>
+<p><strong>Step 1:</strong> Generate suggestions for a supplied word: You’ll use the edit functions you have developed. The ‘suggestion algorithm’ should follow this logic: </p>
+<ul>
+<li>If the word is in the vocabulary, suggest the word. </li>
+<li>Otherwise, if there are suggestions from <code>edit_one_letter</code> that are in the vocabulary, use those. </li>
+<li>Otherwise, if there are suggestions from <code>edit_two_letters</code> that are in the vocabulary, use those. </li>
+<li>Otherwise, suggest the input word.*  </li>
+<li>The idea is that words generated from fewer edits are more likely than words with more edits.</li>
+</ul>
+<p>Note: </p>
+<ul>
+<li>Edits of one or two letters may ‘restore’ strings to either zero or one edit. This algorithm accounts for this by preferentially selecting lower distance edits first.</li>
+</ul>
+<h4 id="Short-circuit"><a href="#Short-circuit" class="headerlink" title="Short circuit"></a>Short circuit</h4><p>In Python, logical operations such as <code>and</code> and <code>or</code> have two useful properties. They can operate on lists and they have <a href="https://docs.python.org/3/library/stdtypes.html" target="_blank" rel="noopener">‘short-circuit’ behavior</a>. Try these:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># example of logical operation on lists or sets</span></span><br><span class="line">print( [] <span class="keyword">and</span> [<span class="string">"a"</span>,<span class="string">"b"</span>] )</span><br><span class="line">print( [] <span class="keyword">or</span> [<span class="string">"a"</span>,<span class="string">"b"</span>] )</span><br><span class="line"><span class="comment">#example of Short circuit behavior</span></span><br><span class="line">val1 =  [<span class="string">"Most"</span>,<span class="string">"Likely"</span>] <span class="keyword">or</span> [<span class="string">"Less"</span>,<span class="string">"so"</span>] <span class="keyword">or</span> [<span class="string">"least"</span>,<span class="string">"of"</span>,<span class="string">"all"</span>]  <span class="comment"># selects first, does not evalute remainder</span></span><br><span class="line">print(val1)</span><br><span class="line">val2 =  [] <span class="keyword">or</span> [] <span class="keyword">or</span> [<span class="string">"least"</span>,<span class="string">"of"</span>,<span class="string">"all"</span>] <span class="comment"># continues evaluation until there is a non-empty list</span></span><br><span class="line">print(val2)</span><br></pre></td></tr></table></figure>
+<pre><code>[]
+[&#39;a&#39;, &#39;b&#39;]
+[&#39;Most&#39;, &#39;Likely&#39;]
+[&#39;least&#39;, &#39;of&#39;, &#39;all&#39;]
+</code></pre><p>The logical <code>or</code> could be used to implement the suggestion algorithm very compactly. Alternately, if/then constructs could be used.</p>
+<p><strong>Step 2</strong>: Create a ‘best_words’ dictionary where the ‘key’ is a suggestion and the ‘value’ is the probability of that word in your vocabulary. If the word is not in the vocabulary, assign it a probability of 0.</p>
+<p><strong>Step 3</strong>: Select the n best suggestions. There may be fewer than n.</p>
+<p><details>    </details></p>
+<p><summary>
+    <font size="3" color="darkgreen"><b>Hints</b></font>
+</summary></p>
+<p>
+<ul>
+    <li>edit_one_letter and edit_two_letters return *python sets*. </li>
+    <li> Sets have a handy <a href="https://docs.python.org/2/library/sets.html" target="_blank" rel="noopener"> set.intersection </a> feature</li>
+    <li>To find the keys that have the highest values in a dictionary, you can use the Counter dictionary to create a Counter object from a regular dictionary.  Then you can use Counter.most_common(n) to get the n most common keys.
+    </li>
+    <li>To find the intersection of two sets, you can use set.intersection or the & operator.</li>
+    <li>If you are not as familiar with short circuit syntax (as shown above), feel free to use if else statements instead.</li>
+    <li>To use an if statement to check of a set is empty, use 'if not x:' syntax </li>
+</ul>
+</p>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C10 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="comment"># UNIT TEST COMMENT: Candidate for Table Driven Tests</span></span><br><span class="line"><span class="comment"># GRADED FUNCTION: get_corrections</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_corrections</span><span class="params">(word, probs, vocab, n=<span class="number">2</span>, verbose = False)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    Input: </span></span><br><span class="line"><span class="string">        word: a user entered string to check for suggestions</span></span><br><span class="line"><span class="string">        probs: a dictionary that maps each word to its probability in the corpus</span></span><br><span class="line"><span class="string">        vocab: a set containing all the vocabulary</span></span><br><span class="line"><span class="string">        n: number of possible word corrections you want returned in the dictionary</span></span><br><span class="line"><span class="string">    Output: </span></span><br><span class="line"><span class="string">        n_best: a list of tuples with the most probable n corrected words and their probabilities.</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    </span><br><span class="line">    suggestions = []</span><br><span class="line">    n_best = []</span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line">    <span class="keyword">if</span> word <span class="keyword">in</span> vocab:</span><br><span class="line">        suggestions = [(word, probs[word])]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        suggestions = [(_, probs[_]) <span class="keyword">for</span> _ <span class="keyword">in</span> edit_one_letter(word) <span class="keyword">if</span> _ <span class="keyword">in</span> vocab] <span class="keyword">or</span>  \</span><br><span class="line">                    [(_, probs[_]) <span class="keyword">for</span> _ <span class="keyword">in</span> edit_two_letter(word) <span class="keyword">if</span> _ <span class="keyword">in</span> vocab] <span class="keyword">or</span> \</span><br><span class="line">                    [(word,<span class="number">0</span>)]</span><br><span class="line">    </span><br><span class="line">    n_best = sorted(suggestions, key = <span class="keyword">lambda</span> x : x[<span class="number">-1</span>], reverse = <span class="keyword">True</span>)[:n]</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> verbose: print(<span class="string">"suggestions = "</span>, suggestions)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> n_best</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Test your implementation - feel free to try other words in my word</span></span><br><span class="line">my_word = <span class="string">'dys'</span> </span><br><span class="line">tmp_corrections = get_corrections(my_word, probs, vocab, <span class="number">2</span>, verbose=<span class="keyword">True</span>)</span><br><span class="line"><span class="keyword">for</span> i, word_prob <span class="keyword">in</span> enumerate(tmp_corrections):</span><br><span class="line">    print(<span class="string">f"word <span class="subst">&#123;i&#125;</span>: <span class="subst">&#123;word_prob[<span class="number">0</span>]&#125;</span>, probability <span class="subst">&#123;word_prob[<span class="number">1</span>]:<span class="number">.6</span>f&#125;</span>"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># CODE REVIEW COMMENT: using "tmp_corrections" insteads of "cors". "cors" is not defined</span></span><br><span class="line">print(<span class="string">f"data type of corrections <span class="subst">&#123;type(tmp_corrections)&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>suggestions =  [(&#39;dye&#39;, 1.865184466743761e-05), (&#39;days&#39;, 0.0004103405826836274)]
+word 0: days, probability 0.000410
+word 1: dye, probability 0.000019
+data type of corrections &lt;class &#39;list&#39;&gt;
+</code></pre><h4 id="Expected-Output-7"><a href="#Expected-Output-7" class="headerlink" title="Expected Output"></a>Expected Output</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">word <span class="number">0</span>: days, probability <span class="number">0.000410</span></span><br><span class="line">word <span class="number">1</span>: dye, probability <span class="number">0.000019</span></span><br><span class="line">data type of corrections &lt;<span class="class"><span class="keyword">class</span> '<span class="title">list</span>'&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a name="4"></a></p>
+<h1 id="Part-4-Minimum-Edit-distance"><a href="#Part-4-Minimum-Edit-distance" class="headerlink" title="Part 4: Minimum Edit distance"></a>Part 4: Minimum Edit distance</h1><p>Now that you have implemented your auto-correct, how do you evaluate the similarity between two strings? For example: ‘waht’ and ‘what’</p>
+<p>Also how do you efficiently find the shortest path to go from the word, ‘waht’ to the word ‘what’?</p>
+<p>You will implement a dynamic programming system that will tell you the minimum number of edits required to convert a string into another string.</p>
+<p><a name="4-1"></a></p>
+<h3 id="Part-4-1-Dynamic-Programming"><a href="#Part-4-1-Dynamic-Programming" class="headerlink" title="Part 4.1 Dynamic Programming"></a>Part 4.1 Dynamic Programming</h3><p>Dynamic Programming breaks a problem down into subproblems which can be combined to form the final solution. Here, given a string source[0..i] and a string target[0..j], we will compute all the combinations of substrings[i, j] and calculate their edit distance. To do this efficiently, we will use a table to maintain the previously computed substrings and use those to calculate larger substrings.</p>
+<p>You have to create a matrix and update each element in the matrix as follows:  </p>
+<script type="math/tex; mode=display">\text{Initialization}</script><p>\begin{align}<br>D[0,0] &amp;= 0 \\<br>D[i,0] &amp;= D[i-1,0] + del_cost(source[i]) \tag{4}\\<br>D[0,j] &amp;= D[0,j-1] + ins_cost(target[j]) \\<br>\end{align}</p>
+<script type="math/tex; mode=display">\text{Per Cell Operations}</script><p>\begin{align}<br> \\<br>D[i,j] =min<br>\begin{cases}<br>D[i-1,j] + del_cost\\<br>D[i,j-1] + ins_cost\\<br>D[i-1,j-1] + \left\{\begin{matrix}<br>rep_cost; &amp; if src[i]\neq tar[j]\\<br>0 ; &amp; if src[i]=tar[j]<br>\end{matrix}\right.<br>\end{cases}<br>\tag{5}<br>\end{align}</p>
+<p>So converting the source word <strong>play</strong> to the target word <strong>stay</strong>, using an input cost of one, a delete cost of 1, and replace cost of 2 would give you the following table:</p>
+<table style="width:20%">
+
+  <tr>
+    <td> <b> </b>  </td>
+    <td> <b># </b>  </td>
+    <td> <b>s </b>  </td>
+    <td> <b>t </b> </td> 
+    <td> <b>a </b> </td> 
+    <td> <b>y </b> </td> 
+  </tr>
+   <tr>
+    <td> <b>  #  </b></td>
+    <td> 0</td> 
+    <td> 1</td> 
+    <td> 2</td> 
+    <td> 3</td> 
+    <td> 4</td> 
+
+  </tr>
+  <tr>
+    <td> <b>  p  </b></td>
+    <td> 1</td> 
+ <td> 2</td> 
+    <td> 3</td> 
+    <td> 4</td> 
+   <td> 5</td>
+  </tr>
+
+  <tr>
+    <td> <b> l </b></td>
+    <td>2</td> 
+    <td>3</td> 
+    <td>4</td> 
+    <td>5</td> 
+    <td>6</td>
+  </tr>
+
+  <tr>
+    <td> <b> a </b></td>
+    <td>3</td> 
+     <td>4</td> 
+     <td>5</td> 
+     <td>4</td>
+     <td>5</td> 
+  </tr>
+
+   <tr>
+    <td> <b> y </b></td>
+    <td>4</td> 
+      <td>5</td> 
+     <td>6</td> 
+     <td>5</td>
+     <td>4</td> 
+  </tr>
+
+
+</table>
+
+
+
+<p>The operations used in this algorithm are ‘insert’, ‘delete’, and ‘replace’. These correspond to the functions that you defined earlier: insert_letter(), delete_letter() and replace_letter(). switch_letter() is not used here.</p>
+<p>The diagram below describes how to initialize the table. Each entry in D[i,j] represents the minimum cost of converting string source[0:i] to string target[0:j]. The first column is initialized to represent the cumulative cost of deleting the source characters to convert string “EER” to “”. The first row is initialized to represent the cumulative cost of inserting the target characters to convert from “” to “NEAR”.</p>
+<div style="width:image width px; font-size:100%; text-align:center;"><img src="EditDistInit4.png" alt="alternate text" width="width" height="height" style="width:1000px;height:400px;"> Figure 6 Initializing Distance Matrix</div>     
+
+<p>Filling in the remainder of the table utilizes the ‘Per Cell Operations’ in the equation (5) above. Note, the diagram below includes in the table some of the 3 sub-calculations shown in light grey. Only ‘min’ of those operations is stored in the table in the <code>min_edit_distance()</code> function.</p>
+<div style="width:image width px; font-size:100%; text-align:center;"><img src="EditDistFill2.png" alt="alternate text" width="width" height="height" style="width:800px;height:400px;"> Figure 7 Filling Distance Matrix</div>     
+
+<p>Note that the formula for $D[i,j]$ shown in the image is equivalent to:</p>
+<p>\begin{align}<br> \\<br>D[i,j] =min<br>\begin{cases}<br>D[i-1,j] + del_cost\\<br>D[i,j-1] + ins_cost\\<br>D[i-1,j-1] + \left\{\begin{matrix}<br>rep_cost; &amp; if src[i]\neq tar[j]\\<br>0 ; &amp; if src[i]=tar[j]<br>\end{matrix}\right.<br>\end{cases}<br>\tag{5}<br>\end{align}</p>
+<p>The variable <code>sub_cost</code> (for substitution cost) is the same as <code>rep_cost</code>; replacement cost.  We will stick with the term “replace” whenever possible.</p>
+<p>Below are some examples of cells where replacement is used. This also shows the minimum path from the lower right final position where “EER” has been replaced by “NEAR” back to the start. This provides a starting point for the optional ‘backtrace’ algorithm below.</p>
+<div style="width:image width px; font-size:100%; text-align:center;"><img src="EditDistExample1.png" alt="alternate text" width="width" height="height" style="width:1200px;height:400px;"> Figure 8 Examples Distance Matrix</div>    
+
+<p><a name="ex-11"></a></p>
+<h3 id="Exercise-11"><a href="#Exercise-11" class="headerlink" title="Exercise 11"></a>Exercise 11</h3><p>Again, the word “substitution” appears in the figure, but think of this as “replacement”.</p>
+<p><strong>Instructions</strong>: Implement the function below to get the minimum amount of edits required given a source string and a target string. </p>
+<p><details>    </details></p>
+<p><summary>
+    <font size="3" color="darkgreen"><b>Hints</b></font>
+</summary></p>
+<p>
+<ul>
+    <li>The range(start, stop, step) function excludes 'stop' from its output</li>
+    <li><a href> words </a> </li>
+</ul>
+</p>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C11 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="comment"># GRADED FUNCTION: min_edit_distance</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">min_edit_distance</span><span class="params">(source, target, ins_cost = <span class="number">1</span>, del_cost = <span class="number">1</span>, rep_cost = <span class="number">2</span>)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    Input: </span></span><br><span class="line"><span class="string">        source: a string corresponding to the string you are starting with</span></span><br><span class="line"><span class="string">        target: a string corresponding to the string you want to end with</span></span><br><span class="line"><span class="string">        ins_cost: an integer setting the insert cost</span></span><br><span class="line"><span class="string">        del_cost: an integer setting the delete cost</span></span><br><span class="line"><span class="string">        rep_cost: an integer setting the replace cost</span></span><br><span class="line"><span class="string">    Output:</span></span><br><span class="line"><span class="string">        D: a matrix of len(source)+1 by len(target)+1 containing minimum edit distances</span></span><br><span class="line"><span class="string">        med: the minimum edit distance (med) required to convert the source string to the target</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="comment"># use deletion and insert cost as  1</span></span><br><span class="line">    m = len(source) </span><br><span class="line">    n = len(target) </span><br><span class="line">    <span class="comment">#initialize cost matrix with zeros and dimensions (m+1,n+1) </span></span><br><span class="line">    D = np.zeros((m+<span class="number">1</span>, n+<span class="number">1</span>), dtype=int) </span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE (Replace instances of 'None' with your code) ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Fill in column 0, from row 1 to row m, both inclusive</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> range(<span class="number">0</span>,m+<span class="number">1</span>): <span class="comment"># Replace None with the proper range</span></span><br><span class="line">        D[row,<span class="number">0</span>] = row</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># Fill in row 0, for all columns from 1 to n, both inclusive</span></span><br><span class="line">    <span class="keyword">for</span> col <span class="keyword">in</span> range(<span class="number">0</span>,n+<span class="number">1</span>): <span class="comment"># Replace None with the proper range</span></span><br><span class="line">        D[<span class="number">0</span>,col] = col</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># Loop through row 1 to row m, both inclusive</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> range(<span class="number">1</span>,m+<span class="number">1</span>): </span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Loop through column 1 to column n, both inclusive</span></span><br><span class="line">        <span class="keyword">for</span> col <span class="keyword">in</span> range(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># Intialize r_cost to the 'replace' cost that is passed into this function</span></span><br><span class="line">            r_cost = rep_cost</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># Check to see if source character at the previous row</span></span><br><span class="line">            <span class="comment"># matches the target character at the previous column, </span></span><br><span class="line">            <span class="keyword">if</span> source[row<span class="number">-1</span>] == target[col<span class="number">-1</span>]:</span><br><span class="line">                <span class="comment"># Update the replacement cost to 0 if source and target are the same</span></span><br><span class="line">                r_cost = <span class="number">0</span></span><br><span class="line">                </span><br><span class="line">            <span class="comment"># Update the cost at row, col based on previous entries in the cost matrix</span></span><br><span class="line">            <span class="comment"># Refer to the equation calculate for D[i,j] (the minimum of three calculated costs)</span></span><br><span class="line">            D[row,col] = min([ D[row<span class="number">-1</span>,col] + del_cost, D[row, col<span class="number">-1</span>] + ins_cost , D[row<span class="number">-1</span>, col<span class="number">-1</span>] + r_cost])</span><br><span class="line">          </span><br><span class="line">    <span class="comment"># Set the minimum edit distance with the cost found at row m, column n</span></span><br><span class="line">    med = D[m,n]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    <span class="keyword">return</span> D, med</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#DO NOT MODIFY THIS CELL</span></span><br><span class="line"><span class="comment"># testing your implementation </span></span><br><span class="line">source =  <span class="string">'play'</span></span><br><span class="line">target = <span class="string">'stay'</span></span><br><span class="line">matrix, min_edits = min_edit_distance(source, target)</span><br><span class="line">print(<span class="string">"minimum edits: "</span>,min_edits, <span class="string">"\n"</span>)</span><br><span class="line">idx = list(<span class="string">'#'</span> + source)</span><br><span class="line">cols = list(<span class="string">'#'</span> + target)</span><br><span class="line">df = pd.DataFrame(matrix, index=idx, columns= cols)</span><br><span class="line">print(df)</span><br></pre></td></tr></table></figure>
+<pre><code>minimum edits:  4 
+
+   #  s  t  a  y
+#  0  1  2  3  4
+p  1  2  3  4  5
+l  2  3  4  5  6
+a  3  4  5  4  5
+y  4  5  6  5  4
+</code></pre><p><strong>Expected Results:</strong>  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   <span class="meta">#  s  t  a  y</span></span><br><span class="line">#  <span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span></span><br><span class="line">p  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span></span><br><span class="line">l  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span></span><br><span class="line">a  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">4</span>  <span class="number">5</span></span><br><span class="line">y  <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">5</span>  <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#DO NOT MODIFY THIS CELL</span></span><br><span class="line"><span class="comment"># testing your implementation </span></span><br><span class="line">source =  <span class="string">'eer'</span></span><br><span class="line">target = <span class="string">'near'</span></span><br><span class="line">matrix, min_edits = min_edit_distance(source, target)</span><br><span class="line">print(<span class="string">"minimum edits: "</span>,min_edits, <span class="string">"\n"</span>)</span><br><span class="line">idx = list(source)</span><br><span class="line">idx.insert(<span class="number">0</span>, <span class="string">'#'</span>)</span><br><span class="line">cols = list(target)</span><br><span class="line">cols.insert(<span class="number">0</span>, <span class="string">'#'</span>)</span><br><span class="line">df = pd.DataFrame(matrix, index=idx, columns= cols)</span><br><span class="line">print(df)</span><br></pre></td></tr></table></figure>
+<pre><code>minimum edits:  3 
+
+   #  n  e  a  r
+#  0  1  2  3  4
+e  1  2  1  2  3
+e  2  3  2  3  4
+r  3  4  3  4  3
+</code></pre><p><strong>Expected Results</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">minimum edits:  <span class="number">3</span> </span><br><span class="line"></span><br><span class="line">   <span class="meta">#  n  e  a  r</span></span><br><span class="line">#  <span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span></span><br><span class="line">e  <span class="number">1</span>  <span class="number">2</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span></span><br><span class="line">e  <span class="number">2</span>  <span class="number">3</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span></span><br><span class="line">r  <span class="number">3</span>  <span class="number">4</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">3</span></span><br></pre></td></tr></table></figure></p>
+<p>We can now test several of our routines at once:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">source = <span class="string">"eer"</span></span><br><span class="line">targets = edit_one_letter(source,allow_switches = <span class="keyword">False</span>)  <span class="comment">#disable switches since min_edit_distance does not include them</span></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> targets:</span><br><span class="line">    _, min_edits = min_edit_distance(source, t,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)  <span class="comment"># set ins, del, sub costs all to one</span></span><br><span class="line">    <span class="keyword">if</span> min_edits != <span class="number">1</span>: print(source, t, min_edits)</span><br></pre></td></tr></table></figure>
+<p><strong>Expected Results:</strong>  (empty)</p>
+<p>The ‘replace()’ routine utilizes all letters a-z one of which returns the original word.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">source = <span class="string">"eer"</span></span><br><span class="line">targets = edit_two_letters(source,allow_switches = <span class="keyword">False</span>) <span class="comment">#disable switches since min_edit_distance does not include them</span></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> targets:</span><br><span class="line">    _, min_edits = min_edit_distance(source, t,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)  <span class="comment"># set ins, del, sub costs all to one</span></span><br><span class="line">    <span class="keyword">if</span> min_edits != <span class="number">2</span> <span class="keyword">and</span> min_edits != <span class="number">1</span>: print(source, t, min_edits)</span><br></pre></td></tr></table></figure>
+<pre><code>eer eer 0
+</code></pre><p><strong>Expected Results:</strong>  eer eer 0<br>We have to allow single edits here because some two_edits will restore a single edit.</p>
+<h1 id="Submission"><a href="#Submission" class="headerlink" title="Submission"></a>Submission</h1><p>Make sure you submit your assignment before you modify anything below</p>
+<p><a name="5"></a></p>
+<h1 id="Part-5-Optional-Backtrace"><a href="#Part-5-Optional-Backtrace" class="headerlink" title="Part 5: Optional - Backtrace"></a>Part 5: Optional - Backtrace</h1><p>Once you have computed your matrix using minimum edit distance, how would find the shortest path from the top left corner to the bottom right corner? </p>
+<p>Note that you could use backtrace algorithm.  Try to find the shortest path given the matrix that your <code>min_edit_distance</code> function returned.</p>
+<p>You can use these <a href="https://web.stanford.edu/class/cs124/lec/med.pdf" target="_blank" rel="noopener">lecture slides on minimum edit distance</a> by Dan Jurafsky to learn about the algorithm for backtrace.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Experiment with back trace - insert your code here</span></span><br></pre></td></tr></table></figure>
+<h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><ul>
+<li>Dan Jurafsky - Speech and Language Processing - Textbook</li>
+<li>This auto-correct explanation was first done by Peter Norvig in 2007 </li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Parts-of-Speech-Tagging/2020/07/19/" rel="next" title="Parts-of-Speech Tagging">
+                <i class="fa fa-chevron-left"></i> Parts-of-Speech Tagging
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Auto-Complete/2020/07/19/" rel="prev" title="Auto-Complete">
+                Auto-Complete <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">267</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/cherish_CX/" title="Chunxia" target="_blank" rel="external nofollow">Chunxia</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Assignment-1-Auto-Correct"><span class="nav-text">Assignment 1: Auto Correct</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Outline"><span class="nav-text">Outline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-Overview"><span class="nav-text">0. Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0-1-Edit-Distance"><span class="nav-text">0.1 Edit Distance</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-1-Data-Preprocessing"><span class="nav-text">Part 1: Data Preprocessing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-1"><span class="nav-text">Exercise 1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Options-and-Hints"><span class="nav-text">Options and Hints</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-Output"><span class="nav-text">Expected Output</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-2"><span class="nav-text">Exercise 2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-Output-1"><span class="nav-text">Expected Output</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-3"><span class="nav-text">Exercise 3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-Output-2"><span class="nav-text">Expected Output</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-2-String-Manipulations"><span class="nav-text">Part 2: String Manipulations</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#List-comprehensions"><span class="nav-text">List comprehensions</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-4"><span class="nav-text">Exercise 4</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Levels-of-assistance"><span class="nav-text">Levels of assistance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-Output-3"><span class="nav-text">Expected Output</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-1"><span class="nav-text">Note 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-2"><span class="nav-text">Note 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-output"><span class="nav-text">Expected output</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-5"><span class="nav-text">Exercise 5</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Levels-of-difficulty"><span class="nav-text">Levels of difficulty</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-output-1"><span class="nav-text">Expected output</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-1-1"><span class="nav-text">Note 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-2-1"><span class="nav-text">Note 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-output-2"><span class="nav-text">Expected output</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-6"><span class="nav-text">Exercise 6</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-Output-4"><span class="nav-text">Expected Output**:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-1-2"><span class="nav-text">Note 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-2-2"><span class="nav-text">Note 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-output-3"><span class="nav-text">Expected output</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-7"><span class="nav-text">Exercise 7</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-output-4"><span class="nav-text">Expected output</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-1-3"><span class="nav-text">Note 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-2-3"><span class="nav-text">Note 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-output-5"><span class="nav-text">Expected output</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-3-Combining-the-edits"><span class="nav-text">Part 3: Combining the edits</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Edit-one-letter"><span class="nav-text">3.1 Edit one letter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-8"><span class="nav-text">Exercise 8</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-Output-5"><span class="nav-text">Expected Output</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-3-2-Edit-two-letters"><span class="nav-text">Part 3.2 Edit two letters</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-9"><span class="nav-text">Exercise 9</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-Output-6"><span class="nav-text">Expected Output</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-3-3-suggest-spelling-suggestions"><span class="nav-text">Part 3-3: suggest spelling suggestions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-10"><span class="nav-text">Exercise 10</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Short-circuit"><span class="nav-text">Short circuit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-Output-7"><span class="nav-text">Expected Output</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-4-Minimum-Edit-distance"><span class="nav-text">Part 4: Minimum Edit distance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-4-1-Dynamic-Programming"><span class="nav-text">Part 4.1 Dynamic Programming</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-11"><span class="nav-text">Exercise 11</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Submission"><span class="nav-text">Submission</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-5-Optional-Backtrace"><span class="nav-text">Part 5: Optional - Backtrace</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>

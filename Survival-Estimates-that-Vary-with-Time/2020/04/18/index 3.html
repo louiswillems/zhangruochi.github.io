@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Medicine,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Survival Estimates that Vary with TimeWelcome to the third assignment of Course 2. In this assignment, we’ll use Python to build some of the statistical models we learned this past week to analyze sur">
+<meta name="keywords" content="Medicine">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Survival Estimates that Vary with Time">
+<meta property="og:url" content="https://zhangruochi.com/Survival-Estimates-that-Vary-with-Time/2020/04/18/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="Survival Estimates that Vary with TimeWelcome to the third assignment of Course 2. In this assignment, we’ll use Python to build some of the statistical models we learned this past week to analyze sur">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/Survival-Estimates-that-Vary-with-Time/2020/04/18/output_11_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Survival-Estimates-that-Vary-with-Time/2020/04/18/output_19_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Survival-Estimates-that-Vary-with-Time/2020/04/18/output_19_1.png">
+<meta property="og:image" content="https://zhangruochi.com/Survival-Estimates-that-Vary-with-Time/2020/04/18/output_25_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Survival-Estimates-that-Vary-with-Time/2020/04/18/output_31_0.png">
+<meta property="og:image" content="https://zhangruochi.com/Survival-Estimates-that-Vary-with-Time/2020/04/18/output_34_0.png">
+<meta property="og:updated_time" content="2020-04-19T15:09:46.620Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Survival Estimates that Vary with Time">
+<meta name="twitter:description" content="Survival Estimates that Vary with TimeWelcome to the third assignment of Course 2. In this assignment, we’ll use Python to build some of the statistical models we learned this past week to analyze sur">
+<meta name="twitter:image" content="https://zhangruochi.com/Survival-Estimates-that-Vary-with-Time/2020/04/18/output_11_0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/Survival-Estimates-that-Vary-with-Time/2020/04/18/">
+
+
+
+
+
+  <title>Survival Estimates that Vary with Time | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Survival-Estimates-that-Vary-with-Time/2020/04/18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Survival Estimates that Vary with Time</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-18T23:54:54+08:00">
+                2020-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
+                    <span itemprop="name">Artificial Intelligence</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Survival-Estimates-that-Vary-with-Time/2020/04/18/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Survival-Estimates-that-Vary-with-Time/2020/04/18/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Survival-Estimates-that-Vary-with-Time"><a href="#Survival-Estimates-that-Vary-with-Time" class="headerlink" title="Survival Estimates that Vary with Time"></a>Survival Estimates that Vary with Time</h1><p>Welcome to the third assignment of Course 2. In this assignment, we’ll use Python to build some of the statistical models we learned this past week to analyze surivival estimates for a dataset of lymphoma patients. We’ll also evaluate these models and interpret their outputs. Along the way, you will be learning about the following: </p>
+<ul>
+<li>Censored Data</li>
+<li>Kaplan-Meier Estimates</li>
+<li>Subgroup Analysis</li>
+</ul>
+<h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><ul>
+<li><a href="#1">1. Import Packages</a></li>
+<li><a href="#2">2. Load the Dataset</a></li>
+<li><a href="#">3. Censored Data</a><ul>
+<li><a href="#Ex-1">Exercise 1</a></li>
+</ul>
+</li>
+<li><a href="#4">4. Survival Estimates</a><ul>
+<li><a href="#Ex-2">Exercise 2</a></li>
+<li><a href="#Ex-3">Exercise 3</a></li>
+</ul>
+</li>
+<li><a href="#5">5. Subgroup Analysis</a><ul>
+<li><a href="#5-1">5.1 Bonus: Log Rank Test</a></li>
+</ul>
+</li>
+</ul>
+<p><a name="1"></a></p>
+<h2 id="1-Import-Packages"><a href="#1-Import-Packages" class="headerlink" title="1. Import Packages"></a>1. Import Packages</h2><p>We’ll first import all the packages that we need for this assignment. </p>
+<ul>
+<li><code>lifelines</code> is an open-source library for data analysis.</li>
+<li><code>numpy</code> is the fundamental package for scientific computing in python.</li>
+<li><code>pandas</code> is what we’ll use to manipulate our data.</li>
+<li><code>matplotlib</code> is a plotting library.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lifelines</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> util <span class="keyword">import</span> load_data</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> lifelines <span class="keyword">import</span> KaplanMeierFitter <span class="keyword">as</span> KM</span><br><span class="line"><span class="keyword">from</span> lifelines.statistics <span class="keyword">import</span> logrank_test</span><br></pre></td></tr></table></figure>
+<p><a name="2"></a></p>
+<h2 id="2-Load-the-Dataset"><a href="#2-Load-the-Dataset" class="headerlink" title="2. Load the Dataset"></a>2. Load the Dataset</h2><p>Run the next cell to load the lymphoma data set. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = load_data()</span><br></pre></td></tr></table></figure>
+<p>As always, you first look over your data.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"data shape: &#123;&#125;"</span>.format(data.shape))</span><br><span class="line">data.head()</span><br></pre></td></tr></table></figure>
+<pre><code>data shape: (80, 3)
+</code></pre><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Stage_group</th>
+      <th>Time</th>
+      <th>Event</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>19</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>32</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>42</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>42</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>The column <code>Time</code> states how long the patient lived before they died or were censored.</p>
+<p>The column <code>Event</code> says whether a death was observed or not. <code>Event</code> is 1 if the event is observed (i.e. the patient died) and 0 if data was censored.</p>
+<p>Censorship here means that the observation has ended without any observed event.<br>For example, let a patient be in a hospital for 100 days at most. If a patient dies after only 44 days, their event will be recorded as <code>Time = 44</code> and <code>Event = 1</code>. If a patient walks out after 100 days and dies 3 days later (103 days total), this event is not observed in our process and the corresponding row has <code>Time = 100</code> and <code>Event = 0</code>. If a patient survives for 25 years after being admitted, their data for are still <code>Time = 100</code> and <code>Event = 0</code>.</p>
+<p><a name="3"></a></p>
+<h2 id="3-Censored-Data"><a href="#3-Censored-Data" class="headerlink" title="3. Censored Data"></a>3. Censored Data</h2><p>We can plot a histogram of the survival times to see in general how long cases survived before censorship or events.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data.Time.hist();</span><br><span class="line">plt.xlabel(<span class="string">"Observation time before death or censorship (days)"</span>);</span><br><span class="line">plt.ylabel(<span class="string">"Frequency (number of patients)"</span>);</span><br><span class="line"><span class="comment"># Note that the semicolon at the end of the plotting line</span></span><br><span class="line"><span class="comment"># silences unnecessary textual output - try removing it</span></span><br><span class="line"><span class="comment"># to observe its effect</span></span><br></pre></td></tr></table></figure>
+<p><img src="output_11_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">"Event"</span>].unique()</span><br></pre></td></tr></table></figure>
+<pre><code>array([1, 0])
+</code></pre><p><a name="Ex-1"></a></p>
+<h3 id="Exercise-1"><a href="#Exercise-1" class="headerlink" title="Exercise 1"></a>Exercise 1</h3><p>In the next cell, write a function to compute the fraction ($\in [0, 1]$) of observations which were censored. </p>
+<p><details>    </details></p>
+<p><summary>
+    <font size="3" color="darkgreen"><b>Hints</b></font>
+</summary></p>
+<p>
+<ul>
+    <li>Summing up the <code>'Event'</code> column will give you the number of observations where censorship has NOT occurred.</li>
+
+</ul>
+</p>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C1 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">frac_censored</span><span class="params">(df)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Return percent of observations which were censored.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        df (dataframe): dataframe which contains column 'Event' which is </span></span><br><span class="line"><span class="string">                        1 if an event occurred (death)</span></span><br><span class="line"><span class="string">                        0 if the event did not occur (censored)</span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        frac_censored (float): fraction of cases which were censored. </span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    result = <span class="number">0.0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    result = <span class="number">1</span>- df[<span class="string">'Event'</span>].sum(axis = <span class="number">0</span>) / df.shape[<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(frac_censored(data))</span><br></pre></td></tr></table></figure>
+<pre><code>0.32499999999999996
+</code></pre><h4 id="Expected-Output"><a href="#Expected-Output" class="headerlink" title="Expected Output:"></a>Expected Output:</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.325</span></span><br></pre></td></tr></table></figure>
+<p>Run the next cell to see the distributions of survival times for censored and uncensored examples.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">df_censored = data[data.Event == <span class="number">0</span>]</span><br><span class="line">df_uncensored = data[data.Event == <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">df_censored.Time.hist()</span><br><span class="line">plt.title(<span class="string">"Censored"</span>)</span><br><span class="line">plt.xlabel(<span class="string">"Time (days)"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"Frequency"</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">df_uncensored.Time.hist()</span><br><span class="line">plt.title(<span class="string">"Uncensored"</span>)</span><br><span class="line">plt.xlabel(<span class="string">"Time (days)"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"Frequency"</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="output_19_0.png" alt="png"></p>
+<p><img src="output_19_1.png" alt="png"></p>
+<p><a name="4"></a></p>
+<h2 id="4-Survival-Estimates"><a href="#4-Survival-Estimates" class="headerlink" title="4. Survival Estimates"></a>4. Survival Estimates</h2><p>We’ll now try to estimate the survival function:</p>
+<script type="math/tex; mode=display">
+S(t) = P(T > t)</script><p>To illustrate the strengths of Kaplan Meier, we’ll start with a naive estimator of the above survival function. To estimate this quantity, we’ll divide the number of people who we know lived past time $t$ by the number of people who were not censored before $t$.</p>
+<p>Formally, let $i$ = 1, …, $n$ be the cases, and let $t_i$ be the time when $i$ was censored or an event happened. Let $e_i= 1$ if an event was observed for $i$ and 0 otherwise. Then let $X_t = \{i : T_i &gt; t\}$, and let $M_t = \{i : e_i = 1 \text{ or } T_i &gt; t\}$. The estimator you will compute will be:</p>
+<script type="math/tex; mode=display">
+\hat{S}(t) = \frac{|X_t|}{|M_t|}</script><p><a name="Ex-2"></a></p>
+<h3 id="Exercise-2"><a href="#Exercise-2" class="headerlink" title="Exercise 2"></a>Exercise 2</h3><p>Write a function to compute this estimate for arbitrary $t$ in the cell below.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C2 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">naive_estimator</span><span class="params">(t, df)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Return naive estimate for S(t), the probability</span></span><br><span class="line"><span class="string">    of surviving past time t. Given by number</span></span><br><span class="line"><span class="string">    of cases who survived past time t divided by the</span></span><br><span class="line"><span class="string">    number of cases who weren't censored before time t.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        t (int): query time</span></span><br><span class="line"><span class="string">        df (dataframe): survival data. Has a Time column,</span></span><br><span class="line"><span class="string">                        which says how long until that case</span></span><br><span class="line"><span class="string">                        experienced an event or was censored,</span></span><br><span class="line"><span class="string">                        and an Event column, which is 1 if an event</span></span><br><span class="line"><span class="string">                        was observed and 0 otherwise.</span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        S_t (float): estimator for survival function evaluated at t.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    S_t = <span class="number">0.0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    S_t = df[df[<span class="string">'Time'</span>] &gt; t].shape[<span class="number">0</span>] / df[ (df[<span class="string">'Event'</span>] == <span class="number">1</span>) | (df[<span class="string">'Time'</span>] &gt; t) ].shape[<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> S_t</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Test Cases"</span>)</span><br><span class="line"></span><br><span class="line">sample_df = pd.DataFrame(columns = [<span class="string">"Time"</span>, <span class="string">"Event"</span>])</span><br><span class="line">sample_df.Time = [<span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>]</span><br><span class="line">sample_df.Event = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">print(<span class="string">"Sample dataframe for testing code:"</span>)</span><br><span class="line">print(sample_df)</span><br><span class="line">print(<span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Test Case 1: S(3)"</span>)</span><br><span class="line">print(<span class="string">"Output: &#123;&#125;, Expected: &#123;&#125;\n"</span>.format(naive_estimator(<span class="number">3</span>, sample_df), <span class="number">1.0</span>))</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Test Case 2: S(12)"</span>)</span><br><span class="line">print(<span class="string">"Output: &#123;&#125;, Expected: &#123;&#125;\n"</span>.format(naive_estimator(<span class="number">12</span>, sample_df), <span class="number">0.5</span>))</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Test Case 3: S(20)"</span>)</span><br><span class="line">print(<span class="string">"Output: &#123;&#125;, Expected: &#123;&#125;\n"</span>.format(naive_estimator(<span class="number">20</span>, sample_df), <span class="number">0.0</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Test case 4</span></span><br><span class="line">sample_df = pd.DataFrame(&#123;<span class="string">'Time'</span>: [<span class="number">5</span>,<span class="number">5</span>,<span class="number">10</span>],</span><br><span class="line">                          <span class="string">'Event'</span>: [<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>]</span><br><span class="line">                         &#125;)</span><br><span class="line">print(<span class="string">"Test case 4: S(5)"</span>)</span><br><span class="line">print(<span class="string">f"Output: <span class="subst">&#123;naive_estimator(<span class="number">5</span>, sample_df)&#125;</span>, Expected: 0.5"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Test Cases
+Sample dataframe for testing code:
+   Time  Event
+0     5      0
+1    10      1
+2    15      0
+
+
+Test Case 1: S(3)
+Output: 1.0, Expected: 1.0
+
+Test Case 2: S(12)
+Output: 0.5, Expected: 0.5
+
+Test Case 3: S(20)
+Output: 0.0, Expected: 0.0
+
+Test case 4: S(5)
+Output: 0.5, Expected: 0.5
+</code></pre><p>In the next cell, we will plot the naive estimator using the real data up to the maximum time in the dataset. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">max_time = data.Time.max()</span><br><span class="line">x = range(<span class="number">0</span>, max_time+<span class="number">1</span>)</span><br><span class="line">y = np.zeros(len(x))</span><br><span class="line"><span class="keyword">for</span> i, t <span class="keyword">in</span> enumerate(x):</span><br><span class="line">    y[i] = naive_estimator(t, data)</span><br><span class="line">    </span><br><span class="line">plt.plot(x, y)</span><br><span class="line">plt.title(<span class="string">"Naive Survival Estimate"</span>)</span><br><span class="line">plt.xlabel(<span class="string">"Time"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"Estimated cumulative survival rate"</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="output_25_0.png" alt="png"></p>
+<p><a name="Ex-3"></a></p>
+<h3 id="Exercise-3"><a href="#Exercise-3" class="headerlink" title="Exercise 3"></a>Exercise 3</h3><p>Next let’s compare this with the Kaplan Meier estimate. In the cell below, write a function that computes the Kaplan Meier estimate of $S(t)$ at every distinct time in the dataset. </p>
+<p>Recall the Kaplan-Meier estimate:</p>
+<script type="math/tex; mode=display">
+S(t) = \prod_{t_i \leq t} (1 - \frac{d_i}{n_i})</script><p>where $t_i$ are the events observed in the dataset and $d_i$ is the number of deaths at time $t_i$ and $n_i$ is the number of people who we know have survived up to time $t_i$.</p>
+<p><details>    </details></p>
+<p><summary>
+    <font size="3" color="darkgreen"><b>Hints</b></font>
+</summary></p>
+<p>
+<ul>
+    <li>Try sorting by Time.</li>
+    <li>Use <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.unique.html" target="_blank" rel="noopener">pandas.Series.unique<a> </a></a></li>
+    <li>If you get a division by zero error, please double-check how you calculated `n_t`</li>
+</ul>
+</p>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UNQ_C3 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">HomemadeKM</span><span class="params">(df)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Return KM estimate evaluated at every distinct</span></span><br><span class="line"><span class="string">    time (event or censored) recorded in the dataset.</span></span><br><span class="line"><span class="string">    Event times and probabilities should begin with</span></span><br><span class="line"><span class="string">    time 0 and probability 1.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Example:</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    input: </span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">         Time  Censor</span></span><br><span class="line"><span class="string">    0     5       0</span></span><br><span class="line"><span class="string">    1    10       1</span></span><br><span class="line"><span class="string">    2    15       0</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    correct output: </span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    event_times: [0, 5, 10, 15]</span></span><br><span class="line"><span class="string">    S: [1.0, 1.0, 0.5, 0.5]</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        df (dataframe): dataframe which has columns for Time</span></span><br><span class="line"><span class="string">                          and Event, defined as usual.</span></span><br><span class="line"><span class="string">                          </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        event_times (list of ints): array of unique event times</span></span><br><span class="line"><span class="string">                                      (begins with 0).</span></span><br><span class="line"><span class="string">        S (list of floats): array of survival probabilites, so that</span></span><br><span class="line"><span class="string">                            S[i] = P(T &gt; event_times[i]). This </span></span><br><span class="line"><span class="string">                            begins with 1.0 (since no one dies at time</span></span><br><span class="line"><span class="string">                            0).</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># individuals are considered to have survival probability 1</span></span><br><span class="line">    <span class="comment"># at time 0</span></span><br><span class="line">    event_times = [<span class="number">0</span>]</span><br><span class="line">    p = <span class="number">1.0</span></span><br><span class="line">    S = [p]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">### START CODE HERE (REPLACE INSTANCES OF 'None' with your code) ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># get collection of unique observed event times</span></span><br><span class="line">    observed_event_times = df[<span class="string">'Time'</span>].unique().tolist()</span><br><span class="line">  </span><br><span class="line">    <span class="comment"># sort event times</span></span><br><span class="line">    observed_event_times = sorted(observed_event_times)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># iterate through event times</span></span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> observed_event_times:</span><br><span class="line">  </span><br><span class="line">        <span class="comment"># compute n_t, number of people who survive to time t</span></span><br><span class="line">        n_t = df[df[<span class="string">'Time'</span>] &gt;= t].shape[<span class="number">0</span>]</span><br><span class="line">  </span><br><span class="line">        <span class="comment"># compute d_t, number of people who die at time t</span></span><br><span class="line">        d_t = df[(df[<span class="string">'Time'</span>] == t) &amp; (df[<span class="string">'Event'</span>] == <span class="number">1</span>)].shape[<span class="number">0</span>]</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># update p</span></span><br><span class="line">        p = p * ( <span class="number">1</span> - d_t / n_t)</span><br><span class="line">  </span><br><span class="line">        <span class="comment"># update S and event_times (ADD code below)</span></span><br><span class="line">        <span class="comment"># hint: use append</span></span><br><span class="line">        S.append(p)</span><br><span class="line">        event_times.append(t)</span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">  </span><br><span class="line">    <span class="keyword">return</span> event_times, S</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"TEST CASES:\n"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(<span class="string">"Test Case 1\n"</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Test DataFrame:"</span>)</span><br><span class="line">sample_df = pd.DataFrame(columns = [<span class="string">"Time"</span>, <span class="string">"Event"</span>])</span><br><span class="line">sample_df.Time = [<span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>]</span><br><span class="line">sample_df.Event = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">print(sample_df.head())</span><br><span class="line">print(<span class="string">"\nOutput:"</span>)</span><br><span class="line">x, y = HomemadeKM(sample_df)</span><br><span class="line">print(<span class="string">"Event times: &#123;&#125;, Survival Probabilities: &#123;&#125;"</span>.format(x, y))</span><br><span class="line">print(<span class="string">"\nExpected:"</span>)</span><br><span class="line">print(<span class="string">"Event times: [0, 5, 10, 15], Survival Probabilities: [1.0, 1.0, 0.5, 0.5]"</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"\nTest Case 2\n"</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Test DataFrame:"</span>)</span><br><span class="line"></span><br><span class="line">sample_df = pd.DataFrame(columns = [<span class="string">"Time"</span>, <span class="string">"Event"</span>])</span><br><span class="line">sample_df.loc[:, <span class="string">"Time"</span>] = [<span class="number">2</span>, <span class="number">15</span>, <span class="number">12</span>, <span class="number">10</span>, <span class="number">20</span>]</span><br><span class="line">sample_df.loc[:, <span class="string">"Event"</span>] = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">print(sample_df.head())</span><br><span class="line">print(<span class="string">"\nOutput:"</span>)</span><br><span class="line">x, y = HomemadeKM(sample_df)</span><br><span class="line">print(<span class="string">"Event times: &#123;&#125;, Survival Probabilities: &#123;&#125;"</span>.format(x, y))</span><br><span class="line">print(<span class="string">"\nExpected:"</span>)</span><br><span class="line">print(<span class="string">"Event times: [0, 2, 10, 12, 15, 20], Survival Probabilities: [1.0, 1.0, 0.75, 0.5, 0.5, 0.0]"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>TEST CASES:
+
+Test Case 1
+
+Test DataFrame:
+   Time  Event
+0     5      0
+1    10      1
+2    15      0
+
+Output:
+Event times: [0, 5, 10, 15], Survival Probabilities: [1.0, 1.0, 0.5, 0.5]
+
+Expected:
+Event times: [0, 5, 10, 15], Survival Probabilities: [1.0, 1.0, 0.5, 0.5]
+
+Test Case 2
+
+Test DataFrame:
+   Time  Event
+0     2      0
+1    15      0
+2    12      1
+3    10      1
+4    20      1
+
+Output:
+Event times: [0, 2, 10, 12, 15, 20], Survival Probabilities: [1.0, 1.0, 0.75, 0.5, 0.5, 0.0]
+
+Expected:
+Event times: [0, 2, 10, 12, 15, 20], Survival Probabilities: [1.0, 1.0, 0.75, 0.5, 0.5, 0.0]
+</code></pre><p>Now let’s plot the two against each other on the data to see the difference.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">max_time = data.Time.max()</span><br><span class="line">x = range(<span class="number">0</span>, max_time+<span class="number">1</span>)</span><br><span class="line">y = np.zeros(len(x))</span><br><span class="line"><span class="keyword">for</span> i, t <span class="keyword">in</span> enumerate(x):</span><br><span class="line">    y[i] = naive_estimator(t, data)</span><br><span class="line">    </span><br><span class="line">plt.plot(x, y, label=<span class="string">"Naive"</span>)</span><br><span class="line"></span><br><span class="line">x, y = HomemadeKM(data)</span><br><span class="line">plt.step(x, y, label=<span class="string">"Kaplan-Meier"</span>)</span><br><span class="line">plt.xlabel(<span class="string">"Time"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"Survival probability estimate"</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="output_31_0.png" alt="png"></p>
+<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>What differences do you observe between the naive estimator and Kaplan-Meier estimator? Do any of our earlier explorations of the dataset help to explain these differences?</p>
+<p><a name="5"></a></p>
+<h2 id="5-Subgroup-Analysis"><a href="#5-Subgroup-Analysis" class="headerlink" title="5. Subgroup Analysis"></a>5. Subgroup Analysis</h2><p>We see that along with Time and Censor, we have a column called <code>Stage_group</code>. </p>
+<ul>
+<li>A value of 1 in this column denotes a patient with stage III cancer</li>
+<li>A value of 2 denotes stage IV. </li>
+</ul>
+<p>We want to compare the survival functions of these two groups.</p>
+<p>This time we’ll use the <code>KaplanMeierFitter</code> class from <code>lifelines</code>. Run the next cell to fit and plot the Kaplan Meier curves for each group. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">S1 = data[data.Stage_group == <span class="number">1</span>]</span><br><span class="line">km1 = KM()</span><br><span class="line">km1.fit(S1.loc[:, <span class="string">'Time'</span>], event_observed = S1.loc[:, <span class="string">'Event'</span>], label = <span class="string">'Stage III'</span>)</span><br><span class="line"></span><br><span class="line">S2 = data[data.Stage_group == <span class="number">2</span>]</span><br><span class="line">km2 = KM()</span><br><span class="line">km2.fit(S2.loc[:, <span class="string">"Time"</span>], event_observed = S2.loc[:, <span class="string">'Event'</span>], label = <span class="string">'Stage IV'</span>)</span><br><span class="line"></span><br><span class="line">ax = km1.plot(ci_show=<span class="keyword">False</span>)</span><br><span class="line">km2.plot(ax = ax, ci_show=<span class="keyword">False</span>)</span><br><span class="line">plt.xlabel(<span class="string">'time'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Survival probability estimate'</span>)</span><br><span class="line">plt.savefig(<span class="string">'two_km_curves'</span>, dpi=<span class="number">300</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="output_34_0.png" alt="png"></p>
+<p>Let’s compare the survival functions at 90, 180, 270, and 360 days</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">survivals = pd.DataFrame([<span class="number">90</span>, <span class="number">180</span>, <span class="number">270</span>, <span class="number">360</span>], columns = [<span class="string">'time'</span>])</span><br><span class="line">survivals.loc[:, <span class="string">'Group 1'</span>] = km1.survival_function_at_times(survivals[<span class="string">'time'</span>]).values</span><br><span class="line">survivals.loc[:, <span class="string">'Group 2'</span>] = km2.survival_function_at_times(survivals[<span class="string">'time'</span>]).values</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">survivals</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>Group 1</th>
+      <th>Group 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>90</td>
+      <td>0.736842</td>
+      <td>0.424529</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>180</td>
+      <td>0.680162</td>
+      <td>0.254066</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>270</td>
+      <td>0.524696</td>
+      <td>0.195436</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>360</td>
+      <td>0.524696</td>
+      <td>0.195436</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>This makes clear the difference in survival between the Stage III and IV cancer groups in the dataset. </p>
+<p><a name="5-1"></a></p>
+<h2 id="5-1-Bonus-Log-Rank-Test"><a href="#5-1-Bonus-Log-Rank-Test" class="headerlink" title="5.1 Bonus: Log-Rank Test"></a>5.1 Bonus: Log-Rank Test</h2><p>To say whether there is a statistical difference between the survival curves we can run the log-rank test. This test tells us the probability that we could observe this data if the two curves were the same. The derivation of the log-rank test is somewhat complicated, but luckily <code>lifelines</code> has a simple function to compute it. </p>
+<p>Run the next cell to compute a p-value using <code>lifelines.statistics.logrank_test</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logrank_p_value</span><span class="params">(group_1_data, group_2_data)</span>:</span></span><br><span class="line">    result = logrank_test(group_1_data.Time, group_2_data.Time,</span><br><span class="line">                          group_1_data.Event, group_2_data.Event)</span><br><span class="line">    <span class="keyword">return</span> result.p_value</span><br><span class="line"></span><br><span class="line">logrank_p_value(S1, S2)</span><br></pre></td></tr></table></figure>
+<pre><code>0.009588929834755544
+</code></pre><p>If everything is correct, you should see a p value of less than <code>0.05</code>, which indicates that the difference in the curves is indeed statistically significant.</p>
+<h1 id="Congratulations"><a href="#Congratulations" class="headerlink" title="Congratulations!"></a>Congratulations!</h1><p>You’ve completed the third assignment of Course 2. You’ve learned about the Kaplan Meier estimator, a fundamental non-parametric estimator in survival analysis. Next week we’ll learn how to take into account patient covariates in our survival estimates!</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Medicine/" rel="tag"># Medicine</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Risk-Models-Using-Tree-based-Models/2020/04/18/" rel="next" title="Risk Models Using Tree-based Models">
+                <i class="fa fa-chevron-left"></i> Risk Models Using Tree-based Models
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Cox-Proportional-Hazards-and-Random-Survival-Forests/2020/04/19/" rel="prev" title="Cox Proportional Hazards and Random Survival Forests">
+                Cox Proportional Hazards and Random Survival Forests <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">267</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/cherish_CX/" title="Chunxia" target="_blank" rel="external nofollow">Chunxia</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Survival-Estimates-that-Vary-with-Time"><span class="nav-text">Survival Estimates that Vary with Time</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Outline"><span class="nav-text">Outline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Import-Packages"><span class="nav-text">1. Import Packages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Load-the-Dataset"><span class="nav-text">2. Load the Dataset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Censored-Data"><span class="nav-text">3. Censored Data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-1"><span class="nav-text">Exercise 1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Expected-Output"><span class="nav-text">Expected Output:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Survival-Estimates"><span class="nav-text">4. Survival Estimates</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-2"><span class="nav-text">Exercise 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exercise-3"><span class="nav-text">Exercise 3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Question"><span class="nav-text">Question</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Subgroup-Analysis"><span class="nav-text">5. Subgroup Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-Bonus-Log-Rank-Test"><span class="nav-text">5.1 Bonus: Log-Rank Test</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Congratulations"><span class="nav-text">Congratulations!</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>

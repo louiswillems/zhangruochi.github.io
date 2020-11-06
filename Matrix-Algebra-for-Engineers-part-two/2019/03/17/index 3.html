@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Eigenvalues and eigenvectors,Vector spaces">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Important concepts about Matrix Algebra. This part contains the contents of Vector spaces and Eigenvalues and eigenvectors.">
+<meta name="keywords" content="Eigenvalues and eigenvectors,Vector spaces">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Matrix Algebra for Engineers (part two)">
+<meta property="og:url" content="https://zhangruochi.com/Matrix-Algebra-for-Engineers-part-two/2019/03/17/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="Important concepts about Matrix Algebra. This part contains the contents of Vector spaces and Eigenvalues and eigenvectors.">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/Matrix-Algebra-for-Engineers-part-two/2019/03/17/linear.png">
+<meta property="og:updated_time" content="2019-07-05T10:16:38.730Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Matrix Algebra for Engineers (part two)">
+<meta name="twitter:description" content="Important concepts about Matrix Algebra. This part contains the contents of Vector spaces and Eigenvalues and eigenvectors.">
+<meta name="twitter:image" content="https://zhangruochi.com/Matrix-Algebra-for-Engineers-part-two/2019/03/17/linear.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/Matrix-Algebra-for-Engineers-part-two/2019/03/17/">
+
+
+
+
+
+  <title>Matrix Algebra for Engineers (part two) | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/Matrix-Algebra-for-Engineers-part-two/2019/03/17/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Matrix Algebra for Engineers (part two)</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-17T13:24:15+08:00">
+                2019-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Math/" itemprop="url" rel="index">
+                    <span itemprop="name">Math</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Math/Linear-Algebra/" itemprop="url" rel="index">
+                    <span itemprop="name">Linear Algebra</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Matrix-Algebra-for-Engineers-part-two/2019/03/17/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Matrix-Algebra-for-Engineers-part-two/2019/03/17/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  Important concepts about Matrix Algebra. This part contains the contents of Vector spaces and Eigenvalues and eigenvectors.
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>reference from <em>Matrix Algebra for Engineers</em> by Jeffrey R. Chasnov</strong></p>
+<h2 id="Vector-spaces"><a href="#Vector-spaces" class="headerlink" title="Vector spaces"></a>Vector spaces</h2><ul>
+<li>A vector space consists of a set of vectors and a set of scalars.</li>
+<li>For the set of vectors and scalars to form a vector space, the set of vectors must be <strong>closed</strong> under vector addition and scalar multiplication. That is, when you multiply any two vectors in the set by real numbers and add them, the resulting vector must still be in the set.</li>
+</ul>
+<p>As an example:</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+\mu_{1} \\
+\mu_{2} \\
+\mu_{3} \\
+\end{pmatrix},
+\begin{pmatrix}
+\nu_{1} \\
+\nu_{2} \\
+\nu_{3} \\
+\end{pmatrix}</script><p>then</p>
+<script type="math/tex; mode=display">
+w = a\mu + b\nu = 
+\begin{pmatrix}
+a\mu_{1} + b\nu_{1} \\ 
+a\mu_{2} + b\nu_{2} \\ 
+a\mu_{3} + b\nu_{3} \\ 
+\end{pmatrix}</script><p>so that the set of all three-by-one matrices (together with the set of real numbers) is a vector space. This space is usually called \mathbb{R^{3}}.</p>
+<h2 id="Linear-independence"><a href="#Linear-independence" class="headerlink" title="Linear independence"></a>Linear independence</h2><p>The set of vectors, ${u_{1}, u_{2}, . . . , u_{n}}$, are linearly independent if for any scalars $c_{1}, c_{2}, . . . , c_{n}$, the equation</p>
+<script type="math/tex; mode=display">c_{1}u_{1}+c_{2}u_{2}+···+c_{n}u_{n} = 0</script><p>has only the solution $c_{1} = c_{2} = ··· = c_{n} = 0$</p>
+<h2 id="Span-basis-and-dimension"><a href="#Span-basis-and-dimension" class="headerlink" title="Span, basis and dimension"></a>Span, basis and dimension</h2><h3 id="Span"><a href="#Span" class="headerlink" title="Span"></a>Span</h3><p>Given a set of vectors, one can generate a vector space by forming all linear combinations of that set of vectors. The span of the set of vectors ${v_{1}, v_{2}, . . . , v_{n}}$ is the vector space consisting of all linear combinations of $v_{1}, v_{2}, . . . , v_{n}$. We say that a set of vectors spans a vector space.</p>
+<h3 id="basis"><a href="#basis" class="headerlink" title="basis"></a>basis</h3><p>The <strong>smallest</strong> set of vectors needed to span a vector space forms a <strong>basis</strong> for that vector space</p>
+<h3 id="dimension"><a href="#dimension" class="headerlink" title="dimension"></a>dimension</h3><p><strong>The number</strong> of vectors in a basis gives the dimension of the vector space </p>
+<h2 id="Gram-Schmidt-process"><a href="#Gram-Schmidt-process" class="headerlink" title="Gram-Schmidt process"></a>Gram-Schmidt process</h2><p>Given any basis for a vector space, we can use an algorithm called the Gram-Schmidt process to construct an <strong>orthonormal basis</strong> for that space</p>
+<p>Let the vectors $v_{1}, v_{2}, . . . , v_{n}$ be a basis for some n- dimensional vector space. We will assume here that these vectors are column matrices, but this process also applies more generally. We will construct an orthogonal basis $u_{1}, u_{2}, . . . , u_{n}$, and then normalize each vector to obtain an orthonormal basis.</p>
+<p>First, define $u_{1} = v_{1}$, To find the next orthogonal basis vector, define</p>
+<script type="math/tex; mode=display">
+u_{2} = v_{2} - \frac{(u_{1}^{T}v_{2})u_{1}}{u_{1}^{T}u_{1}}</script><p>The next orthogonal vector in the new basis can be found from</p>
+<script type="math/tex; mode=display">
+u_{3} = v_{3} - \frac{(u_{1}^{T}v_{3})u_{1}}{u_{1}^{T}u_{1}} - \frac{(u_{2}^{T}v_{3})u_{2}}{u_{2}^{T}u_{2}}</script><p>We can continue in this fashion to construct n orthogonal basis vectors. These vectors can then be normalized via</p>
+<script type="math/tex; mode=display">
+\hat{u_{1}} = \frac{u_{1}}{(u_{1}^{T}u_{1})^{\frac{1}{2}}}</script><h2 id="Null-space"><a href="#Null-space" class="headerlink" title="Null space"></a>Null space</h2><p>The null space of a matrix A, which we denote as Null(A), is the vector space spanned by all column vectors x that satisfy the matrix equation</p>
+<script type="math/tex; mode=display">Ax = 0</script><p>To find a basis for the null space of a noninvertible matrix, we bring A to reduced row echelon form.</p>
+<script type="math/tex; mode=display">
+A = \begin{pmatrix}
+-3 & 6 & -1 & 1 & -1 \\
+1 & -2 & 2 & 3 & -1 \\
+2 & -4 & 5 & 8 & -4 \\
+\end{pmatrix} \rightarrow
+A = \begin{pmatrix}
+1 & -2 & 0 & -1 & 3 \\
+0 & 0 & 1 & 2 & -2 \\
+0 & 0 & 0 & 0 & 0 \\
+\end{pmatrix}</script><p>We call the variables associated with the pivot columns, x1 and x3, <strong>basic variables</strong>, and the variables associated with the non-pivot columns, x2, x4 and x5, <strong>free variables</strong>. Writing the basic variables on the left-hand side of the $Ax = 0$ equations, we have from the first and second rows</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+x_{1} = 2x_{2} + x_{4} - 3x_{5}, \\
+x_{3} = -2x_{4} + 2x_{5}, \\
+\end{align*}</script><p>Eliminating x1 and x3, we can write the general solution for vectors in Null(A) as</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+2x_{2} + x_{4} - 3x_{5} \\
+x_{2} \\
+-2x_{4} + 2x_{5} \\
+x_{4} \\ 
+x_{5} \\
+\end{pmatrix} = x_{2}
+\begin{pmatrix}
+2 \\
+1 \\
+0 \\
+0 \\
+0 \\
+\end{pmatrix} + x_{4}
+\begin{pmatrix}
+1 \\
+0 \\
+-2 \\
+1 \\
+0 \\
+\end{pmatrix} + x_{5}
+\begin{pmatrix}
+-3 \\
+0 \\
+2 \\
+0 \\
+1 \\
+\end{pmatrix}</script><p>where the free variables $x_{2}$, $x_{4}$, and $x_{5}$ can take any values. By writing the null space in this form, a basis for Null(A) is made evident, and is given by</p>
+<script type="math/tex; mode=display">
+\left\{
+\begin{pmatrix}
+2 \\
+1 \\
+0 \\
+0 \\
+0 \\
+\end{pmatrix},
+\begin{pmatrix}
+1 \\
+0 \\
+-2 \\
+1 \\
+0 \\
+\end{pmatrix},
+\begin{pmatrix}
+-3 \\
+0 \\
+2 \\
+0 \\
+1 \\
+\end{pmatrix}
+\right\}</script><h2 id="Application-of-the-null-space"><a href="#Application-of-the-null-space" class="headerlink" title="Application of the null space"></a>Application of the null space</h2><p>An underdetermined system of linear equations $Ax = b$ with more unknowns than equations may not have a unique solution</p>
+<p>If u is the general form of a vector in the null space of A, and v is any vector that satisfies $Av = b$, then $x = u+v$ satisfies $Ax = A(u+v) = Au+Av = 0+b = b$. The general solution of $Ax = b$ can therefore be written as the sum of a general vector in Null(A) and a particular vector that satisfies the underdetermined system.</p>
+<p>As an example,</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+2x_{1} + 2x_{2} + x_{3} = 0, \\
+2x_{1} − 2x_{2} − x_{3} = 1, \\
+\end{align*}</script><p>We first bring the augmented matrix to reduced row echelon form:</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+2 & 2 & 1 & 0 \\
+2 & -2 & -1 & 1 \\
+\end{pmatrix} \rightarrow
+\begin{pmatrix}
+1 & 0 & 0 & \frac{1}{4} \\
+0 & 1 & \frac{1}{2} & -\frac{1}{4} \\
+\end{pmatrix}</script><p>The null space is determined from $x_{1} = 0$ and $x_{2} = −\frac{x_{3}}{2}$, and we can write</p>
+<script type="math/tex; mode=display">
+Null(A) = span \left\{ \begin{pmatrix} 0 \\ -1 \\ 2 \end{pmatrix}\right\}</script><p>The general solution to the original underdetermined linear system is <strong>the sum of the null space and the particular solution</strong> and is given by</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+x_{1} \\
+x_{2} \\
+x_{3} \\
+\end{pmatrix} = a 
+\begin{pmatrix}
+0 \\
+-1 \\
+2 \\
+\end{pmatrix} + \frac{1}{4} 
+\begin{pmatrix}
+1 \\
+-1 \\
+0 \\
+\end{pmatrix}</script><h2 id="Column-space"><a href="#Column-space" class="headerlink" title="Column space"></a>Column space</h2><p>The column space of a matrix is the vector space spanned by the columns of the matrix. <strong>When a matrix is multiplied by a column vector, the resulting vector is in the column space of the matrix</strong>, as<br>can be seen from</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+a & b \\
+c & d \\
+\end{pmatrix} 
+\begin{pmatrix}
+x \\
+y \\
+\end{pmatrix} = 
+\begin{pmatrix}
+ax + by \\
+cx + dy \\
+\end{pmatrix} = x
+\begin{pmatrix}
+a \\
+c \\
+\end{pmatrix} + y
+\begin{pmatrix}
+b \\
+d \\
+\end{pmatrix}</script><p>Recall that the dimension of the null space is the number of non-pivot columns—equal to the number of free variables—so that the sum of the dimensions of the null space and the column space is equal to the total number of columns—equal</p>
+<script type="math/tex; mode=display">dim(Col(A)) + dim(Null(A)) = n.</script><h2 id="Row-space-left-null-space-and-rank"><a href="#Row-space-left-null-space-and-rank" class="headerlink" title="Row space, left null space and rank"></a>Row space, left null space and rank</h2><p>In addition to the column space and the null space, a matrix A has two more vector spaces associated with it, namely the <strong>column space</strong> and <strong>null space</strong> of $A^{T}$, which are called the <strong>row space</strong> and the <strong>left null space</strong>.</p>
+<p>Furthermore, the dimension of the column space of A is also equal to the number of pivot columns,<br>so that the dimensions of the column space and the row space of a matrix are equal. We have </p>
+<script type="math/tex; mode=display">dim(Col(A)) = dim(Row(A)).</script><p><strong>We call this dimension the rank of the matrix A</strong></p>
+<h2 id="Orthogonal-projections"><a href="#Orthogonal-projections" class="headerlink" title="Orthogonal projections"></a>Orthogonal projections</h2><p>Suppose that V is an n-dimensional vector space and W is a p-dimensional subspace of V.  In general, the orthogonal projection of v onto W is given by</p>
+<script type="math/tex; mode=display">
+v_{proj_{W}} = (v^{T}s_{1})s_{1} + (v^{T}s_{2})s_{2} + · · · + (v^{T}s_{p})s_{p};</script><p>and we can write</p>
+<script type="math/tex; mode=display">v=v_{proj_{W}} +(v−v_{proj_{W}})</script><p>$v_{proj_{W}}$ is closer to v than any other vector in W</p>
+<h2 id="The-least-squares-problem"><a href="#The-least-squares-problem" class="headerlink" title="The least-squares problem"></a>The least-squares problem</h2><p><img src="linear.png" alt="linear.png"></p>
+<p>These equations constitute a system of n equations in the two unknowns $\beta_{0}$ and $\beta_{1}$. The corresponding<br>matrix equation is given by:</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+1 & x_{1} \\
+1 & x_{2} \\
+\vdots \\
+1 & x_{n} \\
+\end{pmatrix}
+\begin{pmatrix}
+\beta{0} \\
+\beta{1} \\
+\end{pmatrix} = 
+\begin{pmatrix}
+y_{1} \\
+y_{2} \\
+\vdots \\
+y_{n}
+\end{pmatrix}</script><p>This is an overdetermined system of equations with no solution. The problem of least squares is to find the best solution.</p>
+<p>We can generalize this problem as follows. Suppose we are given a matrix equation, $Ax = b$, that has no solution because b is not in the column space of A. So instead we solve $Ax = b_{projCol(A)}$ , where $b_{projCol(A)}$ is the projection of b onto the column space of A. The solution is then called the least-squares solution for x.</p>
+<script type="math/tex; mode=display">b_{projCol(A)} = A(A^{T}A)^{−1}A^{T}b.</script><h2 id="Laplace-expansion"><a href="#Laplace-expansion" class="headerlink" title="Laplace expansion"></a>Laplace expansion</h2><script type="math/tex; mode=display">
+\begin{vmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i \\
+\end{vmatrix} = aei+bfg+cdh−ceg−bdi−afh = a(ei− fh)−b(di− fg)+c(dh−eg) \\</script><p>which can be written suggestively as</p>
+<script type="math/tex; mode=display">
+\begin{vmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i \\
+\end{vmatrix} = 
+a \begin{vmatrix}
+e & f \\
+h & i \\
+\end{vmatrix} - b \begin{vmatrix}
+d & f \\
+g & i \\
+\end{vmatrix} + c \begin{vmatrix}
+d & e \\
+g & h \\
+\end{vmatrix}</script><h2 id="Properties-of-a-determinant"><a href="#Properties-of-a-determinant" class="headerlink" title="Properties of a determinant"></a>Properties of a determinant</h2><ul>
+<li>Property 1: The determinant of the identity matrix is one;</li>
+<li>Property 2: The determinant changes sign under row interchange;</li>
+<li>Property 3: The determinant is a linear function of the first row, holding all other rows fixed.</li>
+</ul>
+<h2 id="The-eigenvalue-problem"><a href="#The-eigenvalue-problem" class="headerlink" title="The eigenvalue problem"></a>The eigenvalue problem</h2><p>Let A be a square matrix, x a column vector, and λ a scalar. The eigenvalue problem for A solves</p>
+<script type="math/tex; mode=display">Ax = \lambda x</script><p>for eigenvalues $\lambda_{i}$ with corresponding eigenvectors $x_{i}$. Making use of the identity matrix I, the eigenvalue problem can be rewritten as</p>
+<script type="math/tex; mode=display">(A−\lambda I)x = 0</script><p>For there to be nonzero eigenvectors, the matrix $(A − \lambda I)$ must be singular, that is,</p>
+<script type="math/tex; mode=display">det(A−\lambda I) = 0.</script><h2 id="Matrix-diagonalization"><a href="#Matrix-diagonalization" class="headerlink" title="Matrix diagonalization"></a>Matrix diagonalization</h2><p>For concreteness, consider a two-by-two matrix A with eigenvalues and eigenvectors given by</p>
+<script type="math/tex; mode=display">
+\lambda_{1}, x_{1} = \begin{pmatrix}
+x_{11}\\
+x_{21}\\
+\end{pmatrix} ;
+\lambda_{2}, x_{2} = \begin{pmatrix}
+x_{12}\\
+x_{22}\\
+\end{pmatrix}</script><p>And consider the matrix product and factorization given by</p>
+<script type="math/tex; mode=display">
+A \begin{pmatrix}
+x_{11} & x_{12} \\
+x_{21} & x_{22} \\
+\end{pmatrix} = \begin{pmatrix}
+\lambda_{1}x_{11} & \lambda_{2}x_{12} \\
+\lambda_{1}x_{21} & \lambda_{2}x_{22} \\
+\end{pmatrix} = \begin{pmatrix}
+x_{11} & x_{12} \\
+x_{21} & x_{22} \\
+\end{pmatrix} \begin{pmatrix}
+\lambda_{1} & 0 \\
+0 & \lambda_{2} \\
+\end{pmatrix}</script><p>Generalizing, we define S to be the matrix whose columns are the eigenvectors of A, and Λ to be the diagonal matrix with eigenvalues down the diagonal. Then for any n-by-n matrix with n linearly independent eigenvectors, we have</p>
+<script type="math/tex; mode=display">AS = SΛ</script><p>where S is an invertible matrix. Multiplying both sides on the right or the left by $S^{−1}$, we derive the<br>relations</p>
+<script type="math/tex; mode=display">A = SΛS^{−1} \quad or \quad Λ = S^{−1}AS.</script><h2 id="Powers-of-a-matrix"><a href="#Powers-of-a-matrix" class="headerlink" title="Powers of a matrix"></a>Powers of a matrix</h2><p>Suppose that A is diagonalizable, and consider</p>
+<script type="math/tex; mode=display">A^{p} = (SΛS^{−1})(SΛS^{−1}) = SΛ^{p}S^{−1}</script><script type="math/tex; mode=display">
+\begin{pmatrix}
+\lambda_{1} & 0 \\
+0 & \lambda_{2} \\
+\end{pmatrix}
+\begin{pmatrix}
+\lambda_{1} & 0 \\
+0 & \lambda_{2} \\
+\end{pmatrix} = 
+\begin{pmatrix}
+\lambda_{1}^{2} & 0 \\
+0 & \lambda_{2}^{2} \\
+\end{pmatrix}</script>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Matrix-Algebra-for-Engineers-part-one/2019/03/17/" rel="next" title="Matrix Algebra for Engineers (part one)">
+                <i class="fa fa-chevron-left"></i> Matrix Algebra for Engineers (part one)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Machine-Learning-Yarning-part-one/2019/03/20/" rel="prev" title="Machine Learning Yarning(part one)">
+                Machine Learning Yarning(part one) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">267</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/cherish_CX/" title="Chunxia" target="_blank" rel="external nofollow">Chunxia</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vector-spaces"><span class="nav-text">Vector spaces</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-independence"><span class="nav-text">Linear independence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Span-basis-and-dimension"><span class="nav-text">Span, basis and dimension</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Span"><span class="nav-text">Span</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#basis"><span class="nav-text">basis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dimension"><span class="nav-text">dimension</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gram-Schmidt-process"><span class="nav-text">Gram-Schmidt process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Null-space"><span class="nav-text">Null space</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Application-of-the-null-space"><span class="nav-text">Application of the null space</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Column-space"><span class="nav-text">Column space</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Row-space-left-null-space-and-rank"><span class="nav-text">Row space, left null space and rank</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Orthogonal-projections"><span class="nav-text">Orthogonal projections</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-least-squares-problem"><span class="nav-text">The least-squares problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Laplace-expansion"><span class="nav-text">Laplace expansion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Properties-of-a-determinant"><span class="nav-text">Properties of a determinant</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-eigenvalue-problem"><span class="nav-text">The eigenvalue problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matrix-diagonalization"><span class="nav-text">Matrix diagonalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Powers-of-a-matrix"><span class="nav-text">Powers of a matrix</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>

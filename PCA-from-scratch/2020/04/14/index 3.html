@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="PfeH4jmhwL">
+<meta name="google-site-verification" content="A749_BVo91Gbd5oqBRsAAzolnmY_5JCET--CVn3ZQQA">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Didot:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Unsupervised Learning,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RUOCHI.AI" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="123456789101112131415161718import numpy as npimport matplotlib.pyplot as pltimport mathfrom sklearn import decompositiondef plot_arrow(ax, start, stop):    ax.annotate(&apos;&apos;, xytext=start, xy=stop,">
+<meta name="keywords" content="Unsupervised Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PCA from scratch">
+<meta property="og:url" content="https://zhangruochi.com/PCA-from-scratch/2020/04/14/index.html">
+<meta property="og:site_name" content="RUOCHI.AI">
+<meta property="og:description" content="123456789101112131415161718import numpy as npimport matplotlib.pyplot as pltimport mathfrom sklearn import decompositiondef plot_arrow(ax, start, stop):    ax.annotate(&apos;&apos;, xytext=start, xy=stop,">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://zhangruochi.com/PCA-from-scratch/2020/04/14/output_2_1.png">
+<meta property="og:image" content="https://zhangruochi.com/PCA-from-scratch/2020/04/14/output_4_2.png">
+<meta property="og:image" content="https://zhangruochi.com/PCA-from-scratch/2020/04/14/output_5_2.png">
+<meta property="og:image" content="https://zhangruochi.com/PCA-from-scratch/2020/04/14/output_6_2.png">
+<meta property="og:image" content="https://zhangruochi.com/PCA-from-scratch/2020/04/14/output_7_2.png">
+<meta property="og:image" content="https://zhangruochi.com/PCA-from-scratch/2020/04/14/output_13_1.png">
+<meta property="og:updated_time" content="2020-04-14T17:33:44.799Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PCA from scratch">
+<meta name="twitter:description" content="123456789101112131415161718import numpy as npimport matplotlib.pyplot as pltimport mathfrom sklearn import decompositiondef plot_arrow(ax, start, stop):    ax.annotate(&apos;&apos;, xytext=start, xy=stop,">
+<meta name="twitter:image" content="https://zhangruochi.com/PCA-from-scratch/2020/04/14/output_2_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhangruochi.com/PCA-from-scratch/2020/04/14/">
+
+
+
+
+
+  <title>PCA from scratch | RUOCHI.AI</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="site-title">RUOCHI.AI</span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            projects
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhangruochi.com/PCA-from-scratch/2020/04/14/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ruochi Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RUOCHI.AI">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">PCA from scratch</h2>
+        
+
+        <div class="post-meta">
+          
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-14T13:32:41+08:00">
+                2020-04-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index">
+                    <span itemprop="name">Artificial Intelligence</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Artificial-Intelligence/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/PCA-from-scratch/2020/04/14/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/PCA-from-scratch/2020/04/14/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> decomposition</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_arrow</span><span class="params">(ax, start, stop)</span>:</span></span><br><span class="line">    ax.annotate(<span class="string">''</span>, xytext=start, xy=stop,                 </span><br><span class="line">                arrowprops=dict(facecolor=<span class="string">'red'</span>, width=<span class="number">2.0</span>))</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">corr_vars</span><span class="params">( start=<span class="number">-10</span>, stop=<span class="number">10</span>, step=<span class="number">0.5</span>, mu=<span class="number">0</span>, sigma=<span class="number">3</span>, func=lambda x: x )</span>:</span></span><br><span class="line">    x = np.arange(start, stop, step)    </span><br><span class="line">    e = np.random.normal(mu, sigma, x.size)</span><br><span class="line">    y = np.zeros(x.size)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> ind <span class="keyword">in</span> range(x.size):</span><br><span class="line">        y[ind] = func(x[ind]) + e[ind]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> (x,y)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">(x1,x2) = corr_vars(start=<span class="number">2</span>, stop=<span class="number">4</span>, step=<span class="number">0.2</span>, sigma=<span class="number">2</span>, func=<span class="keyword">lambda</span> x: <span class="number">2</span>*math.sin(x))</span><br><span class="line"></span><br><span class="line">A = np.column_stack((x1,x2))</span><br><span class="line"></span><br><span class="line">Aorig = A</span><br><span class="line"></span><br><span class="line">A</span><br></pre></td></tr></table></figure>
+<pre><code>array([[ 2.        , -1.68093609],
+       [ 2.2       ,  2.30235361],
+       [ 2.4       ,  3.65699797],
+       [ 2.6       ,  0.52613067],
+       [ 2.8       ,  2.63261787],
+       [ 3.        ,  1.3106777 ],
+       [ 3.2       ,  0.32561105],
+       [ 3.4       , -2.65116887],
+       [ 3.6       , -1.26403255],
+       [ 3.8       , -0.71371289]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">A = (A-np.mean(A,axis=<span class="number">0</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot the original matrix</span></span><br><span class="line">f, (ax1, ax2) = plt.subplots(<span class="number">1</span>, <span class="number">2</span>, sharey=<span class="keyword">True</span>, figsize=(<span class="number">7</span>,<span class="number">4</span>))</span><br><span class="line">ax1.scatter(Aorig[:,<span class="number">0</span>], Aorig[:,<span class="number">1</span>])</span><br><span class="line">ax1.set_title(<span class="string">"Original data"</span>)</span><br><span class="line">ax1.grid(<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot the centered data</span></span><br><span class="line">ax2.scatter(A[:,<span class="number">0</span>],A[:,<span class="number">1</span>])</span><br><span class="line">ax2.set_title(<span class="string">"Centered data"</span>)</span><br><span class="line">ax2.grid(<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">ax1.axhline(<span class="number">0</span>, color=<span class="string">"blue"</span>)</span><br><span class="line">ax1.axvline(<span class="number">0</span>, color=<span class="string">"blue"</span>)</span><br><span class="line">ax2.axhline(<span class="number">0</span>, color=<span class="string">"blue"</span>)</span><br><span class="line">ax2.axvline(<span class="number">0</span>, color=<span class="string">"blue"</span>)</span><br><span class="line"></span><br><span class="line">plt.xlim([<span class="number">-2</span>,<span class="number">5</span>])</span><br><span class="line">plt.ylim([<span class="number">-4</span>,<span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>(-4, 5)
+</code></pre><p><img src="output_2_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">S = np.dot(A.T,A)/(A.shape[<span class="number">0</span>]<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"The covariance matrix is:"</span>)</span><br><span class="line">print(S,<span class="string">"\n"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>The covariance matrix is:
+[[ 0.36666667 -0.55248919]
+ [-0.55248919  4.18798554]] 
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">f, ax1 = plt.subplots(<span class="number">1</span>, <span class="number">1</span>, sharey=<span class="keyword">True</span>, figsize=(<span class="number">12</span>,<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line">V = np.array([[<span class="number">-1</span>],[<span class="number">0</span>]])</span><br><span class="line">print(<span class="string">"Vector slope: "</span>,V[<span class="number">1</span>]/V[<span class="number">0</span>])</span><br><span class="line">ax1.scatter(A[:,<span class="number">0</span>],A[:,<span class="number">1</span>])</span><br><span class="line">ax1.set_title(<span class="string">"Vector [-1,1]"</span>)</span><br><span class="line">ax1.grid(<span class="keyword">True</span>)</span><br><span class="line">ax1.plot([<span class="number">0</span>,V[<span class="number">0</span>]],[<span class="number">0</span>,V[<span class="number">1</span>]],c=<span class="string">'r'</span>)</span><br><span class="line">plot_arrow(ax1, (<span class="number">0</span>,<span class="number">0</span>),(V[<span class="number">0</span>],V[<span class="number">1</span>]))</span><br><span class="line">plt.xlim([<span class="number">-5</span>,<span class="number">5</span>])</span><br><span class="line">plt.ylim([<span class="number">-5</span>,<span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>Vector slope:  [-0.]
+
+
+
+
+
+(-5, 5)
+</code></pre><p><img src="output_4_2.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">f, ax1 = plt.subplots(<span class="number">1</span>, <span class="number">1</span>, sharey=<span class="keyword">True</span>, figsize=(<span class="number">12</span>,<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line">V = np.dot(S,V)</span><br><span class="line">print(<span class="string">"Vector slope: "</span>,V[<span class="number">1</span>]/V[<span class="number">0</span>])</span><br><span class="line">ax1.scatter(A[:,<span class="number">0</span>],A[:,<span class="number">1</span>])</span><br><span class="line">ax1.set_title(<span class="string">"Vector [-1,1]"</span>)</span><br><span class="line">ax1.grid(<span class="keyword">True</span>)</span><br><span class="line">ax1.plot([<span class="number">0</span>,V[<span class="number">0</span>]],[<span class="number">0</span>,V[<span class="number">1</span>]],c=<span class="string">'r'</span>)</span><br><span class="line">plot_arrow(ax1, (<span class="number">0</span>,<span class="number">0</span>),(V[<span class="number">0</span>],V[<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">plt.xlim([<span class="number">-5</span>,<span class="number">5</span>])</span><br><span class="line">plt.ylim([<span class="number">-5</span>,<span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>Vector slope:  [-1.50678871]
+
+
+
+
+
+(-5, 5)
+</code></pre><p><img src="output_5_2.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">f, ax1 = plt.subplots(<span class="number">1</span>, <span class="number">1</span>, sharey=<span class="keyword">True</span>, figsize=(<span class="number">12</span>,<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line">V = np.dot(S,V)</span><br><span class="line">print(<span class="string">"Vector slope: "</span>,V[<span class="number">1</span>]/V[<span class="number">0</span>])</span><br><span class="line">ax1.scatter(A[:,<span class="number">0</span>],A[:,<span class="number">1</span>])</span><br><span class="line">ax1.set_title(<span class="string">"Vector [-1,1]"</span>)</span><br><span class="line">ax1.grid(<span class="keyword">True</span>)</span><br><span class="line">ax1.plot([<span class="number">0</span>,V[<span class="number">0</span>]],[<span class="number">0</span>,V[<span class="number">1</span>]],c=<span class="string">'r'</span>)</span><br><span class="line">plot_arrow(ax1, (<span class="number">0</span>,<span class="number">0</span>),(V[<span class="number">0</span>],V[<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">plt.xlim([<span class="number">-5</span>,<span class="number">5</span>])</span><br><span class="line">plt.ylim([<span class="number">-5</span>,<span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>Vector slope:  [-5.72313052]
+
+
+
+
+
+(-5, 5)
+</code></pre><p><img src="output_6_2.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">f, ax1 = plt.subplots(<span class="number">1</span>, <span class="number">1</span>, sharey=<span class="keyword">True</span>, figsize=(<span class="number">12</span>,<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line">V = np.dot(S,V)</span><br><span class="line">print(<span class="string">"Vector slope: "</span>,V[<span class="number">1</span>]/V[<span class="number">0</span>])</span><br><span class="line">ax1.scatter(A[:,<span class="number">0</span>],A[:,<span class="number">1</span>])</span><br><span class="line">ax1.set_title(<span class="string">"Vector [-1,1]"</span>)</span><br><span class="line">ax1.grid(<span class="keyword">True</span>)</span><br><span class="line">ax1.plot([<span class="number">0</span>,V[<span class="number">0</span>]],[<span class="number">0</span>,V[<span class="number">1</span>]],c=<span class="string">'r'</span>)</span><br><span class="line">plot_arrow(ax1, (<span class="number">0</span>,<span class="number">0</span>),(V[<span class="number">0</span>],V[<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">plt.xlim([<span class="number">-5</span>,<span class="number">5</span>])</span><br><span class="line">plt.ylim([<span class="number">-5</span>,<span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>Vector slope:  [-6.94911232]
+
+
+
+
+
+(-5, 5)
+</code></pre><p><img src="output_7_2.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"The slope of the vector converges to the direction of greatest variance:\n"</span>)</span><br><span class="line"></span><br><span class="line">V = np.dot(S,V)</span><br><span class="line">print(<span class="string">"Vector slope: "</span>,V[<span class="number">1</span>]/V[<span class="number">0</span>])</span><br><span class="line">V = np.dot(S,V)</span><br><span class="line">print(<span class="string">"Vector slope: "</span>,V[<span class="number">1</span>]/V[<span class="number">0</span>])</span><br><span class="line">V = np.dot(S,V)</span><br><span class="line">print(<span class="string">"Vector slope: "</span>,V[<span class="number">1</span>]/V[<span class="number">0</span>])</span><br><span class="line">V = np.dot(S,V)</span><br><span class="line">print(<span class="string">"Vector slope: "</span>,V[<span class="number">1</span>]/V[<span class="number">0</span>])</span><br><span class="line">V = np.dot(S,V)</span><br><span class="line">print(<span class="string">"Vector slope: "</span>,V[<span class="number">1</span>]/V[<span class="number">0</span>])</span><br><span class="line">V = np.dot(S,V)</span><br><span class="line">print(<span class="string">"Vector slope: "</span>,V[<span class="number">1</span>]/V[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>The slope of the vector converges to the direction of greatest variance:
+
+Vector slope:  [-7.0507464]
+Vector slope:  [-7.0577219]
+Vector slope:  [-7.05819391]
+Vector slope:  [-7.05822582]
+Vector slope:  [-7.05822798]
+Vector slope:  [-7.05822813]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://en.wikipedia.org/wiki/Eigenvalue_algorithm</span></span><br><span class="line"></span><br><span class="line">l_1 = (S.trace() + np.sqrt(pow(S.trace(),<span class="number">2</span>) - <span class="number">4</span>*np.linalg.det(S))) / <span class="number">2</span></span><br><span class="line">l_2 = (S.trace() - np.sqrt(pow(S.trace(),<span class="number">2</span>) - <span class="number">4</span>*np.linalg.det(S))) / <span class="number">2</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"The eigenvalues are:"</span>)</span><br><span class="line">print(<span class="string">"L1:"</span>,l_1)</span><br><span class="line">print(<span class="string">"L2:"</span>,l_2)</span><br></pre></td></tr></table></figure>
+<pre><code>The eigenvalues are:
+L1: 4.266261447240239
+L2: 0.28839076171131417
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Cayley-Hamilton theorem</span></span><br><span class="line"><span class="comment"># (A - λ1I )(A - λ2I ) = (A - λ2I )(A - λ1I ) = 0</span></span><br><span class="line"></span><br><span class="line">A1 = S - l_1 * np.identity(<span class="number">2</span>)</span><br><span class="line">A2 = S - l_2 * np.identity(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">E1 = A2[:,<span class="number">1</span>]</span><br><span class="line">E2 = A1[:,<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">E1 = E1 / np.linalg.norm(E1)</span><br><span class="line">E2 = E2 / np.linalg.norm(E2)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"The eigenvectors are:"</span>)</span><br><span class="line">print(<span class="string">"E1:"</span>, E1)</span><br><span class="line">print(<span class="string">"E2:"</span>, E2)</span><br></pre></td></tr></table></figure>
+<pre><code>The eigenvectors are:
+E1: [-0.14027773  0.9901122 ]
+E2: [-0.9901122  -0.14027773]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">E = np.column_stack((E1,E2))</span><br><span class="line"></span><br><span class="line">E</span><br></pre></td></tr></table></figure>
+<pre><code>array([[-0.14027773, -0.9901122 ],
+       [ 0.9901122 , -0.14027773]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">evals, evecs = np.linalg.eigh(S)</span><br><span class="line"></span><br><span class="line">print(evals)</span><br><span class="line">print(evecs)</span><br></pre></td></tr></table></figure>
+<pre><code>[0.28839076 4.26626145]
+[[-0.9901122  -0.14027773]
+ [-0.14027773  0.9901122 ]]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">f, (ax1, ax2, ax3) = plt.subplots(<span class="number">1</span>, <span class="number">3</span>, sharey=<span class="keyword">True</span>, figsize=(<span class="number">12</span>,<span class="number">8</span>))</span><br><span class="line">ax1.scatter(Aorig[:,<span class="number">0</span>],Aorig[:,<span class="number">1</span>])</span><br><span class="line">ax1.set_title(<span class="string">"Original Data"</span>)</span><br><span class="line">ax1.grid(<span class="keyword">True</span>)</span><br><span class="line">ax1.set_aspect(<span class="string">'equal'</span>)</span><br><span class="line"></span><br><span class="line">ax2.scatter(Aorig[:,<span class="number">0</span>],Aorig[:,<span class="number">1</span>])</span><br><span class="line">ax2.set_title(<span class="string">"E1"</span>)</span><br><span class="line">ax2.grid(<span class="keyword">True</span>)</span><br><span class="line">plot_arrow(ax2, np.mean(Aorig,axis=<span class="number">0</span>), np.mean(Aorig,axis=<span class="number">0</span>) + np.dot(Aorig, E).std(axis=<span class="number">0</span>).mean() * E1)</span><br><span class="line">ax2.set_aspect(<span class="string">'equal'</span>)               </span><br><span class="line"></span><br><span class="line">ax3.scatter(Aorig[:,<span class="number">0</span>],Aorig[:,<span class="number">1</span>])</span><br><span class="line">ax3.set_title(<span class="string">"E1 and E2"</span>)</span><br><span class="line">ax3.grid(<span class="keyword">True</span>)</span><br><span class="line">plot_arrow(ax3, np.mean(Aorig,axis=<span class="number">0</span>), np.mean(Aorig,axis=<span class="number">0</span>) + np.dot(Aorig, E).std(axis=<span class="number">0</span>).mean() * E1)</span><br><span class="line">plot_arrow(ax3, np.mean(Aorig,axis=<span class="number">0</span>), np.mean(Aorig,axis=<span class="number">0</span>) + np.dot(Aorig, E).std(axis=<span class="number">0</span>).mean() * E2)</span><br><span class="line">ax3.set_aspect(<span class="string">'equal'</span>)               </span><br><span class="line"></span><br><span class="line">plt.xlim([<span class="number">0</span>,<span class="number">5</span>])</span><br><span class="line">plt.ylim([<span class="number">-4</span>,<span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>(-4, 5)
+</code></pre><p><img src="output_13_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">F1 = np.dot(A, E1)</span><br><span class="line">F2 = np.dot(A, E2)</span><br><span class="line"></span><br><span class="line">F = np.column_stack((F1, F2))</span><br><span class="line">F</span><br></pre></td></tr></table></figure>
+<pre><code>array([[-1.97812455,  1.18924584],
+       [ 1.93772363,  0.43245658],
+       [ 3.25091797,  0.04440771],
+       [ 0.12295254,  0.28557622],
+       [ 2.18055566, -0.20793946],
+       [ 0.84363103, -0.22052313],
+       [-0.15975102, -0.28036266],
+       [-3.13515266, -0.06080918],
+       [-1.78978762, -0.45341595],
+       [-1.27296497, -0.72863598]])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pca = decomposition.PCA(n_components=<span class="number">2</span>)</span><br><span class="line">print(pca.fit_transform(A))</span><br></pre></td></tr></table></figure>
+<pre><code>[[-1.97812455  1.18924584]
+ [ 1.93772363  0.43245658]
+ [ 3.25091797  0.04440771]
+ [ 0.12295254  0.28557622]
+ [ 2.18055566 -0.20793946]
+ [ 0.84363103 -0.22052313]
+ [-0.15975102 -0.28036266]
+ [-3.13515266 -0.06080918]
+ [-1.78978762 -0.45341595]
+ [-1.27296497 -0.72863598]]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Unsupervised-Learning/" rel="tag"># Unsupervised Learning</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/DBSCAN-Clustering/2020/04/14/" rel="next" title="DBSCAN Clustering">
+                <i class="fa fa-chevron-left"></i> DBSCAN Clustering
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Fourier-Transform/2020/04/14/" rel="prev" title="Fourier Transform">
+                Fourier Transform <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate article here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Ruochi Zhang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="vemo_qr" src="/images/venmo.png" alt="Ruochi Zhang Bitcoin">
+        <p>Venmo(last 4 digits 1570)</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Ruochi Zhang">
+            
+              <p class="site-author-name" itemprop="name">Ruochi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">267</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhangruochi" target="_blank" title="GitHub rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zrc720@gmail.com" target="_blank" title="E-Mail rel=" external nofollow"">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friend links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.healthinformaticslab.org" title="HILab" target="_blank" rel="external nofollow">HILab</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.shihaizhou.com" title="Rose" target="_blank" rel="external nofollow">Rose</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/cherish_CX/" title="Chunxia" target="_blank" rel="external nofollow">Chunxia</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruochi Zhang</span>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qW3MLcAgcX96sB6qbegeL7rP-gzGzoHsz',
+        appKey: 'GL6JvT9DgGxqYrY5Vj6bXVuv',
+        lang: 'en',
+        placeholder: 'Thank you for your reply',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>
